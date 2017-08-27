@@ -1,0 +1,391 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="INF370" Class="PET_DBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=JOHN-MAC-WIN;Initial Catalog=INF370;Integrated Security=True" SettingsObjectName="PETSystem.Properties.Settings" SettingsPropertyName="INF370ConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.ApplicationForm" Member="ApplicationForms">
+    <Type Name="ApplicationForm">
+      <Column Name="ApplicationFormID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Surname" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="Course" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="TrainingCourseID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="TrainingCourse_ApplicationForm" Member="TrainingCourse" ThisKey="TrainingCourseID" OtherKey="TrainingCourseID" Type="TrainingCourse" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserTable" Member="UserTables">
+    <Type Name="UserTable">
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Surname" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="UserPassword" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="PriveledgeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="UserTable_TableOrder" Member="TableOrders" ThisKey="UserID" OtherKey="UserID" Type="TableOrder" />
+      <Association Name="PrivilegeType_UserTable" Member="PrivilegeType" ThisKey="PriveledgeID" OtherKey="PrivilegeID" Type="PrivilegeType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ClientCourseLine" Member="ClientCourseLines">
+    <Type Name="ClientCourseLine">
+      <Column Name="ClientID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CourseID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ResultID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Client_ClientCourseLine" Member="Client" ThisKey="ClientID" OtherKey="ClientID" Type="Client" IsForeignKey="true" />
+      <Association Name="CourseInstance_ClientCourseLine" Member="CourseInstance" ThisKey="CourseID" OtherKey="CourseID" Type="CourseInstance" IsForeignKey="true" />
+      <Association Name="Result_ClientCourseLine" Member="Result" ThisKey="ResultID" OtherKey="ResultID" Type="Result" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Clients" Member="Clients">
+    <Type Name="Client">
+      <Column Name="ClientID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ClientName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ClientSurname" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="ClientEmail" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ClientPhoneNumber" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="TitleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="GenderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Client_ClientCourseLine" Member="ClientCourseLines" ThisKey="ClientID" OtherKey="ClientID" Type="ClientCourseLine" />
+      <Association Name="Gender_Client" Member="Gender" ThisKey="GenderID" OtherKey="GenderID" Type="Gender" IsForeignKey="true" />
+      <Association Name="Title_Client" Member="Title" ThisKey="TitleID" OtherKey="TitleID" Type="Title" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CourseInstance" Member="CourseInstances">
+    <Type Name="CourseInstance">
+      <Column Name="CourseID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CourseVenu" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TimeSlot" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="InstructorID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AvailableCourseID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="CourseInstance_ClientCourseLine" Member="ClientCourseLines" ThisKey="CourseID" OtherKey="CourseID" Type="ClientCourseLine" />
+      <Association Name="CourseInstance_CourseTime" Member="CourseTimes" ThisKey="CourseID" OtherKey="CourseID" Type="CourseTime" />
+      <Association Name="Course_CourseInstance" Member="Course" ThisKey="AvailableCourseID" OtherKey="AvailableCourseID" Type="Course" IsForeignKey="true" />
+      <Association Name="Instructor_CourseInstance" Member="Instructor" ThisKey="InstructorID" OtherKey="InstructorID" Type="Instructor" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Courses" Member="Courses">
+    <Type Name="Course">
+      <Column Name="AvailableCourseID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CourseName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CourseCost" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="CourseDuration" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="CourseRoyaltiesID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Course_CourseInstance" Member="CourseInstances" ThisKey="AvailableCourseID" OtherKey="AvailableCourseID" Type="CourseInstance" />
+      <Association Name="RoyaltiesCourse_Course" Member="RoyaltiesCourse" ThisKey="CourseRoyaltiesID" OtherKey="CourseRoyaltiesID" Type="RoyaltiesCourse" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CourseTimes" Member="CourseTimes">
+    <Type Name="CourseTime">
+      <Column Name="TimeSlotID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CourseID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="CourseInstance_CourseTime" Member="CourseInstance" ThisKey="CourseID" OtherKey="CourseID" Type="CourseInstance" IsForeignKey="true" />
+      <Association Name="TimeSlot_CourseTime" Member="TimeSlot" ThisKey="TimeSlotID" OtherKey="TimeSlotID" Type="TimeSlot" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Customer" Member="Customers">
+    <Type Name="Customer">
+      <Column Name="CustomerID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Surname" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Association Name="Customer_MailingList" Member="MailingLists" ThisKey="CustomerID" OtherKey="CustomerID" Type="MailingList" />
+      <Association Name="Customer_TableOrder" Member="TableOrders" ThisKey="CustomerID" OtherKey="CustomerID" Type="TableOrder" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DamagedStock" Member="DamagedStocks">
+    <Type Name="DamagedStock">
+      <Column Name="DamagedStockID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Reason" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DamageDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DamagedStockQuantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StockID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Stock_DamagedStock" Member="Stock" ThisKey="StockID" OtherKey="StockID" Type="Stock" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Gender" Member="Genders">
+    <Type Name="Gender">
+      <Column Name="GenderID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GenderName" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Association Name="Gender_Client" Member="Clients" ThisKey="GenderID" OtherKey="GenderID" Type="Client" />
+      <Association Name="Gender_Instructor" Member="Instructors" ThisKey="GenderID" OtherKey="GenderID" Type="Instructor" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Instructor" Member="Instructors">
+    <Type Name="Instructor">
+      <Column Name="InstructorID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Surname" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="PhoneNumber" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="GenderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TitleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Certufication" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Association Name="Instructor_CourseInstance" Member="CourseInstances" ThisKey="InstructorID" OtherKey="InstructorID" Type="CourseInstance" />
+      <Association Name="Instructor_MailingList" Member="MailingLists" ThisKey="InstructorID" OtherKey="InstructorID" Type="MailingList" />
+      <Association Name="Instructor_QualifiedCourse" Member="QualifiedCourses" ThisKey="InstructorID" OtherKey="InstructorID" Type="QualifiedCourse" />
+      <Association Name="Instructor_TableOrder" Member="TableOrders" ThisKey="InstructorID" OtherKey="InstructorID" Type="TableOrder" />
+      <Association Name="Instructor_TrainingCourseLine" Member="TrainingCourseLines" ThisKey="InstructorID" OtherKey="InstructorID" Type="TrainingCourseLine" />
+      <Association Name="Gender_Instructor" Member="Gender" ThisKey="GenderID" OtherKey="GenderID" Type="Gender" IsForeignKey="true" />
+      <Association Name="Title_Instructor" Member="Title" ThisKey="TitleID" OtherKey="TitleID" Type="Title" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MailingList" Member="MailingLists">
+    <Type Name="MailingList">
+      <Column Name="Mailing_list_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MailingDescription" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="InstructorID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CustomerID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Customer_MailingList" Member="Customer" ThisKey="CustomerID" OtherKey="CustomerID" Type="Customer" IsForeignKey="true" />
+      <Association Name="Instructor_MailingList" Member="Instructor" ThisKey="InstructorID" OtherKey="InstructorID" Type="Instructor" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.OrderLine" Member="OrderLines">
+    <Type Name="OrderLine">
+      <Column Name="OrderID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StockID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Stock_OrderLine" Member="Stock" ThisKey="StockID" OtherKey="StockID" Type="Stock" IsForeignKey="true" />
+      <Association Name="TableOrder_OrderLine" Member="TableOrder" ThisKey="OrderID" OtherKey="OrderID" Type="TableOrder" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Payment" Member="Payments">
+    <Type Name="Payment">
+      <Column Name="PaymentID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PaymentAmount" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="PaymentDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PaymentVat" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="PaymentChange" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="AmountRecieved" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="PaymentTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OrderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="PaymentType_Payment" Member="PaymentType" ThisKey="PaymentTypeID" OtherKey="PaymentTypeID" Type="PaymentType" IsForeignKey="true" />
+      <Association Name="TableOrder_Payment" Member="TableOrder" ThisKey="OrderID" OtherKey="OrderID" Type="TableOrder" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PaymentType" Member="PaymentTypes">
+    <Type Name="PaymentType">
+      <Column Name="PaymentTypeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PaymentName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="PaymentType_Payment" Member="Payments" ThisKey="PaymentTypeID" OtherKey="PaymentTypeID" Type="Payment" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Printer" Member="Printers">
+    <Type Name="Printer">
+      <Column Name="PrinterID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PrinterName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="PrinterAddress" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="PrinterEmail" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="PrinterPhoneNumber" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="PrinterBankAccNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Printer_PrinterOrder" Member="PrinterOrders" ThisKey="PrinterID" OtherKey="PrinterID" Type="PrinterOrder" />
+      <Association Name="Printer_RoyaltiesOrder" Member="RoyaltiesOrders" ThisKey="PrinterID" OtherKey="PrinterID" Type="RoyaltiesOrder" />
+      <Association Name="Printer_StockLine" Member="StockLines" ThisKey="PrinterID" OtherKey="PrinterID" Type="StockLine" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PrinterOrder" Member="PrinterOrders">
+    <Type Name="PrinterOrder">
+      <Column Name="PrinterOrderID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PrinterOrderRefNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PrintOrderDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PrintOrderDescription" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="PrinterID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="PrinterOrder_RoyaltiesOrder" Member="RoyaltiesOrders" ThisKey="PrinterOrderID" OtherKey="PrinterOrderID" Type="RoyaltiesOrder" />
+      <Association Name="PrinterOrder_StockLine" Member="StockLines" ThisKey="PrinterOrderID" OtherKey="PrinterOrderID" Type="StockLine" />
+      <Association Name="Printer_PrinterOrder" Member="Printer" ThisKey="PrinterID" OtherKey="PrinterID" Type="Printer" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PrivilegeType" Member="PrivilegeTypes">
+    <Type Name="PrivilegeType">
+      <Column Name="PrivilegeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PrivName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="PrivilegeType_UserTable" Member="UserTables" ThisKey="PrivilegeID" OtherKey="PriveledgeID" Type="UserTable" />
+    </Type>
+  </Table>
+  <Table Name="dbo.QualifiedCourses" Member="QualifiedCourses">
+    <Type Name="QualifiedCourse">
+      <Column Name="QualifiedCourseID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CourseName" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="QualifiedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="InstructorID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Instructor_QualifiedCourse" Member="Instructor" ThisKey="InstructorID" OtherKey="InstructorID" Type="Instructor" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Refund" Member="Refunds">
+    <Type Name="Refund">
+      <Column Name="RefundID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RefundDescription" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DamageDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DamagedStockQuantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StockID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="OrderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Stock_Refund" Member="Stock" ThisKey="StockID" OtherKey="StockID" Type="Stock" IsForeignKey="true" />
+      <Association Name="TableOrder_Refund" Member="TableOrder" ThisKey="OrderID" OtherKey="OrderID" Type="TableOrder" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Results" Member="Results">
+    <Type Name="Result">
+      <Column Name="ResultID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ResultName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="Result_ClientCourseLine" Member="ClientCourseLines" ThisKey="ResultID" OtherKey="ResultID" Type="ClientCourseLine" />
+      <Association Name="Result_TrainingCourseLine" Member="TrainingCourseLines" ThisKey="ResultID" OtherKey="ResultID" Type="TrainingCourseLine" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RoyaltiesCourse" Member="RoyaltiesCourses">
+    <Type Name="RoyaltiesCourse">
+      <Column Name="CourseRoyaltiesID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Amount" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Association Name="RoyaltiesCourse_Course" Member="Courses" ThisKey="CourseRoyaltiesID" OtherKey="CourseRoyaltiesID" Type="Course" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RoyaltiesOrder" Member="RoyaltiesOrders">
+    <Type Name="RoyaltiesOrder">
+      <Column Name="RoyaltyID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RoyaltyType" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Amount" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="DamagedStockQuantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SupplierOrderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="SupplierID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PrinterOrderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PrinterID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="StockID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="PrinterOrder_RoyaltiesOrder" Member="PrinterOrder" ThisKey="PrinterOrderID" OtherKey="PrinterOrderID" Type="PrinterOrder" IsForeignKey="true" />
+      <Association Name="Printer_RoyaltiesOrder" Member="Printer" ThisKey="PrinterID" OtherKey="PrinterID" Type="Printer" IsForeignKey="true" />
+      <Association Name="Stock_RoyaltiesOrder" Member="Stock" ThisKey="StockID" OtherKey="StockID" Type="Stock" IsForeignKey="true" />
+      <Association Name="Supplier_RoyaltiesOrder" Member="Supplier" ThisKey="SupplierID" OtherKey="SupplierID" Type="Supplier" IsForeignKey="true" />
+      <Association Name="SupplierOrder_RoyaltiesOrder" Member="SupplierOrder" ThisKey="SupplierOrderID" OtherKey="SupplierOrderID" Type="SupplierOrder" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Stock" Member="Stocks">
+    <Type Name="Stock">
+      <Column Name="StockID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StockDescription" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="StockUnitPrice" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="StockQuantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StockTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Stock_DamagedStock" Member="DamagedStocks" ThisKey="StockID" OtherKey="StockID" Type="DamagedStock" />
+      <Association Name="Stock_OrderLine" Member="OrderLines" ThisKey="StockID" OtherKey="StockID" Type="OrderLine" />
+      <Association Name="Stock_Refund" Member="Refunds" ThisKey="StockID" OtherKey="StockID" Type="Refund" />
+      <Association Name="Stock_RoyaltiesOrder" Member="RoyaltiesOrders" ThisKey="StockID" OtherKey="StockID" Type="RoyaltiesOrder" />
+      <Association Name="Stock_StockLine" Member="StockLines" ThisKey="StockID" OtherKey="StockID" Type="StockLine" />
+      <Association Name="StockType_Stock" Member="StockType" ThisKey="StockTypeID" OtherKey="StockTypeID" Type="StockType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StockLine" Member="StockLines">
+    <Type Name="StockLine">
+      <Column Name="SupplierOrderID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SupplierID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PrinterOrderID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PrinterID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="StockID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="PrinterOrder_StockLine" Member="PrinterOrder" ThisKey="PrinterOrderID" OtherKey="PrinterOrderID" Type="PrinterOrder" IsForeignKey="true" />
+      <Association Name="Printer_StockLine" Member="Printer" ThisKey="PrinterID" OtherKey="PrinterID" Type="Printer" IsForeignKey="true" />
+      <Association Name="Stock_StockLine" Member="Stock" ThisKey="StockID" OtherKey="StockID" Type="Stock" IsForeignKey="true" />
+      <Association Name="Supplier_StockLine" Member="Supplier" ThisKey="SupplierID" OtherKey="SupplierID" Type="Supplier" IsForeignKey="true" />
+      <Association Name="SupplierOrder_StockLine" Member="SupplierOrder" ThisKey="SupplierOrderID" OtherKey="SupplierOrderID" Type="SupplierOrder" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StockType" Member="StockTypes">
+    <Type Name="StockType">
+      <Column Name="StockTypeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StockName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="StockType_Stock" Member="Stocks" ThisKey="StockTypeID" OtherKey="StockTypeID" Type="Stock" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Supplier" Member="Suppliers">
+    <Type Name="Supplier">
+      <Column Name="SupplierID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SupplierName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="SupplierAddress" Type="System.String" DbType="VarChar(40)" CanBeNull="true" />
+      <Column Name="SupplierEmail" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="SupplierPhoneNumber" Type="System.String" DbType="VarChar(12)" CanBeNull="true" />
+      <Column Name="SupplierBankAccNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SupplierTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Supplier_RoyaltiesOrder" Member="RoyaltiesOrders" ThisKey="SupplierID" OtherKey="SupplierID" Type="RoyaltiesOrder" />
+      <Association Name="Supplier_StockLine" Member="StockLines" ThisKey="SupplierID" OtherKey="SupplierID" Type="StockLine" />
+      <Association Name="Supplier_SupplierOrder" Member="SupplierOrders" ThisKey="SupplierID" OtherKey="SupplierID" Type="SupplierOrder" />
+      <Association Name="SupplierType_Supplier" Member="SupplierType" ThisKey="SupplierTypeID" OtherKey="SupplierTypeID" Type="SupplierType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SupplierOrder" Member="SupplierOrders">
+    <Type Name="SupplierOrder">
+      <Column Name="SupplierOrderID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SupplierOrderRefNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SupplierOrderDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="SupplierOrderDescription" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="SupplierID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="SupplierOrder_RoyaltiesOrder" Member="RoyaltiesOrders" ThisKey="SupplierOrderID" OtherKey="SupplierOrderID" Type="RoyaltiesOrder" />
+      <Association Name="SupplierOrder_StockLine" Member="StockLines" ThisKey="SupplierOrderID" OtherKey="SupplierOrderID" Type="StockLine" />
+      <Association Name="Supplier_SupplierOrder" Member="Supplier" ThisKey="SupplierID" OtherKey="SupplierID" Type="Supplier" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SupplierType" Member="SupplierTypes">
+    <Type Name="SupplierType">
+      <Column Name="SupplierTypeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SupplierTypeName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="SupplierType_Supplier" Member="Suppliers" ThisKey="SupplierTypeID" OtherKey="SupplierTypeID" Type="Supplier" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TableOrder" Member="TableOrders">
+    <Type Name="TableOrder">
+      <Column Name="OrderID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Order_ReferenceNumber" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OrderDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="OrderDescription" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="InstructorID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CustomerID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="TableOrder_OrderLine" Member="OrderLines" ThisKey="OrderID" OtherKey="OrderID" Type="OrderLine" />
+      <Association Name="TableOrder_Payment" Member="Payments" ThisKey="OrderID" OtherKey="OrderID" Type="Payment" />
+      <Association Name="TableOrder_Refund" Member="Refunds" ThisKey="OrderID" OtherKey="OrderID" Type="Refund" />
+      <Association Name="Customer_TableOrder" Member="Customer" ThisKey="CustomerID" OtherKey="CustomerID" Type="Customer" IsForeignKey="true" />
+      <Association Name="Instructor_TableOrder" Member="Instructor" ThisKey="InstructorID" OtherKey="InstructorID" Type="Instructor" IsForeignKey="true" />
+      <Association Name="UserTable_TableOrder" Member="UserTable" ThisKey="UserID" OtherKey="UserID" Type="UserTable" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TimeSlot" Member="TimeSlots">
+    <Type Name="TimeSlot">
+      <Column Name="TimeSlotID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TimeslotDay" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TimeslotTime" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Association Name="TimeSlot_CourseTime" Member="CourseTimes" ThisKey="TimeSlotID" OtherKey="TimeSlotID" Type="CourseTime" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Title" Member="Titles">
+    <Type Name="Title">
+      <Column Name="TitleID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TitleName" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Association Name="Title_Client" Member="Clients" ThisKey="TitleID" OtherKey="TitleID" Type="Client" />
+      <Association Name="Title_Instructor" Member="Instructors" ThisKey="TitleID" OtherKey="TitleID" Type="Instructor" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TrainingCourse" Member="TrainingCourses">
+    <Type Name="TrainingCourse">
+      <Column Name="TrainingCourseID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CourseName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="Duration" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TrainingCourseDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TrainingCourseTypeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="TrainingCourse_ApplicationForm" Member="ApplicationForms" ThisKey="TrainingCourseID" OtherKey="TrainingCourseID" Type="ApplicationForm" />
+      <Association Name="TrainingCourse_TrainingCourseLine" Member="TrainingCourseLines" ThisKey="TrainingCourseID" OtherKey="TrainingCourseID" Type="TrainingCourseLine" />
+      <Association Name="TrainingCourseType_TrainingCourse" Member="TrainingCourseType" ThisKey="TrainingCourseTypeID" OtherKey="TrainingCourseTypeID" Type="TrainingCourseType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TrainingCourseLine" Member="TrainingCourseLines">
+    <Type Name="TrainingCourseLine">
+      <Column Name="InstructorID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TrainingCourseID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ResultID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Instructor_TrainingCourseLine" Member="Instructor" ThisKey="InstructorID" OtherKey="InstructorID" Type="Instructor" IsForeignKey="true" />
+      <Association Name="Result_TrainingCourseLine" Member="Result" ThisKey="ResultID" OtherKey="ResultID" Type="Result" IsForeignKey="true" />
+      <Association Name="TrainingCourse_TrainingCourseLine" Member="TrainingCourse" ThisKey="TrainingCourseID" OtherKey="TrainingCourseID" Type="TrainingCourse" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TrainingCourseType" Member="TrainingCourseTypes">
+    <Type Name="TrainingCourseType">
+      <Column Name="TrainingCourseTypeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TrainingCourseName" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Association Name="TrainingCourseType_TrainingCourse" Member="TrainingCourses" ThisKey="TrainingCourseTypeID" OtherKey="TrainingCourseTypeID" Type="TrainingCourse" />
+    </Type>
+  </Table>
+</Database>
