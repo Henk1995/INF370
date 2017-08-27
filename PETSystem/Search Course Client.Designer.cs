@@ -104,6 +104,7 @@
             this.btnViewClient.TabIndex = 52;
             this.btnViewClient.Text = "View Client";
             this.btnViewClient.UseVisualStyleBackColor = true;
+            this.btnViewClient.Click += new System.EventHandler(this.btnViewClient_Click);
             // 
             // txtSearchCCName
             // 
@@ -121,6 +122,7 @@
             this.btnUpdateClient.TabIndex = 51;
             this.btnUpdateClient.Text = "Update Client";
             this.btnUpdateClient.UseVisualStyleBackColor = true;
+            this.btnUpdateClient.Click += new System.EventHandler(this.btnUpdateClient_Click);
             // 
             // btnRemoveClient
             // 
@@ -130,6 +132,7 @@
             this.btnRemoveClient.TabIndex = 50;
             this.btnRemoveClient.Text = "Remove Client";
             this.btnRemoveClient.UseVisualStyleBackColor = true;
+            this.btnRemoveClient.Click += new System.EventHandler(this.btnRemoveClient_Click);
             // 
             // label1
             // 

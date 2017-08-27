@@ -105,5 +105,20 @@ namespace PETSystem
             Add_Course_Client ac = new Add_Course_Client();
             ac.Show();
         }
+
+        private void btnUpdateClient_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnViewClient_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRemoveClient_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
