@@ -70,7 +70,7 @@ namespace PETSystem
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Close(); // Closes window on exit
         }
 
         private void WriteoffStock_Load(object sender, EventArgs e)
