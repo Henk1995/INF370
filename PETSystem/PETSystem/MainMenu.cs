@@ -56,5 +56,11 @@ namespace PETSystem
             SearchCourse sc = new SearchCourse();
             sc.Show();
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            Search_Stock sto = new Search_Stock();
+            sto.Show();
+        }
     }
 }
