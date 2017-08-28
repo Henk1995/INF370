@@ -148,7 +148,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Orders";
-            this.Text = "Orders";
+            this.Text = "View Orders";
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

@@ -118,12 +118,6 @@
     <Compile Include="SearchCourse.Designer.cs">
       <DependentUpon>SearchCourse.cs</DependentUpon>
     </Compile>
-    <Compile Include="SearchSupplierForOrder.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SearchSupplierForOrder.Designer.cs">
-      <DependentUpon>SearchSupplierForOrder.cs</DependentUpon>
-    </Compile>
     <Compile Include="Update Course Client.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -207,9 +201,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SearchCourse.resx">
       <DependentUpon>SearchCourse.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SearchSupplierForOrder.resx">
-      <DependentUpon>SearchSupplierForOrder.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Update Course Client.resx">
       <DependentUpon>Update Course Client.cs</DependentUpon>
