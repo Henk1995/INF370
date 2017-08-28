@@ -96,17 +96,46 @@ namespace PETSystem
 
         private void btnChangePass_Click(object sender, EventArgs e)
         {
+            string Query1 = "SELECT * FROM UserTable WHERE UserName ='" + this.txtUserName.Text + "'AND UserPassword='"+this.txtOldPass.Text+"';";
+            SqlCommand MyCommand = new SqlCommand(Query1, connectstring);
+            SqlDataReader MyReader;
+            SqlDataAdapter DA = new SqlDataAdapter(MyCommand);
+            DataTable DT = new DataTable();
+            DA.Fill(DT);
+            connectstring.Open();
+            MyReader = MyCommand.ExecuteReader();
+            
+            if (DT.Rows.Count == 0)
+                {
+                   
+                    valid1 = false;
+                valid2 = false;
+                }
+            
+            connectstring.Close();
             if (valid1 & valid2 & valid3 & valid4)
             {
                 MessageBox.Show("Change password?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                string Query = "UPDATE UserTable SET UserPassword ='" + this.txtNewPass.Text + "' WHERE UserName ='" + this.txtUserName.Text + "';";
+                //This is  MySqlConnection here i have created the object and pass my connection string.  
+
+                SqlCommand MyCommand3 = new SqlCommand(Query, connectstring);
+                SqlDataReader MyReader3;
+                connectstring.Open();
+                MyReader3 = MyCommand3.ExecuteReader();
+                MessageBox.Show("Data Updated");
+                while (MyReader3.Read())
+                {
+                }
+                connectstring.Close();//Connection closed here
                 MessageBox.Show("Password succesfully changed.", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
             }
             else
             {
-                if (!valid1)
+                if (!valid1&&!valid2)
                 {
-                    MessageBox.Show("Username does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Username and/or password is incorrect please resubmit.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 } else if (!valid2)
                 {
                     MessageBox.Show("Incorrect Password", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

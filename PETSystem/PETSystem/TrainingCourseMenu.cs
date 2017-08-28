@@ -50,11 +50,21 @@ namespace PETSystem
         {
             DataTable DT = new DataTable();
             connectstring.Open();
-            SqlCommand Fill = new SqlCommand("SELECT * FROM Instructor", connectstring);
+            SqlCommand Fill = new SqlCommand("SELECT * FROM TrainingCourse", connectstring);
             DA = new SqlDataAdapter(Fill);
             DA.Fill(DT);
             dgvTC.DataSource = DT;
             dgvTC.DataMember = DT.TableName;
+            connectstring.Close();
+        }
+
+        private void txtCourseN_TextChanged(object sender, EventArgs e)
+        {
+            connectstring.Open();
+            DA = new SqlDataAdapter("select * from TrainingCourse where CourseName like '" + txtCourseN.Text + "%'", connectstring);
+            DataTable DT = new DataTable();
+            DA.Fill(DT);
+            dgvTC.DataSource = DT;
             connectstring.Close();
         }
     }

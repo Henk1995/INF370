@@ -124,6 +124,7 @@
             this.button1.TabIndex = 9;
             this.button1.Text = "Submit";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // numericUpDown1
             // 
@@ -215,7 +216,7 @@
             // 
             // txtNCDName
             // 
-            this.txtNCDName.Location = new System.Drawing.Point(108, 88);
+            this.txtNCDName.Location = new System.Drawing.Point(123, 88);
             this.txtNCDName.Name = "txtNCDName";
             this.txtNCDName.Size = new System.Drawing.Size(119, 20);
             this.txtNCDName.TabIndex = 10;
@@ -229,15 +230,17 @@
             this.button3.TabIndex = 9;
             this.button3.Text = "Submit";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(43, 91);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(38, 13);
+            this.label9.Size = new System.Drawing.Size(74, 13);
             this.label9.TabIndex = 1;
-            this.label9.Text = "Name:";
+            this.label9.Text = "Course Name:";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // label10
             // 
@@ -284,7 +287,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(9, 79);
+            this.label8.Location = new System.Drawing.Point(9, 66);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(32, 13);
             this.label8.TabIndex = 12;
@@ -292,7 +295,7 @@
             // 
             // txtYear
             // 
-            this.txtYear.Location = new System.Drawing.Point(89, 76);
+            this.txtYear.Location = new System.Drawing.Point(89, 63);
             this.txtYear.Name = "txtYear";
             this.txtYear.Size = new System.Drawing.Size(119, 20);
             this.txtYear.TabIndex = 11;
@@ -300,7 +303,7 @@
             // 
             // txtCourseName
             // 
-            this.txtCourseName.Location = new System.Drawing.Point(89, 46);
+            this.txtCourseName.Location = new System.Drawing.Point(89, 33);
             this.txtCourseName.Name = "txtCourseName";
             this.txtCourseName.Size = new System.Drawing.Size(119, 20);
             this.txtCourseName.TabIndex = 10;
@@ -318,7 +321,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 49);
+            this.label6.Location = new System.Drawing.Point(9, 36);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 13);
             this.label6.TabIndex = 1;

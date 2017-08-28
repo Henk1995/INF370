@@ -16,8 +16,12 @@ namespace PETSystem
     public partial class UserMenu : Form
     {
         public static string DBC = "Data Source=JWM\\SYSARCH;Initial Catalog=INF370;Integrated Security=True";
-        SqlConnection connectstring = new SqlConnection(DBC);
-        SqlDataAdapter DA ;
+       static SqlConnection connectstring = new SqlConnection(DBC);
+        
+        DataTable DT = new DataTable();
+       static SqlCommand Fill = new SqlCommand("SELECT * FROM UserTable", connectstring);
+        SqlDataAdapter DA = new SqlDataAdapter(Fill);
+       
         public UserMenu()
         {
             InitializeComponent();
@@ -32,10 +36,9 @@ namespace PETSystem
         {
             // TODO: This line of code loads data into the 'iNF370DataSet.UserTable' table. You can move, or remove it, as needed.
             // this.userTableTableAdapter.Fill(this.iNF370DataSet.UserTable);
-            DataTable DT = new DataTable();
+           
             connectstring.Open();
-            SqlCommand Fill = new SqlCommand("SELECT * FROM UserTable", connectstring);
-            DA = new SqlDataAdapter(Fill);
+            
             DA.Fill(DT);
             dgvUsers.DataSource = DT;
             dgvUsers.DataMember = DT.TableName;
@@ -58,7 +61,25 @@ namespace PETSystem
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            SqlCommandBuilder cmd = new SqlCommandBuilder(DA);
 
+            DA.Update(DT);
+            connectstring.Open();
+
+            DA.Fill(DT);
+            dgvUsers.DataSource = DT;
+            dgvUsers.DataMember = DT.TableName;
+            connectstring.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            connectstring.Open();
+            DA = new SqlDataAdapter("select * from UserTable where Name like '" + textBox1.Text + "%'", connectstring);
+            DataTable DT = new DataTable();
+            DA.Fill(DT);
+            dgvUsers.DataSource = DT;
+            connectstring.Close();
         }
     }
 }
