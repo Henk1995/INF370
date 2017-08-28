@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{51FD8D83-AF84-4376-B42E-BEF3CCA3482D}</ProjectGuid>
+    <ProjectGuid>{7479C134-65EE-41EB-A2CC-BE4E4592FB4E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PETSystem</RootNamespace>
