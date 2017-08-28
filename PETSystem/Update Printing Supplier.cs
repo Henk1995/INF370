@@ -102,15 +102,10 @@ namespace PETSystem
 
                 this.Close();
 
-                MessageBox.Show("Added new Course Client:" + "/n Name" + PSName + "\n Surname: R " + PSAddress + "" + "/n Email: " + PSEmail + "/n Phone Number: " + PSPhoneNumber + "/n Bank Account Number: " + PSBankAccountNumber + , "It Worked");
+                MessageBox.Show("Added new Course Client:" + "/n Name" + PSName + "\n Surname: R " + PSAddress + "" + "/n Email: " + PSEmail + "/n Phone Number: " + PSPhoneNumber + "/n Bank Account Number: " + PSBankAccountNumber, "It Worked");
                 //MessageBox.Show("ok");
             }
-
-
-
-
-
-
+            
         }
 
         private void txtPrintingSupplierName_TextChanged(object sender, EventArgs e)
