@@ -40,6 +40,7 @@
             this.btnDeletePrintSupplier = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvSearchPrintingSupplier = new System.Windows.Forms.DataGridView();
+            this.btnMainMenu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchPrintingSupplier)).BeginInit();
             this.SuspendLayout();
             // 
@@ -153,11 +154,22 @@
             this.dgvSearchPrintingSupplier.Size = new System.Drawing.Size(700, 449);
             this.dgvSearchPrintingSupplier.TabIndex = 36;
             // 
+            // btnMainMenu
+            // 
+            this.btnMainMenu.Location = new System.Drawing.Point(18, 467);
+            this.btnMainMenu.Name = "btnMainMenu";
+            this.btnMainMenu.Size = new System.Drawing.Size(75, 23);
+            this.btnMainMenu.TabIndex = 48;
+            this.btnMainMenu.Text = "Main Menu";
+            this.btnMainMenu.UseVisualStyleBackColor = true;
+            this.btnMainMenu.Click += new System.EventHandler(this.btnMainMenu_Click);
+            // 
             // Search_Printing_Supplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1074, 506);
+            this.Controls.Add(this.btnMainMenu);
             this.Controls.Add(this.btnAddPrintSupplier);
             this.Controls.Add(this.btnSearchPrintSupplierID);
             this.Controls.Add(this.txtSearchPrintSupplierID);
@@ -192,5 +204,6 @@
         private System.Windows.Forms.Button btnDeletePrintSupplier;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvSearchPrintingSupplier;
+        private System.Windows.Forms.Button btnMainMenu;
     }
 }

@@ -154,5 +154,12 @@ namespace PETSystem
             //dgvSearchStock.DataSource = Stock;
             //dgvSearchStock.Refresh();
         }
+
+        private void btnMainMenu_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            MainMenuF UM = new MainMenuF();
+            UM.ShowDialog();
+        }
     }
 }

@@ -132,5 +132,12 @@ namespace PETSystem
                 MessageBox.Show("Course client not deleted", "Cancel", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            SearchCourse UM = new SearchCourse();
+            UM.ShowDialog();
+        }
     }
 }

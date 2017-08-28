@@ -46,6 +46,7 @@
             this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourseClient)).BeginInit();
             this.SuspendLayout();
             // 
@@ -194,11 +195,22 @@
             this.Column5.HeaderText = "Phone Number";
             this.Column5.Name = "Column5";
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(32, 461);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(84, 23);
+            this.btnBack.TabIndex = 58;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // Search_Course_Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1111, 509);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnSearchCCSurname);
             this.Controls.Add(this.txtSearcCCSurname);
             this.Controls.Add(this.label2);
@@ -238,5 +250,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Gender;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.Button btnBack;
     }
 }

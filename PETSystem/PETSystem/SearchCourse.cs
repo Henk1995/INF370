@@ -96,6 +96,13 @@ namespace PETSystem
             Search_Course_Client scc = new Search_Course_Client();
             scc.Show();
         }
+
+        private void btnMainMenu_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            MainMenuF UM = new MainMenuF();
+            UM.ShowDialog();
+        }
     }
 }
 

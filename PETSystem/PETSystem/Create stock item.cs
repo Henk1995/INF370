@@ -99,11 +99,11 @@ namespace PETSystem
 
                 //Stock mStock = new Stock
                 //{
-                //    StockID = Convert.ToInt32(label1.Text),
+                //    //StockID = Convert.ToInt32(label1.Text),
                 //    StockDescription = txtDesc.Text,
                 //    StockUnitPrice = Convert.ToInt32(txtPrice.Text),
-                //   // StockType = cbType.SelectedValue,
-                    
+                //    // StockType = cbType.SelectedValue,
+
 
                 //};
 

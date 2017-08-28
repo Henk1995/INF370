@@ -53,14 +53,28 @@ namespace PETSystem
 
         private void button7_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
             SearchCourse sc = new SearchCourse();
-            sc.Show();
+            sc.ShowDialog();
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
             Search_Stock sto = new Search_Stock();
-            sto.Show();
+            sto.ShowDialog();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            Search_Printing_Supplier spp = new Search_Printing_Supplier();
+            spp.ShowDialog();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

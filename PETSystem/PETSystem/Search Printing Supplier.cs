@@ -133,5 +133,12 @@ namespace PETSystem
             Update_Printing_Supplier ups = new Update_Printing_Supplier();
             ups.Show();
         }
+
+        private void btnMainMenu_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            MainMenuF UM = new MainMenuF();
+            UM.ShowDialog();
+        }
     }
 }

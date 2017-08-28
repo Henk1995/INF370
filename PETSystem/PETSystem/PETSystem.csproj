@@ -118,12 +118,6 @@
       <DependentUpon>DeleteInstructor.cs</DependentUpon>
     </Compile>
     <Compile Include="ErrorHandle.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Instructors.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -310,9 +304,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DeleteInstructor.resx">
       <DependentUpon>DeleteInstructor.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="PET_DB.dbml.layout">
       <DependentUpon>PET_DB.dbml</DependentUpon>
