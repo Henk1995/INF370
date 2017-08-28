@@ -32,6 +32,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -71,6 +75,24 @@
     <Compile Include="AddStock.Designer.cs">
       <DependentUpon>AddStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddUser.Designer.cs">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CalculateRoyalties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CalculateRoyalties.Designer.cs">
+      <DependentUpon>CalculateRoyalties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ChangePassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Create Course.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,12 +105,54 @@
     <Compile Include="Create stock item.Designer.cs">
       <DependentUpon>Create stock item.cs</DependentUpon>
     </Compile>
+    <Compile Include="CreateInstructor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateInstructor.Designer.cs">
+      <DependentUpon>CreateInstructor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeleteInstructor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeleteInstructor.Designer.cs">
+      <DependentUpon>DeleteInstructor.cs</DependentUpon>
+    </Compile>
     <Compile Include="ErrorHandle.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Instructors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Instructors.Designer.cs">
+      <DependentUpon>Instructors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InstructorTR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InstructorTR.Designer.cs">
+      <DependentUpon>InstructorTR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaintainCourses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaintainCourses.Designer.cs">
+      <DependentUpon>MaintainCourses.cs</DependentUpon>
     </Compile>
     <Compile Include="Orders.cs">
       <SubType>Form</SubType>
@@ -130,6 +194,18 @@
     <Compile Include="SearchCourse.Designer.cs">
       <DependentUpon>SearchCourse.cs</DependentUpon>
     </Compile>
+    <Compile Include="SearchInstructor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchInstructor.Designer.cs">
+      <DependentUpon>SearchInstructor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TrainingCourseMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrainingCourseMenu.Designer.cs">
+      <DependentUpon>TrainingCourseMenu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Update Course Client.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,11 +224,23 @@
     <Compile Include="Update Printing Supplier.Designer.cs">
       <DependentUpon>Update Printing Supplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateInstructor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateInstructor.Designer.cs">
+      <DependentUpon>UpdateInstructor.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdateStock.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UpdateStock.Designer.cs">
       <DependentUpon>UpdateStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserMenu.Designer.cs">
+      <DependentUpon>UserMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="View Course Client.cs">
       <SubType>Form</SubType>
@@ -165,6 +253,18 @@
     </Compile>
     <Compile Include="View Course.Designer.cs">
       <DependentUpon>View Course.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewInstructor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewInstructor.Designer.cs">
+      <DependentUpon>ViewInstructor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewMaintainP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewMaintainP.Designer.cs">
+      <DependentUpon>ViewMaintainP.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewStock.cs">
       <SubType>Form</SubType>
@@ -190,11 +290,26 @@
     <EmbeddedResource Include="AddStock.resx">
       <DependentUpon>AddStock.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddUser.resx">
+      <DependentUpon>AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CalculateRoyalties.resx">
+      <DependentUpon>CalculateRoyalties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Create Course.resx">
       <DependentUpon>Create Course.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Create stock item.resx">
       <DependentUpon>Create stock item.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateInstructor.resx">
+      <DependentUpon>CreateInstructor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeleteInstructor.resx">
+      <DependentUpon>DeleteInstructor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -202,6 +317,21 @@
     <None Include="PET_DB.dbml.layout">
       <DependentUpon>PET_DB.dbml</DependentUpon>
     </None>
+    <EmbeddedResource Include="Instructors.resx">
+      <DependentUpon>Instructors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InstructorTR.resx">
+      <DependentUpon>InstructorTR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaintainCourses.resx">
+      <DependentUpon>MaintainCourses.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Orders.resx">
       <DependentUpon>Orders.cs</DependentUpon>
     </EmbeddedResource>
@@ -226,6 +356,12 @@
     <EmbeddedResource Include="SearchCourse.resx">
       <DependentUpon>SearchCourse.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SearchInstructor.resx">
+      <DependentUpon>SearchInstructor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrainingCourseMenu.resx">
+      <DependentUpon>TrainingCourseMenu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Update Course Client.resx">
       <DependentUpon>Update Course Client.cs</DependentUpon>
     </EmbeddedResource>
@@ -235,14 +371,26 @@
     <EmbeddedResource Include="Update Printing Supplier.resx">
       <DependentUpon>Update Printing Supplier.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UpdateInstructor.resx">
+      <DependentUpon>UpdateInstructor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UpdateStock.resx">
       <DependentUpon>UpdateStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserMenu.resx">
+      <DependentUpon>UserMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View Course Client.resx">
       <DependentUpon>View Course Client.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View Course.resx">
       <DependentUpon>View Course.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewInstructor.resx">
+      <DependentUpon>ViewInstructor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewMaintainP.resx">
+      <DependentUpon>ViewMaintainP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewStock.resx">
       <DependentUpon>ViewStock.cs</DependentUpon>
