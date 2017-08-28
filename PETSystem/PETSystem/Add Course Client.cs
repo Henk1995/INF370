@@ -253,5 +253,10 @@ namespace PETSystem
                 PhoneNumberValid = true;
             }
         }
+
+        private void Add_Course_Client_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

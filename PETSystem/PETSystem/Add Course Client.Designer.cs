@@ -209,6 +209,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Add_Course_Client";
             this.Text = "Add_Course_Client";
+            this.Load += new System.EventHandler(this.Add_Course_Client_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
