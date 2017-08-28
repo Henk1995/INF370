@@ -10,14 +10,13 @@ using System.Windows.Forms;
 
 namespace PETSystem
 {
-    public partial class Add_Course_Client : Form
+    public partial class Update_Course_Client : Form
     {
-        public Add_Course_Client()
+        public Update_Course_Client()
         {
             InitializeComponent();
-
-
         }
+
 
         bool TitleValid;
         bool NameValid;
@@ -29,9 +28,12 @@ namespace PETSystem
         PET_DBDataContext db = new PET_DBDataContext();
         ErrorHandle chk = new ErrorHandle();
 
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
-
-        private void button2_Click(object sender, EventArgs e)
+        private void btnUpdateCourseClient_Click(object sender, EventArgs e)
         {
             //validation of all inputs
             string title = txtTitle.Text;
@@ -99,12 +101,9 @@ namespace PETSystem
                 MessageBox.Show("Added new Course Client:" + "/n Name" + title + " " + Name + "\n Surname: R " + Surname + "" + "/n Gender: " + Gender + "/n Email: " + Email + "/n Phone Number: " + PhoneNumber, "It Worked");
                 //MessageBox.Show("ok");
             }
-        }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
+    
 
         private void txtTitle_TextChanged(object sender, EventArgs e)
         {
@@ -128,8 +127,6 @@ namespace PETSystem
                 txtTitle.BackColor = Color.White;
                 TitleValid = true;
             }
-
-
         }
 
         private void txtName_TextChanged(object sender, EventArgs e)
@@ -182,7 +179,7 @@ namespace PETSystem
 
         private void txtGender_TextChanged(object sender, EventArgs e)
         {
-            // needs to change to ComboBox
+                // needs to change to ComboBox
 
             txtGender.BackColor = Color.White;
             string Gender = txtGender.Text;

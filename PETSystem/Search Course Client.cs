@@ -108,17 +108,29 @@ namespace PETSystem
 
         private void btnUpdateClient_Click(object sender, EventArgs e)
         {
-
+            Update_Course_Client ucc = new Update_Course_Client();
+            ucc.Show();
         }
 
         private void btnViewClient_Click(object sender, EventArgs e)
         {
-
+            View_Course_Client vcc = new View_Course_Client();
+            vcc.Show();
         }
 
         private void btnRemoveClient_Click(object sender, EventArgs e)
         {
+            DialogResult test = MessageBox.Show("Are you sure you want to delete this course client?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (test == DialogResult.Yes)
+            {
+                // LINQ query to remove selected course in dgv from the db
 
+                MessageBox.Show("Course client has been deleted", "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (test == DialogResult.No)
+            {
+                MessageBox.Show("Course client not deleted", "Cancel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

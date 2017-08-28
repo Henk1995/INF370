@@ -124,6 +124,12 @@
     <Compile Include="SearchSupplierForOrder.Designer.cs">
       <DependentUpon>SearchSupplierForOrder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Update Course Client.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update Course Client.Designer.cs">
+      <DependentUpon>Update Course Client.cs</DependentUpon>
+    </Compile>
     <Compile Include="Update Course.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +141,12 @@
     </Compile>
     <Compile Include="UpdateStock.Designer.cs">
       <DependentUpon>UpdateStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View Course Client.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View Course Client.Designer.cs">
+      <DependentUpon>View Course Client.cs</DependentUpon>
     </Compile>
     <Compile Include="View Course.cs">
       <SubType>Form</SubType>
@@ -199,11 +211,17 @@
     <EmbeddedResource Include="SearchSupplierForOrder.resx">
       <DependentUpon>SearchSupplierForOrder.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Update Course Client.resx">
+      <DependentUpon>Update Course Client.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Update Course.resx">
       <DependentUpon>Update Course.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateStock.resx">
       <DependentUpon>UpdateStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View Course Client.resx">
+      <DependentUpon>View Course Client.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View Course.resx">
       <DependentUpon>View Course.cs</DependentUpon>
