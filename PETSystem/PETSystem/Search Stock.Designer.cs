@@ -41,6 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgvSearchStock = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnMainMenu = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchStock)).BeginInit();
             this.SuspendLayout();
             // 
@@ -159,7 +160,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(207, 464);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(135, 23);
             this.button1.TabIndex = 35;
@@ -167,11 +168,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnMainMenu
+            // 
+            this.btnMainMenu.Location = new System.Drawing.Point(97, 464);
+            this.btnMainMenu.Name = "btnMainMenu";
+            this.btnMainMenu.Size = new System.Drawing.Size(105, 23);
+            this.btnMainMenu.TabIndex = 36;
+            this.btnMainMenu.Text = "Main Menu";
+            this.btnMainMenu.UseVisualStyleBackColor = true;
+            this.btnMainMenu.Click += new System.EventHandler(this.btnMainMenu_Click);
+            // 
             // Search_Stock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1065, 497);
+            this.Controls.Add(this.btnMainMenu);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnWriteoffStock);
             this.Controls.Add(this.btnSearchStockID);
@@ -185,7 +197,7 @@
             this.Controls.Add(this.btnDeleteStock);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvSearchStock);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Search_Stock";
             this.Text = "Search Stock";
             this.Load += new System.EventHandler(this.Search_Stock_Load);
@@ -210,5 +222,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvSearchStock;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnMainMenu;
     }
 }

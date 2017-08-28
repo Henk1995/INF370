@@ -50,6 +50,7 @@
             this.btnMainMenu.TabIndex = 48;
             this.btnMainMenu.Text = "Main Menu";
             this.btnMainMenu.UseVisualStyleBackColor = true;
+            this.btnMainMenu.Click += new System.EventHandler(this.btnMainMenu_Click);
             // 
             // btnAddCourse
             // 
