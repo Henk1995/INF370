@@ -12,7 +12,7 @@ namespace PETSystem
     {
         bool result;
         int ID;
-        public Boolean CheckEmpty( string input)
+        public Boolean CheckEmpty(string input)
         {
             if (input == "")
             {
@@ -58,7 +58,6 @@ namespace PETSystem
                 return false;
             }
         }
-
         public Boolean CheckDate(string Input)
         {
             var dateFormats = new[] { "dd.MM.yyyy", "dd-MM-yyyy", "dd/MM/yyyy" };
@@ -74,5 +73,8 @@ namespace PETSystem
             else
                 return false;
         }
+
+        //ADD gender ( M or F )
+        //ADD Phone Number Check
     }
 }
