@@ -16,17 +16,53 @@ namespace PETSystem
     {
         public static string DBC = "Data Source=JWM\\SYSARCH;Initial Catalog=INF370;Integrated Security=True";
         SqlConnection connectstring = new SqlConnection(DBC);
+        SqlDataAdapter DA;
         bool valid1 = false;
         bool valid2 = false;
         bool valid3 = false;
         bool valid4 = false;
         bool valid5 = false;
         bool valid6 = false;
-       
+        string InstructorID;
+
         ErrorHandle EH = new ErrorHandle();
         public UpdateInstructor()
         {
             InitializeComponent();
+            
+            DataTable DT = new DataTable();
+            connectstring.Open();
+            SqlCommand Fill = new SqlCommand("SELECT * FROM Instructor", connectstring);
+            DA = new SqlDataAdapter(Fill);
+            DA.Fill(DT);
+            dgvInstructor.DataSource = DT;
+            dgvInstructor.DataMember = DT.TableName;
+            connectstring.Close();
+            cmbGender.Items.Clear();
+            cmbTitle.Items.Clear();
+            string query1 = "SELECT GenderName FROM Gender ";
+            DataTable DT1 = new DataTable();
+            connectstring.Open();
+            SqlCommand cmd = new SqlCommand(query1, connectstring);
+            DA = new SqlDataAdapter(cmd);
+            DA.Fill(DT1);
+            foreach (DataRow dr in DT1.Rows)
+            {
+                cmbGender.Items.Add(dr["GenderName"]).ToString();
+            }
+            string query2 = "SELECT TitleName FROM Title ";
+            DataTable DT2 = new DataTable();
+
+            SqlCommand cmd2 = new SqlCommand(query2, connectstring);
+            DA = new SqlDataAdapter(cmd2);
+            DA.Fill(DT2);
+            foreach (DataRow dr in DT2.Rows)
+            {
+                cmbTitle.Items.Add(dr["TitleName"]).ToString();
+            }
+            connectstring.Close();
+           
+            
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -90,24 +126,56 @@ namespace PETSystem
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
+            int GenderID = 0;
+            int TitleID = 0;
             valid5 = EH.CheckEmpty(cmbGender.Text);
             valid6 = EH.CheckEmpty(cmbTitle.Text);
             if (valid1 && valid2 && valid3 && valid4 && valid5 && valid6)
             {
-                //MessageBox.Show("Are you sure you want to Update this instructor?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
-                ////This is my update query in which i am taking input from the user through windows forms and update the record.  
-                //string Query = "update student.studentinfo set idStudentInfo='" + this.IdTextBox.Text + "',Name='" + this.NameTextBox.Text + "',Father_Name='" + this.FnameTextBox.Text + "',Age='" + this.AgeTextBox.Text + "',Semester='" + this.SemesterTextBox.Text + "' where idStudentInfo='" + this.IdTextBox.Text + "';";
-                ////This is  MySqlConnection here i have created the object and pass my connection string.  
-                //MySqlConnection MyConn2 = new MySqlConnection(MyConnection2);
-                //MySqlCommand MyCommand2 = new MySqlCommand(Query, MyConn2);
-                //MySqlDataReader MyReader2;
-                //MyConn2.Open();
-                //MyReader2 = MyCommand2.ExecuteReader();
-                //MessageBox.Show("Data Updated");
-                //while (MyReader2.Read())
-                //{
-                //}
-                //MyConn2.Close();//Connection closed here  
+                MessageBox.Show("Are you sure you want to Update this instructor?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                //This is my update query in which i am taking input from the user through windows forms and update the record.  
+                string query1 = "SELECT GenderID FROM Gender WHERE GenderName ='" + cmbGender.Text + "'";
+                SqlCommand MyCommand1 = new SqlCommand(query1, connectstring);
+                SqlDataReader MyReader1;
+                connectstring.Open();
+                MyReader1 = MyCommand1.ExecuteReader();     // Here our query will be executed and data saved into the database.  
+
+                while (MyReader1.Read())
+                {
+                    GenderID = Convert.ToInt32(MyReader1["GenderID"]);
+                }
+                connectstring.Close();
+                string query2 = "SELECT TitleID FROM Title WHERE TitleName ='" + cmbTitle.Text + "'";
+                SqlCommand MyCommand2 = new SqlCommand(query2, connectstring);
+                SqlDataReader MyReader2;
+                connectstring.Open();
+                MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
+
+                while (MyReader2.Read())
+                {
+                    TitleID = Convert.ToInt32(MyReader2["TitleID"]);
+                }
+                connectstring.Close();
+                string Query = "UPDATE Instructor SET Name ='" + this.txtName.Text + "', Surname = '" + this.txtSurname.Text + "', Email = '" + this.txtEmail.Text + "', PhoneNumber = '" + this.txtPhoneNumber.Text + "', GenderID ='" + GenderID + "', TitleID = '" + TitleID + "' WHERE InstructorID ="+Convert.ToInt32(InstructorID)+";";
+                //This is  MySqlConnection here i have created the object and pass my connection string.  
+                
+                SqlCommand MyCommand3 = new SqlCommand(Query, connectstring);
+                SqlDataReader MyReader3;
+                connectstring.Open();
+                MyReader3 = MyCommand3.ExecuteReader();
+                MessageBox.Show("Data Updated");
+                while (MyReader3.Read())
+                {
+                }
+                connectstring.Close();//Connection closed here 
+                DataTable DT = new DataTable();
+                connectstring.Open();
+                SqlCommand Fill = new SqlCommand("SELECT * FROM Instructor", connectstring);
+                DA = new SqlDataAdapter(Fill);
+                DA.Fill(DT);
+                dgvInstructor.DataSource = DT;
+                dgvInstructor.DataMember = DT.TableName;
+                connectstring.Close();
             }
             else
             {
@@ -115,5 +183,50 @@ namespace PETSystem
 
             }
         }
+        
+
+        
+
+        private void dgvInstructor_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvInstructor.SelectedRows.Count > 0) // make sure user select at least 1 row 
+            {
+                InstructorID = dgvInstructor.SelectedRows[0].Cells[0].Value + string.Empty;
+                string NameId = dgvInstructor.SelectedRows[0].Cells[1].Value + string.Empty;
+                string SurnameId = dgvInstructor.SelectedRows[0].Cells[2].Value + string.Empty;
+                string emailId = dgvInstructor.SelectedRows[0].Cells[3].Value + string.Empty;
+                string phoneNumberId = dgvInstructor.SelectedRows[0].Cells[4].Value + string.Empty;
+                string Genderid = dgvInstructor.SelectedRows[0].Cells[5].Value + string.Empty;
+                string titleid = dgvInstructor.SelectedRows[0].Cells[6].Value + string.Empty;
+                string query2 = "SELECT TitleName FROM Title WHERE TitleID ='" + Convert.ToInt32(titleid) + "'";
+                SqlCommand MyCommand2 = new SqlCommand(query2, connectstring);
+                SqlDataReader MyReader2;
+                connectstring.Open();
+                MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
+
+                while (MyReader2.Read())
+                {
+                    titleid = MyReader2["TitleName"].ToString();
+                }
+                connectstring.Close();
+                string query1 = "SELECT GenderName FROM Gender WHERE GenderID ='" + Convert.ToInt32(Genderid) + "'";
+                SqlCommand MyCommand1 = new SqlCommand(query1, connectstring);
+                SqlDataReader MyReader1;
+                connectstring.Open();
+                MyReader1 = MyCommand1.ExecuteReader();     // Here our query will be executed and data saved into the database.  
+
+                while (MyReader1.Read())
+                {
+                    Genderid = MyReader1["GenderName"].ToString();
+                }
+                connectstring.Close();
+                txtEmail.Text = emailId;
+                txtName.Text = NameId;
+                txtSurname.Text = SurnameId;
+                txtPhoneNumber.Text = phoneNumberId;
+                cmbGender.Text = Genderid;
+                cmbTitle.Text = titleid;
+            }
+            }
     }
 }

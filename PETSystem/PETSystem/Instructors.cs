@@ -74,9 +74,47 @@ namespace PETSystem
 
         private void button5_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
-            DeleteInstructor UM = new DeleteInstructor();
-            UM.ShowDialog();
+            //this.Visible = false;
+            //DeleteInstructor UM = new DeleteInstructor();
+            //UM.ShowDialog(); this.Visible = false;
+            
+                
+                    if (dgvInstructor.SelectedRows.Count > 0)
+                    {
+                        int selectedIndex = dgvInstructor.SelectedRows[0].Index;
+
+                        // gets the RowID from the first column in the grid
+                        int rowID = int.Parse(dgvInstructor[0, selectedIndex].Value.ToString());
+
+
+                        MessageBox.Show("Are you sure you want to delete this instructor?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                        string Query = "DELETE FROM Instructor WHERE InstructorID='" + rowID + "';";
+
+                        SqlCommand MyCommand2 = new SqlCommand(Query, connectstring);
+                        SqlDataReader MyReader2;
+                        connectstring.Open();
+                        MyReader2 = MyCommand2.ExecuteReader();
+                        MessageBox.Show("Data Deleted");
+                        while (MyReader2.Read())
+                        {
+                        }
+                        connectstring.Close();
+                   
+                    DataTable DT = new DataTable();
+                    connectstring.Open();
+                    SqlCommand Fill = new SqlCommand("SELECT * FROM Instructor", connectstring);
+                    DA = new SqlDataAdapter(Fill);
+                    DA.Fill(DT);
+                    dgvInstructor.DataSource = DT;
+                    dgvInstructor.DataMember = DT.TableName;
+                    connectstring.Close();
+            }
+        
+                else
+                {
+                    MessageBox.Show("Please select the row that you want to delete", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            
         }
 
         private void button6_Click(object sender, EventArgs e)

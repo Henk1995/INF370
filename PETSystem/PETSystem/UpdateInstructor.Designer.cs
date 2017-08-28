@@ -42,12 +42,14 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtSurname = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
+            this.dgvInstructor = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInstructor)).BeginInit();
             this.SuspendLayout();
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(182, 203);
+            this.label6.Location = new System.Drawing.Point(18, 181);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(27, 13);
             this.label6.TabIndex = 27;
@@ -56,7 +58,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(182, 176);
+            this.label5.Location = new System.Drawing.Point(18, 154);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 13);
             this.label5.TabIndex = 26;
@@ -65,7 +67,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(182, 149);
+            this.label4.Location = new System.Drawing.Point(18, 127);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(76, 13);
             this.label4.TabIndex = 25;
@@ -74,7 +76,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(182, 123);
+            this.label3.Location = new System.Drawing.Point(18, 101);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(32, 13);
             this.label3.TabIndex = 24;
@@ -83,7 +85,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(182, 97);
+            this.label2.Location = new System.Drawing.Point(18, 75);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 13);
             this.label2.TabIndex = 23;
@@ -92,7 +94,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(182, 71);
+            this.label1.Location = new System.Drawing.Point(18, 49);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 22;
@@ -110,7 +112,7 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(264, 222);
+            this.btnUpdate.Location = new System.Drawing.Point(100, 200);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(141, 40);
             this.btnUpdate.TabIndex = 20;
@@ -121,7 +123,7 @@
             // cmbTitle
             // 
             this.cmbTitle.FormattingEnabled = true;
-            this.cmbTitle.Location = new System.Drawing.Point(264, 195);
+            this.cmbTitle.Location = new System.Drawing.Point(100, 173);
             this.cmbTitle.Name = "cmbTitle";
             this.cmbTitle.Size = new System.Drawing.Size(141, 21);
             this.cmbTitle.TabIndex = 19;
@@ -129,14 +131,14 @@
             // cmbGender
             // 
             this.cmbGender.FormattingEnabled = true;
-            this.cmbGender.Location = new System.Drawing.Point(264, 168);
+            this.cmbGender.Location = new System.Drawing.Point(100, 146);
             this.cmbGender.Name = "cmbGender";
             this.cmbGender.Size = new System.Drawing.Size(141, 21);
             this.cmbGender.TabIndex = 18;
             // 
             // txtPhoneNumber
             // 
-            this.txtPhoneNumber.Location = new System.Drawing.Point(264, 142);
+            this.txtPhoneNumber.Location = new System.Drawing.Point(100, 120);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(141, 20);
             this.txtPhoneNumber.TabIndex = 17;
@@ -144,7 +146,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(264, 116);
+            this.txtEmail.Location = new System.Drawing.Point(100, 94);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(141, 20);
             this.txtEmail.TabIndex = 16;
@@ -152,7 +154,7 @@
             // 
             // txtSurname
             // 
-            this.txtSurname.Location = new System.Drawing.Point(264, 90);
+            this.txtSurname.Location = new System.Drawing.Point(100, 68);
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(141, 20);
             this.txtSurname.TabIndex = 15;
@@ -160,17 +162,28 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(264, 64);
+            this.txtName.Location = new System.Drawing.Point(100, 42);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(141, 20);
             this.txtName.TabIndex = 14;
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
+            // dgvInstructor
+            // 
+            this.dgvInstructor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInstructor.Location = new System.Drawing.Point(295, 42);
+            this.dgvInstructor.Name = "dgvInstructor";
+            this.dgvInstructor.Size = new System.Drawing.Size(550, 198);
+            this.dgvInstructor.TabIndex = 28;
+            this.dgvInstructor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInstructor_CellClick);
+           
+            // 
             // UpdateInstructor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(527, 337);
+            this.ClientSize = new System.Drawing.Size(857, 337);
+            this.Controls.Add(this.dgvInstructor);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -187,6 +200,7 @@
             this.Controls.Add(this.txtName);
             this.Name = "UpdateInstructor";
             this.Text = "Update Instructor";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInstructor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,5 +222,6 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtSurname;
         private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.DataGridView dgvInstructor;
     }
 }

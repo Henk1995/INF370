@@ -32,12 +32,14 @@
             this.txtInstructorID = new System.Windows.Forms.TextBox();
             this.btnBack = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.dgvInstructor = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInstructor)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(153, 78);
+            this.label1.Location = new System.Drawing.Point(23, 78);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 13);
             this.label1.TabIndex = 7;
@@ -45,7 +47,7 @@
             // 
             // txtInstructorID
             // 
-            this.txtInstructorID.Location = new System.Drawing.Point(226, 72);
+            this.txtInstructorID.Location = new System.Drawing.Point(91, 71);
             this.txtInstructorID.Name = "txtInstructorID";
             this.txtInstructorID.Size = new System.Drawing.Size(129, 20);
             this.txtInstructorID.TabIndex = 6;
@@ -63,7 +65,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(226, 136);
+            this.btnDelete.Location = new System.Drawing.Point(91, 132);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(129, 43);
             this.btnDelete.TabIndex = 4;
@@ -71,17 +73,27 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // dgvInstructor
+            // 
+            this.dgvInstructor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInstructor.Location = new System.Drawing.Point(261, 12);
+            this.dgvInstructor.Name = "dgvInstructor";
+            this.dgvInstructor.Size = new System.Drawing.Size(599, 255);
+            this.dgvInstructor.TabIndex = 8;
+            // 
             // DeleteInstructor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(535, 274);
+            this.ClientSize = new System.Drawing.Size(872, 274);
+            this.Controls.Add(this.dgvInstructor);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtInstructorID);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnDelete);
             this.Name = "DeleteInstructor";
             this.Text = "Delete Instructor";
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInstructor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -93,5 +105,6 @@
         private System.Windows.Forms.TextBox txtInstructorID;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Button btnDelete;
+        private System.Windows.Forms.DataGridView dgvInstructor;
     }
 }

@@ -18,9 +18,18 @@ namespace PETSystem
         bool valid1 = false;
         SqlConnection connectstring = new SqlConnection(DBC);
         ErrorHandle EH = new ErrorHandle();
+        SqlDataAdapter DA;
         public DeleteInstructor()
         {
             InitializeComponent();
+            DataTable DT = new DataTable();
+            connectstring.Open();
+            SqlCommand Fill = new SqlCommand("SELECT * FROM Instructor", connectstring);
+            DA = new SqlDataAdapter(Fill);
+            DA.Fill(DT);
+            dgvInstructor.DataSource = DT;
+            dgvInstructor.DataMember = DT.TableName;
+            connectstring.Close();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -48,18 +57,35 @@ namespace PETSystem
         {
             if (valid1)
             {
-                //MessageBox.Show("Are you sure you want to delete this instructor?","Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
-                //string Query = "delete from student.studentinfo where idStudentInfo='" + this.IdTextBox.Text + "';";
-                //MySqlConnection MyConn2 = new MySqlConnection(MyConnection2);
-                //MySqlCommand MyCommand2 = new MySqlCommand(Query, MyConn2);
-                //MySqlDataReader MyReader2;
-                //MyConn2.Open();
-                //MyReader2 = MyCommand2.ExecuteReader();
-                //MessageBox.Show("Data Deleted");
-                //while (MyReader2.Read())
-                //{
-                //}
-                //MyConn2.Close();
+                if (dgvInstructor.SelectedRows.Count > 0)
+                {
+                    int selectedIndex = dgvInstructor.SelectedRows[0].Index;
+
+                    // gets the RowID from the first column in the grid
+                    int rowID = int.Parse(dgvInstructor[0, selectedIndex].Value.ToString());
+
+                  
+                    MessageBox.Show("Are you sure you want to delete this instructor?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                    string Query = "DELETE FROM Instructor WHERE InstructorID='" + rowID + "';";
+
+                    SqlCommand MyCommand2 = new SqlCommand(Query, connectstring);
+                    SqlDataReader MyReader2;
+                    connectstring.Open();
+                    MyReader2 = MyCommand2.ExecuteReader();
+                    MessageBox.Show("Data Deleted");
+                    while (MyReader2.Read())
+                    {
+                    }
+                    connectstring.Close();
+                }
+                DataTable DT = new DataTable();
+                connectstring.Open();
+                SqlCommand Fill = new SqlCommand("SELECT * FROM Instructor", connectstring);
+                DA = new SqlDataAdapter(Fill);
+                DA.Fill(DT);
+                dgvInstructor.DataSource = DT;
+                dgvInstructor.DataMember = DT.TableName;
+                connectstring.Close();
             }
             else
             {
