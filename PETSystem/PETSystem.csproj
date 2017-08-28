@@ -53,6 +53,12 @@
     <Compile Include="Add Course Client.Designer.cs">
       <DependentUpon>Add Course Client.cs</DependentUpon>
     </Compile>
+    <Compile Include="Add Printing Supplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Add Printing Supplier.Designer.cs">
+      <DependentUpon>Add Printing Supplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddNewStockType.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +112,12 @@
     <Compile Include="Search Course Client.Designer.cs">
       <DependentUpon>Search Course Client.cs</DependentUpon>
     </Compile>
+    <Compile Include="Search Printing Supplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search Printing Supplier.Designer.cs">
+      <DependentUpon>Search Printing Supplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="Search Stock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +141,12 @@
     </Compile>
     <Compile Include="Update Course.Designer.cs">
       <DependentUpon>Update Course.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Update Printing Supplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update Printing Supplier.Designer.cs">
+      <DependentUpon>Update Printing Supplier.cs</DependentUpon>
     </Compile>
     <Compile Include="UpdateStock.cs">
       <SubType>Form</SubType>
@@ -163,6 +181,9 @@
     <EmbeddedResource Include="Add Course Client.resx">
       <DependentUpon>Add Course Client.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Add Printing Supplier.resx">
+      <DependentUpon>Add Printing Supplier.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddNewStockType.resx">
       <DependentUpon>AddNewStockType.cs</DependentUpon>
     </EmbeddedResource>
@@ -196,6 +217,9 @@
     <EmbeddedResource Include="Search Course Client.resx">
       <DependentUpon>Search Course Client.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Search Printing Supplier.resx">
+      <DependentUpon>Search Printing Supplier.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Search Stock.resx">
       <DependentUpon>Search Stock.cs</DependentUpon>
     </EmbeddedResource>
@@ -207,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Update Course.resx">
       <DependentUpon>Update Course.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Update Printing Supplier.resx">
+      <DependentUpon>Update Printing Supplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateStock.resx">
       <DependentUpon>UpdateStock.cs</DependentUpon>

@@ -77,25 +77,25 @@
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 13);
             this.label4.TabIndex = 64;
-            this.label4.Text = "Phone Number.";
+            this.label4.Text = "Phone Number:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(21, 165);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 13);
+            this.label7.Size = new System.Drawing.Size(45, 13);
             this.label7.TabIndex = 63;
-            this.label7.Text = "Gender";
+            this.label7.Text = "Gender:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(21, 201);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(32, 13);
+            this.label8.Size = new System.Drawing.Size(76, 13);
             this.label8.TabIndex = 62;
-            this.label8.Text = "Email";
+            this.label8.Text = "Email Address:";
             // 
             // txtTitle
             // 
