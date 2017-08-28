@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7479C134-65EE-41EB-A2CC-BE4E4592FB4E}</ProjectGuid>
+    <ProjectGuid>{51FD8D83-AF84-4376-B42E-BEF3CCA3482D}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PETSystem</RootNamespace>
@@ -35,7 +35,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.Linq" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,163 +46,134 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Add Course Client.cs">
+    <Compile Include="AddUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Add Course Client.Designer.cs">
-      <DependentUpon>Add Course Client.cs</DependentUpon>
+    <Compile Include="AddUser.Designer.cs">
+      <DependentUpon>AddUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Add Printing Supplier.cs">
+    <Compile Include="CalculateRoyalties.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Add Printing Supplier.Designer.cs">
-      <DependentUpon>Add Printing Supplier.cs</DependentUpon>
+    <Compile Include="CalculateRoyalties.Designer.cs">
+      <DependentUpon>CalculateRoyalties.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddNewStockType.cs">
+    <Compile Include="ChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddNewStockType.Designer.cs">
-      <DependentUpon>AddNewStockType.cs</DependentUpon>
+    <Compile Include="ChangePassword.Designer.cs">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddStock.cs">
+    <Compile Include="CreateInstructor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddStock.Designer.cs">
-      <DependentUpon>AddStock.cs</DependentUpon>
+    <Compile Include="CreateInstructor.Designer.cs">
+      <DependentUpon>CreateInstructor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Create Course.cs">
+    <Compile Include="DeleteInstructor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Create Course.Designer.cs">
-      <DependentUpon>Create Course.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Create stock item.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Create stock item.Designer.cs">
-      <DependentUpon>Create stock item.cs</DependentUpon>
+    <Compile Include="DeleteInstructor.Designer.cs">
+      <DependentUpon>DeleteInstructor.cs</DependentUpon>
     </Compile>
     <Compile Include="ErrorHandle.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Instructors.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Instructors.Designer.cs">
+      <DependentUpon>Instructors.cs</DependentUpon>
     </Compile>
-    <Compile Include="Orders.cs">
+    <Compile Include="InstructorTR.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Orders.Designer.cs">
-      <DependentUpon>Orders.cs</DependentUpon>
+    <Compile Include="InstructorTR.Designer.cs">
+      <DependentUpon>InstructorTR.cs</DependentUpon>
     </Compile>
-    <Compile Include="PET_DB.cs">
-      <DependentUpon>PET_DB.dbml</DependentUpon>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PET_DB.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PET_DB.dbml</DependentUpon>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MaintainCourses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MaintainCourses.Designer.cs">
+      <DependentUpon>MaintainCourses.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Search Course Client.cs">
+    <Compile Include="SearchInstructor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Search Course Client.Designer.cs">
-      <DependentUpon>Search Course Client.cs</DependentUpon>
+    <Compile Include="SearchInstructor.Designer.cs">
+      <DependentUpon>SearchInstructor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Search Printing Supplier.cs">
+    <Compile Include="TrainingCourseMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Search Printing Supplier.Designer.cs">
-      <DependentUpon>Search Printing Supplier.cs</DependentUpon>
+    <Compile Include="TrainingCourseMenu.Designer.cs">
+      <DependentUpon>TrainingCourseMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Search Stock.cs">
+    <Compile Include="UpdateInstructor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Search Stock.Designer.cs">
-      <DependentUpon>Search Stock.cs</DependentUpon>
+    <Compile Include="UpdateInstructor.Designer.cs">
+      <DependentUpon>UpdateInstructor.cs</DependentUpon>
     </Compile>
-    <Compile Include="SearchCourse.cs">
+    <Compile Include="UserMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SearchCourse.Designer.cs">
-      <DependentUpon>SearchCourse.cs</DependentUpon>
+    <Compile Include="UserMenu.Designer.cs">
+      <DependentUpon>UserMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Update Course Client.cs">
+    <Compile Include="ViewInstructor.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Update Course Client.Designer.cs">
-      <DependentUpon>Update Course Client.cs</DependentUpon>
+    <Compile Include="ViewInstructor.Designer.cs">
+      <DependentUpon>ViewInstructor.cs</DependentUpon>
     </Compile>
-    <Compile Include="Update Course.cs">
+    <Compile Include="ViewMaintainP.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Update Course.Designer.cs">
-      <DependentUpon>Update Course.cs</DependentUpon>
+    <Compile Include="ViewMaintainP.Designer.cs">
+      <DependentUpon>ViewMaintainP.cs</DependentUpon>
     </Compile>
-    <Compile Include="Update Printing Supplier.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Update Printing Supplier.Designer.cs">
-      <DependentUpon>Update Printing Supplier.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UpdateStock.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UpdateStock.Designer.cs">
-      <DependentUpon>UpdateStock.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View Course Client.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View Course Client.Designer.cs">
-      <DependentUpon>View Course Client.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View Course.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View Course.Designer.cs">
-      <DependentUpon>View Course.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewStock.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ViewStock.Designer.cs">
-      <DependentUpon>ViewStock.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WriteoffStock.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WriteoffStock.Designer.cs">
-      <DependentUpon>WriteoffStock.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="Add Course Client.resx">
-      <DependentUpon>Add Course Client.cs</DependentUpon>
+    <EmbeddedResource Include="AddUser.resx">
+      <DependentUpon>AddUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Add Printing Supplier.resx">
-      <DependentUpon>Add Printing Supplier.cs</DependentUpon>
+    <EmbeddedResource Include="CalculateRoyalties.resx">
+      <DependentUpon>CalculateRoyalties.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddNewStockType.resx">
-      <DependentUpon>AddNewStockType.cs</DependentUpon>
+    <EmbeddedResource Include="ChangePassword.resx">
+      <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddStock.resx">
-      <DependentUpon>AddStock.cs</DependentUpon>
+    <EmbeddedResource Include="CreateInstructor.resx">
+      <DependentUpon>CreateInstructor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Create Course.resx">
-      <DependentUpon>Create Course.cs</DependentUpon>
+    <EmbeddedResource Include="DeleteInstructor.resx">
+      <DependentUpon>DeleteInstructor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Create stock item.resx">
-      <DependentUpon>Create stock item.cs</DependentUpon>
+    <EmbeddedResource Include="Instructors.resx">
+      <DependentUpon>Instructors.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="InstructorTR.resx">
+      <DependentUpon>InstructorTR.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="PET_DB.dbml.layout">
-      <DependentUpon>PET_DB.dbml</DependentUpon>
-    </None>
-    <EmbeddedResource Include="Orders.resx">
-      <DependentUpon>Orders.cs</DependentUpon>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MaintainCourses.resx">
+      <DependentUpon>MaintainCourses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -214,47 +184,24 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Search Course Client.resx">
-      <DependentUpon>Search Course Client.cs</DependentUpon>
+    <EmbeddedResource Include="SearchInstructor.resx">
+      <DependentUpon>SearchInstructor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Search Printing Supplier.resx">
-      <DependentUpon>Search Printing Supplier.cs</DependentUpon>
+    <EmbeddedResource Include="TrainingCourseMenu.resx">
+      <DependentUpon>TrainingCourseMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Search Stock.resx">
-      <DependentUpon>Search Stock.cs</DependentUpon>
+    <EmbeddedResource Include="UpdateInstructor.resx">
+      <DependentUpon>UpdateInstructor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SearchCourse.resx">
-      <DependentUpon>SearchCourse.cs</DependentUpon>
+    <EmbeddedResource Include="UserMenu.resx">
+      <DependentUpon>UserMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Update Course Client.resx">
-      <DependentUpon>Update Course Client.cs</DependentUpon>
+    <EmbeddedResource Include="ViewInstructor.resx">
+      <DependentUpon>ViewInstructor.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Update Course.resx">
-      <DependentUpon>Update Course.cs</DependentUpon>
+    <EmbeddedResource Include="ViewMaintainP.resx">
+      <DependentUpon>ViewMaintainP.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Update Printing Supplier.resx">
-      <DependentUpon>Update Printing Supplier.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UpdateStock.resx">
-      <DependentUpon>UpdateStock.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View Course Client.resx">
-      <DependentUpon>View Course Client.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View Course.resx">
-      <DependentUpon>View Course.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ViewStock.resx">
-      <DependentUpon>ViewStock.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WriteoffStock.resx">
-      <DependentUpon>WriteoffStock.cs</DependentUpon>
-    </EmbeddedResource>
-    <None Include="PET_DB.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>PET_DB.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -267,9 +214,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
