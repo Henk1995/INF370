@@ -36,7 +36,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(46, 38);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(103, 55);
             this.button1.TabIndex = 0;
@@ -53,6 +53,7 @@
             this.btnPrintingSupplier.TabIndex = 1;
             this.btnPrintingSupplier.Text = "Printing Supplier";
             this.btnPrintingSupplier.UseVisualStyleBackColor = true;
+            this.btnPrintingSupplier.Click += new System.EventHandler(this.btnPrintingSupplier_Click);
             // 
             // btnSearchCourse
             // 
@@ -73,7 +74,7 @@
             this.Controls.Add(this.btnSearchCourse);
             this.Controls.Add(this.btnPrintingSupplier);
             this.Controls.Add(this.button1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);

@@ -28,5 +28,11 @@ namespace PETSystem
             SearchCourse s = new SearchCourse();
             s.Show();
         }
+
+        private void btnPrintingSupplier_Click(object sender, EventArgs e)
+        {
+            Search_Printing_Supplier sps = new Search_Printing_Supplier();
+            sps.Show();
+        }
     }
 }
