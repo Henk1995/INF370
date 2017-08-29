@@ -111,11 +111,23 @@
     <Compile Include="CreateInstructor.Designer.cs">
       <DependentUpon>CreateInstructor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Create_Supplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Create_Supplier.Designer.cs">
+      <DependentUpon>Create_Supplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="DeleteInstructor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DeleteInstructor.Designer.cs">
       <DependentUpon>DeleteInstructor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Delete_Supplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Delete_Supplier.Designer.cs">
+      <DependentUpon>Delete_Supplier.cs</DependentUpon>
     </Compile>
     <Compile Include="ErrorHandle.cs" />
     <Compile Include="Instructors.cs">
@@ -162,8 +174,32 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PET_DB.dbml</DependentUpon>
     </Compile>
+    <Compile Include="PlaceOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlaceOrder.Designer.cs">
+      <DependentUpon>PlaceOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReceiveOrderSupp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReceiveOrderSupp.Designer.cs">
+      <DependentUpon>ReceiveOrderSupp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RefundOrderSupp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RefundOrderSupp.Designer.cs">
+      <DependentUpon>RefundOrderSupp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReturnOrderSupp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReturnOrderSupp.Designer.cs">
+      <DependentUpon>ReturnOrderSupp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Search Course Client.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +229,24 @@
     </Compile>
     <Compile Include="SearchInstructor.Designer.cs">
       <DependentUpon>SearchInstructor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Search_Supplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search_Supplier.Designer.cs">
+      <DependentUpon>Search_Supplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Select_Supplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Select_Supplier.Designer.cs">
+      <DependentUpon>Select_Supplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Suppliers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Suppliers.Designer.cs">
+      <DependentUpon>Suppliers.cs</DependentUpon>
     </Compile>
     <Compile Include="TrainingCourseMenu.cs">
       <SubType>Form</SubType>
@@ -230,6 +284,12 @@
     <Compile Include="UpdateStock.Designer.cs">
       <DependentUpon>UpdateStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="Update_Supplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update_Supplier.Designer.cs">
+      <DependentUpon>Update_Supplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -265,6 +325,12 @@
     </Compile>
     <Compile Include="ViewStock.Designer.cs">
       <DependentUpon>ViewStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewSupplier.Designer.cs">
+      <DependentUpon>ViewSupplier.cs</DependentUpon>
     </Compile>
     <Compile Include="WriteoffStock.cs">
       <SubType>Form</SubType>
@@ -302,12 +368,18 @@
     <EmbeddedResource Include="CreateInstructor.resx">
       <DependentUpon>CreateInstructor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Create_Supplier.resx">
+      <DependentUpon>Create_Supplier.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DeleteInstructor.resx">
       <DependentUpon>DeleteInstructor.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="PET_DB.dbml.layout">
       <DependentUpon>PET_DB.dbml</DependentUpon>
     </None>
+    <EmbeddedResource Include="Delete_Supplier.resx">
+      <DependentUpon>Delete_Supplier.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Instructors.resx">
       <DependentUpon>Instructors.cs</DependentUpon>
     </EmbeddedResource>
@@ -326,6 +398,9 @@
     <EmbeddedResource Include="Orders.resx">
       <DependentUpon>Orders.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PlaceOrder.resx">
+      <DependentUpon>PlaceOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -335,6 +410,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ReceiveOrderSupp.resx">
+      <DependentUpon>ReceiveOrderSupp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RefundOrderSupp.resx">
+      <DependentUpon>RefundOrderSupp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReturnOrderSupp.resx">
+      <DependentUpon>ReturnOrderSupp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Search Course Client.resx">
       <DependentUpon>Search Course Client.cs</DependentUpon>
     </EmbeddedResource>
@@ -349,6 +433,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SearchInstructor.resx">
       <DependentUpon>SearchInstructor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Search_Supplier.resx">
+      <DependentUpon>Search_Supplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Select_Supplier.resx">
+      <DependentUpon>Select_Supplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Suppliers.resx">
+      <DependentUpon>Suppliers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TrainingCourseMenu.resx">
       <DependentUpon>TrainingCourseMenu.cs</DependentUpon>
@@ -368,6 +461,9 @@
     <EmbeddedResource Include="UpdateStock.resx">
       <DependentUpon>UpdateStock.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Update_Supplier.resx">
+      <DependentUpon>Update_Supplier.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserMenu.resx">
       <DependentUpon>UserMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -385,6 +481,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewStock.resx">
       <DependentUpon>ViewStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewSupplier.resx">
+      <DependentUpon>ViewSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WriteoffStock.resx">
       <DependentUpon>WriteoffStock.cs</DependentUpon>

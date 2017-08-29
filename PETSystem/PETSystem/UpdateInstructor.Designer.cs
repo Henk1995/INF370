@@ -176,7 +176,6 @@
             this.dgvInstructor.Size = new System.Drawing.Size(550, 198);
             this.dgvInstructor.TabIndex = 28;
             this.dgvInstructor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInstructor_CellClick);
-           
             // 
             // UpdateInstructor
             // 
@@ -200,6 +199,7 @@
             this.Controls.Add(this.txtName);
             this.Name = "UpdateInstructor";
             this.Text = "Update Instructor";
+            this.Load += new System.EventHandler(this.UpdateInstructor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInstructor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

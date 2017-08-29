@@ -34,38 +34,45 @@ namespace PETSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-           string InstructorID = dgvInstructor.SelectedRows[0].Cells[0].Value + string.Empty;
-            string NameId = dgvInstructor.SelectedRows[0].Cells[1].Value + string.Empty;
-            string SurnameId = dgvInstructor.SelectedRows[0].Cells[2].Value + string.Empty;
-            string emailId = dgvInstructor.SelectedRows[0].Cells[3].Value + string.Empty;
-            string phoneNumberId = dgvInstructor.SelectedRows[0].Cells[4].Value + string.Empty;
-            string Genderid = dgvInstructor.SelectedRows[0].Cells[5].Value + string.Empty;
-            string titleid = dgvInstructor.SelectedRows[0].Cells[6].Value + string.Empty;
-            
-            string query2 = "SELECT TitleName FROM Title WHERE TitleID ='" + Convert.ToInt32(titleid) + "'";
-            SqlCommand MyCommand2 = new SqlCommand(query2, connectstring);
-            SqlDataReader MyReader2;
-            connectstring.Open();
-            MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
-
-            while (MyReader2.Read())
+            if (dgvInstructor.SelectedRows.Count > 0)
             {
-                titleid = MyReader2["TitleName"].ToString();
-            }
-            connectstring.Close();
-            string query1 = "SELECT GenderName FROM Gender WHERE GenderID ='" + Convert.ToInt32(Genderid) + "'";
-            SqlCommand MyCommand1 = new SqlCommand(query1, connectstring);
-            SqlDataReader MyReader1;
-            connectstring.Open();
-            MyReader1 = MyCommand1.ExecuteReader();     // Here our query will be executed and data saved into the database.  
+                string InstructorID = dgvInstructor.SelectedRows[0].Cells[0].Value + string.Empty;
+                string NameId = dgvInstructor.SelectedRows[0].Cells[1].Value + string.Empty;
+                string SurnameId = dgvInstructor.SelectedRows[0].Cells[2].Value + string.Empty;
+                string emailId = dgvInstructor.SelectedRows[0].Cells[3].Value + string.Empty;
+                string phoneNumberId = dgvInstructor.SelectedRows[0].Cells[4].Value + string.Empty;
+                string Genderid = dgvInstructor.SelectedRows[0].Cells[5].Value + string.Empty;
+                string titleid = dgvInstructor.SelectedRows[0].Cells[6].Value + string.Empty;
 
-            while (MyReader1.Read())
-            {
-                Genderid = MyReader1["GenderName"].ToString();
+                string query2 = "SELECT TitleName FROM Title WHERE TitleID ='" + Convert.ToInt32(titleid) + "'";
+                SqlCommand MyCommand2 = new SqlCommand(query2, connectstring);
+                SqlDataReader MyReader2;
+                connectstring.Open();
+                MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
+
+                while (MyReader2.Read())
+                {
+                    titleid = MyReader2["TitleName"].ToString();
+                }
+                connectstring.Close();
+                string query1 = "SELECT GenderName FROM Gender WHERE GenderID ='" + Convert.ToInt32(Genderid) + "'";
+                SqlCommand MyCommand1 = new SqlCommand(query1, connectstring);
+                SqlDataReader MyReader1;
+                connectstring.Open();
+                MyReader1 = MyCommand1.ExecuteReader();     // Here our query will be executed and data saved into the database.  
+
+                while (MyReader1.Read())
+                {
+                    Genderid = MyReader1["GenderName"].ToString();
+                }
+                connectstring.Close();
+                MessageBox.Show(" Name:" + NameId + "\n Surname:" + SurnameId + "\n Phone Number:" + phoneNumberId + " \n E-mail: " + emailId + " \n Certification:", "Result",
+    MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
-            connectstring.Close();
-            MessageBox.Show(" Name:"+NameId+"\n Surname:" + SurnameId + "\n Phone Number:"+phoneNumberId+" \n E-mail: "+emailId+" \n Certification:", "Result",
-MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            else
+            {
+                MessageBox.Show("Please select the row that you want to view", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnBack_Click(object sender, EventArgs e)

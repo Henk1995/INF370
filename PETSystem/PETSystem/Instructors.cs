@@ -130,5 +130,10 @@ namespace PETSystem
             SearchInstructor UM = new SearchInstructor();
             UM.ShowDialog();
         }
+
+        private void dgvInstructor_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

@@ -228,5 +228,10 @@ namespace PETSystem
                 cmbTitle.Text = titleid;
             }
             }
+
+        private void UpdateInstructor_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

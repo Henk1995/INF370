@@ -76,5 +76,12 @@ namespace PETSystem
         {
             
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            Suppliers spp = new Suppliers();
+            spp.ShowDialog();
+        }
     }
 }

@@ -111,13 +111,29 @@ namespace PETSystem
             if(!valid1)
             {
                 txtCourseName.BackColor = Color.Red;
-            }else
+                connectstring.Open();
+                DA = new SqlDataAdapter("select * from TrainingCourse where CourseName like '" + txtCourseName.Text + "%'", connectstring);
+
+                DA.Fill(DTC);
+                dgvMaintain.DataSource = DTC;
+                connectstring.Close();
+                DataTable DT = new DataTable();
+                connectstring.Open();
+                SqlCommand Fill = new SqlCommand("SELECT * FROM TrainingCourse", connectstring);
+                DA = new SqlDataAdapter(Fill);
+                DA.Fill(DT);
+                dgvMaintain.DataSource = DT;
+                dgvMaintain.DataMember = DT.TableName;
+                connectstring.Close();
+
+            }
+            else
             {
                 txtCourseName.BackColor = Color.White;
                 
                 connectstring.Open();
                 DA = new SqlDataAdapter("select * from TrainingCourse where CourseName like '" + txtCourseName.Text + "%'", connectstring);
-               
+                DTC.Clear();
                 DA.Fill(DTC);
                 dgvMaintain.DataSource = DTC;
                 connectstring.Close();
@@ -126,22 +142,22 @@ namespace PETSystem
 
         private void txtYear_TextChanged(object sender, EventArgs e)
         {
-            valid2 = EH.CheckInt(txtYear.Text);
-            if (!valid2)
-            {
-                txtYear.BackColor = Color.Red;
-            }
-            else
-            {
+            //valid2 = EH.CheckInt(txtYear.Text);
+            //if (!valid2)
+            //{
+            //    txtYear.BackColor = Color.Red;
+            //}
+            //else
+            //{
                 
-                txtYear.BackColor = Color.White;
-               // connectstring.Open();
-               // DA = new SqlDataAdapter("select * from TrainingCourse where TrainingCourseDate like '" + txtYear.Text + "%'", connectstring);
-               //DataTable DT = new DataTable();
-               // DA.Fill(DT);
-               // dgvMaintain.DataSource = DT;
-               // connectstring.Close();
-            }
+            //    txtYear.BackColor = Color.White;
+            //   // connectstring.Open();
+            //   // DA = new SqlDataAdapter("select * from TrainingCourse where TrainingCourseDate like '" + txtYear.Text + "%'", connectstring);
+            //   //DataTable DT = new DataTable();
+            //   // DA.Fill(DT);
+            //   // dgvMaintain.DataSource = DT;
+            //   // connectstring.Close();
+            //}
         }
 
         private void txtStartDate_TextChanged(object sender, EventArgs e)
@@ -188,6 +204,7 @@ namespace PETSystem
             SqlCommandBuilder cmd = new SqlCommandBuilder(DA);
             
             DA.Update(DTC);
+           
         }
 
         private void label9_Click(object sender, EventArgs e)
@@ -226,6 +243,7 @@ namespace PETSystem
                 {
                 }
                 connectstring.Close();
+
             }
         }
 

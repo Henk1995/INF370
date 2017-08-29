@@ -51,8 +51,6 @@
             this.dgvMaintain = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             this.MaintainTCPanel = new System.Windows.Forms.Panel();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txtYear = new System.Windows.Forms.TextBox();
             this.txtCourseName = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -273,8 +271,6 @@
             // 
             // MaintainTCPanel
             // 
-            this.MaintainTCPanel.Controls.Add(this.label8);
-            this.MaintainTCPanel.Controls.Add(this.txtYear);
             this.MaintainTCPanel.Controls.Add(this.txtCourseName);
             this.MaintainTCPanel.Controls.Add(this.button4);
             this.MaintainTCPanel.Controls.Add(this.label6);
@@ -283,23 +279,6 @@
             this.MaintainTCPanel.Name = "MaintainTCPanel";
             this.MaintainTCPanel.Size = new System.Drawing.Size(276, 123);
             this.MaintainTCPanel.TabIndex = 11;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(9, 66);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(32, 13);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "Year:";
-            // 
-            // txtYear
-            // 
-            this.txtYear.Location = new System.Drawing.Point(89, 63);
-            this.txtYear.Name = "txtYear";
-            this.txtYear.Size = new System.Drawing.Size(119, 20);
-            this.txtYear.TabIndex = 11;
-            this.txtYear.TextChanged += new System.EventHandler(this.txtYear_TextChanged);
             // 
             // txtCourseName
             // 
@@ -403,8 +382,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridView dgvMaintain;
         private System.Windows.Forms.Panel MaintainTCPanel;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtYear;
         private System.Windows.Forms.TextBox txtCourseName;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label6;

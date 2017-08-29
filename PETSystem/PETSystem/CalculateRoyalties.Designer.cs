@@ -32,6 +32,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtInstructorID = new System.Windows.Forms.TextBox();
             this.btnCalculate = new System.Windows.Forms.Button();
+            this.dgvInstructor = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInstructor)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBack
@@ -47,7 +49,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(142, 87);
+            this.label1.Location = new System.Drawing.Point(2, 54);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 13);
             this.label1.TabIndex = 6;
@@ -55,7 +57,7 @@
             // 
             // txtInstructorID
             // 
-            this.txtInstructorID.Location = new System.Drawing.Point(210, 81);
+            this.txtInstructorID.Location = new System.Drawing.Point(70, 48);
             this.txtInstructorID.Name = "txtInstructorID";
             this.txtInstructorID.Size = new System.Drawing.Size(156, 20);
             this.txtInstructorID.TabIndex = 5;
@@ -63,7 +65,7 @@
             // 
             // btnCalculate
             // 
-            this.btnCalculate.Location = new System.Drawing.Point(210, 137);
+            this.btnCalculate.Location = new System.Drawing.Point(70, 104);
             this.btnCalculate.Name = "btnCalculate";
             this.btnCalculate.Size = new System.Drawing.Size(156, 32);
             this.btnCalculate.TabIndex = 4;
@@ -71,17 +73,28 @@
             this.btnCalculate.UseVisualStyleBackColor = true;
             this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
             // 
+            // dgvInstructor
+            // 
+            this.dgvInstructor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvInstructor.Location = new System.Drawing.Point(256, 48);
+            this.dgvInstructor.Name = "dgvInstructor";
+            this.dgvInstructor.Size = new System.Drawing.Size(600, 189);
+            this.dgvInstructor.TabIndex = 8;
+            // 
             // CalculateRoyalties
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 302);
+            this.ClientSize = new System.Drawing.Size(868, 302);
+            this.Controls.Add(this.dgvInstructor);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtInstructorID);
             this.Controls.Add(this.btnCalculate);
             this.Name = "CalculateRoyalties";
             this.Text = "Calculate Royalties";
+            this.Load += new System.EventHandler(this.CalculateRoyalties_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvInstructor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -93,5 +106,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtInstructorID;
         private System.Windows.Forms.Button btnCalculate;
+        private System.Windows.Forms.DataGridView dgvInstructor;
     }
 }
