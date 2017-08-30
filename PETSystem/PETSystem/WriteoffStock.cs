@@ -22,7 +22,9 @@ namespace PETSystem
         bool WriteoffValid;
         int loadID = Search_Stock.ToUpdate;
         int getTypeID;
-
+        int CurrentQuantity;
+        int WriteoffAmmount;
+        int NewQuantity;
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -46,9 +48,6 @@ namespace PETSystem
                 txtWriteoffQuantity.BackColor = Color.White;
                 WriteoffValid = true;
             }
-
-
-
         }
 
        
@@ -67,6 +66,22 @@ namespace PETSystem
             else
             {
                 //Update DB
+                WriteoffAmmount = Convert.ToInt32(txtWriteoffQuantity.Text);
+                NewQuantity = CurrentQuantity - WriteoffAmmount;
+
+                var mStock = (from x in db.Stocks where x.StockID == Convert.ToInt32(loadID) select x).FirstOrDefault();
+
+                mStock.StockQuantity = Convert.ToInt32(NewQuantity);
+
+                db.SubmitChanges();
+
+                txtWriteoffQuantity.Text = "";
+
+
+                this.Close();
+
+                MessageBox.Show("Updated quantity", "It Worked");
+
 
                 MessageBox.Show("Writing off " + Quantity, "stock items");
             }
@@ -89,6 +104,7 @@ namespace PETSystem
                                   a.StockDescription,
                                   a.StockUnitPrice,
                                   a.StockTypeID,
+                                  a.StockQuantity
 
 
                               }).ToList();
@@ -98,8 +114,9 @@ namespace PETSystem
                 lblStockID.Text = Convert.ToString(item.StockID);
                 lblStockDesc.Text = item.StockDescription;
                 lblStockUnitPrice.Text = Convert.ToString(item.StockUnitPrice);
-                lblStockQuantity.Text = Convert.ToString(item.StockUnitPrice);
+                lblStockQuantity.Text = Convert.ToString(item.StockQuantity);
                 getTypeID = item.StockTypeID;
+                CurrentQuantity = Convert.ToInt32(item.StockQuantity);
             }
 
             var mStockTypeload = (from x in db.StockTypes

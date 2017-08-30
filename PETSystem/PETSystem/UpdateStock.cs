@@ -27,13 +27,6 @@ namespace PETSystem
 
         }
 
-        //public UpdateStock(int SendID)
-        //{
-        //    InitializeComponent();
-        //    NewID = SendID;
-        //}
-
-
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             string UnitPrice = txtName.Text;
@@ -56,20 +49,6 @@ namespace PETSystem
             }
             else
             {
-
-                //Stock mStock = new Stock
-                //{
-                //    StockID = Convert.ToInt32(label1.Text),
-                //    StockDescription = txtDesc.Text,
-                //    StockUnitPrice = Convert.ToInt32(txtPrice.Text),
-                //   // StockType = cbType.SelectedValue,
-
-
-                //};
-
-                //db.Stocks.InsertOnSubmit(mStock);
-                //db.SubmitChanges();
-
                 var mSomeone = (from x in db.Stocks where x.StockID == Convert.ToInt32(NewID) select x).FirstOrDefault();
 
 
@@ -180,12 +159,6 @@ namespace PETSystem
             {
                 cbStockType.SelectedItem = Typevalue.StockName;
             }
-
-
-
-
-
-
         }
 
         private void button1_Click(object sender, EventArgs e)

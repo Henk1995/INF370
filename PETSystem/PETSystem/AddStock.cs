@@ -17,8 +17,12 @@ namespace PETSystem
             InitializeComponent();
         }
 
+        PET_DBDataContext db = new PET_DBDataContext();
         ErrorHandle chk = new ErrorHandle();
         bool AddValid;
+        int getTypeID;
+        int CurrentQuantity;
+        int NewID = Search_Stock.ToUpdate;
 
         private void txtQuantity_TextChanged(object sender, EventArgs e)
         {
@@ -65,6 +69,44 @@ namespace PETSystem
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void AddStock_Load(object sender, EventArgs e)
+        {
+            var mStockload = (from a in db.Stocks
+                              where a.StockID == NewID
+                              select new
+                              {
+                                  a.StockID,
+                                  a.StockDescription,
+                                  a.StockUnitPrice,
+                                  a.StockTypeID,
+                                  a.StockQuantity
+                              }).ToList();
+
+            foreach (var item in mStockload)
+            {
+                lblstockID.Text = Convert.ToString(item.StockID);
+                lblStockDesc.Text = item.StockDescription;
+                lblPrice.Text = Convert.ToString(item.StockUnitPrice);
+                getTypeID = item.StockTypeID;
+                CurrentQuantity = Convert.ToInt32(item.StockQuantity);
+            }
+
+            var mStockTypeload = (from x in db.StockTypes
+                                  where x.StockTypeID == getTypeID
+                                  select new
+                                  {
+                                      x.StockTypeID,
+                                      x.StockName
+                                  }).ToList();
+
+            foreach (var Typevalue in mStockTypeload)
+            {
+                lblStockType.Text = Typevalue.StockName;
+            }
+
+
         }
     }
 }

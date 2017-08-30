@@ -56,7 +56,7 @@ namespace Refund_Order
             {
                 DataTable DT = new DataTable();
                 ConnectString.connectstring.Open();
-                SqlCommand Fill = new SqlCommand("SELECT * FROM SupplierOrder WHERE SupplierOrderID ='" + Convert.ToInt32(txtSupplierOrderID.Text) + "'", connectstring);
+                SqlCommand Fill = new SqlCommand("SELECT * FROM SupplierOrder WHERE SupplierOrderID ='" + Convert.ToInt32(txtSupplierOrderID.Text) + "'", ConnectString.connectstring);
                 DA = new SqlDataAdapter(Fill);
                 DA.Fill(DT);
                 dgvSupp.DataSource = DT;
