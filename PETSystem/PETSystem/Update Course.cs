@@ -22,8 +22,6 @@ namespace PETSystem
         bool CourseNValid;
         bool CourseCostValid;
         bool CourseDurationValid;
-        int LoadID = SearchCourse.ToUpdate;
-
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -56,14 +54,18 @@ namespace PETSystem
             else
             {
 
-                var mCourse = (from x in db.Courses where x.AvailableCourseID == Convert.ToInt32(LoadID) select x).FirstOrDefault();
+                //Stock mStock = new Stock
+                //{
+                //    StockID = Convert.ToInt32(label1.Text),
+                //    StockDescription = txtDesc.Text,
+                //    StockUnitPrice = Convert.ToInt32(txtPrice.Text),
+                //   // StockType = cbType.SelectedValue,
 
 
-                mCourse.CourseName = txtCourseName.Text;
-                mCourse.CourseCost = Convert.ToInt32(txtCourseCost.Text);
-                mCourse.CourseDuration = txtCourseDuration.Text;
+                //};
 
-                db.SubmitChanges();
+                //db.Stocks.InsertOnSubmit(mStock);
+                //db.SubmitChanges();
 
                 txtCourseName.Text = "";
                 txtCourseCost.Text = "";
@@ -71,10 +73,8 @@ namespace PETSystem
 
                 this.Close();
 
-
-
                 MessageBox.Show("Added new course: " + CourseName + "\n Cost: R " + CourseCost + "" + "/n Running Time: " + CourseDuration, "It Worked");
-
+                //MessageBox.Show("ok");
             }
         }
 
@@ -153,25 +153,6 @@ namespace PETSystem
         private void Update_Course_Load(object sender, EventArgs e)
         {
             //Load all fields from DB
-            var mCourseload = (from a in db.Courses
-                              where a.AvailableCourseID == LoadID
-                              select new
-                              {
-                                  a.AvailableCourseID,
-                                  a.CourseName,
-                                  a.CourseCost,
-                                  a.CourseDuration,
-                              }).ToList();
-
-            foreach (var item in mCourseload)
-            {
-                lblCourseID.Text = Convert.ToString(item.AvailableCourseID);
-                txtCourseName.Text = item.CourseName;
-                txtCourseCost.Text = Convert.ToString(item.CourseCost);
-                txtCourseDuration.Text = Convert.ToString(item.CourseDuration);
-
-            }
-
         }
     }
 }

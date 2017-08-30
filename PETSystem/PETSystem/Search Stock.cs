@@ -12,30 +12,18 @@ namespace PETSystem
 {
     public partial class Search_Stock : Form
     {
+        public Search_Stock()
+        {
+            InitializeComponent();
+        }
+
 
         PET_DBDataContext db = new PET_DBDataContext();
         ErrorHandle chk = new ErrorHandle();
         bool SearchDValid;
         bool SearchIValid;
         int id;
-        int SendID = 0;
 
-        public static int ToUpdate;
-        
-
-        public Search_Stock()
-        {
-            InitializeComponent();
-        }
-
-        //public Search_Stock(int SendID)
-        //{
-        //    InitializeComponent();
-        //    id = SendID;
-
-        //}
-
-        
 
         private void btnSearcStockDesc_Click(object sender, EventArgs e)
         {
@@ -183,13 +171,8 @@ namespace PETSystem
             }
         }
 
-        
-
         private void btnUpdateStock_Click(object sender, EventArgs e)
         {
-            //UpdateStock f = new UpdateStock();
-            //f.Show();
-
             UpdateStock f = new UpdateStock();
             f.Show();
         }
@@ -221,7 +204,7 @@ namespace PETSystem
             {
                 Stock _Stock = (Stock)dgvSearchStock.CurrentRow.DataBoundItem;
                 id = _Stock.StockID;
-                ToUpdate = id;
+
             }
         }
     }

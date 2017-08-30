@@ -33,7 +33,7 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.txtCourseCost = new System.Windows.Forms.TextBox();
             this.txtCourseName = new System.Windows.Forms.TextBox();
-            this.lblCourseID = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -84,14 +84,14 @@
             this.txtCourseName.TabIndex = 52;
             this.txtCourseName.TextChanged += new System.EventHandler(this.txtCourseName_TextChanged);
             // 
-            // lblCourseID
+            // label6
             // 
-            this.lblCourseID.AutoSize = true;
-            this.lblCourseID.Location = new System.Drawing.Point(124, 42);
-            this.lblCourseID.Name = "lblCourseID";
-            this.lblCourseID.Size = new System.Drawing.Size(31, 13);
-            this.lblCourseID.TabIndex = 51;
-            this.lblCourseID.Text = "0001";
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(124, 42);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(31, 13);
+            this.label6.TabIndex = 51;
+            this.label6.Text = "0001";
             // 
             // label5
             // 
@@ -139,7 +139,7 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtCourseCost);
             this.Controls.Add(this.txtCourseName);
-            this.Controls.Add(this.lblCourseID);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -159,7 +159,7 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TextBox txtCourseCost;
         private System.Windows.Forms.TextBox txtCourseName;
-        private System.Windows.Forms.Label lblCourseID;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;

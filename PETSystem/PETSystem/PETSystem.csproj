@@ -225,11 +225,11 @@
     <Compile Include="Search Stock.Designer.cs">
       <DependentUpon>Search Stock.cs</DependentUpon>
     </Compile>
-    <Compile Include="Search Course.cs">
+    <Compile Include="SearchCourse.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Search Course.Designer.cs">
-      <DependentUpon>Search Course.cs</DependentUpon>
+    <Compile Include="SearchCourse.Designer.cs">
+      <DependentUpon>SearchCourse.cs</DependentUpon>
     </Compile>
     <Compile Include="SearchInstructor.cs">
       <SubType>Form</SubType>
@@ -438,8 +438,8 @@
     <EmbeddedResource Include="Search Stock.resx">
       <DependentUpon>Search Stock.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Search Course.resx">
-      <DependentUpon>Search Course.cs</DependentUpon>
+    <EmbeddedResource Include="SearchCourse.resx">
+      <DependentUpon>SearchCourse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SearchInstructor.resx">
       <DependentUpon>SearchInstructor.cs</DependentUpon>

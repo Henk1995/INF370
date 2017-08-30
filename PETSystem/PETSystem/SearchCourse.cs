@@ -22,8 +22,6 @@ namespace PETSystem
         ErrorHandle chk = new ErrorHandle();
         bool SearchCIsValid;
         int id;
-        public static int ToUpdate;
-
 
         private void btnSearcCourseName_Click(object sender, EventArgs e)
         {
@@ -123,7 +121,7 @@ namespace PETSystem
         private void btnUpdateCourse_Click(object sender, EventArgs e)
         {
             Update_Course uc = new Update_Course();
-            uc.ShowDialog();
+            uc.Show();
         }
 
         private void btnSearchCourseClient_Click(object sender, EventArgs e)
@@ -158,7 +156,7 @@ namespace PETSystem
             {
                 Course _Course = (Course)dgvSearchCourse.CurrentRow.DataBoundItem;
                 id = _Course.AvailableCourseID;
-                ToUpdate = id;
+               
             }
         }
     }

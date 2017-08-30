@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cbStockType = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.lblStockID = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
-            this.txtPrice = new System.Windows.Forms.TextBox();
+            this.txtSurname = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // cbStockType
+            // comboBox1
             // 
-            this.cbStockType.FormattingEnabled = true;
-            this.cbStockType.Items.AddRange(new object[] {
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
             "Book\'s",
             "Pen\'s",
             "Misc"});
-            this.cbStockType.Location = new System.Drawing.Point(149, 142);
-            this.cbStockType.Name = "cbStockType";
-            this.cbStockType.Size = new System.Drawing.Size(212, 21);
-            this.cbStockType.TabIndex = 77;
+            this.comboBox1.Location = new System.Drawing.Point(149, 142);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(212, 21);
+            this.comboBox1.TabIndex = 77;
             // 
             // label8
             // 
@@ -61,14 +61,14 @@
             this.label8.TabIndex = 76;
             this.label8.Text = "Stock Type:";
             // 
-            // lblStockID
+            // label7
             // 
-            this.lblStockID.AutoSize = true;
-            this.lblStockID.Location = new System.Drawing.Point(146, 36);
-            this.lblStockID.Name = "lblStockID";
-            this.lblStockID.Size = new System.Drawing.Size(31, 13);
-            this.lblStockID.TabIndex = 75;
-            this.lblStockID.Text = "0002";
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(146, 36);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(31, 13);
+            this.label7.TabIndex = 75;
+            this.label7.Text = "0002";
             // 
             // button1
             // 
@@ -78,7 +78,6 @@
             this.button1.TabIndex = 74;
             this.button1.Text = "Cancel";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnSubmit
             // 
@@ -90,13 +89,13 @@
             this.btnSubmit.UseVisualStyleBackColor = true;
             this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
-            // txtPrice
+            // txtSurname
             // 
-            this.txtPrice.Location = new System.Drawing.Point(149, 104);
-            this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(212, 20);
-            this.txtPrice.TabIndex = 72;
-            this.txtPrice.TextChanged += new System.EventHandler(this.txtSurname_TextChanged);
+            this.txtSurname.Location = new System.Drawing.Point(149, 104);
+            this.txtSurname.Name = "txtSurname";
+            this.txtSurname.Size = new System.Drawing.Size(212, 20);
+            this.txtSurname.TabIndex = 72;
+            this.txtSurname.TextChanged += new System.EventHandler(this.txtSurname_TextChanged);
             // 
             // txtName
             // 
@@ -138,12 +137,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(405, 249);
-            this.Controls.Add(this.cbStockType);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.lblStockID);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSubmit);
-            this.Controls.Add(this.txtPrice);
+            this.Controls.Add(this.txtSurname);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -158,12 +157,12 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox cbStockType;
+        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lblStockID;
+        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnSubmit;
-        private System.Windows.Forms.TextBox txtPrice;
+        private System.Windows.Forms.TextBox txtSurname;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
