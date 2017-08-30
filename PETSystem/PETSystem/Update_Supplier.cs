@@ -14,8 +14,7 @@ namespace Update_Supplier
 {
     public partial class Update_Supplier : Form
     {
-        public static string DBC = "Data Source=JWM\\SYSARCH;Initial Catalog=INF370;Integrated Security=True";
-        SqlConnection connectstring = new SqlConnection(DBC);
+        
         SqlDataAdapter DA;
         ErrorHandle EH = new ErrorHandle();
         bool valid1 = false;
@@ -41,37 +40,37 @@ namespace Update_Supplier
                 MessageBox.Show("Are you sure you want to update this Supplier", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
                 //This is my update query in which i am taking input from the user through windows forms and update the record.  
                 string query1 = "SELECT SupplierTypeID FROM SupplierType WHERE SupplierTypeName ='" + cmbSuppType.Text + "'";
-                SqlCommand MyCommand1 = new SqlCommand(query1, connectstring);
+                SqlCommand MyCommand1 = new SqlCommand(query1, ConnectString.connectstring);
                 SqlDataReader MyReader1;
-                connectstring.Open();
+                ConnectString.connectstring.Open();
                 MyReader1 = MyCommand1.ExecuteReader();     // Here our query will be executed and data saved into the database.  
 
                 while (MyReader1.Read())
                 {
                     GenderID = Convert.ToInt32(MyReader1["SupplierTypeID"]);
                 }
-                connectstring.Close();
+                ConnectString.connectstring.Close();
                
                 string Query = "UPDATE Supplier SET SupplierName ='" + this.txtSuppName.Text + "', SupplierAddress = '" + this.txtAdress.Text + "', SupplierEmail = '" + this.txtEmail.Text + "', SupplierPhoneNumber = '" + this.txtPhoneNumber.Text + "', SupplierBankAccNumber ='" + this.txtBancACCN.Text + "', SupplierTypeID = '" + GenderID + "' WHERE SupplierID =" + Convert.ToInt32(InstructorID) + ";";
                 //This is  MySqlConnection here i have created the object and pass my connection string.  
 
-                SqlCommand MyCommand3 = new SqlCommand(Query, connectstring);
+                SqlCommand MyCommand3 = new SqlCommand(Query, ConnectString.connectstring);
                 SqlDataReader MyReader3;
-                connectstring.Open();
+                ConnectString.connectstring.Open();
                 MyReader3 = MyCommand3.ExecuteReader();
                 MessageBox.Show("Data Updated");
                 while (MyReader3.Read())
                 {
                 }
-                connectstring.Close();//Connection closed here 
+                ConnectString.connectstring.Close();//Connection closed here 
                 DataTable DT = new DataTable();
-                connectstring.Open();
-                SqlCommand Fill = new SqlCommand("SELECT * FROM Supplier", connectstring);
+                ConnectString.connectstring.Open();
+                SqlCommand Fill = new SqlCommand("SELECT * FROM Supplier", ConnectString.connectstring);
                 DA = new SqlDataAdapter(Fill);
                 DA.Fill(DT);
                 dgvInstructor.DataSource = DT;
                 dgvInstructor.DataMember = DT.TableName;
-                connectstring.Close();
+                ConnectString.connectstring.Close();
             }
             else
             {
@@ -84,26 +83,26 @@ namespace Update_Supplier
         private void Update_Supplier_Load(object sender, EventArgs e)
         {
             DataTable DT = new DataTable();
-            connectstring.Open();
-            SqlCommand Fill = new SqlCommand("SELECT * FROM Supplier", connectstring);
+            ConnectString.connectstring.Open();
+            SqlCommand Fill = new SqlCommand("SELECT * FROM Supplier", ConnectString.connectstring);
             DA = new SqlDataAdapter(Fill);
             DA.Fill(DT);
             dgvInstructor.DataSource = DT;
             dgvInstructor.DataMember = DT.TableName;
-            connectstring.Close();
+            ConnectString.connectstring.Close();
             cmbSuppType.Items.Clear();
 
             string query1 = "SELECT SupplierTypeName FROM SupplierType ";
             DataTable DTa = new DataTable();
-            connectstring.Open();
-            SqlCommand cmd = new SqlCommand(query1, connectstring);
+            ConnectString.connectstring.Open();
+            SqlCommand cmd = new SqlCommand(query1, ConnectString.connectstring);
             DA = new SqlDataAdapter(cmd);
             DA.Fill(DTa);
             foreach (DataRow dr in DTa.Rows)
             {
                 cmbSuppType.Items.Add(dr["SupplierTypeName"]).ToString();
             }
-            connectstring.Close();
+            ConnectString.connectstring.Close();
         }
 
         private void dgvInstructor_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -118,16 +117,16 @@ namespace Update_Supplier
                 string AccNid = dgvInstructor.SelectedRows[0].Cells[5].Value + string.Empty;
                 string titleid = dgvInstructor.SelectedRows[0].Cells[6].Value + string.Empty;
                 string query1 = "SELECT SupplierTypeName FROM SupplierType ";
-                SqlCommand MyCommand2 = new SqlCommand(query1, connectstring);
+                SqlCommand MyCommand2 = new SqlCommand(query1, ConnectString.connectstring);
                 SqlDataReader MyReader2;
-                connectstring.Open();
+                ConnectString.connectstring.Open();
                 MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
 
                 while (MyReader2.Read())
                 {
                     titleid = MyReader2["SupplierTypeName"].ToString();
                 }
-                connectstring.Close();
+                ConnectString.connectstring.Close();
                
                 txtEmail.Text = emailId;
                 txtSuppName.Text = NameId;

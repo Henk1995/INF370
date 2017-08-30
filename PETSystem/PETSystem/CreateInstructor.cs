@@ -15,7 +15,6 @@ namespace PETSystem
     public partial class CreateInstructor : Form
     {
         SqlDataAdapter DA;
-        public static string DBC = "Data Source=JWM\\SYSARCH;Initial Catalog=INF370;Integrated Security=True";
         bool valid1 = false;
         bool valid2 = false;
         bool valid3 = false;
@@ -23,7 +22,7 @@ namespace PETSystem
         bool valid5 = false;
         bool valid6 = false;
         bool valid7 = false;
-        SqlConnection connectstring = new SqlConnection(DBC);
+        
         bool valid8 = false;
         ErrorHandle EH = new ErrorHandle();
         public CreateInstructor()
@@ -117,48 +116,48 @@ namespace PETSystem
                 MessageBox.Show("Are you sure you want to create this instructor?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
                 DataTable DT = new DataTable();
                 string query4 = "SELECT CertificationID FROM Certification WHERE CertificationName ='" + cmbCertification.Text + "'";
-                SqlCommand MyCommand4 = new SqlCommand(query4, connectstring);
+                SqlCommand MyCommand4 = new SqlCommand(query4, ConnectString.connectstring);
                 SqlDataReader MyReader4;
-                connectstring.Open();
+                ConnectString.connectstring.Open();
                 MyReader4 = MyCommand4.ExecuteReader();     // Here our query will be executed and data saved into the database.  
 
                 while (MyReader4.Read())
                 {
                     CertificationID = Convert.ToInt32(MyReader4["CertificationID"]);
                 }
-                connectstring.Close();
+                ConnectString.connectstring.Close();
                 string query1 = "SELECT GenderID FROM Gender WHERE GenderName ='" + cmbGender.Text + "'";
-                SqlCommand MyCommand1 = new SqlCommand(query1, connectstring);
+                SqlCommand MyCommand1 = new SqlCommand(query1, ConnectString.connectstring);
                 SqlDataReader MyReader1;
-                connectstring.Open();
+                ConnectString.connectstring.Open();
                 MyReader1 = MyCommand1.ExecuteReader();     // Here our query will be executed and data saved into the database.  
 
                 while (MyReader1.Read())
                 {
                     GenderID = Convert.ToInt32(MyReader1["GenderID"]);
                 }
-                connectstring.Close();
+                ConnectString.connectstring.Close();
                 string query2 = "SELECT TitleID FROM Title WHERE TitleName ='" + cmbTitle.Text + "'";
-                SqlCommand MyCommand2 = new SqlCommand(query2, connectstring);
+                SqlCommand MyCommand2 = new SqlCommand(query2, ConnectString.connectstring);
                 SqlDataReader MyReader2;
-                connectstring.Open();
+                ConnectString.connectstring.Open();
                 MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
 
                 while (MyReader2.Read())
                 {
                     TitleID = Convert.ToInt32(MyReader2["TitleID"]);
                 }
-                connectstring.Close();
+                ConnectString.connectstring.Close();
                 string Query = "INSERT INTO Instructor (Name,Surname,Email,PhoneNumber,GenderID,TitleID,CertificationID) VALUES ('" + this.txtName.Text + "','" + this.txtSurname.Text + "','" + this.txtEmail.Text + "','" + this.txtPhoneNumber.Text + "','" + GenderID + "','" + TitleID + "','" + CertificationID + "');";
-                SqlCommand MyCommand3 = new SqlCommand(Query, connectstring);
+                SqlCommand MyCommand3 = new SqlCommand(Query, ConnectString.connectstring);
                 SqlDataReader MyReader3;
-                connectstring.Open();
+                ConnectString.connectstring.Open();
                 MyReader3 = MyCommand3.ExecuteReader();     // Here our query will be executed and data saved into the database.  
                 MessageBox.Show("Save Data");
                 while (MyReader3.Read())
                 {
                 }
-                connectstring.Close();
+                ConnectString.connectstring.Close();
             }
             else
             {
@@ -170,13 +169,13 @@ namespace PETSystem
         private void cmbGender_SelectedIndexChanged(object sender, EventArgs e)
         {
             /*DataTable DT = new DataTable();
-            connectstring.Open();
-            SqlCommand Fill = new SqlCommand("SELECT * FROM Title", connectstring);
+            ConnectString.connectstring.Open();
+            SqlCommand Fill = new SqlCommand("SELECT * FROM Title", ConnectString.connectstring);
             DA = new SqlDataAdapter(Fill);
             DA.Fill(DT);
             cmbGender.DataSource = DT;
             cmbGender.DataMember = DT.TableName;
-            connectstring.Close();*/
+            ConnectString.connectstring.Close();*/
         }
 
         private void CreateInstructor_Load(object sender, EventArgs e)
@@ -187,8 +186,8 @@ namespace PETSystem
             cmbTitle.Items.Clear();
             string query1 = "SELECT GenderName FROM Gender ";
         DataTable DT = new DataTable();
-        connectstring.Open();
-            SqlCommand cmd = new SqlCommand(query1, connectstring);
+        ConnectString.connectstring.Open();
+            SqlCommand cmd = new SqlCommand(query1, ConnectString.connectstring);
         DA = new SqlDataAdapter(cmd);
         DA.Fill(DT);
             foreach (DataRow dr in DT.Rows)
@@ -198,25 +197,25 @@ namespace PETSystem
     string query2 = "SELECT TitleName FROM Title ";
     DataTable DT2 = new DataTable();
 
-    SqlCommand cmd2 = new SqlCommand(query2, connectstring);
+    SqlCommand cmd2 = new SqlCommand(query2, ConnectString.connectstring);
     DA = new SqlDataAdapter(cmd2);
     DA.Fill(DT2);
             foreach (DataRow dr in DT2.Rows)
             {
                 cmbTitle.Items.Add(dr["TitleName"]).ToString();
 }
-connectstring.Close();
+ConnectString.connectstring.Close();
             string query3 = "SELECT CertificationName FROM Certification ";
 DataTable DT3 = new DataTable();
-connectstring.Open();
-            SqlCommand cmd3 = new SqlCommand(query3, connectstring);
+ConnectString.connectstring.Open();
+            SqlCommand cmd3 = new SqlCommand(query3, ConnectString.connectstring);
 DA = new SqlDataAdapter(cmd3);
 DA.Fill(DT3);
             foreach (DataRow dr in DT3.Rows)
             {
                 cmbCertification.Items.Add(dr["CertificationName"]).ToString();
             }
-            connectstring.Close();
+            ConnectString.connectstring.Close();
         }
     }
 }

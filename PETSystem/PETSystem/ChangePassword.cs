@@ -14,8 +14,7 @@ namespace PETSystem
 {
     public partial class ChangePassword : Form
     {
-        public static string DBC = "Data Source=JWM\\SYSARCH;Initial Catalog=INF370;Integrated Security=True";
-        SqlConnection connectstring = new SqlConnection(DBC);
+        
         bool valid1 = false;
         bool valid2 = false;
         bool valid3 = false;
@@ -97,12 +96,12 @@ namespace PETSystem
         private void btnChangePass_Click(object sender, EventArgs e)
         {
             string Query1 = "SELECT * FROM UserTable WHERE UserName ='" + this.txtUserName.Text + "'AND UserPassword='"+this.txtOldPass.Text+"';";
-            SqlCommand MyCommand = new SqlCommand(Query1, connectstring);
+            SqlCommand MyCommand = new SqlCommand(Query1, ConnectString.connectstring);
             SqlDataReader MyReader;
             SqlDataAdapter DA = new SqlDataAdapter(MyCommand);
             DataTable DT = new DataTable();
             DA.Fill(DT);
-            connectstring.Open();
+            ConnectString.connectstring.Open();
             MyReader = MyCommand.ExecuteReader();
             
             if (DT.Rows.Count == 0)
@@ -111,23 +110,23 @@ namespace PETSystem
                     valid1 = false;
                 valid2 = false;
                 }
-            
-            connectstring.Close();
+
+            ConnectString.connectstring.Close();
             if (valid1 & valid2 & valid3 & valid4)
             {
                 MessageBox.Show("Change password?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
                 string Query = "UPDATE UserTable SET UserPassword ='" + this.txtNewPass.Text + "' WHERE UserName ='" + this.txtUserName.Text + "';";
                 //This is  MySqlConnection here i have created the object and pass my connection string.  
 
-                SqlCommand MyCommand3 = new SqlCommand(Query, connectstring);
+                SqlCommand MyCommand3 = new SqlCommand(Query, ConnectString.connectstring);
                 SqlDataReader MyReader3;
-                connectstring.Open();
+                ConnectString.connectstring.Open();
                 MyReader3 = MyCommand3.ExecuteReader();
                 MessageBox.Show("Data Updated");
                 while (MyReader3.Read())
                 {
                 }
-                connectstring.Close();//Connection closed here
+                ConnectString.connectstring.Close();//Connection closed here
                 MessageBox.Show("Password succesfully changed.", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
             }

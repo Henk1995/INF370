@@ -16,8 +16,7 @@ namespace Refund_Order
 {
     public partial class RefundOrderSupp : Form
     {
-        public static string DBC = "Data Source=JWM\\SYSARCH;Initial Catalog=INF370;Integrated Security=True";
-        SqlConnection connectstring = new SqlConnection(DBC);
+       
         SqlDataAdapter DA;
         bool valid1 = false;
         public RefundOrderSupp()
@@ -28,41 +27,41 @@ namespace Refund_Order
         private void Form1_Load(object sender, EventArgs e)
         {
             DataTable DT = new DataTable();
-            connectstring.Open();
-            SqlCommand Fill = new SqlCommand("SELECT * FROM SupplierOrder", connectstring);
+            ConnectString.connectstring.Open();
+            SqlCommand Fill = new SqlCommand("SELECT * FROM SupplierOrder", ConnectString.connectstring);
             DA = new SqlDataAdapter(Fill);
             DA.Fill(DT);
             dgvSupp.DataSource = DT;
             dgvSupp.DataMember = DT.TableName;
-            connectstring.Close();
+            ConnectString.connectstring.Close();
 
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             string queryA = "SELECT * FROM SupplierOrder WHERE SupplierOrderID ='" + Convert.ToInt32(txtSupplierOrderID.Text) + "'";
-            SqlCommand MyCommandA = new SqlCommand(queryA, connectstring);
+            SqlCommand MyCommandA = new SqlCommand(queryA, ConnectString.connectstring);
 
             SqlDataAdapter DAA = new SqlDataAdapter(MyCommandA);
             DataTable DTA = new DataTable();
             DAA.Fill(DTA);
-            connectstring.Open();
+            ConnectString.connectstring.Open();
             if (DTA.Rows.Count == 1)
             {
 
                 valid1 = true;
             }
-            connectstring.Close();
+            ConnectString.connectstring.Close();
             if (valid1)
             {
                 DataTable DT = new DataTable();
-                connectstring.Open();
+                ConnectString.connectstring.Open();
                 SqlCommand Fill = new SqlCommand("SELECT * FROM SupplierOrder WHERE SupplierOrderID ='" + Convert.ToInt32(txtSupplierOrderID.Text) + "'", connectstring);
                 DA = new SqlDataAdapter(Fill);
                 DA.Fill(DT);
                 dgvSupp.DataSource = DT;
                 dgvSupp.DataMember = DT.TableName;
-                connectstring.Close();
+                ConnectString.connectstring.Close();
             }
         }
 
@@ -79,16 +78,16 @@ namespace Refund_Order
 
                 MessageBox.Show("Are you sure you want to delete this instructor?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                 string query2 = "SELECT SupplierEmail FROM Supplier WHERE SupplierID ='" + suppID + "'";
-                SqlCommand MyCommand2 = new SqlCommand(query2, connectstring);
+                SqlCommand MyCommand2 = new SqlCommand(query2, ConnectString.connectstring);
                 SqlDataReader MyReader2;
-                connectstring.Open();
+                ConnectString.connectstring.Open();
                 MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
 
                 while (MyReader2.Read())
                 {
                     emailA = MyReader2["SupplierEmail"].ToString();
                 }
-                connectstring.Close();
+                ConnectString.connectstring.Close();
                 using (SmtpClient client = new SmtpClient())
                 {
                     client.Host = "smtp.gmail.com";

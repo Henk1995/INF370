@@ -93,6 +93,7 @@
     <Compile Include="ChangePassword.Designer.cs">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="ConnectString.cs" />
     <Compile Include="Create Course.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +131,12 @@
       <DependentUpon>Delete_Supplier.cs</DependentUpon>
     </Compile>
     <Compile Include="ErrorHandle.cs" />
+    <Compile Include="ForgotPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ForgotPassword.Designer.cs">
+      <DependentUpon>ForgotPassword.cs</DependentUpon>
+    </Compile>
     <Compile Include="Instructors.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -379,6 +386,9 @@
     </None>
     <EmbeddedResource Include="Delete_Supplier.resx">
       <DependentUpon>Delete_Supplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ForgotPassword.resx">
+      <DependentUpon>ForgotPassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Instructors.resx">
       <DependentUpon>Instructors.cs</DependentUpon>

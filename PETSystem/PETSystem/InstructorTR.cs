@@ -14,8 +14,7 @@ namespace PETSystem
 {
     public partial class InstructorTR : Form
     {
-        public static string DBC = "Data Source=JWM\\SYSARCH;Initial Catalog=INF370;Integrated Security=True";
-        SqlConnection connectstring = new SqlConnection(DBC);
+        
         ErrorHandle EH = new ErrorHandle();
         SqlDataAdapter DA;
         bool valid1 = false;
@@ -39,23 +38,23 @@ namespace PETSystem
             if(!valid1)
             {
                 txtName.BackColor = Color.Red;
-                connectstring.Open();
-                DA = new SqlDataAdapter("select * from Instructor where Name like '" + txtName.Text + "%'", connectstring);
+                ConnectString.connectstring.Open();
+                DA = new SqlDataAdapter("select * from Instructor where Name like '" + txtName.Text + "%'", ConnectString.connectstring);
                 DataTable DT = new DataTable();
                 DA.Fill(DT);
                 dgvTR.DataSource = DT;
-                connectstring.Close();
+                ConnectString.connectstring.Close();
 
             }
             else
             {
                 txtName.BackColor = Color.White;
-                connectstring.Open();
-                DA = new SqlDataAdapter("select * from Instructor where Name like '" + txtName.Text + "%'", connectstring);
+                ConnectString.connectstring.Open();
+                DA = new SqlDataAdapter("select * from Instructor where Name like '" + txtName.Text + "%'", ConnectString.connectstring);
                 DataTable DT = new DataTable();
                 DA.Fill(DT);
                 dgvTR.DataSource = DT;
-                connectstring.Close();
+                ConnectString.connectstring.Close();
             }
         }
 
@@ -65,22 +64,22 @@ namespace PETSystem
             if (!valid2)
             {
                 txtSurname.BackColor = Color.Red;
-                connectstring.Open();
-                DA = new SqlDataAdapter("select * from Instructor where Surname like '" + txtSurname.Text + "%'", connectstring);
+                ConnectString.connectstring.Open();
+                DA = new SqlDataAdapter("select * from Instructor where Surname like '" + txtSurname.Text + "%'", ConnectString.connectstring);
                 DataTable DT = new DataTable();
                 DA.Fill(DT);
                 dgvTR.DataSource = DT;
-                connectstring.Close();
+                ConnectString.connectstring.Close();
             }
             else
             {
                 txtSurname.BackColor = Color.White;
-                connectstring.Open();
-                DA = new SqlDataAdapter("select * from Instructor where Surname like '" + txtSurname.Text + "%'", connectstring);
+                ConnectString.connectstring.Open();
+                DA = new SqlDataAdapter("select * from Instructor where Surname like '" + txtSurname.Text + "%'", ConnectString.connectstring);
                 DataTable DT = new DataTable();
                 DA.Fill(DT);
                 dgvTR.DataSource = DT;
-                connectstring.Close();
+                ConnectString.connectstring.Close();
             }
         }
 
@@ -90,22 +89,22 @@ namespace PETSystem
             if (!valid3)
             {
                 txtInstructorID.BackColor = Color.Red;
-                connectstring.Open();
-                DA = new SqlDataAdapter("select * from Instructor where InstructorID like '" + txtInstructorID.Text + "%'", connectstring);
+                ConnectString.connectstring.Open();
+                DA = new SqlDataAdapter("select * from Instructor where InstructorID like '" + txtInstructorID.Text + "%'", ConnectString.connectstring);
                 DataTable DT = new DataTable();
                 DA.Fill(DT);
                 dgvTR.DataSource = DT;
-                connectstring.Close();
+                ConnectString.connectstring.Close();
             }
             else
             {
                 txtInstructorID.BackColor = Color.White;
-                connectstring.Open();
-                DA = new SqlDataAdapter("select * from Instructor where InstructorID like '" + txtInstructorID.Text + "%'", connectstring);
+                ConnectString.connectstring.Open();
+                DA = new SqlDataAdapter("select * from Instructor where InstructorID like '" + txtInstructorID.Text + "%'", ConnectString.connectstring);
                 DataTable DT = new DataTable();
                 DA.Fill(DT);
                 dgvTR.DataSource = DT;
-                connectstring.Close();
+                ConnectString.connectstring.Close();
             }
         }
 
@@ -124,27 +123,27 @@ namespace PETSystem
                     string titleid = dgvTR.SelectedRows[0].Cells[6].Value + string.Empty;
 
                     string query2 = "SELECT TitleName FROM Title WHERE TitleID ='" + Convert.ToInt32(titleid) + "'";
-                    SqlCommand MyCommand2 = new SqlCommand(query2, connectstring);
+                    SqlCommand MyCommand2 = new SqlCommand(query2, ConnectString.connectstring);
                     SqlDataReader MyReader2;
-                    connectstring.Open();
+                    ConnectString.connectstring.Open();
                     MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
 
                     while (MyReader2.Read())
                     {
                         titleid = MyReader2["TitleName"].ToString();
                     }
-                    connectstring.Close();
+                    ConnectString.connectstring.Close();
                     string query1 = "SELECT GenderName FROM Gender WHERE GenderID ='" + Convert.ToInt32(Genderid) + "'";
-                    SqlCommand MyCommand1 = new SqlCommand(query1, connectstring);
+                    SqlCommand MyCommand1 = new SqlCommand(query1, ConnectString.connectstring);
                     SqlDataReader MyReader1;
-                    connectstring.Open();
+                    ConnectString.connectstring.Open();
                     MyReader1 = MyCommand1.ExecuteReader();     // Here our query will be executed and data saved into the database.  
 
                     while (MyReader1.Read())
                     {
                         Genderid = MyReader1["GenderName"].ToString();
                     }
-                    connectstring.Close();
+                    ConnectString.connectstring.Close();
                     MessageBox.Show(" Name:" + NameId + "\n Surname:" + SurnameId + "\n Phone Number:" + phoneNumberId + " \n E-mail: " + emailId + " \n Certification:", "Result",
         MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
@@ -163,13 +162,13 @@ namespace PETSystem
         private void InstructorTR_Load(object sender, EventArgs e)
         {
             DataTable DT = new DataTable();
-            connectstring.Open();
-            SqlCommand Fill = new SqlCommand("SELECT * FROM Instructor", connectstring);
+            ConnectString.connectstring.Open();
+            SqlCommand Fill = new SqlCommand("SELECT * FROM Instructor", ConnectString.connectstring);
             DA = new SqlDataAdapter(Fill);
             DA.Fill(DT);
             dgvTR.DataSource = DT;
             dgvTR.DataMember = DT.TableName;
-            connectstring.Close();
+            ConnectString.connectstring.Close();
         }
     }
 }

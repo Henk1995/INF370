@@ -15,11 +15,10 @@ namespace PETSystem
 {
     public partial class UserMenu : Form
     {
-        public static string DBC = "Data Source=JWM\\SYSARCH;Initial Catalog=INF370;Integrated Security=True";
-       static SqlConnection connectstring = new SqlConnection(DBC);
+       
         
         DataTable DT = new DataTable();
-       static SqlCommand Fill = new SqlCommand("SELECT * FROM UserTable", connectstring);
+       static SqlCommand Fill = new SqlCommand("SELECT * FROM UserTable", ConnectString.connectstring);
         SqlDataAdapter DA = new SqlDataAdapter(Fill);
        
         public UserMenu()
@@ -37,12 +36,12 @@ namespace PETSystem
             // TODO: This line of code loads data into the 'iNF370DataSet.UserTable' table. You can move, or remove it, as needed.
             // this.userTableTableAdapter.Fill(this.iNF370DataSet.UserTable);
            
-            connectstring.Open();
+            ConnectString.connectstring.Open();
             
             DA.Fill(DT);
             dgvUsers.DataSource = DT;
             dgvUsers.DataMember = DT.TableName;
-            connectstring.Close();
+            ConnectString.connectstring.Close();
         }
 
         private void btnMainM_Click(object sender, EventArgs e)
@@ -64,22 +63,22 @@ namespace PETSystem
             SqlCommandBuilder cmd = new SqlCommandBuilder(DA);
 
             DA.Update(DT);
-            connectstring.Open();
+            ConnectString.connectstring.Open();
 
             DA.Fill(DT);
             dgvUsers.DataSource = DT;
             dgvUsers.DataMember = DT.TableName;
-            connectstring.Close();
+            ConnectString.connectstring.Close();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            connectstring.Open();
-            DA = new SqlDataAdapter("select * from UserTable where Name like '" + textBox1.Text + "%'", connectstring);
+            ConnectString.connectstring.Open();
+            DA = new SqlDataAdapter("select * from UserTable where Name like '" + textBox1.Text + "%'", ConnectString.connectstring);
             DataTable DT = new DataTable();
             DA.Fill(DT);
             dgvUsers.DataSource = DT;
-            connectstring.Close();
+            ConnectString.connectstring.Close();
         }
     }
 }

@@ -15,8 +15,7 @@ namespace PETSystem
     public partial class LoginF : Form
     {
         bool validU = false;
-        public static string DBC = "Data Source=JWM\\SYSARCH;Initial Catalog=INF370;Integrated Security=True";
-
+       
 
         public LoginF()
         {
@@ -25,26 +24,33 @@ namespace PETSystem
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-        //    SqlConnection connectstring = new SqlConnection(DBC);
-        //    try
-        //    {
-        //        connectstring.Open();
-        //        MessageBox.Show("Open");
-        //        connectstring.Close();
-        //    }
-        //    catch (Exception X)
-        //    {
-        //        MessageBox.Show("Fuck");
-        //    }
-            MainMenuF MainM = new MainMenuF();
-            if ( txtPassword.Text == "1")
+          
+            string Query1 = "SELECT * FROM UserTable WHERE UserName ='" + this.txtUsername.Text + "'AND UserPassword='" + this.txtPassword.Text + "';";
+            SqlCommand MyCommand = new SqlCommand(Query1, ConnectString.connectstring);
+            SqlDataReader MyReader;
+            SqlDataAdapter DA = new SqlDataAdapter(MyCommand);
+            DataTable DT = new DataTable();
+            DA.Fill(DT);
+            ConnectString.connectstring.Open();
+            MyReader = MyCommand.ExecuteReader();
+
+            if (DT.Rows.Count == 0)
             {
-                MessageBox.Show("Welcome Username", "Login Succesfull", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                validU = false;
+                MessageBox.Show("Invalid username and/or Password");
+            }
+            else
+            {
+                validU = true;
+            }
+
+            ConnectString.connectstring.Close();
+            if (validU)
+            {
                 this.Visible = false;
-                MainM.ShowDialog();
-            }else
-            {
-                MessageBox.Show("Username and/or password is incorrect.", "Login Unsuccessfull", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MainMenuF UM = new MainMenuF();
+                UM.ShowDialog();
             }
         }
 
@@ -58,6 +64,13 @@ namespace PETSystem
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Visible = false;
+            ForgotPassword UM = new ForgotPassword();
+            UM.ShowDialog();
         }
     }
 }

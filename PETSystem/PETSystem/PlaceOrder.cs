@@ -15,8 +15,7 @@ namespace Place_Order
     public partial class PlaceOrder : Form
     {
         SqlDataAdapter DA;
-        public static string DBC = "Data Source=JWM\\SYSARCH;Initial Catalog=INF370;Integrated Security=True";
-        SqlConnection connectstring = new SqlConnection(DBC);
+        
         int RefNum = 0;
         ErrorHandle EH = new ErrorHandle();
         bool valid1 = false;
@@ -52,15 +51,15 @@ namespace Place_Order
 
 
                 string Query = "INSERT INTO SupplierOrder (SupplierOrderRefNumber,SupplierOrderDate,SupplierOrderDescription,SupplierID) VALUES ('" + RefNum + "','" + this.txtDate.Text + "','" + OrderDesc + "','" + SuppID + "');";
-                SqlCommand MyCommand3 = new SqlCommand(Query, connectstring);
+                SqlCommand MyCommand3 = new SqlCommand(Query, ConnectString.connectstring);
                 SqlDataReader MyReader3;
-                connectstring.Open();
+                ConnectString.connectstring.Open();
                 MyReader3 = MyCommand3.ExecuteReader();     // Here our query will be executed and data saved into the database.  
                 MessageBox.Show("Save Data");
                 while (MyReader3.Read())
                 {
                 }
-                connectstring.Close();
+                ConnectString.connectstring.Close();
 
                 MessageBox.Show("Are you sure you want to place this order?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
             }

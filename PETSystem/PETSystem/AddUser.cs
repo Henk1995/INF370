@@ -14,8 +14,7 @@ namespace PETSystem
 {
     public partial class AddUser : Form
     {
-        public static string DBC = "Data Source=JWM\\SYSARCH;Initial Catalog=INF370;Integrated Security=True";
-        SqlConnection connectstring = new SqlConnection(DBC);
+       
         bool valid1 = false;
         bool valid2 = false;
         bool valid3 = false;
@@ -37,15 +36,15 @@ namespace PETSystem
             cmbPrivilege.Items.Clear();
             string query = "SELECT PrivName FROM PrivilegeType ";
             DataTable DT = new DataTable();
-            connectstring.Open();
-            SqlCommand cmd = new SqlCommand(query, connectstring);
+            ConnectString.connectstring.Open();
+            SqlCommand cmd = new SqlCommand(query, ConnectString.connectstring);
             DA = new SqlDataAdapter(cmd);
             DA.Fill(DT);
             foreach(DataRow dr in DT.Rows)
             {
                 cmbPrivilege.Items.Add(dr["PrivName"]).ToString();
             }
-            connectstring.Close();
+            ConnectString.connectstring.Close();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -135,29 +134,29 @@ namespace PETSystem
                 valid5 = EH.CheckEmpty(txtRetype.Text);
                 valid6 = EH.CheckEmpty(cmbPrivilege.Text);
                 string query = "SELECT PrivilegeID FROM PrivilegeType WHERE PrivName='"+ cmbPrivilege.Text+"'";
-                SqlCommand MyCommand1 = new SqlCommand(query, connectstring);
+                SqlCommand MyCommand1 = new SqlCommand(query, ConnectString.connectstring);
                 SqlDataReader MyReader1;
-                connectstring.Open();
+                ConnectString.connectstring.Open();
                 MyReader1 = MyCommand1.ExecuteReader();     // Here our query will be executed and data saved into the database.  
                 
                 while (MyReader1.Read())
                 {
                     privID = Convert.ToInt32( MyReader1["PrivilegeID"]);
                 }
-                connectstring.Close();
+                ConnectString.connectstring.Close();
                 string Query = "INSERT INTO UserTable(Name,Surname,UserPassword,UserName,PriveledgeID) values('" + this.txtFirst.Text + "','" + this.txtLastName.Text + "','" + this.txtPass.Text + "','" + this.txtUserN.Text + "','" + privID + "');";
                 //This is  MySqlConnection here i have created the object and pass my connection string.  
                 
                 //This is command class which will handle the query and connection object.  
-                SqlCommand MyCommand2 = new SqlCommand(Query, connectstring);
+                SqlCommand MyCommand2 = new SqlCommand(Query, ConnectString.connectstring);
                 SqlDataReader MyReader2;
-                connectstring.Open();
+                ConnectString.connectstring.Open();
                 MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
                 MessageBox.Show("Save Data");
                 while (MyReader2.Read())
                 {
                 }
-                connectstring.Close();
+                ConnectString.connectstring.Close();
                 MessageBox.Show("Add new user to the system?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
             }else
             {

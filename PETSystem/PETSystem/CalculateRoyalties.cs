@@ -14,8 +14,7 @@ namespace PETSystem
 {
     public partial class CalculateRoyalties : Form
     {
-        public static string DBC = "Data Source=JWM\\SYSARCH;Initial Catalog=INF370;Integrated Security=True";
-        SqlConnection connectstring = new SqlConnection(DBC);
+       
         bool valid1 = false;
         ErrorHandle EH = new ErrorHandle();
         public CalculateRoyalties()
@@ -52,12 +51,12 @@ namespace PETSystem
             int amountC = 0;
             int amountO = 0;
             string queryA = "SELECT * FROM Instructor WHERE InstructorID ='" + Convert.ToInt32(txtInstructorID.Text) + "'";
-            SqlCommand MyCommandA = new SqlCommand(queryA, connectstring);
+            SqlCommand MyCommandA = new SqlCommand(queryA, ConnectString.connectstring);
             
             SqlDataAdapter DAA = new SqlDataAdapter(MyCommandA);
             DataTable DTA = new DataTable();
             DAA.Fill(DTA);
-            connectstring.Open();
+            ConnectString.connectstring.Open();
 
 
             if (DTA.Rows.Count == 0)
@@ -65,44 +64,44 @@ namespace PETSystem
 
                 valid1 = false;
             }
-            connectstring.Close();
+            ConnectString.connectstring.Close();
             if (valid1)
             {
                 string query2 = "SELECT CourseID FROM CourseInstance WHERE InstructorID ='" + Convert.ToInt32(txtInstructorID.Text) + "'";
-                SqlCommand MyCommand = new SqlCommand(query2, connectstring);
+                SqlCommand MyCommand = new SqlCommand(query2, ConnectString.connectstring);
                 SqlDataReader MyReader;
                 SqlDataAdapter DA = new SqlDataAdapter(MyCommand);
                 DataTable DT = new DataTable();
                 DA.Fill(DT);
-                connectstring.Open();
+                ConnectString.connectstring.Open();
                 
 
                 if (DT.Rows.Count == 0)
                 {
-                    connectstring.Close();
+                    ConnectString.connectstring.Close();
                    
                     string query1 = "SELECT Name FROM Instructor WHERE  InstructorID ='" + Convert.ToInt32(txtInstructorID.Text) + "'";
-                    SqlCommand MyCommand3 = new SqlCommand(query1, connectstring);
+                    SqlCommand MyCommand3 = new SqlCommand(query1, ConnectString.connectstring);
                     SqlDataReader MyReader3;
-                    connectstring.Open();
+                    ConnectString.connectstring.Open();
                     MyReader3 = MyCommand3.ExecuteReader();     // Here our query will be executed and data saved into the database.  
 
                     while (MyReader3.Read())
                     {
                         Name = MyReader3["Name"].ToString();
                     }
-                    connectstring.Close();
+                    ConnectString.connectstring.Close();
                     string query4 = "SELECT Surname FROM Instructor WHERE  InstructorID ='" + Convert.ToInt32(txtInstructorID.Text) + "'";
-                    SqlCommand MyCommand4 = new SqlCommand(query4, connectstring);
+                    SqlCommand MyCommand4 = new SqlCommand(query4, ConnectString.connectstring);
                     SqlDataReader MyReader4;
-                    connectstring.Open();
+                    ConnectString.connectstring.Open();
                     MyReader4 = MyCommand4.ExecuteReader();     // Here our query will be executed and data saved into the database.  
 
                     while (MyReader4.Read())
                     {
                         Surname = MyReader4["Surname"].ToString();
                     }
-                    connectstring.Close();
+                    ConnectString.connectstring.Close();
                     MessageBox.Show("Name: " + Name + " \n Surname: " + Surname + "\n Royalties owed: $" + amountO + " \n", "Royalties", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                 }
@@ -113,40 +112,40 @@ namespace PETSystem
                     {
                         courseid = Convert.ToInt32(MyReader["CourseID"]);
                     }
-                    connectstring.Close();
+                    ConnectString.connectstring.Close();
                    
                     string query3 = "SELECT * FROM ClientCourseLine WHERE CourseID ='" + courseid + "'";
-                    SqlCommand MyCommand2 = new SqlCommand(query3, connectstring);
-                    connectstring.Open();
+                    SqlCommand MyCommand2 = new SqlCommand(query3, ConnectString.connectstring);
+                    ConnectString.connectstring.Open();
                     SqlDataAdapter DA2 = new SqlDataAdapter(MyCommand2);
                     DataTable DT2 = new DataTable();
                     DA2.Fill(DT2);
                     amountC = DT2.Rows.Count;
                     
                     amountO = amountC * 10;
-                    connectstring.Close();
+                    ConnectString.connectstring.Close();
                     string query1 = "SELECT Name FROM Instructor WHERE  InstructorID ='" + Convert.ToInt32(txtInstructorID.Text) + "'";
-                    SqlCommand MyCommand3 = new SqlCommand(query1, connectstring);
+                    SqlCommand MyCommand3 = new SqlCommand(query1, ConnectString.connectstring);
                     SqlDataReader MyReader3;
-                    connectstring.Open();
+                    ConnectString.connectstring.Open();
                     MyReader3 = MyCommand3.ExecuteReader();     // Here our query will be executed and data saved into the database.  
                   
                     while (MyReader3.Read())
                     {
                         Name = MyReader3["Name"].ToString();
                     }
-                    connectstring.Close();
+                    ConnectString.connectstring.Close();
                     string query4 = "SELECT Surname FROM Instructor WHERE  InstructorID ='" + Convert.ToInt32(txtInstructorID.Text) + "'";
-                    SqlCommand MyCommand4 = new SqlCommand(query4, connectstring);
+                    SqlCommand MyCommand4 = new SqlCommand(query4, ConnectString.connectstring);
                     SqlDataReader MyReader4;
-                    connectstring.Open();
+                    ConnectString.connectstring.Open();
                     MyReader4 = MyCommand4.ExecuteReader();     // Here our query will be executed and data saved into the database.  
 
                     while (MyReader4.Read())
                     {
                         Surname = MyReader4["Surname"].ToString();
                     }
-                    connectstring.Close();
+                    ConnectString.connectstring.Close();
                     MessageBox.Show("Name: "+ Name + " \n Surname: " + Surname + "\n Royalties owed: $" + amountO + " \n", "Royalties", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
                 
@@ -164,13 +163,13 @@ namespace PETSystem
         private void CalculateRoyalties_Load(object sender, EventArgs e)
         {
             DataTable DT = new DataTable();
-            connectstring.Open();
-            SqlCommand Fill = new SqlCommand("SELECT * FROM Instructor", connectstring);
+            ConnectString.connectstring.Open();
+            SqlCommand Fill = new SqlCommand("SELECT * FROM Instructor", ConnectString.connectstring);
             SqlDataAdapter DA = new SqlDataAdapter(Fill);
             DA.Fill(DT);
             dgvInstructor.DataSource = DT;
             dgvInstructor.DataMember = DT.TableName;
-            connectstring.Close();
+            ConnectString.connectstring.Close();
         }
     }
 }

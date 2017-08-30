@@ -18,8 +18,7 @@ namespace Select_Supplier
     {
         int supplier = 0;
         SqlDataAdapter DA;
-        public static string DBC = "Data Source=JWM\\SYSARCH;Initial Catalog=INF370;Integrated Security=True";
-        SqlConnection connectstring = new SqlConnection(DBC);
+      
         public Select_Supplier()
         {
             InitializeComponent();
@@ -32,30 +31,30 @@ namespace Select_Supplier
 
             string query1 = "SELECT SupplierName FROM Supplier ";
             DataTable DT = new DataTable();
-            connectstring.Open();
-            SqlCommand cmd = new SqlCommand(query1, connectstring);
+            ConnectString.connectstring.Open();
+            SqlCommand cmd = new SqlCommand(query1, ConnectString.connectstring);
             DA = new SqlDataAdapter(cmd);
             DA.Fill(DT);
             foreach (DataRow dr in DT.Rows)
             {
                 cmbSupplier.Items.Add(dr["SupplierName"]).ToString();
             }
-            connectstring.Close();
+            ConnectString.connectstring.Close();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             string query4 = "SELECT SupplierID FROM Supplier WHERE SupplierName ='" + cmbSupplier.Text + "'";
-            SqlCommand MyCommand4 = new SqlCommand(query4, connectstring);
+            SqlCommand MyCommand4 = new SqlCommand(query4, ConnectString.connectstring);
             SqlDataReader MyReader4;
-            connectstring.Open();
+            ConnectString.connectstring.Open();
             MyReader4 = MyCommand4.ExecuteReader();     // Here our query will be executed and data saved into the database.  
 
             while (MyReader4.Read())
             {
                 supplier = Convert.ToInt32(MyReader4["SupplierID"]);
             }
-            connectstring.Close();
+            ConnectString.connectstring.Close();
             
             this.Visible = false;
             Place_Order.PlaceOrder PO = new Place_Order.PlaceOrder(supplier);

@@ -15,7 +15,7 @@ namespace Create_Supplier
     public partial class Create_Supplier : Form
     {
         SqlDataAdapter DA;
-        public static string DBC = "Data Source=JWM\\SYSARCH;Initial Catalog=INF370;Integrated Security=True";
+        
         bool valid1 = false;
         bool valid2 = false;
         bool valid3 = false;
@@ -23,7 +23,7 @@ namespace Create_Supplier
         bool valid5 = false;
         bool valid6 = false;
         bool valid7 = false;
-        SqlConnection connectstring = new SqlConnection(DBC);
+       
         bool valid8 = false;
         ErrorHandle EH = new ErrorHandle();
         public Create_Supplier()
@@ -42,27 +42,27 @@ namespace Create_Supplier
                 MessageBox.Show("Are you sure you want to Create this new Supplier", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
                 DataTable DT = new DataTable();
                 string query4 = "SELECT SupplierTypeID FROM SupplierType WHERE SupplierTypeName ='" + cmbSupplierT.Text + "'";
-                SqlCommand MyCommand4 = new SqlCommand(query4, connectstring);
+                SqlCommand MyCommand4 = new SqlCommand(query4, ConnectString.connectstring);
                 SqlDataReader MyReader4;
-                connectstring.Open();
+                ConnectString.connectstring.Open();
                 MyReader4 = MyCommand4.ExecuteReader();     // Here our query will be executed and data saved into the database.  
 
                 while (MyReader4.Read())
                 {
                     SupplierID = Convert.ToInt32(MyReader4["SupplierTypeID"]);
                 }
-                connectstring.Close();
+                ConnectString.connectstring.Close();
                
                 string Query = "INSERT INTO Supplier (SupplierName,SupplierAddress,SupplierEmail,SupplierPhoneNumber,SupplierBankAccNumber,SupplierTypeID) VALUES ('" + this.txtSuppName.Text + "','" + this.txtAdress.Text + "','" + this.txtEmail.Text + "','" + this.txtPhonenumber.Text + "','" + this.txtBancACC.Text + "','" + SupplierID + "');";
-                SqlCommand MyCommand3 = new SqlCommand(Query, connectstring);
+                SqlCommand MyCommand3 = new SqlCommand(Query, ConnectString.connectstring);
                 SqlDataReader MyReader3;
-                connectstring.Open();
+                ConnectString.connectstring.Open();
                 MyReader3 = MyCommand3.ExecuteReader();     // Here our query will be executed and data saved into the database.  
                 MessageBox.Show("Save Data");
                 while (MyReader3.Read())
                 {
                 }
-                connectstring.Close();
+                ConnectString.connectstring.Close();
             }
             else
             {
@@ -79,15 +79,15 @@ namespace Create_Supplier
             
             string query1 = "SELECT SupplierTypeName FROM SupplierType ";
             DataTable DT = new DataTable();
-            connectstring.Open();
-            SqlCommand cmd = new SqlCommand(query1, connectstring);
+            ConnectString.connectstring.Open();
+            SqlCommand cmd = new SqlCommand(query1, ConnectString.connectstring);
             DA = new SqlDataAdapter(cmd);
             DA.Fill(DT);
             foreach (DataRow dr in DT.Rows)
             {
                 cmbSupplierT.Items.Add(dr["SupplierTypeName"]).ToString();
             }
-            connectstring.Close();
+            ConnectString.connectstring.Close();
         }
 
         private void txtSuppName_TextChanged(object sender, EventArgs e)

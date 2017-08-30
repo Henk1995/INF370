@@ -23,8 +23,7 @@ namespace PETSystem
 {
     public partial class Suppliers : Form
     {
-        public static string DBC = "Data Source=JWM\\SYSARCH;Initial Catalog=INF370;Integrated Security=True";
-        SqlConnection connectstring = new SqlConnection(DBC);
+       
         SqlDataAdapter DA;
         public Suppliers()
         {
@@ -75,24 +74,24 @@ namespace PETSystem
                  MessageBox.Show("Are you sure you want to delete this instructor?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                 string Query = "DELETE FROM Supplier WHERE SupplierID='" + rowID + "';";
 
-                SqlCommand MyCommand2 = new SqlCommand(Query, connectstring);
+                SqlCommand MyCommand2 = new SqlCommand(Query, ConnectString.connectstring);
                 SqlDataReader MyReader2;
-                connectstring.Open();
+                ConnectString.connectstring.Open();
                 MyReader2 = MyCommand2.ExecuteReader();
                 MessageBox.Show("Data Deleted");
                 while (MyReader2.Read())
                 {
                 }
-                connectstring.Close();
+                ConnectString.connectstring.Close();
 
                 DataTable DT = new DataTable();
-                connectstring.Open();
-                SqlCommand Fill = new SqlCommand("SELECT * FROM Supplier", connectstring);
+                ConnectString.connectstring.Open();
+                SqlCommand Fill = new SqlCommand("SELECT * FROM Supplier", ConnectString.connectstring);
                 DA = new SqlDataAdapter(Fill);
                 DA.Fill(DT);
                 dgvInstructor.DataSource = DT;
                 dgvInstructor.DataMember = DT.TableName;
-                connectstring.Close();
+                ConnectString.connectstring.Close();
             }
 
             else
@@ -132,13 +131,13 @@ namespace PETSystem
         private void Suppliers_Load(object sender, EventArgs e)
         {
             DataTable DT = new DataTable();
-            connectstring.Open();
-            SqlCommand Fill = new SqlCommand("SELECT * FROM Supplier", connectstring);
+            ConnectString.connectstring.Open();
+            SqlCommand Fill = new SqlCommand("SELECT * FROM Supplier", ConnectString.connectstring);
             DA = new SqlDataAdapter(Fill);
             DA.Fill(DT);
             dgvInstructor.DataSource = DT;
             dgvInstructor.DataMember = DT.TableName;
-            connectstring.Close();
+            ConnectString.connectstring.Close();
         }
 
         private void btnRefund_Click(object sender, EventArgs e)

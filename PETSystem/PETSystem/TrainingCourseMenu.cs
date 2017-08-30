@@ -14,8 +14,7 @@ namespace PETSystem
 {
     public partial class TrainingCourseMenu : Form
     {
-        public static string DBC = "Data Source=JWM\\SYSARCH;Initial Catalog=INF370;Integrated Security=True";
-        SqlConnection connectstring = new SqlConnection(DBC);
+        
         SqlDataAdapter DA;
         public TrainingCourseMenu()
         {
@@ -49,23 +48,23 @@ namespace PETSystem
         private void TrainingCourseMenu_Load(object sender, EventArgs e)
         {
             DataTable DT = new DataTable();
-            connectstring.Open();
-            SqlCommand Fill = new SqlCommand("SELECT * FROM TrainingCourse", connectstring);
+            ConnectString.connectstring.Open();
+            SqlCommand Fill = new SqlCommand("SELECT * FROM TrainingCourse", ConnectString.connectstring);
             DA = new SqlDataAdapter(Fill);
             DA.Fill(DT);
             dgvTC.DataSource = DT;
             dgvTC.DataMember = DT.TableName;
-            connectstring.Close();
+            ConnectString.connectstring.Close();
         }
 
         private void txtCourseN_TextChanged(object sender, EventArgs e)
         {
-            connectstring.Open();
-            DA = new SqlDataAdapter("select * from TrainingCourse where CourseName like '" + txtCourseN.Text + "%'", connectstring);
+            ConnectString.connectstring.Open();
+            DA = new SqlDataAdapter("select * from TrainingCourse where CourseName like '" + txtCourseN.Text + "%'", ConnectString.connectstring);
             DataTable DT = new DataTable();
             DA.Fill(DT);
             dgvTC.DataSource = DT;
-            connectstring.Close();
+            ConnectString.connectstring.Close();
         }
     }
 }

@@ -14,8 +14,7 @@ namespace PETSystem
 {
     public partial class Instructors : Form
     {
-        public static string DBC = "Data Source=JWM\\SYSARCH;Initial Catalog=INF370;Integrated Security=True";
-        SqlConnection connectstring = new SqlConnection(DBC);
+        
         SqlDataAdapter DA;
         public Instructors()
         {
@@ -34,13 +33,13 @@ namespace PETSystem
             // TODO: This line of code loads data into the 'iNF370DataSet.Instructor' table. You can move, or remove it, as needed.
             //  this.instructorTableAdapter.Fill(this.iNF370DataSet.Instructor);
             DataTable DT = new DataTable();
-            connectstring.Open();
-            SqlCommand Fill = new SqlCommand("SELECT * FROM Instructor", connectstring);
+            ConnectString.connectstring.Open();
+            SqlCommand Fill = new SqlCommand("SELECT * FROM Instructor", ConnectString.connectstring);
             DA = new SqlDataAdapter(Fill);
             DA.Fill(DT);
             dgvInstructor.DataSource = DT;
             dgvInstructor.DataMember = DT.TableName;
-            connectstring.Close();
+            ConnectString.connectstring.Close();
 
         }
 
@@ -90,24 +89,24 @@ namespace PETSystem
                         MessageBox.Show("Are you sure you want to delete this instructor?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
                         string Query = "DELETE FROM Instructor WHERE InstructorID='" + rowID + "';";
 
-                        SqlCommand MyCommand2 = new SqlCommand(Query, connectstring);
+                        SqlCommand MyCommand2 = new SqlCommand(Query, ConnectString.connectstring);
                         SqlDataReader MyReader2;
-                        connectstring.Open();
+                        ConnectString.connectstring.Open();
                         MyReader2 = MyCommand2.ExecuteReader();
                         MessageBox.Show("Data Deleted");
                         while (MyReader2.Read())
                         {
                         }
-                        connectstring.Close();
+                        ConnectString.connectstring.Close();
                    
                     DataTable DT = new DataTable();
-                    connectstring.Open();
-                    SqlCommand Fill = new SqlCommand("SELECT * FROM Instructor", connectstring);
+                    ConnectString.connectstring.Open();
+                    SqlCommand Fill = new SqlCommand("SELECT * FROM Instructor", ConnectString.connectstring);
                     DA = new SqlDataAdapter(Fill);
                     DA.Fill(DT);
                     dgvInstructor.DataSource = DT;
                     dgvInstructor.DataMember = DT.TableName;
-                    connectstring.Close();
+                    ConnectString.connectstring.Close();
             }
         
                 else
