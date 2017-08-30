@@ -12,6 +12,7 @@ namespace PETSystem
     {
         bool result;
         int ID;
+        float IDT;
         public Boolean CheckEmpty(string input)
         {
             if (input == "")
@@ -27,6 +28,18 @@ namespace PETSystem
         public Boolean CheckInt(string input)
         {
             if (!int.TryParse(input, out ID))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public Boolean Checkfloat(string input)
+        {
+            if (!float.TryParse(input, out IDT))
             {
                 return false;
             }

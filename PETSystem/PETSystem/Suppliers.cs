@@ -34,7 +34,7 @@ namespace PETSystem
         private void button1_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            PlaceOrder PO = new PlaceOrder();
+            Select_Supplier.Select_Supplier PO = new Select_Supplier.Select_Supplier();
             PO.ShowDialog();
         }
 
