@@ -83,18 +83,7 @@ namespace PETSystem
 
                 db.Printers.InsertOnSubmit(mPrinter);
                 db.SubmitChanges();
-                //Stock mStock = new Stock
-                //{
-                //    StockID = Convert.ToInt32(label1.Text),
-                //    StockDescription = txtDesc.Text,
-                //    StockUnitPrice = Convert.ToInt32(txtPrice.Text),
-                //   // StockType = cbType.SelectedValue,
 
-
-                //};
-
-                //db.Stocks.InsertOnSubmit(mStock);
-                //db.SubmitChanges();
 
                 //validation of all inputs
                 txtPrintingSupplierName.Text = "";

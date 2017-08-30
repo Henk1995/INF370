@@ -21,6 +21,7 @@ namespace PETSystem
         ErrorHandle chk = new ErrorHandle();
         bool SearchPSNameValid;
         bool SearchPSIDValid;
+        int id;
 
         private void btnSearchPrintSupplierName_Click(object sender, EventArgs e)
         {
@@ -117,12 +118,20 @@ namespace PETSystem
             DialogResult test = MessageBox.Show("Are you sure you want to delete this Printing Supplier?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (test == DialogResult.Yes)
             {
+
+                //Delete Selected
+                var mPS = (from x in db.Printers where x.PrinterID == id select x).First();
+                db.Printers.DeleteOnSubmit(mPS);
+                db.SubmitChanges();
+
+                //refresh DGV
+                dgvSearchPrintingSupplier.DataSource = null;
+                dgvSearchPrintingSupplier.DataSource = db.Printers;
+
                 MessageBox.Show("Printing Supplier has been deleted", "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else if (test == DialogResult.No)
             {
-
-
                 MessageBox.Show("Printing Supplier not deleted", "Cancel", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -167,6 +176,16 @@ namespace PETSystem
 
                 MessageBox.Show(" Printing Supplier: " + psName + "\n Address: " + psAddr + "\n Email Address: " + psEmail + "\n Phone Number: " + psPhone + "\n Bank Details: " + psBACC, "View Course",
     MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+        }
+
+        private void dgvSearchPrintingSupplier_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvSearchPrintingSupplier.SelectedCells.Count > 0)
+            {
+                Printer _Printer = (Printer)dgvSearchPrintingSupplier.CurrentRow.DataBoundItem;
+                id = _Printer.PrinterID;
+
             }
         }
     }

@@ -157,6 +157,7 @@
             this.dgvSearchPrintingSupplier.ReadOnly = true;
             this.dgvSearchPrintingSupplier.Size = new System.Drawing.Size(700, 449);
             this.dgvSearchPrintingSupplier.TabIndex = 36;
+            this.dgvSearchPrintingSupplier.SelectionChanged += new System.EventHandler(this.dgvSearchPrintingSupplier_SelectionChanged);
             // 
             // btnMainMenu
             // 
