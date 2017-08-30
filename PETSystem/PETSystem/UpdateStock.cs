@@ -18,7 +18,7 @@ namespace PETSystem
         bool stockDValid;
         bool unitPValid;
         int NewID = Search_Stock.ToUpdate;
-
+        int getTypeID;
 
 
         public UpdateStock()
@@ -164,8 +164,21 @@ namespace PETSystem
                 lblStockID.Text = Convert.ToString(item.StockID);
                 txtName.Text = item.StockDescription;
                 txtPrice.Text = Convert.ToString(item.StockUnitPrice);
-                cbStockType.SelectedIndex = item.StockTypeID;
+                getTypeID = item.StockTypeID;
 
+            }
+
+            var mStockTypeload = (from x in db.StockTypes
+                                  where x.StockTypeID == getTypeID
+                                  select new
+                                  {
+                                      x.StockTypeID,
+                                      x.StockName
+                                  }).ToList();
+
+            foreach (var Typevalue in mStockTypeload)
+            {
+                cbStockType.SelectedItem = Typevalue.StockName;
             }
 
 
