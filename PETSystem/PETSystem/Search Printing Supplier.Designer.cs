@@ -108,6 +108,7 @@
             this.btnViewPrintSupplier.TabIndex = 41;
             this.btnViewPrintSupplier.Text = "View Print Supplier";
             this.btnViewPrintSupplier.UseVisualStyleBackColor = true;
+            this.btnViewPrintSupplier.Click += new System.EventHandler(this.btnViewPrintSupplier_Click);
             // 
             // txtSearchPrintSupplierName
             // 

@@ -20,7 +20,6 @@ namespace PETSystem
         PET_DBDataContext db = new PET_DBDataContext();
         ErrorHandle chk = new ErrorHandle();
         bool NameValid;
-        bool DescIsEmpty;
 
         // Moet desc validate word? kan maybe oopgelos word?
 
@@ -57,7 +56,7 @@ namespace PETSystem
 
                 this.Close();
 
-                MessageBox.Show("Added " + StockType + "" + "as a new stock type.", "It Worked");
+                MessageBox.Show("Added " + StockType + " " + "as a new stock type.", "It Worked");
 
 
             }

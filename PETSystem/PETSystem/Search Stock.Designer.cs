@@ -159,6 +159,7 @@
             this.dgvSearchStock.ReadOnly = true;
             this.dgvSearchStock.Size = new System.Drawing.Size(700, 449);
             this.dgvSearchStock.TabIndex = 23;
+            this.dgvSearchStock.SelectionChanged += new System.EventHandler(this.dgvSearchStock_SelectionChanged);
             // 
             // button1
             // 

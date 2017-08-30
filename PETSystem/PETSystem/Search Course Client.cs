@@ -139,5 +139,10 @@ namespace PETSystem
             SearchCourse UM = new SearchCourse();
             UM.ShowDialog();
         }
+
+        private void Search_Course_Client_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

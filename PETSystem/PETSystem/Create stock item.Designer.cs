@@ -33,17 +33,15 @@
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.txtDesc = new System.Windows.Forms.TextBox();
             this.cbType = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.btnAddStockType = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(341, 196);
+            this.btnCancel.Location = new System.Drawing.Point(333, 169);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(146, 23);
             this.btnCancel.TabIndex = 34;
@@ -53,7 +51,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(189, 196);
+            this.btnSave.Location = new System.Drawing.Point(181, 169);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(146, 23);
             this.btnSave.TabIndex = 33;
@@ -63,7 +61,7 @@
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(151, 102);
+            this.txtPrice.Location = new System.Drawing.Point(143, 75);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(337, 20);
             this.txtPrice.TabIndex = 32;
@@ -71,7 +69,7 @@
             // 
             // txtDesc
             // 
-            this.txtDesc.Location = new System.Drawing.Point(151, 66);
+            this.txtDesc.Location = new System.Drawing.Point(143, 39);
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.Size = new System.Drawing.Size(337, 20);
             this.txtDesc.TabIndex = 31;
@@ -80,23 +78,15 @@
             // cbType
             // 
             this.cbType.FormattingEnabled = true;
-            this.cbType.Location = new System.Drawing.Point(151, 140);
+            this.cbType.Location = new System.Drawing.Point(142, 116);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(337, 21);
             this.cbType.TabIndex = 30;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(147, 30);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(31, 13);
-            this.label6.TabIndex = 29;
-            this.label6.Text = "0001";
+            this.cbType.SelectedIndexChanged += new System.EventHandler(this.cbType_SelectedIndexChanged);
             // 
             // btnAddStockType
             // 
-            this.btnAddStockType.Location = new System.Drawing.Point(37, 196);
+            this.btnAddStockType.Location = new System.Drawing.Point(29, 169);
             this.btnAddStockType.Name = "btnAddStockType";
             this.btnAddStockType.Size = new System.Drawing.Size(146, 23);
             this.btnAddStockType.TabIndex = 28;
@@ -107,7 +97,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(35, 143);
+            this.label5.Location = new System.Drawing.Point(27, 116);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 13);
             this.label5.TabIndex = 27;
@@ -116,7 +106,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(35, 69);
+            this.label3.Location = new System.Drawing.Point(27, 42);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(94, 13);
             this.label3.TabIndex = 26;
@@ -125,37 +115,26 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(35, 105);
+            this.label2.Location = new System.Drawing.Point(27, 78);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 13);
             this.label2.TabIndex = 25;
             this.label2.Text = "Stock Unit Price:";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(35, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 13);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "Stock ID:";
-            // 
             // Create_stock_item
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(522, 249);
+            this.ClientSize = new System.Drawing.Size(522, 228);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.txtDesc);
             this.Controls.Add(this.cbType);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.btnAddStockType);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Create_stock_item";
             this.Text = "Create stock item";
@@ -172,11 +151,9 @@
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.TextBox txtDesc;
         private System.Windows.Forms.ComboBox cbType;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnAddStockType;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
     }
 }

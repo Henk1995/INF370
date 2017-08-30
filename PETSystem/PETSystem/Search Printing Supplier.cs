@@ -153,5 +153,21 @@ namespace PETSystem
             MainMenuF UM = new MainMenuF();
             UM.ShowDialog();
         }
+
+        private void btnViewPrintSupplier_Click(object sender, EventArgs e)
+        {
+            if (dgvSearchPrintingSupplier.SelectedCells.Count > 0)
+            {
+                Printer _PS = (Printer)dgvSearchPrintingSupplier.CurrentRow.DataBoundItem;
+                string psName = _PS.PrinterName;
+                string psAddr = _PS.PrinterAddress;
+                string psEmail = _PS.PrinterEmail;
+                int psPhone = Convert.ToInt32(_PS.PrinterPhoneNumber);
+                int psBACC = Convert.ToInt32(_PS.PrinterBankAccNumber);
+
+                MessageBox.Show(" Printing Supplier: " + psName + "\n Address: " + psAddr + "\n Email Address: " + psEmail + "\n Phone Number: " + psPhone + "\n Bank Details: " + psBACC, "View Course",
+    MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+        }
     }
 }

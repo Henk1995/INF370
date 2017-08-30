@@ -39,13 +39,6 @@
             this.btnRemoveClient = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvCourseClient = new System.Windows.Forms.DataGridView();
-            this.columnnn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Gender = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourseClient)).BeginInit();
             this.SuspendLayout();
@@ -146,54 +139,14 @@
             // 
             // dgvCourseClient
             // 
+            this.dgvCourseClient.AllowUserToAddRows = false;
+            this.dgvCourseClient.AllowUserToDeleteRows = false;
             this.dgvCourseClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCourseClient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.columnnn1,
-            this.Column2,
-            this.Column1,
-            this.Column4,
-            this.Gender,
-            this.Column3,
-            this.Column5});
             this.dgvCourseClient.Location = new System.Drawing.Point(347, 18);
             this.dgvCourseClient.Name = "dgvCourseClient";
+            this.dgvCourseClient.ReadOnly = true;
             this.dgvCourseClient.Size = new System.Drawing.Size(746, 449);
             this.dgvCourseClient.TabIndex = 47;
-            // 
-            // columnnn1
-            // 
-            this.columnnn1.HeaderText = "Client ID";
-            this.columnnn1.Name = "columnnn1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Title";
-            this.Column2.Name = "Column2";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Name";
-            this.Column1.Name = "Column1";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Surname";
-            this.Column4.Name = "Column4";
-            // 
-            // Gender
-            // 
-            this.Gender.HeaderText = "Gender";
-            this.Gender.Name = "Gender";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Email";
-            this.Column3.Name = "Column3";
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Phone Number";
-            this.Column5.Name = "Column5";
             // 
             // btnBack
             // 
@@ -224,6 +177,7 @@
             this.Controls.Add(this.dgvCourseClient);
             this.Name = "Search_Course_Client";
             this.Text = "Search_Course_Client";
+            this.Load += new System.EventHandler(this.Search_Course_Client_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourseClient)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -243,13 +197,6 @@
         private System.Windows.Forms.Button btnRemoveClient;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvCourseClient;
-        private System.Windows.Forms.DataGridViewTextBoxColumn columnnn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Gender;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.Button btnBack;
     }
 }

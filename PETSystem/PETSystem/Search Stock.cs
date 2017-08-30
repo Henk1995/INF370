@@ -22,7 +22,7 @@ namespace PETSystem
         ErrorHandle chk = new ErrorHandle();
         bool SearchDValid;
         bool SearchIValid;
-        
+        int id;
 
 
         private void btnSearcStockDesc_Click(object sender, EventArgs e)
@@ -133,6 +133,16 @@ namespace PETSystem
             DialogResult test = MessageBox.Show("Are you sure you want to delete this stock item?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (test == DialogResult.Yes)
             {
+
+                //Delete Selected
+                var mStock = (from x in db.Stocks where x.StockID == id select x).First();
+                db.Stocks.DeleteOnSubmit(mStock);
+                db.SubmitChanges();
+
+                //refresh DGV
+                dgvSearchStock.DataSource = null;
+                dgvSearchStock.DataSource = db.Stocks;
+
                 MessageBox.Show("Stock item has been deleted", "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else if (test == DialogResult.No)
@@ -144,8 +154,21 @@ namespace PETSystem
 
         private void btnViewStock_Click(object sender, EventArgs e)
         {
-            ViewStock f = new ViewStock();
-            f.Show();
+            //ViewStock f = new ViewStock();
+            //f.Show();
+
+            if (dgvSearchStock.SelectedCells.Count > 0)
+            {
+                Stock _PS = (Stock)dgvSearchStock.CurrentRow.DataBoundItem;
+                int psID = _PS.StockID;
+                string psName = _PS.StockDescription;
+                int psAddr = Convert.ToInt32(_PS.StockUnitPrice);
+                int psEmail = _PS.StockTypeID;
+                int psPhone = Convert.ToInt32(_PS.StockQuantity);
+                
+                MessageBox.Show("Stock ID: " + psID + "\n Stock Name: " + psName + "\n Unit Price: " + psAddr + "\n Stock Type: " + psEmail + "\n Stock Quantity: " + psPhone, "View Course",
+    MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
         }
 
         private void btnUpdateStock_Click(object sender, EventArgs e)
@@ -173,6 +196,16 @@ namespace PETSystem
             this.Visible = false;
             MainMenuF UM = new MainMenuF();
             UM.ShowDialog();
+        }
+
+        private void dgvSearchStock_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvSearchStock.SelectedCells.Count > 0)
+            {
+                Stock _Stock = (Stock)dgvSearchStock.CurrentRow.DataBoundItem;
+                id = _Stock.StockID;
+
+            }
         }
     }
 }

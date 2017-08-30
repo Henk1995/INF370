@@ -131,11 +131,16 @@
             // 
             // dgvSearchCourse
             // 
+            this.dgvSearchCourse.AllowUserToAddRows = false;
+            this.dgvSearchCourse.AllowUserToDeleteRows = false;
             this.dgvSearchCourse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSearchCourse.Location = new System.Drawing.Point(343, 12);
             this.dgvSearchCourse.Name = "dgvSearchCourse";
+            this.dgvSearchCourse.ReadOnly = true;
             this.dgvSearchCourse.Size = new System.Drawing.Size(700, 449);
             this.dgvSearchCourse.TabIndex = 36;
+            this.dgvSearchCourse.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearchCourse_CellContentClick);
+            this.dgvSearchCourse.SelectionChanged += new System.EventHandler(this.dgvSearchCourse_SelectionChanged);
             // 
             // SearchCourse
             // 
@@ -154,6 +159,7 @@
             this.Controls.Add(this.dgvSearchCourse);
             this.Name = "SearchCourse";
             this.Text = "SearchCourse";
+            this.Load += new System.EventHandler(this.SearchCourse_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchCourse)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

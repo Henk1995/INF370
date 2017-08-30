@@ -18,8 +18,10 @@ namespace PETSystem
             InitializeComponent();
         }
 
+        PET_DBDataContext db = new PET_DBDataContext();
         ErrorHandle chk = new ErrorHandle();
         bool SearchCIsValid;
+        int id;
 
         private void btnSearcCourseName_Click(object sender, EventArgs e)
         {
@@ -64,6 +66,8 @@ namespace PETSystem
         {
             Create_Course c = new Create_Course();
             c.Show();
+            dgvSearchCourse.Refresh();
+
         }
 
         private void btnRemoveCourse_Click(object sender, EventArgs e)
@@ -71,18 +75,47 @@ namespace PETSystem
             DialogResult test = MessageBox.Show("Are you sure you want to delete this course?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (test == DialogResult.Yes)
             {
+                //Delete Selected
+                var mCourse = (from x in db.Courses where x.AvailableCourseID == id select x).First();
+                db.Courses.DeleteOnSubmit(mCourse);
+                db.SubmitChanges();
+
+                //refresh DGV
+                dgvSearchCourse.DataSource = null;
+                dgvSearchCourse.DataSource = db.Courses;
+
                 MessageBox.Show("Course has been deleted", "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else if (test == DialogResult.No)
             {
+
+
                 MessageBox.Show("Course not deleted", "Cancel", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        
 
         private void btnViewCourse_Click(object sender, EventArgs e)
         {
-            View_Course vc = new View_Course();
-            vc.Show();
+            //View_Course vc = new View_Course();
+            //vc.Show();
+
+            
+
+            if (dgvSearchCourse.SelectedCells.Count > 0)
+            {
+                Course _Course = (Course)dgvSearchCourse.CurrentRow.DataBoundItem;
+                string CName = _Course.CourseName;
+                int CID = _Course.AvailableCourseID;
+                int CCost = Convert.ToInt32(_Course.CourseCost);
+                int CDuration = Convert.ToInt32(_Course.CourseDuration);
+
+                MessageBox.Show(" Course Name: " + CName + "\n Course ID: " + CID + "\n Course Duration: " + CDuration, "View Course",
+    MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+
+            
+
         }
 
         private void btnUpdateCourse_Click(object sender, EventArgs e)
@@ -102,6 +135,29 @@ namespace PETSystem
             this.Visible = false;
             MainMenuF UM = new MainMenuF();
             UM.ShowDialog();
+        }
+
+        private void SearchCourse_Load(object sender, EventArgs e)
+        {
+            //Pre loads all the data from the printing supplier table
+            var SC = from Course in db.Courses select Course;
+            dgvSearchCourse.DataSource = SC;
+            dgvSearchCourse.Refresh();
+        }
+
+        private void dgvSearchCourse_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvSearchCourse_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvSearchCourse.SelectedCells.Count > 0)
+            {
+                Course _Course = (Course)dgvSearchCourse.CurrentRow.DataBoundItem;
+                id = _Course.AvailableCourseID;
+               
+            }
         }
     }
 }

@@ -101,7 +101,7 @@ namespace PETSystem
                 {
                     StockDescription = txtDesc.Text,
                     StockUnitPrice = Convert.ToInt32(txtPrice.Text),
-                    // StockType = cbType.SelectedValue,
+                   // StockType = Convert.ToInt32(cbType.SelectedValue)
 
 
                 };
@@ -122,6 +122,21 @@ namespace PETSystem
 
         private void Create_stock_item_Load(object sender, EventArgs e)
         {
+            var mStockTypeID = (
+                  from a in db.StockTypes
+                  select a.StockName)
+                   .ToList();
+
+            cbType.DataSource = mStockTypeID;
+
+            //var list = (from p in db.StockTypes
+            //            select new
+            //            {
+            //                p.StockName,
+            //                p.StockTypeID
+            //            }).ToList();
+            //cbType.DataSource = list;
+            //cbType.SelectedItem = list[0];
 
         }
 
@@ -129,6 +144,11 @@ namespace PETSystem
         {
             AddNewStockType f = new AddNewStockType();
             f.Show();
+        }
+
+        private void cbType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
