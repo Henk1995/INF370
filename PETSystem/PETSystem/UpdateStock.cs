@@ -29,8 +29,8 @@ namespace PETSystem
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            string UnitPrice = txtName.Text;
-            string stockDesc = txtPrice.Text;
+            string stockDesc = txtName.Text;
+            string UnitPrice = txtPrice.Text;
             //add cb box items
 
 
@@ -52,9 +52,9 @@ namespace PETSystem
                 var mSomeone = (from x in db.Stocks where x.StockID == Convert.ToInt32(NewID) select x).FirstOrDefault();
 
 
-                mSomeone.StockDescription = txtName.Text;
-                mSomeone.StockUnitPrice = Convert.ToInt32(txtPrice.Text);
-                //mSomeone.StockTypeID = txtAddress.Text;
+                mSomeone.StockDescription = stockDesc;
+                mSomeone.StockUnitPrice = Convert.ToInt32(UnitPrice);
+                //mSomeone.StockTypeID = Convert.ToInt32(cbStockType.Text);
                
                 db.SubmitChanges();
 
@@ -64,7 +64,7 @@ namespace PETSystem
 
                 this.Close();
 
-                MessageBox.Show("Updated " + stockDesc + "and R " + UnitPrice + "" + "as the new info was entered.", "It Worked");
+                MessageBox.Show("Updated " + stockDesc + " and R " + UnitPrice + " " + "as the new info was entered.", "It Worked");
                 //MessageBox.Show("ok");
             }
         }
@@ -119,23 +119,12 @@ namespace PETSystem
 
         private void UpdateStock_Load(object sender, EventArgs e)
         {
-            var mStockTypeID = (
-                  from a in db.StockTypes
-                  select a.StockName)
-                   .ToList();
-
-            cbStockType.DataSource = mStockTypeID;
-
-            //Load all fields from db
-
             var mStockload = (from a in db.Stocks where a.StockID == NewID select new
             {
                 a.StockID,
                 a.StockDescription,
                 a.StockUnitPrice,
                 a.StockTypeID,
-
-
             }).ToList();
 
             foreach (var item in mStockload)
@@ -144,7 +133,6 @@ namespace PETSystem
                 txtName.Text = item.StockDescription;
                 txtPrice.Text = Convert.ToString(item.StockUnitPrice);
                 getTypeID = item.StockTypeID;
-
             }
 
             var mStockTypeload = (from x in db.StockTypes

@@ -23,6 +23,8 @@ namespace PETSystem
         bool PhoneNumberValid;
         bool BankACCValid;
 
+        int NewID = Search_Printing_Supplier.ToUpdate;
+
         PET_DBDataContext db = new PET_DBDataContext();
         ErrorHandle chk = new ErrorHandle();
 
@@ -35,10 +37,27 @@ namespace PETSystem
         private void Update_Printing_Supplier_Load(object sender, EventArgs e)
         {
             //Pre loads all the data from the currently selected printing supplier in the dgv
-            //PET_DBDataContext db = new PET_DBDataContext();
-            //var Stock = from STOCKS in db.Stocks select STOCKS;
-            //dgvSearchStock.DataSource = Stock;
-            //dgvSearchStock.Refresh();
+            var mPSLoad = (from a in db.Printers
+                              where a.PrinterID == NewID
+                              select new
+                              {
+                                  a.PrinterID,
+                                  a.PrinterName,
+                                  a.PrinterAddress,
+                                  a.PrinterEmail,
+                                  a.PrinterPhoneNumber,
+                                  a.PrinterBankAccNumber
+                              }).ToList();
+
+            foreach (var item in mPSLoad)
+            {
+                lblPrintingSupplierID.Text = Convert.ToString(item.PrinterID);
+                txtPrintingSupplierName.Text = item.PrinterName;
+                txtPrintingSupplierAddress.Text = item.PrinterAddress;
+                txtPrintingSupplierEmail.Text = item.PrinterEmail;
+                txtPrintingSupplierPhoneNumber.Text = Convert.ToString(item.PrinterPhoneNumber);
+                txtPrintingSupplierBankAccNumber.Text = Convert.ToString(item.PrinterBankAccNumber);
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -79,19 +98,14 @@ namespace PETSystem
             }
             else
             {
+                var mPSUpdate = (from a in db.Printers where a.PrinterID == NewID select a).FirstOrDefault();
+                mPSUpdate.PrinterName = txtPrintingSupplierName.Text;
+                mPSUpdate.PrinterAddress =  txtPrintingSupplierAddress.Text;
+                mPSUpdate.PrinterEmail = txtPrintingSupplierEmail.Text;
+                mPSUpdate.PrinterPhoneNumber = txtPrintingSupplierPhoneNumber.Text;
+                mPSUpdate.PrinterBankAccNumber = Convert.ToInt32(txtPrintingSupplierBankAccNumber.Text);
 
-                //Stock mStock = new Stock
-                //{
-                //    StockID = Convert.ToInt32(label1.Text),
-                //    StockDescription = txtDesc.Text,
-                //    StockUnitPrice = Convert.ToInt32(txtPrice.Text),
-                //   // StockType = cbType.SelectedValue,
-
-
-                //};
-
-                //db.Stocks.InsertOnSubmit(mStock);
-                //db.SubmitChanges();
+                db.SubmitChanges();
 
                 //validation of all inputs
                 txtPrintingSupplierName.Text = "";
@@ -208,7 +222,7 @@ namespace PETSystem
         {
             string BankACCNumber = txtPrintingSupplierBankAccNumber.Text;
             txtPrintingSupplierBankAccNumber.BackColor = Color.White;
-            bool isBankACCNumber = chk.CheckInt(BankACCNumber); // Chenge to validate a bank account number not int
+            bool isBankACCNumber = chk.CheckInt(BankACCNumber); // Change to validate a bank account number not int
             bool notEmpty = chk.CheckEmpty(BankACCNumber);
 
             if (isBankACCNumber == false)

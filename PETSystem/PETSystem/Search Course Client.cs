@@ -17,6 +17,7 @@ namespace PETSystem
             InitializeComponent();
         }
 
+        PET_DBDataContext db = new PET_DBDataContext();
         ErrorHandle chk = new ErrorHandle();
         bool SearcCCNValid;
         bool SearcCCSNValid;
@@ -142,7 +143,18 @@ namespace PETSystem
 
         private void Search_Course_Client_Load(object sender, EventArgs e)
         {
+            var SCC = from Customer in db.Customers select Customer;
+            dgvCourseClient.DataSource = SCC;
+            dgvCourseClient.Refresh();
+        }
 
+        private void btnRefreshDGV_Click(object sender, EventArgs e)
+        {
+            dgvCourseClient.DataSource = null;
+            var SCC = from Customer in db.Customers select Customer;
+            dgvCourseClient.DataSource = SCC;
+            dgvCourseClient.Update();
+            dgvCourseClient.Refresh();
         }
     }
 }

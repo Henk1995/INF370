@@ -18,6 +18,7 @@ namespace PETSystem
             InitializeComponent();
         }
 
+        public static int ToUpdate;
         PET_DBDataContext db = new PET_DBDataContext();
         ErrorHandle chk = new ErrorHandle();
         bool SearchCIsValid;
@@ -156,8 +157,17 @@ namespace PETSystem
             {
                 Course _Course = (Course)dgvSearchCourse.CurrentRow.DataBoundItem;
                 id = _Course.AvailableCourseID;
-               
+                ToUpdate = id;
             }
+        }
+
+        private void btnRefreshDGV_Click(object sender, EventArgs e)
+        {
+            dgvSearchCourse.DataSource = null;
+            var SC = from Course in db.Courses select Course;
+            dgvSearchCourse.DataSource = SC;
+            dgvSearchCourse.Update();
+            dgvSearchCourse.Refresh();
         }
     }
 }

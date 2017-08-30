@@ -17,11 +17,14 @@ namespace PETSystem
             InitializeComponent();
         }
 
+        int NewID = SearchCourse.ToUpdate;
         PET_DBDataContext db = new PET_DBDataContext();
         ErrorHandle chk = new ErrorHandle();
         bool CourseNValid;
         bool CourseCostValid;
         bool CourseDurationValid;
+        
+
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -53,19 +56,16 @@ namespace PETSystem
             }
             else
             {
-
-                //Stock mStock = new Stock
-                //{
-                //    StockID = Convert.ToInt32(label1.Text),
-                //    StockDescription = txtDesc.Text,
-                //    StockUnitPrice = Convert.ToInt32(txtPrice.Text),
-                //   // StockType = cbType.SelectedValue,
+                var mCourse = (from x in db.Courses where x.AvailableCourseID == Convert.ToInt32(NewID) select x).FirstOrDefault();
 
 
-                //};
+                mCourse.CourseName = CourseName;
+                mCourse.CourseCost = Convert.ToInt32(CourseCost);
+                mCourse.CourseDuration = Convert.ToString(CourseDuration);
 
-                //db.Stocks.InsertOnSubmit(mStock);
-                //db.SubmitChanges();
+                db.SubmitChanges();
+
+
 
                 txtCourseName.Text = "";
                 txtCourseCost.Text = "";
@@ -153,6 +153,14 @@ namespace PETSystem
         private void Update_Course_Load(object sender, EventArgs e)
         {
             //Load all fields from DB
+            var mLoadCourse = (from x in db.Courses where x.AvailableCourseID == Convert.ToInt32(NewID) select x).FirstOrDefault();
+
+
+             txtCourseName.Text = mLoadCourse.CourseName;
+             txtCourseCost.Text= Convert.ToString(mLoadCourse.CourseCost);
+             txtCourseDuration.Text = mLoadCourse.CourseDuration;
+
+
         }
     }
 }

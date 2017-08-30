@@ -17,6 +17,7 @@ namespace PETSystem
             InitializeComponent();
         }
 
+        public static int ToUpdate;
         PET_DBDataContext db = new PET_DBDataContext();
         ErrorHandle chk = new ErrorHandle();
         bool SearchPSNameValid;
@@ -185,8 +186,17 @@ namespace PETSystem
             {
                 Printer _Printer = (Printer)dgvSearchPrintingSupplier.CurrentRow.DataBoundItem;
                 id = _Printer.PrinterID;
-
+                ToUpdate = id;
             }
+        }
+
+        private void btnRefreshDGV_Click(object sender, EventArgs e)
+        {
+            dgvSearchPrintingSupplier.DataSource = null;
+            var PS = from Printer in db.Printers select Printer;
+            dgvSearchPrintingSupplier.DataSource = PS;
+            dgvSearchPrintingSupplier.Update();
+            dgvSearchPrintingSupplier.Refresh();
         }
     }
 }

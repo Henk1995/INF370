@@ -18,7 +18,6 @@ namespace PETSystem
         }
 
         public static int ToUpdate;
-
         PET_DBDataContext db = new PET_DBDataContext();
         ErrorHandle chk = new ErrorHandle();
         bool SearchDValid;
@@ -207,6 +206,15 @@ namespace PETSystem
                 id = _Stock.StockID;
                 ToUpdate = id;
             }
+        }
+
+        private void btnRefreshDGV_Click(object sender, EventArgs e)
+        {
+            dgvSearchStock.DataSource = null;
+            var S = from Stock in db.Stocks select Stock;
+            dgvSearchStock.Update();
+            dgvSearchStock.DataSource = S;
+            dgvSearchStock.Refresh();
         }
     }
 }
