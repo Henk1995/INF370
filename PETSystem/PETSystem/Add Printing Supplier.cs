@@ -68,6 +68,21 @@ namespace PETSystem
             else
             {
 
+                Printer mPrinter = new Printer
+                {
+                    PrinterName = PSName,
+                    PrinterAddress = PSAddress,
+                    PrinterEmail = PSEmail,
+                    PrinterPhoneNumber = PSPhoneNumber,
+                    PrinterBankAccNumber = Convert.ToInt32(PSBankAccountNumber),
+
+
+
+
+                };
+
+                db.Printers.InsertOnSubmit(mPrinter);
+                db.SubmitChanges();
                 //Stock mStock = new Stock
                 //{
                 //    StockID = Convert.ToInt32(label1.Text),

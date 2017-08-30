@@ -17,6 +17,7 @@ namespace PETSystem
             InitializeComponent();
         }
 
+        PET_DBDataContext db = new PET_DBDataContext();
         ErrorHandle chk = new ErrorHandle();
         bool NameValid;
         bool DescIsEmpty;
@@ -32,58 +33,34 @@ namespace PETSystem
         private void btnSave_Click(object sender, EventArgs e)
         {
             string StockType = txtStockTypeName.Text;
-            string TypeDesc = txtStockTypeDesc.Text;
-            //add cb box items
+
 
 
             if (NameValid == false)
             {
                 MessageBox.Show("The stock type was not entered. Please re-enter the stock type and try again.", "An Error Has Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if (DescIsEmpty == false)
-            {
-                
-                DialogResult test = MessageBox.Show("No description was entered? Leave it Empty?", "An Error Has Occured", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
-                if (test == DialogResult.Yes)
-                {
-                    AddNewStockTypeToDB(); //do the things specified in method below
-                }
-                
-            }
             else
             {
-                AddNewStockTypeToDB(); //do the things specified in method below
+
+                StockType mStock = new StockType
+                {
+                    StockName = txtStockTypeName.Text
+
+                };
+
+                db.StockTypes.InsertOnSubmit(mStock);
+                db.SubmitChanges();
+
+                txtStockTypeName.Text = "";
+
+
+                this.Close();
+
+                MessageBox.Show("Added " + StockType + "" + "as a new stock type.", "It Worked");
+
 
             }
-        }
-
-        private void AddNewStockTypeToDB()
-        {
-            string StockType = txtStockTypeName.Text;
-            string TypeDesc = txtStockTypeDesc.Text;
-            //add cb box items
-
-            //Stock mStock = new Stock
-            //{
-            //    StockID = Convert.ToInt32(label1.Text),
-            //    StockDescription = txtDesc.Text,
-            //    StockUnitPrice = Convert.ToInt32(txtPrice.Text),
-            //   // StockType = cbType.SelectedValue,
-
-
-            //};
-
-            //db.Stocks.InsertOnSubmit(mStock);
-            //db.SubmitChanges();
-
-            txtStockTypeName.Text = "";
-            txtStockTypeDesc.Text = "";
-
-
-            this.Close();
-
-            MessageBox.Show("Added " + StockType + "" + "as a new stock type.", "It Worked");
-            //MessageBox.Show("ok");
         }
 
         private void txtStockTypeName_TextChanged(object sender, EventArgs e)

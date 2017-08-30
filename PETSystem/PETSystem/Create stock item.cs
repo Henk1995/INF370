@@ -97,18 +97,17 @@ namespace PETSystem
             else
             {
 
-                //Stock mStock = new Stock
-                //{
-                //    //StockID = Convert.ToInt32(label1.Text),
-                //    StockDescription = txtDesc.Text,
-                //    StockUnitPrice = Convert.ToInt32(txtPrice.Text),
-                //    // StockType = cbType.SelectedValue,
+                Stock mStock = new Stock
+                {
+                    StockDescription = txtDesc.Text,
+                    StockUnitPrice = Convert.ToInt32(txtPrice.Text),
+                    // StockType = cbType.SelectedValue,
 
 
-                //};
+                };
 
-                //db.Stocks.InsertOnSubmit(mStock);
-                //db.SubmitChanges();
+                db.Stocks.InsertOnSubmit(mStock);
+                db.SubmitChanges();
 
                 txtDesc.Text = "";
                 txtPrice.Text = "";

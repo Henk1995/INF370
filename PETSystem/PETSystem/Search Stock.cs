@@ -17,6 +17,8 @@ namespace PETSystem
             InitializeComponent();
         }
 
+
+        PET_DBDataContext db = new PET_DBDataContext();
         ErrorHandle chk = new ErrorHandle();
         bool SearchDValid;
         bool SearchIValid;
@@ -34,6 +36,11 @@ namespace PETSystem
             {
 
                 //Search in db
+                var searchDesc = from Stock in db.Stocks
+                               where Stock.StockDescription == txtSearchStockDesc.Text
+                               select Stock;
+                dgvSearchStock.DataSource = searchDesc;
+
                 MessageBox.Show("Searching " + stockDesc,"It Worked");
             }
         }
@@ -51,7 +58,13 @@ namespace PETSystem
             else
             {
                 //Search in DB
-                MessageBox.Show("Searching " + stockID, "It Worked");
+
+                var searchID = from Stock in db.Stocks
+                               where Stock.StockID == Convert.ToInt32(txtSearchStockID.Text)
+                               select Stock;
+                dgvSearchStock.DataSource = searchID;
+
+                //MessageBox.Show("Searching " + stockID, "It Worked");
             }
         }
 
@@ -149,10 +162,10 @@ namespace PETSystem
 
         private void Search_Stock_Load(object sender, EventArgs e)
         {
-            //PET_DBDataContext db = new PET_DBDataContext();
-            //var Stock = from STOCKS in db.Stocks select STOCKS;
-            //dgvSearchStock.DataSource = Stock;
-            //dgvSearchStock.Refresh();
+            //Pre loads all the data from the printing supplier table
+            var S = from Stock in db.Stocks select Stock;
+            dgvSearchStock.DataSource = S;
+            dgvSearchStock.Refresh();
         }
 
         private void btnMainMenu_Click(object sender, EventArgs e)

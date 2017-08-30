@@ -53,20 +53,19 @@ namespace PETSystem
             }
             else
             {
-
-                //Stock mStock = new Stock
-                //{
-                //    StockID = Convert.ToInt32(label1.Text),
-                //    StockDescription = txtDesc.Text,
-                //    StockUnitPrice = Convert.ToInt32(txtPrice.Text),
-                //   // StockType = cbType.SelectedValue,
+                Course mCourse = new Course
+                {
+                    CourseName = txtCourseName.Text,
+                    CourseCost = Convert.ToInt32(txtCourseCost.Text),
+                    CourseDuration = txtCourseDuration.Text
 
 
-                //};
 
-                //db.Stocks.InsertOnSubmit(mStock);
-                //db.SubmitChanges();
+                };
 
+                db.Courses.InsertOnSubmit(mCourse);
+                db.SubmitChanges();
+                
                 txtCourseName.Text = "";
                 txtCourseCost.Text = "";
                 txtCourseDuration.Text = "";

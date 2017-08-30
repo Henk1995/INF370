@@ -17,6 +17,7 @@ namespace PETSystem
             InitializeComponent();
         }
 
+        PET_DBDataContext db = new PET_DBDataContext();
         ErrorHandle chk = new ErrorHandle();
         bool SearchPSNameValid;
         bool SearchPSIDValid;
@@ -32,6 +33,11 @@ namespace PETSystem
             {
 
                 //Search in db
+                var searchName = from Printer in db.Printers
+                                     where Printer.PrinterName == txtSearchPrintSupplierName.Text
+                                     select Printer;
+                dgvSearchPrintingSupplier.DataSource = searchName;
+
                 MessageBox.Show("Searching " + PrintSupplierName, "It Worked");
             }
         }
@@ -48,6 +54,12 @@ namespace PETSystem
             else
             {
                 //Search in DB
+
+                var searchID = from Printer in db.Printers
+                                 where Printer.PrinterID == Convert.ToInt32(txtSearchPrintSupplierID.Text)
+                                 select Printer;
+                dgvSearchPrintingSupplier.DataSource = searchID;
+
                 MessageBox.Show("Searching " + PrintSupplierID, "It Worked");
             }
         }
@@ -109,6 +121,8 @@ namespace PETSystem
             }
             else if (test == DialogResult.No)
             {
+
+
                 MessageBox.Show("Printing Supplier not deleted", "Cancel", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
@@ -116,10 +130,9 @@ namespace PETSystem
         private void Search_Printing_Supplier_Load(object sender, EventArgs e)
         {
             //Pre loads all the data from the printing supplier table
-            //PET_DBDataContext db = new PET_DBDataContext();
-            //var Stock = from STOCKS in db.Stocks select STOCKS;
-            //dgvSearchStock.DataSource = Stock;
-            //dgvSearchStock.Refresh();
+            var PS = from Printer in db.Printers select Printer;
+            dgvSearchPrintingSupplier.DataSource = PS;
+            dgvSearchPrintingSupplier.Refresh();
         }
 
         private void btnAddPrintSupplier_Click(object sender, EventArgs e)

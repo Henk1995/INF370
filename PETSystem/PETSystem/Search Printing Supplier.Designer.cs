@@ -148,9 +148,12 @@
             // 
             // dgvSearchPrintingSupplier
             // 
+            this.dgvSearchPrintingSupplier.AllowUserToAddRows = false;
+            this.dgvSearchPrintingSupplier.AllowUserToDeleteRows = false;
             this.dgvSearchPrintingSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSearchPrintingSupplier.Location = new System.Drawing.Point(348, 12);
             this.dgvSearchPrintingSupplier.Name = "dgvSearchPrintingSupplier";
+            this.dgvSearchPrintingSupplier.ReadOnly = true;
             this.dgvSearchPrintingSupplier.Size = new System.Drawing.Size(700, 449);
             this.dgvSearchPrintingSupplier.TabIndex = 36;
             // 

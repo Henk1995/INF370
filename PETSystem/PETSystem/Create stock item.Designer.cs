@@ -80,10 +80,6 @@
             // cbType
             // 
             this.cbType.FormattingEnabled = true;
-            this.cbType.Items.AddRange(new object[] {
-            "Book\'s",
-            "Pen\'s",
-            "Misc"});
             this.cbType.Location = new System.Drawing.Point(151, 140);
             this.cbType.Name = "cbType";
             this.cbType.Size = new System.Drawing.Size(337, 21);

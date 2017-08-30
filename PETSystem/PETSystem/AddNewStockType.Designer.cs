@@ -34,8 +34,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtStockTypeName = new System.Windows.Forms.TextBox();
-            this.txtStockTypeDesc = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnCancel
@@ -93,22 +91,6 @@
             this.txtStockTypeName.TabIndex = 17;
             this.txtStockTypeName.TextChanged += new System.EventHandler(this.txtStockTypeName_TextChanged);
             // 
-            // txtStockTypeDesc
-            // 
-            this.txtStockTypeDesc.Location = new System.Drawing.Point(144, 104);
-            this.txtStockTypeDesc.Name = "txtStockTypeDesc";
-            this.txtStockTypeDesc.Size = new System.Drawing.Size(259, 20);
-            this.txtStockTypeDesc.TabIndex = 16;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 107);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 13);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Stock Type Description:";
-            // 
             // AddNewStockType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -120,8 +102,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtStockTypeName);
-            this.Controls.Add(this.txtStockTypeDesc);
-            this.Controls.Add(this.label3);
             this.Name = "AddNewStockType";
             this.Text = "AddNewStockType";
             this.ResumeLayout(false);
@@ -137,7 +117,5 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtStockTypeName;
-        private System.Windows.Forms.TextBox txtStockTypeDesc;
-        private System.Windows.Forms.Label label3;
     }
 }

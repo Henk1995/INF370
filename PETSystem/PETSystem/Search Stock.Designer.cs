@@ -151,9 +151,12 @@
             // 
             // dgvSearchStock
             // 
+            this.dgvSearchStock.AllowUserToAddRows = false;
+            this.dgvSearchStock.AllowUserToDeleteRows = false;
             this.dgvSearchStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSearchStock.Location = new System.Drawing.Point(350, 9);
             this.dgvSearchStock.Name = "dgvSearchStock";
+            this.dgvSearchStock.ReadOnly = true;
             this.dgvSearchStock.Size = new System.Drawing.Size(700, 449);
             this.dgvSearchStock.TabIndex = 23;
             // 
