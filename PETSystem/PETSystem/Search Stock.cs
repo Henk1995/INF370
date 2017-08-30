@@ -17,6 +17,7 @@ namespace PETSystem
             InitializeComponent();
         }
 
+        public static int ToUpdate;
 
         PET_DBDataContext db = new PET_DBDataContext();
         ErrorHandle chk = new ErrorHandle();
@@ -204,7 +205,7 @@ namespace PETSystem
             {
                 Stock _Stock = (Stock)dgvSearchStock.CurrentRow.DataBoundItem;
                 id = _Stock.StockID;
-
+                ToUpdate = id;
             }
         }
     }

@@ -17,29 +17,33 @@ namespace PETSystem
             InitializeComponent();
         }
 
+        PET_DBDataContext db = new PET_DBDataContext();
         ErrorHandle chk = new ErrorHandle();
         bool WriteoffValid;
+        int loadID = Search_Stock.ToUpdate;
+        int getTypeID;
+
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            textBox1.BackColor = Color.White;
-            string Quantity = textBox1.Text;
+            txtWriteoffQuantity.BackColor = Color.White;
+            string Quantity = txtWriteoffQuantity.Text;
             bool isInt = chk.CheckInt(Quantity);
             bool notEmpty = chk.CheckEmpty(Quantity);
 
             if (isInt == false)
             {
-                textBox1.BackColor = Color.FromArgb(244, 17, 17);
+                txtWriteoffQuantity.BackColor = Color.FromArgb(244, 17, 17);
                 WriteoffValid = false;
             }
             else if (notEmpty == false)
             {
-                textBox1.BackColor = Color.FromArgb(244, 17, 17);
+                txtWriteoffQuantity.BackColor = Color.FromArgb(244, 17, 17);
                 WriteoffValid = false;
             }
             else
             {
-                textBox1.BackColor = Color.White;
+                txtWriteoffQuantity.BackColor = Color.White;
                 WriteoffValid = true;
             }
 
@@ -52,7 +56,7 @@ namespace PETSystem
         private void button1_Click(object sender, EventArgs e)
         {
             
-            string Quantity = textBox1.Text;
+            string Quantity = txtWriteoffQuantity.Text;
 
             //!int.TryParse(q, out Quantity)
             if (WriteoffValid == false)
@@ -72,11 +76,47 @@ namespace PETSystem
         {
             this.Close(); // Closes window on exit
         }
-
+        
         private void WriteoffStock_Load(object sender, EventArgs e)
         {
+            
+
+            var mStockload = (from a in db.Stocks
+                              where a.StockID == loadID
+                              select new
+                              {
+                                  a.StockID,
+                                  a.StockDescription,
+                                  a.StockUnitPrice,
+                                  a.StockTypeID,
+
+
+                              }).ToList();
+
+            foreach (var item in mStockload)
+            {
+                lblStockID.Text = Convert.ToString(item.StockID);
+                lblStockDesc.Text = item.StockDescription;
+                lblStockUnitPrice.Text = Convert.ToString(item.StockUnitPrice);
+                lblStockQuantity.Text = Convert.ToString(item.StockUnitPrice);
+                getTypeID = item.StockTypeID;
+            }
+
+            var mStockTypeload = (from x in db.StockTypes
+                              where x.StockTypeID == getTypeID
+                              select new
+                              {
+                                 x.StockTypeID,
+                                 x.StockName
+                              }).ToList();
+
+            foreach (var Typevalue in mStockTypeload)
+            {
+                lblStockType.Text = Typevalue.StockName;
+            }
+
 
         }
     }
-    }
+}
 
