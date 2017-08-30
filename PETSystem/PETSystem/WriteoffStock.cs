@@ -81,9 +81,7 @@ namespace PETSystem
                 this.Close();
 
                 MessageBox.Show("Updated quantity", "It Worked");
-
-
-                MessageBox.Show("Writing off " + Quantity, "stock items");
+                
             }
         }
 

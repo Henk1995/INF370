@@ -23,6 +23,8 @@ namespace PETSystem
         int getTypeID;
         int CurrentQuantity;
         int NewID = Search_Stock.ToUpdate;
+        int AddAmmount;
+        int NewQuantity;
 
         private void txtQuantity_TextChanged(object sender, EventArgs e)
         {
@@ -61,6 +63,20 @@ namespace PETSystem
             }
             else
             {
+                AddAmmount = Convert.ToInt32(txtQuantity.Text);
+                NewQuantity = CurrentQuantity + AddAmmount;
+
+                var mStock = (from x in db.Stocks where x.StockID == Convert.ToInt32(NewID) select x).FirstOrDefault();
+
+                mStock.StockQuantity = Convert.ToInt32(NewQuantity);
+
+                db.SubmitChanges();
+
+                txtQuantity.Text = "";
+
+
+                this.Close();
+
                 MessageBox.Show("Adding " + Quan, "items to stock table");
                 this.Close();
             }
