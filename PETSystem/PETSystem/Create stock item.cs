@@ -97,11 +97,13 @@ namespace PETSystem
             else
             {
 
+                var getID = (from ID in db.StockTypes where ID.StockName == cbType.Text select ID).First();
+
                 Stock mStock = new Stock
                 {
                     StockDescription = txtDesc.Text,
                     StockUnitPrice = Convert.ToInt32(txtPrice.Text),
-                   // StockType = Convert.ToInt32(cbType.SelectedValue)
+                    StockType = getID
 
 
                 };
