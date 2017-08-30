@@ -38,6 +38,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.dgvInstructor = new System.Windows.Forms.DataGridView();
             this.button9 = new System.Windows.Forms.Button();
+            this.btnRefund = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInstructor)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,7 +54,7 @@
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(144, 186);
+            this.button7.Location = new System.Drawing.Point(8, 233);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(111, 41);
             this.button7.TabIndex = 25;
@@ -139,11 +140,22 @@
             this.button9.UseVisualStyleBackColor = true;
             this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
+            // btnRefund
+            // 
+            this.btnRefund.Location = new System.Drawing.Point(144, 186);
+            this.btnRefund.Name = "btnRefund";
+            this.btnRefund.Size = new System.Drawing.Size(111, 41);
+            this.btnRefund.TabIndex = 28;
+            this.btnRefund.Text = "Refund Order";
+            this.btnRefund.UseVisualStyleBackColor = true;
+            this.btnRefund.Click += new System.EventHandler(this.btnRefund_Click);
+            // 
             // Suppliers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(857, 354);
+            this.Controls.Add(this.btnRefund);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
@@ -174,5 +186,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgvInstructor;
         private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button btnRefund;
     }
 }

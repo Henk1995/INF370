@@ -93,6 +93,7 @@
             this.Controls.Add(this.btnDelete);
             this.Name = "DeleteInstructor";
             this.Text = "Delete Instructor";
+            this.Load += new System.EventHandler(this.DeleteInstructor_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInstructor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

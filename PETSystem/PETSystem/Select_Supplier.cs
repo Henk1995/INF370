@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using PETSystem;
+using System.Net.Mail;
+using System.Net;
 
 namespace Select_Supplier
 {
@@ -58,6 +60,15 @@ namespace Select_Supplier
             this.Visible = false;
             Place_Order.PlaceOrder PO = new Place_Order.PlaceOrder(supplier);
             PO.ShowDialog();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            Suppliers UM = new Suppliers();
+            UM.ShowDialog();
+
+
         }
     }
 }

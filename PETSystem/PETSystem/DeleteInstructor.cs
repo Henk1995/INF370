@@ -92,5 +92,10 @@ namespace PETSystem
                 MessageBox.Show("Information provided was invalid please resubmit the information", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void DeleteInstructor_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

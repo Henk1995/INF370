@@ -34,13 +34,13 @@ namespace Update_Supplier
         {
             int GenderID = 0;
             int TitleID = 0;
-            valid5 = EH.CheckEmpty(cmbSuppType.Text);
+            valid6 = EH.CheckEmpty(cmbSuppType.Text);
           
             if (valid1 && valid2 && valid3 && valid4 && valid5 && valid6)
             {
                 MessageBox.Show("Are you sure you want to update this Supplier", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
                 //This is my update query in which i am taking input from the user through windows forms and update the record.  
-                string query1 = "SELECT SupplierTypeID FROM Gender WHERE SupplierTypeName ='" + cmbSuppType.Text + "'";
+                string query1 = "SELECT SupplierTypeID FROM SupplierType WHERE SupplierTypeName ='" + cmbSuppType.Text + "'";
                 SqlCommand MyCommand1 = new SqlCommand(query1, connectstring);
                 SqlDataReader MyReader1;
                 connectstring.Open();
@@ -52,7 +52,7 @@ namespace Update_Supplier
                 }
                 connectstring.Close();
                
-                string Query = "UPDATE Supplier SET SupplierName ='" + this.txtSuppName.Text + "', SupplierAddress = '" + this.txtAdress.Text + "', SupplierEmail = '" + this.txtEmail.Text + "', SupplierPhoneNumber = '" + this.txtPhoneNumber.Text + "', SupplierBankAccNumber ='" + this.txtBancACCN + "', SupplierTypeID = '" + TitleID + "' WHERE SupplierID =" + Convert.ToInt32(InstructorID) + ";";
+                string Query = "UPDATE Supplier SET SupplierName ='" + this.txtSuppName.Text + "', SupplierAddress = '" + this.txtAdress.Text + "', SupplierEmail = '" + this.txtEmail.Text + "', SupplierPhoneNumber = '" + this.txtPhoneNumber.Text + "', SupplierBankAccNumber ='" + this.txtBancACCN.Text + "', SupplierTypeID = '" + GenderID + "' WHERE SupplierID =" + Convert.ToInt32(InstructorID) + ";";
                 //This is  MySqlConnection here i have created the object and pass my connection string.  
 
                 SqlCommand MyCommand3 = new SqlCommand(Query, connectstring);
@@ -136,6 +136,79 @@ namespace Update_Supplier
                 txtBancACCN.Text = AccNid;
                 cmbSuppType.Text = titleid;
             }
+        }
+
+        private void txtSuppName_TextChanged(object sender, EventArgs e)
+        {
+            valid1 = EH.Checkstring(txtSuppName.Text);
+            if (!valid1)
+            {
+                txtSuppName.BackColor = Color.Red;
+            }
+            else
+            {
+                txtSuppName.BackColor = Color.White;
+            }
+        }
+
+        private void txtAdress_TextChanged(object sender, EventArgs e)
+        {
+            valid2 = EH.CheckstringNum(txtAdress.Text);
+            
+            if (!valid2)
+            {
+                txtAdress.BackColor = Color.Red;
+            }
+            else
+            {
+                txtAdress.BackColor = Color.White;
+            }
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+            valid3 = EH.CheckEmail(txtEmail.Text);
+            if (!valid3)
+            {
+                txtEmail.BackColor = Color.Red;
+            }
+            else
+            {
+                txtEmail.BackColor = Color.White;
+            }
+        }
+
+        private void txtPhoneNumber_TextChanged(object sender, EventArgs e)
+        {
+            valid4 = EH.CheckInt(txtPhoneNumber.Text);
+            if (!valid4)
+            {
+                txtPhoneNumber.BackColor = Color.Red;
+            }
+            else
+            {
+                txtPhoneNumber.BackColor = Color.White;
+            }
+        }
+
+        private void txtBancACCN_TextChanged(object sender, EventArgs e)
+        {
+            valid5 = EH.CheckInt(txtBancACCN.Text);
+            if (!valid5)
+            {
+                txtBancACCN.BackColor = Color.Red;
+            }
+            else
+            {
+                txtBancACCN.BackColor = Color.White;
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            Suppliers UM = new Suppliers();
+            UM.ShowDialog();
         }
     }
 }

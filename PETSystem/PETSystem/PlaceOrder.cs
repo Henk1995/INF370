@@ -171,5 +171,12 @@ namespace Place_Order
                 rtbOrder.Text = rtbOrder.Text + nudQuantity.Value + "x\t" + txtDescription.Text + "\t" + txtDate.Text + "\t R" + total+"\n";
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            Select_Supplier.Select_Supplier UM = new Select_Supplier.Select_Supplier();
+            UM.ShowDialog();
+        }
     }
 }

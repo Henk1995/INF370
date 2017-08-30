@@ -54,6 +54,7 @@
             this.button2.TabIndex = 27;
             this.button2.Text = "Back";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -133,6 +134,7 @@
             this.txtBancACCN.Name = "txtBancACCN";
             this.txtBancACCN.Size = new System.Drawing.Size(140, 20);
             this.txtBancACCN.TabIndex = 18;
+            this.txtBancACCN.TextChanged += new System.EventHandler(this.txtBancACCN_TextChanged);
             // 
             // txtPhoneNumber
             // 
@@ -140,6 +142,7 @@
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(140, 20);
             this.txtPhoneNumber.TabIndex = 17;
+            this.txtPhoneNumber.TextChanged += new System.EventHandler(this.txtPhoneNumber_TextChanged);
             // 
             // txtEmail
             // 
@@ -147,6 +150,7 @@
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(140, 20);
             this.txtEmail.TabIndex = 16;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
             // txtAdress
             // 
@@ -154,6 +158,7 @@
             this.txtAdress.Name = "txtAdress";
             this.txtAdress.Size = new System.Drawing.Size(140, 20);
             this.txtAdress.TabIndex = 15;
+            this.txtAdress.TextChanged += new System.EventHandler(this.txtAdress_TextChanged);
             // 
             // txtSuppName
             // 
@@ -161,6 +166,7 @@
             this.txtSuppName.Name = "txtSuppName";
             this.txtSuppName.Size = new System.Drawing.Size(140, 20);
             this.txtSuppName.TabIndex = 14;
+            this.txtSuppName.TextChanged += new System.EventHandler(this.txtSuppName_TextChanged);
             // 
             // dgvInstructor
             // 

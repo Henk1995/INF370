@@ -140,5 +140,12 @@ namespace PETSystem
             dgvInstructor.DataMember = DT.TableName;
             connectstring.Close();
         }
+
+        private void btnRefund_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            RefundOrderSupp PO = new RefundOrderSupp();
+            PO.ShowDialog();
+        }
     }
 }
