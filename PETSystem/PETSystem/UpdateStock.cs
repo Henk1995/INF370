@@ -17,16 +17,27 @@ namespace PETSystem
         ErrorHandle chk = new ErrorHandle();
         bool stockDValid;
         bool unitPValid;
+        int NewID = Search_Stock.ToUpdate;
+
+
 
         public UpdateStock()
         {
             InitializeComponent();
+
         }
+
+        //public UpdateStock(int SendID)
+        //{
+        //    InitializeComponent();
+        //    NewID = SendID;
+        //}
+
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             string UnitPrice = txtName.Text;
-            string stockDesc = txtSurname.Text;
+            string stockDesc = txtPrice.Text;
             //add cb box items
 
 
@@ -59,8 +70,17 @@ namespace PETSystem
                 //db.Stocks.InsertOnSubmit(mStock);
                 //db.SubmitChanges();
 
+                var mSomeone = (from x in db.Stocks where x.StockID == Convert.ToInt32(NewID) select x).FirstOrDefault();
+
+
+                mSomeone.StockDescription = txtName.Text;
+                mSomeone.StockUnitPrice = Convert.ToInt32(txtPrice.Text);
+                //mSomeone.StockTypeID = txtAddress.Text;
+               
+                db.SubmitChanges();
+
                 txtName.Text = "";
-                txtSurname.Text = "";
+                txtPrice.Text = "";
 
 
                 this.Close();
@@ -96,31 +116,68 @@ namespace PETSystem
 
         private void txtSurname_TextChanged(object sender, EventArgs e)
         {
-            txtSurname.BackColor = Color.White;
-            string UnitPrice = txtSurname.Text;
+            txtPrice.BackColor = Color.White;
+            string UnitPrice = txtPrice.Text;
             bool isInt = chk.CheckInt(UnitPrice);
             bool notEmpty = chk.CheckEmpty(UnitPrice);
 
             if (isInt == false)
             {
-                txtSurname.BackColor = Color.FromArgb(244, 17, 17);
+                txtPrice.BackColor = Color.FromArgb(244, 17, 17);
                 unitPValid = false;
             }
             else if (notEmpty == false)
             {
-                txtSurname.BackColor = Color.FromArgb(244, 17, 17);
+                txtPrice.BackColor = Color.FromArgb(244, 17, 17);
                 unitPValid = false;
             }
             else
             {
-                txtSurname.BackColor = Color.White;
+                txtPrice.BackColor = Color.White;
                 unitPValid = true;
             }
         }
 
         private void UpdateStock_Load(object sender, EventArgs e)
         {
+            var mStockTypeID = (
+                  from a in db.StockTypes
+                  select a.StockName)
+                   .ToList();
+
+            cbStockType.DataSource = mStockTypeID;
+
             //Load all fields from db
+
+            var mStockload = (from a in db.Stocks where a.StockID == NewID select new
+            {
+                a.StockID,
+                a.StockDescription,
+                a.StockUnitPrice,
+                a.StockTypeID,
+
+
+            }).ToList();
+
+            foreach (var item in mStockload)
+            {
+                lblStockID.Text = Convert.ToString(item.StockID);
+                txtName.Text = item.StockDescription;
+                txtPrice.Text = Convert.ToString(item.StockUnitPrice);
+                cbStockType.SelectedIndex = item.StockTypeID;
+
+            }
+
+
+
+
+
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
