@@ -41,7 +41,7 @@ namespace PETSystem
                                select Stock;
                 dgvSearchStock.DataSource = searchDesc;
 
-                MessageBox.Show("Searching " + stockDesc,"It Worked");
+               //MessageBox.Show("Searching " + stockDesc,"It Worked");
             }
         }
 
@@ -70,6 +70,7 @@ namespace PETSystem
 
         private void txtSearchStockDesc_TextChanged(object sender, EventArgs e)
         {
+            txtSearchStockID.Clear();
             txtSearchStockDesc.BackColor = Color.White;
             string stockDesc = txtSearchStockDesc.Text;
             bool isString = chk.Checkstring(stockDesc);
@@ -90,30 +91,72 @@ namespace PETSystem
                 txtSearchStockDesc.BackColor = Color.White;
                 SearchDValid = true;
             }
+
+            if (SearchDValid == true)
+            {
+                var searchDesc = from Stock in db.Stocks
+                                 where Stock.StockDescription.Contains(txtSearchStockDesc.Text)
+                                 select Stock;
+                dgvSearchStock.DataSource = searchDesc;
+                dgvSearchStock.Refresh();
+            }
+            else
+            {
+                dgvSearchStock.DataSource = null;
+                var S = from Stock in db.Stocks select Stock;
+                dgvSearchStock.DataSource = S;
+                dgvSearchStock.Update();
+                dgvSearchStock.Refresh();
+            }
+
+            
+
         }
 
         private void txtSearchStockID_TextChanged(object sender, EventArgs e)
         {
-            string stockID = txtSearchStockID.Text;
-            txtSearchStockID.BackColor = Color.White;
-            bool isInt = chk.CheckInt(stockID);
-            bool notEmpty = chk.CheckEmpty(stockID);
+            txtSearchStockDesc.Clear();
 
-            if (isInt == false)
-            {
-                txtSearchStockID.BackColor = Color.FromArgb(244, 17, 17);
-                SearchIValid = false;
-            }
-            else if (notEmpty == false)
-            {
-                txtSearchStockID.BackColor = Color.FromArgb(244, 17, 17);
-                SearchIValid = false;
-            }
-            else
-            {
-                txtSearchStockID.BackColor = Color.White;
-                SearchIValid = true;
-            }
+
+            //string stockID = txtSearchStockID.Text;
+            //txtSearchStockID.BackColor = Color.White;
+            //bool isInt = chk.CheckInt(stockID);
+            //bool notEmpty = chk.CheckEmpty(stockID);
+
+            //if (isInt == false)
+            //{
+            //    txtSearchStockID.BackColor = Color.FromArgb(244, 17, 17);
+            //    SearchIValid = false;
+            //}
+            //else if (notEmpty == false)
+            //{
+            //    txtSearchStockID.BackColor = Color.FromArgb(244, 17, 17);
+            //    SearchIValid = false;
+            //}
+            //else
+            //{
+            //    txtSearchStockID.BackColor = Color.White;
+            //    SearchIValid = true;
+            //}
+
+            //if (SearchDValid == true)
+            //{
+            //    var searchID = from Stock in db.Stocks
+            //                   where Stock.StockID == Convert.ToInt32(txtSearchStockID.Text)
+            //                   select Stock;
+            //    dgvSearchStock.DataSource = searchID;
+            //    dgvSearchStock.Update();
+            //    dgvSearchStock.Refresh();
+            //}
+            //else
+            //{
+            //    dgvSearchStock.DataSource = null;
+            //    var S = from Stock in db.Stocks select Stock;
+            //    dgvSearchStock.DataSource = S;
+            //    dgvSearchStock.Update();
+            //    dgvSearchStock.Refresh();
+            //}
+            
         }
 
         private void btnWriteoffStock_Click(object sender, EventArgs e)

@@ -101,7 +101,7 @@ namespace PETSystem
                 {
                     StockDescription = txtDesc.Text,
                     StockUnitPrice = Convert.ToInt32(txtPrice.Text),
-                   // StockType = Convert.ToInt32(cbType.SelectedValue)
+                    StockTypeID = Convert.ToInt32(cbType.SelectedIndex + 1)
 
 
                 };
@@ -116,7 +116,6 @@ namespace PETSystem
                 this.Close();
 
                 MessageBox.Show("Added " + stockDesc + "\n Searching R " + UnitPrice + "", "It Worked");
-               //MessageBox.Show("ok");
             }
         }
 
@@ -128,15 +127,6 @@ namespace PETSystem
                    .ToList();
 
             cbType.DataSource = mStockTypeID;
-
-            //var list = (from p in db.StockTypes
-            //            select new
-            //            {
-            //                p.StockName,
-            //                p.StockTypeID
-            //            }).ToList();
-            //cbType.DataSource = list;
-            //cbType.SelectedItem = list[0];
 
         }
 

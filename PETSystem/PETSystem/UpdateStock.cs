@@ -54,7 +54,7 @@ namespace PETSystem
 
                 mSomeone.StockDescription = stockDesc;
                 mSomeone.StockUnitPrice = Convert.ToInt32(UnitPrice);
-                //mSomeone.StockTypeID = Convert.ToInt32(cbStockType.Text);
+                mSomeone.StockTypeID = Convert.ToInt32(cbStockType.SelectedIndex);
                
                 db.SubmitChanges();
 
@@ -145,7 +145,7 @@ namespace PETSystem
 
             foreach (var Typevalue in mStockTypeload)
             {
-                cbStockType.SelectedItem = Typevalue.StockName;
+                cbStockType.SelectedText = Typevalue.StockName;
             }
         }
 

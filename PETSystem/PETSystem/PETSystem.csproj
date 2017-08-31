@@ -167,12 +167,6 @@
     <Compile Include="MaintainCourses.Designer.cs">
       <DependentUpon>MaintainCourses.cs</DependentUpon>
     </Compile>
-    <Compile Include="Orders.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Orders.Designer.cs">
-      <DependentUpon>Orders.cs</DependentUpon>
-    </Compile>
     <Compile Include="PET_DB.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -209,6 +203,12 @@
     </Compile>
     <Compile Include="Search Course Client.Designer.cs">
       <DependentUpon>Search Course Client.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Search Order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search Order.Designer.cs">
+      <DependentUpon>Search Order.cs</DependentUpon>
     </Compile>
     <Compile Include="Search Printing Supplier.cs">
       <SubType>Form</SubType>
@@ -399,9 +399,6 @@
     <EmbeddedResource Include="MaintainCourses.resx">
       <DependentUpon>MaintainCourses.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Orders.resx">
-      <DependentUpon>Orders.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="PET_DB.dbml.layout">
       <DependentUpon>PET_DB.dbml</DependentUpon>
     </None>
@@ -428,6 +425,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Search Course Client.resx">
       <DependentUpon>Search Course Client.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Search Order.resx">
+      <DependentUpon>Search Order.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Search Printing Supplier.resx">
       <DependentUpon>Search Printing Supplier.cs</DependentUpon>
