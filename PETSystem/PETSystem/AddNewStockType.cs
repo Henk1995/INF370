@@ -27,6 +27,9 @@ namespace PETSystem
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+
+            Create_stock_item sc = new Create_stock_item();
+            sc.Show();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -51,6 +54,8 @@ namespace PETSystem
                 this.Close();
 
                 MessageBox.Show("Added " + StockType + " " + "as a new stock type.", "It Worked");
+                Create_stock_item sc = new Create_stock_item();
+                sc.Show();
             }
         }
 

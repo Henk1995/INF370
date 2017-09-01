@@ -74,6 +74,9 @@ namespace PETSystem
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+
+            Search_Stock sc = new Search_Stock();
+            sc.Show();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -110,6 +113,10 @@ namespace PETSystem
                 this.Close();
 
                 MessageBox.Show("Added " + stockDesc + "\n Searching R " + UnitPrice + "", "It Worked");
+
+                Search_Stock sc = new Search_Stock();
+                sc.Show();
+
             }
         }
 
@@ -126,6 +133,7 @@ namespace PETSystem
 
         private void btnAddStockType_Click(object sender, EventArgs e)
         {
+            this.Close();
             AddNewStockType f = new AddNewStockType();
             f.Show();
         }

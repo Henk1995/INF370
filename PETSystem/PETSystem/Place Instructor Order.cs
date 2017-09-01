@@ -19,6 +19,8 @@ namespace PETSystem
 
         PET_DBDataContext db = new PET_DBDataContext();
         int InstructorOrderID = Select_Instructor.InstructorIDForOrder;
+        int CurrentlyLoggedInUserID = LoginF.UserIDthatLoggedIn;
+
 
         int RefNum = 0;
         ErrorHandle EH = new ErrorHandle();
@@ -159,13 +161,19 @@ namespace PETSystem
                     OrderDate = txtDate.Text,
                     OrderDescription = txtDescription.Text,
                     InstructorID = InstructorOrderID,
-                    //UserID = CurrentlyLoggedInUSerID,
+                    UserID = CurrentlyLoggedInUserID,
                     
                 };
 
                 db.TableOrders.InsertOnSubmit(mTableOrder);
                 db.SubmitChanges();
 
+                
+                Search_Order so = new Search_Order();
+                so.Show();
+
+
+                this.Close();
             }
         }
     }

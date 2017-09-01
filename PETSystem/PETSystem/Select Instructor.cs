@@ -40,10 +40,15 @@ namespace PETSystem
 
         private void btnSelectInstructor_Click(object sender, EventArgs e)
         {
-            InstructorIDForOrder = cbInstructor.SelectedIndex + 1;
+            string InsName = Convert.ToString(cbInstructor.SelectedItem);
+            var GetInstID =(from x in db.Instructors where x.Name.Contains(InsName) select x.InstructorID).FirstOrDefault();
+
+            InstructorIDForOrder = Convert.ToInt32(GetInstID);
 
             Place_Instructor_Order pio = new Place_Instructor_Order();
             pio.Show();
+
+            this.Close();
         }
     }
 }

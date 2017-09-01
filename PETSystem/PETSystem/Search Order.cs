@@ -32,5 +32,12 @@ namespace PETSystem
             dgvOrders.DataSource = LoadOrders;
             dgvOrders.Refresh();
         }
+
+        private void btnMainMenu_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            MainMenuF UM = new MainMenuF();
+            UM.ShowDialog();
+        }
     }
 }

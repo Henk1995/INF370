@@ -161,12 +161,14 @@ namespace PETSystem
 
         private void btnWriteoffStock_Click(object sender, EventArgs e)
         {
+            this.Close();
             WriteoffStock f = new WriteoffStock();
             f.Show();
         }
 
         private void btnAddStock_Click(object sender, EventArgs e)
         {
+            this.Close();
             AddStock a = new AddStock();
             a.ShowDialog();
         }
@@ -216,14 +218,16 @@ namespace PETSystem
 
         private void btnUpdateStock_Click(object sender, EventArgs e)
         {
+            this.Close();
             UpdateStock f = new UpdateStock();
             f.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Close();
             Create_stock_item c = new Create_stock_item();
-            c.ShowDialog();
+            c.Show();
         }
 
         private void Search_Stock_Load(object sender, EventArgs e)
@@ -236,9 +240,9 @@ namespace PETSystem
 
         private void btnMainMenu_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             MainMenuF UM = new MainMenuF();
-            UM.ShowDialog();
+            UM.Show();
         }
 
         private void dgvSearchStock_SelectionChanged(object sender, EventArgs e)

@@ -77,6 +77,8 @@ namespace PETSystem
 
                 MessageBox.Show("Updated " + stockDesc + " and R " + UnitPrice + " " + "as the new info was entered.", "It Worked");
 
+                Search_Stock sc = new Search_Stock();
+                sc.Show();
             }
         }
 
@@ -177,6 +179,9 @@ namespace PETSystem
         private void button1_Click_1(object sender, EventArgs e)
         {
             this.Close();
+
+            Search_Stock sc = new Search_Stock();
+            sc.Show();
         }
     }
 }
