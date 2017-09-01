@@ -30,7 +30,6 @@
         {
             this.btnMainMenu = new System.Windows.Forms.Button();
             this.btnAddCourse = new System.Windows.Forms.Button();
-            this.btnSearcCourseName = new System.Windows.Forms.Button();
             this.btnViewCourse = new System.Windows.Forms.Button();
             this.btnRemoveCourse = new System.Windows.Forms.Button();
             this.txtSearchCourseName = new System.Windows.Forms.TextBox();
@@ -62,16 +61,6 @@
             this.btnAddCourse.Text = "Add Course";
             this.btnAddCourse.UseVisualStyleBackColor = true;
             this.btnAddCourse.Click += new System.EventHandler(this.btnAddCourse_Click);
-            // 
-            // btnSearcCourseName
-            // 
-            this.btnSearcCourseName.Location = new System.Drawing.Point(8, 110);
-            this.btnSearcCourseName.Name = "btnSearcCourseName";
-            this.btnSearcCourseName.Size = new System.Drawing.Size(326, 23);
-            this.btnSearcCourseName.TabIndex = 43;
-            this.btnSearcCourseName.Text = "Search Course Name";
-            this.btnSearcCourseName.UseVisualStyleBackColor = true;
-            this.btnSearcCourseName.Click += new System.EventHandler(this.btnSearcCourseName_Click);
             // 
             // btnViewCourse
             // 
@@ -161,7 +150,6 @@
             this.Controls.Add(this.btnRefreshDGV);
             this.Controls.Add(this.btnMainMenu);
             this.Controls.Add(this.btnAddCourse);
-            this.Controls.Add(this.btnSearcCourseName);
             this.Controls.Add(this.btnViewCourse);
             this.Controls.Add(this.btnRemoveCourse);
             this.Controls.Add(this.txtSearchCourseName);
@@ -182,7 +170,6 @@
 
         private System.Windows.Forms.Button btnMainMenu;
         private System.Windows.Forms.Button btnAddCourse;
-        private System.Windows.Forms.Button btnSearcCourseName;
         private System.Windows.Forms.Button btnViewCourse;
         private System.Windows.Forms.Button btnRemoveCourse;
         private System.Windows.Forms.TextBox txtSearchCourseName;

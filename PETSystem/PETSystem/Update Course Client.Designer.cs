@@ -30,7 +30,6 @@
         {
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtGender = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -39,16 +38,15 @@
             this.btnUpdateCourseClient = new System.Windows.Forms.Button();
             this.txtSurname = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.cbGender = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtPhoneNumber
             // 
-            this.txtPhoneNumber.Location = new System.Drawing.Point(143, 256);
+            this.txtPhoneNumber.Location = new System.Drawing.Point(144, 225);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(337, 20);
             this.txtPhoneNumber.TabIndex = 83;
@@ -56,24 +54,16 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(143, 218);
+            this.txtEmail.Location = new System.Drawing.Point(144, 187);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(337, 20);
             this.txtEmail.TabIndex = 82;
             this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
             // 
-            // txtGender
-            // 
-            this.txtGender.Location = new System.Drawing.Point(143, 182);
-            this.txtGender.Name = "txtGender";
-            this.txtGender.Size = new System.Drawing.Size(337, 20);
-            this.txtGender.TabIndex = 81;
-            this.txtGender.TextChanged += new System.EventHandler(this.txtGender_TextChanged);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(27, 259);
+            this.label4.Location = new System.Drawing.Point(28, 228);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 13);
             this.label4.TabIndex = 80;
@@ -82,7 +72,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(27, 185);
+            this.label7.Location = new System.Drawing.Point(28, 154);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(42, 13);
             this.label7.TabIndex = 79;
@@ -91,7 +81,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(27, 221);
+            this.label8.Location = new System.Drawing.Point(28, 190);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(32, 13);
             this.label8.TabIndex = 78;
@@ -99,7 +89,7 @@
             // 
             // txtTitle
             // 
-            this.txtTitle.Location = new System.Drawing.Point(143, 67);
+            this.txtTitle.Location = new System.Drawing.Point(144, 36);
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(337, 20);
             this.txtTitle.TabIndex = 77;
@@ -107,7 +97,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(316, 299);
+            this.btnCancel.Location = new System.Drawing.Point(317, 268);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(164, 23);
             this.btnCancel.TabIndex = 76;
@@ -117,7 +107,7 @@
             // 
             // btnUpdateCourseClient
             // 
-            this.btnUpdateCourseClient.Location = new System.Drawing.Point(143, 299);
+            this.btnUpdateCourseClient.Location = new System.Drawing.Point(144, 268);
             this.btnUpdateCourseClient.Name = "btnUpdateCourseClient";
             this.btnUpdateCourseClient.Size = new System.Drawing.Size(164, 23);
             this.btnUpdateCourseClient.TabIndex = 75;
@@ -127,7 +117,7 @@
             // 
             // txtSurname
             // 
-            this.txtSurname.Location = new System.Drawing.Point(143, 143);
+            this.txtSurname.Location = new System.Drawing.Point(144, 112);
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(337, 20);
             this.txtSurname.TabIndex = 74;
@@ -135,25 +125,16 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(143, 105);
+            this.txtName.Location = new System.Drawing.Point(144, 74);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(337, 20);
             this.txtName.TabIndex = 73;
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(140, 38);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(19, 13);
-            this.label6.TabIndex = 72;
-            this.label6.Text = "49";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(27, 70);
+            this.label5.Location = new System.Drawing.Point(28, 39);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(30, 13);
             this.label5.TabIndex = 71;
@@ -162,7 +143,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 108);
+            this.label3.Location = new System.Drawing.Point(28, 77);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 70;
@@ -171,29 +152,28 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 146);
+            this.label2.Location = new System.Drawing.Point(28, 115);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(52, 13);
             this.label2.TabIndex = 69;
             this.label2.Text = "Surname:";
             // 
-            // label1
+            // cbGender
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 13);
-            this.label1.TabIndex = 68;
-            this.label1.Text = "Client ID:";
+            this.cbGender.FormattingEnabled = true;
+            this.cbGender.Location = new System.Drawing.Point(144, 151);
+            this.cbGender.Name = "cbGender";
+            this.cbGender.Size = new System.Drawing.Size(337, 21);
+            this.cbGender.TabIndex = 84;
             // 
             // Update_Course_Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(523, 351);
+            this.Controls.Add(this.cbGender);
             this.Controls.Add(this.txtPhoneNumber);
             this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.txtGender);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
@@ -202,13 +182,12 @@
             this.Controls.Add(this.btnUpdateCourseClient);
             this.Controls.Add(this.txtSurname);
             this.Controls.Add(this.txtName);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Name = "Update_Course_Client";
             this.Text = "Update_Course_Client";
+            this.Load += new System.EventHandler(this.Update_Course_Client_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,7 +197,6 @@
 
         private System.Windows.Forms.TextBox txtPhoneNumber;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtGender;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
@@ -227,10 +205,9 @@
         private System.Windows.Forms.Button btnUpdateCourseClient;
         private System.Windows.Forms.TextBox txtSurname;
         private System.Windows.Forms.TextBox txtName;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbGender;
     }
 }

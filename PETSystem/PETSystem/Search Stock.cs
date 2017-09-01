@@ -115,7 +115,7 @@ namespace PETSystem
 
         private void txtSearchStockID_TextChanged(object sender, EventArgs e)
         {
-            txtSearchStockDesc.Clear();
+           // txtSearchStockDesc.Clear();
 
 
             //string stockID = txtSearchStockID.Text;

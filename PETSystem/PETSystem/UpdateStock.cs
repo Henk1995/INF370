@@ -71,14 +71,12 @@ namespace PETSystem
                
                 db.SubmitChanges();
 
-                //txtName.Text = "";
-                //txtPrice.Text = "";
 
 
                 this.Close();
 
                 MessageBox.Show("Updated " + stockDesc + " and R " + UnitPrice + " " + "as the new info was entered.", "It Worked");
-                //MessageBox.Show("ok");
+
             }
         }
 

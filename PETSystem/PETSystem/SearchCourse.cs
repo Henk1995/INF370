@@ -34,7 +34,10 @@ namespace PETSystem
             else
             {
                 //Search in db
-
+                var searchDesc = from Course in db.Courses
+                                 where Course.CourseName.Contains(CourseName)
+                                 select Course;
+                dgvSearchCourse.DataSource = searchDesc;
 
 
                 MessageBox.Show("Searching " + CourseName, "It Worked");
@@ -44,9 +47,9 @@ namespace PETSystem
         private void txtSearchCourseName_TextChanged(object sender, EventArgs e)
         {
             txtSearchCourseName.BackColor = Color.White;
-            string stockDesc = txtSearchCourseName.Text;
-            bool isString = chk.Checkstring(stockDesc);
-            bool notEmpty = chk.CheckEmpty(stockDesc);
+            string CourseName = txtSearchCourseName.Text;
+            bool isString = chk.Checkstring(CourseName);
+            bool notEmpty = chk.CheckEmpty(CourseName);
 
             if (isString == false)
             {
@@ -63,6 +66,24 @@ namespace PETSystem
                 txtSearchCourseName.BackColor = Color.White;
                 SearchCIsValid = true;
             }
+
+            
+
+            if (SearchCIsValid == true)
+            {
+                var searchDesc = from Course in db.Courses
+                                 where Course.CourseName.Contains(CourseName)
+                                 select Course;
+                dgvSearchCourse.DataSource = searchDesc;
+            }
+            else
+            {
+                var SC = from Course in db.Courses select Course;
+                dgvSearchCourse.DataSource = SC;
+                dgvSearchCourse.Update();
+                dgvSearchCourse.Refresh();
+            }
+
         }
 
         private void btnAddCourse_Click(object sender, EventArgs e)

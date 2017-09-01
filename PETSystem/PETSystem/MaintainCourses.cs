@@ -14,8 +14,6 @@ namespace PETSystem
 {
     public partial class MaintainCourses : Form
     {
-        public static string DBC = "Data Source=JWM\\SYSARCH;Initial Catalog=INF370;Integrated Security=True";
-        SqlConnection connectstring = new SqlConnection(DBC);
         SqlDataAdapter DA;
         DataTable DTC = new DataTable();
         ErrorHandle EH = new ErrorHandle();
@@ -48,15 +46,15 @@ namespace PETSystem
             cmbName.Items.Clear();
             string query = "SELECT TrainingCourseName FROM TrainingCourseType ";
             DataTable DT = new DataTable();
-            connectstring.Open();
-            SqlCommand cmd = new SqlCommand(query, connectstring);
+            ConnectString.connectstring.Open();
+            SqlCommand cmd = new SqlCommand(query, ConnectString.connectstring);
             DA = new SqlDataAdapter(cmd);
             DA.Fill(DT);
             foreach (DataRow dr in DT.Rows)
             {
                 cmbName.Items.Add(dr["TrainingCourseName"]).ToString();
             }
-            connectstring.Close();
+            ConnectString.connectstring.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -96,13 +94,13 @@ namespace PETSystem
             btnSave.Visible = true;
             MSMain.Visible = false;
             DataTable DT = new DataTable();
-            connectstring.Open();
-            SqlCommand Fill = new SqlCommand("SELECT * FROM TrainingCourse", connectstring);
+            ConnectString.connectstring.Open();
+            SqlCommand Fill = new SqlCommand("SELECT * FROM TrainingCourse", ConnectString.connectstring);
             DA = new SqlDataAdapter(Fill);
             DA.Fill(DT);
             dgvMaintain.DataSource = DT;
             dgvMaintain.DataMember = DT.TableName;
-            connectstring.Close();
+            ConnectString.connectstring.Close();
         }
 
         private void txtCourseName_TextChanged(object sender, EventArgs e)
@@ -111,32 +109,32 @@ namespace PETSystem
             if(!valid1)
             {
                 txtCourseName.BackColor = Color.Red;
-                connectstring.Open();
-                DA = new SqlDataAdapter("select * from TrainingCourse where CourseName like '" + txtCourseName.Text + "%'", connectstring);
+                ConnectString.connectstring.Open();
+                DA = new SqlDataAdapter("select * from TrainingCourse where CourseName like '" + txtCourseName.Text + "%'", ConnectString.connectstring);
 
                 DA.Fill(DTC);
                 dgvMaintain.DataSource = DTC;
-                connectstring.Close();
+                ConnectString.connectstring.Close();
                 DataTable DT = new DataTable();
-                connectstring.Open();
-                SqlCommand Fill = new SqlCommand("SELECT * FROM TrainingCourse", connectstring);
+                ConnectString.connectstring.Open();
+                SqlCommand Fill = new SqlCommand("SELECT * FROM TrainingCourse", ConnectString.connectstring);
                 DA = new SqlDataAdapter(Fill);
                 DA.Fill(DT);
                 dgvMaintain.DataSource = DT;
                 dgvMaintain.DataMember = DT.TableName;
-                connectstring.Close();
+                ConnectString.connectstring.Close();
 
             }
             else
             {
                 txtCourseName.BackColor = Color.White;
                 
-                connectstring.Open();
-                DA = new SqlDataAdapter("select * from TrainingCourse where CourseName like '" + txtCourseName.Text + "%'", connectstring);
+                ConnectString.connectstring.Open();
+                DA = new SqlDataAdapter("select * from TrainingCourse where CourseName like '" + txtCourseName.Text + "%'", ConnectString.connectstring);
                 DTC.Clear();
                 DA.Fill(DTC);
                 dgvMaintain.DataSource = DTC;
-                connectstring.Close();
+                ConnectString.connectstring.Close();
             }
         }
 
@@ -151,12 +149,12 @@ namespace PETSystem
             //{
                 
             //    txtYear.BackColor = Color.White;
-            //   // connectstring.Open();
-            //   // DA = new SqlDataAdapter("select * from TrainingCourse where TrainingCourseDate like '" + txtYear.Text + "%'", connectstring);
+            //   // ConnectString.connectstring.Open();
+            //   // DA = new SqlDataAdapter("select * from TrainingCourse where TrainingCourseDate like '" + txtYear.Text + "%'", ConnectString.connectstring);
             //   //DataTable DT = new DataTable();
             //   // DA.Fill(DT);
             //   // dgvMaintain.DataSource = DT;
-            //   // connectstring.Close();
+            //   // ConnectString.connectstring.Close();
             //}
         }
 
@@ -214,14 +212,14 @@ namespace PETSystem
 
         private void button3_Click(object sender, EventArgs e)
         {
-            connectstring.Close();
+            ConnectString.connectstring.Close();
             string Query1 = "SELECT * FROM TrainingCourseType WHERE TrainingCourseName ='" + this.txtNCDName.Text + "';";
-            SqlCommand MyCommand = new SqlCommand(Query1, connectstring);
+            SqlCommand MyCommand = new SqlCommand(Query1, ConnectString.connectstring);
             
             SqlDataAdapter DA1 = new SqlDataAdapter(MyCommand);
             DataTable DT1 = new DataTable();
             DA1.Fill(DT1);
-            connectstring.Open();
+            ConnectString.connectstring.Open();
            
 
             if (DT1.Rows.Count > 0)
@@ -234,7 +232,7 @@ namespace PETSystem
                 //This is  MySqlConnection here i have created the object and pass my connection string.  
 
                 //This is command class which will handle the query and connection object.  
-                SqlCommand MyCommand2 = new SqlCommand(Query, connectstring);
+                SqlCommand MyCommand2 = new SqlCommand(Query, ConnectString.connectstring);
                 SqlDataReader MyReader2;
               
                 MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
@@ -242,7 +240,7 @@ namespace PETSystem
                 while (MyReader2.Read())
                 {
                 }
-                connectstring.Close();
+                ConnectString.connectstring.Close();
 
             }
         }
@@ -252,12 +250,12 @@ namespace PETSystem
             int CTID=0;
             bool duplicate = false;
             string Query1 = "SELECT * FROM TrainingCourse WHERE CourseName ='" + this.txtCourseName.Text + "'AND TrainingCourseDate='" + this.txtStartDate.Text + "';";
-            SqlCommand MyCommand = new SqlCommand(Query1, connectstring);
+            SqlCommand MyCommand = new SqlCommand(Query1, ConnectString.connectstring);
             SqlDataReader MyReader;
             SqlDataAdapter DA = new SqlDataAdapter(MyCommand);
             DataTable DT = new DataTable();
             DA.Fill(DT);
-            connectstring.Open();
+            ConnectString.connectstring.Open();
             MyReader = MyCommand.ExecuteReader();
 
             if (DT.Rows.Count == 0)
@@ -269,33 +267,33 @@ namespace PETSystem
             {
                 duplicate = true;
             }
-            connectstring.Close();
+            ConnectString.connectstring.Close();
             if(!duplicate)
             {
                 string query = "SELECT TrainingCourseTypeID FROM TrainingCourseType WHERE TrainingCourseName='" + cmbName.Text + "'";
-                SqlCommand MyCommand1 = new SqlCommand(query, connectstring);
+                SqlCommand MyCommand1 = new SqlCommand(query, ConnectString.connectstring);
                 SqlDataReader MyReader1;
-                connectstring.Open();
+                ConnectString.connectstring.Open();
                 MyReader1 = MyCommand1.ExecuteReader();     // Here our query will be executed and data saved into the database.  
 
                 while (MyReader1.Read())
                 {
                     CTID = Convert.ToInt32(MyReader1["TrainingCourseTypeID"]);
                 }
-                connectstring.Close();
+                ConnectString.connectstring.Close();
                 string Query = "INSERT INTO TrainingCourse(CourseName,Duration,TrainingCourseDate,TrainingCourseTypeID) values('" + this.cmbName.Text + "','" + this.numericUpDown1.Text + "','" + this.txtStartDate.Text + "','"+ CTID + "');";
                 //This is  MySqlConnection here i have created the object and pass my connection string.  
 
                 //This is command class which will handle the query and connection object.  
-                SqlCommand MyCommand2 = new SqlCommand(Query, connectstring);
+                SqlCommand MyCommand2 = new SqlCommand(Query, ConnectString.connectstring);
                 SqlDataReader MyReader2;
-                connectstring.Open();
+                ConnectString.connectstring.Open();
                 MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
                 MessageBox.Show("Save Data");
                 while (MyReader2.Read())
                 {
                 }
-                connectstring.Close();
+                ConnectString.connectstring.Close();
             }
         }
 

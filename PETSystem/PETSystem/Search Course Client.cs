@@ -59,6 +59,24 @@ namespace PETSystem
                 txtSearchCCName.BackColor = Color.White;
                 SearcCCNValid = true;
             }
+
+            if (SearcCCNValid == true)
+            {
+                var searchCCName = from Client in db.Clients
+                                   where Client.ClientName.Contains(CCName)
+                                 select Client;
+                dgvCourseClient.DataSource = searchCCName;
+                dgvCourseClient.Refresh();
+            }
+            else
+            {
+                dgvCourseClient.DataSource = null;
+                var S = from Client in db.Clients select Client;
+                dgvCourseClient.DataSource = S;
+                dgvCourseClient.Update();
+                dgvCourseClient.Refresh();
+            }
+
         }
 
         private void btnSearchCCSurname_Click(object sender, EventArgs e)
@@ -99,6 +117,24 @@ namespace PETSystem
                 txtSearcCCSurname.BackColor = Color.White;
                 SearcCCSNValid = true;
             }
+
+            if (SearcCCSNValid == true)
+            {
+                var searchCCSurName = from Client in db.Clients
+                                      where Client.ClientSurname.Contains(CCSurname)
+                                   select Client;
+                dgvCourseClient.DataSource = searchCCSurName;
+                dgvCourseClient.Refresh();
+            }
+            else
+            {
+                dgvCourseClient.DataSource = null;
+                var S = from Client in db.Clients select Client;
+                dgvCourseClient.DataSource = S;
+                dgvCourseClient.Update();
+                dgvCourseClient.Refresh();
+            }
+
         }
 
         private void btnAddClient_Click(object sender, EventArgs e)
@@ -143,7 +179,7 @@ namespace PETSystem
 
         private void Search_Course_Client_Load(object sender, EventArgs e)
         {
-            var SCC = from Customer in db.Customers select Customer;
+            var SCC = from Client in db.Clients select Client;
             dgvCourseClient.DataSource = SCC;
             dgvCourseClient.Refresh();
         }
@@ -151,7 +187,7 @@ namespace PETSystem
         private void btnRefreshDGV_Click(object sender, EventArgs e)
         {
             dgvCourseClient.DataSource = null;
-            var SCC = from Customer in db.Customers select Customer;
+            var SCC = from Client in db.Clients select Client;
             dgvCourseClient.DataSource = SCC;
             dgvCourseClient.Update();
             dgvCourseClient.Refresh();

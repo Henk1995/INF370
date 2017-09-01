@@ -37,7 +37,7 @@ namespace PETSystem
             string title = txtTitle.Text;
             string Name = txtName.Text;
             string Surname = txtSurname.Text;
-            string Gender = txtGender.Text;
+            string Gender = cbGender.SelectedText;
             string Email = txtEmail.Text;
             string PhoneNumber = txtPhoneNumber.Text;
 
@@ -73,26 +73,7 @@ namespace PETSystem
             else
             {
 
-                //Stock mStock = new Stock
-                //{
-                //    StockID = Convert.ToInt32(label1.Text),
-                //    StockDescription = txtDesc.Text,
-                //    StockUnitPrice = Convert.ToInt32(txtPrice.Text),
-                //   // StockType = cbType.SelectedValue,
-
-
-                //};
-
-                //db.Stocks.InsertOnSubmit(mStock);
-                //db.SubmitChanges();
-
-                //validation of all inputs
-                txtTitle.Text = "";
-                txtName.Text = "";
-                txtSurname.Text = "";
-                txtGender.Text = "";
-                txtEmail.Text = "";
-                txtPhoneNumber.Text = "";
+               
 
                 this.Close();
 
@@ -182,28 +163,7 @@ namespace PETSystem
 
         private void txtGender_TextChanged(object sender, EventArgs e)
         {
-            // needs to change to ComboBox
-
-            txtGender.BackColor = Color.White;
-            string Gender = txtGender.Text;
-            bool isGender = chk.Checkstring(Gender); // Chenge to validate male or female not string
-            bool notEmpty = chk.CheckEmpty(Gender);
-
-            if (isGender == false)
-            {
-                txtGender.BackColor = Color.FromArgb(244, 17, 17);
-                GenderValid = false;
-            }
-            else if (notEmpty == false)
-            {
-                txtGender.BackColor = Color.FromArgb(244, 17, 17);
-                GenderValid = false;
-            }
-            else
-            {
-                txtGender.BackColor = Color.White;
-                GenderValid = true;
-            }
+            // Changed to Combo Box
         }
 
         private void txtEmail_TextChanged(object sender, EventArgs e)
