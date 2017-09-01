@@ -29,6 +29,8 @@ namespace PETSystem
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
+            Search_Printing_Supplier sps = new Search_Printing_Supplier();
+            sps.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -82,8 +84,11 @@ namespace PETSystem
                 
                 this.Close();
 
-                MessageBox.Show("Added new Course Client:" + "/n Name" + PSName + "\n Surname: R " + PSAddress + "" + "/n Email: " + PSEmail + "/n Phone Number: " + PSPhoneNumber + "/n Bank Account Number: " + PSBankAccountNumber, "It Worked");
+                MessageBox.Show("Added new Course Client:" + "\n Name" + PSName + "\n Surname: R " + PSAddress + "" + "\n Email: " + PSEmail + "\n Phone Number: " + PSPhoneNumber + "\n Bank Account Number: " + PSBankAccountNumber, "It Worked");
                 //MessageBox.Show("ok");
+
+                Search_Printing_Supplier sps = new Search_Printing_Supplier();
+                sps.Show();
             }
 
 

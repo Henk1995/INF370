@@ -17,7 +17,10 @@ namespace PETSystem
             InitializeComponent();
         }
 
+        int id;
         PET_DBDataContext db = new PET_DBDataContext();
+        public static int ToUpdate;
+
 
         private void btnPlaceOrder_Click(object sender, EventArgs e)
         {
@@ -38,6 +41,64 @@ namespace PETSystem
             this.Close();
             MainMenuF UM = new MainMenuF();
             UM.ShowDialog();
+        }
+
+        private void tnViewOrder_Click(object sender, EventArgs e)
+        {
+            if (dgvOrders.SelectedCells.Count > 0)
+            {
+                TableOrder _TO = (TableOrder)dgvOrders.CurrentRow.DataBoundItem;
+                int mOrderREF = Convert.ToInt32(_TO.Order_ReferenceNumber);
+                string mOrderDesc = _TO.OrderDescription;
+                int mOrderDate = Convert.ToInt32(_TO.OrderDate);
+
+                MessageBox.Show(" Order reference Number: " + mOrderREF + "\n Order Description: " + mOrderDesc + "\n Order Date: " + mOrderDate , "View Course",
+    MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+        }
+
+        private void dgvOrders_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvOrders.SelectedCells.Count > 0)
+            {
+                TableOrder mOrder = (TableOrder)dgvOrders.CurrentRow.DataBoundItem;
+                id = mOrder.OrderID;
+                ToUpdate = id;
+            }
+        }
+
+        private void btnRefreshDGV_Click(object sender, EventArgs e)
+        {
+            dgvOrders.DataSource = null;
+            var LoadOrders = from Order in db.TableOrders select Order;
+            dgvOrders.DataSource = LoadOrders;
+            dgvOrders.Update();
+            dgvOrders.Refresh();
+        }
+
+        private void btnReturnOder_Click(object sender, EventArgs e)
+        {
+            //Log return stock ( damaged stock )
+        }
+
+        private void btnLogRefund_Click(object sender, EventArgs e)
+        {
+            //Log refund ( money )
+        }
+
+        private void btnLogPayment_Click(object sender, EventArgs e)
+        {
+            //Log payment to generate receipt
+        }
+
+        private void btnGenerateInvoice_Click(object sender, EventArgs e)
+        {
+            // order invoice to instructor asking for payment
+        }
+
+        private void btnGenerateReceipt_Click(object sender, EventArgs e)
+        {
+            // generate after payment is received
         }
     }
 }

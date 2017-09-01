@@ -153,8 +153,7 @@ namespace PETSystem
 
         private void btnViewClient_Click(object sender, EventArgs e)
         {
-            View_Course_Client vcc = new View_Course_Client();
-            vcc.Show();
+
         }
 
         private void btnRemoveClient_Click(object sender, EventArgs e)

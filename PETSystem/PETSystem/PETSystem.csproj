@@ -178,6 +178,12 @@
     <Compile Include="Place Instructor Order.Designer.cs">
       <DependentUpon>Place Instructor Order.cs</DependentUpon>
     </Compile>
+    <Compile Include="Place Printing Order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Place Printing Order.Designer.cs">
+      <DependentUpon>Place Printing Order.cs</DependentUpon>
+    </Compile>
     <Compile Include="PlaceOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -312,18 +318,6 @@
     <Compile Include="UserMenu.Designer.cs">
       <DependentUpon>UserMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="View Course Client.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View Course Client.Designer.cs">
-      <DependentUpon>View Course Client.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View Course.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View Course.Designer.cs">
-      <DependentUpon>View Course.cs</DependentUpon>
-    </Compile>
     <Compile Include="ViewInstructor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -417,6 +411,9 @@
     <EmbeddedResource Include="Place Instructor Order.resx">
       <DependentUpon>Place Instructor Order.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Place Printing Order.resx">
+      <DependentUpon>Place Printing Order.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PlaceOrder.resx">
       <DependentUpon>PlaceOrder.cs</DependentUpon>
     </EmbeddedResource>
@@ -491,12 +488,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserMenu.resx">
       <DependentUpon>UserMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View Course Client.resx">
-      <DependentUpon>View Course Client.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View Course.resx">
-      <DependentUpon>View Course.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewInstructor.resx">
       <DependentUpon>ViewInstructor.cs</DependentUpon>
