@@ -33,7 +33,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.txtTitle = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnUpdateCourseClient = new System.Windows.Forms.Button();
             this.txtSurname = new System.Windows.Forms.TextBox();
@@ -42,6 +41,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.cbGender = new System.Windows.Forms.ComboBox();
+            this.cbTitle = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // txtPhoneNumber
@@ -86,14 +86,6 @@
             this.label8.Size = new System.Drawing.Size(32, 13);
             this.label8.TabIndex = 78;
             this.label8.Text = "Email";
-            // 
-            // txtTitle
-            // 
-            this.txtTitle.Location = new System.Drawing.Point(144, 36);
-            this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(337, 20);
-            this.txtTitle.TabIndex = 77;
-            this.txtTitle.TextChanged += new System.EventHandler(this.txtTitle_TextChanged);
             // 
             // btnCancel
             // 
@@ -166,18 +158,26 @@
             this.cbGender.Size = new System.Drawing.Size(337, 21);
             this.cbGender.TabIndex = 84;
             // 
+            // cbTitle
+            // 
+            this.cbTitle.FormattingEnabled = true;
+            this.cbTitle.Location = new System.Drawing.Point(144, 36);
+            this.cbTitle.Name = "cbTitle";
+            this.cbTitle.Size = new System.Drawing.Size(337, 21);
+            this.cbTitle.TabIndex = 87;
+            // 
             // Update_Course_Client
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(523, 351);
+            this.Controls.Add(this.cbTitle);
             this.Controls.Add(this.cbGender);
             this.Controls.Add(this.txtPhoneNumber);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.txtTitle);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnUpdateCourseClient);
             this.Controls.Add(this.txtSurname);
@@ -200,7 +200,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txtTitle;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnUpdateCourseClient;
         private System.Windows.Forms.TextBox txtSurname;
@@ -209,5 +208,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cbGender;
+        private System.Windows.Forms.ComboBox cbTitle;
     }
 }

@@ -33,8 +33,6 @@ namespace PETSystem
         {
             string StockType = txtStockTypeName.Text;
 
-
-
             if (NameValid == false)
             {
                 MessageBox.Show("The stock type was not entered. Please re-enter the stock type and try again.", "An Error Has Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -45,20 +43,14 @@ namespace PETSystem
                 StockType mStock = new StockType
                 {
                     StockName = txtStockTypeName.Text
-
                 };
 
                 db.StockTypes.InsertOnSubmit(mStock);
                 db.SubmitChanges();
 
-                txtStockTypeName.Text = "";
-
-
                 this.Close();
 
                 MessageBox.Show("Added " + StockType + " " + "as a new stock type.", "It Worked");
-
-
             }
         }
 

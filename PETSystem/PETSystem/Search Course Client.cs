@@ -17,6 +17,8 @@ namespace PETSystem
             InitializeComponent();
         }
 
+        public static int ToUpdate;
+        int id;
         PET_DBDataContext db = new PET_DBDataContext();
         ErrorHandle chk = new ErrorHandle();
         bool SearcCCNValid;
@@ -160,7 +162,15 @@ namespace PETSystem
             DialogResult test = MessageBox.Show("Are you sure you want to delete this course client?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (test == DialogResult.Yes)
             {
-                // LINQ query to remove selected course in dgv from the db
+                
+                ////Delete Selected
+                //var mClient = (from x in db.Clients where x.ClientID == id select x).First();
+                //db.Clients.DeleteOnSubmit(mClient);
+                //db.SubmitChanges();
+
+                ////refresh DGV
+                //dgvCourseClient.DataSource = null;
+                //dgvCourseClient.DataSource = db.Clients;
 
                 MessageBox.Show("Course client has been deleted", "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -191,6 +201,16 @@ namespace PETSystem
             dgvCourseClient.DataSource = SCC;
             dgvCourseClient.Update();
             dgvCourseClient.Refresh();
+        }
+
+        private void dgvCourseClient_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvCourseClient.SelectedCells.Count > 0)
+            {
+                Client _Client = (Client)dgvCourseClient.CurrentRow.DataBoundItem;
+                id = _Client.ClientID;
+                ToUpdate = id;
+            }
         }
     }
 }

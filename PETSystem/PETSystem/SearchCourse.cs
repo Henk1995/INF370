@@ -120,12 +120,7 @@ namespace PETSystem
         
 
         private void btnViewCourse_Click(object sender, EventArgs e)
-        {
-            //View_Course vc = new View_Course();
-            //vc.Show();
-
-            
-
+        { 
             if (dgvSearchCourse.SelectedCells.Count > 0)
             {
                 Course _Course = (Course)dgvSearchCourse.CurrentRow.DataBoundItem;

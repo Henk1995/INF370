@@ -126,6 +126,7 @@
             this.dgvCourseClient.ReadOnly = true;
             this.dgvCourseClient.Size = new System.Drawing.Size(746, 449);
             this.dgvCourseClient.TabIndex = 47;
+            this.dgvCourseClient.SelectionChanged += new System.EventHandler(this.dgvCourseClient_SelectionChanged);
             // 
             // btnBack
             // 

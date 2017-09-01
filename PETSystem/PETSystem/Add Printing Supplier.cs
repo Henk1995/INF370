@@ -75,23 +75,11 @@ namespace PETSystem
                     PrinterEmail = PSEmail,
                     PrinterPhoneNumber = PSPhoneNumber,
                     PrinterBankAccNumber = Convert.ToInt32(PSBankAccountNumber),
-
-
-
-
                 };
 
                 db.Printers.InsertOnSubmit(mPrinter);
                 db.SubmitChanges();
-
-
-                //validation of all inputs
-                txtPrintingSupplierName.Text = "";
-                txtPrintingSupplierAddress.Text = "";
-                txtPrintingSupplierEmail.Text = "";
-                txtPrintingSupplierPhoneNumber.Text = "";
-                txtPrintingSupplierBankAccNumber.Text = "";
-
+                
                 this.Close();
 
                 MessageBox.Show("Added new Course Client:" + "/n Name" + PSName + "\n Surname: R " + PSAddress + "" + "/n Email: " + PSEmail + "/n Phone Number: " + PSPhoneNumber + "/n Bank Account Number: " + PSBankAccountNumber, "It Worked");

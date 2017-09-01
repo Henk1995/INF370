@@ -65,12 +65,6 @@ namespace PETSystem
 
                 db.SubmitChanges();
 
-
-
-                txtCourseName.Text = "";
-                txtCourseCost.Text = "";
-                txtCourseDuration.Text = "";
-
                 this.Close();
 
                 MessageBox.Show("Added new course: " + CourseName + "\n Cost: R " + CourseCost + "" + "/n Running Time: " + CourseDuration, "It Worked");
