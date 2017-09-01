@@ -10,11 +10,11 @@ namespace PETSystem
 {
     class ConnectString
     {
-        //Jan se connection string
-        //public static string DBC = "Data Source=JWM\\SYSARCH;Initial Catalog=INF370;Integrated Security=True";
+        ////Jan se connection string
+        public static string DBC = "Data Source=JWM\\SYSARCH;Initial Catalog=INF370;Integrated Security=True";
 
-        //John se connection string
-        public static string DBC = "Data Source=JOHN-MAC-WIN;Initial Catalog=INF370;Integrated Security=True";
+        ////John se connection string
+        //public static string DBC = "Data Source=JOHN-MAC-WIN;Initial Catalog=INF370;Integrated Security=True";
 
 
         public static SqlConnection connectstring = new SqlConnection(DBC);
