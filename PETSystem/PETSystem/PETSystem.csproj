@@ -172,6 +172,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>PET_DB.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Place Instructor Order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Place Instructor Order.Designer.cs">
+      <DependentUpon>Place Instructor Order.cs</DependentUpon>
+    </Compile>
     <Compile Include="PlaceOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,6 +245,12 @@
     </Compile>
     <Compile Include="Search_Supplier.Designer.cs">
       <DependentUpon>Search_Supplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Select Instructor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Select Instructor.Designer.cs">
+      <DependentUpon>Select Instructor.cs</DependentUpon>
     </Compile>
     <Compile Include="Select_Supplier.cs">
       <SubType>Form</SubType>
@@ -402,6 +414,9 @@
     <None Include="PET_DB.dbml.layout">
       <DependentUpon>PET_DB.dbml</DependentUpon>
     </None>
+    <EmbeddedResource Include="Place Instructor Order.resx">
+      <DependentUpon>Place Instructor Order.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PlaceOrder.resx">
       <DependentUpon>PlaceOrder.cs</DependentUpon>
     </EmbeddedResource>
@@ -443,6 +458,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Search_Supplier.resx">
       <DependentUpon>Search_Supplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Select Instructor.resx">
+      <DependentUpon>Select Instructor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Select_Supplier.resx">
       <DependentUpon>Select_Supplier.cs</DependentUpon>

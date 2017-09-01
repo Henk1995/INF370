@@ -30,18 +30,22 @@
         {
             this.btnLogRefund = new System.Windows.Forms.Button();
             this.btnLogPayment = new System.Windows.Forms.Button();
-            this.btnLogDamagedStock = new System.Windows.Forms.Button();
+            this.btnReturnOder = new System.Windows.Forms.Button();
             this.btnUpdateOrder = new System.Windows.Forms.Button();
             this.tnViewOrder = new System.Windows.Forms.Button();
             this.btnPlaceOrder = new System.Windows.Forms.Button();
             this.dgvOrders = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnMainMenu = new System.Windows.Forms.Button();
+            this.btnGenerateInvoice = new System.Windows.Forms.Button();
+            this.btnGenerateReceipt = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtSearchOrderID = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogRefund
             // 
-            this.btnLogRefund.Location = new System.Drawing.Point(981, 496);
+            this.btnLogRefund.Location = new System.Drawing.Point(893, 496);
             this.btnLogRefund.Name = "btnLogRefund";
             this.btnLogRefund.Size = new System.Drawing.Size(121, 23);
             this.btnLogRefund.TabIndex = 14;
@@ -50,25 +54,25 @@
             // 
             // btnLogPayment
             // 
-            this.btnLogPayment.Location = new System.Drawing.Point(854, 496);
+            this.btnLogPayment.Location = new System.Drawing.Point(766, 496);
             this.btnLogPayment.Name = "btnLogPayment";
             this.btnLogPayment.Size = new System.Drawing.Size(121, 23);
             this.btnLogPayment.TabIndex = 13;
             this.btnLogPayment.Text = "Log Payment";
             this.btnLogPayment.UseVisualStyleBackColor = true;
             // 
-            // btnLogDamagedStock
+            // btnReturnOder
             // 
-            this.btnLogDamagedStock.Location = new System.Drawing.Point(727, 496);
-            this.btnLogDamagedStock.Name = "btnLogDamagedStock";
-            this.btnLogDamagedStock.Size = new System.Drawing.Size(121, 23);
-            this.btnLogDamagedStock.TabIndex = 12;
-            this.btnLogDamagedStock.Text = "Log Damaged Stock";
-            this.btnLogDamagedStock.UseVisualStyleBackColor = true;
+            this.btnReturnOder.Location = new System.Drawing.Point(639, 496);
+            this.btnReturnOder.Name = "btnReturnOder";
+            this.btnReturnOder.Size = new System.Drawing.Size(121, 23);
+            this.btnReturnOder.TabIndex = 12;
+            this.btnReturnOder.Text = "Return Order";
+            this.btnReturnOder.UseVisualStyleBackColor = true;
             // 
             // btnUpdateOrder
             // 
-            this.btnUpdateOrder.Location = new System.Drawing.Point(600, 496);
+            this.btnUpdateOrder.Location = new System.Drawing.Point(512, 496);
             this.btnUpdateOrder.Name = "btnUpdateOrder";
             this.btnUpdateOrder.Size = new System.Drawing.Size(121, 23);
             this.btnUpdateOrder.TabIndex = 11;
@@ -77,7 +81,7 @@
             // 
             // tnViewOrder
             // 
-            this.tnViewOrder.Location = new System.Drawing.Point(473, 496);
+            this.tnViewOrder.Location = new System.Drawing.Point(385, 496);
             this.tnViewOrder.Name = "tnViewOrder";
             this.tnViewOrder.Size = new System.Drawing.Size(121, 23);
             this.tnViewOrder.TabIndex = 10;
@@ -86,7 +90,7 @@
             // 
             // btnPlaceOrder
             // 
-            this.btnPlaceOrder.Location = new System.Drawing.Point(346, 496);
+            this.btnPlaceOrder.Location = new System.Drawing.Point(258, 496);
             this.btnPlaceOrder.Name = "btnPlaceOrder";
             this.btnPlaceOrder.Size = new System.Drawing.Size(121, 23);
             this.btnPlaceOrder.TabIndex = 9;
@@ -102,24 +106,62 @@
             this.dgvOrders.Size = new System.Drawing.Size(844, 478);
             this.dgvOrders.TabIndex = 8;
             // 
-            // button1
+            // btnMainMenu
             // 
-            this.button1.Location = new System.Drawing.Point(12, 496);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 23);
-            this.button1.TabIndex = 16;
-            this.button1.Text = "Main Menu";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnMainMenu.Location = new System.Drawing.Point(4, 467);
+            this.btnMainMenu.Name = "btnMainMenu";
+            this.btnMainMenu.Size = new System.Drawing.Size(248, 23);
+            this.btnMainMenu.TabIndex = 16;
+            this.btnMainMenu.Text = "Main Menu";
+            this.btnMainMenu.UseVisualStyleBackColor = true;
+            // 
+            // btnGenerateInvoice
+            // 
+            this.btnGenerateInvoice.Location = new System.Drawing.Point(131, 496);
+            this.btnGenerateInvoice.Name = "btnGenerateInvoice";
+            this.btnGenerateInvoice.Size = new System.Drawing.Size(121, 23);
+            this.btnGenerateInvoice.TabIndex = 17;
+            this.btnGenerateInvoice.Text = "Generate Invoice";
+            this.btnGenerateInvoice.UseVisualStyleBackColor = true;
+            // 
+            // btnGenerateReceipt
+            // 
+            this.btnGenerateReceipt.Location = new System.Drawing.Point(4, 496);
+            this.btnGenerateReceipt.Name = "btnGenerateReceipt";
+            this.btnGenerateReceipt.Size = new System.Drawing.Size(121, 23);
+            this.btnGenerateReceipt.TabIndex = 18;
+            this.btnGenerateReceipt.Text = "Generate Receipt";
+            this.btnGenerateReceipt.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1, 75);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(113, 13);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "Search Order Number:";
+            // 
+            // txtSearchOrderID
+            // 
+            this.txtSearchOrderID.Location = new System.Drawing.Point(4, 91);
+            this.txtSearchOrderID.Name = "txtSearchOrderID";
+            this.txtSearchOrderID.Size = new System.Drawing.Size(248, 20);
+            this.txtSearchOrderID.TabIndex = 20;
             // 
             // Search_Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1114, 527);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.txtSearchOrderID);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnGenerateReceipt);
+            this.Controls.Add(this.btnGenerateInvoice);
+            this.Controls.Add(this.btnMainMenu);
             this.Controls.Add(this.btnLogRefund);
             this.Controls.Add(this.btnLogPayment);
-            this.Controls.Add(this.btnLogDamagedStock);
+            this.Controls.Add(this.btnReturnOder);
             this.Controls.Add(this.btnUpdateOrder);
             this.Controls.Add(this.tnViewOrder);
             this.Controls.Add(this.btnPlaceOrder);
@@ -128,6 +170,7 @@
             this.Text = "Search_Order";
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -135,11 +178,15 @@
 
         private System.Windows.Forms.Button btnLogRefund;
         private System.Windows.Forms.Button btnLogPayment;
-        private System.Windows.Forms.Button btnLogDamagedStock;
+        private System.Windows.Forms.Button btnReturnOder;
         private System.Windows.Forms.Button btnUpdateOrder;
         private System.Windows.Forms.Button tnViewOrder;
         private System.Windows.Forms.Button btnPlaceOrder;
         private System.Windows.Forms.DataGridView dgvOrders;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnMainMenu;
+        private System.Windows.Forms.Button btnGenerateInvoice;
+        private System.Windows.Forms.Button btnGenerateReceipt;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtSearchOrderID;
     }
 }

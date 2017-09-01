@@ -74,7 +74,9 @@ namespace PETSystem
 
         private void button4_Click(object sender, EventArgs e)
         {
-            
+            this.Visible = false;
+            Search_Order SO = new Search_Order();
+            SO.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)

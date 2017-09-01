@@ -19,7 +19,9 @@ namespace PETSystem
 
         private void btnPlaceOrder_Click(object sender, EventArgs e)
         {
-
+            this.Visible = false;
+            Select_Instructor si = new Select_Instructor();
+            si.Show();
         }
     }
 }
