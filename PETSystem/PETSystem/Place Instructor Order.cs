@@ -153,6 +153,18 @@ namespace PETSystem
                 MessageBox.Show("Are you sure you want to place this new order", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
                 //Add order to Database
 
+                TableOrder mTableOrder = new TableOrder
+                {
+                    Order_ReferenceNumber = Convert.ToInt32(txtReferenceNum.Text),
+                    OrderDate = txtDate.Text,
+                    OrderDescription = txtDescription.Text,
+                    InstructorID = InstructorOrderID,
+                    //UserID = CurrentlyLoggedInUSerID,
+                    
+                };
+
+                db.TableOrders.InsertOnSubmit(mTableOrder);
+                db.SubmitChanges();
 
             }
         }

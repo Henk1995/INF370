@@ -17,11 +17,20 @@ namespace PETSystem
             InitializeComponent();
         }
 
+        PET_DBDataContext db = new PET_DBDataContext();
+
         private void btnPlaceOrder_Click(object sender, EventArgs e)
         {
             this.Visible = false;
             Select_Instructor si = new Select_Instructor();
             si.Show();
+        }
+
+        private void Search_Order_Load(object sender, EventArgs e)
+        {
+            var LoadOrders = from Order in db.TableOrders select Order;
+            dgvOrders.DataSource = LoadOrders;
+            dgvOrders.Refresh();
         }
     }
 }

@@ -168,6 +168,7 @@
             this.Controls.Add(this.dgvOrders);
             this.Name = "Search_Order";
             this.Text = "Search_Order";
+            this.Load += new System.EventHandler(this.Search_Order_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

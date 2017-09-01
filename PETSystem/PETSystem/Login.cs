@@ -14,9 +14,12 @@ namespace PETSystem
 {
     public partial class LoginF : Form
     {
-        bool validU = false;
-       
+        //LINQ Connection string
+        public static int UserIDthatLoggedIn;
+        PET_DBDataContext db = new PET_DBDataContext();
 
+        bool validU = false;
+        
         public LoginF()
         {
             InitializeComponent();
@@ -24,6 +27,8 @@ namespace PETSystem
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            string un = txtUsername.Text;
+            string pw = txtPassword.Text;
           
             string Query1 = "SELECT * FROM UserTable WHERE UserName ='" + this.txtUsername.Text + "'AND UserPassword='" + this.txtPassword.Text + "';";
             SqlCommand MyCommand = new SqlCommand(Query1, ConnectString.connectstring);
@@ -48,6 +53,11 @@ namespace PETSystem
             ConnectString.connectstring.Close();
             if (validU)
             {
+
+                // Ek steel gou die user wat gesignin het se ID. ;D
+                var GetUserID = from X in db.UserTables where X.UserName.Contains(un) && X.UserPassword.Contains(pw) select X.UserID;
+                UserIDthatLoggedIn = Convert.ToInt32(GetUserID);
+
                 this.Visible = false;
                 MainMenuF UM = new MainMenuF();
                 UM.ShowDialog();
