@@ -48,29 +48,29 @@ namespace PETSystem
         private void btnSearchStockID_Click(object sender, EventArgs e)
         {
             
-            string stockID = txtSearchStockID.Text;
-            if (SearchIValid == false)
-            {
+            //string stockID = txtSearchStockID.Text;
+            //if (SearchIValid == false)
+            //{
                 
-                MessageBox.Show("The stock ID was not entered. Please enter the stock ID that you want to search and try again.", "An Error Has Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    MessageBox.Show("The stock ID was not entered. Please enter the stock ID that you want to search and try again.", "An Error Has Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 
-            }
-            else
-            {
-                //Search in DB
+            //}
+            //else
+            //{
+            //    //Search in DB
 
-                var searchID = from Stock in db.Stocks
-                               where Stock.StockID == Convert.ToInt32(txtSearchStockID.Text)
-                               select Stock;
-                dgvSearchStock.DataSource = searchID;
+            //    var searchID = from Stock in db.Stocks
+            //                   where Stock.StockID == Convert.ToInt32(txtSearchStockID.Text)
+            //                   select Stock;
+            //    dgvSearchStock.DataSource = searchID;
 
-                //MessageBox.Show("Searching " + stockID, "It Worked");
-            }
+            //    //MessageBox.Show("Searching " + stockID, "It Worked");
+            //}
         }
 
         private void txtSearchStockDesc_TextChanged(object sender, EventArgs e)
         {
-            txtSearchStockID.Clear();
+            //txtSearchStockID.Clear();
             txtSearchStockDesc.BackColor = Color.White;
             string stockDesc = txtSearchStockDesc.Text;
             bool isString = chk.Checkstring(stockDesc);
@@ -109,7 +109,7 @@ namespace PETSystem
                 dgvSearchStock.Refresh();
             }
 
-            
+
 
         }
 
