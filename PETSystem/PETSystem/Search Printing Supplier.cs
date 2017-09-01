@@ -88,6 +88,25 @@ namespace PETSystem
                 txtSearchPrintSupplierName.BackColor = Color.White;
                 SearchPSNameValid = true;
             }
+
+            if (SearchPSNameValid == true)
+            {
+                var searchDesc = from Printer in db.Printers
+                                 where Printer.PrinterName.Contains(txtSearchPrintSupplierName.Text)
+                                 select Printer;
+                dgvSearchPrintingSupplier.DataSource = searchDesc;
+                dgvSearchPrintingSupplier.Refresh();
+            }
+            else
+            {
+                dgvSearchPrintingSupplier.DataSource = null;
+                var S = from Stock in db.Stocks select Stock;
+                dgvSearchPrintingSupplier.DataSource = S;
+                dgvSearchPrintingSupplier.Update();
+                dgvSearchPrintingSupplier.Refresh();
+            }
+
+
         }
 
         private void txtSearchPrintSupplierID_TextChanged(object sender, EventArgs e)
@@ -112,6 +131,23 @@ namespace PETSystem
                 txtSearchPrintSupplierID.BackColor = Color.White;
                 SearchPSIDValid = true;
             }
+
+            if (SearchPSNameValid == true)
+            {
+                var searchID = from Printer in db.Printers
+                               where Printer.PrinterID == Convert.ToInt32(txtSearchPrintSupplierID.Text)
+                               select Printer;
+                dgvSearchPrintingSupplier.DataSource = searchID;
+            }
+            else
+            {
+                dgvSearchPrintingSupplier.DataSource = null;
+                var S = from Stock in db.Stocks select Stock;
+                dgvSearchPrintingSupplier.DataSource = S;
+                dgvSearchPrintingSupplier.Update();
+                dgvSearchPrintingSupplier.Refresh();
+            }
+
         }
 
         private void btnDeletePrintSupplier_Click(object sender, EventArgs e)

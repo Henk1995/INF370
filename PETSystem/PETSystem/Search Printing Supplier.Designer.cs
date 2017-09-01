@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             this.btnAddPrintSupplier = new System.Windows.Forms.Button();
-            this.btnSearchPrintSupplierID = new System.Windows.Forms.Button();
             this.txtSearchPrintSupplierID = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnSearchPrintSupplierName = new System.Windows.Forms.Button();
             this.btnPlaceOrder = new System.Windows.Forms.Button();
             this.btnViewPrintSupplier = new System.Windows.Forms.Button();
             this.txtSearchPrintSupplierName = new System.Windows.Forms.TextBox();
@@ -55,16 +53,6 @@
             this.btnAddPrintSupplier.UseVisualStyleBackColor = true;
             this.btnAddPrintSupplier.Click += new System.EventHandler(this.btnAddPrintSupplier_Click);
             // 
-            // btnSearchPrintSupplierID
-            // 
-            this.btnSearchPrintSupplierID.Location = new System.Drawing.Point(13, 193);
-            this.btnSearchPrintSupplierID.Name = "btnSearchPrintSupplierID";
-            this.btnSearchPrintSupplierID.Size = new System.Drawing.Size(326, 23);
-            this.btnSearchPrintSupplierID.TabIndex = 46;
-            this.btnSearchPrintSupplierID.Text = "Search Printing Supplier ID";
-            this.btnSearchPrintSupplierID.UseVisualStyleBackColor = true;
-            this.btnSearchPrintSupplierID.Click += new System.EventHandler(this.btnSearchPrintSupplierID_Click);
-            // 
             // txtSearchPrintSupplierID
             // 
             this.txtSearchPrintSupplierID.Location = new System.Drawing.Point(13, 166);
@@ -81,16 +69,6 @@
             this.label2.Size = new System.Drawing.Size(100, 13);
             this.label2.TabIndex = 44;
             this.label2.Text = "Printing Supplier ID:";
-            // 
-            // btnSearchPrintSupplierName
-            // 
-            this.btnSearchPrintSupplierName.Location = new System.Drawing.Point(13, 110);
-            this.btnSearchPrintSupplierName.Name = "btnSearchPrintSupplierName";
-            this.btnSearchPrintSupplierName.Size = new System.Drawing.Size(326, 23);
-            this.btnSearchPrintSupplierName.TabIndex = 43;
-            this.btnSearchPrintSupplierName.Text = "Search Printing Supplier Name";
-            this.btnSearchPrintSupplierName.UseVisualStyleBackColor = true;
-            this.btnSearchPrintSupplierName.Click += new System.EventHandler(this.btnSearchPrintSupplierName_Click);
             // 
             // btnPlaceOrder
             // 
@@ -188,10 +166,8 @@
             this.Controls.Add(this.btnRefreshDGV);
             this.Controls.Add(this.btnMainMenu);
             this.Controls.Add(this.btnAddPrintSupplier);
-            this.Controls.Add(this.btnSearchPrintSupplierID);
             this.Controls.Add(this.txtSearchPrintSupplierID);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnSearchPrintSupplierName);
             this.Controls.Add(this.btnPlaceOrder);
             this.Controls.Add(this.btnViewPrintSupplier);
             this.Controls.Add(this.txtSearchPrintSupplierName);
@@ -210,10 +186,8 @@
 
         #endregion
         private System.Windows.Forms.Button btnAddPrintSupplier;
-        private System.Windows.Forms.Button btnSearchPrintSupplierID;
         private System.Windows.Forms.TextBox txtSearchPrintSupplierID;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnSearchPrintSupplierName;
         private System.Windows.Forms.Button btnPlaceOrder;
         private System.Windows.Forms.Button btnViewPrintSupplier;
         private System.Windows.Forms.TextBox txtSearchPrintSupplierName;
