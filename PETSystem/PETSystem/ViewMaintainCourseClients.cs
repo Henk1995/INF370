@@ -37,13 +37,39 @@ namespace PETSystem
 
             var mLoadCourseClientLineData = (from x in db.ClientCourseLines
                                              where x.CourseID == Convert.ToInt32(CourseInstanceID)
-                              select x);
+                              select x).ToList();
+
+
+
             dgvClientCourseLine.DataSource = mLoadCourseClientLineData;
             dgvClientCourseLine.Refresh();
         }
 
         private void btnAddClientToCourse_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("Add " + CourseInstanceID + " To the Course?");
+
+            // get name in client where clientid = client id in couseinstanceline
+
+            //var mStockload = (from a in db.Stocks
+            //                  where a.StockID == NewID
+            //                  select new
+            //                  {
+            //                      a.StockID,
+            //                      a.StockDescription,
+            //                      a.StockUnitPrice,
+            //                      a.StockTypeID,
+            //                  }).ToList();
+
+            //foreach (var item in mStockload)
+            //{
+            //    lblStockID.Text = Convert.ToString(item.StockID);
+            //    txtName.Text = item.StockDescription;
+            //    txtPrice.Text = Convert.ToString(item.StockUnitPrice);
+            //    getTypeID = item.StockTypeID;
+            //}
+
+            //list names in dgv of clients
 
         }
 

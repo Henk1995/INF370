@@ -23,6 +23,7 @@ namespace PETSystem
         bool SearchCCtypeValid;
         public static int CourseClientLineID;
         int IDtoSend;
+        
 
         private void btnMCourses_Click(object sender, EventArgs e)
         {
@@ -101,6 +102,7 @@ namespace PETSystem
             {
                 CourseInstance mCourseInstance = (CourseInstance)dgvTC.CurrentRow.DataBoundItem;
                 IDtoSend = mCourseInstance.CourseID;
+                CourseClientLineID = IDtoSend;
             }
         }
     }
