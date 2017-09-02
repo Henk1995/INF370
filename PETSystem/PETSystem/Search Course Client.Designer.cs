@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnSearchCCSurname = new System.Windows.Forms.Button();
             this.txtSearcCCSurname = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btnSearcCCName = new System.Windows.Forms.Button();
             this.btnAddClient = new System.Windows.Forms.Button();
             this.btnViewClient = new System.Windows.Forms.Button();
             this.txtSearchCCName = new System.Windows.Forms.TextBox();
@@ -43,16 +41,6 @@
             this.btnRefreshDGV = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourseClient)).BeginInit();
             this.SuspendLayout();
-            // 
-            // btnSearchCCSurname
-            // 
-            this.btnSearchCCSurname.Location = new System.Drawing.Point(12, 204);
-            this.btnSearchCCSurname.Name = "btnSearchCCSurname";
-            this.btnSearchCCSurname.Size = new System.Drawing.Size(326, 23);
-            this.btnSearchCCSurname.TabIndex = 57;
-            this.btnSearchCCSurname.Text = "Search Client Surname";
-            this.btnSearchCCSurname.UseVisualStyleBackColor = true;
-            this.btnSearchCCSurname.Click += new System.EventHandler(this.btnSearchCCSurname_Click);
             // 
             // txtSearcCCSurname
             // 
@@ -70,16 +58,6 @@
             this.label2.Size = new System.Drawing.Size(81, 13);
             this.label2.TabIndex = 55;
             this.label2.Text = "Client Surname:";
-            // 
-            // btnSearcCCName
-            // 
-            this.btnSearcCCName.Location = new System.Drawing.Point(12, 116);
-            this.btnSearcCCName.Name = "btnSearcCCName";
-            this.btnSearcCCName.Size = new System.Drawing.Size(326, 23);
-            this.btnSearcCCName.TabIndex = 54;
-            this.btnSearcCCName.Text = "Search Client Name";
-            this.btnSearcCCName.UseVisualStyleBackColor = true;
-            this.btnSearcCCName.Click += new System.EventHandler(this.btnSearcCCName_Click);
             // 
             // btnAddClient
             // 
@@ -148,6 +126,7 @@
             this.dgvCourseClient.ReadOnly = true;
             this.dgvCourseClient.Size = new System.Drawing.Size(746, 449);
             this.dgvCourseClient.TabIndex = 47;
+            this.dgvCourseClient.SelectionChanged += new System.EventHandler(this.dgvCourseClient_SelectionChanged);
             // 
             // btnBack
             // 
@@ -176,10 +155,8 @@
             this.ClientSize = new System.Drawing.Size(1111, 509);
             this.Controls.Add(this.btnRefreshDGV);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.btnSearchCCSurname);
             this.Controls.Add(this.txtSearcCCSurname);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnSearcCCName);
             this.Controls.Add(this.btnAddClient);
             this.Controls.Add(this.btnViewClient);
             this.Controls.Add(this.txtSearchCCName);
@@ -197,11 +174,8 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnSearchCCSurname;
         private System.Windows.Forms.TextBox txtSearcCCSurname;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnSearcCCName;
         private System.Windows.Forms.Button btnAddClient;
         private System.Windows.Forms.Button btnViewClient;
         private System.Windows.Forms.TextBox txtSearchCCName;

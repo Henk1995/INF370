@@ -49,7 +49,7 @@
             this.txtPrintingSupplierBankAccNumber.Location = new System.Drawing.Point(139, 213);
             this.txtPrintingSupplierBankAccNumber.Name = "txtPrintingSupplierBankAccNumber";
             this.txtPrintingSupplierBankAccNumber.Size = new System.Drawing.Size(337, 20);
-            this.txtPrintingSupplierBankAccNumber.TabIndex = 96;
+            this.txtPrintingSupplierBankAccNumber.TabIndex = 5;
             this.txtPrintingSupplierBankAccNumber.TextChanged += new System.EventHandler(this.txtPrintingSupplierBankAccNumber_TextChanged);
             // 
             // txtPrintingSupplierPhoneNumber
@@ -57,7 +57,7 @@
             this.txtPrintingSupplierPhoneNumber.Location = new System.Drawing.Point(139, 177);
             this.txtPrintingSupplierPhoneNumber.Name = "txtPrintingSupplierPhoneNumber";
             this.txtPrintingSupplierPhoneNumber.Size = new System.Drawing.Size(337, 20);
-            this.txtPrintingSupplierPhoneNumber.TabIndex = 95;
+            this.txtPrintingSupplierPhoneNumber.TabIndex = 4;
             this.txtPrintingSupplierPhoneNumber.TextChanged += new System.EventHandler(this.txtPrintingSupplierPhoneNumber_TextChanged);
             // 
             // label7
@@ -83,7 +83,7 @@
             this.txtPrintingSupplierName.Location = new System.Drawing.Point(139, 62);
             this.txtPrintingSupplierName.Name = "txtPrintingSupplierName";
             this.txtPrintingSupplierName.Size = new System.Drawing.Size(337, 20);
-            this.txtPrintingSupplierName.TabIndex = 92;
+            this.txtPrintingSupplierName.TabIndex = 1;
             this.txtPrintingSupplierName.TextChanged += new System.EventHandler(this.txtPrintingSupplierName_TextChanged);
             // 
             // btnCancel
@@ -91,7 +91,7 @@
             this.btnCancel.Location = new System.Drawing.Point(262, 270);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(164, 23);
-            this.btnCancel.TabIndex = 91;
+            this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -101,7 +101,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(89, 270);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(164, 23);
-            this.btnUpdate.TabIndex = 90;
+            this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -111,7 +111,7 @@
             this.txtPrintingSupplierEmail.Location = new System.Drawing.Point(139, 138);
             this.txtPrintingSupplierEmail.Name = "txtPrintingSupplierEmail";
             this.txtPrintingSupplierEmail.Size = new System.Drawing.Size(337, 20);
-            this.txtPrintingSupplierEmail.TabIndex = 89;
+            this.txtPrintingSupplierEmail.TabIndex = 3;
             this.txtPrintingSupplierEmail.TextChanged += new System.EventHandler(this.txtPrintingSupplierEmail_TextChanged);
             // 
             // txtPrintingSupplierAddress
@@ -119,7 +119,7 @@
             this.txtPrintingSupplierAddress.Location = new System.Drawing.Point(139, 100);
             this.txtPrintingSupplierAddress.Name = "txtPrintingSupplierAddress";
             this.txtPrintingSupplierAddress.Size = new System.Drawing.Size(337, 20);
-            this.txtPrintingSupplierAddress.TabIndex = 88;
+            this.txtPrintingSupplierAddress.TabIndex = 2;
             this.txtPrintingSupplierAddress.TextChanged += new System.EventHandler(this.txtPrintingSupplierAddress_TextChanged);
             // 
             // lblPrintingSupplierID

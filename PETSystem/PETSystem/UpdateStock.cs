@@ -31,7 +31,7 @@ namespace PETSystem
         {
             string stockDesc = txtName.Text;
             string UnitPrice = txtPrice.Text;
-            //add cb box items
+            int STID = cbStockType.SelectedIndex + 1;
 
 
             if (stockDValid == false && unitPValid == false)
@@ -49,23 +49,36 @@ namespace PETSystem
             }
             else
             {
+                var mGetSTID = (from x in db.StockTypes
+                                      where x.StockName == Convert.ToString(cbStockType.SelectedText)
+                                      select new
+                                      {
+                                          x.StockTypeID,
+                                          x.StockName
+                                      }).ToList();
+
+                foreach (var Typevalue in mGetSTID)
+                {
+                    STID = Typevalue.StockTypeID;
+                }
+
                 var mSomeone = (from x in db.Stocks where x.StockID == Convert.ToInt32(NewID) select x).FirstOrDefault();
 
 
                 mSomeone.StockDescription = stockDesc;
                 mSomeone.StockUnitPrice = Convert.ToInt32(UnitPrice);
-                //mSomeone.StockTypeID = Convert.ToInt32(cbStockType.Text);
+                mSomeone.StockTypeID = Convert.ToInt32(STID);
                
                 db.SubmitChanges();
 
-                txtName.Text = "";
-                txtPrice.Text = "";
 
 
                 this.Close();
 
                 MessageBox.Show("Updated " + stockDesc + " and R " + UnitPrice + " " + "as the new info was entered.", "It Worked");
-                //MessageBox.Show("ok");
+
+                Search_Stock sc = new Search_Stock();
+                sc.Show();
             }
         }
 
@@ -119,6 +132,8 @@ namespace PETSystem
 
         private void UpdateStock_Load(object sender, EventArgs e)
         {
+
+            //Load selected stock item
             var mStockload = (from a in db.Stocks where a.StockID == NewID select new
             {
                 a.StockID,
@@ -135,6 +150,12 @@ namespace PETSystem
                 getTypeID = item.StockTypeID;
             }
 
+            //Load all stockTypes to cb
+            var mStockTypeloadAll = (from x in db.StockTypes select x.StockName);
+            cbStockType.DataSource = mStockTypeloadAll;
+
+
+            //Get stocktype ID
             var mStockTypeload = (from x in db.StockTypes
                                   where x.StockTypeID == getTypeID
                                   select new
@@ -145,13 +166,22 @@ namespace PETSystem
 
             foreach (var Typevalue in mStockTypeload)
             {
-                cbStockType.SelectedItem = Typevalue.StockName;
+                cbStockType.SelectedIndex = Typevalue.StockTypeID - 1;
+
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+
+            Search_Stock sc = new Search_Stock();
+            sc.Show();
         }
     }
 }

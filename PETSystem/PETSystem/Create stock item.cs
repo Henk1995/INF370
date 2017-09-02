@@ -74,6 +74,9 @@ namespace PETSystem
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+
+            Search_Stock sc = new Search_Stock();
+            sc.Show();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -101,22 +104,19 @@ namespace PETSystem
                 {
                     StockDescription = txtDesc.Text,
                     StockUnitPrice = Convert.ToInt32(txtPrice.Text),
-                   // StockType = Convert.ToInt32(cbType.SelectedValue)
-
-
+                    StockTypeID = Convert.ToInt32(cbType.SelectedIndex + 1)
                 };
 
                 db.Stocks.InsertOnSubmit(mStock);
                 db.SubmitChanges();
 
-                txtDesc.Text = "";
-                txtPrice.Text = "";
-               
-
                 this.Close();
 
                 MessageBox.Show("Added " + stockDesc + "\n Searching R " + UnitPrice + "", "It Worked");
-               //MessageBox.Show("ok");
+
+                Search_Stock sc = new Search_Stock();
+                sc.Show();
+
             }
         }
 
@@ -129,19 +129,11 @@ namespace PETSystem
 
             cbType.DataSource = mStockTypeID;
 
-            //var list = (from p in db.StockTypes
-            //            select new
-            //            {
-            //                p.StockName,
-            //                p.StockTypeID
-            //            }).ToList();
-            //cbType.DataSource = list;
-            //cbType.SelectedItem = list[0];
-
         }
 
         private void btnAddStockType_Click(object sender, EventArgs e)
         {
+            this.Close();
             AddNewStockType f = new AddNewStockType();
             f.Show();
         }

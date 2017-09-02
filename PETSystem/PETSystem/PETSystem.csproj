@@ -93,6 +93,12 @@
     <Compile Include="ChangePassword.Designer.cs">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="Client Course Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Client Course Menu.Designer.cs">
+      <DependentUpon>Client Course Menu.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConnectString.cs" />
     <Compile Include="Create Course.cs">
       <SubType>Form</SubType>
@@ -161,22 +167,34 @@
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Maintain Client Courses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintain Client Courses.Designer.cs">
+      <DependentUpon>Maintain Client Courses.cs</DependentUpon>
+    </Compile>
     <Compile Include="MaintainCourses.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MaintainCourses.Designer.cs">
       <DependentUpon>MaintainCourses.cs</DependentUpon>
     </Compile>
-    <Compile Include="Orders.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Orders.Designer.cs">
-      <DependentUpon>Orders.cs</DependentUpon>
-    </Compile>
     <Compile Include="PET_DB.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PET_DB.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Place Instructor Order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Place Instructor Order.Designer.cs">
+      <DependentUpon>Place Instructor Order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Place Printing Order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Place Printing Order.Designer.cs">
+      <DependentUpon>Place Printing Order.cs</DependentUpon>
     </Compile>
     <Compile Include="PlaceOrder.cs">
       <SubType>Form</SubType>
@@ -210,6 +228,12 @@
     <Compile Include="Search Course Client.Designer.cs">
       <DependentUpon>Search Course Client.cs</DependentUpon>
     </Compile>
+    <Compile Include="Search Order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Search Order.Designer.cs">
+      <DependentUpon>Search Order.cs</DependentUpon>
+    </Compile>
     <Compile Include="Search Printing Supplier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -239,6 +263,12 @@
     </Compile>
     <Compile Include="Search_Supplier.Designer.cs">
       <DependentUpon>Search_Supplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Select Instructor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Select Instructor.Designer.cs">
+      <DependentUpon>Select Instructor.cs</DependentUpon>
     </Compile>
     <Compile Include="Select_Supplier.cs">
       <SubType>Form</SubType>
@@ -300,18 +330,6 @@
     <Compile Include="UserMenu.Designer.cs">
       <DependentUpon>UserMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="View Course Client.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View Course Client.Designer.cs">
-      <DependentUpon>View Course Client.cs</DependentUpon>
-    </Compile>
-    <Compile Include="View Course.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View Course.Designer.cs">
-      <DependentUpon>View Course.cs</DependentUpon>
-    </Compile>
     <Compile Include="ViewInstructor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -363,6 +381,9 @@
     <EmbeddedResource Include="ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Client Course Menu.resx">
+      <DependentUpon>Client Course Menu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Create Course.resx">
       <DependentUpon>Create Course.cs</DependentUpon>
     </EmbeddedResource>
@@ -396,15 +417,21 @@
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Maintain Client Courses.resx">
+      <DependentUpon>Maintain Client Courses.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MaintainCourses.resx">
       <DependentUpon>MaintainCourses.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Orders.resx">
-      <DependentUpon>Orders.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="PET_DB.dbml.layout">
       <DependentUpon>PET_DB.dbml</DependentUpon>
     </None>
+    <EmbeddedResource Include="Place Instructor Order.resx">
+      <DependentUpon>Place Instructor Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Place Printing Order.resx">
+      <DependentUpon>Place Printing Order.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PlaceOrder.resx">
       <DependentUpon>PlaceOrder.cs</DependentUpon>
     </EmbeddedResource>
@@ -429,6 +456,9 @@
     <EmbeddedResource Include="Search Course Client.resx">
       <DependentUpon>Search Course Client.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Search Order.resx">
+      <DependentUpon>Search Order.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Search Printing Supplier.resx">
       <DependentUpon>Search Printing Supplier.cs</DependentUpon>
     </EmbeddedResource>
@@ -443,6 +473,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Search_Supplier.resx">
       <DependentUpon>Search_Supplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Select Instructor.resx">
+      <DependentUpon>Select Instructor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Select_Supplier.resx">
       <DependentUpon>Select_Supplier.cs</DependentUpon>
@@ -473,12 +506,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserMenu.resx">
       <DependentUpon>UserMenu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View Course Client.resx">
-      <DependentUpon>View Course Client.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View Course.resx">
-      <DependentUpon>View Course.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewInstructor.resx">
       <DependentUpon>ViewInstructor.cs</DependentUpon>

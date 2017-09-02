@@ -56,6 +56,10 @@ namespace PETSystem
         {
             
             string Quantity = txtWriteoffQuantity.Text;
+            
+
+            WriteoffAmmount = Convert.ToInt32(txtWriteoffQuantity.Text);
+            
 
             //!int.TryParse(q, out Quantity)
             if (WriteoffValid == false)
@@ -66,28 +70,37 @@ namespace PETSystem
             else
             {
                 //Update DB
-                WriteoffAmmount = Convert.ToInt32(txtWriteoffQuantity.Text);
-                NewQuantity = CurrentQuantity - WriteoffAmmount;
-
-                var mStock = (from x in db.Stocks where x.StockID == Convert.ToInt32(loadID) select x).FirstOrDefault();
-
-                mStock.StockQuantity = Convert.ToInt32(NewQuantity);
-
-                db.SubmitChanges();
-
-                txtWriteoffQuantity.Text = "";
 
 
-                this.Close();
+                if (CurrentQuantity < WriteoffAmmount)
+                {
+                    MessageBox.Show("You cannot writeoff more stock than your current inventory", "An Error Has Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else {
+                    NewQuantity = CurrentQuantity - WriteoffAmmount;
+                    var mStock = (from x in db.Stocks where x.StockID == Convert.ToInt32(loadID) select x).FirstOrDefault();
 
-                MessageBox.Show("Updated quantity", "It Worked");
-                
+                    mStock.StockQuantity = Convert.ToInt32(NewQuantity);
+
+                    db.SubmitChanges();
+
+                    this.Close();
+
+                    MessageBox.Show("Updated quantity", "It Worked");
+
+                    Search_Stock sc = new Search_Stock();
+                    sc.Show();
+
+                }
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close(); // Closes window on exit
+
+            Search_Stock sc = new Search_Stock();
+            sc.Show();
         }
         
         private void WriteoffStock_Load(object sender, EventArgs e)

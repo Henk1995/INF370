@@ -71,20 +71,22 @@ namespace PETSystem
                 mStock.StockQuantity = Convert.ToInt32(NewQuantity);
 
                 db.SubmitChanges();
-
-                txtQuantity.Text = "";
-
-
+                
                 this.Close();
 
                 MessageBox.Show("Adding " + Quan, "items to stock table");
+
                 this.Close();
+                Search_Stock sc = new Search_Stock();
+                sc.Show();
             }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+            Search_Stock sc = new Search_Stock();
+            sc.Show();
         }
 
         private void AddStock_Load(object sender, EventArgs e)
