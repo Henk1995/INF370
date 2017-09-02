@@ -89,6 +89,7 @@
             this.dgvTC.Name = "dgvTC";
             this.dgvTC.Size = new System.Drawing.Size(561, 216);
             this.dgvTC.TabIndex = 13;
+            this.dgvTC.SelectionChanged += new System.EventHandler(this.dgvTC_SelectionChanged);
             // 
             // panel1
             // 

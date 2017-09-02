@@ -185,6 +185,13 @@ namespace PETSystem
             dgvSearchCourse.Update();
             dgvSearchCourse.Refresh();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Search_Course_Client scc = new Search_Course_Client();
+            scc.Show();
+        }
     }
 }
 

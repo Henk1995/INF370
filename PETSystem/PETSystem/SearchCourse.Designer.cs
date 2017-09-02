@@ -38,6 +38,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgvSearchCourse = new System.Windows.Forms.DataGridView();
             this.btnRefreshDGV = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchCourse)).BeginInit();
             this.SuspendLayout();
             // 
@@ -142,11 +143,22 @@
             this.btnRefreshDGV.UseVisualStyleBackColor = true;
             this.btnRefreshDGV.Click += new System.EventHandler(this.btnRefreshDGV_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(672, 307);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(213, 23);
+            this.button1.TabIndex = 50;
+            this.button1.Text = "Search Course Clients";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // SearchCourse
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(906, 342);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnRefreshDGV);
             this.Controls.Add(this.btnMainMenu);
             this.Controls.Add(this.btnAddCourse);
@@ -178,5 +190,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvSearchCourse;
         private System.Windows.Forms.Button btnRefreshDGV;
+        private System.Windows.Forms.Button button1;
     }
 }

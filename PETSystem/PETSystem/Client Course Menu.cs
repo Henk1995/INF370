@@ -21,8 +21,8 @@ namespace PETSystem
         ErrorHandle chk = new ErrorHandle();
         bool SearchCCNameValid;
         bool SearchCCtypeValid;
-
-
+        public static int CourseClientLineID;
+        int IDtoSend;
 
         private void btnMCourses_Click(object sender, EventArgs e)
         {
@@ -33,9 +33,11 @@ namespace PETSystem
 
         private void btnVMParticipants_Click(object sender, EventArgs e)
         {
+
+
             this.Close();
-            Search_Course_Client scc = new Search_Course_Client();
-            scc.Show();
+            ViewMaintainCourseClients vmcc = new ViewMaintainCourseClients();
+            vmcc.Show();
         }
 
         private void btnMainM_Click(object sender, EventArgs e)
@@ -91,6 +93,15 @@ namespace PETSystem
             var S = from CourseInstance in db.CourseInstances select CourseInstance;
             dgvTC.DataSource = S;
             dgvTC.Update();
+        }
+
+        private void dgvTC_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvTC.SelectedCells.Count > 0)
+            {
+                CourseInstance mCourseInstance = (CourseInstance)dgvTC.CurrentRow.DataBoundItem;
+                IDtoSend = mCourseInstance.CourseID;
+            }
         }
     }
 }

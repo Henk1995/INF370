@@ -200,7 +200,7 @@ namespace PETSystem
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
-            Client_Course_Menu UM = new Client_Course_Menu();
+            SearchCourse UM = new SearchCourse();
             UM.ShowDialog();
         }
 

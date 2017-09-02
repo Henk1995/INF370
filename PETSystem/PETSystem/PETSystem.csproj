@@ -354,6 +354,12 @@
     <Compile Include="ViewInstructor.Designer.cs">
       <DependentUpon>ViewInstructor.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewMaintainCourseClients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewMaintainCourseClients.Designer.cs">
+      <DependentUpon>ViewMaintainCourseClients.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewMaintainP.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -536,6 +542,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewInstructor.resx">
       <DependentUpon>ViewInstructor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewMaintainCourseClients.resx">
+      <DependentUpon>ViewMaintainCourseClients.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewMaintainP.resx">
       <DependentUpon>ViewMaintainP.cs</DependentUpon>
