@@ -29,6 +29,8 @@ namespace PETSystem
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+            SearchCourse scc = new SearchCourse();
+            scc.Show();
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -69,6 +71,8 @@ namespace PETSystem
 
                 MessageBox.Show("Added new course: " + CourseName + "\n Cost: R " + CourseCost + "" + "/n Running Time: " + CourseDuration, "It Worked");
                 //MessageBox.Show("ok");
+                SearchCourse scc = new SearchCourse();
+                scc.Show();
             }
         }
 

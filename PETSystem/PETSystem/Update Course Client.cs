@@ -45,6 +45,9 @@ namespace PETSystem
             string Gender = cbGender.SelectedText;
             string Email = txtEmail.Text;
             string PhoneNumber = txtPhoneNumber.Text;
+            int GenID = Convert.ToInt32(cbGender.SelectedIndex + 1);
+
+
 
             if (NameValid == false && SurnameValid == false&& EmailValid == false && PhoneNumberValid == false)
             {
@@ -74,16 +77,24 @@ namespace PETSystem
                 mClient.ClientName = txtName.Text;
                 mClient.ClientSurname = txtSurname.Text;
                 mClient.ClientEmail = txtEmail.Text;
-                mClient.GenderID = Convert.ToInt32(cbGender.SelectedIndex + 1);
+                mClient.GenderID = GenID;
                 mClient.ClientPhoneNumber = txtPhoneNumber.Text;
 
                 db.SubmitChanges();
 
 
                 this.Close();
+                var getGender = (from x in db.Genders where x.GenderID == mClient.GenderID select x.GenderName).FirstOrDefault();
 
-                MessageBox.Show("Added new Course Client:" + "\n Name" + title + " " + Name + "\n Surname: R " + Surname + "" + "\n Gender: " + Gender + "\n Email: " + Email + "\n Phone Number: " + PhoneNumber, "It Worked");
+                string gen = Convert.ToString(getGender);
+
+
+
+                MessageBox.Show("Added new Course Client:" + "\n Name" + title + " " + Name + "\n Surname: R " + Surname + "" + "\n Gender: " + gen + "\n Email: " + Email + "\n Phone Number: " + PhoneNumber, "It Worked");
                 //MessageBox.Show("ok");
+
+                Search_Course_Client scc = new Search_Course_Client();
+                scc.Show();
             }
 
         }

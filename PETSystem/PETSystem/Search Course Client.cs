@@ -141,19 +141,37 @@ namespace PETSystem
 
         private void btnAddClient_Click(object sender, EventArgs e)
         {
+            this.Close();
             Add_Course_Client ac = new Add_Course_Client();
             ac.Show();
         }
 
         private void btnUpdateClient_Click(object sender, EventArgs e)
         {
+            this.Close();
             Update_Course_Client ucc = new Update_Course_Client();
             ucc.Show();
         }
 
         private void btnViewClient_Click(object sender, EventArgs e)
         {
+            if (dgvCourseClient.SelectedCells.Count > 0)
+            {
+                Client _PS = (Client)dgvCourseClient.CurrentRow.DataBoundItem;
+                string psName = _PS.ClientName;
+                string psSurnme = _PS.ClientSurname;
+                string psEmail = _PS.ClientEmail;
+                int psPhone = Convert.ToInt32(_PS.ClientPhoneNumber);
+                int psGenderID = Convert.ToInt32(_PS.GenderID);
 
+                var getGender = (from x in db.Genders where x.GenderID == psGenderID select x.GenderName).FirstOrDefault();
+
+                string gen = Convert.ToString(getGender);
+
+
+                MessageBox.Show("Client Name: " + psName + "\n Client Surname: " + psSurnme + "\n Email Address: " + psEmail + "\n Phone Number: " + psPhone + "\n Gender: " + gen, "View Course",
+    MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
         }
 
         private void btnRemoveClient_Click(object sender, EventArgs e)
@@ -181,8 +199,8 @@ namespace PETSystem
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
-            SearchCourse UM = new SearchCourse();
+            this.Close();
+            Client_Course_Menu UM = new Client_Course_Menu();
             UM.ShowDialog();
         }
 

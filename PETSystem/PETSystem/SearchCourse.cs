@@ -88,9 +88,9 @@ namespace PETSystem
 
         private void btnAddCourse_Click(object sender, EventArgs e)
         {
+            this.Close();
             Create_Course c = new Create_Course();
             c.Show();
-            dgvSearchCourse.Refresh();
 
         }
 
@@ -135,19 +135,21 @@ namespace PETSystem
 
         private void btnUpdateCourse_Click(object sender, EventArgs e)
         {
+            this.Close();
             Update_Course uc = new Update_Course();
             uc.Show();
         }
 
         private void btnSearchCourseClient_Click(object sender, EventArgs e)
         {
-            Search_Course_Client scc = new Search_Course_Client();
+            this.Close();
+            Client_Course_Menu scc = new Client_Course_Menu();
             scc.Show();
         }
 
         private void btnMainMenu_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             MainMenuF UM = new MainMenuF();
             UM.ShowDialog();
         }

@@ -93,6 +93,12 @@
     <Compile Include="ChangePassword.Designer.cs">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="Client Course Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Client Course Menu.Designer.cs">
+      <DependentUpon>Client Course Menu.cs</DependentUpon>
+    </Compile>
     <Compile Include="ConnectString.cs" />
     <Compile Include="Create Course.cs">
       <SubType>Form</SubType>
@@ -160,6 +166,12 @@
     </Compile>
     <Compile Include="MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Maintain Client Courses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Maintain Client Courses.Designer.cs">
+      <DependentUpon>Maintain Client Courses.cs</DependentUpon>
     </Compile>
     <Compile Include="MaintainCourses.cs">
       <SubType>Form</SubType>
@@ -369,6 +381,9 @@
     <EmbeddedResource Include="ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Client Course Menu.resx">
+      <DependentUpon>Client Course Menu.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Create Course.resx">
       <DependentUpon>Create Course.cs</DependentUpon>
     </EmbeddedResource>
@@ -401,6 +416,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Maintain Client Courses.resx">
+      <DependentUpon>Maintain Client Courses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MaintainCourses.resx">
       <DependentUpon>MaintainCourses.cs</DependentUpon>

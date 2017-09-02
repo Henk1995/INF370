@@ -43,7 +43,7 @@
             // 
             // btnMainMenu
             // 
-            this.btnMainMenu.Location = new System.Drawing.Point(200, 467);
+            this.btnMainMenu.Location = new System.Drawing.Point(15, 470);
             this.btnMainMenu.Margin = new System.Windows.Forms.Padding(2);
             this.btnMainMenu.Name = "btnMainMenu";
             this.btnMainMenu.Size = new System.Drawing.Size(135, 23);
@@ -54,7 +54,7 @@
             // 
             // btnAddCourse
             // 
-            this.btnAddCourse.Location = new System.Drawing.Point(343, 467);
+            this.btnAddCourse.Location = new System.Drawing.Point(158, 470);
             this.btnAddCourse.Name = "btnAddCourse";
             this.btnAddCourse.Size = new System.Drawing.Size(135, 23);
             this.btnAddCourse.TabIndex = 47;
@@ -64,7 +64,7 @@
             // 
             // btnViewCourse
             // 
-            this.btnViewCourse.Location = new System.Drawing.Point(484, 467);
+            this.btnViewCourse.Location = new System.Drawing.Point(299, 470);
             this.btnViewCourse.Name = "btnViewCourse";
             this.btnViewCourse.Size = new System.Drawing.Size(135, 23);
             this.btnViewCourse.TabIndex = 42;
@@ -74,7 +74,7 @@
             // 
             // btnRemoveCourse
             // 
-            this.btnRemoveCourse.Location = new System.Drawing.Point(766, 467);
+            this.btnRemoveCourse.Location = new System.Drawing.Point(581, 470);
             this.btnRemoveCourse.Name = "btnRemoveCourse";
             this.btnRemoveCourse.Size = new System.Drawing.Size(135, 23);
             this.btnRemoveCourse.TabIndex = 41;
@@ -92,17 +92,17 @@
             // 
             // btnSearchCourseClient
             // 
-            this.btnSearchCourseClient.Location = new System.Drawing.Point(908, 467);
+            this.btnSearchCourseClient.Location = new System.Drawing.Point(8, 277);
             this.btnSearchCourseClient.Name = "btnSearchCourseClient";
-            this.btnSearchCourseClient.Size = new System.Drawing.Size(135, 23);
+            this.btnSearchCourseClient.Size = new System.Drawing.Size(326, 23);
             this.btnSearchCourseClient.TabIndex = 40;
-            this.btnSearchCourseClient.Text = "Search Course Client";
+            this.btnSearchCourseClient.Text = "Search Active Courses";
             this.btnSearchCourseClient.UseVisualStyleBackColor = true;
             this.btnSearchCourseClient.Click += new System.EventHandler(this.btnSearchCourseClient_Click);
             // 
             // btnUpdateCourse
             // 
-            this.btnUpdateCourse.Location = new System.Drawing.Point(626, 467);
+            this.btnUpdateCourse.Location = new System.Drawing.Point(441, 470);
             this.btnUpdateCourse.Name = "btnUpdateCourse";
             this.btnUpdateCourse.Size = new System.Drawing.Size(135, 23);
             this.btnUpdateCourse.TabIndex = 39;
