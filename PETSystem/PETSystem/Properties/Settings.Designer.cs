@@ -32,5 +32,15 @@ namespace PETSystem.Properties {
                 return ((string)(this["INF370ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=JOHN-MAC-WIN;Initial Catalog=inf370Reg;Integrated Security=True")]
+        public string inf370RegConnectionString {
+            get {
+                return ((string)(this["inf370RegConnectionString"]));
+            }
+        }
     }
 }

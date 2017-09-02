@@ -173,9 +173,6 @@
     <Compile Include="Orders.Designer.cs">
       <DependentUpon>Orders.cs</DependentUpon>
     </Compile>
-    <Compile Include="PET_DB.cs">
-      <DependentUpon>PET_DB.dbml</DependentUpon>
-    </Compile>
     <Compile Include="PET_DB.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -381,9 +378,6 @@
     <EmbeddedResource Include="DeleteInstructor.resx">
       <DependentUpon>DeleteInstructor.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="PET_DB.dbml.layout">
-      <DependentUpon>PET_DB.dbml</DependentUpon>
-    </None>
     <EmbeddedResource Include="Delete_Supplier.resx">
       <DependentUpon>Delete_Supplier.cs</DependentUpon>
     </EmbeddedResource>
@@ -408,6 +402,9 @@
     <EmbeddedResource Include="Orders.resx">
       <DependentUpon>Orders.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="PET_DB.dbml.layout">
+      <DependentUpon>PET_DB.dbml</DependentUpon>
+    </None>
     <EmbeddedResource Include="PlaceOrder.resx">
       <DependentUpon>PlaceOrder.cs</DependentUpon>
     </EmbeddedResource>

@@ -22,7 +22,7 @@ namespace PETSystem
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="INF370")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="inf370Reg")]
 	public partial class PET_DBDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -36,6 +36,9 @@ namespace PETSystem
     partial void InsertUserTable(UserTable instance);
     partial void UpdateUserTable(UserTable instance);
     partial void DeleteUserTable(UserTable instance);
+    partial void InsertCertification(Certification instance);
+    partial void UpdateCertification(Certification instance);
+    partial void DeleteCertification(Certification instance);
     partial void InsertClientCourseLine(ClientCourseLine instance);
     partial void UpdateClientCourseLine(ClientCourseLine instance);
     partial void DeleteClientCourseLine(ClientCourseLine instance);
@@ -138,7 +141,7 @@ namespace PETSystem
     #endregion
 		
 		public PET_DBDataContext() : 
-				base(global::PETSystem.Properties.Settings.Default.INF370ConnectionString, mappingSource)
+				base(global::PETSystem.Properties.Settings.Default.inf370RegConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -180,6 +183,14 @@ namespace PETSystem
 			get
 			{
 				return this.GetTable<UserTable>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Certification> Certifications
+		{
+			get
+			{
+				return this.GetTable<Certification>();
 			}
 		}
 		
@@ -713,6 +724,8 @@ namespace PETSystem
 		
 		private int _PriveledgeID;
 		
+		private string _Email;
+		
 		private EntitySet<TableOrder> _TableOrders;
 		
 		private EntityRef<PrivilegeType> _PrivilegeType;
@@ -733,6 +746,8 @@ namespace PETSystem
     partial void OnUserNameChanged();
     partial void OnPriveledgeIDChanging(int value);
     partial void OnPriveledgeIDChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
     #endregion
 		
 		public UserTable()
@@ -866,6 +881,26 @@ namespace PETSystem
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserTable_TableOrder", Storage="_TableOrders", ThisKey="UserID", OtherKey="UserID")]
 		public EntitySet<TableOrder> TableOrders
 		{
@@ -943,6 +978,120 @@ namespace PETSystem
 		{
 			this.SendPropertyChanging();
 			entity.UserTable = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Certification")]
+	public partial class Certification : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _CertificationID;
+		
+		private string _CertificationName;
+		
+		private EntitySet<Instructor> _Instructors;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCertificationIDChanging(int value);
+    partial void OnCertificationIDChanged();
+    partial void OnCertificationNameChanging(string value);
+    partial void OnCertificationNameChanged();
+    #endregion
+		
+		public Certification()
+		{
+			this._Instructors = new EntitySet<Instructor>(new Action<Instructor>(this.attach_Instructors), new Action<Instructor>(this.detach_Instructors));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CertificationID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int CertificationID
+		{
+			get
+			{
+				return this._CertificationID;
+			}
+			set
+			{
+				if ((this._CertificationID != value))
+				{
+					this.OnCertificationIDChanging(value);
+					this.SendPropertyChanging();
+					this._CertificationID = value;
+					this.SendPropertyChanged("CertificationID");
+					this.OnCertificationIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CertificationName", DbType="Char(30)")]
+		public string CertificationName
+		{
+			get
+			{
+				return this._CertificationName;
+			}
+			set
+			{
+				if ((this._CertificationName != value))
+				{
+					this.OnCertificationNameChanging(value);
+					this.SendPropertyChanging();
+					this._CertificationName = value;
+					this.SendPropertyChanged("CertificationName");
+					this.OnCertificationNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Certification_Instructor", Storage="_Instructors", ThisKey="CertificationID", OtherKey="CertificationID")]
+		public EntitySet<Instructor> Instructors
+		{
+			get
+			{
+				return this._Instructors;
+			}
+			set
+			{
+				this._Instructors.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Instructors(Instructor entity)
+		{
+			this.SendPropertyChanging();
+			entity.Certification = this;
+		}
+		
+		private void detach_Instructors(Instructor entity)
+		{
+			this.SendPropertyChanging();
+			entity.Certification = null;
 		}
 	}
 	
@@ -1507,7 +1656,7 @@ namespace PETSystem
 		
 		private System.Nullable<int> _TimeSlot;
 		
-		private System.Nullable<System.DateTime> _StartDate;
+		private string _StartDate;
 		
 		private int _InstructorID;
 		
@@ -1531,7 +1680,7 @@ namespace PETSystem
     partial void OnCourseVenuChanged();
     partial void OnTimeSlotChanging(System.Nullable<int> value);
     partial void OnTimeSlotChanged();
-    partial void OnStartDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnStartDateChanging(string value);
     partial void OnStartDateChanged();
     partial void OnInstructorIDChanging(int value);
     partial void OnInstructorIDChanged();
@@ -1608,8 +1757,8 @@ namespace PETSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDate", DbType="Date")]
-		public System.Nullable<System.DateTime> StartDate
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDate", DbType="VarChar(50)")]
+		public string StartDate
 		{
 			get
 			{
@@ -2434,7 +2583,7 @@ namespace PETSystem
 		
 		private string _Reason;
 		
-		private System.Nullable<System.DateTime> _DamageDate;
+		private string _DamageDate;
 		
 		private System.Nullable<int> _DamagedStockQuantity;
 		
@@ -2450,7 +2599,7 @@ namespace PETSystem
     partial void OnDamagedStockIDChanged();
     partial void OnReasonChanging(string value);
     partial void OnReasonChanged();
-    partial void OnDamageDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnDamageDateChanging(string value);
     partial void OnDamageDateChanged();
     partial void OnDamagedStockQuantityChanging(System.Nullable<int> value);
     partial void OnDamagedStockQuantityChanged();
@@ -2504,8 +2653,8 @@ namespace PETSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DamageDate", DbType="Date")]
-		public System.Nullable<System.DateTime> DamageDate
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DamageDate", DbType="VarChar(30)")]
+		public string DamageDate
 		{
 			get
 			{
@@ -2785,7 +2934,7 @@ namespace PETSystem
 		
 		private int _TitleID;
 		
-		private System.Nullable<decimal> _Certufication;
+		private int _CertificationID;
 		
 		private EntitySet<CourseInstance> _CourseInstances;
 		
@@ -2796,6 +2945,8 @@ namespace PETSystem
 		private EntitySet<TableOrder> _TableOrders;
 		
 		private EntitySet<TrainingCourseLine> _TrainingCourseLines;
+		
+		private EntityRef<Certification> _Certification;
 		
 		private EntityRef<Gender> _Gender;
 		
@@ -2819,8 +2970,8 @@ namespace PETSystem
     partial void OnGenderIDChanged();
     partial void OnTitleIDChanging(int value);
     partial void OnTitleIDChanged();
-    partial void OnCertuficationChanging(System.Nullable<decimal> value);
-    partial void OnCertuficationChanged();
+    partial void OnCertificationIDChanging(int value);
+    partial void OnCertificationIDChanged();
     #endregion
 		
 		public Instructor()
@@ -2830,6 +2981,7 @@ namespace PETSystem
 			this._QualifiedCourses = new EntitySet<QualifiedCourse>(new Action<QualifiedCourse>(this.attach_QualifiedCourses), new Action<QualifiedCourse>(this.detach_QualifiedCourses));
 			this._TableOrders = new EntitySet<TableOrder>(new Action<TableOrder>(this.attach_TableOrders), new Action<TableOrder>(this.detach_TableOrders));
 			this._TrainingCourseLines = new EntitySet<TrainingCourseLine>(new Action<TrainingCourseLine>(this.attach_TrainingCourseLines), new Action<TrainingCourseLine>(this.detach_TrainingCourseLines));
+			this._Certification = default(EntityRef<Certification>);
 			this._Gender = default(EntityRef<Gender>);
 			this._Title = default(EntityRef<Title>);
 			OnCreated();
@@ -2983,22 +3135,26 @@ namespace PETSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Certufication", DbType="Decimal(18,0)")]
-		public System.Nullable<decimal> Certufication
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CertificationID", DbType="Int NOT NULL")]
+		public int CertificationID
 		{
 			get
 			{
-				return this._Certufication;
+				return this._CertificationID;
 			}
 			set
 			{
-				if ((this._Certufication != value))
+				if ((this._CertificationID != value))
 				{
-					this.OnCertuficationChanging(value);
+					if (this._Certification.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCertificationIDChanging(value);
 					this.SendPropertyChanging();
-					this._Certufication = value;
-					this.SendPropertyChanged("Certufication");
-					this.OnCertuficationChanged();
+					this._CertificationID = value;
+					this.SendPropertyChanged("CertificationID");
+					this.OnCertificationIDChanged();
 				}
 			}
 		}
@@ -3065,6 +3221,40 @@ namespace PETSystem
 			set
 			{
 				this._TrainingCourseLines.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Certification_Instructor", Storage="_Certification", ThisKey="CertificationID", OtherKey="CertificationID", IsForeignKey=true)]
+		public Certification Certification
+		{
+			get
+			{
+				return this._Certification.Entity;
+			}
+			set
+			{
+				Certification previousValue = this._Certification.Entity;
+				if (((previousValue != value) 
+							|| (this._Certification.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Certification.Entity = null;
+						previousValue.Instructors.Remove(this);
+					}
+					this._Certification.Entity = value;
+					if ((value != null))
+					{
+						value.Instructors.Add(this);
+						this._CertificationID = value.CertificationID;
+					}
+					else
+					{
+						this._CertificationID = default(int);
+					}
+					this.SendPropertyChanged("Certification");
+				}
 			}
 		}
 		
@@ -3635,7 +3825,7 @@ namespace PETSystem
 		
 		private System.Nullable<float> _PaymentAmount;
 		
-		private System.Nullable<System.DateTime> _PaymentDate;
+		private string _PaymentDate;
 		
 		private System.Nullable<float> _PaymentVat;
 		
@@ -3659,7 +3849,7 @@ namespace PETSystem
     partial void OnPaymentIDChanged();
     partial void OnPaymentAmountChanging(System.Nullable<float> value);
     partial void OnPaymentAmountChanged();
-    partial void OnPaymentDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnPaymentDateChanging(string value);
     partial void OnPaymentDateChanged();
     partial void OnPaymentVatChanging(System.Nullable<float> value);
     partial void OnPaymentVatChanged();
@@ -3720,8 +3910,8 @@ namespace PETSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaymentDate", DbType="Date")]
-		public System.Nullable<System.DateTime> PaymentDate
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PaymentDate", DbType="VarChar(50)")]
+		public string PaymentDate
 		{
 			get
 			{
@@ -4327,7 +4517,7 @@ namespace PETSystem
 		
 		private System.Nullable<int> _PrinterOrderRefNumber;
 		
-		private System.Nullable<System.DateTime> _PrintOrderDate;
+		private string _PrintOrderDate;
 		
 		private string _PrintOrderDescription;
 		
@@ -4347,7 +4537,7 @@ namespace PETSystem
     partial void OnPrinterOrderIDChanged();
     partial void OnPrinterOrderRefNumberChanging(System.Nullable<int> value);
     partial void OnPrinterOrderRefNumberChanged();
-    partial void OnPrintOrderDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnPrintOrderDateChanging(string value);
     partial void OnPrintOrderDateChanged();
     partial void OnPrintOrderDescriptionChanging(string value);
     partial void OnPrintOrderDescriptionChanged();
@@ -4403,8 +4593,8 @@ namespace PETSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PrintOrderDate", DbType="Date")]
-		public System.Nullable<System.DateTime> PrintOrderDate
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PrintOrderDate", DbType="VarChar(30)")]
+		public string PrintOrderDate
 		{
 			get
 			{
@@ -4696,7 +4886,7 @@ namespace PETSystem
 		
 		private string _CourseName;
 		
-		private System.Nullable<System.DateTime> _QualifiedDate;
+		private string _QualifiedDate;
 		
 		private int _InstructorID;
 		
@@ -4710,7 +4900,7 @@ namespace PETSystem
     partial void OnQualifiedCourseIDChanged();
     partial void OnCourseNameChanging(string value);
     partial void OnCourseNameChanged();
-    partial void OnQualifiedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnQualifiedDateChanging(string value);
     partial void OnQualifiedDateChanged();
     partial void OnInstructorIDChanging(int value);
     partial void OnInstructorIDChanged();
@@ -4762,8 +4952,8 @@ namespace PETSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QualifiedDate", DbType="Date")]
-		public System.Nullable<System.DateTime> QualifiedDate
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QualifiedDate", DbType="VarChar(50)")]
+		public string QualifiedDate
 		{
 			get
 			{
@@ -4871,7 +5061,7 @@ namespace PETSystem
 		
 		private string _RefundDescription;
 		
-		private System.Nullable<System.DateTime> _DamageDate;
+		private string _DamageDate;
 		
 		private System.Nullable<int> _DamagedStockQuantity;
 		
@@ -4891,7 +5081,7 @@ namespace PETSystem
     partial void OnRefundIDChanged();
     partial void OnRefundDescriptionChanging(string value);
     partial void OnRefundDescriptionChanged();
-    partial void OnDamageDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnDamageDateChanging(string value);
     partial void OnDamageDateChanged();
     partial void OnDamagedStockQuantityChanging(System.Nullable<int> value);
     partial void OnDamagedStockQuantityChanged();
@@ -4948,8 +5138,8 @@ namespace PETSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DamageDate", DbType="Date")]
-		public System.Nullable<System.DateTime> DamageDate
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DamageDate", DbType="VarChar(30)")]
+		public string DamageDate
 		{
 			get
 			{
@@ -7021,11 +7211,13 @@ namespace PETSystem
 		
 		private System.Nullable<int> _SupplierOrderRefNumber;
 		
-		private System.Nullable<System.DateTime> _SupplierOrderDate;
+		private string _SupplierOrderDate;
 		
 		private string _SupplierOrderDescription;
 		
 		private int _SupplierID;
+		
+		private System.Nullable<float> _Total;
 		
 		private EntitySet<RoyaltiesOrder> _RoyaltiesOrders;
 		
@@ -7041,12 +7233,14 @@ namespace PETSystem
     partial void OnSupplierOrderIDChanged();
     partial void OnSupplierOrderRefNumberChanging(System.Nullable<int> value);
     partial void OnSupplierOrderRefNumberChanged();
-    partial void OnSupplierOrderDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnSupplierOrderDateChanging(string value);
     partial void OnSupplierOrderDateChanged();
     partial void OnSupplierOrderDescriptionChanging(string value);
     partial void OnSupplierOrderDescriptionChanged();
     partial void OnSupplierIDChanging(int value);
     partial void OnSupplierIDChanged();
+    partial void OnTotalChanging(System.Nullable<float> value);
+    partial void OnTotalChanged();
     #endregion
 		
 		public SupplierOrder()
@@ -7097,8 +7291,8 @@ namespace PETSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupplierOrderDate", DbType="Date")]
-		public System.Nullable<System.DateTime> SupplierOrderDate
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupplierOrderDate", DbType="VarChar(30)")]
+		public string SupplierOrderDate
 		{
 			get
 			{
@@ -7157,6 +7351,26 @@ namespace PETSystem
 					this._SupplierID = value;
 					this.SendPropertyChanged("SupplierID");
 					this.OnSupplierIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Total", DbType="Real")]
+		public System.Nullable<float> Total
+		{
+			get
+			{
+				return this._Total;
+			}
+			set
+			{
+				if ((this._Total != value))
+				{
+					this.OnTotalChanging(value);
+					this.SendPropertyChanging();
+					this._Total = value;
+					this.SendPropertyChanged("Total");
+					this.OnTotalChanged();
 				}
 			}
 		}
@@ -7390,7 +7604,7 @@ namespace PETSystem
 		
 		private System.Nullable<int> _Order_ReferenceNumber;
 		
-		private System.Nullable<System.DateTime> _OrderDate;
+		private string _OrderDate;
 		
 		private string _OrderDescription;
 		
@@ -7420,7 +7634,7 @@ namespace PETSystem
     partial void OnOrderIDChanged();
     partial void OnOrder_ReferenceNumberChanging(System.Nullable<int> value);
     partial void OnOrder_ReferenceNumberChanged();
-    partial void OnOrderDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnOrderDateChanging(string value);
     partial void OnOrderDateChanged();
     partial void OnOrderDescriptionChanging(string value);
     partial void OnOrderDescriptionChanged();
@@ -7483,8 +7697,8 @@ namespace PETSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderDate", DbType="Date")]
-		public System.Nullable<System.DateTime> OrderDate
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OrderDate", DbType="VarChar(50)")]
+		public string OrderDate
 		{
 			get
 			{
@@ -7801,9 +8015,9 @@ namespace PETSystem
 		
 		private int _TimeSlotID;
 		
-		private System.Nullable<System.DateTime> _TimeslotDay;
+		private string _TimeslotDay;
 		
-		private System.Nullable<System.TimeSpan> _TimeslotTime;
+		private string _TimeslotTime;
 		
 		private EntitySet<CourseTime> _CourseTimes;
 		
@@ -7813,9 +8027,9 @@ namespace PETSystem
     partial void OnCreated();
     partial void OnTimeSlotIDChanging(int value);
     partial void OnTimeSlotIDChanged();
-    partial void OnTimeslotDayChanging(System.Nullable<System.DateTime> value);
+    partial void OnTimeslotDayChanging(string value);
     partial void OnTimeslotDayChanged();
-    partial void OnTimeslotTimeChanging(System.Nullable<System.TimeSpan> value);
+    partial void OnTimeslotTimeChanging(string value);
     partial void OnTimeslotTimeChanged();
     #endregion
 		
@@ -7845,8 +8059,8 @@ namespace PETSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeslotDay", DbType="Date")]
-		public System.Nullable<System.DateTime> TimeslotDay
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeslotDay", DbType="VarChar(30)")]
+		public string TimeslotDay
 		{
 			get
 			{
@@ -7865,8 +8079,8 @@ namespace PETSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeslotTime", DbType="Time")]
-		public System.Nullable<System.TimeSpan> TimeslotTime
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TimeslotTime", DbType="VarChar(20)")]
+		public string TimeslotTime
 		{
 			get
 			{
@@ -8085,7 +8299,7 @@ namespace PETSystem
 		
 		private System.Nullable<int> _Duration;
 		
-		private System.Nullable<System.DateTime> _TrainingCourseDate;
+		private string _TrainingCourseDate;
 		
 		private int _TrainingCourseTypeID;
 		
@@ -8105,7 +8319,7 @@ namespace PETSystem
     partial void OnCourseNameChanged();
     partial void OnDurationChanging(System.Nullable<int> value);
     partial void OnDurationChanged();
-    partial void OnTrainingCourseDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnTrainingCourseDateChanging(string value);
     partial void OnTrainingCourseDateChanged();
     partial void OnTrainingCourseTypeIDChanging(int value);
     partial void OnTrainingCourseTypeIDChanged();
@@ -8179,8 +8393,8 @@ namespace PETSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TrainingCourseDate", DbType="Date")]
-		public System.Nullable<System.DateTime> TrainingCourseDate
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TrainingCourseDate", DbType="VarChar(50)")]
+		public string TrainingCourseDate
 		{
 			get
 			{

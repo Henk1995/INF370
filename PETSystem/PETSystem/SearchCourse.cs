@@ -33,7 +33,6 @@ namespace PETSystem
             }
             else
             {
-
                 //Search in db
                 MessageBox.Show("Searching " + CourseName, "It Worked");
             }
@@ -111,12 +110,8 @@ namespace PETSystem
                 int CCost = Convert.ToInt32(_Course.CourseCost);
                 int CDuration = Convert.ToInt32(_Course.CourseDuration);
 
-                MessageBox.Show(" Course Name: " + CName + "\n Course ID: " + CID + "\n Course Duration: " + CDuration, "View Course",
-    MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show(" Course Name: " + CName + "\n Course ID: " + CID + "\n Course Duration: " + CDuration, "View Course", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
-
-            
-
         }
 
         private void btnUpdateCourse_Click(object sender, EventArgs e)
