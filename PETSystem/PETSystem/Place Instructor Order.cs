@@ -145,6 +145,10 @@ namespace PETSystem
                 }
 
                 rtbOrder.Text = rtbOrder.Text + nudQuantity.Value + "x\t" + txtDescription.Text + "\t" + txtDate.Text + "\t R" + total + "\n";
+
+                txtDescription.Clear();
+                txtUnitprice.Clear();
+                nudQuantity.ResetText();
             }
         }
 

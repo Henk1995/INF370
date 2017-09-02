@@ -97,6 +97,7 @@ namespace PETSystem
                 SelectedRefNum = Convert.ToInt32(_Printer.PrinterOrderRefNumber);
             }
 
+            //get order details for email body
             var mgetOrderDetails = (from a in db.PrinterOrders
                                     where a.PrinterOrderID == SelectedRefNum && a.PrinterID == SelectedPrinterID
                                     select new

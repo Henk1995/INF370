@@ -179,6 +179,12 @@
     <Compile Include="MaintainCourses.Designer.cs">
       <DependentUpon>MaintainCourses.cs</DependentUpon>
     </Compile>
+    <Compile Include="OrderReturns.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderReturns.Designer.cs">
+      <DependentUpon>OrderReturns.cs</DependentUpon>
+    </Compile>
     <Compile Include="PET_DB.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -438,6 +444,9 @@
     <None Include="PET_DB.dbml.layout">
       <DependentUpon>PET_DB.dbml</DependentUpon>
     </None>
+    <EmbeddedResource Include="OrderReturns.resx">
+      <DependentUpon>OrderReturns.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Place Instructor Order.resx">
       <DependentUpon>Place Instructor Order.cs</DependentUpon>
     </EmbeddedResource>

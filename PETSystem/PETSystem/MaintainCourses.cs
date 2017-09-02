@@ -33,7 +33,7 @@ namespace PETSystem
         {
             AddCoursePanel.Visible = false;
             MSMain.Visible = true;
-            AddCourseTypeP.Visible = false;
+            
             MaintainTCPanel.Visible = false;
             dgvMaintain.Visible = false;
             btnSave.Visible = false;
@@ -59,11 +59,11 @@ namespace PETSystem
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if(AddCoursePanel.Visible || AddCourseTypeP.Visible || MaintainTCPanel.Visible)
+            if(AddCoursePanel.Visible || MaintainTCPanel.Visible)
             {
                 AddCoursePanel.Visible = false;
                 MSMain.Visible = true;
-                AddCourseTypeP.Visible = false;
+               
                 MaintainTCPanel.Visible = false;
                 dgvMaintain.Visible = false;
                 btnSave.Visible = false;
@@ -78,7 +78,7 @@ namespace PETSystem
 
         private void addTrainingCourseTypeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddCourseTypeP.Visible = true;
+            
             MSMain.Visible = false;
         }
 
@@ -184,18 +184,7 @@ namespace PETSystem
             }
         }
 
-        private void txtNCDName_TextChanged(object sender, EventArgs e)
-        {
-            valid5 = EH.Checkstring(txtNCDName.Text);
-            if (!valid5)
-            {
-                txtNCDName.BackColor = Color.Red;
-            }
-            else
-            {
-                txtNCDName.BackColor = Color.White;
-            }
-        }
+        
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -210,40 +199,7 @@ namespace PETSystem
 
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            ConnectString.connectstring.Close();
-            string Query1 = "SELECT * FROM TrainingCourseType WHERE TrainingCourseName ='" + this.txtNCDName.Text + "';";
-            SqlCommand MyCommand = new SqlCommand(Query1, ConnectString.connectstring);
-            
-            SqlDataAdapter DA1 = new SqlDataAdapter(MyCommand);
-            DataTable DT1 = new DataTable();
-            DA1.Fill(DT1);
-            ConnectString.connectstring.Open();
-           
-
-            if (DT1.Rows.Count > 0)
-            {
-                valid5 = false;
-            }
-            if(valid5)
-            {
-                string Query = "INSERT INTO TrainingCourseType(TrainingCourseName) values('" + this.txtNCDName.Text +"');";
-                //This is  MySqlConnection here i have created the object and pass my connection string.  
-
-                //This is command class which will handle the query and connection object.  
-                SqlCommand MyCommand2 = new SqlCommand(Query, ConnectString.connectstring);
-                SqlDataReader MyReader2;
-              
-                MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
-                MessageBox.Show("Save Data");
-                while (MyReader2.Read())
-                {
-                }
-                ConnectString.connectstring.Close();
-
-            }
-        }
+       
 
         private void button1_Click(object sender, EventArgs e)
         {

@@ -199,19 +199,21 @@ namespace PETSystem
 
         private void btnViewStock_Click(object sender, EventArgs e)
         {
-            //ViewStock f = new ViewStock();
-            //f.Show();
-
             if (dgvSearchStock.SelectedCells.Count > 0)
             {
                 Stock _PS = (Stock)dgvSearchStock.CurrentRow.DataBoundItem;
                 int psID = _PS.StockID;
                 string psName = _PS.StockDescription;
                 int psAddr = Convert.ToInt32(_PS.StockUnitPrice);
-                int psEmail = _PS.StockTypeID;
+                int psStockType = _PS.StockTypeID;
                 int psPhone = Convert.ToInt32(_PS.StockQuantity);
-                
-                MessageBox.Show("Stock ID: " + psID + "\n Stock Name: " + psName + "\n Unit Price: " + psAddr + "\n Stock Type: " + psEmail + "\n Stock Quantity: " + psPhone, "View Course",
+
+                var getTypetoView = (from StockType in db.StockTypes where StockType.StockTypeID == psStockType select StockType.StockName).FirstOrDefault();
+
+                string LoadStockTypeName = getTypetoView;
+
+
+                MessageBox.Show(" Stock ID: \t\t" + psID + "\n Stock Name: \t" + psName + "\n Unit Price: \t" + psAddr + "\n Stock Type: \t" + LoadStockTypeName + "\n Stock Quantity: \t" + psPhone, "View Course",
     MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }

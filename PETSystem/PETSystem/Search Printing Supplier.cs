@@ -149,7 +149,7 @@ namespace PETSystem
                 int psPhone = Convert.ToInt32(_PS.PrinterPhoneNumber);
                 int psBACC = Convert.ToInt32(_PS.PrinterBankAccNumber);
 
-                MessageBox.Show(" Printing Supplier: " + psName + "\n Address: " + psAddr + "\n Email Address: " + psEmail + "\n Phone Number: " + psPhone + "\n Bank Details: " + psBACC, "View Course",
+                MessageBox.Show(" Printing Supplier: \t" + psName + "\n Address: \t\t" + psAddr + "\n Email Address: \t" + psEmail + "\n Phone Number: \t" + psPhone + "\n Bank Details: \t" + psBACC, "View Course",
     MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }

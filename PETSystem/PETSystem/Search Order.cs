@@ -48,11 +48,18 @@ namespace PETSystem
             if (dgvOrders.SelectedCells.Count > 0)
             {
                 TableOrder _TO = (TableOrder)dgvOrders.CurrentRow.DataBoundItem;
+                int mOrderID = Convert.ToInt32(_TO.OrderID);
                 int mOrderREF = Convert.ToInt32(_TO.Order_ReferenceNumber);
                 string mOrderDesc = _TO.OrderDescription;
-                int mOrderDate = Convert.ToInt32(_TO.OrderDate);
+                string mOrderDate = _TO.OrderDate;
+                int mInstructorID = Convert.ToInt32(_TO.InstructorID);
 
-                MessageBox.Show(" Order reference Number: " + mOrderREF + "\n Order Description: " + mOrderDesc + "\n Order Date: " + mOrderDate , "View Course",
+                var getInstructorName = (from Instructor in db.Instructors where Instructor.InstructorID == mInstructorID select Instructor.Name).FirstOrDefault();
+
+                string LoadInstructorName = getInstructorName;
+
+
+                MessageBox.Show(" Order ID: \t\t\t"+ mOrderID + "\n Order reference Number: \t" + mOrderREF + "\n Order Description: \t\t" + mOrderDesc + "\n Order Date: \t\t" + mOrderDate + "\n Instructor Name: \t\t" + LoadInstructorName , "View Course",
     MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }
@@ -79,6 +86,8 @@ namespace PETSystem
         private void btnReturnOder_Click(object sender, EventArgs e)
         {
             //Log return stock ( damaged stock )
+
+
         }
 
         private void btnLogRefund_Click(object sender, EventArgs e)

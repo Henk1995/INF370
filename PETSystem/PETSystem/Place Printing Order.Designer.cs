@@ -41,7 +41,7 @@
             this.rtbOrder = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtQuantity = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblQuantity = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnARN
@@ -159,21 +159,21 @@
             this.txtQuantity.TabIndex = 50;
             this.txtQuantity.TextChanged += new System.EventHandler(this.txtQuantity_TextChanged);
             // 
-            // label2
+            // lblQuantity
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 138);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 13);
-            this.label2.TabIndex = 51;
-            this.label2.Text = "Quantity";
+            this.lblQuantity.AutoSize = true;
+            this.lblQuantity.Location = new System.Drawing.Point(12, 138);
+            this.lblQuantity.Name = "lblQuantity";
+            this.lblQuantity.Size = new System.Drawing.Size(46, 13);
+            this.lblQuantity.TabIndex = 51;
+            this.lblQuantity.Text = "Quantity";
             // 
             // Place_Printing_Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(622, 307);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblQuantity);
             this.Controls.Add(this.txtQuantity);
             this.Controls.Add(this.btnARN);
             this.Controls.Add(this.lblDate);
@@ -210,6 +210,6 @@
         private System.Windows.Forms.RichTextBox rtbOrder;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtQuantity;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblQuantity;
     }
 }

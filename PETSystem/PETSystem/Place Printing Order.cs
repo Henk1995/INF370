@@ -54,6 +54,8 @@ namespace PETSystem
                 btnARN.Visible = false;
                 lblRef.Visible = false;
                 txtReferenceNum.Visible = false;
+                txtQuantity.Visible = true;
+                lblQuantity.Visible = true;
 
             }
             else
@@ -71,6 +73,8 @@ namespace PETSystem
             lblDescription.Visible = false;
             btnAddI.Visible = false;
             btnPO.Visible = false;
+            txtQuantity.Visible = false;
+            lblQuantity.Visible = false;
             rtbOrder.Text = rtbOrder.Text + "x\t Quantity\t Order Description \t Date\n";
         }
 
