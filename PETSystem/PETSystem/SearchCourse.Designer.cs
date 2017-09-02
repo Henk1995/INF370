@@ -43,10 +43,10 @@
             // 
             // btnMainMenu
             // 
-            this.btnMainMenu.Location = new System.Drawing.Point(15, 470);
+            this.btnMainMenu.Location = new System.Drawing.Point(8, 305);
             this.btnMainMenu.Margin = new System.Windows.Forms.Padding(2);
             this.btnMainMenu.Name = "btnMainMenu";
-            this.btnMainMenu.Size = new System.Drawing.Size(135, 23);
+            this.btnMainMenu.Size = new System.Drawing.Size(213, 23);
             this.btnMainMenu.TabIndex = 48;
             this.btnMainMenu.Text = "Main Menu";
             this.btnMainMenu.UseVisualStyleBackColor = true;
@@ -54,9 +54,9 @@
             // 
             // btnAddCourse
             // 
-            this.btnAddCourse.Location = new System.Drawing.Point(158, 470);
+            this.btnAddCourse.Location = new System.Drawing.Point(227, 305);
             this.btnAddCourse.Name = "btnAddCourse";
-            this.btnAddCourse.Size = new System.Drawing.Size(135, 23);
+            this.btnAddCourse.Size = new System.Drawing.Size(97, 23);
             this.btnAddCourse.TabIndex = 47;
             this.btnAddCourse.Text = "Add Course";
             this.btnAddCourse.UseVisualStyleBackColor = true;
@@ -64,9 +64,9 @@
             // 
             // btnViewCourse
             // 
-            this.btnViewCourse.Location = new System.Drawing.Point(299, 470);
+            this.btnViewCourse.Location = new System.Drawing.Point(330, 304);
             this.btnViewCourse.Name = "btnViewCourse";
-            this.btnViewCourse.Size = new System.Drawing.Size(135, 23);
+            this.btnViewCourse.Size = new System.Drawing.Size(97, 23);
             this.btnViewCourse.TabIndex = 42;
             this.btnViewCourse.Text = "View Course";
             this.btnViewCourse.UseVisualStyleBackColor = true;
@@ -74,9 +74,9 @@
             // 
             // btnRemoveCourse
             // 
-            this.btnRemoveCourse.Location = new System.Drawing.Point(581, 470);
+            this.btnRemoveCourse.Location = new System.Drawing.Point(536, 305);
             this.btnRemoveCourse.Name = "btnRemoveCourse";
-            this.btnRemoveCourse.Size = new System.Drawing.Size(135, 23);
+            this.btnRemoveCourse.Size = new System.Drawing.Size(97, 23);
             this.btnRemoveCourse.TabIndex = 41;
             this.btnRemoveCourse.Text = "Remove Course";
             this.btnRemoveCourse.UseVisualStyleBackColor = true;
@@ -86,7 +86,7 @@
             // 
             this.txtSearchCourseName.Location = new System.Drawing.Point(8, 84);
             this.txtSearchCourseName.Name = "txtSearchCourseName";
-            this.txtSearchCourseName.Size = new System.Drawing.Size(326, 20);
+            this.txtSearchCourseName.Size = new System.Drawing.Size(213, 20);
             this.txtSearchCourseName.TabIndex = 38;
             this.txtSearchCourseName.TextChanged += new System.EventHandler(this.txtSearchCourseName_TextChanged);
             // 
@@ -94,7 +94,7 @@
             // 
             this.btnSearchCourseClient.Location = new System.Drawing.Point(8, 277);
             this.btnSearchCourseClient.Name = "btnSearchCourseClient";
-            this.btnSearchCourseClient.Size = new System.Drawing.Size(326, 23);
+            this.btnSearchCourseClient.Size = new System.Drawing.Size(213, 23);
             this.btnSearchCourseClient.TabIndex = 40;
             this.btnSearchCourseClient.Text = "Search Active Courses";
             this.btnSearchCourseClient.UseVisualStyleBackColor = true;
@@ -102,9 +102,9 @@
             // 
             // btnUpdateCourse
             // 
-            this.btnUpdateCourse.Location = new System.Drawing.Point(441, 470);
+            this.btnUpdateCourse.Location = new System.Drawing.Point(433, 305);
             this.btnUpdateCourse.Name = "btnUpdateCourse";
-            this.btnUpdateCourse.Size = new System.Drawing.Size(135, 23);
+            this.btnUpdateCourse.Size = new System.Drawing.Size(97, 23);
             this.btnUpdateCourse.TabIndex = 39;
             this.btnUpdateCourse.Text = "Update Course";
             this.btnUpdateCourse.UseVisualStyleBackColor = true;
@@ -124,10 +124,10 @@
             this.dgvSearchCourse.AllowUserToAddRows = false;
             this.dgvSearchCourse.AllowUserToDeleteRows = false;
             this.dgvSearchCourse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSearchCourse.Location = new System.Drawing.Point(343, 12);
+            this.dgvSearchCourse.Location = new System.Drawing.Point(227, 12);
             this.dgvSearchCourse.Name = "dgvSearchCourse";
             this.dgvSearchCourse.ReadOnly = true;
-            this.dgvSearchCourse.Size = new System.Drawing.Size(700, 449);
+            this.dgvSearchCourse.Size = new System.Drawing.Size(658, 288);
             this.dgvSearchCourse.TabIndex = 36;
             this.dgvSearchCourse.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearchCourse_CellContentClick);
             this.dgvSearchCourse.SelectionChanged += new System.EventHandler(this.dgvSearchCourse_SelectionChanged);
@@ -136,7 +136,7 @@
             // 
             this.btnRefreshDGV.Location = new System.Drawing.Point(8, 150);
             this.btnRefreshDGV.Name = "btnRefreshDGV";
-            this.btnRefreshDGV.Size = new System.Drawing.Size(326, 23);
+            this.btnRefreshDGV.Size = new System.Drawing.Size(213, 23);
             this.btnRefreshDGV.TabIndex = 49;
             this.btnRefreshDGV.Text = "Refresh DGV";
             this.btnRefreshDGV.UseVisualStyleBackColor = true;
@@ -146,7 +146,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1056, 505);
+            this.ClientSize = new System.Drawing.Size(906, 342);
             this.Controls.Add(this.btnRefreshDGV);
             this.Controls.Add(this.btnMainMenu);
             this.Controls.Add(this.btnAddCourse);

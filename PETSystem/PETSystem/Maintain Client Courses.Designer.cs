@@ -36,6 +36,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.AddCoursePanel = new System.Windows.Forms.Panel();
+            this.lblInstructors = new System.Windows.Forms.Label();
+            this.cbInstructors = new System.Windows.Forms.ComboBox();
             this.btnSubmitCouseDetails = new System.Windows.Forms.Button();
             this.nudDuration = new System.Windows.Forms.NumericUpDown();
             this.txtVenue = new System.Windows.Forms.TextBox();
@@ -56,8 +58,6 @@
             this.addTrainingCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addTrainingCourseTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.maintainTrainingCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblInstructors = new System.Windows.Forms.Label();
-            this.cbInstructors = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaintainClientCourses)).BeginInit();
             this.AddCourseTypeP.SuspendLayout();
             this.AddCoursePanel.SuspendLayout();
@@ -129,6 +129,7 @@
             this.btnSave.TabIndex = 19;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // AddCoursePanel
             // 
@@ -148,6 +149,23 @@
             this.AddCoursePanel.Name = "AddCoursePanel";
             this.AddCoursePanel.Size = new System.Drawing.Size(276, 224);
             this.AddCoursePanel.TabIndex = 14;
+            // 
+            // lblInstructors
+            // 
+            this.lblInstructors.AutoSize = true;
+            this.lblInstructors.Location = new System.Drawing.Point(8, 70);
+            this.lblInstructors.Name = "lblInstructors";
+            this.lblInstructors.Size = new System.Drawing.Size(59, 13);
+            this.lblInstructors.TabIndex = 13;
+            this.lblInstructors.Text = "Instructors:";
+            // 
+            // cbInstructors
+            // 
+            this.cbInstructors.FormattingEnabled = true;
+            this.cbInstructors.Location = new System.Drawing.Point(128, 67);
+            this.cbInstructors.Name = "cbInstructors";
+            this.cbInstructors.Size = new System.Drawing.Size(145, 21);
+            this.cbInstructors.TabIndex = 12;
             // 
             // btnSubmitCouseDetails
             // 
@@ -307,6 +325,7 @@
             this.addTrainingCourseToolStripMenuItem.Name = "addTrainingCourseToolStripMenuItem";
             this.addTrainingCourseToolStripMenuItem.Size = new System.Drawing.Size(115, 20);
             this.addTrainingCourseToolStripMenuItem.Text = "Add Client Course";
+            this.addTrainingCourseToolStripMenuItem.Click += new System.EventHandler(this.addTrainingCourseToolStripMenuItem_Click);
             // 
             // addTrainingCourseTypeToolStripMenuItem
             // 
@@ -319,23 +338,6 @@
             this.maintainTrainingCourseToolStripMenuItem.Name = "maintainTrainingCourseToolStripMenuItem";
             this.maintainTrainingCourseToolStripMenuItem.Size = new System.Drawing.Size(140, 20);
             this.maintainTrainingCourseToolStripMenuItem.Text = "Maintain Client Course";
-            // 
-            // lblInstructors
-            // 
-            this.lblInstructors.AutoSize = true;
-            this.lblInstructors.Location = new System.Drawing.Point(8, 70);
-            this.lblInstructors.Name = "lblInstructors";
-            this.lblInstructors.Size = new System.Drawing.Size(59, 13);
-            this.lblInstructors.TabIndex = 13;
-            this.lblInstructors.Text = "Instructors:";
-            // 
-            // cbInstructors
-            // 
-            this.cbInstructors.FormattingEnabled = true;
-            this.cbInstructors.Location = new System.Drawing.Point(128, 67);
-            this.cbInstructors.Name = "cbInstructors";
-            this.cbInstructors.Size = new System.Drawing.Size(145, 21);
-            this.cbInstructors.TabIndex = 12;
             // 
             // Maintain_Client_Courses
             // 

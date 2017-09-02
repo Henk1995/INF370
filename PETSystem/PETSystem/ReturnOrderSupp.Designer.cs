@@ -82,6 +82,7 @@
             this.txtSupplierOrderID.Name = "txtSupplierOrderID";
             this.txtSupplierOrderID.Size = new System.Drawing.Size(140, 20);
             this.txtSupplierOrderID.TabIndex = 7;
+            this.txtSupplierOrderID.TextChanged += new System.EventHandler(this.txtSupplierOrderID_TextChanged);
             // 
             // dgvSuppOrder
             // 

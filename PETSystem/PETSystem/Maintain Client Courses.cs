@@ -17,6 +17,10 @@ namespace PETSystem
             InitializeComponent();
         }
 
+        PET_DBDataContext db = new PET_DBDataContext();
+        ErrorHandle chk = new ErrorHandle();
+
+
         private void Maintain_Client_Courses_Load(object sender, EventArgs e)
         {
             AddCoursePanel.Visible = false;
@@ -54,6 +58,21 @@ namespace PETSystem
                 Client_Course_Menu UM = new Client_Course_Menu();
                 UM.ShowDialog();
             }
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addTrainingCourseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddCoursePanel.Visible = true;
+            MSMain.Visible = false;
+            cmbCourseName.Items.Clear();
+
+           // var LoadCoursNamestoCB = from Course
+
         }
     }
 }
