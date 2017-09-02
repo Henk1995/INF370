@@ -7,15 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PETSystem;
-using System.Data.SqlClient;
 
-namespace Place_Order
+namespace PETSystem
 {
-    public partial class PlaceOrder : Form
+    public partial class Place_Instructor_Order : Form
     {
-        SqlDataAdapter DA;
-        
+        public Place_Instructor_Order()
+        {
+            InitializeComponent();
+        }
+
+        PET_DBDataContext db = new PET_DBDataContext();
+        int InstructorOrderID = Select_Instructor.InstructorIDForOrder;
+        int CurrentlyLoggedInUserID = LoginF.UserIDthatLoggedIn;
+
+
         int RefNum = 0;
         ErrorHandle EH = new ErrorHandle();
         bool valid1 = false;
@@ -26,44 +32,9 @@ namespace Place_Order
         string OrderDesc = "";
         string Date = "";
         int SuppID = 0;
-      
-
-        public PlaceOrder()
-        {
-            InitializeComponent();
-        }
-        public PlaceOrder(int supplierID)
-        {
-            InitializeComponent();
-            SuppID = supplierID;
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
 
 
-
-
-            if (valid1 && valid2 && valid3 && valid4)
-            {
-                MessageBox.Show("Are you sure you want to place this new order", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
-                DataTable DT = new DataTable();
-
-
-                string Query = "INSERT INTO SupplierOrder (SupplierOrderRefNumber,SupplierOrderDate,SupplierOrderDescription,SupplierID) VALUES ('" + RefNum + "','" + this.txtDate.Text + "','" + OrderDesc + "','" + SuppID + "');";
-                SqlCommand MyCommand3 = new SqlCommand(Query, ConnectString.connectstring);
-                SqlDataReader MyReader3;
-                ConnectString.connectstring.Open();
-                MyReader3 = MyCommand3.ExecuteReader();     // Here our query will be executed and data saved into the database.  
-                MessageBox.Show("Save Data");
-                while (MyReader3.Read())
-                {
-                }
-                ConnectString.connectstring.Close();
-            }
-        }
-
-        private void PlaceOrder_Load(object sender, EventArgs e)
+        private void Place_Instructor_Order_Load(object sender, EventArgs e)
         {
             txtDate.Visible = false;
             txtDescription.Visible = false;
@@ -76,16 +47,22 @@ namespace Place_Order
             btnAddI.Visible = false;
             btnPO.Visible = false;
             rtbOrder.Text = rtbOrder.Text + "Quantity\t Order Description \t Date\t total\n";
+        }
 
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            Select_Instructor si = new Select_Instructor();
+            si.Show();
         }
 
         private void btnARN_Click(object sender, EventArgs e)
         {
-            valid1=EH.CheckEmpty(txtReferenceNum.Text);
+            valid1 = EH.CheckEmpty(txtReferenceNum.Text);
             valid1 = EH.CheckInt(txtReferenceNum.Text);
             if (valid1)
             {
-                RefNum = Convert.ToInt32( txtReferenceNum.Text);
+                RefNum = Convert.ToInt32(txtReferenceNum.Text);
                 txtDate.Visible = true;
                 txtDescription.Visible = true;
                 txtUnitprice.Visible = true;
@@ -108,9 +85,13 @@ namespace Place_Order
             }
         }
 
+        private void txtReferenceNum_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void txtDescription_TextChanged(object sender, EventArgs e)
         {
-            
             valid2 = EH.Checkstring(txtDescription.Text);
             if (!valid2)
             {
@@ -120,7 +101,6 @@ namespace Place_Order
             {
                 txtDescription.BackColor = Color.White;
             }
-
         }
 
         private void txtUnitprice_TextChanged(object sender, EventArgs e)
@@ -151,29 +131,54 @@ namespace Place_Order
 
         private void btnAddI_Click(object sender, EventArgs e)
         {
-            if(valid1&&valid2&&valid3&& valid4 && nudQuantity.Value > 0)
+            if (valid1 && valid2 && valid3 && valid4 && nudQuantity.Value > 0)
             {
                 OrderT = OrderT + (Convert.ToDouble(txtUnitprice.Text) * Convert.ToDouble(nudQuantity.Value));
                 double total = Convert.ToDouble(txtUnitprice.Text) * Convert.ToDouble(nudQuantity.Value);
-                if (OrderDesc=="")
+                if (OrderDesc == "")
                 {
                     OrderDesc = txtDescription.Text;
-
                 }
                 else
                 {
                     OrderDesc = OrderDesc + "," + txtDescription.Text;
                 }
 
-                rtbOrder.Text = rtbOrder.Text + nudQuantity.Value + "x\t" + txtDescription.Text + "\t" + txtDate.Text + "\t R" + total+"\n";
+                rtbOrder.Text = rtbOrder.Text + nudQuantity.Value + "x\t" + txtDescription.Text + "\t" + txtDate.Text + "\t R" + total + "\n";
+
+                txtDescription.Clear();
+                txtUnitprice.Clear();
+                nudQuantity.ResetText();
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnPO_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
-            Select_Supplier.Select_Supplier UM = new Select_Supplier.Select_Supplier();
-            UM.ShowDialog();
+            if (valid1 && valid2 && valid3 && valid4)
+            {
+                MessageBox.Show("Are you sure you want to place this new order", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                //Add order to Database
+
+                TableOrder mTableOrder = new TableOrder
+                {
+                    Order_ReferenceNumber = Convert.ToInt32(txtReferenceNum.Text),
+                    OrderDate = txtDate.Text,
+                    OrderDescription = txtDescription.Text,
+                    InstructorID = InstructorOrderID,
+                    UserID = CurrentlyLoggedInUserID,
+                    
+                };
+
+                db.TableOrders.InsertOnSubmit(mTableOrder);
+                db.SubmitChanges();
+
+                
+                Search_Order so = new Search_Order();
+                so.Show();
+
+
+                this.Close();
+            }
         }
     }
 }

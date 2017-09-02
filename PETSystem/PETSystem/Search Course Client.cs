@@ -17,6 +17,8 @@ namespace PETSystem
             InitializeComponent();
         }
 
+        public static int ToUpdate;
+        int id;
         PET_DBDataContext db = new PET_DBDataContext();
         ErrorHandle chk = new ErrorHandle();
         bool SearcCCNValid;
@@ -59,6 +61,24 @@ namespace PETSystem
                 txtSearchCCName.BackColor = Color.White;
                 SearcCCNValid = true;
             }
+
+            if (SearcCCNValid == true)
+            {
+                var searchCCName = from Client in db.Clients
+                                   where Client.ClientName.Contains(CCName)
+                                 select Client;
+                dgvCourseClient.DataSource = searchCCName;
+                dgvCourseClient.Refresh();
+            }
+            else
+            {
+                dgvCourseClient.DataSource = null;
+                var S = from Client in db.Clients select Client;
+                dgvCourseClient.DataSource = S;
+                dgvCourseClient.Update();
+                dgvCourseClient.Refresh();
+            }
+
         }
 
         private void btnSearchCCSurname_Click(object sender, EventArgs e)
@@ -99,24 +119,59 @@ namespace PETSystem
                 txtSearcCCSurname.BackColor = Color.White;
                 SearcCCSNValid = true;
             }
+
+            if (SearcCCSNValid == true)
+            {
+                var searchCCSurName = from Client in db.Clients
+                                      where Client.ClientSurname.Contains(CCSurname)
+                                   select Client;
+                dgvCourseClient.DataSource = searchCCSurName;
+                dgvCourseClient.Refresh();
+            }
+            else
+            {
+                dgvCourseClient.DataSource = null;
+                var S = from Client in db.Clients select Client;
+                dgvCourseClient.DataSource = S;
+                dgvCourseClient.Update();
+                dgvCourseClient.Refresh();
+            }
+
         }
 
         private void btnAddClient_Click(object sender, EventArgs e)
         {
+            this.Close();
             Add_Course_Client ac = new Add_Course_Client();
             ac.Show();
         }
 
         private void btnUpdateClient_Click(object sender, EventArgs e)
         {
+            this.Close();
             Update_Course_Client ucc = new Update_Course_Client();
             ucc.Show();
         }
 
         private void btnViewClient_Click(object sender, EventArgs e)
         {
-            View_Course_Client vcc = new View_Course_Client();
-            vcc.Show();
+            if (dgvCourseClient.SelectedCells.Count > 0)
+            {
+                Client _PS = (Client)dgvCourseClient.CurrentRow.DataBoundItem;
+                string psName = _PS.ClientName;
+                string psSurnme = _PS.ClientSurname;
+                string psEmail = _PS.ClientEmail;
+                int psPhone = Convert.ToInt32(_PS.ClientPhoneNumber);
+                int psGenderID = Convert.ToInt32(_PS.GenderID);
+
+                var getGender = (from x in db.Genders where x.GenderID == psGenderID select x.GenderName).FirstOrDefault();
+
+                string gen = Convert.ToString(getGender);
+
+
+                MessageBox.Show("Client Name: " + psName + "\n Client Surname: " + psSurnme + "\n Email Address: " + psEmail + "\n Phone Number: " + psPhone + "\n Gender: " + gen, "View Course",
+    MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
         }
 
         private void btnRemoveClient_Click(object sender, EventArgs e)
@@ -124,7 +179,15 @@ namespace PETSystem
             DialogResult test = MessageBox.Show("Are you sure you want to delete this course client?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (test == DialogResult.Yes)
             {
-                // LINQ query to remove selected course in dgv from the db
+
+                //Delete Selected
+                var mClient = (from x in db.Clients where x.ClientID == id select x).First();
+                db.Clients.DeleteOnSubmit(mClient);
+                db.SubmitChanges();
+
+                //refresh DGV
+                dgvCourseClient.DataSource = null;
+                dgvCourseClient.DataSource = db.Clients;
 
                 MessageBox.Show("Course client has been deleted", "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -136,14 +199,14 @@ namespace PETSystem
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             SearchCourse UM = new SearchCourse();
             UM.ShowDialog();
         }
 
         private void Search_Course_Client_Load(object sender, EventArgs e)
         {
-            var SCC = from Customer in db.Customers select Customer;
+            var SCC = from Client in db.Clients select Client;
             dgvCourseClient.DataSource = SCC;
             dgvCourseClient.Refresh();
         }
@@ -151,10 +214,20 @@ namespace PETSystem
         private void btnRefreshDGV_Click(object sender, EventArgs e)
         {
             dgvCourseClient.DataSource = null;
-            var SCC = from Customer in db.Customers select Customer;
+            var SCC = from Client in db.Clients select Client;
             dgvCourseClient.DataSource = SCC;
             dgvCourseClient.Update();
             dgvCourseClient.Refresh();
+        }
+
+        private void dgvCourseClient_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvCourseClient.SelectedCells.Count > 0)
+            {
+                Client _Client = (Client)dgvCourseClient.CurrentRow.DataBoundItem;
+                id = _Client.ClientID;
+                ToUpdate = id;
+            }
         }
     }
 }

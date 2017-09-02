@@ -34,6 +34,12 @@ namespace PETSystem
             else
             {
                 //Search in db
+                var searchDesc = from Course in db.Courses
+                                 where Course.CourseName.Contains(CourseName)
+                                 select Course;
+                dgvSearchCourse.DataSource = searchDesc;
+
+
                 MessageBox.Show("Searching " + CourseName, "It Worked");
             }
         }
@@ -41,9 +47,9 @@ namespace PETSystem
         private void txtSearchCourseName_TextChanged(object sender, EventArgs e)
         {
             txtSearchCourseName.BackColor = Color.White;
-            string stockDesc = txtSearchCourseName.Text;
-            bool isString = chk.Checkstring(stockDesc);
-            bool notEmpty = chk.CheckEmpty(stockDesc);
+            string CourseName = txtSearchCourseName.Text;
+            bool isString = chk.Checkstring(CourseName);
+            bool notEmpty = chk.CheckEmpty(CourseName);
 
             if (isString == false)
             {
@@ -60,13 +66,31 @@ namespace PETSystem
                 txtSearchCourseName.BackColor = Color.White;
                 SearchCIsValid = true;
             }
+
+            
+
+            if (SearchCIsValid == true)
+            {
+                var searchDesc = from Course in db.Courses
+                                 where Course.CourseName.Contains(CourseName)
+                                 select Course;
+                dgvSearchCourse.DataSource = searchDesc;
+            }
+            else
+            {
+                var SC = from Course in db.Courses select Course;
+                dgvSearchCourse.DataSource = SC;
+                dgvSearchCourse.Update();
+                dgvSearchCourse.Refresh();
+            }
+
         }
 
         private void btnAddCourse_Click(object sender, EventArgs e)
         {
+            this.Close();
             Create_Course c = new Create_Course();
             c.Show();
-            dgvSearchCourse.Refresh();
 
         }
 
@@ -96,12 +120,7 @@ namespace PETSystem
         
 
         private void btnViewCourse_Click(object sender, EventArgs e)
-        {
-            //View_Course vc = new View_Course();
-            //vc.Show();
-
-            
-
+        { 
             if (dgvSearchCourse.SelectedCells.Count > 0)
             {
                 Course _Course = (Course)dgvSearchCourse.CurrentRow.DataBoundItem;
@@ -116,19 +135,21 @@ namespace PETSystem
 
         private void btnUpdateCourse_Click(object sender, EventArgs e)
         {
+            this.Close();
             Update_Course uc = new Update_Course();
             uc.Show();
         }
 
         private void btnSearchCourseClient_Click(object sender, EventArgs e)
         {
-            Search_Course_Client scc = new Search_Course_Client();
+            this.Close();
+            Client_Course_Menu scc = new Client_Course_Menu();
             scc.Show();
         }
 
         private void btnMainMenu_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             MainMenuF UM = new MainMenuF();
             UM.ShowDialog();
         }
@@ -163,6 +184,13 @@ namespace PETSystem
             dgvSearchCourse.DataSource = SC;
             dgvSearchCourse.Update();
             dgvSearchCourse.Refresh();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Search_Course_Client scc = new Search_Course_Client();
+            scc.Show();
         }
     }
 }

@@ -41,35 +41,36 @@ namespace PETSystem
                                select Stock;
                 dgvSearchStock.DataSource = searchDesc;
 
-                MessageBox.Show("Searching " + stockDesc,"It Worked");
+               //MessageBox.Show("Searching " + stockDesc,"It Worked");
             }
         }
 
         private void btnSearchStockID_Click(object sender, EventArgs e)
         {
             
-            string stockID = txtSearchStockID.Text;
-            if (SearchIValid == false)
-            {
+            //string stockID = txtSearchStockID.Text;
+            //if (SearchIValid == false)
+            //{
                 
-                MessageBox.Show("The stock ID was not entered. Please enter the stock ID that you want to search and try again.", "An Error Has Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    MessageBox.Show("The stock ID was not entered. Please enter the stock ID that you want to search and try again.", "An Error Has Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 
-            }
-            else
-            {
-                //Search in DB
+            //}
+            //else
+            //{
+            //    //Search in DB
 
-                var searchID = from Stock in db.Stocks
-                               where Stock.StockID == Convert.ToInt32(txtSearchStockID.Text)
-                               select Stock;
-                dgvSearchStock.DataSource = searchID;
+            //    var searchID = from Stock in db.Stocks
+            //                   where Stock.StockID == Convert.ToInt32(txtSearchStockID.Text)
+            //                   select Stock;
+            //    dgvSearchStock.DataSource = searchID;
 
-                //MessageBox.Show("Searching " + stockID, "It Worked");
-            }
+            //    //MessageBox.Show("Searching " + stockID, "It Worked");
+            //}
         }
 
         private void txtSearchStockDesc_TextChanged(object sender, EventArgs e)
         {
+            //txtSearchStockID.Clear();
             txtSearchStockDesc.BackColor = Color.White;
             string stockDesc = txtSearchStockDesc.Text;
             bool isString = chk.Checkstring(stockDesc);
@@ -90,40 +91,84 @@ namespace PETSystem
                 txtSearchStockDesc.BackColor = Color.White;
                 SearchDValid = true;
             }
+
+            if (SearchDValid == true)
+            {
+                var searchDesc = from Stock in db.Stocks
+                                 where Stock.StockDescription.Contains(txtSearchStockDesc.Text)
+                                 select Stock;
+                dgvSearchStock.DataSource = searchDesc;
+                dgvSearchStock.Refresh();
+            }
+            else
+            {
+                dgvSearchStock.DataSource = null;
+                var S = from Stock in db.Stocks select Stock;
+                dgvSearchStock.DataSource = S;
+                dgvSearchStock.Update();
+                dgvSearchStock.Refresh();
+            }
+
+
+
         }
 
         private void txtSearchStockID_TextChanged(object sender, EventArgs e)
         {
-            string stockID = txtSearchStockID.Text;
-            txtSearchStockID.BackColor = Color.White;
-            bool isInt = chk.CheckInt(stockID);
-            bool notEmpty = chk.CheckEmpty(stockID);
+           // txtSearchStockDesc.Clear();
 
-            if (isInt == false)
-            {
-                txtSearchStockID.BackColor = Color.FromArgb(244, 17, 17);
-                SearchIValid = false;
-            }
-            else if (notEmpty == false)
-            {
-                txtSearchStockID.BackColor = Color.FromArgb(244, 17, 17);
-                SearchIValid = false;
-            }
-            else
-            {
-                txtSearchStockID.BackColor = Color.White;
-                SearchIValid = true;
-            }
+
+            //string stockID = txtSearchStockID.Text;
+            //txtSearchStockID.BackColor = Color.White;
+            //bool isInt = chk.CheckInt(stockID);
+            //bool notEmpty = chk.CheckEmpty(stockID);
+
+            //if (isInt == false)
+            //{
+            //    txtSearchStockID.BackColor = Color.FromArgb(244, 17, 17);
+            //    SearchIValid = false;
+            //}
+            //else if (notEmpty == false)
+            //{
+            //    txtSearchStockID.BackColor = Color.FromArgb(244, 17, 17);
+            //    SearchIValid = false;
+            //}
+            //else
+            //{
+            //    txtSearchStockID.BackColor = Color.White;
+            //    SearchIValid = true;
+            //}
+
+            //if (SearchDValid == true)
+            //{
+            //    var searchID = from Stock in db.Stocks
+            //                   where Stock.StockID == Convert.ToInt32(txtSearchStockID.Text)
+            //                   select Stock;
+            //    dgvSearchStock.DataSource = searchID;
+            //    dgvSearchStock.Update();
+            //    dgvSearchStock.Refresh();
+            //}
+            //else
+            //{
+            //    dgvSearchStock.DataSource = null;
+            //    var S = from Stock in db.Stocks select Stock;
+            //    dgvSearchStock.DataSource = S;
+            //    dgvSearchStock.Update();
+            //    dgvSearchStock.Refresh();
+            //}
+            
         }
 
         private void btnWriteoffStock_Click(object sender, EventArgs e)
         {
+            this.Close();
             WriteoffStock f = new WriteoffStock();
             f.Show();
         }
 
         private void btnAddStock_Click(object sender, EventArgs e)
         {
+            this.Close();
             AddStock a = new AddStock();
             a.ShowDialog();
         }
@@ -154,33 +199,37 @@ namespace PETSystem
 
         private void btnViewStock_Click(object sender, EventArgs e)
         {
-            //ViewStock f = new ViewStock();
-            //f.Show();
-
             if (dgvSearchStock.SelectedCells.Count > 0)
             {
                 Stock _PS = (Stock)dgvSearchStock.CurrentRow.DataBoundItem;
                 int psID = _PS.StockID;
                 string psName = _PS.StockDescription;
                 int psAddr = Convert.ToInt32(_PS.StockUnitPrice);
-                int psEmail = _PS.StockTypeID;
+                int psStockType = _PS.StockTypeID;
                 int psPhone = Convert.ToInt32(_PS.StockQuantity);
-                
-                MessageBox.Show("Stock ID: " + psID + "\n Stock Name: " + psName + "\n Unit Price: " + psAddr + "\n Stock Type: " + psEmail + "\n Stock Quantity: " + psPhone, "View Course",
+
+                var getTypetoView = (from StockType in db.StockTypes where StockType.StockTypeID == psStockType select StockType.StockName).FirstOrDefault();
+
+                string LoadStockTypeName = getTypetoView;
+
+
+                MessageBox.Show(" Stock ID: \t\t" + psID + "\n Stock Name: \t" + psName + "\n Unit Price: \t" + psAddr + "\n Stock Type: \t" + LoadStockTypeName + "\n Stock Quantity: \t" + psPhone, "View Course",
     MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }
 
         private void btnUpdateStock_Click(object sender, EventArgs e)
         {
+            this.Close();
             UpdateStock f = new UpdateStock();
             f.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Close();
             Create_stock_item c = new Create_stock_item();
-            c.ShowDialog();
+            c.Show();
         }
 
         private void Search_Stock_Load(object sender, EventArgs e)
@@ -193,9 +242,9 @@ namespace PETSystem
 
         private void btnMainMenu_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             MainMenuF UM = new MainMenuF();
-            UM.ShowDialog();
+            UM.Show();
         }
 
         private void dgvSearchStock_SelectionChanged(object sender, EventArgs e)

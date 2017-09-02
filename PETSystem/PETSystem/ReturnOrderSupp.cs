@@ -126,5 +126,10 @@ namespace Return_Order
             Suppliers UM = new Suppliers();
             UM.ShowDialog();
         }
+
+        private void txtSupplierOrderID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

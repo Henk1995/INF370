@@ -19,36 +19,29 @@ namespace PETSystem
 
         }
 
-        bool TitleValid;
-        bool NameValid;
-        bool SurnameValid;
-        bool GenderValid;
-        bool EmailValid;
-        bool PhoneNumberValid;
-
         PET_DBDataContext db = new PET_DBDataContext();
         ErrorHandle chk = new ErrorHandle();
 
-
+        bool NameValid;
+        bool SurnameValid;
+        bool EmailValid;
+        bool PhoneNumberValid;
 
         private void button2_Click(object sender, EventArgs e)
         {
             //validation of all inputs
-            string title = txtTitle.Text;
+            string title = cbTitle.Text;
             string Name = txtName.Text;
             string Surname = txtSurname.Text;
-            string Gender = txtGender.Text;
+            string Gender = cbGender.SelectedText;
             string Email = txtEmail.Text;
             string PhoneNumber = txtPhoneNumber.Text;
+            int genderID = cbGender.SelectedIndex + 1;
 
-            if (TitleValid == false && NameValid == false && SurnameValid == false && GenderValid == false && EmailValid == false && PhoneNumberValid == false)
+            if (NameValid == false && SurnameValid == false && EmailValid == false && PhoneNumberValid == false)
             {
                 MessageBox.Show("The information was not entered or entered incorrectly. Please re-enter the details and try again.", "An Error Has Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-            }
-            else if (TitleValid == false)
-            {
-                MessageBox.Show("The Title was not entered. Please re-enter the Title and try again.", "An Error Has Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (NameValid == false)
             {
@@ -57,10 +50,6 @@ namespace PETSystem
             else if (SurnameValid == false)
             {
                 MessageBox.Show("The Surname was not entered or entered incorrectly. Please re-enter the Surname and try again.", "An Error Has Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (GenderValid == false)
-            {
-                MessageBox.Show("The Gender was not entered. Please re-enter the Gender and try again.", "An Error Has Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (EmailValid == false)
             {
@@ -72,64 +61,39 @@ namespace PETSystem
             }
             else
             {
+                Client mClient = new Client
+                {
+                    TitleID = Convert.ToInt32(cbTitle.SelectedIndex + 1),
+                    ClientName = txtName.Text,
+                    ClientSurname = txtSurname.Text,
+                    ClientEmail = txtEmail.Text,
+                    GenderID = genderID,
+                    ClientPhoneNumber = txtPhoneNumber.Text
+                };
 
-                //Stock mStock = new Stock
-                //{
-                //    StockID = Convert.ToInt32(label1.Text),
-                //    StockDescription = txtDesc.Text,
-                //    StockUnitPrice = Convert.ToInt32(txtPrice.Text),
-                //   // StockType = cbType.SelectedValue,
+                db.Clients.InsertOnSubmit(mClient);
+                db.SubmitChanges();
 
+                var getGender = (from x in db.Genders where x.GenderID == genderID select x.GenderName).FirstOrDefault();
 
-                //};
+                string gen = Convert.ToString(getGender);
 
-                //db.Stocks.InsertOnSubmit(mStock);
-                //db.SubmitChanges();
-
-                //validation of all inputs
-                txtTitle.Text = "";
-                txtName.Text = "";
-                txtSurname.Text = "";
-                txtGender.Text = "";
-                txtEmail.Text = "";
-                txtPhoneNumber.Text = "";
 
                 this.Close();
 
-                MessageBox.Show("Added new Course Client:" + "/n Name" + title + " " + Name + "\n Surname: R " + Surname + "" + "/n Gender: " + Gender + "/n Email: " + Email + "/n Phone Number: " + PhoneNumber, "It Worked");
+                MessageBox.Show("Added new Course Client:" + "\n Name" + title + " " + Name + "\n Surname: R " + Surname + "" + "\n Gender: " + gen + "\n Email: " + Email + "\n Phone Number: " + PhoneNumber, "It Worked");
                 //MessageBox.Show("ok");
+
+                Search_Course_Client scc = new Search_Course_Client();
+                scc.Show();
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void txtTitle_TextChanged(object sender, EventArgs e)
-        {
-            txtTitle.BackColor = Color.White;
-            string title = txtTitle.Text;
-            bool isString = chk.Checkstring(title);
-            bool notEmpty = chk.CheckEmpty(title);
-
-            if (isString == false)
-            {
-                txtTitle.BackColor = Color.FromArgb(244, 17, 17);
-                TitleValid = false;
-            }
-            else if (notEmpty == false)
-            {
-                txtTitle.BackColor = Color.FromArgb(244, 17, 17);
-                TitleValid = false;
-            }
-            else
-            {
-                txtTitle.BackColor = Color.White;
-                TitleValid = true;
-            }
-
-
+            Search_Course_Client scc = new Search_Course_Client();
+            scc.Show();
         }
 
         private void txtName_TextChanged(object sender, EventArgs e)
@@ -182,28 +146,7 @@ namespace PETSystem
 
         private void txtGender_TextChanged(object sender, EventArgs e)
         {
-            // needs to change to ComboBox
-
-            txtGender.BackColor = Color.White;
-            string Gender = txtGender.Text;
-            bool isGender = chk.Checkstring(Gender); // Chenge to validate male or female not string
-            bool notEmpty = chk.CheckEmpty(Gender);
-
-            if (isGender == false)
-            {
-                txtGender.BackColor = Color.FromArgb(244, 17, 17);
-                GenderValid = false;
-            }
-            else if (notEmpty == false)
-            {
-                txtGender.BackColor = Color.FromArgb(244, 17, 17);
-                GenderValid = false;
-            }
-            else
-            {
-                txtGender.BackColor = Color.White;
-                GenderValid = true;
-            }
+            // Changed to Combo Box
         }
 
         private void txtEmail_TextChanged(object sender, EventArgs e)
@@ -256,6 +199,20 @@ namespace PETSystem
 
         private void Add_Course_Client_Load(object sender, EventArgs e)
         {
+            var mClientGenderID = (
+                  from a in db.Genders
+                  select a.GenderName)
+                   .ToList();
+
+            cbGender.DataSource = mClientGenderID;
+
+
+            var mClientTitleID = (
+                  from a in db.Titles
+                  select a.TitleName)
+                   .ToList();
+
+            cbTitle.DataSource = mClientTitleID;
 
         }
     }

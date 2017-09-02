@@ -23,7 +23,6 @@ namespace Create_Supplier
         bool valid5 = false;
         bool valid6 = false;
         bool valid7 = false;
-       
         bool valid8 = false;
         ErrorHandle EH = new ErrorHandle();
         public Create_Supplier()

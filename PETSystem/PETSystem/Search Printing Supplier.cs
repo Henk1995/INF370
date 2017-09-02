@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Mail;
+using System.Net;
 
 namespace PETSystem
 {
@@ -36,33 +34,11 @@ namespace PETSystem
 
                 //Search in db
                 var searchName = from Printer in db.Printers
-                                     where Printer.PrinterName == txtSearchPrintSupplierName.Text
-                                     select Printer;
+                                 where Printer.PrinterName == txtSearchPrintSupplierName.Text
+                                 select Printer;
                 dgvSearchPrintingSupplier.DataSource = searchName;
 
                 MessageBox.Show("Searching " + PrintSupplierName, "It Worked");
-            }
-        }
-
-        private void btnSearchPrintSupplierID_Click(object sender, EventArgs e)
-        {
-            string PrintSupplierID = txtSearchPrintSupplierID.Text;
-            if (SearchPSIDValid == false)
-            {
-
-                MessageBox.Show("The stock ID was not entered. Please enter the stock ID that you want to search and try again.", "An Error Has Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            }
-            else
-            {
-                //Search in DB
-
-                var searchID = from Printer in db.Printers
-                                 where Printer.PrinterID == Convert.ToInt32(txtSearchPrintSupplierID.Text)
-                                 select Printer;
-                dgvSearchPrintingSupplier.DataSource = searchID;
-
-                MessageBox.Show("Searching " + PrintSupplierID, "It Worked");
             }
         }
 
@@ -88,31 +64,27 @@ namespace PETSystem
                 txtSearchPrintSupplierName.BackColor = Color.White;
                 SearchPSNameValid = true;
             }
-        }
 
-        private void txtSearchPrintSupplierID_TextChanged(object sender, EventArgs e)
-        {
-            string PrintSupplierID = txtSearchPrintSupplierID.Text;
-            txtSearchPrintSupplierID.BackColor = Color.White;
-            bool isInt = chk.CheckInt(PrintSupplierID);
-            bool notEmpty = chk.CheckEmpty(PrintSupplierID);
-
-            if (isInt == false)
+            if (SearchPSNameValid == true)
             {
-                txtSearchPrintSupplierID.BackColor = Color.FromArgb(244, 17, 17);
-                SearchPSIDValid = false;
-            }
-            else if (notEmpty == false)
-            {
-                txtSearchPrintSupplierID.BackColor = Color.FromArgb(244, 17, 17);
-                SearchPSIDValid = false;
+                var searchDesc = from Printer in db.Printers
+                                 where Printer.PrinterName.Contains(txtSearchPrintSupplierName.Text)
+                                 select Printer;
+                dgvSearchPrintingSupplier.DataSource = searchDesc;
+                dgvSearchPrintingSupplier.Refresh();
             }
             else
             {
-                txtSearchPrintSupplierID.BackColor = Color.White;
-                SearchPSIDValid = true;
+                dgvSearchPrintingSupplier.DataSource = null;
+                var S = from Stock in db.Stocks select Stock;
+                dgvSearchPrintingSupplier.DataSource = S;
+                dgvSearchPrintingSupplier.Update();
+                dgvSearchPrintingSupplier.Refresh();
             }
+
+
         }
+
 
         private void btnDeletePrintSupplier_Click(object sender, EventArgs e)
         {
@@ -147,19 +119,21 @@ namespace PETSystem
 
         private void btnAddPrintSupplier_Click(object sender, EventArgs e)
         {
+            this.Close();
             Add_Printing_Supplier aps = new Add_Printing_Supplier();
             aps.Show();
         }
 
         private void btnUpdatePrintSupplier_Click(object sender, EventArgs e)
         {
+            this.Close();
             Update_Printing_Supplier ups = new Update_Printing_Supplier();
             ups.Show();
         }
 
         private void btnMainMenu_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             MainMenuF UM = new MainMenuF();
             UM.ShowDialog();
         }
@@ -175,7 +149,7 @@ namespace PETSystem
                 int psPhone = Convert.ToInt32(_PS.PrinterPhoneNumber);
                 int psBACC = Convert.ToInt32(_PS.PrinterBankAccNumber);
 
-                MessageBox.Show(" Printing Supplier: " + psName + "\n Address: " + psAddr + "\n Email Address: " + psEmail + "\n Phone Number: " + psPhone + "\n Bank Details: " + psBACC, "View Course",
+                MessageBox.Show(" Printing Supplier: \t" + psName + "\n Address: \t\t" + psAddr + "\n Email Address: \t" + psEmail + "\n Phone Number: \t" + psPhone + "\n Bank Details: \t" + psBACC, "View Course",
     MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }
@@ -198,5 +172,39 @@ namespace PETSystem
             dgvSearchPrintingSupplier.Update();
             dgvSearchPrintingSupplier.Refresh();
         }
+
+        private void btnPlaceOrder_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Place_Printing_Order ppo = new Place_Printing_Order();
+            ppo.Show();
+        }
+
+        private void btnReceiveOrder_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Search_Stock sc = new Search_Stock();
+            sc.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            PrinterOrderReturn por = new PrinterOrderReturn();
+            por.Show();
+        }
+
+        private void dgvSearchPrintingSupplier_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            PrinterOrderReturn poreturn = new PrinterOrderReturn();
+            poreturn.Show();
+        }
     }
 }
+

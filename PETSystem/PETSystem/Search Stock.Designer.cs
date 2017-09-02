@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.btnWriteoffStock = new System.Windows.Forms.Button();
-            this.btnSearchStockID = new System.Windows.Forms.Button();
-            this.txtSearchStockID = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnSearcStockDesc = new System.Windows.Forms.Button();
             this.btnAddStock = new System.Windows.Forms.Button();
             this.btnViewStock = new System.Windows.Forms.Button();
             this.txtSearchStockDesc = new System.Windows.Forms.TextBox();
@@ -55,43 +51,6 @@
             this.btnWriteoffStock.Text = "Writeoff Stock";
             this.btnWriteoffStock.UseVisualStyleBackColor = true;
             this.btnWriteoffStock.Click += new System.EventHandler(this.btnWriteoffStock_Click);
-            // 
-            // btnSearchStockID
-            // 
-            this.btnSearchStockID.Location = new System.Drawing.Point(15, 190);
-            this.btnSearchStockID.Name = "btnSearchStockID";
-            this.btnSearchStockID.Size = new System.Drawing.Size(326, 23);
-            this.btnSearchStockID.TabIndex = 33;
-            this.btnSearchStockID.Text = "Search Stock ID";
-            this.btnSearchStockID.UseVisualStyleBackColor = true;
-            this.btnSearchStockID.Click += new System.EventHandler(this.btnSearchStockID_Click);
-            // 
-            // txtSearchStockID
-            // 
-            this.txtSearchStockID.Location = new System.Drawing.Point(15, 163);
-            this.txtSearchStockID.Name = "txtSearchStockID";
-            this.txtSearchStockID.Size = new System.Drawing.Size(326, 20);
-            this.txtSearchStockID.TabIndex = 32;
-            this.txtSearchStockID.TextChanged += new System.EventHandler(this.txtSearchStockID_TextChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 146);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 13);
-            this.label2.TabIndex = 31;
-            this.label2.Text = "Stock ID:";
-            // 
-            // btnSearcStockDesc
-            // 
-            this.btnSearcStockDesc.Location = new System.Drawing.Point(15, 107);
-            this.btnSearcStockDesc.Name = "btnSearcStockDesc";
-            this.btnSearcStockDesc.Size = new System.Drawing.Size(326, 23);
-            this.btnSearcStockDesc.TabIndex = 30;
-            this.btnSearcStockDesc.Text = "Search Stock Description";
-            this.btnSearcStockDesc.UseVisualStyleBackColor = true;
-            this.btnSearcStockDesc.Click += new System.EventHandler(this.btnSearcStockDesc_Click);
             // 
             // btnAddStock
             // 
@@ -185,7 +144,7 @@
             // 
             // btnRefreshDGV
             // 
-            this.btnRefreshDGV.Location = new System.Drawing.Point(15, 233);
+            this.btnRefreshDGV.Location = new System.Drawing.Point(15, 125);
             this.btnRefreshDGV.Name = "btnRefreshDGV";
             this.btnRefreshDGV.Size = new System.Drawing.Size(326, 23);
             this.btnRefreshDGV.TabIndex = 50;
@@ -202,10 +161,6 @@
             this.Controls.Add(this.btnMainMenu);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnWriteoffStock);
-            this.Controls.Add(this.btnSearchStockID);
-            this.Controls.Add(this.txtSearchStockID);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnSearcStockDesc);
             this.Controls.Add(this.btnAddStock);
             this.Controls.Add(this.btnViewStock);
             this.Controls.Add(this.txtSearchStockDesc);
@@ -226,10 +181,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnWriteoffStock;
-        private System.Windows.Forms.Button btnSearchStockID;
-        private System.Windows.Forms.TextBox txtSearchStockID;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnSearcStockDesc;
         private System.Windows.Forms.Button btnAddStock;
         private System.Windows.Forms.Button btnViewStock;
         private System.Windows.Forms.TextBox txtSearchStockDesc;
