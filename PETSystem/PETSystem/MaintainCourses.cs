@@ -14,6 +14,8 @@ namespace PETSystem
 {
     public partial class MaintainCourses : Form
     {
+        public static string DBC = "Data Source=JWM\\SYSARCH;Initial Catalog=INF370;Integrated Security=True";
+        SqlConnection connectstring = new SqlConnection(DBC);
         SqlDataAdapter DA;
         DataTable DTC = new DataTable();
         ErrorHandle EH = new ErrorHandle();
@@ -199,7 +201,40 @@ namespace PETSystem
 
         }
 
-       
+        private void button3_Click(object sender, EventArgs e)
+        {
+            connectstring.Close();
+            string Query1 = "SELECT * FROM TrainingCourseType WHERE TrainingCourseName ='" + this.txtNCDName.Text + "';";
+            SqlCommand MyCommand = new SqlCommand(Query1, connectstring);
+            
+            SqlDataAdapter DA1 = new SqlDataAdapter(MyCommand);
+            DataTable DT1 = new DataTable();
+            DA1.Fill(DT1);
+            connectstring.Open();
+           
+
+            if (DT1.Rows.Count > 0)
+            {
+                valid5 = false;
+            }
+            if(valid5)
+            {
+                string Query = "INSERT INTO TrainingCourseType(TrainingCourseName) values('" + this.txtNCDName.Text +"');";
+                //This is  MySqlConnection here i have created the object and pass my connection string.  
+
+                //This is command class which will handle the query and connection object.  
+                SqlCommand MyCommand2 = new SqlCommand(Query, connectstring);
+                SqlDataReader MyReader2;
+              
+                MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
+                MessageBox.Show("Save Data");
+                while (MyReader2.Read())
+                {
+                }
+                connectstring.Close();
+
+            }
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
