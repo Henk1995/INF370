@@ -30,6 +30,7 @@
         {
             this.MSMain = new System.Windows.Forms.MenuStrip();
             this.addTrainingCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addTrainingCourseTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.maintainTrainingCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AddCoursePanel = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
@@ -42,6 +43,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.AddCourseTypeP = new System.Windows.Forms.Panel();
+            this.txtNCDName = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.dgvMaintain = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             this.MaintainTCPanel = new System.Windows.Forms.Panel();
@@ -54,6 +60,7 @@
             this.MSMain.SuspendLayout();
             this.AddCoursePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.AddCourseTypeP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaintain)).BeginInit();
             this.MaintainTCPanel.SuspendLayout();
             this.SuspendLayout();
@@ -62,6 +69,7 @@
             // 
             this.MSMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addTrainingCourseToolStripMenuItem,
+            this.addTrainingCourseTypeToolStripMenuItem,
             this.maintainTrainingCourseToolStripMenuItem});
             this.MSMain.Location = new System.Drawing.Point(0, 0);
             this.MSMain.Name = "MSMain";
@@ -75,6 +83,13 @@
             this.addTrainingCourseToolStripMenuItem.Size = new System.Drawing.Size(127, 20);
             this.addTrainingCourseToolStripMenuItem.Text = "Add Training Course";
             this.addTrainingCourseToolStripMenuItem.Click += new System.EventHandler(this.addTrainingCourseToolStripMenuItem_Click);
+            // 
+            // addTrainingCourseTypeToolStripMenuItem
+            // 
+            this.addTrainingCourseTypeToolStripMenuItem.Name = "addTrainingCourseTypeToolStripMenuItem";
+            this.addTrainingCourseTypeToolStripMenuItem.Size = new System.Drawing.Size(155, 20);
+            this.addTrainingCourseTypeToolStripMenuItem.Text = "Add Training Course Type";
+            this.addTrainingCourseTypeToolStripMenuItem.Click += new System.EventHandler(this.addTrainingCourseTypeToolStripMenuItem_Click);
             // 
             // maintainTrainingCourseToolStripMenuItem
             // 
@@ -135,6 +150,7 @@
             // 
             // cmbName
             // 
+            this.cmbName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbName.FormattingEnabled = true;
             this.cmbName.Location = new System.Drawing.Point(128, 41);
             this.cmbName.Name = "cmbName";
@@ -186,6 +202,55 @@
             this.label1.Size = new System.Drawing.Size(104, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Course Details:";
+            // 
+            // AddCourseTypeP
+            // 
+            this.AddCourseTypeP.Controls.Add(this.txtNCDName);
+            this.AddCourseTypeP.Controls.Add(this.button3);
+            this.AddCourseTypeP.Controls.Add(this.label9);
+            this.AddCourseTypeP.Controls.Add(this.label10);
+            this.AddCourseTypeP.Location = new System.Drawing.Point(451, 213);
+            this.AddCourseTypeP.Name = "AddCourseTypeP";
+            this.AddCourseTypeP.Size = new System.Drawing.Size(276, 190);
+            this.AddCourseTypeP.TabIndex = 10;
+            // 
+            // txtNCDName
+            // 
+            this.txtNCDName.Location = new System.Drawing.Point(123, 88);
+            this.txtNCDName.Name = "txtNCDName";
+            this.txtNCDName.Size = new System.Drawing.Size(119, 20);
+            this.txtNCDName.TabIndex = 10;
+            this.txtNCDName.TextChanged += new System.EventHandler(this.txtNCDName_TextChanged);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(170, 145);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(102, 39);
+            this.button3.TabIndex = 9;
+            this.button3.Text = "Submit";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(43, 91);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(74, 13);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "Course Name:";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(4, 4);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(135, 17);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "New Course Details:";
             // 
             // dgvMaintain
             // 
@@ -269,6 +334,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(752, 411);
             this.Controls.Add(this.dgvMaintain);
+            this.Controls.Add(this.AddCourseTypeP);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.AddCoursePanel);
             this.Controls.Add(this.MaintainTCPanel);
@@ -283,6 +349,8 @@
             this.AddCoursePanel.ResumeLayout(false);
             this.AddCoursePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.AddCourseTypeP.ResumeLayout(false);
+            this.AddCourseTypeP.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaintain)).EndInit();
             this.MaintainTCPanel.ResumeLayout(false);
             this.MaintainTCPanel.PerformLayout();
@@ -295,6 +363,7 @@
 
         private System.Windows.Forms.MenuStrip MSMain;
         private System.Windows.Forms.ToolStripMenuItem addTrainingCourseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addTrainingCourseTypeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem maintainTrainingCourseToolStripMenuItem;
         private System.Windows.Forms.Panel AddCoursePanel;
         private System.Windows.Forms.Button button1;
@@ -308,6 +377,11 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel AddCourseTypeP;
+        private System.Windows.Forms.TextBox txtNCDName;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridView dgvMaintain;
         private System.Windows.Forms.Panel MaintainTCPanel;
         private System.Windows.Forms.TextBox txtCourseName;

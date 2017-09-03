@@ -65,6 +65,7 @@
             // 
             // cbInstructor
             // 
+            this.cbInstructor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbInstructor.FormattingEnabled = true;
             this.cbInstructor.Location = new System.Drawing.Point(167, 103);
             this.cbInstructor.Name = "cbInstructor";

@@ -122,6 +122,7 @@
             // 
             // cmbTitle
             // 
+            this.cmbTitle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTitle.FormattingEnabled = true;
             this.cmbTitle.Location = new System.Drawing.Point(100, 173);
             this.cmbTitle.Name = "cmbTitle";
@@ -130,6 +131,7 @@
             // 
             // cmbGender
             // 
+            this.cmbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGender.FormattingEnabled = true;
             this.cmbGender.Location = new System.Drawing.Point(100, 146);
             this.cmbGender.Name = "cmbGender";

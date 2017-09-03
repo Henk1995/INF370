@@ -68,6 +68,7 @@
             // 
             // cmbTitle
             // 
+            this.cmbTitle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTitle.FormattingEnabled = true;
             this.cmbTitle.Location = new System.Drawing.Point(287, 102);
             this.cmbTitle.Name = "cmbTitle";
@@ -76,6 +77,7 @@
             // 
             // cmbGender
             // 
+            this.cmbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGender.FormattingEnabled = true;
             this.cmbGender.Location = new System.Drawing.Point(287, 75);
             this.cmbGender.Name = "cmbGender";
@@ -85,6 +87,7 @@
             // 
             // cmbCertification
             // 
+            this.cmbCertification.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCertification.FormattingEnabled = true;
             this.cmbCertification.Location = new System.Drawing.Point(287, 181);
             this.cmbCertification.Name = "cmbCertification";

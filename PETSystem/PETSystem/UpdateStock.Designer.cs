@@ -42,6 +42,7 @@
             // 
             // cbStockType
             // 
+            this.cbStockType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbStockType.FormattingEnabled = true;
             this.cbStockType.Items.AddRange(new object[] {
             "Book\'s",
