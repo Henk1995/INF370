@@ -57,6 +57,8 @@ namespace PETSystem
         private void txtFirst_TextChanged(object sender, EventArgs e)
         {
             valid1 = EH.Checkstring(txtFirst.Text);
+            bool validSQl = EH.checkForSQLInjection(txtFirst.Text);
+            valid1 = validSQl;
             if (!valid1)
             {
                 txtFirst.BackColor = Color.Red;

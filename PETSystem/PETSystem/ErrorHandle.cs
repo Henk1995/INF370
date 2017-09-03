@@ -95,11 +95,11 @@ namespace PETSystem
             return Regex.Match(Input, @"^([0-9]{10})$").Success;
             
         }
-        public static Boolean checkForSQLInjection(string userInput)
+        public Boolean checkForSQLInjection(string userInput)
 
         {
 
-            bool isSQLInjection = false;
+            bool isSQLInjection = true;
 
             string[] sqlCheckList = { "--",
 
@@ -175,7 +175,7 @@ namespace PETSystem
 
     StringComparison.OrdinalIgnoreCase) >= 0))
 
-                { isSQLInjection = true; }
+                { isSQLInjection = false; }
             }
 
             return isSQLInjection;
