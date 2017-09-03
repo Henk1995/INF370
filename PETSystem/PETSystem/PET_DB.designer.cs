@@ -22,7 +22,7 @@ namespace PETSystem
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="inf370Reg")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="INF370")]
 	public partial class PET_DBDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -33,9 +33,6 @@ namespace PETSystem
     partial void InsertApplicationForm(ApplicationForm instance);
     partial void UpdateApplicationForm(ApplicationForm instance);
     partial void DeleteApplicationForm(ApplicationForm instance);
-    partial void InsertUserTable(UserTable instance);
-    partial void UpdateUserTable(UserTable instance);
-    partial void DeleteUserTable(UserTable instance);
     partial void InsertCertification(Certification instance);
     partial void UpdateCertification(Certification instance);
     partial void DeleteCertification(Certification instance);
@@ -138,10 +135,13 @@ namespace PETSystem
     partial void InsertTrainingCourseType(TrainingCourseType instance);
     partial void UpdateTrainingCourseType(TrainingCourseType instance);
     partial void DeleteTrainingCourseType(TrainingCourseType instance);
+    partial void InsertUserTable(UserTable instance);
+    partial void UpdateUserTable(UserTable instance);
+    partial void DeleteUserTable(UserTable instance);
     #endregion
 		
 		public PET_DBDataContext() : 
-				base(global::PETSystem.Properties.Settings.Default.inf370RegConnectionString1, mappingSource)
+				base(global::PETSystem.Properties.Settings.Default.INF370ConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -175,14 +175,6 @@ namespace PETSystem
 			get
 			{
 				return this.GetTable<ApplicationForm>();
-			}
-		}
-		
-		public System.Data.Linq.Table<UserTable> UserTables
-		{
-			get
-			{
-				return this.GetTable<UserTable>();
 			}
 		}
 		
@@ -457,6 +449,14 @@ namespace PETSystem
 				return this.GetTable<TrainingCourseType>();
 			}
 		}
+		
+		public System.Data.Linq.Table<UserTable> UserTables
+		{
+			get
+			{
+				return this.GetTable<UserTable>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ApplicationForm")]
@@ -703,281 +703,6 @@ namespace PETSystem
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UserTable")]
-	public partial class UserTable : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _UserID;
-		
-		private string _Name;
-		
-		private string _Surname;
-		
-		private string _UserPassword;
-		
-		private string _UserName;
-		
-		private int _PriveledgeID;
-		
-		private string _Email;
-		
-		private EntitySet<TableOrder> _TableOrders;
-		
-		private EntityRef<PrivilegeType> _PrivilegeType;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnUserIDChanging(int value);
-    partial void OnUserIDChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnSurnameChanging(string value);
-    partial void OnSurnameChanged();
-    partial void OnUserPasswordChanging(string value);
-    partial void OnUserPasswordChanged();
-    partial void OnUserNameChanging(string value);
-    partial void OnUserNameChanged();
-    partial void OnPriveledgeIDChanging(int value);
-    partial void OnPriveledgeIDChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
-    #endregion
-		
-		public UserTable()
-		{
-			this._TableOrders = new EntitySet<TableOrder>(new Action<TableOrder>(this.attach_TableOrders), new Action<TableOrder>(this.detach_TableOrders));
-			this._PrivilegeType = default(EntityRef<PrivilegeType>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int UserID
-		{
-			get
-			{
-				return this._UserID;
-			}
-			set
-			{
-				if ((this._UserID != value))
-				{
-					this.OnUserIDChanging(value);
-					this.SendPropertyChanging();
-					this._UserID = value;
-					this.SendPropertyChanged("UserID");
-					this.OnUserIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(20)")]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Surname", DbType="VarChar(20)")]
-		public string Surname
-		{
-			get
-			{
-				return this._Surname;
-			}
-			set
-			{
-				if ((this._Surname != value))
-				{
-					this.OnSurnameChanging(value);
-					this.SendPropertyChanging();
-					this._Surname = value;
-					this.SendPropertyChanged("Surname");
-					this.OnSurnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserPassword", DbType="VarChar(10)")]
-		public string UserPassword
-		{
-			get
-			{
-				return this._UserPassword;
-			}
-			set
-			{
-				if ((this._UserPassword != value))
-				{
-					this.OnUserPasswordChanging(value);
-					this.SendPropertyChanging();
-					this._UserPassword = value;
-					this.SendPropertyChanged("UserPassword");
-					this.OnUserPasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="VarChar(10)")]
-		public string UserName
-		{
-			get
-			{
-				return this._UserName;
-			}
-			set
-			{
-				if ((this._UserName != value))
-				{
-					this.OnUserNameChanging(value);
-					this.SendPropertyChanging();
-					this._UserName = value;
-					this.SendPropertyChanged("UserName");
-					this.OnUserNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PriveledgeID", DbType="Int NOT NULL")]
-		public int PriveledgeID
-		{
-			get
-			{
-				return this._PriveledgeID;
-			}
-			set
-			{
-				if ((this._PriveledgeID != value))
-				{
-					if (this._PrivilegeType.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnPriveledgeIDChanging(value);
-					this.SendPropertyChanging();
-					this._PriveledgeID = value;
-					this.SendPropertyChanged("PriveledgeID");
-					this.OnPriveledgeIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this.OnEmailChanging(value);
-					this.SendPropertyChanging();
-					this._Email = value;
-					this.SendPropertyChanged("Email");
-					this.OnEmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserTable_TableOrder", Storage="_TableOrders", ThisKey="UserID", OtherKey="UserID")]
-		public EntitySet<TableOrder> TableOrders
-		{
-			get
-			{
-				return this._TableOrders;
-			}
-			set
-			{
-				this._TableOrders.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PrivilegeType_UserTable", Storage="_PrivilegeType", ThisKey="PriveledgeID", OtherKey="PrivilegeID", IsForeignKey=true)]
-		public PrivilegeType PrivilegeType
-		{
-			get
-			{
-				return this._PrivilegeType.Entity;
-			}
-			set
-			{
-				PrivilegeType previousValue = this._PrivilegeType.Entity;
-				if (((previousValue != value) 
-							|| (this._PrivilegeType.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._PrivilegeType.Entity = null;
-						previousValue.UserTables.Remove(this);
-					}
-					this._PrivilegeType.Entity = value;
-					if ((value != null))
-					{
-						value.UserTables.Add(this);
-						this._PriveledgeID = value.PrivilegeID;
-					}
-					else
-					{
-						this._PriveledgeID = default(int);
-					}
-					this.SendPropertyChanged("PrivilegeType");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_TableOrders(TableOrder entity)
-		{
-			this.SendPropertyChanging();
-			entity.UserTable = this;
-		}
-		
-		private void detach_TableOrders(TableOrder entity)
-		{
-			this.SendPropertyChanging();
-			entity.UserTable = null;
 		}
 	}
 	
@@ -8886,6 +8611,281 @@ namespace PETSystem
 		{
 			this.SendPropertyChanging();
 			entity.TrainingCourseType = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UserTable")]
+	public partial class UserTable : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _UserID;
+		
+		private string _Name;
+		
+		private string _Surname;
+		
+		private string _UserPassword;
+		
+		private string _UserName;
+		
+		private int _PriveledgeID;
+		
+		private string _Email;
+		
+		private EntitySet<TableOrder> _TableOrders;
+		
+		private EntityRef<PrivilegeType> _PrivilegeType;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUserIDChanging(int value);
+    partial void OnUserIDChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnSurnameChanging(string value);
+    partial void OnSurnameChanged();
+    partial void OnUserPasswordChanging(string value);
+    partial void OnUserPasswordChanged();
+    partial void OnUserNameChanging(string value);
+    partial void OnUserNameChanged();
+    partial void OnPriveledgeIDChanging(int value);
+    partial void OnPriveledgeIDChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    #endregion
+		
+		public UserTable()
+		{
+			this._TableOrders = new EntitySet<TableOrder>(new Action<TableOrder>(this.attach_TableOrders), new Action<TableOrder>(this.detach_TableOrders));
+			this._PrivilegeType = default(EntityRef<PrivilegeType>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int UserID
+		{
+			get
+			{
+				return this._UserID;
+			}
+			set
+			{
+				if ((this._UserID != value))
+				{
+					this.OnUserIDChanging(value);
+					this.SendPropertyChanging();
+					this._UserID = value;
+					this.SendPropertyChanged("UserID");
+					this.OnUserIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(20)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Surname", DbType="VarChar(20)")]
+		public string Surname
+		{
+			get
+			{
+				return this._Surname;
+			}
+			set
+			{
+				if ((this._Surname != value))
+				{
+					this.OnSurnameChanging(value);
+					this.SendPropertyChanging();
+					this._Surname = value;
+					this.SendPropertyChanged("Surname");
+					this.OnSurnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserPassword", DbType="VarChar(10)")]
+		public string UserPassword
+		{
+			get
+			{
+				return this._UserPassword;
+			}
+			set
+			{
+				if ((this._UserPassword != value))
+				{
+					this.OnUserPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._UserPassword = value;
+					this.SendPropertyChanged("UserPassword");
+					this.OnUserPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="VarChar(10)")]
+		public string UserName
+		{
+			get
+			{
+				return this._UserName;
+			}
+			set
+			{
+				if ((this._UserName != value))
+				{
+					this.OnUserNameChanging(value);
+					this.SendPropertyChanging();
+					this._UserName = value;
+					this.SendPropertyChanged("UserName");
+					this.OnUserNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PriveledgeID", DbType="Int NOT NULL")]
+		public int PriveledgeID
+		{
+			get
+			{
+				return this._PriveledgeID;
+			}
+			set
+			{
+				if ((this._PriveledgeID != value))
+				{
+					if (this._PrivilegeType.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPriveledgeIDChanging(value);
+					this.SendPropertyChanging();
+					this._PriveledgeID = value;
+					this.SendPropertyChanged("PriveledgeID");
+					this.OnPriveledgeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserTable_TableOrder", Storage="_TableOrders", ThisKey="UserID", OtherKey="UserID")]
+		public EntitySet<TableOrder> TableOrders
+		{
+			get
+			{
+				return this._TableOrders;
+			}
+			set
+			{
+				this._TableOrders.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PrivilegeType_UserTable", Storage="_PrivilegeType", ThisKey="PriveledgeID", OtherKey="PrivilegeID", IsForeignKey=true)]
+		public PrivilegeType PrivilegeType
+		{
+			get
+			{
+				return this._PrivilegeType.Entity;
+			}
+			set
+			{
+				PrivilegeType previousValue = this._PrivilegeType.Entity;
+				if (((previousValue != value) 
+							|| (this._PrivilegeType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._PrivilegeType.Entity = null;
+						previousValue.UserTables.Remove(this);
+					}
+					this._PrivilegeType.Entity = value;
+					if ((value != null))
+					{
+						value.UserTables.Add(this);
+						this._PriveledgeID = value.PrivilegeID;
+					}
+					else
+					{
+						this._PriveledgeID = default(int);
+					}
+					this.SendPropertyChanged("PrivilegeType");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_TableOrders(TableOrder entity)
+		{
+			this.SendPropertyChanging();
+			entity.UserTable = this;
+		}
+		
+		private void detach_TableOrders(TableOrder entity)
+		{
+			this.SendPropertyChanging();
+			entity.UserTable = null;
 		}
 	}
 }
