@@ -37,16 +37,22 @@ namespace PETSystem
             bool Duplicate = false;
             bool IsQualified = false;
 
-            // get values from CMB's
-            
+            // get values from form
+            string NewSelectedCourseName;
+            string NewSelectedInstructor;
+            string NewStartDate;
+            int NewDuration;
+            string NewVenue;
 
             //Check for duplicate entry met course naam (CMB) en start date
+                //var GetDuplicate = from x in db.CourseInstances where x.
 
             //check if duplicate
             DataTable dt = new DataTable();
 
             
-
+            
+            
             if (dt.Rows.Count == 0)
             {
                 Duplicate = false;

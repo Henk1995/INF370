@@ -58,6 +58,8 @@
             this.addTrainingCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addTrainingCourseTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.maintainTrainingCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cbTimeslot = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaintainClientCourses)).BeginInit();
             this.AddCourseTypeP.SuspendLayout();
             this.AddCoursePanel.SuspendLayout();
@@ -82,7 +84,7 @@
             this.AddCourseTypeP.Controls.Add(this.btnSubmitNewCourseName);
             this.AddCourseTypeP.Controls.Add(this.label9);
             this.AddCourseTypeP.Controls.Add(this.label10);
-            this.AddCourseTypeP.Location = new System.Drawing.Point(463, 213);
+            this.AddCourseTypeP.Location = new System.Drawing.Point(469, 241);
             this.AddCourseTypeP.Name = "AddCourseTypeP";
             this.AddCourseTypeP.Size = new System.Drawing.Size(276, 190);
             this.AddCourseTypeP.TabIndex = 15;
@@ -135,6 +137,8 @@
             // 
             // AddCoursePanel
             // 
+            this.AddCoursePanel.Controls.Add(this.label8);
+            this.AddCoursePanel.Controls.Add(this.cbTimeslot);
             this.AddCoursePanel.Controls.Add(this.lblInstructors);
             this.AddCoursePanel.Controls.Add(this.cbInstructors);
             this.AddCoursePanel.Controls.Add(this.btnSubmitCouseDetails);
@@ -149,7 +153,7 @@
             this.AddCoursePanel.Controls.Add(this.label1);
             this.AddCoursePanel.Location = new System.Drawing.Point(15, 156);
             this.AddCoursePanel.Name = "AddCoursePanel";
-            this.AddCoursePanel.Size = new System.Drawing.Size(276, 224);
+            this.AddCoursePanel.Size = new System.Drawing.Size(276, 259);
             this.AddCoursePanel.TabIndex = 14;
             // 
             // lblInstructors
@@ -172,7 +176,7 @@
             // 
             // btnSubmitCouseDetails
             // 
-            this.btnSubmitCouseDetails.Location = new System.Drawing.Point(158, 172);
+            this.btnSubmitCouseDetails.Location = new System.Drawing.Point(159, 208);
             this.btnSubmitCouseDetails.Name = "btnSubmitCouseDetails";
             this.btnSubmitCouseDetails.Size = new System.Drawing.Size(102, 39);
             this.btnSubmitCouseDetails.TabIndex = 9;
@@ -182,14 +186,14 @@
             // 
             // nudDuration
             // 
-            this.nudDuration.Location = new System.Drawing.Point(116, 119);
+            this.nudDuration.Location = new System.Drawing.Point(116, 146);
             this.nudDuration.Name = "nudDuration";
             this.nudDuration.Size = new System.Drawing.Size(145, 20);
             this.nudDuration.TabIndex = 8;
             // 
             // txtVenue
             // 
-            this.txtVenue.Location = new System.Drawing.Point(116, 147);
+            this.txtVenue.Location = new System.Drawing.Point(116, 174);
             this.txtVenue.Name = "txtVenue";
             this.txtVenue.Size = new System.Drawing.Size(145, 20);
             this.txtVenue.TabIndex = 7;
@@ -213,7 +217,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 121);
+            this.label5.Location = new System.Drawing.Point(8, 148);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(95, 13);
             this.label5.TabIndex = 4;
@@ -222,7 +226,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 148);
+            this.label4.Location = new System.Drawing.Point(8, 175);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 13);
             this.label4.TabIndex = 3;
@@ -305,7 +309,7 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(15, 386);
+            this.btnBack.Location = new System.Drawing.Point(15, 421);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(94, 29);
             this.btnBack.TabIndex = 16;
@@ -346,11 +350,29 @@
             this.maintainTrainingCourseToolStripMenuItem.Text = "Maintain Client Course";
             this.maintainTrainingCourseToolStripMenuItem.Click += new System.EventHandler(this.maintainTrainingCourseToolStripMenuItem_Click);
             // 
+            // cbTimeslot
+            // 
+            this.cbTimeslot.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTimeslot.FormattingEnabled = true;
+            this.cbTimeslot.Location = new System.Drawing.Point(116, 119);
+            this.cbTimeslot.Name = "cbTimeslot";
+            this.cbTimeslot.Size = new System.Drawing.Size(145, 21);
+            this.cbTimeslot.TabIndex = 14;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(8, 122);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(54, 13);
+            this.label8.TabIndex = 15;
+            this.label8.Text = "Time Slot:";
+            // 
             // Maintain_Client_Courses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(796, 427);
+            this.ClientSize = new System.Drawing.Size(796, 462);
             this.Controls.Add(this.dgvMaintainClientCourses);
             this.Controls.Add(this.AddCourseTypeP);
             this.Controls.Add(this.btnSave);
@@ -408,5 +430,7 @@
         private System.Windows.Forms.ToolStripMenuItem maintainTrainingCourseToolStripMenuItem;
         private System.Windows.Forms.Label lblInstructors;
         private System.Windows.Forms.ComboBox cbInstructors;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.ComboBox cbTimeslot;
     }
 }

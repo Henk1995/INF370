@@ -109,5 +109,11 @@ namespace PETSystem
         {
             // generate after payment is received
         }
+
+        private void txtSearchOrderID_TextChanged(object sender, EventArgs e)
+        {
+            //do search order
+
+        }
     }
 }

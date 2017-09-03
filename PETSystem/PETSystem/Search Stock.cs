@@ -70,11 +70,11 @@ namespace PETSystem
 
         private void txtSearchStockDesc_TextChanged(object sender, EventArgs e)
         {
-            //txtSearchStockID.Clear();
             txtSearchStockDesc.BackColor = Color.White;
             string stockDesc = txtSearchStockDesc.Text;
             bool isString = chk.Checkstring(stockDesc);
             bool notEmpty = chk.CheckEmpty(stockDesc);
+            bool checkForSQLInjection = chk.checkForSQLInjection(stockDesc);
 
             if (isString == false)
             {
@@ -82,6 +82,11 @@ namespace PETSystem
                 SearchDValid = false;
             }
             else if (notEmpty == false)
+            {
+                txtSearchStockDesc.BackColor = Color.FromArgb(244, 17, 17);
+                SearchDValid = false;
+            }
+            else if (checkForSQLInjection == false)
             {
                 txtSearchStockDesc.BackColor = Color.FromArgb(244, 17, 17);
                 SearchDValid = false;

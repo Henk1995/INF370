@@ -15,8 +15,6 @@ namespace PETSystem
         public Add_Course_Client()
         {
             InitializeComponent();
-
-
         }
 
         PET_DBDataContext db = new PET_DBDataContext();
@@ -102,6 +100,7 @@ namespace PETSystem
             string Name = txtName.Text;
             bool isString = chk.Checkstring(Name);
             bool notEmpty = chk.CheckEmpty(Name);
+            bool checkForSQLInjection = chk.checkForSQLInjection(Name);
 
             if (isString == false)
             {
@@ -109,6 +108,11 @@ namespace PETSystem
                 NameValid = false;
             }
             else if (notEmpty == false)
+            {
+                txtName.BackColor = Color.FromArgb(244, 17, 17);
+                NameValid = false;
+            }
+            else if (checkForSQLInjection == false)
             {
                 txtName.BackColor = Color.FromArgb(244, 17, 17);
                 NameValid = false;
@@ -126,6 +130,7 @@ namespace PETSystem
             string Surname = txtSurname.Text;
             bool isString = chk.Checkstring(Surname);
             bool notEmpty = chk.CheckEmpty(Surname);
+            bool checkForSQLInjection = chk.checkForSQLInjection(Surname);
 
             if (isString == false)
             {
@@ -133,6 +138,11 @@ namespace PETSystem
                 SurnameValid = false;
             }
             else if (notEmpty == false)
+            {
+                txtSurname.BackColor = Color.FromArgb(244, 17, 17);
+                SurnameValid = false;
+            }
+            else if (checkForSQLInjection == false)
             {
                 txtSurname.BackColor = Color.FromArgb(244, 17, 17);
                 SurnameValid = false;
@@ -155,6 +165,7 @@ namespace PETSystem
             string Email = txtEmail.Text;
             bool isEmail = chk.CheckEmail(Email);
             bool notEmpty = chk.CheckEmpty(Email);
+            bool checkForSQLInjection = chk.checkForSQLInjection(Email);
 
             if (isEmail == false)
             {
@@ -166,7 +177,11 @@ namespace PETSystem
                 txtEmail.BackColor = Color.FromArgb(244, 17, 17);
                 EmailValid = false;
             }
-            else
+            else if (checkForSQLInjection == false)
+            {
+                txtEmail.BackColor = Color.FromArgb(244, 17, 17);
+                EmailValid = false;
+            }
             {
                 txtEmail.BackColor = Color.White;
                 EmailValid = true;
@@ -179,6 +194,7 @@ namespace PETSystem
             txtPhoneNumber.BackColor = Color.White;
             bool isPhone = chk.CheckInt(PhoneNumber); // Chenge to validate a phone Number not int
             bool notEmpty = chk.CheckEmpty(PhoneNumber);
+            bool checkForSQLInjection = chk.checkForSQLInjection(PhoneNumber);
 
             if (isPhone == false)
             {
@@ -186,6 +202,11 @@ namespace PETSystem
                 PhoneNumberValid = false;
             }
             else if (notEmpty == false)
+            {
+                txtPhoneNumber.BackColor = Color.FromArgb(244, 17, 17);
+                PhoneNumberValid = false;
+            }
+            else if (checkForSQLInjection == false)
             {
                 txtPhoneNumber.BackColor = Color.FromArgb(244, 17, 17);
                 PhoneNumberValid = false;

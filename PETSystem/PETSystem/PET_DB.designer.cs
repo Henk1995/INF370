@@ -141,7 +141,7 @@ namespace PETSystem
     #endregion
 		
 		public PET_DBDataContext() : 
-				base(global::PETSystem.Properties.Settings.Default.inf370RegConnectionString, mappingSource)
+				base(global::PETSystem.Properties.Settings.Default.inf370RegConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
