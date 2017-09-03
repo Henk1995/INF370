@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PETSystem;
 
 namespace Search_Supplier
 {
@@ -21,6 +22,13 @@ namespace Search_Supplier
         {
            
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            Suppliers UM = new Suppliers();
+            UM.ShowDialog();
         }
     }
 }
