@@ -95,7 +95,7 @@ namespace PETSystem
             return Regex.Match(Input, @"^([0-9]{10})$").Success;
             
         }
-        public static Boolean checkForSQLInjection(string userInput)
+        public Boolean checkForSQLInjection(string userInput)
 
         {
 

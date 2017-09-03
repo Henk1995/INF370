@@ -37,8 +37,10 @@ namespace PETSystem
             bool Duplicate = false;
             bool IsQualified = false;
 
-            // get values from CMB's
-            
+            // get values from form
+            string SelectedCourseName;
+            string SelectedInstructor;
+
 
             //Check for duplicate entry met course naam (CMB) en start date
 
