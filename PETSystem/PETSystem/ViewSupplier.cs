@@ -22,5 +22,12 @@ namespace View_Supplier
             MessageBox.Show(" Supplier Name: John\n Adress: Doe\n Phone Number: 0824521477\n E-mail: johndoe@gmail.com\n Bank account nr: XXXXXXXXXXX\n Supplier type:Books", "Result",
 MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            Suppliers UM = new Suppliers();
+            UM.ShowDialog();
+        }
     }
 }

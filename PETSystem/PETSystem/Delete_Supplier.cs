@@ -21,5 +21,12 @@ namespace Delete_Supplier
         {
             MessageBox.Show("Are you sure you want to Delete this supplier", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            Suppliers UM = new Suppliers();
+            UM.ShowDialog();
+        }
     }
 }
