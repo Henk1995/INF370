@@ -55,8 +55,10 @@ namespace PETSystem
                 }
                 ConnectString.connectstring.Close();
             }
-            
-            MessageBox.Show("Invalid username and/or Password");
+            else
+            {
+                MessageBox.Show("Invalid username and/or Password");
+            }
             if (validU)
             {
 
