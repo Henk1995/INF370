@@ -163,6 +163,7 @@
             // 
             // cbInstructors
             // 
+            this.cbInstructors.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbInstructors.FormattingEnabled = true;
             this.cbInstructors.Location = new System.Drawing.Point(128, 67);
             this.cbInstructors.Name = "cbInstructors";
@@ -202,6 +203,7 @@
             // 
             // cmbCourseName
             // 
+            this.cmbCourseName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCourseName.FormattingEnabled = true;
             this.cmbCourseName.Location = new System.Drawing.Point(127, 40);
             this.cmbCourseName.Name = "cmbCourseName";
