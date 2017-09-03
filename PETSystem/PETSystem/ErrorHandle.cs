@@ -99,7 +99,7 @@ namespace PETSystem
 
         {
 
-            bool isSQLInjection = false;
+            bool isSQLInjection = true;
 
             string[] sqlCheckList = { "--",
 
@@ -175,7 +175,7 @@ namespace PETSystem
 
     StringComparison.OrdinalIgnoreCase) >= 0))
 
-                { isSQLInjection = true; }
+                { isSQLInjection = false; }
             }
 
             return isSQLInjection;
