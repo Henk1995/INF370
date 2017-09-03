@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Delete_Supplier
 {
     public partial class Delete_Supplier : Form
@@ -25,7 +26,7 @@ namespace Delete_Supplier
         private void button2_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            Suppliers UM = new Suppliers();
+            PETSystem.Suppliers UM = new PETSystem.Suppliers();
             UM.ShowDialog();
         }
     }
