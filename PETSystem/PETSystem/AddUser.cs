@@ -21,6 +21,7 @@ namespace PETSystem
         bool valid4 = false;
         bool valid5 = false;
         bool valid6 = true;
+        bool valid7 = true;
         ErrorHandle EH = new ErrorHandle();
         SqlDataAdapter DA;
 
@@ -151,7 +152,8 @@ namespace PETSystem
             valid4 = EH.CheckEmpty(txtPass.Text);
             valid5 = EH.CheckEmpty(txtRetype.Text);
             valid6 = EH.CheckEmpty(cmbPrivilege.Text);
-            if (valid1 && valid2 && valid3 && valid4 && valid5 && valid6)
+            valid7 = EH.CheckEmpty(txtEmail.Text);
+            if (valid1 && valid2 && valid3 && valid4 && valid5 && valid6 && valid7)
             {
                 string queryA = "SELECT * FROM UserTable WHERE UserName ='" + txtUserN.Text + "'";
                 SqlCommand MyCommandA = new SqlCommand(queryA, ConnectString.connectstring);
@@ -190,7 +192,7 @@ namespace PETSystem
                             privID = Convert.ToInt32(MyReader1["PrivilegeID"]);
                         }
                         ConnectString.connectstring.Close();
-                        string Query = "INSERT INTO UserTable(Name,Surname,UserPassword,UserName,PriveledgeID) values('" + this.txtFirst.Text + "','" + this.txtLastName.Text + "','" + this.txtPass.Text + "','" + this.txtUserN.Text + "','" + privID + "');";
+                        string Query = "INSERT INTO UserTable(Name,Surname,UserPassword,UserName,PriveledgeID, Email) values('" + this.txtFirst.Text + "','" + this.txtLastName.Text + "','" + this.txtPass.Text + "','" + this.txtUserN.Text + "','" + privID + "','" + this.txtEmail.Text + "')";
                         //This is  MySqlConnection here i have created the object and pass my connection string.  
 
                         //This is command class which will handle the query and connection object.  
@@ -198,7 +200,7 @@ namespace PETSystem
                         SqlDataReader MyReader2;
                         ConnectString.connectstring.Open();
                         MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
-                        MessageBox.Show("Save Data");
+                        
                         while (MyReader2.Read())
                         {
                         }
@@ -220,6 +222,24 @@ namespace PETSystem
         private void cmbPrivilege_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            valid7 = EH.CheckEmail(txtEmail.Text);
+            bool validSQl = EH.checkForSQLInjection(txtEmail.Text);
+            if (valid7)
+            {
+                valid7 = validSQl;
+            }
+            if (!valid7)
+            {
+                txtEmail.BackColor = Color.Red;
+            }
+            else
+            {
+                txtEmail.BackColor = Color.White;
+            }
         }
     }
 }

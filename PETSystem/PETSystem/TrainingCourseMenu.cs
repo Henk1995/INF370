@@ -113,7 +113,7 @@ namespace PETSystem
                 {
                     privID = Convert.ToInt32(MyReader1["TrainingCourseTypeID"]);
                 }
-
+                ConnectString.connectstring.Close();
                 ConnectString.connectstring.Open();
                 DA = new SqlDataAdapter("select * from TrainingCourse where TrainingCourseTypeID like '", ConnectString.connectstring);
                 DataTable DT = new DataTable();

@@ -74,6 +74,11 @@ namespace PETSystem
         private void txtName_TextChanged(object sender, EventArgs e)
         {
             valid1 = EH.Checkstring(txtName.Text);
+            bool validSQl = EH.checkForSQLInjection(txtName.Text);
+            if (valid1)
+            {
+                valid1 = validSQl;
+            }
             if (!valid1)
             {
                 txtName.BackColor = Color.Red;
@@ -87,6 +92,11 @@ namespace PETSystem
         private void txtSurname_TextChanged(object sender, EventArgs e)
         {
             valid2 = EH.Checkstring(txtSurname.Text);
+            bool validSQl = EH.checkForSQLInjection(txtSurname.Text);
+            if (valid2)
+            {
+                valid2 = validSQl;
+            }
             if (!valid2)
             {
                 txtSurname.BackColor = Color.Red;
@@ -100,6 +110,11 @@ namespace PETSystem
         private void txtEmail_TextChanged(object sender, EventArgs e)
         {
             valid3 = EH.CheckEmail(txtEmail.Text);
+            bool validSQl = EH.checkForSQLInjection(txtEmail.Text);
+            if (valid3)
+            {
+                valid3 = validSQl;
+            }
             if (!valid3)
             {
                 txtEmail.BackColor = Color.Red;
@@ -112,7 +127,12 @@ namespace PETSystem
 
         private void txtPhoneNumber_TextChanged(object sender, EventArgs e)
         {
-            valid4 = EH.CheckInt(txtPhoneNumber.Text);
+            valid4 = EH.CheckphoneNum(txtPhoneNumber.Text);
+            bool validSQl = EH.checkForSQLInjection(txtPhoneNumber.Text);
+            if (valid4)
+            {
+                valid4 = validSQl;
+            }
             if (!valid4)
             {
                 txtPhoneNumber.BackColor = Color.Red;
@@ -131,50 +151,59 @@ namespace PETSystem
             valid6 = EH.CheckEmpty(cmbTitle.Text);
             if (valid1 && valid2 && valid3 && valid4 && valid5 && valid6)
             {
-                MessageBox.Show("Are you sure you want to Update this instructor?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
-                //This is my update query in which i am taking input from the user through windows forms and update the record.  
-                string query1 = "SELECT GenderID FROM Gender WHERE GenderName ='" + cmbGender.Text + "'";
-                SqlCommand MyCommand1 = new SqlCommand(query1, ConnectString.connectstring);
-                SqlDataReader MyReader1;
-                ConnectString.connectstring.Open();
-                MyReader1 = MyCommand1.ExecuteReader();     // Here our query will be executed and data saved into the database.  
+                DialogResult answer = MessageBox.Show("Are you sure you want to Update this instructor?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                if (answer == DialogResult.Yes)
+                {
+                    //This is my update query in which i am taking input from the user through windows forms and update the record.  
+                    string query1 = "SELECT GenderID FROM Gender WHERE GenderName ='" + cmbGender.Text + "'";
+                    SqlCommand MyCommand1 = new SqlCommand(query1, ConnectString.connectstring);
+                    SqlDataReader MyReader1;
+                    ConnectString.connectstring.Open();
+                    MyReader1 = MyCommand1.ExecuteReader();     // Here our query will be executed and data saved into the database.  
 
-                while (MyReader1.Read())
-                {
-                    GenderID = Convert.ToInt32(MyReader1["GenderID"]);
-                }
-                ConnectString.connectstring.Close();
-                string query2 = "SELECT TitleID FROM Title WHERE TitleName ='" + cmbTitle.Text + "'";
-                SqlCommand MyCommand2 = new SqlCommand(query2, ConnectString.connectstring);
-                SqlDataReader MyReader2;
-                ConnectString.connectstring.Open();
-                MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
+                    while (MyReader1.Read())
+                    {
+                        GenderID = Convert.ToInt32(MyReader1["GenderID"]);
+                    }
+                    ConnectString.connectstring.Close();
+                    string query2 = "SELECT TitleID FROM Title WHERE TitleName ='" + cmbTitle.Text + "'";
+                    SqlCommand MyCommand2 = new SqlCommand(query2, ConnectString.connectstring);
+                    SqlDataReader MyReader2;
+                    ConnectString.connectstring.Open();
+                    MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
 
-                while (MyReader2.Read())
-                {
-                    TitleID = Convert.ToInt32(MyReader2["TitleID"]);
+                    while (MyReader2.Read())
+                    {
+                        TitleID = Convert.ToInt32(MyReader2["TitleID"]);
+                    }
+                    ConnectString.connectstring.Close();
+                    string Query = "UPDATE Instructor SET Name ='" + this.txtName.Text + "', Surname = '" + this.txtSurname.Text + "', Email = '" + this.txtEmail.Text + "', PhoneNumber = '" + this.txtPhoneNumber.Text + "', GenderID ='" + GenderID + "', TitleID = '" + TitleID + "' WHERE InstructorID =" + Convert.ToInt32(InstructorID) + ";";
+                    //This is  MySqlConnection here i have created the object and pass my connection string.  
+
+                    SqlCommand MyCommand3 = new SqlCommand(Query, ConnectString.connectstring);
+                    SqlDataReader MyReader3;
+                    ConnectString.connectstring.Open();
+                    MyReader3 = MyCommand3.ExecuteReader();
+                    MessageBox.Show("Data Updated");
+                    while (MyReader3.Read())
+                    {
+                    }
+                    ConnectString.connectstring.Close();//Connection closed here 
+                    DataTable DT = new DataTable();
+                    ConnectString.connectstring.Open();
+                    SqlCommand Fill = new SqlCommand("SELECT * FROM Instructor", ConnectString.connectstring);
+                    DA = new SqlDataAdapter(Fill);
+                    DA.Fill(DT);
+                    dgvInstructor.DataSource = DT;
+                    dgvInstructor.DataMember = DT.TableName;
+                    ConnectString.connectstring.Close();
+                    MessageBox.Show("Instructor was Updated", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
                 }
-                ConnectString.connectstring.Close();
-                string Query = "UPDATE Instructor SET Name ='" + this.txtName.Text + "', Surname = '" + this.txtSurname.Text + "', Email = '" + this.txtEmail.Text + "', PhoneNumber = '" + this.txtPhoneNumber.Text + "', GenderID ='" + GenderID + "', TitleID = '" + TitleID + "' WHERE InstructorID ="+Convert.ToInt32(InstructorID)+";";
-                //This is  MySqlConnection here i have created the object and pass my connection string.  
-                
-                SqlCommand MyCommand3 = new SqlCommand(Query, ConnectString.connectstring);
-                SqlDataReader MyReader3;
-                ConnectString.connectstring.Open();
-                MyReader3 = MyCommand3.ExecuteReader();
-                MessageBox.Show("Data Updated");
-                while (MyReader3.Read())
+                else
                 {
+                    MessageBox.Show("Instructor was not Updated", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+
                 }
-                ConnectString.connectstring.Close();//Connection closed here 
-                DataTable DT = new DataTable();
-                ConnectString.connectstring.Open();
-                SqlCommand Fill = new SqlCommand("SELECT * FROM Instructor", ConnectString.connectstring);
-                DA = new SqlDataAdapter(Fill);
-                DA.Fill(DT);
-                dgvInstructor.DataSource = DT;
-                dgvInstructor.DataMember = DT.TableName;
-                ConnectString.connectstring.Close();
             }
             else
             {
