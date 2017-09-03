@@ -34,8 +34,6 @@
             this.btnAddResult = new System.Windows.Forms.Button();
             this.dgvTC = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtCourseT = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtCourseN = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -96,8 +94,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.txtCourseT);
-            this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtCourseN);
             this.panel1.Controls.Add(this.label1);
@@ -105,24 +101,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(270, 136);
             this.panel1.TabIndex = 12;
-            // 
-            // txtCourseT
-            // 
-            this.txtCourseT.Location = new System.Drawing.Point(113, 100);
-            this.txtCourseT.Name = "txtCourseT";
-            this.txtCourseT.Size = new System.Drawing.Size(122, 20);
-            this.txtCourseT.TabIndex = 4;
-            this.txtCourseT.TextChanged += new System.EventHandler(this.txtCourseT_TextChanged);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(9, 100);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 17);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Course Type:";
             // 
             // label2
             // 
@@ -181,8 +159,6 @@
         private System.Windows.Forms.Button btnAddResult;
         private System.Windows.Forms.DataGridView dgvTC;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtCourseT;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtCourseN;
         private System.Windows.Forms.Label label1;

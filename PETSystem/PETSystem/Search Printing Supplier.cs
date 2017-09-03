@@ -82,7 +82,7 @@ namespace PETSystem
             else
             {
                 dgvSearchPrintingSupplier.DataSource = null;
-                var S = from Stock in db.Stocks select Stock;
+                var S = from Printer in db.Printers select Printer;
                 dgvSearchPrintingSupplier.DataSource = S;
                 dgvSearchPrintingSupplier.Update();
                 dgvSearchPrintingSupplier.Refresh();
