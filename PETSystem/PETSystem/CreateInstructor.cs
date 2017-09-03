@@ -42,6 +42,11 @@ namespace PETSystem
         private void txtName_TextChanged(object sender, EventArgs e)
         {
             valid1 = EH.Checkstring(txtName.Text);
+            bool validSQl = EH.checkForSQLInjection(txtName.Text);
+            if (valid1)
+            {
+                valid1 = validSQl;
+            }
             if (!valid1)
             {
                 txtName.BackColor = Color.Red;
@@ -54,6 +59,11 @@ namespace PETSystem
         private void txtSurname_TextChanged(object sender, EventArgs e)
         {
             valid2 = EH.Checkstring(txtSurname.Text);
+            bool validSQl = EH.checkForSQLInjection(txtSurname.Text);
+            if (valid2)
+            {
+                valid2 = validSQl;
+            }
             if (!valid2)
             {
                 txtSurname.BackColor = Color.Red;
@@ -67,6 +77,11 @@ namespace PETSystem
         private void txtEmail_TextChanged(object sender, EventArgs e)
         {
             valid3 = EH.CheckEmail(txtEmail.Text);
+            bool validSQl = EH.checkForSQLInjection(txtEmail.Text);
+            if (valid3)
+            {
+                valid3 = validSQl;
+            }
             if (!valid3)
             {
                 txtEmail.BackColor = Color.Red;
@@ -79,7 +94,12 @@ namespace PETSystem
 
         private void txtPhoneNumber_TextChanged(object sender, EventArgs e)
         {
-            valid4 = EH.CheckInt(txtPhoneNumber.Text);
+            valid4 = EH.CheckphoneNum(txtPhoneNumber.Text);
+            bool validSQl = EH.checkForSQLInjection(txtPhoneNumber.Text);
+            if (valid4)
+            {
+                valid4 = validSQl;
+            }
             if (!valid4)
             {
                 txtPhoneNumber.BackColor = Color.Red;
@@ -93,6 +113,11 @@ namespace PETSystem
         private void txtTrainingResult_TextChanged(object sender, EventArgs e)
         {
             valid5 = EH.Checkstring(txtTrainingResult.Text);
+            bool validSQl = EH.checkForSQLInjection(txtTrainingResult.Text);
+            if (valid5)
+            {
+                valid5 = validSQl;
+            }
             if (!valid5)
             {
                 txtTrainingResult.BackColor = Color.Red;
@@ -105,6 +130,7 @@ namespace PETSystem
 
         private void btnCreateInstructor_Click(object sender, EventArgs e)
         {
+            bool duplicate = false;
             int GenderID = 0;
             int TitleID = 0;
             int CertificationID = 0;
@@ -113,51 +139,83 @@ namespace PETSystem
             valid8 = EH.CheckEmpty(cmbTitle.Text);
             if (valid1 && valid2 && valid3 && valid4 && valid5 && valid6 && valid7 && valid8)
             {
-                MessageBox.Show("Are you sure you want to create this instructor?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
-                DataTable DT = new DataTable();
-                string query4 = "SELECT CertificationID FROM Certification WHERE CertificationName ='" + cmbCertification.Text + "'";
-                SqlCommand MyCommand4 = new SqlCommand(query4, ConnectString.connectstring);
-                SqlDataReader MyReader4;
-                ConnectString.connectstring.Open();
-                MyReader4 = MyCommand4.ExecuteReader();     // Here our query will be executed and data saved into the database.  
+                string queryA = "SELECT * FROM Instructor WHERE  Email='" + txtEmail.Text + "' OR PhoneNumber='"+ txtPhoneNumber.Text+"'";
+                SqlCommand MyCommandA = new SqlCommand(queryA, ConnectString.connectstring);
 
-                while (MyReader4.Read())
-                {
-                    CertificationID = Convert.ToInt32(MyReader4["CertificationID"]);
-                }
-                ConnectString.connectstring.Close();
-                string query1 = "SELECT GenderID FROM Gender WHERE GenderName ='" + cmbGender.Text + "'";
-                SqlCommand MyCommand1 = new SqlCommand(query1, ConnectString.connectstring);
-                SqlDataReader MyReader1;
+                SqlDataAdapter DAA = new SqlDataAdapter(MyCommandA);
+                DataTable DTA = new DataTable();
+                DAA.Fill(DTA);
                 ConnectString.connectstring.Open();
-                MyReader1 = MyCommand1.ExecuteReader();     // Here our query will be executed and data saved into the database.  
 
-                while (MyReader1.Read())
-                {
-                    GenderID = Convert.ToInt32(MyReader1["GenderID"]);
-                }
-                ConnectString.connectstring.Close();
-                string query2 = "SELECT TitleID FROM Title WHERE TitleName ='" + cmbTitle.Text + "'";
-                SqlCommand MyCommand2 = new SqlCommand(query2, ConnectString.connectstring);
-                SqlDataReader MyReader2;
-                ConnectString.connectstring.Open();
-                MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
 
-                while (MyReader2.Read())
+                if (DTA.Rows.Count == 1)
                 {
-                    TitleID = Convert.ToInt32(MyReader2["TitleID"]);
+
+                    duplicate = true;
                 }
                 ConnectString.connectstring.Close();
-                string Query = "INSERT INTO Instructor (Name,Surname,Email,PhoneNumber,GenderID,TitleID,CertificationID) VALUES ('" + this.txtName.Text + "','" + this.txtSurname.Text + "','" + this.txtEmail.Text + "','" + this.txtPhoneNumber.Text + "','" + GenderID + "','" + TitleID + "','" + CertificationID + "');";
-                SqlCommand MyCommand3 = new SqlCommand(Query, ConnectString.connectstring);
-                SqlDataReader MyReader3;
-                ConnectString.connectstring.Open();
-                MyReader3 = MyCommand3.ExecuteReader();     // Here our query will be executed and data saved into the database.  
-                MessageBox.Show("Save Data");
-                while (MyReader3.Read())
+                if (duplicate)
                 {
+                    MessageBox.Show("An instructor with that email/phone number already exists.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
                 }
-                ConnectString.connectstring.Close();
+                else
+                {
+                    DialogResult answer = MessageBox.Show("Add new instructor to the system?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                    if (answer == DialogResult.Yes)
+                    {
+                        DataTable DT = new DataTable();
+                        string query4 = "SELECT CertificationID FROM Certification WHERE CertificationName ='" + cmbCertification.Text + "'";
+                        SqlCommand MyCommand4 = new SqlCommand(query4, ConnectString.connectstring);
+                        SqlDataReader MyReader4;
+                        ConnectString.connectstring.Open();
+                        MyReader4 = MyCommand4.ExecuteReader();     // Here our query will be executed and data saved into the database.  
+
+                        while (MyReader4.Read())
+                        {
+                            CertificationID = Convert.ToInt32(MyReader4["CertificationID"]);
+                        }
+                        ConnectString.connectstring.Close();
+                        string query1 = "SELECT GenderID FROM Gender WHERE GenderName ='" + cmbGender.Text + "'";
+                        SqlCommand MyCommand1 = new SqlCommand(query1, ConnectString.connectstring);
+                        SqlDataReader MyReader1;
+                        ConnectString.connectstring.Open();
+                        MyReader1 = MyCommand1.ExecuteReader();     // Here our query will be executed and data saved into the database.  
+
+                        while (MyReader1.Read())
+                        {
+                            GenderID = Convert.ToInt32(MyReader1["GenderID"]);
+                        }
+                        ConnectString.connectstring.Close();
+                        string query2 = "SELECT TitleID FROM Title WHERE TitleName ='" + cmbTitle.Text + "'";
+                        SqlCommand MyCommand2 = new SqlCommand(query2, ConnectString.connectstring);
+                        SqlDataReader MyReader2;
+                        ConnectString.connectstring.Open();
+                        MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
+
+                        while (MyReader2.Read())
+                        {
+                            TitleID = Convert.ToInt32(MyReader2["TitleID"]);
+                        }
+                        ConnectString.connectstring.Close();
+                        string Query = "INSERT INTO Instructor (Name,Surname,Email,PhoneNumber,GenderID,TitleID,CertificationID) VALUES ('" + this.txtName.Text + "','" + this.txtSurname.Text + "','" + this.txtEmail.Text + "','" + this.txtPhoneNumber.Text + "','" + GenderID + "','" + TitleID + "','" + CertificationID + "');";
+                        SqlCommand MyCommand3 = new SqlCommand(Query, ConnectString.connectstring);
+                        SqlDataReader MyReader3;
+                        ConnectString.connectstring.Open();
+                        MyReader3 = MyCommand3.ExecuteReader();     // Here our query will be executed and data saved into the database.  
+                        
+                        while (MyReader3.Read())
+                        {
+                        }
+                        ConnectString.connectstring.Close();
+                        MessageBox.Show("Instructor has been added to the system.", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Instructor has not been added to the system.", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                    }
+                }
             }
             else
             {

@@ -40,6 +40,11 @@ namespace PETSystem
         private void txtUserName_TextChanged(object sender, EventArgs e)
         {
             valid1 = EH.CheckstringNum(txtUserName.Text);
+            bool validSQl = EH.checkForSQLInjection(txtUserName.Text);
+            if (valid1)
+            {
+                valid1 = validSQl;
+            }
             if (!valid1)
             {
                 txtUserName.BackColor = Color.Red;
@@ -53,6 +58,11 @@ namespace PETSystem
         private void txtOldPass_TextChanged(object sender, EventArgs e)
         {
             valid2 = EH.CheckstringNum(txtOldPass.Text);
+            bool validSQl = EH.checkForSQLInjection(txtOldPass.Text);
+            if (valid2)
+            {
+                valid2 = validSQl;
+            }
             if (!valid2)
             {
                 txtOldPass.BackColor = Color.Red;
@@ -67,6 +77,11 @@ namespace PETSystem
         private void txtNewPass_TextChanged(object sender, EventArgs e)
         {
             valid3 = EH.CheckstringNum(txtNewPass.Text);
+            bool validSQl = EH.checkForSQLInjection(txtNewPass.Text);
+            if (valid3)
+            {
+                valid3 = validSQl;
+            }
             if (!valid3)
             {
                 txtNewPass.BackColor = Color.Red;
@@ -114,21 +129,26 @@ namespace PETSystem
             ConnectString.connectstring.Close();
             if (valid1 & valid2 & valid3 & valid4)
             {
-                MessageBox.Show("Change password?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
-                string Query = "UPDATE UserTable SET UserPassword ='" + this.txtNewPass.Text + "' WHERE UserName ='" + this.txtUserName.Text + "';";
-                //This is  MySqlConnection here i have created the object and pass my connection string.  
-
-                SqlCommand MyCommand3 = new SqlCommand(Query, ConnectString.connectstring);
-                SqlDataReader MyReader3;
-                ConnectString.connectstring.Open();
-                MyReader3 = MyCommand3.ExecuteReader();
-                MessageBox.Show("Data Updated");
-                while (MyReader3.Read())
+                DialogResult result = MessageBox.Show("Change password?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                if (result == DialogResult.Yes)
                 {
-                }
-                ConnectString.connectstring.Close();//Connection closed here
-                MessageBox.Show("Password succesfully changed.", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    string Query = "UPDATE UserTable SET UserPassword ='" + this.txtNewPass.Text + "' WHERE UserName ='" + this.txtUserName.Text + "';";
+                    //This is  MySqlConnection here i have created the object and pass my connection string.  
 
+                    SqlCommand MyCommand3 = new SqlCommand(Query, ConnectString.connectstring);
+                    SqlDataReader MyReader3;
+                    ConnectString.connectstring.Open();
+                    MyReader3 = MyCommand3.ExecuteReader();
+
+                    while (MyReader3.Read())
+                    {
+                    }
+                    ConnectString.connectstring.Close();//Connection closed here
+                    MessageBox.Show("Password succesfully changed.", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }else
+                {
+                    MessageBox.Show("Password was not changed.", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }
             }
             else
             {

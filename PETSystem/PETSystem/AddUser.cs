@@ -58,7 +58,10 @@ namespace PETSystem
         {
             valid1 = EH.Checkstring(txtFirst.Text);
             bool validSQl = EH.checkForSQLInjection(txtFirst.Text);
-            valid1 = validSQl;
+            if (valid1)
+            {
+                valid1 = validSQl;
+            }
             if (!valid1)
             {
                 txtFirst.BackColor = Color.Red;
@@ -72,6 +75,11 @@ namespace PETSystem
         private void txtLastName_TextChanged(object sender, EventArgs e)
         {
             valid2 = EH.Checkstring(txtLastName.Text);
+            bool validSQl = EH.checkForSQLInjection(txtFirst.Text);
+            if (valid2)
+            {
+                valid2 = validSQl;
+            }
             if (!valid2)
             {
                 txtLastName.BackColor = Color.Red;
@@ -85,6 +93,11 @@ namespace PETSystem
         private void txtUserN_TextChanged(object sender, EventArgs e)
         {
             valid3 = EH.CheckstringNum(txtUserN.Text);
+            bool validSQl = EH.checkForSQLInjection(txtFirst.Text);
+            if (valid3)
+            {
+                valid3 = validSQl;
+            }
             if (!valid3)
             {
                 txtUserN.BackColor = Color.Red;
@@ -98,6 +111,11 @@ namespace PETSystem
         private void txtPass_TextChanged(object sender, EventArgs e)
         {
             valid4 = EH.CheckstringNum(txtPass.Text);
+            bool validSQl = EH.checkForSQLInjection(txtFirst.Text);
+            if (valid4)
+            {
+                valid4 = validSQl;
+            }
             if (!valid4)
             {
                 txtPass.BackColor = Color.Red;
@@ -125,45 +143,83 @@ namespace PETSystem
 
         private void btnAddU_Click(object sender, EventArgs e)
         {
-            
-            if (valid1&&valid2&&valid3&&valid4&&valid5&&valid6)
+            bool duplicate = false;
+            int privID = 0;
+            valid1 = EH.CheckEmpty(txtFirst.Text);
+            valid2 = EH.CheckEmpty(txtLastName.Text);
+            valid3 = EH.CheckEmpty(txtUserN.Text);
+            valid4 = EH.CheckEmpty(txtPass.Text);
+            valid5 = EH.CheckEmpty(txtRetype.Text);
+            valid6 = EH.CheckEmpty(cmbPrivilege.Text);
+            if (valid1 && valid2 && valid3 && valid4 && valid5 && valid6)
             {
-                int privID =0;
-                valid1 = EH.CheckEmpty(txtFirst.Text);
-                valid2 = EH.CheckEmpty(txtLastName.Text);
-                valid3 = EH.CheckEmpty(txtUserN.Text);
-                valid4 = EH.CheckEmpty(txtPass.Text);
-                valid5 = EH.CheckEmpty(txtRetype.Text);
-                valid6 = EH.CheckEmpty(cmbPrivilege.Text);
-                string query = "SELECT PrivilegeID FROM PrivilegeType WHERE PrivName='"+ cmbPrivilege.Text+"'";
-                SqlCommand MyCommand1 = new SqlCommand(query, ConnectString.connectstring);
-                SqlDataReader MyReader1;
+                string queryA = "SELECT * FROM UserTable WHERE UserName ='" + txtUserN.Text + "'";
+                SqlCommand MyCommandA = new SqlCommand(queryA, ConnectString.connectstring);
+
+                SqlDataAdapter DAA = new SqlDataAdapter(MyCommandA);
+                DataTable DTA = new DataTable();
+                DAA.Fill(DTA);
                 ConnectString.connectstring.Open();
-                MyReader1 = MyCommand1.ExecuteReader();     // Here our query will be executed and data saved into the database.  
-                
-                while (MyReader1.Read())
+
+
+                if (DTA.Rows.Count == 1)
                 {
-                    privID = Convert.ToInt32( MyReader1["PrivilegeID"]);
+
+                    duplicate = true;
                 }
                 ConnectString.connectstring.Close();
-                string Query = "INSERT INTO UserTable(Name,Surname,UserPassword,UserName,PriveledgeID) values('" + this.txtFirst.Text + "','" + this.txtLastName.Text + "','" + this.txtPass.Text + "','" + this.txtUserN.Text + "','" + privID + "');";
-                //This is  MySqlConnection here i have created the object and pass my connection string.  
-                
-                //This is command class which will handle the query and connection object.  
-                SqlCommand MyCommand2 = new SqlCommand(Query, ConnectString.connectstring);
-                SqlDataReader MyReader2;
-                ConnectString.connectstring.Open();
-                MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
-                MessageBox.Show("Save Data");
-                while (MyReader2.Read())
+                if (duplicate)
                 {
+                    MessageBox.Show("Add new username already exists please select a new one.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
                 }
-                ConnectString.connectstring.Close();
-                MessageBox.Show("Add new user to the system?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
-            }else
+                else
+                {
+                    DialogResult answer = MessageBox.Show("Add new user to the system?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                    if (answer == DialogResult.Yes)
+                    {
+
+
+                        string query = "SELECT PrivilegeID FROM PrivilegeType WHERE PrivName='" + cmbPrivilege.Text + "'";
+                        SqlCommand MyCommand1 = new SqlCommand(query, ConnectString.connectstring);
+                        SqlDataReader MyReader1;
+                        ConnectString.connectstring.Open();
+                        MyReader1 = MyCommand1.ExecuteReader();     // Here our query will be executed and data saved into the database.  
+
+                        while (MyReader1.Read())
+                        {
+                            privID = Convert.ToInt32(MyReader1["PrivilegeID"]);
+                        }
+                        ConnectString.connectstring.Close();
+                        string Query = "INSERT INTO UserTable(Name,Surname,UserPassword,UserName,PriveledgeID) values('" + this.txtFirst.Text + "','" + this.txtLastName.Text + "','" + this.txtPass.Text + "','" + this.txtUserN.Text + "','" + privID + "');";
+                        //This is  MySqlConnection here i have created the object and pass my connection string.  
+
+                        //This is command class which will handle the query and connection object.  
+                        SqlCommand MyCommand2 = new SqlCommand(Query, ConnectString.connectstring);
+                        SqlDataReader MyReader2;
+                        ConnectString.connectstring.Open();
+                        MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
+                        MessageBox.Show("Save Data");
+                        while (MyReader2.Read())
+                        {
+                        }
+                        ConnectString.connectstring.Close();
+                        MessageBox.Show("User has been added to the system.", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    }
+                    else
+                    {
+                        MessageBox.Show("User has not been added to the system.", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    }
+                }
+                }else
             {
-                MessageBox.Show("Please ensure all fields are filled in and correct", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please ensure all fields are filled in and correct", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+        
+
+        private void cmbPrivilege_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

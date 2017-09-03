@@ -90,6 +90,7 @@
             this.cmbPrivilege.Size = new System.Drawing.Size(124, 21);
             this.cmbPrivilege.TabIndex = 13;
             this.cmbPrivilege.ValueMember = "PrivName";
+            this.cmbPrivilege.SelectedIndexChanged += new System.EventHandler(this.cmbPrivilege_SelectedIndexChanged);
             // 
             // label7
             // 

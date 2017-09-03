@@ -128,6 +128,7 @@
             this.dgvInstructor.Location = new System.Drawing.Point(260, 12);
             this.dgvInstructor.Name = "dgvInstructor";
             this.dgvInstructor.ReadOnly = true;
+            this.dgvInstructor.RowTemplate.ReadOnly = true;
             this.dgvInstructor.Size = new System.Drawing.Size(574, 244);
             this.dgvInstructor.TabIndex = 9;
             this.dgvInstructor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInstructor_CellContentClick);

@@ -19,7 +19,9 @@ namespace PETSystem
         PET_DBDataContext db = new PET_DBDataContext();
 
         bool validU = false;
-        
+        bool valid3 = false;
+        bool valid4 = false;
+        ErrorHandle EH = new ErrorHandle();
         public LoginF()
         {
             InitializeComponent();
@@ -29,28 +31,32 @@ namespace PETSystem
         {
             string un = txtUsername.Text;
             string pw = txtPassword.Text;
-          
-            string Query1 = "SELECT * FROM UserTable WHERE UserName ='" + this.txtUsername.Text + "'AND UserPassword='" + this.txtPassword.Text + "';";
-            SqlCommand MyCommand = new SqlCommand(Query1, ConnectString.connectstring);
-            SqlDataReader MyReader;
-            SqlDataAdapter DA = new SqlDataAdapter(MyCommand);
-            DataTable DT = new DataTable();
-            DA.Fill(DT);
-            ConnectString.connectstring.Open();
-            MyReader = MyCommand.ExecuteReader();
 
-            if (DT.Rows.Count == 0)
+            if (valid3 && valid4)
             {
+                string Query1 = "SELECT * FROM UserTable WHERE UserName ='" + this.txtUsername.Text + "'AND UserPassword='" + this.txtPassword.Text + "';";
+                SqlCommand MyCommand = new SqlCommand(Query1, ConnectString.connectstring);
+                SqlDataReader MyReader;
+                SqlDataAdapter DA = new SqlDataAdapter(MyCommand);
+                DataTable DT = new DataTable();
+                DA.Fill(DT);
+                ConnectString.connectstring.Open();
+                MyReader = MyCommand.ExecuteReader();
 
-                validU = false;
-                MessageBox.Show("Invalid username and/or Password");
-            }
-            else
-            {
-                validU = true;
-            }
+                if (DT.Rows.Count == 0)
+                {
 
-            ConnectString.connectstring.Close();
+                    validU = false;
+                    MessageBox.Show("Invalid username and/or Password");
+                }
+                else
+                {
+                    validU = true;
+                }
+                ConnectString.connectstring.Close();
+            }
+            
+            MessageBox.Show("Invalid username and/or Password");
             if (validU)
             {
 
@@ -73,7 +79,10 @@ namespace PETSystem
 
         private void txtUsername_TextChanged(object sender, EventArgs e)
         {
-
+            bool validSQl = EH.checkForSQLInjection(txtUsername.Text);
+            
+                valid3 = validSQl;
+            
         }
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -81,6 +90,15 @@ namespace PETSystem
             this.Visible = false;
             ForgotPassword UM = new ForgotPassword();
             UM.ShowDialog();
+        }
+
+        private void txtPassword_TextChanged(object sender, EventArgs e)
+        {
+            bool validSQl = EH.checkForSQLInjection(txtPassword.Text);
+            
+            
+                valid4 = validSQl;
+            
         }
     }
 }

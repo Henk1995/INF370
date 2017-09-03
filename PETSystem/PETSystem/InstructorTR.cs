@@ -35,7 +35,12 @@ namespace PETSystem
         private void txtName_TextChanged(object sender, EventArgs e)
         {
             valid1 = EH.Checkstring(txtName.Text);
-            if(!valid1)
+            bool validSQl = EH.checkForSQLInjection(txtName.Text);
+            if (valid1)
+            {
+                valid1 = validSQl;
+            }
+            if (!valid1)
             {
                 txtName.BackColor = Color.Red;
                 ConnectString.connectstring.Open();
@@ -49,18 +54,26 @@ namespace PETSystem
             else
             {
                 txtName.BackColor = Color.White;
-                ConnectString.connectstring.Open();
-                DA = new SqlDataAdapter("select * from Instructor where Name like '" + txtName.Text + "%'", ConnectString.connectstring);
                 DataTable DT = new DataTable();
+                ConnectString.connectstring.Open();
+                SqlCommand Fill = new SqlCommand("SELECT * FROM Instructor", ConnectString.connectstring);
+                DA = new SqlDataAdapter(Fill);
                 DA.Fill(DT);
                 dgvTR.DataSource = DT;
+                dgvTR.DataMember = DT.TableName;
                 ConnectString.connectstring.Close();
+
             }
         }
 
         private void txtSurname_TextChanged(object sender, EventArgs e)
         {
             valid2 = EH.Checkstring(txtSurname.Text);
+            bool validSQl = EH.checkForSQLInjection(txtSurname.Text);
+            if (valid2)
+            {
+                valid2 = validSQl;
+            }
             if (!valid2)
             {
                 txtSurname.BackColor = Color.Red;
@@ -74,18 +87,26 @@ namespace PETSystem
             else
             {
                 txtSurname.BackColor = Color.White;
-                ConnectString.connectstring.Open();
-                DA = new SqlDataAdapter("select * from Instructor where Surname like '" + txtSurname.Text + "%'", ConnectString.connectstring);
                 DataTable DT = new DataTable();
+                ConnectString.connectstring.Open();
+                SqlCommand Fill = new SqlCommand("SELECT * FROM Instructor", ConnectString.connectstring);
+                DA = new SqlDataAdapter(Fill);
                 DA.Fill(DT);
                 dgvTR.DataSource = DT;
+                dgvTR.DataMember = DT.TableName;
                 ConnectString.connectstring.Close();
+
             }
         }
 
         private void txtInstructorID_TextChanged(object sender, EventArgs e)
         {
             valid3 = EH.CheckInt(txtInstructorID.Text);
+            bool validSQl = EH.checkForSQLInjection(txtInstructorID.Text);
+            if (valid3)
+            {
+                valid3 = validSQl;
+            }
             if (!valid3)
             {
                 txtInstructorID.BackColor = Color.Red;
@@ -99,12 +120,15 @@ namespace PETSystem
             else
             {
                 txtInstructorID.BackColor = Color.White;
-                ConnectString.connectstring.Open();
-                DA = new SqlDataAdapter("select * from Instructor where InstructorID like '" + txtInstructorID.Text + "%'", ConnectString.connectstring);
                 DataTable DT = new DataTable();
+                ConnectString.connectstring.Open();
+                SqlCommand Fill = new SqlCommand("SELECT * FROM Instructor", ConnectString.connectstring);
+                DA = new SqlDataAdapter(Fill);
                 DA.Fill(DT);
                 dgvTR.DataSource = DT;
+                dgvTR.DataMember = DT.TableName;
                 ConnectString.connectstring.Close();
+
             }
         }
 
@@ -151,7 +175,7 @@ namespace PETSystem
                 {
                     MessageBox.Show("Please select the row that you want to view", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                MessageBox.Show("Name:\n Surname:\n Phone Number: \n E-mail:\n Result:","Result",MessageBoxButtons.OK,MessageBoxIcon.Asterisk);
+                
             }else
             {
                 MessageBox.Show("Information provided is invalid please resubmit", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

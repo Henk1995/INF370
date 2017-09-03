@@ -35,10 +35,10 @@
             this.txtCourseN = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.txtCourseT = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnVMParticipants = new System.Windows.Forms.Button();
             this.btnMCourses = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTC)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -105,7 +105,7 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.txtCourseT);
+            this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.txtCourseN);
@@ -114,13 +114,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(270, 136);
             this.panel1.TabIndex = 6;
-            // 
-            // txtCourseT
-            // 
-            this.txtCourseT.Location = new System.Drawing.Point(113, 100);
-            this.txtCourseT.Name = "txtCourseT";
-            this.txtCourseT.Size = new System.Drawing.Size(122, 20);
-            this.txtCourseT.TabIndex = 4;
             // 
             // label3
             // 
@@ -150,6 +143,16 @@
             this.btnMCourses.Text = "Maintain Courses";
             this.btnMCourses.UseVisualStyleBackColor = true;
             this.btnMCourses.Click += new System.EventHandler(this.btnMCourses_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(113, 100);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 4;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // TrainingCourseMenu
             // 
@@ -187,9 +190,9 @@
         private System.Windows.Forms.TextBox txtCourseN;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtCourseT;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnVMParticipants;
         private System.Windows.Forms.Button btnMCourses;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

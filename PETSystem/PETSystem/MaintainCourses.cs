@@ -106,6 +106,11 @@ namespace PETSystem
         private void txtCourseName_TextChanged(object sender, EventArgs e)
         {
             valid1 = EH.Checkstring(txtCourseName.Text);
+            bool validSQl = EH.checkForSQLInjection(txtCourseName.Text);
+            if (valid1)
+            {
+                valid1 = validSQl;
+            }
             if (!valid1)
             {
                 txtCourseName.BackColor = Color.Red;
@@ -130,7 +135,7 @@ namespace PETSystem
                 txtCourseName.BackColor = Color.White;
 
                 ConnectString.connectstring.Open();
-                DA = new SqlDataAdapter("select * from TrainingCourse where CourseName like '" + txtCourseName.Text + "%'", ConnectString.connectstring);
+                DA = new SqlDataAdapter("select * from TrainingCourse ", ConnectString.connectstring);
                 DTC.Clear();
                 DA.Fill(DTC);
                 dgvMaintain.DataSource = DTC;
@@ -161,6 +166,11 @@ namespace PETSystem
         private void txtStartDate_TextChanged(object sender, EventArgs e)
         {
             valid3 = EH.CheckDate(txtStartDate.Text);
+            bool validSQl = EH.checkForSQLInjection(txtStartDate.Text);
+            if (valid3)
+            {
+                valid3 = validSQl;
+            }
             if (!valid3)
             {
                 txtStartDate.BackColor = Color.Red;
@@ -174,6 +184,11 @@ namespace PETSystem
         private void txtVenue_TextChanged(object sender, EventArgs e)
         {
             valid4 = EH.Checkstring(txtVenue.Text);
+            bool validSQl = EH.checkForSQLInjection(txtVenue.Text);
+            if (valid4)
+            {
+                valid4 = validSQl;
+            }
             if (!valid4)
             {
                 txtVenue.BackColor = Color.Red;
@@ -187,6 +202,11 @@ namespace PETSystem
         private void txtNCDName_TextChanged(object sender, EventArgs e)
         {
             valid5 = EH.Checkstring(txtNCDName.Text);
+            bool validSQl = EH.checkForSQLInjection(txtNCDName.Text);
+            if (valid5)
+            {
+                valid5 = validSQl;
+            }
             if (!valid5)
             {
                 txtNCDName.BackColor = Color.Red;
@@ -212,63 +232,70 @@ namespace PETSystem
 
         private void button3_Click(object sender, EventArgs e)
         {
-            ConnectString.connectstring.Close();
-            string Query1 = "SELECT * FROM TrainingCourseType WHERE TrainingCourseName ='" + this.txtNCDName.Text + "';";
-            SqlCommand MyCommand = new SqlCommand(Query1, ConnectString.connectstring);
-
-            SqlDataAdapter DA1 = new SqlDataAdapter(MyCommand);
-            DataTable DT1 = new DataTable();
-            DA1.Fill(DT1);
-            ConnectString.connectstring.Open();
-
-
-            if (DT1.Rows.Count > 0)
-            {
-                valid5 = false;
-            }
             if (valid5)
             {
-                string Query = "INSERT INTO TrainingCourseType(TrainingCourseName) values('" + this.txtNCDName.Text + "');";
-                //This is  MySqlConnection here i have created the object and pass my connection string.  
-
-                //This is command class which will handle the query and connection object.  
-                SqlCommand MyCommand2 = new SqlCommand(Query, ConnectString.connectstring);
-                SqlDataReader MyReader2;
-
-                MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
-                MessageBox.Show("Save Data");
-                while (MyReader2.Read())
-                {
-                }
                 ConnectString.connectstring.Close();
+                string Query1 = "SELECT * FROM TrainingCourseType WHERE TrainingCourseName ='" + this.txtNCDName.Text + "';";
+                SqlCommand MyCommand = new SqlCommand(Query1, ConnectString.connectstring);
 
+                SqlDataAdapter DA1 = new SqlDataAdapter(MyCommand);
+                DataTable DT1 = new DataTable();
+                DA1.Fill(DT1);
+                ConnectString.connectstring.Open();
+
+
+                if (DT1.Rows.Count > 0)
+                {
+                    valid5 = false;
+                }
+                else
+                {
+
+                    string Query = "INSERT INTO TrainingCourseType(TrainingCourseName) values('" + this.txtNCDName.Text + "');";
+                    //This is  MySqlConnection here i have created the object and pass my connection string.  
+
+                    //This is command class which will handle the query and connection object.  
+                    SqlCommand MyCommand2 = new SqlCommand(Query, ConnectString.connectstring);
+                    SqlDataReader MyReader2;
+
+                    MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
+                    MessageBox.Show("Save Data");
+                    while (MyReader2.Read())
+                    {
+                    }
+                    ConnectString.connectstring.Close();
+
+                }
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             int CTID = 0;
-            bool duplicate = false;                                             //Moet hierdie nie vanaf die CMB die naam kry nie?
-            string Query1 = "SELECT * FROM TrainingCourse WHERE CourseName ='" + this.txtCourseName.Text + "'AND TrainingCourseDate='" + this.txtStartDate.Text + "';";
-            SqlCommand MyCommand = new SqlCommand(Query1, ConnectString.connectstring);
-            SqlDataReader MyReader;
-            SqlDataAdapter DA = new SqlDataAdapter(MyCommand);
-            DataTable DT = new DataTable();
-            DA.Fill(DT);
-            ConnectString.connectstring.Open();
-            MyReader = MyCommand.ExecuteReader();
-
-            if (DT.Rows.Count == 0)
+            bool duplicate = false;
+            if (valid3 && valid4 && valid2 && EH.CheckEmpty(cmbName.Text))
             {
+                string Query1 = "SELECT * FROM TrainingCourse WHERE CourseName ='" + this.cmbName.Text + "'AND TrainingCourseDate='" + this.txtStartDate.Text + "';";
+                SqlCommand MyCommand = new SqlCommand(Query1, ConnectString.connectstring);
+                SqlDataReader MyReader;
+                SqlDataAdapter DA = new SqlDataAdapter(MyCommand);
+                DataTable DT = new DataTable();
+                DA.Fill(DT);
+                ConnectString.connectstring.Open();
+                MyReader = MyCommand.ExecuteReader();
 
-                duplicate = false;
+                if (DT.Rows.Count == 0)
+                {
 
+                    duplicate = false;
+
+                }
+                else
+                {
+                    duplicate = true;
+                }
+                ConnectString.connectstring.Close();
             }
-            else
-            {
-                duplicate = true;
-            }
-            ConnectString.connectstring.Close();
             if (!duplicate)
             {
                 string query = "SELECT TrainingCourseTypeID FROM TrainingCourseType WHERE TrainingCourseName='" + cmbName.Text + "'";
@@ -299,6 +326,16 @@ namespace PETSystem
         }
 
         private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            valid2 = EH.CheckEmpty(this.numericUpDown1.Text);
+        }
+
+        private void cmbName_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

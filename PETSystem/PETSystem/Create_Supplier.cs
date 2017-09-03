@@ -33,12 +33,32 @@ namespace Create_Supplier
         private void button1_Click(object sender, EventArgs e)
         {
             int SupplierID = 0;
-            
+            bool duplicate = false;
             valid6 = EH.CheckEmpty(cmbSupplierT.Text);
-            
+
             if (valid1 && valid2 && valid3 && valid4 && valid5 && valid6)
             {
-                MessageBox.Show("Are you sure you want to Create this new Supplier", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                string queryA = "SELECT * FROM Supplier WHERE SupplierName ='" + txtSuppName.Text + "' OR SupplierAddress ='" + txtAdress.Text + "' OR SupplierEmail ='" + txtEmail.Text + "' OR SupplierPhoneNumber ='" + txtPhonenumber.Text + "' OR SupplierBankAccNumber ='" + txtBancACC.Text + "'";
+                SqlCommand MyCommandA = new SqlCommand(queryA, ConnectString.connectstring);
+
+                SqlDataAdapter DAA = new SqlDataAdapter(MyCommandA);
+                DataTable DTA = new DataTable();
+                DAA.Fill(DTA);
+                ConnectString.connectstring.Open();
+
+
+                if (DTA.Rows.Count == 1)
+                {
+
+                    duplicate = true;
+                }
+                ConnectString.connectstring.Close();
+                if (duplicate)
+                {
+                    MessageBox.Show("This supplier already exists please resubmit information.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                } else
+                { 
+                    MessageBox.Show("Are you sure you want to Create this new Supplier", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
                 DataTable DT = new DataTable();
                 string query4 = "SELECT SupplierTypeID FROM SupplierType WHERE SupplierTypeName ='" + cmbSupplierT.Text + "'";
                 SqlCommand MyCommand4 = new SqlCommand(query4, ConnectString.connectstring);
@@ -51,7 +71,7 @@ namespace Create_Supplier
                     SupplierID = Convert.ToInt32(MyReader4["SupplierTypeID"]);
                 }
                 ConnectString.connectstring.Close();
-               
+
                 string Query = "INSERT INTO Supplier (SupplierName,SupplierAddress,SupplierEmail,SupplierPhoneNumber,SupplierBankAccNumber,SupplierTypeID) VALUES ('" + this.txtSuppName.Text + "','" + this.txtAdress.Text + "','" + this.txtEmail.Text + "','" + this.txtPhonenumber.Text + "','" + this.txtBancACC.Text + "','" + SupplierID + "');";
                 SqlCommand MyCommand3 = new SqlCommand(Query, ConnectString.connectstring);
                 SqlDataReader MyReader3;
@@ -62,6 +82,7 @@ namespace Create_Supplier
                 {
                 }
                 ConnectString.connectstring.Close();
+            }
             }
             else
             {
@@ -92,6 +113,11 @@ namespace Create_Supplier
         private void txtSuppName_TextChanged(object sender, EventArgs e)
         {
             valid1 = EH.Checkstring(txtSuppName.Text);
+            bool validSQl = EH.checkForSQLInjection(txtSuppName.Text);
+            if (valid1)
+            {
+                valid1 = validSQl;
+            }
             if (!valid1)
             {
                 txtSuppName.BackColor = Color.Red;
@@ -105,6 +131,11 @@ namespace Create_Supplier
         private void txtEmail_TextChanged(object sender, EventArgs e)
         {
             valid3 = EH.CheckEmail(txtEmail.Text);
+            bool validSQl = EH.checkForSQLInjection(txtEmail.Text);
+            if (valid3)
+            {
+                valid3 = validSQl;
+            }
             if (!valid3)
             {
                 txtEmail.BackColor = Color.Red;
@@ -117,7 +148,12 @@ namespace Create_Supplier
 
         private void txtPhonenumber_TextChanged(object sender, EventArgs e)
         {
-            valid4 = EH.CheckInt(txtPhonenumber.Text);
+            valid4 = EH.CheckphoneNum(txtPhonenumber.Text);
+            bool validSQl = EH.checkForSQLInjection(txtPhonenumber.Text);
+            if (valid4)
+            {
+                valid4 = validSQl;
+            }
             if (!valid4)
             {
                 txtPhonenumber.BackColor = Color.Red;
@@ -131,6 +167,11 @@ namespace Create_Supplier
         private void txtBancACC_TextChanged(object sender, EventArgs e)
         {
             valid5 = EH.CheckInt(txtBancACC.Text);
+            bool validSQl = EH.checkForSQLInjection(txtBancACC.Text);
+            if (valid5)
+            {
+                valid5 = validSQl;
+            }
             if (!valid5)
             {
                 txtBancACC.BackColor = Color.Red;
@@ -144,6 +185,11 @@ namespace Create_Supplier
         private void txtAdress_TextChanged(object sender, EventArgs e)
         {
             valid2 = EH.CheckstringNum(txtAdress.Text);
+            bool validSQl = EH.checkForSQLInjection(txtAdress.Text);
+            if (valid2)
+            {
+                valid2 = validSQl;
+            }
             if (!valid2)
             {
                 txtAdress.BackColor = Color.Red;

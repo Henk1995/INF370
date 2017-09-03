@@ -18,7 +18,7 @@ namespace Select_Supplier
     {
         int supplier = 0;
         SqlDataAdapter DA;
-      
+        ErrorHandle EH = new ErrorHandle();
         public Select_Supplier()
         {
             InitializeComponent();
@@ -44,6 +44,7 @@ namespace Select_Supplier
 
         private void button1_Click(object sender, EventArgs e)
         {
+            bool valid = EH.CheckEmpty(cmbSupplier.Text);
             string query4 = "SELECT SupplierID FROM Supplier WHERE SupplierName ='" + cmbSupplier.Text + "'";
             SqlCommand MyCommand4 = new SqlCommand(query4, ConnectString.connectstring);
             SqlDataReader MyReader4;

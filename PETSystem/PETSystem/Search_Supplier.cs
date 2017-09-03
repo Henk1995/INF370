@@ -30,5 +30,10 @@ namespace Search_Supplier
             Suppliers UM = new Suppliers();
             UM.ShowDialog();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

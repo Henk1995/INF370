@@ -33,6 +33,11 @@ namespace PETSystem
         {
             valid1=EH.CheckEmpty(txtInstructorID.Text);
             valid1 = EH.CheckInt(txtInstructorID.Text);
+            bool validSQl = EH.checkForSQLInjection(txtInstructorID.Text);
+            if (valid1)
+            {
+                valid1 = validSQl;
+            }
             if (!valid1)
             {
                 txtInstructorID.BackColor = Color.Red;

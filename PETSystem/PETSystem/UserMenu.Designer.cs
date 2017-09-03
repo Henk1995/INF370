@@ -101,11 +101,9 @@
             // dgvUsers
             // 
             this.dgvUsers.AllowUserToAddRows = false;
-            this.dgvUsers.AllowUserToDeleteRows = false;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsers.Location = new System.Drawing.Point(288, 27);
             this.dgvUsers.Name = "dgvUsers";
-            this.dgvUsers.ReadOnly = true;
             this.dgvUsers.Size = new System.Drawing.Size(561, 216);
             this.dgvUsers.TabIndex = 2;
             // 

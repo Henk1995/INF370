@@ -113,7 +113,7 @@ namespace PETSystem
 
                                         "@@",
 
-                                        "@",
+                                        
 
                                         "char",
 

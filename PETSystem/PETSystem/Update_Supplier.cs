@@ -140,6 +140,11 @@ namespace Update_Supplier
         private void txtSuppName_TextChanged(object sender, EventArgs e)
         {
             valid1 = EH.Checkstring(txtSuppName.Text);
+            bool validSQl = EH.checkForSQLInjection(txtSuppName.Text);
+            if (valid1)
+            {
+                valid1 = validSQl;
+            }
             if (!valid1)
             {
                 txtSuppName.BackColor = Color.Red;
@@ -153,7 +158,12 @@ namespace Update_Supplier
         private void txtAdress_TextChanged(object sender, EventArgs e)
         {
             valid2 = EH.CheckstringNum(txtAdress.Text);
-            
+            bool validSQl = EH.checkForSQLInjection(txtAdress.Text);
+            if (valid2)
+            {
+                valid2 = validSQl;
+            }
+
             if (!valid2)
             {
                 txtAdress.BackColor = Color.Red;
@@ -167,6 +177,11 @@ namespace Update_Supplier
         private void txtEmail_TextChanged(object sender, EventArgs e)
         {
             valid3 = EH.CheckEmail(txtEmail.Text);
+            bool validSQl = EH.checkForSQLInjection(txtEmail.Text);
+            if (valid1)
+            {
+                valid1 = validSQl;
+            }
             if (!valid3)
             {
                 txtEmail.BackColor = Color.Red;

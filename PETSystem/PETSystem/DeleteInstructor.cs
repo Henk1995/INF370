@@ -43,6 +43,11 @@ namespace PETSystem
         {
             valid1 = EH.CheckEmpty(txtInstructorID.Text);
             valid1 = EH.CheckInt(txtInstructorID.Text);
+            bool validSQl = EH.checkForSQLInjection(txtInstructorID.Text);
+            if (valid1)
+            {
+                valid1 = validSQl;
+            }
             if (!valid1)
             {
                 txtInstructorID.BackColor = Color.Red;
@@ -64,19 +69,29 @@ namespace PETSystem
                     // gets the RowID from the first column in the grid
                     int rowID = int.Parse(dgvInstructor[0, selectedIndex].Value.ToString());
 
-                  
-                    MessageBox.Show("Are you sure you want to delete this instructor?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
-                    string Query = "DELETE FROM Instructor WHERE InstructorID='" + rowID + "';";
 
-                    SqlCommand MyCommand2 = new SqlCommand(Query, connectstring);
-                    SqlDataReader MyReader2;
-                    connectstring.Open();
-                    MyReader2 = MyCommand2.ExecuteReader();
-                    MessageBox.Show("Data Deleted");
-                    while (MyReader2.Read())
+                    DialogResult answer = MessageBox.Show("Are you sure you want to delete this instructor from the system?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                    if (answer == DialogResult.Yes)
                     {
+                        string Query = "DELETE FROM Instructor WHERE InstructorID='" + rowID + "';";
+
+                        SqlCommand MyCommand2 = new SqlCommand(Query, connectstring);
+                        SqlDataReader MyReader2;
+                        connectstring.Open();
+                        MyReader2 = MyCommand2.ExecuteReader();
+                        MessageBox.Show("Data Deleted");
+                        while (MyReader2.Read())
+                        {
+                        }
+                        connectstring.Close();
+                        MessageBox.Show("Instructor was deleted from the system.", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
                     }
-                    connectstring.Close();
+                    else
+                    {
+                        MessageBox.Show("Instructor was not deleted from the system.", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                    }
                 }
                 DataTable DT = new DataTable();
                 connectstring.Open();

@@ -33,6 +33,11 @@ namespace PETSystem
         {
             bool valid = false;
             valid = EH.CheckInt(txtInstructorID.Text);
+            bool validSQl = EH.checkForSQLInjection(txtInstructorID.Text);
+            if (valid)
+            {
+                valid = validSQl;
+            }
             if (valid)
             {
                 txtInstructorID.BackColor = Color.White;
@@ -61,6 +66,11 @@ namespace PETSystem
         {
             bool valid = false;
             valid = EH.Checkstring(txtName.Text);
+            bool validSQl = EH.checkForSQLInjection(txtInstructorID.Text);
+            if (valid)
+            {
+                valid = validSQl;
+            }
             if (valid)
             {
                 txtName.BackColor = Color.White;
@@ -89,6 +99,11 @@ namespace PETSystem
         {
             bool valid = false;
             valid = EH.Checkstring(txtSurname.Text);
+            bool validSQl = EH.checkForSQLInjection(txtInstructorID.Text);
+            if (valid)
+            {
+                valid = validSQl;
+            }
             if (valid)
             {
                 txtSurname.BackColor = Color.White;

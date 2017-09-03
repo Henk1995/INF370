@@ -19,6 +19,8 @@ namespace Return_Order
        
         SqlDataAdapter DA;
         bool valid1 = false;
+        bool valid3 = false;
+        ErrorHandle EH = new ErrorHandle();
         public ReturnOrderSupp()
         {
             InitializeComponent();
@@ -40,17 +42,20 @@ namespace Return_Order
 
         private void button2_Click(object sender, EventArgs e)
         {
-            string queryA = "SELECT * FROM SupplierOrder WHERE SupplierOrderID ='" + Convert.ToInt32(txtSupplierOrderID.Text) + "'";
-            SqlCommand MyCommandA = new SqlCommand(queryA, ConnectString.connectstring);
-
-            SqlDataAdapter DAA = new SqlDataAdapter(MyCommandA);
-            DataTable DTA = new DataTable();
-            DAA.Fill(DTA);
-            ConnectString.connectstring.Open();
-            if (DTA.Rows.Count == 1)
+            if (valid3)
             {
+                string queryA = "SELECT * FROM SupplierOrder WHERE SupplierOrderID ='" + Convert.ToInt32(txtSupplierOrderID.Text) + "'";
+                SqlCommand MyCommandA = new SqlCommand(queryA, ConnectString.connectstring);
 
-                valid1 = true;
+                SqlDataAdapter DAA = new SqlDataAdapter(MyCommandA);
+                DataTable DTA = new DataTable();
+                DAA.Fill(DTA);
+                ConnectString.connectstring.Open();
+                if (DTA.Rows.Count == 1)
+                {
+
+                    valid1 = true;
+                }
             }
             ConnectString.connectstring.Close();
             if (valid1)
@@ -129,7 +134,20 @@ namespace Return_Order
 
         private void txtSupplierOrderID_TextChanged(object sender, EventArgs e)
         {
-
+            valid3 = EH.CheckInt(txtSupplierOrderID.Text);
+            bool validSQl = EH.checkForSQLInjection(txtSupplierOrderID.Text);
+            if (valid3)
+            {
+                valid3 = validSQl;
+            }
+            if (!valid3)
+            {
+                txtSupplierOrderID.BackColor = Color.Red;
+            }
+            else
+            {
+                txtSupplierOrderID.BackColor = Color.White;
+            }
         }
     }
 }

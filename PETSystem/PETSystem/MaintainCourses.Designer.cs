@@ -131,6 +131,7 @@
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(145, 20);
             this.numericUpDown1.TabIndex = 8;
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // txtVenue
             // 
@@ -156,6 +157,7 @@
             this.cmbName.Name = "cmbName";
             this.cmbName.Size = new System.Drawing.Size(145, 21);
             this.cmbName.TabIndex = 5;
+            this.cmbName.SelectedIndexChanged += new System.EventHandler(this.cmbName_SelectedIndexChanged);
             // 
             // label5
             // 

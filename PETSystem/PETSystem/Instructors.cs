@@ -86,27 +86,36 @@ namespace PETSystem
                         int rowID = int.Parse(dgvInstructor[0, selectedIndex].Value.ToString());
 
 
-                        MessageBox.Show("Are you sure you want to delete this instructor?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
-                        string Query = "DELETE FROM Instructor WHERE InstructorID='" + rowID + "';";
+                DialogResult answer = MessageBox.Show("Are you sure you want to delete this instructor from the system?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                if (answer == DialogResult.Yes)
+                {
+                    string Query = "DELETE FROM Instructor WHERE InstructorID='" + rowID + "';";
 
-                        SqlCommand MyCommand2 = new SqlCommand(Query, ConnectString.connectstring);
-                        SqlDataReader MyReader2;
-                        ConnectString.connectstring.Open();
-                        MyReader2 = MyCommand2.ExecuteReader();
-                        MessageBox.Show("Data Deleted");
-                        while (MyReader2.Read())
-                        {
-                        }
-                        ConnectString.connectstring.Close();
-                   
-                    DataTable DT = new DataTable();
+                    SqlCommand MyCommand2 = new SqlCommand(Query, ConnectString.connectstring);
+                    SqlDataReader MyReader2;
                     ConnectString.connectstring.Open();
-                    SqlCommand Fill = new SqlCommand("SELECT * FROM Instructor", ConnectString.connectstring);
-                    DA = new SqlDataAdapter(Fill);
-                    DA.Fill(DT);
-                    dgvInstructor.DataSource = DT;
-                    dgvInstructor.DataMember = DT.TableName;
+                    MyReader2 = MyCommand2.ExecuteReader();
+                    MessageBox.Show("Instructor was deleted from the system.", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                    while (MyReader2.Read())
+                    {
+                    }
                     ConnectString.connectstring.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Instructor was not deleted from the system.", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    
+                   
+                }
+                DataTable DT1 = new DataTable();
+                ConnectString.connectstring.Open();
+                SqlCommand Fill = new SqlCommand("SELECT * FROM Instructor", ConnectString.connectstring);
+                DA = new SqlDataAdapter(Fill);
+                DA.Fill(DT1);
+                dgvInstructor.DataSource = DT1;
+                dgvInstructor.DataMember = DT1.TableName;
+                ConnectString.connectstring.Close();
             }
         
                 else
