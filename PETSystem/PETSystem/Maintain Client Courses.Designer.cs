@@ -165,14 +165,14 @@
             // 
             this.cbInstructors.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbInstructors.FormattingEnabled = true;
-            this.cbInstructors.Location = new System.Drawing.Point(128, 67);
+            this.cbInstructors.Location = new System.Drawing.Point(116, 67);
             this.cbInstructors.Name = "cbInstructors";
             this.cbInstructors.Size = new System.Drawing.Size(145, 21);
             this.cbInstructors.TabIndex = 12;
             // 
             // btnSubmitCouseDetails
             // 
-            this.btnSubmitCouseDetails.Location = new System.Drawing.Point(170, 172);
+            this.btnSubmitCouseDetails.Location = new System.Drawing.Point(158, 172);
             this.btnSubmitCouseDetails.Name = "btnSubmitCouseDetails";
             this.btnSubmitCouseDetails.Size = new System.Drawing.Size(102, 39);
             this.btnSubmitCouseDetails.TabIndex = 9;
@@ -182,21 +182,21 @@
             // 
             // nudDuration
             // 
-            this.nudDuration.Location = new System.Drawing.Point(128, 119);
+            this.nudDuration.Location = new System.Drawing.Point(116, 119);
             this.nudDuration.Name = "nudDuration";
             this.nudDuration.Size = new System.Drawing.Size(145, 20);
             this.nudDuration.TabIndex = 8;
             // 
             // txtVenue
             // 
-            this.txtVenue.Location = new System.Drawing.Point(128, 147);
+            this.txtVenue.Location = new System.Drawing.Point(116, 147);
             this.txtVenue.Name = "txtVenue";
             this.txtVenue.Size = new System.Drawing.Size(145, 20);
             this.txtVenue.TabIndex = 7;
             // 
             // txtStartDate
             // 
-            this.txtStartDate.Location = new System.Drawing.Point(128, 94);
+            this.txtStartDate.Location = new System.Drawing.Point(116, 94);
             this.txtStartDate.Name = "txtStartDate";
             this.txtStartDate.Size = new System.Drawing.Size(145, 20);
             this.txtStartDate.TabIndex = 6;
@@ -205,7 +205,7 @@
             // 
             this.cmbCourseName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCourseName.FormattingEnabled = true;
-            this.cmbCourseName.Location = new System.Drawing.Point(127, 40);
+            this.cmbCourseName.Location = new System.Drawing.Point(116, 40);
             this.cmbCourseName.Name = "cmbCourseName";
             this.cmbCourseName.Size = new System.Drawing.Size(145, 21);
             this.cmbCourseName.TabIndex = 5;
@@ -213,7 +213,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 127);
+            this.label5.Location = new System.Drawing.Point(8, 121);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(95, 13);
             this.label5.TabIndex = 4;
@@ -222,7 +222,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 154);
+            this.label4.Location = new System.Drawing.Point(8, 148);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 13);
             this.label4.TabIndex = 3;
@@ -231,7 +231,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 101);
+            this.label3.Location = new System.Drawing.Point(8, 97);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 13);
             this.label3.TabIndex = 2;
@@ -240,7 +240,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 44);
+            this.label2.Location = new System.Drawing.Point(8, 43);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 1;
@@ -273,6 +273,7 @@
             this.txtSearchCourseName.Name = "txtSearchCourseName";
             this.txtSearchCourseName.Size = new System.Drawing.Size(119, 20);
             this.txtSearchCourseName.TabIndex = 10;
+            this.txtSearchCourseName.TextChanged += new System.EventHandler(this.txtSearchCourseName_TextChanged);
             // 
             // button4
             // 
@@ -286,7 +287,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(9, 36);
+            this.label6.Location = new System.Drawing.Point(8, 33);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 13);
             this.label6.TabIndex = 1;

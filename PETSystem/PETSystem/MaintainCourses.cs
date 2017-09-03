@@ -248,7 +248,7 @@ namespace PETSystem
         private void button1_Click(object sender, EventArgs e)
         {
             int CTID = 0;
-            bool duplicate = false;
+            bool duplicate = false;                                             //Moet hierdie nie vanaf die CMB die naam kry nie?
             string Query1 = "SELECT * FROM TrainingCourse WHERE CourseName ='" + this.txtCourseName.Text + "'AND TrainingCourseDate='" + this.txtStartDate.Text + "';";
             SqlCommand MyCommand = new SqlCommand(Query1, ConnectString.connectstring);
             SqlDataReader MyReader;
