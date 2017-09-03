@@ -1,6 +1,6 @@
 ﻿namespace PETSystem
 {
-    partial class PrinterOrderReturn
+    partial class Log_Order_Refund
     {
         /// <summary>
         /// Required designer variable.
@@ -38,20 +38,19 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(16, 315);
+            this.btnBack.Location = new System.Drawing.Point(11, 306);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(76, 22);
-            this.btnBack.TabIndex = 17;
+            this.btnBack.TabIndex = 29;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnReturnOrder
             // 
-            this.btnReturnOrder.Location = new System.Drawing.Point(73, 152);
+            this.btnReturnOrder.Location = new System.Drawing.Point(68, 143);
             this.btnReturnOrder.Name = "btnReturnOrder";
             this.btnReturnOrder.Size = new System.Drawing.Size(246, 31);
-            this.btnReturnOrder.TabIndex = 15;
+            this.btnReturnOrder.TabIndex = 27;
             this.btnReturnOrder.Text = "Return Order";
             this.btnReturnOrder.UseVisualStyleBackColor = true;
             this.btnReturnOrder.Click += new System.EventHandler(this.btnReturnOrder_Click);
@@ -59,18 +58,18 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(70, 95);
+            this.label1.Location = new System.Drawing.Point(65, 86);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 13);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Printer Order ID";
+            this.label1.Size = new System.Drawing.Size(47, 13);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Order ID";
             // 
             // txtPrinterOrderID
             // 
-            this.txtPrinterOrderID.Location = new System.Drawing.Point(179, 92);
+            this.txtPrinterOrderID.Location = new System.Drawing.Point(174, 83);
             this.txtPrinterOrderID.Name = "txtPrinterOrderID";
             this.txtPrinterOrderID.Size = new System.Drawing.Size(140, 20);
-            this.txtPrinterOrderID.TabIndex = 13;
+            this.txtPrinterOrderID.TabIndex = 25;
             this.txtPrinterOrderID.TextChanged += new System.EventHandler(this.txtPrinterOrderID_TextChanged);
             // 
             // dgvPrinterOrder
@@ -78,27 +77,26 @@
             this.dgvPrinterOrder.AllowUserToAddRows = false;
             this.dgvPrinterOrder.AllowUserToDeleteRows = false;
             this.dgvPrinterOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPrinterOrder.Location = new System.Drawing.Point(325, 21);
+            this.dgvPrinterOrder.Location = new System.Drawing.Point(320, 12);
             this.dgvPrinterOrder.Name = "dgvPrinterOrder";
             this.dgvPrinterOrder.ReadOnly = true;
             this.dgvPrinterOrder.Size = new System.Drawing.Size(394, 293);
-            this.dgvPrinterOrder.TabIndex = 12;
-            this.dgvPrinterOrder.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrinterOrder_CellContentClick);
+            this.dgvPrinterOrder.TabIndex = 24;
             this.dgvPrinterOrder.SelectionChanged += new System.EventHandler(this.dgvPrinterOrder_SelectionChanged);
             // 
-            // PrinterOrderReturn
+            // Log_Order_Refund
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(734, 358);
+            this.ClientSize = new System.Drawing.Size(734, 339);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnReturnOrder);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtPrinterOrderID);
             this.Controls.Add(this.dgvPrinterOrder);
-            this.Name = "PrinterOrderReturn";
-            this.Text = "PrinterOrderReturn";
-            this.Load += new System.EventHandler(this.PrinterOrderReturn_Load);
+            this.Name = "Log_Order_Refund";
+            this.Text = "Log_Order_Refund";
+            this.Load += new System.EventHandler(this.Log_Order_Refund_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrinterOrder)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

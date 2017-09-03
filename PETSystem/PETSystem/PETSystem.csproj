@@ -176,6 +176,12 @@
     <Compile Include="InstructorTR.Designer.cs">
       <DependentUpon>InstructorTR.cs</DependentUpon>
     </Compile>
+    <Compile Include="Log Order Refund.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Log Order Refund.Designer.cs">
+      <DependentUpon>Log Order Refund.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -455,6 +461,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InstructorTR.resx">
       <DependentUpon>InstructorTR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Log Order Refund.resx">
+      <DependentUpon>Log Order Refund.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
