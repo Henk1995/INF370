@@ -447,12 +447,12 @@
     <EmbeddedResource Include="MaintainCourses.resx">
       <DependentUpon>MaintainCourses.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="PET_DB.dbml.layout">
-      <DependentUpon>PET_DB.dbml</DependentUpon>
-    </None>
     <EmbeddedResource Include="OrderReturns.resx">
       <DependentUpon>OrderReturns.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="PET_DB.dbml.layout">
+      <DependentUpon>PET_DB.dbml</DependentUpon>
+    </None>
     <EmbeddedResource Include="Place Instructor Order.resx">
       <DependentUpon>Place Instructor Order.cs</DependentUpon>
     </EmbeddedResource>
