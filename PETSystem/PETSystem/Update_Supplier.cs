@@ -37,40 +37,49 @@ namespace Update_Supplier
           
             if (valid1 && valid2 && valid3 && valid4 && valid5 && valid6)
             {
-                MessageBox.Show("Are you sure you want to update this Supplier", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
-                //This is my update query in which i am taking input from the user through windows forms and update the record.  
-                string query1 = "SELECT SupplierTypeID FROM SupplierType WHERE SupplierTypeName ='" + cmbSuppType.Text + "'";
-                SqlCommand MyCommand1 = new SqlCommand(query1, ConnectString.connectstring);
-                SqlDataReader MyReader1;
-                ConnectString.connectstring.Open();
-                MyReader1 = MyCommand1.ExecuteReader();     // Here our query will be executed and data saved into the database.  
+                DialogResult answer = MessageBox.Show("Are you sure you want to Update this supplier?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                if (answer == DialogResult.Yes)
+                {//This is my update query in which i am taking input from the user through windows forms and update the record.  
+                    string query1 = "SELECT SupplierTypeID FROM SupplierType WHERE SupplierTypeName ='" + cmbSuppType.Text + "'";
+                    SqlCommand MyCommand1 = new SqlCommand(query1, ConnectString.connectstring);
+                    SqlDataReader MyReader1;
+                    ConnectString.connectstring.Open();
+                    MyReader1 = MyCommand1.ExecuteReader();     // Here our query will be executed and data saved into the database.  
 
-                while (MyReader1.Read())
-                {
-                    GenderID = Convert.ToInt32(MyReader1["SupplierTypeID"]);
-                }
-                ConnectString.connectstring.Close();
-               
-                string Query = "UPDATE Supplier SET SupplierName ='" + this.txtSuppName.Text + "', SupplierAddress = '" + this.txtAdress.Text + "', SupplierEmail = '" + this.txtEmail.Text + "', SupplierPhoneNumber = '" + this.txtPhoneNumber.Text + "', SupplierBankAccNumber ='" + this.txtBancACCN.Text + "', SupplierTypeID = '" + GenderID + "' WHERE SupplierID =" + Convert.ToInt32(InstructorID) + ";";
-                //This is  MySqlConnection here i have created the object and pass my connection string.  
+                    while (MyReader1.Read())
+                    {
+                        GenderID = Convert.ToInt32(MyReader1["SupplierTypeID"]);
+                    }
+                    ConnectString.connectstring.Close();
 
-                SqlCommand MyCommand3 = new SqlCommand(Query, ConnectString.connectstring);
-                SqlDataReader MyReader3;
-                ConnectString.connectstring.Open();
-                MyReader3 = MyCommand3.ExecuteReader();
-                MessageBox.Show("Data Updated");
-                while (MyReader3.Read())
-                {
+                    string Query = "UPDATE Supplier SET SupplierName ='" + this.txtSuppName.Text + "', SupplierAddress = '" + this.txtAdress.Text + "', SupplierEmail = '" + this.txtEmail.Text + "', SupplierPhoneNumber = '" + this.txtPhoneNumber.Text + "', SupplierBankAccNumber ='" + this.txtBancACCN.Text + "', SupplierTypeID = '" + GenderID + "' WHERE SupplierID =" + Convert.ToInt32(InstructorID) + ";";
+                    //This is  MySqlConnection here i have created the object and pass my connection string.  
+
+                    SqlCommand MyCommand3 = new SqlCommand(Query, ConnectString.connectstring);
+                    SqlDataReader MyReader3;
+                    ConnectString.connectstring.Open();
+                    MyReader3 = MyCommand3.ExecuteReader();
+                    MessageBox.Show("Data Updated");
+                    while (MyReader3.Read())
+                    {
+                    }
+                    ConnectString.connectstring.Close();//Connection closed here 
+                    DataTable DT = new DataTable();
+                    ConnectString.connectstring.Open();
+                    SqlCommand Fill = new SqlCommand("SELECT * FROM Supplier", ConnectString.connectstring);
+                    DA = new SqlDataAdapter(Fill);
+                    DA.Fill(DT);
+                    dgvInstructor.DataSource = DT;
+                    dgvInstructor.DataMember = DT.TableName;
+                    ConnectString.connectstring.Close();
+                    MessageBox.Show("Supplier was Updated", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+
                 }
-                ConnectString.connectstring.Close();//Connection closed here 
-                DataTable DT = new DataTable();
-                ConnectString.connectstring.Open();
-                SqlCommand Fill = new SqlCommand("SELECT * FROM Supplier", ConnectString.connectstring);
-                DA = new SqlDataAdapter(Fill);
-                DA.Fill(DT);
-                dgvInstructor.DataSource = DT;
-                dgvInstructor.DataMember = DT.TableName;
-                ConnectString.connectstring.Close();
+                else
+                {
+                    MessageBox.Show("Supplier was not Updated", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+
+                }
             }
             else
             {

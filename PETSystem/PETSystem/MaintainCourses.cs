@@ -183,7 +183,7 @@ namespace PETSystem
 
         private void txtVenue_TextChanged(object sender, EventArgs e)
         {
-            valid4 = EH.Checkstring(txtVenue.Text);
+            valid4 = EH.CheckstringNum(txtVenue.Text);
             bool validSQl = EH.checkForSQLInjection(txtVenue.Text);
             if (valid4)
             {
@@ -272,7 +272,7 @@ namespace PETSystem
         private void button1_Click(object sender, EventArgs e)
         {
             int CTID = 0;
-            bool duplicate = false;
+            bool duplicate = true;
             if (valid3 && valid4 && valid2 && EH.CheckEmpty(cmbName.Text))
             {
                 string Query1 = "SELECT * FROM TrainingCourse WHERE CourseName ='" + this.cmbName.Text + "'AND TrainingCourseDate='" + this.txtStartDate.Text + "';";
