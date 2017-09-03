@@ -74,5 +74,15 @@ namespace PETSystem
            // var LoadCoursNamestoCB = from Course
 
         }
+
+        private void maintainTrainingCourseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addTrainingCourseTypeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

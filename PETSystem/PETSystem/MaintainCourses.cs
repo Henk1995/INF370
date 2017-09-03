@@ -33,7 +33,7 @@ namespace PETSystem
         {
             AddCoursePanel.Visible = false;
             MSMain.Visible = true;
-            
+            AddCourseTypeP.Visible = false;
             MaintainTCPanel.Visible = false;
             dgvMaintain.Visible = false;
             btnSave.Visible = false;
@@ -59,16 +59,16 @@ namespace PETSystem
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if(AddCoursePanel.Visible || MaintainTCPanel.Visible)
+            if (AddCoursePanel.Visible || AddCourseTypeP.Visible || MaintainTCPanel.Visible)
             {
                 AddCoursePanel.Visible = false;
                 MSMain.Visible = true;
-               
+                AddCourseTypeP.Visible = false;
                 MaintainTCPanel.Visible = false;
                 dgvMaintain.Visible = false;
                 btnSave.Visible = false;
             }
-            else if(MSMain.Visible)
+            else if (MSMain.Visible)
             {
                 this.Visible = false;
                 TrainingCourseMenu UM = new TrainingCourseMenu();
@@ -78,7 +78,7 @@ namespace PETSystem
 
         private void addTrainingCourseTypeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            AddCourseTypeP.Visible = true;
             MSMain.Visible = false;
         }
 
@@ -106,7 +106,7 @@ namespace PETSystem
         private void txtCourseName_TextChanged(object sender, EventArgs e)
         {
             valid1 = EH.Checkstring(txtCourseName.Text);
-            if(!valid1)
+            if (!valid1)
             {
                 txtCourseName.BackColor = Color.Red;
                 ConnectString.connectstring.Open();
@@ -128,7 +128,7 @@ namespace PETSystem
             else
             {
                 txtCourseName.BackColor = Color.White;
-                
+
                 ConnectString.connectstring.Open();
                 DA = new SqlDataAdapter("select * from TrainingCourse where CourseName like '" + txtCourseName.Text + "%'", ConnectString.connectstring);
                 DTC.Clear();
@@ -147,7 +147,7 @@ namespace PETSystem
             //}
             //else
             //{
-                
+
             //    txtYear.BackColor = Color.White;
             //   // ConnectString.connectstring.Open();
             //   // DA = new SqlDataAdapter("select * from TrainingCourse where TrainingCourseDate like '" + txtYear.Text + "%'", ConnectString.connectstring);
@@ -184,14 +184,25 @@ namespace PETSystem
             }
         }
 
-        
+        private void txtNCDName_TextChanged(object sender, EventArgs e)
+        {
+            valid5 = EH.Checkstring(txtNCDName.Text);
+            if (!valid5)
+            {
+                txtNCDName.BackColor = Color.Red;
+            }
+            else
+            {
+                txtNCDName.BackColor = Color.White;
+            }
+        }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
             SqlCommandBuilder cmd = new SqlCommandBuilder(DA);
-            
+
             DA.Update(DTC);
-           
+
         }
 
         private void label9_Click(object sender, EventArgs e)
@@ -199,11 +210,44 @@ namespace PETSystem
 
         }
 
-       
+        private void button3_Click(object sender, EventArgs e)
+        {
+            ConnectString.connectstring.Close();
+            string Query1 = "SELECT * FROM TrainingCourseType WHERE TrainingCourseName ='" + this.txtNCDName.Text + "';";
+            SqlCommand MyCommand = new SqlCommand(Query1, ConnectString.connectstring);
+
+            SqlDataAdapter DA1 = new SqlDataAdapter(MyCommand);
+            DataTable DT1 = new DataTable();
+            DA1.Fill(DT1);
+            ConnectString.connectstring.Open();
+
+
+            if (DT1.Rows.Count > 0)
+            {
+                valid5 = false;
+            }
+            if (valid5)
+            {
+                string Query = "INSERT INTO TrainingCourseType(TrainingCourseName) values('" + this.txtNCDName.Text + "');";
+                //This is  MySqlConnection here i have created the object and pass my connection string.  
+
+                //This is command class which will handle the query and connection object.  
+                SqlCommand MyCommand2 = new SqlCommand(Query, ConnectString.connectstring);
+                SqlDataReader MyReader2;
+
+                MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
+                MessageBox.Show("Save Data");
+                while (MyReader2.Read())
+                {
+                }
+                ConnectString.connectstring.Close();
+
+            }
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int CTID=0;
+            int CTID = 0;
             bool duplicate = false;
             string Query1 = "SELECT * FROM TrainingCourse WHERE CourseName ='" + this.txtCourseName.Text + "'AND TrainingCourseDate='" + this.txtStartDate.Text + "';";
             SqlCommand MyCommand = new SqlCommand(Query1, ConnectString.connectstring);
@@ -218,13 +262,14 @@ namespace PETSystem
             {
 
                 duplicate = false;
-                
-            }else
+
+            }
+            else
             {
                 duplicate = true;
             }
             ConnectString.connectstring.Close();
-            if(!duplicate)
+            if (!duplicate)
             {
                 string query = "SELECT TrainingCourseTypeID FROM TrainingCourseType WHERE TrainingCourseName='" + cmbName.Text + "'";
                 SqlCommand MyCommand1 = new SqlCommand(query, ConnectString.connectstring);
@@ -237,7 +282,7 @@ namespace PETSystem
                     CTID = Convert.ToInt32(MyReader1["TrainingCourseTypeID"]);
                 }
                 ConnectString.connectstring.Close();
-                string Query = "INSERT INTO TrainingCourse(CourseName,Duration,TrainingCourseDate,TrainingCourseTypeID) values('" + this.cmbName.Text + "','" + this.numericUpDown1.Text + "','" + this.txtStartDate.Text + "','"+ CTID + "');";
+                string Query = "INSERT INTO TrainingCourse(CourseName,Duration,TrainingCourseDate,TrainingCourseTypeID) values('" + this.cmbName.Text + "','" + this.numericUpDown1.Text + "','" + this.txtStartDate.Text + "','" + CTID + "');";
                 //This is  MySqlConnection here i have created the object and pass my connection string.  
 
                 //This is command class which will handle the query and connection object.  

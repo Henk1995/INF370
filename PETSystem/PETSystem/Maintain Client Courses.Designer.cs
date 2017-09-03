@@ -68,6 +68,8 @@
             // 
             // dgvMaintainClientCourses
             // 
+            this.dgvMaintainClientCourses.AllowUserToAddRows = false;
+            this.dgvMaintainClientCourses.AllowUserToDeleteRows = false;
             this.dgvMaintainClientCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMaintainClientCourses.Location = new System.Drawing.Point(297, 27);
             this.dgvMaintainClientCourses.Name = "dgvMaintainClientCourses";
@@ -332,12 +334,14 @@
             this.addTrainingCourseTypeToolStripMenuItem.Name = "addTrainingCourseTypeToolStripMenuItem";
             this.addTrainingCourseTypeToolStripMenuItem.Size = new System.Drawing.Size(143, 20);
             this.addTrainingCourseTypeToolStripMenuItem.Text = "Add Client Course Type";
+            this.addTrainingCourseTypeToolStripMenuItem.Click += new System.EventHandler(this.addTrainingCourseTypeToolStripMenuItem_Click);
             // 
             // maintainTrainingCourseToolStripMenuItem
             // 
             this.maintainTrainingCourseToolStripMenuItem.Name = "maintainTrainingCourseToolStripMenuItem";
             this.maintainTrainingCourseToolStripMenuItem.Size = new System.Drawing.Size(140, 20);
             this.maintainTrainingCourseToolStripMenuItem.Text = "Maintain Client Course";
+            this.maintainTrainingCourseToolStripMenuItem.Click += new System.EventHandler(this.maintainTrainingCourseToolStripMenuItem_Click);
             // 
             // Maintain_Client_Courses
             // 
