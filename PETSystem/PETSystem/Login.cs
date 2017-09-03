@@ -66,7 +66,7 @@ namespace PETSystem
                 //    var GetUserID = (from X in db.UserTables where X.UserName.Contains(un) && X.UserPassword.Contains(pw) select X.UserID).FirstOrDefault();
                 //    UserIDthatLoggedIn = GetUserID;
 
-                this.Close();
+                this.Visible = false;
                 MainMenuF UM = new MainMenuF();
                 UM.Show();
             }
