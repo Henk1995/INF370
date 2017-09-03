@@ -30,12 +30,12 @@ namespace PETSystem
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertApplicationForm(ApplicationForm instance);
-    partial void UpdateApplicationForm(ApplicationForm instance);
-    partial void DeleteApplicationForm(ApplicationForm instance);
     partial void InsertUserTable(UserTable instance);
     partial void UpdateUserTable(UserTable instance);
     partial void DeleteUserTable(UserTable instance);
+    partial void InsertApplicationForm(ApplicationForm instance);
+    partial void UpdateApplicationForm(ApplicationForm instance);
+    partial void DeleteApplicationForm(ApplicationForm instance);
     partial void InsertCertification(Certification instance);
     partial void UpdateCertification(Certification instance);
     partial void DeleteCertification(Certification instance);
@@ -170,19 +170,19 @@ namespace PETSystem
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<ApplicationForm> ApplicationForms
-		{
-			get
-			{
-				return this.GetTable<ApplicationForm>();
-			}
-		}
-		
 		public System.Data.Linq.Table<UserTable> UserTables
 		{
 			get
 			{
 				return this.GetTable<UserTable>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ApplicationForm> ApplicationForms
+		{
+			get
+			{
+				return this.GetTable<ApplicationForm>();
 			}
 		}
 		
@@ -459,253 +459,6 @@ namespace PETSystem
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ApplicationForm")]
-	public partial class ApplicationForm : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ApplicationFormID;
-		
-		private string _Name;
-		
-		private string _Surname;
-		
-		private string _Email;
-		
-		private string _PhoneNumber;
-		
-		private string _Course;
-		
-		private int _TrainingCourseID;
-		
-		private EntityRef<TrainingCourse> _TrainingCourse;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnApplicationFormIDChanging(int value);
-    partial void OnApplicationFormIDChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnSurnameChanging(string value);
-    partial void OnSurnameChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
-    partial void OnPhoneNumberChanging(string value);
-    partial void OnPhoneNumberChanged();
-    partial void OnCourseChanging(string value);
-    partial void OnCourseChanged();
-    partial void OnTrainingCourseIDChanging(int value);
-    partial void OnTrainingCourseIDChanged();
-    #endregion
-		
-		public ApplicationForm()
-		{
-			this._TrainingCourse = default(EntityRef<TrainingCourse>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApplicationFormID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ApplicationFormID
-		{
-			get
-			{
-				return this._ApplicationFormID;
-			}
-			set
-			{
-				if ((this._ApplicationFormID != value))
-				{
-					this.OnApplicationFormIDChanging(value);
-					this.SendPropertyChanging();
-					this._ApplicationFormID = value;
-					this.SendPropertyChanged("ApplicationFormID");
-					this.OnApplicationFormIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(20)")]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Surname", DbType="VarChar(20)")]
-		public string Surname
-		{
-			get
-			{
-				return this._Surname;
-			}
-			set
-			{
-				if ((this._Surname != value))
-				{
-					this.OnSurnameChanging(value);
-					this.SendPropertyChanging();
-					this._Surname = value;
-					this.SendPropertyChanged("Surname");
-					this.OnSurnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(30)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this.OnEmailChanging(value);
-					this.SendPropertyChanging();
-					this._Email = value;
-					this.SendPropertyChanged("Email");
-					this.OnEmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneNumber", DbType="VarChar(12)")]
-		public string PhoneNumber
-		{
-			get
-			{
-				return this._PhoneNumber;
-			}
-			set
-			{
-				if ((this._PhoneNumber != value))
-				{
-					this.OnPhoneNumberChanging(value);
-					this.SendPropertyChanging();
-					this._PhoneNumber = value;
-					this.SendPropertyChanged("PhoneNumber");
-					this.OnPhoneNumberChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Course", DbType="VarChar(10)")]
-		public string Course
-		{
-			get
-			{
-				return this._Course;
-			}
-			set
-			{
-				if ((this._Course != value))
-				{
-					this.OnCourseChanging(value);
-					this.SendPropertyChanging();
-					this._Course = value;
-					this.SendPropertyChanged("Course");
-					this.OnCourseChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TrainingCourseID", DbType="Int NOT NULL")]
-		public int TrainingCourseID
-		{
-			get
-			{
-				return this._TrainingCourseID;
-			}
-			set
-			{
-				if ((this._TrainingCourseID != value))
-				{
-					if (this._TrainingCourse.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnTrainingCourseIDChanging(value);
-					this.SendPropertyChanging();
-					this._TrainingCourseID = value;
-					this.SendPropertyChanged("TrainingCourseID");
-					this.OnTrainingCourseIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrainingCourse_ApplicationForm", Storage="_TrainingCourse", ThisKey="TrainingCourseID", OtherKey="TrainingCourseID", IsForeignKey=true)]
-		public TrainingCourse TrainingCourse
-		{
-			get
-			{
-				return this._TrainingCourse.Entity;
-			}
-			set
-			{
-				TrainingCourse previousValue = this._TrainingCourse.Entity;
-				if (((previousValue != value) 
-							|| (this._TrainingCourse.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._TrainingCourse.Entity = null;
-						previousValue.ApplicationForms.Remove(this);
-					}
-					this._TrainingCourse.Entity = value;
-					if ((value != null))
-					{
-						value.ApplicationForms.Add(this);
-						this._TrainingCourseID = value.TrainingCourseID;
-					}
-					else
-					{
-						this._TrainingCourseID = default(int);
-					}
-					this.SendPropertyChanged("TrainingCourse");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UserTable")]
 	public partial class UserTable : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -978,6 +731,253 @@ namespace PETSystem
 		{
 			this.SendPropertyChanging();
 			entity.UserTable = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ApplicationForm")]
+	public partial class ApplicationForm : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ApplicationFormID;
+		
+		private string _Name;
+		
+		private string _Surname;
+		
+		private string _Email;
+		
+		private string _PhoneNumber;
+		
+		private string _Course;
+		
+		private int _TrainingCourseID;
+		
+		private EntityRef<TrainingCourse> _TrainingCourse;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnApplicationFormIDChanging(int value);
+    partial void OnApplicationFormIDChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnSurnameChanging(string value);
+    partial void OnSurnameChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    partial void OnPhoneNumberChanging(string value);
+    partial void OnPhoneNumberChanged();
+    partial void OnCourseChanging(string value);
+    partial void OnCourseChanged();
+    partial void OnTrainingCourseIDChanging(int value);
+    partial void OnTrainingCourseIDChanged();
+    #endregion
+		
+		public ApplicationForm()
+		{
+			this._TrainingCourse = default(EntityRef<TrainingCourse>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApplicationFormID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ApplicationFormID
+		{
+			get
+			{
+				return this._ApplicationFormID;
+			}
+			set
+			{
+				if ((this._ApplicationFormID != value))
+				{
+					this.OnApplicationFormIDChanging(value);
+					this.SendPropertyChanging();
+					this._ApplicationFormID = value;
+					this.SendPropertyChanged("ApplicationFormID");
+					this.OnApplicationFormIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(20)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Surname", DbType="VarChar(20)")]
+		public string Surname
+		{
+			get
+			{
+				return this._Surname;
+			}
+			set
+			{
+				if ((this._Surname != value))
+				{
+					this.OnSurnameChanging(value);
+					this.SendPropertyChanging();
+					this._Surname = value;
+					this.SendPropertyChanged("Surname");
+					this.OnSurnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(30)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PhoneNumber", DbType="VarChar(12)")]
+		public string PhoneNumber
+		{
+			get
+			{
+				return this._PhoneNumber;
+			}
+			set
+			{
+				if ((this._PhoneNumber != value))
+				{
+					this.OnPhoneNumberChanging(value);
+					this.SendPropertyChanging();
+					this._PhoneNumber = value;
+					this.SendPropertyChanged("PhoneNumber");
+					this.OnPhoneNumberChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Course", DbType="VarChar(10)")]
+		public string Course
+		{
+			get
+			{
+				return this._Course;
+			}
+			set
+			{
+				if ((this._Course != value))
+				{
+					this.OnCourseChanging(value);
+					this.SendPropertyChanging();
+					this._Course = value;
+					this.SendPropertyChanged("Course");
+					this.OnCourseChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TrainingCourseID", DbType="Int NOT NULL")]
+		public int TrainingCourseID
+		{
+			get
+			{
+				return this._TrainingCourseID;
+			}
+			set
+			{
+				if ((this._TrainingCourseID != value))
+				{
+					if (this._TrainingCourse.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnTrainingCourseIDChanging(value);
+					this.SendPropertyChanging();
+					this._TrainingCourseID = value;
+					this.SendPropertyChanged("TrainingCourseID");
+					this.OnTrainingCourseIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TrainingCourse_ApplicationForm", Storage="_TrainingCourse", ThisKey="TrainingCourseID", OtherKey="TrainingCourseID", IsForeignKey=true)]
+		public TrainingCourse TrainingCourse
+		{
+			get
+			{
+				return this._TrainingCourse.Entity;
+			}
+			set
+			{
+				TrainingCourse previousValue = this._TrainingCourse.Entity;
+				if (((previousValue != value) 
+							|| (this._TrainingCourse.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TrainingCourse.Entity = null;
+						previousValue.ApplicationForms.Remove(this);
+					}
+					this._TrainingCourse.Entity = value;
+					if ((value != null))
+					{
+						value.ApplicationForms.Add(this);
+						this._TrainingCourseID = value.TrainingCourseID;
+					}
+					else
+					{
+						this._TrainingCourseID = default(int);
+					}
+					this.SendPropertyChanged("TrainingCourse");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	
