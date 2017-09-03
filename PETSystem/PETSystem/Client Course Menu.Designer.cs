@@ -112,6 +112,7 @@
             this.txtCourseT.Name = "txtCourseT";
             this.txtCourseT.Size = new System.Drawing.Size(122, 20);
             this.txtCourseT.TabIndex = 4;
+            this.txtCourseT.TextChanged += new System.EventHandler(this.txtCourseT_TextChanged);
             // 
             // label3
             // 

@@ -32,30 +32,30 @@ namespace PETSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             Select_Supplier.Select_Supplier PO = new Select_Supplier.Select_Supplier();
-            PO.ShowDialog();
+            PO.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             Create_Supplier.Create_Supplier PO = new Create_Supplier.Create_Supplier();
-            PO.ShowDialog();
+            PO.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             ViewSupplier PO = new ViewSupplier();
-            PO.ShowDialog();
+            PO.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             Update_Supplier.Update_Supplier PO = new Update_Supplier.Update_Supplier();
-            PO.ShowDialog();
+            PO.Show();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -102,30 +102,30 @@ namespace PETSystem
 
         private void button6_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             ReceiveOrderSupp PO = new ReceiveOrderSupp();
-            PO.ShowDialog();
+            PO.Show();
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
-           ReturnOrderSupp PO = new ReturnOrderSupp();
-            PO.ShowDialog();
+            this.Close();
+            ReturnOrderSupp PO = new ReturnOrderSupp();
+            PO.Show();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             Search_Supplier.Search_Supplier PO = new Search_Supplier.Search_Supplier();
-            PO.ShowDialog();
+            PO.Show();
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             MainMenuF UM = new MainMenuF();
-            UM.ShowDialog();
+            UM.Show();
         }
 
         private void Suppliers_Load(object sender, EventArgs e)
@@ -142,9 +142,9 @@ namespace PETSystem
 
         private void btnRefund_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             RefundOrderSupp PO = new RefundOrderSupp();
-            PO.ShowDialog();
+            PO.Show();
         }
     }
 }

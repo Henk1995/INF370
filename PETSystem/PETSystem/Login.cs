@@ -66,17 +66,17 @@ namespace PETSystem
                 //    var GetUserID = (from X in db.UserTables where X.UserName.Contains(un) && X.UserPassword.Contains(pw) select X.UserID).FirstOrDefault();
                 //    UserIDthatLoggedIn = GetUserID;
 
-                this.Visible = false;
+                this.Close();
                 MainMenuF UM = new MainMenuF();
-                UM.ShowDialog();
+                UM.Show();
             }
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             ChangePassword UM = new ChangePassword();
-            UM.ShowDialog();
+            UM.Show();
         }
 
         private void txtUsername_TextChanged(object sender, EventArgs e)
@@ -89,9 +89,9 @@ namespace PETSystem
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             ForgotPassword UM = new ForgotPassword();
-            UM.ShowDialog();
+            UM.Show();
         }
 
         private void txtPassword_TextChanged(object sender, EventArgs e)

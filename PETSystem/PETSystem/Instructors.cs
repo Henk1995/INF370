@@ -23,9 +23,9 @@ namespace PETSystem
 
         private void button8_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             MainMenuF UM = new MainMenuF();
-            UM.ShowDialog();
+            UM.Show();
         }
 
         private void Instructors_Load(object sender, EventArgs e)
@@ -45,30 +45,30 @@ namespace PETSystem
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             CreateInstructor UM = new CreateInstructor();
-            UM.ShowDialog();
+            UM.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             InstructorTR UM = new InstructorTR();
-            UM.ShowDialog();
+            UM.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             ViewInstructor UM = new ViewInstructor();
-            UM.ShowDialog();
+            UM.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             UpdateInstructor UM = new UpdateInstructor();
-            UM.ShowDialog();
+            UM.Show();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -127,16 +127,16 @@ namespace PETSystem
 
         private void button6_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             CalculateRoyalties UM = new CalculateRoyalties();
-            UM.ShowDialog();
+            UM.Show();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             SearchInstructor UM = new SearchInstructor();
-            UM.ShowDialog();
+            UM.Show();
         }
 
         private void dgvInstructor_CellContentClick(object sender, DataGridViewCellEventArgs e)

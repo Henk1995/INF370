@@ -133,6 +133,7 @@ namespace PETSystem
             string PSName = txtPrintingSupplierName.Text;
             bool isString = chk.Checkstring(PSName);
             bool notEmpty = chk.CheckEmpty(PSName);
+            bool checkForSQLInjection = chk.checkForSQLInjection(PSName);
 
             if (isString == false)
             {
@@ -140,6 +141,11 @@ namespace PETSystem
                 NameValid = false;
             }
             else if (notEmpty == false)
+            {
+                txtPrintingSupplierName.BackColor = Color.FromArgb(244, 17, 17);
+                NameValid = false;
+            }
+            else if (checkForSQLInjection == false)
             {
                 txtPrintingSupplierName.BackColor = Color.FromArgb(244, 17, 17);
                 NameValid = false;
@@ -157,6 +163,7 @@ namespace PETSystem
             string PSAddress = txtPrintingSupplierAddress.Text;
             bool isString = chk.Checkstring(PSAddress);
             bool notEmpty = chk.CheckEmpty(PSAddress);
+            bool checkForSQLInjection = chk.checkForSQLInjection(PSAddress);
 
             if (isString == false)
             {
@@ -164,6 +171,11 @@ namespace PETSystem
                 AddressValid = false;
             }
             else if (notEmpty == false)
+            {
+                txtPrintingSupplierAddress.BackColor = Color.FromArgb(244, 17, 17);
+                AddressValid = false;
+            }
+            else if (checkForSQLInjection == false)
             {
                 txtPrintingSupplierAddress.BackColor = Color.FromArgb(244, 17, 17);
                 AddressValid = false;
@@ -181,6 +193,7 @@ namespace PETSystem
             string PSEmail = txtPrintingSupplierEmail.Text;
             bool isEmail = chk.CheckEmail(PSEmail);
             bool notEmpty = chk.CheckEmpty(PSEmail);
+            bool checkForSQLInjection = chk.checkForSQLInjection(PSEmail);
 
             if (isEmail == false)
             {
@@ -188,6 +201,11 @@ namespace PETSystem
                 EmailValid = false;
             }
             else if (notEmpty == false)
+            {
+                txtPrintingSupplierEmail.BackColor = Color.FromArgb(244, 17, 17);
+                EmailValid = false;
+            }
+            else if (checkForSQLInjection == false)
             {
                 txtPrintingSupplierEmail.BackColor = Color.FromArgb(244, 17, 17);
                 EmailValid = false;
@@ -205,6 +223,7 @@ namespace PETSystem
             txtPrintingSupplierPhoneNumber.BackColor = Color.White;
             bool isPhone = chk.CheckInt(PhoneNumber); // Chenge to validate a phone Number not int
             bool notEmpty = chk.CheckEmpty(PhoneNumber);
+            bool checkForSQLInjection = chk.checkForSQLInjection(PhoneNumber);
 
             if (isPhone == false)
             {
@@ -212,6 +231,11 @@ namespace PETSystem
                 PhoneNumberValid = false;
             }
             else if (notEmpty == false)
+            {
+                txtPrintingSupplierPhoneNumber.BackColor = Color.FromArgb(244, 17, 17);
+                PhoneNumberValid = false;
+            }
+            else if (checkForSQLInjection == false)
             {
                 txtPrintingSupplierPhoneNumber.BackColor = Color.FromArgb(244, 17, 17);
                 PhoneNumberValid = false;
@@ -229,6 +253,7 @@ namespace PETSystem
             txtPrintingSupplierBankAccNumber.BackColor = Color.White;
             bool isBankACCNumber = chk.CheckInt(BankACCNumber); // Change to validate a bank account number not int
             bool notEmpty = chk.CheckEmpty(BankACCNumber);
+            bool checkForSQLInjection = chk.checkForSQLInjection(BankACCNumber);
 
             if (isBankACCNumber == false)
             {
@@ -236,6 +261,11 @@ namespace PETSystem
                 BankACCValid = false;
             }
             else if (notEmpty == false)
+            {
+                txtPrintingSupplierBankAccNumber.BackColor = Color.FromArgb(244, 17, 17);
+                BankACCValid = false;
+            }
+            else if (checkForSQLInjection == false)
             {
                 txtPrintingSupplierBankAccNumber.BackColor = Color.FromArgb(244, 17, 17);
                 BankACCValid = false;

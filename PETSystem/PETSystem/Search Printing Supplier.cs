@@ -141,7 +141,7 @@ namespace PETSystem
         {
             this.Close();
             MainMenuF UM = new MainMenuF();
-            UM.ShowDialog();
+            UM.Show();
         }
 
         private void btnViewPrintSupplier_Click(object sender, EventArgs e)

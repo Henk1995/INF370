@@ -18,7 +18,7 @@ namespace PETSystem
        
         
         DataTable DT = new DataTable();
-       static SqlCommand Fill = new SqlCommand("SELECT * FROM UserTable", ConnectString.connectstring);
+        static SqlCommand Fill = new SqlCommand("SELECT * FROM UserTable", ConnectString.connectstring);
         SqlDataAdapter DA = new SqlDataAdapter(Fill);
        
         public UserMenu()
@@ -46,16 +46,16 @@ namespace PETSystem
 
         private void btnMainM_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             MainMenuF UM = new MainMenuF();
-            UM.ShowDialog();
+            UM.Show();
         }
 
         private void addUserToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             AddUser UM = new AddUser();
-            UM.ShowDialog();
+            UM.Show();
         }
 
         private void btnSave_Click(object sender, EventArgs e)

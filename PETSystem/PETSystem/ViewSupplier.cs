@@ -26,9 +26,14 @@ MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             Suppliers UM = new Suppliers();
-            UM.ShowDialog();
+            UM.Show();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

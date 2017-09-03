@@ -65,6 +65,7 @@ namespace PETSystem
             string stockDesc = txtStockTypeName.Text;
             bool isString = chk.Checkstring(stockDesc);
             bool notEmpty = chk.CheckEmpty(stockDesc);
+            bool checkForSQLInjection = chk.checkForSQLInjection(stockDesc);
 
             if (isString == false)
             {
@@ -76,11 +77,21 @@ namespace PETSystem
                 txtStockTypeName.BackColor = Color.FromArgb(244, 17, 17);
                 NameValid = false;
             }
+            else if (checkForSQLInjection == false)
+            {
+                txtStockTypeName.BackColor = Color.FromArgb(244, 17, 17);
+                NameValid = false;
+            }
             else
             {
                 txtStockTypeName.BackColor = Color.White;
                 NameValid = true;
             }
+        }
+
+        private void AddNewStockType_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

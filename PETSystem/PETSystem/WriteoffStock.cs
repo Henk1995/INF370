@@ -32,6 +32,7 @@ namespace PETSystem
             string Quantity = txtWriteoffQuantity.Text;
             bool isInt = chk.CheckInt(Quantity);
             bool notEmpty = chk.CheckEmpty(Quantity);
+            bool checkForSQLInjection = chk.checkForSQLInjection(Quantity);
 
             if (isInt == false)
             {
@@ -43,7 +44,11 @@ namespace PETSystem
                 txtWriteoffQuantity.BackColor = Color.FromArgb(244, 17, 17);
                 WriteoffValid = false;
             }
-            else
+            else if (checkForSQLInjection == false)
+            {
+                txtWriteoffQuantity.BackColor = Color.FromArgb(244, 17, 17);
+                WriteoffValid = false;
+            }
             {
                 txtWriteoffQuantity.BackColor = Color.White;
                 WriteoffValid = true;

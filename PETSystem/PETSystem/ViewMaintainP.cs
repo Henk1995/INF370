@@ -31,16 +31,16 @@ namespace PETSystem
 
         private void btnMainM_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             MainMenuF UM = new MainMenuF();
-            UM.ShowDialog();
+            UM.Show();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             TrainingCourseMenu UM = new TrainingCourseMenu();
-            UM.ShowDialog();
+            UM.Show();
         }
 
         private void btnSave_Click(object sender, EventArgs e)

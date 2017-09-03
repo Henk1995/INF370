@@ -82,6 +82,7 @@
             this.Controls.Add(this.txtStockTypeName);
             this.Name = "AddNewStockType";
             this.Text = "AddNewStockType";
+            this.Load += new System.EventHandler(this.AddNewStockType_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

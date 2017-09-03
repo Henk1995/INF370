@@ -100,8 +100,6 @@ namespace PETSystem
                 this.Close();
                 Search_Printing_Supplier sps = new Search_Printing_Supplier();
                 sps.Show();
-
-                this.Close();
             }
         }
 

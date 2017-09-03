@@ -34,6 +34,7 @@ namespace PETSystem
             string Quantity = txtQuantity.Text;
             bool isInt = chk.CheckInt(Quantity);
             bool notEmpty = chk.CheckEmpty(Quantity);
+            bool checkForSQLInjection = chk.checkForSQLInjection(Quantity);
 
             if (isInt == false)
             {
@@ -41,6 +42,11 @@ namespace PETSystem
                 AddValid = false;
             }
             else if (notEmpty == false)
+            {
+                txtQuantity.BackColor = Color.FromArgb(244, 17, 17);
+                AddValid = false;
+            }
+            else if (checkForSQLInjection == false)
             {
                 txtQuantity.BackColor = Color.FromArgb(244, 17, 17);
                 AddValid = false;

@@ -204,6 +204,11 @@ namespace Update_Supplier
         private void txtPhoneNumber_TextChanged(object sender, EventArgs e)
         {
             valid4 = EH.CheckInt(txtPhoneNumber.Text);
+            bool validSQl = EH.checkForSQLInjection(txtPhoneNumber.Text);
+            if (valid1)
+            {
+                valid1 = validSQl;
+            }
             if (!valid4)
             {
                 txtPhoneNumber.BackColor = Color.Red;
@@ -217,6 +222,11 @@ namespace Update_Supplier
         private void txtBancACCN_TextChanged(object sender, EventArgs e)
         {
             valid5 = EH.CheckInt(txtBancACCN.Text);
+            bool validSQl = EH.checkForSQLInjection(txtBancACCN.Text);
+            if (valid1)
+            {
+                valid1 = validSQl;
+            }
             if (!valid5)
             {
                 txtBancACCN.BackColor = Color.Red;
@@ -231,7 +241,7 @@ namespace Update_Supplier
         {
             this.Visible = false;
             Suppliers UM = new Suppliers();
-            UM.ShowDialog();
+            UM.Show();
         }
     }
 }

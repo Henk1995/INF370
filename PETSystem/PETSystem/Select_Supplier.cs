@@ -56,17 +56,17 @@ namespace Select_Supplier
                 supplier = Convert.ToInt32(MyReader4["SupplierID"]);
             }
             ConnectString.connectstring.Close();
-            
-            this.Visible = false;
+
+            this.Close();
             Place_Order.PlaceOrder PO = new Place_Order.PlaceOrder(supplier);
-            PO.ShowDialog();
+            PO.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             Suppliers UM = new Suppliers();
-            UM.ShowDialog();
+            UM.Show();
 
 
         }

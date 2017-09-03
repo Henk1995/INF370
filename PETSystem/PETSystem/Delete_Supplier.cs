@@ -25,9 +25,9 @@ namespace Delete_Supplier
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             PETSystem.Suppliers UM = new PETSystem.Suppliers();
-            UM.ShowDialog();
+            UM.Show();
         }
     }
 }
