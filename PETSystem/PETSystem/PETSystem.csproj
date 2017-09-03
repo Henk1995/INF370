@@ -366,12 +366,6 @@
     <Compile Include="ViewMaintainP.Designer.cs">
       <DependentUpon>ViewMaintainP.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewStock.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ViewStock.Designer.cs">
-      <DependentUpon>ViewStock.cs</DependentUpon>
-    </Compile>
     <Compile Include="ViewSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -548,9 +542,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewMaintainP.resx">
       <DependentUpon>ViewMaintainP.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ViewStock.resx">
-      <DependentUpon>ViewStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewSupplier.resx">
       <DependentUpon>ViewSupplier.cs</DependentUpon>

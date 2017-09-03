@@ -68,6 +68,7 @@
             // 
             // cmbSuppType
             // 
+            this.cmbSuppType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSuppType.FormattingEnabled = true;
             this.cmbSuppType.Location = new System.Drawing.Point(105, 157);
             this.cmbSuppType.Name = "cmbSuppType";
@@ -170,9 +171,12 @@
             // 
             // dgvInstructor
             // 
+            this.dgvInstructor.AllowUserToAddRows = false;
+            this.dgvInstructor.AllowUserToDeleteRows = false;
             this.dgvInstructor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInstructor.Location = new System.Drawing.Point(294, 23);
             this.dgvInstructor.Name = "dgvInstructor";
+            this.dgvInstructor.ReadOnly = true;
             this.dgvInstructor.Size = new System.Drawing.Size(547, 155);
             this.dgvInstructor.TabIndex = 28;
             this.dgvInstructor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInstructor_CellClick);

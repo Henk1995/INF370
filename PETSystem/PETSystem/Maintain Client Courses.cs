@@ -33,6 +33,33 @@ namespace PETSystem
 
         private void btnSubmitCouseDetails_Click(object sender, EventArgs e)
         {
+            int InstructorID = 0;
+            bool Duplicate = false;
+            bool IsQualified = false;
+
+            // get values from form
+            string SelectedCourseName;
+            string SelectedInstructor;
+
+
+            //Check for duplicate entry met course naam (CMB) en start date
+
+            //check if duplicate
+            DataTable dt = new DataTable();
+
+            
+
+            if (dt.Rows.Count == 0)
+            {
+                Duplicate = false;
+            }
+            else
+            {
+                Duplicate = true;
+            }
+
+            //Check if Inst is Qualified
+
 
         }
 
@@ -54,7 +81,7 @@ namespace PETSystem
             }
             else if (MSMain.Visible)
             {
-                this.Visible = false;
+                this.Close();
                 Client_Course_Menu UM = new Client_Course_Menu();
                 UM.ShowDialog();
             }
@@ -69,9 +96,32 @@ namespace PETSystem
         {
             AddCoursePanel.Visible = true;
             MSMain.Visible = false;
-            cmbCourseName.Items.Clear();
 
-           // var LoadCoursNamestoCB = from Course
+
+            //Load CoursNames to CB
+            var LoadCoursNamestoCB = from Course in db.Courses select Course.CourseName;
+            cmbCourseName.DataSource = LoadCoursNamestoCB;
+
+            //Load Instructor Names to CB
+            var LoadInstructorstoCB = from Instructor in db.Instructors select Instructor.Name;
+            cbInstructors.DataSource = LoadInstructorstoCB;
+
+
+
+        }
+
+        private void maintainTrainingCourseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void addTrainingCourseTypeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSearchCourseName_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

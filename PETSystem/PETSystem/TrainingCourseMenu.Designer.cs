@@ -65,9 +65,12 @@
             // 
             // dgvTC
             // 
+            this.dgvTC.AllowUserToAddRows = false;
+            this.dgvTC.AllowUserToDeleteRows = false;
             this.dgvTC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTC.Location = new System.Drawing.Point(276, 27);
             this.dgvTC.Name = "dgvTC";
+            this.dgvTC.ReadOnly = true;
             this.dgvTC.Size = new System.Drawing.Size(561, 216);
             this.dgvTC.TabIndex = 7;
             this.dgvTC.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);

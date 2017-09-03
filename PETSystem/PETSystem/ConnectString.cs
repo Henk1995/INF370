@@ -60,7 +60,7 @@ namespace PETSystem
         // ALMAL SE CONNECTION STRINGS
 
         //Jan se connection string
-        //public static string DBC = "Data Source=JWM\\SYSARCH;Initial Catalog=INF370;Integrated Security=True";
+        public static string DBC = "Data Source=JWM\\SYSARCH;Initial Catalog=INF370;Integrated Security=True";
 
         //John se connection string
         //public static string DBC = "Data Source=JOHN-MAC-WIN;Initial Catalog=inf370Reg;Integrated Security=True";

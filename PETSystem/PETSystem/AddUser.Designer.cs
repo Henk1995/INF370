@@ -82,6 +82,8 @@
             // 
             // cmbPrivilege
             // 
+            this.cmbPrivilege.DisplayMember = "PrivName";
+            this.cmbPrivilege.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPrivilege.FormattingEnabled = true;
             this.cmbPrivilege.Location = new System.Drawing.Point(85, 225);
             this.cmbPrivilege.Name = "cmbPrivilege";

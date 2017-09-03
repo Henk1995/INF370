@@ -51,12 +51,12 @@ namespace PETSystem
 
         public Boolean Checkstring(string input)
         {
-           return Regex.IsMatch(input, @"^[a-zA-Z]+$");
+           return Regex.IsMatch(input, @"^[a-zA-Z' ']+$");
         }
 
         public Boolean CheckstringNum(string input)
         {
-            return Regex.IsMatch(input, "^[a-zA-Z0-9]+$");
+            return Regex.IsMatch(input, "^[a-zA-Z0-9' ']+$");
         }
 
         public Boolean CheckEmail(string input)
@@ -87,9 +87,100 @@ namespace PETSystem
                 return false;
         }
 
-        //ADD gender ( M or F )
+        
         //ADD Phone Number Check
+        public Boolean CheckphoneNum(string Input)
+        {
+            
+            return Regex.Match(Input, @"^([0-9]{10})$").Success;
+            
+        }
+        public Boolean checkForSQLInjection(string userInput)
 
-        //Test vir Sam en Henk
+        {
+
+            bool isSQLInjection = true;
+
+            string[] sqlCheckList = { "--",
+
+                                       ";--",
+
+                                       ";",
+
+                                       "/*",
+
+                                       "*/",
+
+                                        "@@",
+
+                                        "@",
+
+                                        "char",
+
+                                       "nchar",
+
+                                       "varchar",
+
+                                       "nvarchar",
+
+                                       "alter",
+
+                                       "begin",
+
+                                       "cast",
+
+                                       "create",
+
+                                       "cursor",
+
+                                       "declare",
+
+                                       "delete",
+
+                                       "drop",
+
+                                       "end",
+
+                                       "exec",
+
+                                       "execute",
+
+                                       "fetch",
+
+                                            "insert",
+
+                                          "kill",
+
+                                             "select",
+
+                                           "sys",
+
+                                            "sysobjects",
+
+                                            "syscolumns",
+
+                                           "table",
+
+                                           "update"
+
+                                       };
+
+            string CheckString = userInput.Replace("'", "''");
+
+            for (int i = 0; i <= sqlCheckList.Length - 1; i++)
+
+            {
+
+                if ((CheckString.IndexOf(sqlCheckList[i],
+
+    StringComparison.OrdinalIgnoreCase) >= 0))
+
+                { isSQLInjection = false; }
+            }
+
+            return isSQLInjection;
+        }
     }
+    //Test vir Sam en Henk
 }
+
