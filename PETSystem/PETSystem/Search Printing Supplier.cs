@@ -48,6 +48,7 @@ namespace PETSystem
             string PrintSupplierName = txtSearchPrintSupplierName.Text;
             bool isString = chk.Checkstring(PrintSupplierName);
             bool notEmpty = chk.CheckEmpty(PrintSupplierName);
+            bool checkForSQLInjection = chk.checkForSQLInjection(PrintSupplierName);
 
             if (isString == false)
             {
@@ -55,6 +56,11 @@ namespace PETSystem
                 SearchPSNameValid = false;
             }
             else if (notEmpty == false)
+            {
+                txtSearchPrintSupplierName.BackColor = Color.FromArgb(244, 17, 17);
+                SearchPSNameValid = false;
+            }
+            else if (checkForSQLInjection == false)
             {
                 txtSearchPrintSupplierName.BackColor = Color.FromArgb(244, 17, 17);
                 SearchPSNameValid = false;

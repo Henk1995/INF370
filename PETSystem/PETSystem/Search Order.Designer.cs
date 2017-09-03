@@ -160,6 +160,7 @@
             this.txtSearchOrderID.Name = "txtSearchOrderID";
             this.txtSearchOrderID.Size = new System.Drawing.Size(248, 20);
             this.txtSearchOrderID.TabIndex = 20;
+            this.txtSearchOrderID.TextChanged += new System.EventHandler(this.txtSearchOrderID_TextChanged);
             // 
             // btnRefreshDGV
             // 

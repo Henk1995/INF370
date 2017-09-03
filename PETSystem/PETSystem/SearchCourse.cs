@@ -50,6 +50,7 @@ namespace PETSystem
             string CourseName = txtSearchCourseName.Text;
             bool isString = chk.Checkstring(CourseName);
             bool notEmpty = chk.CheckEmpty(CourseName);
+            bool checkForSQLInjection = chk.checkForSQLInjection(CourseName);
 
             if (isString == false)
             {
@@ -57,6 +58,11 @@ namespace PETSystem
                 SearchCIsValid = false;
             }
             else if (notEmpty == false)
+            {
+                txtSearchCourseName.BackColor = Color.FromArgb(244, 17, 17);
+                SearchCIsValid = false;
+            }
+            else if (checkForSQLInjection == false)
             {
                 txtSearchCourseName.BackColor = Color.FromArgb(244, 17, 17);
                 SearchCIsValid = false;

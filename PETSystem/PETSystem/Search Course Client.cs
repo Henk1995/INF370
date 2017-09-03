@@ -45,6 +45,7 @@ namespace PETSystem
             string CCName = txtSearchCCName.Text;
             bool isString = chk.Checkstring(CCName);
             bool notEmpty = chk.CheckEmpty(CCName);
+            bool SQLInjection = chk.checkForSQLInjection(CCName);
 
             if (isString == false)
             {
@@ -52,6 +53,11 @@ namespace PETSystem
                 SearcCCNValid = false;
             }
             else if (notEmpty == false)
+            {
+                txtSearchCCName.BackColor = Color.FromArgb(244, 17, 17);
+                SearcCCNValid = false;
+            }
+            else if ( SQLInjection == false)
             {
                 txtSearchCCName.BackColor = Color.FromArgb(244, 17, 17);
                 SearcCCNValid = false;
@@ -103,6 +109,7 @@ namespace PETSystem
             string CCSurname = txtSearcCCSurname.Text;
             bool isString = chk.Checkstring(CCSurname);
             bool notEmpty = chk.CheckEmpty(CCSurname);
+            bool checkForSQLInjection = chk.checkForSQLInjection(CCSurname);
 
             if (isString == false)
             {
@@ -110,6 +117,11 @@ namespace PETSystem
                 SearcCCSNValid = false;
             }
             else if (notEmpty == false)
+            {
+                txtSearcCCSurname.BackColor = Color.FromArgb(244, 17, 17);
+                SearcCCSNValid = false;
+            }
+            else if (checkForSQLInjection == false)
             {
                 txtSearcCCSurname.BackColor = Color.FromArgb(244, 17, 17);
                 SearcCCSNValid = false;
