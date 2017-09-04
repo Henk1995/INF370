@@ -172,6 +172,8 @@
             // 
             // dgvInstructor
             // 
+            this.dgvInstructor.AllowUserToAddRows = false;
+            this.dgvInstructor.AllowUserToDeleteRows = false;
             this.dgvInstructor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvInstructor.Location = new System.Drawing.Point(295, 42);
             this.dgvInstructor.Name = "dgvInstructor";

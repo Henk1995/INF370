@@ -35,10 +35,10 @@
             this.txtCourseN = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnVMParticipants = new System.Windows.Forms.Button();
             this.btnMCourses = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTC)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -115,6 +115,16 @@
             this.panel1.Size = new System.Drawing.Size(270, 136);
             this.panel1.TabIndex = 6;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(113, 100);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 4;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -133,6 +143,7 @@
             this.btnVMParticipants.TabIndex = 10;
             this.btnVMParticipants.Text = "View/Maintain Participants";
             this.btnVMParticipants.UseVisualStyleBackColor = true;
+            this.btnVMParticipants.Click += new System.EventHandler(this.btnVMParticipants_Click);
             // 
             // btnMCourses
             // 
@@ -143,16 +154,6 @@
             this.btnMCourses.Text = "Maintain Courses";
             this.btnMCourses.UseVisualStyleBackColor = true;
             this.btnMCourses.Click += new System.EventHandler(this.btnMCourses_Click);
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(113, 100);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 4;
-            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // TrainingCourseMenu
             // 

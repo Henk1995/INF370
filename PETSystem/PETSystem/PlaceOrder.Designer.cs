@@ -59,6 +59,7 @@
             // 
             this.rtbOrder.Location = new System.Drawing.Point(347, 12);
             this.rtbOrder.Name = "rtbOrder";
+            this.rtbOrder.ReadOnly = true;
             this.rtbOrder.Size = new System.Drawing.Size(267, 232);
             this.rtbOrder.TabIndex = 3;
             this.rtbOrder.Text = "";

@@ -119,6 +119,7 @@ namespace Refund_Order
                             { MessageBox.Show("InnerException is: {0}", ex.InnerException.ToString()); }
 
                         }
+                        MessageBox.Show("Email Sent", "Sent", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
                 }
             }

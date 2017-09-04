@@ -77,7 +77,7 @@ namespace PETSystem
             {
                 valid1 = validSQl;
             }
-            if (!valid1)
+            if (valid1)
             {
                 ConnectString.connectstring.Open();
                 DA = new SqlDataAdapter("select * from TrainingCourse where CourseName like '" + txtCourseN.Text + "%'", ConnectString.connectstring);
@@ -101,7 +101,7 @@ namespace PETSystem
             {
                 valid1 = validSQl;
             }
-            if (!valid1)
+            if (valid1)
             {
                 string query = "SELECT TrainingCourseTypeID FROM TrainingCourseType WHERE TrainingCourseName='" + comboBox1.Text + "'";
                 SqlCommand MyCommand1 = new SqlCommand(query, ConnectString.connectstring);
@@ -115,13 +115,28 @@ namespace PETSystem
                 }
                 ConnectString.connectstring.Close();
                 ConnectString.connectstring.Open();
-                DA = new SqlDataAdapter("select * from TrainingCourse where TrainingCourseTypeID like '", ConnectString.connectstring);
+                DA = new SqlDataAdapter("select * from TrainingCourse where TrainingCourseTypeID like '" + privID + "%'", ConnectString.connectstring);
                 DataTable DT = new DataTable();
                 DA.Fill(DT);
                 dgvTC.DataSource = DT;
                 ConnectString.connectstring.Close();
             }
         }
-    }
+
+        private void btnVMParticipants_Click(object sender, EventArgs e)
+        {
+
+            if (dgvTC.SelectedRows.Count > 0)
+            {
+                int selectedIndex = dgvTC.SelectedRows[0].Index;
+
+                // gets the RowID from the first column in the grid
+                int rowID = int.Parse(dgvTC[0, selectedIndex].Value.ToString());
+                this.Close();
+                ViewMaintainP UM = new ViewMaintainP(rowID);
+                UM.Show();
+            }
+                }
+            }
     }
 

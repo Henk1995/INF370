@@ -62,5 +62,15 @@ namespace PETSystem.Properties {
                 return ((string)(this["INF370ConnectionString1"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=JWM\\SYSARCH;Initial Catalog=inf370Reg;Integrated Security=True")]
+        public string inf370RegConnectionString2 {
+            get {
+                return ((string)(this["inf370RegConnectionString2"]));
+            }
+        }
     }
 }

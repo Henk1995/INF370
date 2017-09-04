@@ -184,7 +184,7 @@ namespace PETSystem
                     SqlDataReader MyReader3;
                     ConnectString.connectstring.Open();
                     MyReader3 = MyCommand3.ExecuteReader();
-                    MessageBox.Show("Data Updated");
+                    
                     while (MyReader3.Read())
                     {
                     }
@@ -197,11 +197,11 @@ namespace PETSystem
                     dgvInstructor.DataSource = DT;
                     dgvInstructor.DataMember = DT.TableName;
                     ConnectString.connectstring.Close();
-                    MessageBox.Show("Instructor was Updated", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("Instructor was Updated", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
                 else
                 {
-                    MessageBox.Show("Instructor was not Updated", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("Instructor was not Updated", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                 }
             }

@@ -35,8 +35,8 @@
             this.txtSurname = new System.Windows.Forms.TextBox();
             this.txtInstructorID = new System.Windows.Forms.TextBox();
             this.dgvTR = new System.Windows.Forms.DataGridView();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTR)).BeginInit();
             this.SuspendLayout();
             // 
@@ -102,16 +102,6 @@
             this.dgvTR.Size = new System.Drawing.Size(490, 237);
             this.dgvTR.TabIndex = 6;
             // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(25, 157);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(236, 53);
-            this.btnSearch.TabIndex = 7;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
             // btnBack
             // 
             this.btnBack.Location = new System.Drawing.Point(12, 331);
@@ -121,6 +111,16 @@
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(25, 157);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(236, 53);
+            this.btnSearch.TabIndex = 7;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // InstructorTR
             // 
@@ -154,7 +154,7 @@
         private System.Windows.Forms.TextBox txtSurname;
         private System.Windows.Forms.TextBox txtInstructorID;
         private System.Windows.Forms.DataGridView dgvTR;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnSearch;
     }
 }

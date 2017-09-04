@@ -74,9 +74,10 @@ namespace PETSystem
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Close();
+            this.Visible = false;
             ChangePassword UM = new ChangePassword();
-            UM.Show();
+            UM.ShowDialog();
+            
         }
 
         private void txtUsername_TextChanged(object sender, EventArgs e)
@@ -89,7 +90,7 @@ namespace PETSystem
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Close();
+            this.Visible = false;
             ForgotPassword UM = new ForgotPassword();
             UM.Show();
         }

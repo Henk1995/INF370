@@ -173,7 +173,7 @@ namespace PETSystem
                 }
                 else
                 {
-                    MessageBox.Show("Please select the row that you want to view", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please select the row that you want to view", "Info", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
                 
             }else
