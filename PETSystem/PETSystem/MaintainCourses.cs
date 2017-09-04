@@ -111,9 +111,9 @@ namespace PETSystem
             {
                 valid1 = validSQl;
             }
-            if (!valid1)
+            if (valid1)
             {
-                txtCourseName.BackColor = Color.Red;
+                txtCourseName.BackColor = Color.White;
                 ConnectString.connectstring.Open();
                 DA = new SqlDataAdapter("select * from TrainingCourse where CourseName like '" + txtCourseName.Text + "%'", ConnectString.connectstring);
 
@@ -132,8 +132,8 @@ namespace PETSystem
             }
             else
             {
-                txtCourseName.BackColor = Color.White;
-
+                
+                txtCourseName.BackColor = Color.Red;
                 ConnectString.connectstring.Open();
                 DA = new SqlDataAdapter("select * from TrainingCourse ", ConnectString.connectstring);
                 DTC.Clear();
@@ -263,9 +263,10 @@ namespace PETSystem
                     while (MyReader2.Read())
                     {
                     }
-                    ConnectString.connectstring.Close();
+                   
 
                 }
+                ConnectString.connectstring.Close();
             }
         }
 

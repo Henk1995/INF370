@@ -63,8 +63,8 @@ namespace PETSystem
             {
 
                 //    // Ek steel gou die user wat gesignin het se ID. ;D
-                //    var GetUserID = (from X in db.UserTables where X.UserName.Contains(un) && X.UserPassword.Contains(pw) select X.UserID).FirstOrDefault();
-                //    UserIDthatLoggedIn = GetUserID;
+                var GetUserID = (from X in db.UserTables where X.UserName.Contains(un) && X.UserPassword.Contains(pw) select X.UserID).FirstOrDefault();
+                UserIDthatLoggedIn = GetUserID;
 
                 this.Visible = false;
                 MainMenuF UM = new MainMenuF();
@@ -74,9 +74,10 @@ namespace PETSystem
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Close();
+            this.Visible = false;
             ChangePassword UM = new ChangePassword();
-            UM.Show();
+            UM.ShowDialog();
+            
         }
 
         private void txtUsername_TextChanged(object sender, EventArgs e)
@@ -89,7 +90,7 @@ namespace PETSystem
 
         private void linkLabel2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            this.Close();
+            this.Visible = false;
             ForgotPassword UM = new ForgotPassword();
             UM.Show();
         }

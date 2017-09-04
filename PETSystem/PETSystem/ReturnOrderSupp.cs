@@ -82,7 +82,7 @@ namespace Return_Order
                 int suppID = int.Parse(supplierID);
 
 
-                MessageBox.Show("Are you sure you want to delete this instructor?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+               
                 string query2 = "SELECT SupplierEmail FROM Supplier WHERE SupplierID ='" + suppID + "'";
                 SqlCommand MyCommand2 = new SqlCommand(query2, ConnectString.connectstring);
                 SqlDataReader MyReader2;
@@ -120,6 +120,7 @@ namespace Return_Order
                             { MessageBox.Show("InnerException is: {0}", ex.InnerException.ToString()); }
 
                         }
+                        MessageBox.Show("Email Sent", "Sent", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
                 }
             }
