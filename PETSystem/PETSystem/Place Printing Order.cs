@@ -75,7 +75,7 @@ namespace PETSystem
             btnPO.Visible = false;
             txtQuantity.Visible = false;
             lblQuantity.Visible = false;
-            rtbOrder.Text = rtbOrder.Text + "x\t Quantity\t Order Description \t Date\n";
+            rtbOrder.Text = rtbOrder.Text + "Quantity\t Order Description \t Date\n";
         }
 
         private void btnPO_Click(object sender, EventArgs e)
