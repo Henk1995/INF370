@@ -51,7 +51,7 @@ namespace PETSystem
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             Select_Instructor si = new Select_Instructor();
             si.Show();
         }
@@ -172,12 +172,9 @@ namespace PETSystem
                 db.TableOrders.InsertOnSubmit(mTableOrder);
                 db.SubmitChanges();
 
-                
+                this.Close();
                 Search_Order so = new Search_Order();
                 so.Show();
-
-
-                this.Close();
             }
         }
     }

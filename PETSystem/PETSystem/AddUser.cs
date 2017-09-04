@@ -50,9 +50,9 @@ namespace PETSystem
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             UserMenu UM = new UserMenu();
-            UM.ShowDialog();
+            UM.Show();
         }
 
         private void txtFirst_TextChanged(object sender, EventArgs e)

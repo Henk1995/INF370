@@ -82,6 +82,7 @@ namespace PETSystem
             string CourseName = txtCourseName.Text;
             bool isString = chk.Checkstring(CourseName);
             bool notEmpty = chk.CheckEmpty(CourseName);
+            bool checkForSQLInjection = chk.checkForSQLInjection(CourseName);
 
             if (isString == false)
             {
@@ -89,6 +90,11 @@ namespace PETSystem
                 CourseNValid = false;
             }
             else if (notEmpty == false)
+            {
+                txtCourseName.BackColor = Color.FromArgb(244, 17, 17);
+                CourseNValid = false;
+            }
+            else if (checkForSQLInjection == false)
             {
                 txtCourseName.BackColor = Color.FromArgb(244, 17, 17);
                 CourseNValid = false;
@@ -106,6 +112,7 @@ namespace PETSystem
             txtCourseCost.BackColor = Color.White;
             bool isInt = chk.CheckInt(CourseCost);
             bool notEmpty = chk.CheckEmpty(CourseCost);
+            bool checkForSQLInjection = chk.checkForSQLInjection(CourseCost);
 
             if (isInt == false)
             {
@@ -113,6 +120,11 @@ namespace PETSystem
                 CourseCostValid = false;
             }
             else if (notEmpty == false)
+            {
+                txtCourseCost.BackColor = Color.FromArgb(244, 17, 17);
+                CourseCostValid = false;
+            }
+            else if (checkForSQLInjection == false)
             {
                 txtCourseCost.BackColor = Color.FromArgb(244, 17, 17);
                 CourseCostValid = false;
@@ -130,6 +142,7 @@ namespace PETSystem
             txtCourseDuration.BackColor = Color.White;
             bool isInt = chk.CheckInt(CourseDuration);
             bool notEmpty = chk.CheckEmpty(CourseDuration);
+            bool checkForSQLInjection = chk.checkForSQLInjection(CourseDuration);
 
             if (isInt == false)
             {
@@ -137,6 +150,11 @@ namespace PETSystem
                 CourseDurationValid = false;
             }
             else if (notEmpty == false)
+            {
+                txtCourseDuration.BackColor = Color.FromArgb(244, 17, 17);
+                CourseDurationValid = false;
+            }
+            else if (checkForSQLInjection == false)
             {
                 txtCourseDuration.BackColor = Color.FromArgb(244, 17, 17);
                 CourseDurationValid = false;

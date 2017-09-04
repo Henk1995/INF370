@@ -21,29 +21,29 @@ namespace PETSystem
 
         private void button9_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
-            LoginM.ShowDialog();
+            this.Close();
+            LoginM.Show();
         }
 
         private void Users_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             UserMenu UM = new UserMenu();
-            UM.ShowDialog();
+            UM.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             TrainingCourseMenu UM = new TrainingCourseMenu();
-            UM.ShowDialog();
+            UM.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             Instructors UM = new Instructors();
-            UM.ShowDialog();
+            UM.Show();
         }
 
         private void MainMenuF_Load(object sender, EventArgs e)
@@ -53,28 +53,28 @@ namespace PETSystem
 
         private void button7_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             SearchCourse sc = new SearchCourse();
-            sc.ShowDialog();
+            sc.Show();
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             Search_Stock sto = new Search_Stock();
-            sto.ShowDialog();
+            sto.Show();
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             Search_Printing_Supplier spp = new Search_Printing_Supplier();
-            spp.ShowDialog();
+            spp.Show();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             Search_Order SO = new Search_Order();
             SO.Show();
         }
@@ -83,7 +83,7 @@ namespace PETSystem
         {
             this.Visible = false;
             Suppliers spp = new Suppliers();
-            spp.ShowDialog();
+            spp.Show();
         }
     }
 }

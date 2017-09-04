@@ -54,6 +54,7 @@ namespace PETSystem
             string PrintSupplierName = txtCourseN.Text;
             bool isString = chk.Checkstring(PrintSupplierName);
             bool notEmpty = chk.CheckEmpty(PrintSupplierName);
+            bool checkForSQLInjection = chk.checkForSQLInjection(PrintSupplierName);
 
             if (isString == false)
             {
@@ -65,8 +66,12 @@ namespace PETSystem
                 txtCourseN.BackColor = Color.FromArgb(244, 17, 17);
                 SearchCCNameValid = false;
             }
-            else
+            else if (checkForSQLInjection == false)
             {
+                SearchCCNameValid = false;
+            }
+            else
+            { 
                 txtCourseN.BackColor = Color.White;
                 SearchCCNameValid = true;
             }
@@ -103,6 +108,52 @@ namespace PETSystem
                 CourseInstance mCourseInstance = (CourseInstance)dgvTC.CurrentRow.DataBoundItem;
                 IDtoSend = mCourseInstance.CourseID;
                 CourseClientLineID = IDtoSend;
+            }
+        }
+
+        private void txtCourseT_TextChanged(object sender, EventArgs e)
+        {
+            txtCourseT.BackColor = Color.White;
+            string PrintSupplierType = txtCourseN.Text;
+            bool isString = chk.Checkstring(PrintSupplierType);
+            bool notEmpty = chk.CheckEmpty(PrintSupplierType);
+            bool checkForSQLInjection = chk.checkForSQLInjection(PrintSupplierType);
+
+            if (isString == false)
+            {
+                txtCourseN.BackColor = Color.FromArgb(244, 17, 17);
+                SearchCCtypeValid = false;
+            }
+            else if (notEmpty == false)
+            {
+                txtCourseN.BackColor = Color.FromArgb(244, 17, 17);
+                SearchCCtypeValid = false;
+            }
+            else if (checkForSQLInjection == false)
+            {
+                SearchCCtypeValid = false;
+            }
+            else
+            {
+                txtCourseN.BackColor = Color.White;
+                SearchCCtypeValid = true;
+            }
+
+            if (SearchCCtypeValid == true)
+            {
+                var searchDesc = from CourseInstance in db.CourseInstances
+                                 where CourseInstance.AvailableCourseID == (Convert.ToInt32(txtCourseN.Text))
+                                 select CourseInstance;
+                dgvTC.DataSource = searchDesc;
+                dgvTC.Refresh();
+            }
+            else
+            {
+                dgvTC.DataSource = null;
+                var S = from CourseInstance in db.CourseInstances select CourseInstance;
+                dgvTC.DataSource = S;
+                dgvTC.Update();
+                dgvTC.Refresh();
             }
         }
     }

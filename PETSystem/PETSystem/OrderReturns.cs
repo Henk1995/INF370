@@ -26,5 +26,12 @@ namespace PETSystem
             dgvPrinterOrder.DataSource = LoadOrders;
             dgvPrinterOrder.Update();
         }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Search_Order so = new Search_Order();
+            so.Show();
+        }
     }
 }

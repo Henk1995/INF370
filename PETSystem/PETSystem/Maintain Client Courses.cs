@@ -87,7 +87,7 @@ namespace PETSystem
             {
                 this.Close();
                 Client_Course_Menu UM = new Client_Course_Menu();
-                UM.ShowDialog();
+                UM.Show();
             }
         }
 

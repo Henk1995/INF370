@@ -213,7 +213,7 @@ namespace PETSystem
         {
             this.Close();
             SearchCourse UM = new SearchCourse();
-            UM.ShowDialog();
+            UM.Show();
         }
 
         private void Search_Course_Client_Load(object sender, EventArgs e)

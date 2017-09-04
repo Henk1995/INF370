@@ -202,9 +202,9 @@ namespace Create_Supplier
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             Suppliers UM = new Suppliers();
-            UM.ShowDialog();
+            UM.Show();
         }
     }
 }

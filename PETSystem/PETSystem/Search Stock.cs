@@ -175,7 +175,7 @@ namespace PETSystem
         {
             this.Close();
             AddStock a = new AddStock();
-            a.ShowDialog();
+            a.Show();
         }
 
         private void btnDeleteStock_Click(object sender, EventArgs e)

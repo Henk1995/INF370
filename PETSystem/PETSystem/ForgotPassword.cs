@@ -117,9 +117,9 @@ namespace PETSystem
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             LoginF UM = new LoginF();
-            UM.ShowDialog();
+            UM.Show();
         }
 
         private void txtUserName_TextChanged(object sender, EventArgs e)

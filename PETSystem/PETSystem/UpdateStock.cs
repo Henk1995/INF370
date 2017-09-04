@@ -88,6 +88,7 @@ namespace PETSystem
             string stockDesc = txtName.Text;
             bool isString = chk.Checkstring(stockDesc);
             bool notEmpty = chk.CheckEmpty(stockDesc);
+            bool checkForSQLInjection = chk.checkForSQLInjection(stockDesc);
 
             if (isString == false)
             {
@@ -95,6 +96,11 @@ namespace PETSystem
                 stockDValid = false;
             }
             else if (notEmpty == false)
+            {
+                txtName.BackColor = Color.FromArgb(244, 17, 17);
+                stockDValid = false;
+            }
+            else if (checkForSQLInjection == false)
             {
                 txtName.BackColor = Color.FromArgb(244, 17, 17);
                 stockDValid = false;
@@ -112,6 +118,7 @@ namespace PETSystem
             string UnitPrice = txtPrice.Text;
             bool isInt = chk.CheckInt(UnitPrice);
             bool notEmpty = chk.CheckEmpty(UnitPrice);
+            bool checkForSQLInjection = chk.checkForSQLInjection(UnitPrice);
 
             if (isInt == false)
             {
@@ -119,6 +126,11 @@ namespace PETSystem
                 unitPValid = false;
             }
             else if (notEmpty == false)
+            {
+                txtPrice.BackColor = Color.FromArgb(244, 17, 17);
+                unitPValid = false;
+            }
+            else if (checkForSQLInjection == false)
             {
                 txtPrice.BackColor = Color.FromArgb(244, 17, 17);
                 unitPValid = false;
@@ -169,11 +181,6 @@ namespace PETSystem
                 cbStockType.SelectedIndex = Typevalue.StockTypeID - 1;
 
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
 
         private void button1_Click_1(object sender, EventArgs e)

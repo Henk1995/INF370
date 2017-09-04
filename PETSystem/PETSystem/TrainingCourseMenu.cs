@@ -23,16 +23,16 @@ namespace PETSystem
 
         private void btnMainM_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             MainMenuF UM = new MainMenuF();
-            UM.ShowDialog();
+            UM.Show();
         }
 
         private void btnMCourses_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             MaintainCourses UM = new MaintainCourses();
-            UM.ShowDialog();
+            UM.Show();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

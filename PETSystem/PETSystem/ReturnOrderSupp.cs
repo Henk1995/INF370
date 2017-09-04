@@ -127,9 +127,9 @@ namespace Return_Order
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             Suppliers UM = new Suppliers();
-            UM.ShowDialog();
+            UM.Show();
         }
 
         private void txtSupplierOrderID_TextChanged(object sender, EventArgs e)

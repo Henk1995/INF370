@@ -157,7 +157,7 @@ namespace PETSystem
         {
             this.Close();
             MainMenuF UM = new MainMenuF();
-            UM.ShowDialog();
+            UM.Show();
         }
 
         private void SearchCourse_Load(object sender, EventArgs e)

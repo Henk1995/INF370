@@ -24,7 +24,7 @@ namespace PETSystem
 
         private void btnPlaceOrder_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             Select_Instructor si = new Select_Instructor();
             si.Show();
         }
@@ -40,7 +40,7 @@ namespace PETSystem
         {
             this.Close();
             MainMenuF UM = new MainMenuF();
-            UM.ShowDialog();
+            UM.Show();
         }
 
         private void tnViewOrder_Click(object sender, EventArgs e)

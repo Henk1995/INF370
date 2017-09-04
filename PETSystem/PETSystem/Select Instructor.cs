@@ -33,7 +33,7 @@ namespace PETSystem
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             Search_Order so = new Search_Order();
             so.Show();
         }
@@ -45,10 +45,9 @@ namespace PETSystem
 
             InstructorIDForOrder = Convert.ToInt32(GetInstID);
 
+            this.Close();
             Place_Instructor_Order pio = new Place_Instructor_Order();
             pio.Show();
-
-            this.Close();
         }
     }
 }

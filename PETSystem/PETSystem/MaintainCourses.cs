@@ -70,9 +70,9 @@ namespace PETSystem
             }
             else if (MSMain.Visible)
             {
-                this.Visible = false;
+                this.Close();
                 TrainingCourseMenu UM = new TrainingCourseMenu();
-                UM.ShowDialog();
+                UM.Show();
             }
         }
 

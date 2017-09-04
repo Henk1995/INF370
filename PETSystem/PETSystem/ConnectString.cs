@@ -60,16 +60,16 @@ namespace PETSystem
         // ALMAL SE CONNECTION STRINGS
 
         //Jan se connection string
-        public static string DBC = "Data Source=JWM\\SYSARCH;Initial Catalog=INF370;Integrated Security=True";
+        //public static string DBC = "Data Source=JWM\\SYSARCH;Initial Catalog=INF370;Integrated Security=True";
 
         //John se connection string
-        //public static string DBC = "Data Source=JOHN-MAC-WIN;Initial Catalog=inf370Reg;Integrated Security=True";
+        public static string DBC = "Data Source=JOHN-MAC-WIN;Initial Catalog=inf370Reg;Integrated Security=True";
 
-        //Sam se connection string    + Copy jou goed hier in en uncomment die lyn hier onder
-        //public static string DBC = "";
-
-        //Sam se connection string    + Copy jou goed hier in en uncomment die lyn hier onder
+        //Henk se connection string    + Copy jou goed hier in en uncomment die lyn hier onder
         //public static string DBC = "Data Source=.;Initial Catalog=inf370Reg;Integrated Security=True";
+
+        //Sam se connection string    + Copy jou goed hier in en uncomment die lyn hier onder
+        //public static string DBC = ""Data Source=.;Initial Catalog=inf370Reg;Integrated Security=True";
 
         //Sam se connection string    + Copy jou goed hier in en uncomment die lyn hier onder
         //public static string DBC = ""

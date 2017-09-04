@@ -66,9 +66,9 @@ namespace PETSystem
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             Instructors UM = new Instructors();
-            UM.ShowDialog();
+            UM.Show();
         }
 
         private void txtName_TextChanged(object sender, EventArgs e)

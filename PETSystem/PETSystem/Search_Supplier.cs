@@ -37,9 +37,9 @@ namespace Search_Supplier
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             Suppliers UM = new Suppliers();
-            UM.ShowDialog();
+            UM.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
