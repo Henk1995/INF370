@@ -59,6 +59,7 @@
             this.txtQuantity.Name = "txtQuantity";
             this.txtQuantity.Size = new System.Drawing.Size(143, 20);
             this.txtQuantity.TabIndex = 64;
+            this.txtQuantity.TextChanged += new System.EventHandler(this.txtQuantity_TextChanged);
             // 
             // btnARN
             // 
@@ -85,6 +86,7 @@
             this.txtDate.Name = "txtDate";
             this.txtDate.Size = new System.Drawing.Size(143, 20);
             this.txtDate.TabIndex = 61;
+            this.txtDate.TextChanged += new System.EventHandler(this.txtDate_TextChanged_1);
             // 
             // txtReferenceNum
             // 

@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Mail;
+using System.Net;
+
 
 namespace PETSystem
 {
@@ -32,6 +35,8 @@ namespace PETSystem
         string OrderDesc = "";
         string OrderDate = "";
         int SuppID = 0;
+        string ReturnEmail;
+
 
 
         private void Place_Instructor_Order_Load(object sender, EventArgs e)
@@ -200,6 +205,10 @@ namespace PETSystem
 
                 rtbOrder.Text = rtbOrder.Text + "x\t" + txtQuantity.Text + "\t" + txtDescription.Text + "\t" + txtDate.Text + "\n";
             }
+            else
+            {
+                MessageBox.Show("Values:" + valid1 + valid2 + valid3 + valid4);
+            }
         }
 
         private void btnPO_Click_1(object sender, EventArgs e)
@@ -209,19 +218,50 @@ namespace PETSystem
                 MessageBox.Show("Are you sure you want to place this new order", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
                 //Add order to Database
 
-                PrinterOrder mPrinterOrder = new PrinterOrder
+
+                TableOrder mTableOrder = new TableOrder
                 {
-                    PrinterOrderRefNumber = Convert.ToInt32(txtReferenceNum.Text),
-                    PrintOrderDate = txtDate.Text,
-                    PrintOrderDescription = txtDescription.Text,
-                   // PrinterID = LoadPrintingfSupplierID.Text,
+                    Order_ReferenceNumber = Convert.ToInt32(txtReferenceNum.Text),
+                    OrderDate = txtDate.Text,
+                    OrderDescription = txtDescription.Text,
+                    InstructorID = InstructorOrderID,
+                    UserID = CurrentlyLoggedInUserID,
 
                 };
 
-                db.PrinterOrders.InsertOnSubmit(mPrinterOrder);
+                db.TableOrders.InsertOnSubmit(mTableOrder);
                 db.SubmitChanges();
 
 
+
+                //Get email
+
+                var getEmail = (from x in db.Instructors where x.InstructorID == InstructorOrderID select x.Email).FirstOrDefault();
+
+                ReturnEmail = getEmail;
+
+
+
+                using (SmtpClient client = new SmtpClient())
+                {
+                    client.Host = "smtp.gmail.com";
+                    client.UseDefaultCredentials = true;
+                    NetworkCredential netCred = new NetworkCredential("petsystemtest@gmail.com", "JJSRHsystem");
+                    client.Credentials = netCred;
+                    client.EnableSsl = true;
+                    client.Port = 587;
+                    client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    using (MailMessage mail = new MailMessage("petsystemtest@gmail.com", ReturnEmail))
+                    {
+                        mail.Subject = "New Order Placed";
+                        mail.Body = "Your Order has been placed: \n\n Order Date: \t\t\t" + txtDate.Text + " \n Order Reference Number: \t" + txtReferenceNum.Text + " \n The order description: \n " + txtDescription.Text + " \n\n We will notify you as soon as your order is ready.";
+                        mail.IsBodyHtml = false;
+                        client.Send(mail);
+                        MessageBox.Show("Message was sent");
+
+
+                    }
+                }
 
 
                 this.Close();
@@ -232,7 +272,7 @@ namespace PETSystem
 
         private void txtReferenceNum_TextChanged_1(object sender, EventArgs e)
         {
-
+            
         }
 
         private void txtDescription_TextChanged_1(object sender, EventArgs e)
@@ -251,6 +291,32 @@ namespace PETSystem
         private void btnBack_Click_1(object sender, EventArgs e)
         {
             
+        }
+
+        private void txtDate_TextChanged_1(object sender, EventArgs e)
+        {
+            valid4 = EH.CheckDate(txtDate.Text);
+            if (!valid4)
+            {
+                txtDate.BackColor = Color.Red;
+            }
+            else
+            {
+                txtDate.BackColor = Color.White;
+            }
+        }
+
+        private void txtQuantity_TextChanged(object sender, EventArgs e)
+        {
+            valid3 = EH.Checkfloat(txtQuantity.Text);
+            if (!valid3)
+            {
+                txtQuantity.BackColor = Color.Red;
+            }
+            else
+            {
+                txtQuantity.BackColor = Color.White;
+            }
         }
     }
 }

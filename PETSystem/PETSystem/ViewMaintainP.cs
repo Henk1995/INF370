@@ -82,32 +82,32 @@ namespace PETSystem
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
-            Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
-            object fileName = @"C:\Users\Jan-Wilkens\Documents\GitHub\PETSystem\PETSystem";
-            object confirmConversions = Type.Missing;
-            object readOnly = Type.Missing;
-            object addToRecentFiles = Type.Missing;
-            object passwordDoc = Type.Missing;
-            object passwordTemplate = Type.Missing;
-            object revert = Type.Missing;
-            object writepwdoc = Type.Missing;
-            object writepwTemplate = Type.Missing;
-            object format = Type.Missing;
-            object encoding = Type.Missing;
-            object visible = Type.Missing;
-            object openRepair = Type.Missing;
-            object docDirection = Type.Missing;
-            object notEncoding = Type.Missing;
-            object xmlTransform = Type.Missing;
-            Microsoft.Office.Interop.Word.Document doc = wordApp.Documents.Open(
+//            Microsoft.Office.Interop.Word.Application wordApp = new Microsoft.Office.Interop.Word.Application();
+//            object fileName = @"C:\Users\Jan-Wilkens\Documents\GitHub\PETSystem\PETSystem";
+//            object confirmConversions = Type.Missing;
+//            object readOnly = Type.Missing;
+//            object addToRecentFiles = Type.Missing;
+//            object passwordDoc = Type.Missing;
+//            object passwordTemplate = Type.Missing;
+//            object revert = Type.Missing;
+//            object writepwdoc = Type.Missing;
+//            object writepwTemplate = Type.Missing;
+//            object format = Type.Missing;
+//            object encoding = Type.Missing;
+//            object visible = Type.Missing;
+//            object openRepair = Type.Missing;
+//            object docDirection = Type.Missing;
+//            object notEncoding = Type.Missing;
+//            object xmlTransform = Type.Missing;
+//            Microsoft.Office.Interop.Word.Document doc = wordApp.Documents.Open(
 
-ref fileName, ref confirmConversions, ref readOnly, ref addToRecentFiles,
+//ref fileName, ref confirmConversions, ref readOnly, ref addToRecentFiles,
 
-ref passwordDoc, ref passwordTemplate, ref revert, ref writepwdoc,
+//ref passwordDoc, ref passwordTemplate, ref revert, ref writepwdoc,
 
-ref writepwTemplate, ref format, ref encoding, ref visible, ref openRepair,
+//ref writepwTemplate, ref format, ref encoding, ref visible, ref openRepair,
 
-ref docDirection, ref notEncoding, ref xmlTransform);
+//ref docDirection, ref notEncoding, ref xmlTransform);
 
         }
     }

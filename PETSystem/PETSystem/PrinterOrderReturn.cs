@@ -93,7 +93,7 @@ namespace PETSystem
         {
 
             var mgetOrderDetails = (from a in db.PrinterOrders
-                                    where a.PrinterOrderID == SelectedRefNum && a.PrinterID == printeridload
+                                    where a.PrinterOrderRefNumber == SelectedRefNum && a.PrinterID == printeridload
                                     select new
                                     {
                                         a.PrintOrderDescription,
