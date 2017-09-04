@@ -24,6 +24,8 @@ namespace PETSystem
         ErrorHandle chk = new ErrorHandle();
         bool searchISValid;
 
+        int printeridload = Search_Printing_Supplier.PrinterIDToEmail;
+
         //selected item in dgv
         int SelectedPrinterID;
         int SelectedRefNum;
@@ -114,7 +116,7 @@ namespace PETSystem
                 EmailReferenceNumber = Convert.ToInt32(item.PrinterOrderRefNumber);
             }
 
-            var getEmail = (from x in db.Printers where x.PrinterID == SelectedPrinterID select x.PrinterEmail).FirstOrDefault();
+            var getEmail = (from x in db.Printers where x.PrinterID == printeridload select x.PrinterEmail).FirstOrDefault();
 
             ReturnEmail = getEmail;
 

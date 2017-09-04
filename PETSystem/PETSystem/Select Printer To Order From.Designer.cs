@@ -1,6 +1,6 @@
 ﻿namespace PETSystem
 {
-    partial class Select_Instructor
+    partial class Select_Printer_To_Order_From
     {
         /// <summary>
         /// Required designer variable.
@@ -36,20 +36,20 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(172, 99);
+            this.btnBack.Location = new System.Drawing.Point(177, 100);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(118, 23);
-            this.btnBack.TabIndex = 7;
+            this.btnBack.TabIndex = 11;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // btnSelectInstructor
             // 
-            this.btnSelectInstructor.Location = new System.Drawing.Point(39, 99);
+            this.btnSelectInstructor.Location = new System.Drawing.Point(44, 100);
             this.btnSelectInstructor.Name = "btnSelectInstructor";
             this.btnSelectInstructor.Size = new System.Drawing.Size(118, 23);
-            this.btnSelectInstructor.TabIndex = 6;
+            this.btnSelectInstructor.TabIndex = 10;
             this.btnSelectInstructor.Text = "Select Instructor";
             this.btnSelectInstructor.UseVisualStyleBackColor = true;
             this.btnSelectInstructor.Click += new System.EventHandler(this.btnSelectInstructor_Click);
@@ -57,33 +57,33 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(36, 44);
+            this.label1.Location = new System.Drawing.Point(41, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 13);
-            this.label1.TabIndex = 5;
+            this.label1.TabIndex = 9;
             this.label1.Text = "Instructor";
             // 
             // cbInstructor
             // 
             this.cbInstructor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbInstructor.FormattingEnabled = true;
-            this.cbInstructor.Location = new System.Drawing.Point(124, 41);
+            this.cbInstructor.Location = new System.Drawing.Point(129, 42);
             this.cbInstructor.Name = "cbInstructor";
             this.cbInstructor.Size = new System.Drawing.Size(166, 21);
-            this.cbInstructor.TabIndex = 4;
+            this.cbInstructor.TabIndex = 8;
             // 
-            // Select_Instructor
+            // Select_Printer_To_Order_From
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(349, 186);
+            this.ClientSize = new System.Drawing.Size(384, 188);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnSelectInstructor);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbInstructor);
-            this.Name = "Select_Instructor";
-            this.Text = "Select_Instructor";
-            this.Load += new System.EventHandler(this.Select_Instructor_Load);
+            this.Name = "Select_Printer_To_Order_From";
+            this.Text = "Select_Printer_To_Order_From";
+            this.Load += new System.EventHandler(this.Select_Printer_To_Order_From_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

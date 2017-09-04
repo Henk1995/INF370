@@ -48,7 +48,7 @@
             // 
             // btnReturnOrder
             // 
-            this.btnReturnOrder.Location = new System.Drawing.Point(66, 143);
+            this.btnReturnOrder.Location = new System.Drawing.Point(66, 142);
             this.btnReturnOrder.Name = "btnReturnOrder";
             this.btnReturnOrder.Size = new System.Drawing.Size(246, 31);
             this.btnReturnOrder.TabIndex = 21;

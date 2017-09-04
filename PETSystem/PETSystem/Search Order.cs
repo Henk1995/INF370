@@ -102,6 +102,8 @@ namespace PETSystem
         private void btnLogPayment_Click(object sender, EventArgs e)
         {
             //Log payment to generate receipt
+
+
         }
 
         private void btnGenerateInvoice_Click(object sender, EventArgs e)

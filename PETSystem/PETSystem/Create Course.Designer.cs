@@ -43,7 +43,7 @@
             this.btnCancel.Location = new System.Drawing.Point(335, 172);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(146, 23);
-            this.btnCancel.TabIndex = 45;
+            this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -53,7 +53,7 @@
             this.btnSave.Location = new System.Drawing.Point(183, 172);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(146, 23);
-            this.btnSave.TabIndex = 44;
+            this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -63,7 +63,7 @@
             this.txtCourseCost.Location = new System.Drawing.Point(145, 78);
             this.txtCourseCost.Name = "txtCourseCost";
             this.txtCourseCost.Size = new System.Drawing.Size(337, 20);
-            this.txtCourseCost.TabIndex = 43;
+            this.txtCourseCost.TabIndex = 2;
             this.txtCourseCost.TextChanged += new System.EventHandler(this.txtCourseCost_TextChanged);
             // 
             // txtCourseName
@@ -71,7 +71,7 @@
             this.txtCourseName.Location = new System.Drawing.Point(145, 42);
             this.txtCourseName.Name = "txtCourseName";
             this.txtCourseName.Size = new System.Drawing.Size(337, 20);
-            this.txtCourseName.TabIndex = 42;
+            this.txtCourseName.TabIndex = 1;
             this.txtCourseName.TextChanged += new System.EventHandler(this.txtCourseName_TextChanged);
             // 
             // label5
@@ -106,7 +106,7 @@
             this.txtCourseDuration.Location = new System.Drawing.Point(145, 116);
             this.txtCourseDuration.Name = "txtCourseDuration";
             this.txtCourseDuration.Size = new System.Drawing.Size(337, 20);
-            this.txtCourseDuration.TabIndex = 46;
+            this.txtCourseDuration.TabIndex = 3;
             this.txtCourseDuration.TextChanged += new System.EventHandler(this.txtCourseDuration_TextChanged);
             // 
             // Create_Course

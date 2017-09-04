@@ -321,6 +321,12 @@
     <Compile Include="Select Instructor.Designer.cs">
       <DependentUpon>Select Instructor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Select Printer To Order From.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Select Printer To Order From.Designer.cs">
+      <DependentUpon>Select Printer To Order From.cs</DependentUpon>
+    </Compile>
     <Compile Include="Select_Supplier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -542,6 +548,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Select Instructor.resx">
       <DependentUpon>Select Instructor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Select Printer To Order From.resx">
+      <DependentUpon>Select Printer To Order From.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Select_Supplier.resx">
       <DependentUpon>Select_Supplier.cs</DependentUpon>

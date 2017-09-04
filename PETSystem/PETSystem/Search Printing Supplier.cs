@@ -16,6 +16,7 @@ namespace PETSystem
         }
 
         public static int ToUpdate;
+        public static int PrinterIDToEmail;
         PET_DBDataContext db = new PET_DBDataContext();
         ErrorHandle chk = new ErrorHandle();
         bool SearchPSNameValid;
@@ -167,6 +168,7 @@ namespace PETSystem
                 Printer _Printer = (Printer)dgvSearchPrintingSupplier.CurrentRow.DataBoundItem;
                 id = _Printer.PrinterID;
                 ToUpdate = id;
+                PrinterIDToEmail = id;
             }
         }
 
