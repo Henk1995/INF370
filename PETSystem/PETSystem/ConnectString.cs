@@ -78,5 +78,6 @@ namespace PETSystem
 
         // LOS HIERDIE NET SO
         public static SqlConnection connectstring = new SqlConnection(DBC);
+        //HEnk se comment
     }
 }
