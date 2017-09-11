@@ -85,36 +85,36 @@ namespace PETSystem
             dgvOrders.Refresh();
         }
 
-        private void btnReturnOder_Click(object sender, EventArgs e)
-        {
-            //Log return stock ( damaged stock )
+        //private void btnReturnOder_Click(object sender, EventArgs e)
+        //{
+        //    //Log return stock ( damaged stock )
 
 
-        }
+        //}
 
-        private void btnLogRefund_Click(object sender, EventArgs e)
-        {
-            //Log refund ( money )
-
-
-        }
-
-        private void btnLogPayment_Click(object sender, EventArgs e)
-        {
-            //Log payment to generate receipt
+        //private void btnLogRefund_Click(object sender, EventArgs e)
+        //{
+        //    //Log refund ( money )
 
 
-        }
+        //}
 
-        private void btnGenerateInvoice_Click(object sender, EventArgs e)
-        {
-            // order invoice to instructor asking for payment
-        }
+        //private void btnLogPayment_Click(object sender, EventArgs e)
+        //{
+        //    //Log payment to generate receipt
 
-        private void btnGenerateReceipt_Click(object sender, EventArgs e)
-        {
-            // generate after payment is received
-        }
+
+        //}
+
+        //private void btnGenerateInvoice_Click(object sender, EventArgs e)
+        //{
+        //    // order invoice to instructor asking for payment
+        //}
+
+        //private void btnGenerateReceipt_Click(object sender, EventArgs e)
+        //{
+        //    // generate after payment is received
+        //}
 
         private void txtSearchOrderID_TextChanged(object sender, EventArgs e)
         {

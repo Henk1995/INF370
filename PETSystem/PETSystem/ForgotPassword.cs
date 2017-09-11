@@ -94,9 +94,14 @@ namespace PETSystem
                             try
                             {
                                 mail.Subject = "Forgot Password";
-                                mail.Body = txtUserName.Text + " your password is:" + password;
+                                mail.Body = txtUserName.Text + " you have indicated that you have forgotten your password.\n \n Your password is : " + password;
                                 mail.IsBodyHtml = false;
                                 client.Send(mail);
+                                MessageBox.Show("An Email has been sent to your inbox.\n Retuning to Login Screen", "Notification");
+                                LoginF myform = new LoginF();
+                                this.Close();
+                                myform.ShowDialog();
+                               
                             }
 
                             catch (Exception ex)

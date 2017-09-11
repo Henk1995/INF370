@@ -38,6 +38,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.Users = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Logout
@@ -78,6 +79,7 @@
             this.button6.TabIndex = 16;
             this.button6.Text = "Reports";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
@@ -139,11 +141,22 @@
             this.Users.UseVisualStyleBackColor = true;
             this.Users.Click += new System.EventHandler(this.Users_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(198, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(144, 26);
+            this.label2.TabIndex = 21;
+            this.label2.Text = "PET System";
+            // 
             // MainMenuF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(577, 483);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.Logout);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
@@ -158,6 +171,7 @@
             this.Text = "Main Menu";
             this.Load += new System.EventHandler(this.MainMenuF_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -173,5 +187,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button Users;
+        private System.Windows.Forms.Label label2;
     }
 }

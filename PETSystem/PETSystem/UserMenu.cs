@@ -18,9 +18,11 @@ namespace PETSystem
        
         
         DataTable DT = new DataTable();
-        static SqlCommand Fill = new SqlCommand("SELECT * FROM UserTable", ConnectString.connectstring);
+        
+        static SqlCommand Fill = new SqlCommand("SELECT UserTable.UserID,UserTable.Name,UserTable.Surname,UserTable.UserName,UserTable.UserPassword,UserTable.Email,PrivilegeType.PrivName FROM UserTable INNER JOIN PrivilegeType ON PrivilegeType.PrivilegeID = UserTable.PriveledgeID", ConnectString.connectstring);
         SqlDataAdapter DA = new SqlDataAdapter(Fill);
-       
+      
+
         public UserMenu()
         {
             InitializeComponent();
@@ -60,21 +62,37 @@ namespace PETSystem
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            SqlCommandBuilder cmd = new SqlCommandBuilder(DA);
+            try {
+                SqlCommandBuilder cmd = new SqlCommandBuilder(DA);
 
-            DA.Update(DT);
-            ConnectString.connectstring.Open();
+                DA.Update(DT);
+                ConnectString.connectstring.Open();
 
-            DA.Fill(DT);
-            dgvUsers.DataSource = DT;
-            dgvUsers.DataMember = DT.TableName;
-            ConnectString.connectstring.Close();
+                DA.Fill(DT);
+                dgvUsers.DataSource = DT;
+                dgvUsers.DataMember = DT.TableName;
+                ConnectString.connectstring.Close();
+                textBox1.Text = "a";
+                textBox1.Text = "";
+            }
+            catch(Exception myerr)
+            {
+                
+                MessageBox.Show(myerr.ToString());
+                dgvUsers.DataSource = "";
+                ConnectString.connectstring.Open();
+
+                DA.Fill(DT);
+                dgvUsers.DataSource = DT;
+                dgvUsers.DataMember = DT.TableName;
+                ConnectString.connectstring.Close();
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             ConnectString.connectstring.Open();
-            DA = new SqlDataAdapter("select * from UserTable where Name like '" + textBox1.Text + "%'", ConnectString.connectstring);
+            DA = new SqlDataAdapter("SELECT UserTable.UserID,UserTable.Name,UserTable.Surname,UserTable.UserName,UserTable.UserPassword,UserTable.Email,PrivilegeType.PrivName FROM UserTable INNER JOIN PrivilegeType ON PrivilegeType.PrivilegeID = UserTable.PriveledgeID where Name like '%" + textBox1.Text + "%'", ConnectString.connectstring);
             DataTable DT = new DataTable();
             DA.Fill(DT);
             dgvUsers.DataSource = DT;

@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PETSystem", "PETSystem\PETSystem.csproj", "{7479C134-65EE-41EB-A2CC-BE4E4592FB4E}"
-EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "PetSystemSetup", "PetSystemSetup\PetSystemSetup.vdproj", "{CD3853AC-8220-4B8B-9C3A-F3DA727DE840}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,8 +15,6 @@ Global
 		{7479C134-65EE-41EB-A2CC-BE4E4592FB4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7479C134-65EE-41EB-A2CC-BE4E4592FB4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7479C134-65EE-41EB-A2CC-BE4E4592FB4E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CD3853AC-8220-4B8B-9C3A-F3DA727DE840}.Debug|Any CPU.ActiveCfg = Debug
-		{CD3853AC-8220-4B8B-9C3A-F3DA727DE840}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

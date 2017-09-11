@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.btnBack = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -37,6 +36,7 @@
             this.txtSurname = new System.Windows.Forms.TextBox();
             this.txtInstructorID = new System.Windows.Forms.TextBox();
             this.dgvInstructor = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInstructor)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,16 +49,6 @@
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(19, 141);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(212, 57);
-            this.btnSearch.TabIndex = 16;
-            this.btnSearch.Text = "Search Instructor";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // label3
             // 
@@ -122,13 +112,23 @@
             this.dgvInstructor.Size = new System.Drawing.Size(644, 212);
             this.dgvInstructor.TabIndex = 9;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(65, 25);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(87, 26);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "Search";
+            // 
             // SearchInstructor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(897, 342);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -148,7 +148,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -156,5 +155,6 @@
         private System.Windows.Forms.TextBox txtSurname;
         private System.Windows.Forms.TextBox txtInstructorID;
         private System.Windows.Forms.DataGridView dgvInstructor;
+        private System.Windows.Forms.Label label4;
     }
 }

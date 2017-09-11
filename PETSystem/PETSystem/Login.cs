@@ -63,8 +63,8 @@ namespace PETSystem
             {
 
                 //    // Ek steel gou die user wat gesignin het se ID. ;D
-                var GetUserID = (from X in db.UserTables where X.UserName.Contains(un) && X.UserPassword.Contains(pw) select X.UserID).FirstOrDefault();
-                UserIDthatLoggedIn = GetUserID;
+               // var GetUserID = (from X in db.UserTables where X.UserName.Contains(un) && X.UserPassword.Contains(pw) select X.UserID).FirstOrDefault();
+                //UserIDthatLoggedIn = GetUserID;
 
                 this.Visible = false;
                 MainMenuF UM = new MainMenuF();
@@ -97,11 +97,26 @@ namespace PETSystem
 
         private void txtPassword_TextChanged(object sender, EventArgs e)
         {
+		txtPassword.PasswordChar = '*';
             bool validSQl = EH.checkForSQLInjection(txtPassword.Text);
             
             
                 valid4 = validSQl;
             
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void LoginF_Load(object sender, EventArgs e)
+        {
+            groupBox1.BackColor = System.Drawing.Color.Transparent;
+            label1.BackColor = System.Drawing.Color.Transparent;
+            label2.BackColor = System.Drawing.Color.Transparent;
+        }
+
+  
     }
 }

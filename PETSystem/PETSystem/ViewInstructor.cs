@@ -42,7 +42,7 @@ namespace PETSystem
                 string phoneNumberId = dgvInstructor.SelectedRows[0].Cells[4].Value + string.Empty;
                 string Genderid = dgvInstructor.SelectedRows[0].Cells[5].Value + string.Empty;
                 string titleid = dgvInstructor.SelectedRows[0].Cells[6].Value + string.Empty;
-                string certifyID = dgvInstructor.SelectedRows[0].Cells[6].Value + string.Empty;
+                string certifyID = dgvInstructor.SelectedRows[0].Cells[7].Value + string.Empty;
 
                 string query2 = "SELECT TitleName FROM Title WHERE TitleID ='" + Convert.ToInt32(titleid) + "'";
                 SqlCommand MyCommand2 = new SqlCommand(query2, ConnectString.connectstring);
@@ -67,16 +67,17 @@ namespace PETSystem
                 }
                 ConnectString.connectstring.Close();
                 string query3 = "SELECT CertificationName FROM Certification WHERE CertificationID ='" + Convert.ToInt32(certifyID) + "'";
-                SqlCommand MyCommand3 = new SqlCommand(query2, ConnectString.connectstring);
+                SqlCommand MyCommand3 = new SqlCommand(query3, ConnectString.connectstring);
                 SqlDataReader MyReader3;
                 ConnectString.connectstring.Open();
                 MyReader3 = MyCommand3.ExecuteReader();     // Here our query will be executed and data saved into the database.  
 
                 while (MyReader3.Read())
                 {
-                    certifyID = MyReader2["CertificationName"].ToString();
+                    certifyID = MyReader3["CertificationName"].ToString();
                 }
-                MessageBox.Show(" Name:" + NameId + "\n Surname:" + SurnameId + "\n Phone Number:" + phoneNumberId + " \n E-mail: " + emailId + " \n Certification:" + emailId , "Result",
+                ConnectString.connectstring.Close();
+                MessageBox.Show(" Name:" + NameId + "\n Surname:" + SurnameId + "\n Phone Number:" + phoneNumberId + " \n E-mail: " + emailId + " \n Certification:" + certifyID, "Result",
     MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             else

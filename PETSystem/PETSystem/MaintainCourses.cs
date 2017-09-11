@@ -120,14 +120,7 @@ namespace PETSystem
                 DA.Fill(DTC);
                 dgvMaintain.DataSource = DTC;
                 ConnectString.connectstring.Close();
-                DataTable DT = new DataTable();
-                ConnectString.connectstring.Open();
-                SqlCommand Fill = new SqlCommand("SELECT * FROM TrainingCourse", ConnectString.connectstring);
-                DA = new SqlDataAdapter(Fill);
-                DA.Fill(DT);
-                dgvMaintain.DataSource = DT;
-                dgvMaintain.DataMember = DT.TableName;
-                ConnectString.connectstring.Close();
+                
 
             }
             else
@@ -339,6 +332,13 @@ namespace PETSystem
         private void cmbName_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void addInstructorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AddInstrucorC UM = new AddInstrucorC();
+            UM.ShowDialog();
         }
     }
 }
