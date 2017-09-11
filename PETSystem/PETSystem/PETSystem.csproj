@@ -81,11 +81,29 @@
     <Compile Include="Add Printing Supplier.Designer.cs">
       <DependentUpon>Add Printing Supplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddInstrucorC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddInstrucorC.Designer.cs">
+      <DependentUpon>AddInstrucorC.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddNewStockType.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddNewStockType.Designer.cs">
       <DependentUpon>AddNewStockType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddResult.Designer.cs">
+      <DependentUpon>AddResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddResultMessagebox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddResultMessagebox.Designer.cs">
+      <DependentUpon>AddResultMessagebox.cs</DependentUpon>
     </Compile>
     <Compile Include="AddStock.cs">
       <SubType>Form</SubType>
@@ -160,6 +178,11 @@
     </Compile>
     <Compile Include="ForgotPassword.Designer.cs">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="inf370RegDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>inf370RegDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Instructors.cs">
       <SubType>Form</SubType>
@@ -251,6 +274,12 @@
     </Compile>
     <Compile Include="RefundOrderSupp.Designer.cs">
       <DependentUpon>RefundOrderSupp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports.Designer.cs">
+      <DependentUpon>Reports.cs</DependentUpon>
     </Compile>
     <Compile Include="ReturnOrderSupp.cs">
       <SubType>Form</SubType>
@@ -408,8 +437,17 @@
     <EmbeddedResource Include="Add Printing Supplier.resx">
       <DependentUpon>Add Printing Supplier.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddInstrucorC.resx">
+      <DependentUpon>AddInstrucorC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddNewStockType.resx">
       <DependentUpon>AddNewStockType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddResult.resx">
+      <DependentUpon>AddResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddResultMessagebox.resx">
+      <DependentUpon>AddResultMessagebox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddStock.resx">
       <DependentUpon>AddStock.cs</DependentUpon>
@@ -468,6 +506,17 @@
     <EmbeddedResource Include="OrderReturns.resx">
       <DependentUpon>OrderReturns.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="inf370RegDataSet.xsc">
+      <DependentUpon>inf370RegDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="inf370RegDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>inf370RegDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="inf370RegDataSet.xss">
+      <DependentUpon>inf370RegDataSet.xsd</DependentUpon>
+    </None>
     <None Include="PET_DB.dbml.layout">
       <DependentUpon>PET_DB.dbml</DependentUpon>
     </None>
@@ -500,6 +549,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RefundOrderSupp.resx">
       <DependentUpon>RefundOrderSupp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports.resx">
+      <DependentUpon>Reports.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReturnOrderSupp.resx">
       <DependentUpon>ReturnOrderSupp.cs</DependentUpon>

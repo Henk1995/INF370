@@ -57,6 +57,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
+            this.addInstructorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MSMain.SuspendLayout();
             this.AddCoursePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -70,7 +71,8 @@
             this.MSMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addTrainingCourseToolStripMenuItem,
             this.addTrainingCourseTypeToolStripMenuItem,
-            this.maintainTrainingCourseToolStripMenuItem});
+            this.maintainTrainingCourseToolStripMenuItem,
+            this.addInstructorToolStripMenuItem});
             this.MSMain.Location = new System.Drawing.Point(0, 0);
             this.MSMain.Name = "MSMain";
             this.MSMain.Size = new System.Drawing.Size(752, 24);
@@ -256,6 +258,7 @@
             // 
             // dgvMaintain
             // 
+            this.dgvMaintain.AllowUserToAddRows = false;
             this.dgvMaintain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMaintain.Location = new System.Drawing.Point(285, 27);
             this.dgvMaintain.Name = "dgvMaintain";
@@ -330,6 +333,13 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // addInstructorToolStripMenuItem
+            // 
+            this.addInstructorToolStripMenuItem.Name = "addInstructorToolStripMenuItem";
+            this.addInstructorToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
+            this.addInstructorToolStripMenuItem.Text = "Add instructor";
+            this.addInstructorToolStripMenuItem.Click += new System.EventHandler(this.addInstructorToolStripMenuItem_Click);
+            // 
             // MaintainCourses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -392,5 +402,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.HelpProvider helpProvider1;
+        private System.Windows.Forms.ToolStripMenuItem addInstructorToolStripMenuItem;
     }
 }

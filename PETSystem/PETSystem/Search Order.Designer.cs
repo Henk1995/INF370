@@ -36,8 +36,6 @@
             this.btnPlaceOrder = new System.Windows.Forms.Button();
             this.dgvOrders = new System.Windows.Forms.DataGridView();
             this.btnMainMenu = new System.Windows.Forms.Button();
-            this.btnGenerateInvoice = new System.Windows.Forms.Button();
-            this.btnGenerateReceipt = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearchOrderID = new System.Windows.Forms.TextBox();
             this.btnRefreshDGV = new System.Windows.Forms.Button();
@@ -52,7 +50,7 @@
             this.btnLogRefund.TabIndex = 14;
             this.btnLogRefund.Text = "Log Refund";
             this.btnLogRefund.UseVisualStyleBackColor = true;
-            this.btnLogRefund.Click += new System.EventHandler(this.btnLogRefund_Click);
+           // this.btnLogRefund.Click += new System.EventHandler(this.btnLogRefund_Click);
             // 
             // btnLogPayment
             // 
@@ -62,7 +60,7 @@
             this.btnLogPayment.TabIndex = 13;
             this.btnLogPayment.Text = "Log Payment";
             this.btnLogPayment.UseVisualStyleBackColor = true;
-            this.btnLogPayment.Click += new System.EventHandler(this.btnLogPayment_Click);
+       //     this.btnLogPayment.Click += new System.EventHandler(this.btnLogPayment_Click);
             // 
             // btnReturnOder
             // 
@@ -72,7 +70,7 @@
             this.btnReturnOder.TabIndex = 12;
             this.btnReturnOder.Text = "Return Order";
             this.btnReturnOder.UseVisualStyleBackColor = true;
-            this.btnReturnOder.Click += new System.EventHandler(this.btnReturnOder_Click);
+           // this.btnReturnOder.Click += new System.EventHandler(this.btnReturnOder_Click);
             // 
             // btnUpdateOrder
             // 
@@ -125,26 +123,6 @@
             this.btnMainMenu.UseVisualStyleBackColor = true;
             this.btnMainMenu.Click += new System.EventHandler(this.btnMainMenu_Click);
             // 
-            // btnGenerateInvoice
-            // 
-            this.btnGenerateInvoice.Location = new System.Drawing.Point(131, 496);
-            this.btnGenerateInvoice.Name = "btnGenerateInvoice";
-            this.btnGenerateInvoice.Size = new System.Drawing.Size(121, 23);
-            this.btnGenerateInvoice.TabIndex = 17;
-            this.btnGenerateInvoice.Text = "Generate Invoice";
-            this.btnGenerateInvoice.UseVisualStyleBackColor = true;
-            this.btnGenerateInvoice.Click += new System.EventHandler(this.btnGenerateInvoice_Click);
-            // 
-            // btnGenerateReceipt
-            // 
-            this.btnGenerateReceipt.Location = new System.Drawing.Point(4, 496);
-            this.btnGenerateReceipt.Name = "btnGenerateReceipt";
-            this.btnGenerateReceipt.Size = new System.Drawing.Size(121, 23);
-            this.btnGenerateReceipt.TabIndex = 18;
-            this.btnGenerateReceipt.Text = "Generate Receipt";
-            this.btnGenerateReceipt.UseVisualStyleBackColor = true;
-            this.btnGenerateReceipt.Click += new System.EventHandler(this.btnGenerateReceipt_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -180,8 +158,6 @@
             this.Controls.Add(this.btnRefreshDGV);
             this.Controls.Add(this.txtSearchOrderID);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnGenerateReceipt);
-            this.Controls.Add(this.btnGenerateInvoice);
             this.Controls.Add(this.btnMainMenu);
             this.Controls.Add(this.btnLogRefund);
             this.Controls.Add(this.btnLogPayment);
@@ -209,8 +185,6 @@
         private System.Windows.Forms.Button btnPlaceOrder;
         private System.Windows.Forms.DataGridView dgvOrders;
         private System.Windows.Forms.Button btnMainMenu;
-        private System.Windows.Forms.Button btnGenerateInvoice;
-        private System.Windows.Forms.Button btnGenerateReceipt;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSearchOrderID;
         private System.Windows.Forms.Button btnRefreshDGV;

@@ -111,6 +111,7 @@ namespace PETSystem
 
         private void txtPass_TextChanged(object sender, EventArgs e)
         {
+		txtPass.PasswordChar = '*';
             valid4 = EH.CheckstringNum(txtPass.Text);
             bool validSQl = EH.checkForSQLInjection(txtFirst.Text);
             if (valid4)
@@ -129,11 +130,12 @@ namespace PETSystem
 
         private void txtRetype_TextChanged(object sender, EventArgs e)
         {
-            
+            txtRetype.PasswordChar = '*';
             valid5 = EH.CheckstringNum(txtRetype.Text);
             if ((!valid5)|| (txtRetype.Text != txtPass.Text))
             {
                 txtRetype.BackColor = Color.Red;
+				valid5 = false;
                 
             }
             else if ((valid5) || (txtRetype.Text == txtPass.Text))
@@ -150,7 +152,7 @@ namespace PETSystem
             valid2 = EH.CheckEmpty(txtLastName.Text);
             valid3 = EH.CheckEmpty(txtUserN.Text);
             valid4 = EH.CheckEmpty(txtPass.Text);
-            valid5 = EH.CheckEmpty(txtRetype.Text);
+           
             valid6 = EH.CheckEmpty(cmbPrivilege.Text);
             valid7 = EH.CheckEmpty(txtEmail.Text);
             if (valid1 && valid2 && valid3 && valid4 && valid5 && valid6 && valid7)
@@ -172,7 +174,7 @@ namespace PETSystem
                 ConnectString.connectstring.Close();
                 if (duplicate)
                 {
-                    MessageBox.Show("Add new username already exists please select a new one.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("Add username already exists please select a new one.", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
                 else
                 {
@@ -205,7 +207,10 @@ namespace PETSystem
                         {
                         }
                         ConnectString.connectstring.Close();
-                        MessageBox.Show("User has been added to the system.", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        MessageBox.Show("User has been added to the system. \n Returning to User menu.", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        UserMenu myform = new UserMenu();
+                        this.Close();
+                        myform.ShowDialog();
                     }
                     else
                     {

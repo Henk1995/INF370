@@ -76,10 +76,10 @@ namespace Refund_Order
             if (dgvSupp.SelectedRows.Count > 0)
             {
                 string supplierID = dgvSupp.SelectedRows[0].Cells[4].Value + string.Empty;
-
+                string RefID = dgvSupp.SelectedRows[0].Cells[1].Value + string.Empty;
                 // gets the RowID from the first column in the grid
                 int suppID = int.Parse(supplierID);
-
+                
 
               
                 string query2 = "SELECT SupplierEmail FROM Supplier WHERE SupplierID ='" + suppID + "'";
@@ -107,7 +107,7 @@ namespace Refund_Order
                         try
                         {
                             mail.Subject = "Return order";
-                            mail.Body = "The order that was placed with reference number XXXXXXX is being returned as we are not happy with the order we insist on a full refund";
+                            mail.Body = "The order that was placed with reference number" + RefID +" is being returned as we are not happy with the order we insist on a full refund";
                             mail.IsBodyHtml = false;
                             client.Send(mail);
                         }
@@ -122,6 +122,7 @@ namespace Refund_Order
                         MessageBox.Show("Email Sent", "Sent", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
                 }
+				 MessageBox.Show("Email was not sent please select the order that you want to return in the table.", "Sent", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }
 
