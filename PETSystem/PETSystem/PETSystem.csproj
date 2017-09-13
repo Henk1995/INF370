@@ -389,6 +389,12 @@
     <Compile Include="UpdateStock.Designer.cs">
       <DependentUpon>UpdateStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateTrainingCourseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateTrainingCourseForm.Designer.cs">
+      <DependentUpon>UpdateTrainingCourseForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdateUserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -612,6 +618,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateStock.resx">
       <DependentUpon>UpdateStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateTrainingCourseForm.resx">
+      <DependentUpon>UpdateTrainingCourseForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateUserForm.resx">
       <DependentUpon>UpdateUserForm.cs</DependentUpon>

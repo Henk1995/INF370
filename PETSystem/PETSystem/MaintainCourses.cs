@@ -115,7 +115,7 @@ namespace PETSystem
             {
                 DataTable DT2 = new DataTable();
                 ConnectString.connectstring.Open();
-                SqlCommand Fill2 = new SqlCommand("SELECT TrainingCourse.TrainingCourseID,TrainingCourse.CourseName,TrainingCourse.Duration AS 'Duration in weeks',TrainingCourse.TrainingCourseDate,TrainingCourseType.TrainingCourseName FROM TrainingCourse INNER JOIN TrainingCourseType ON TrainingCourseType.TrainingCourseTypeID = TrainingCourse.TrainingCourseID WHERE TrainingCourse.CourseName like '%" + txtCourseName.Text + "%'", ConnectString.connectstring);
+                SqlCommand Fill2 = new SqlCommand("SELECT TrainingCourse.TrainingCourseID,TrainingCourse.CourseName,TrainingCourse.Duration AS 'Duration in weeks',TrainingCourse.TrainingCourseDate AS 'Start Date',TrainingCourseType.TrainingCourseName FROM TrainingCourse INNER JOIN TrainingCourseType ON TrainingCourseType.TrainingCourseTypeID = TrainingCourse.TrainingCourseID WHERE TrainingCourse.CourseName like '%" + txtCourseName.Text + "%'", ConnectString.connectstring);
                 SqlDataAdapter DA2 = new SqlDataAdapter(Fill2);
                 DA2.Fill(DT2);
                 dgvMaintain.DataSource = DT2;
@@ -215,9 +215,34 @@ namespace PETSystem
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            SqlCommandBuilder cmd = new SqlCommandBuilder(DA);
+            try
+            {
+                if (dgvMaintain.SelectedRows.Count > 0)
+                {
+                    ConnectString.CourseStringID = dgvMaintain.SelectedRows[0].Cells[0].Value + string.Empty;
+                    ConnectString.CourseName = dgvMaintain.SelectedRows[0].Cells[1].Value + string.Empty;
+                    ConnectString.CourseDuration = dgvMaintain.SelectedRows[0].Cells[2].Value + string.Empty;
+                    ConnectString.CourseDate = dgvMaintain.SelectedRows[0].Cells[3].Value + string.Empty;
+                    ConnectString.CourseType = dgvMaintain.SelectedRows[0].Cells[4].Value + string.Empty;
+                    
+                    //Display form
+                    UpdateTrainingCourseForm myform = new UpdateTrainingCourseForm();
+                    this.Close();
+                    
+                    this.Dispose(true);
+                    myform.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Please select a row to update");
+                }
+            }
+            catch
+            {
 
-            DA.Update(DTC);
+            }
+
+            
 
         }
 

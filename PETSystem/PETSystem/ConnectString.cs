@@ -84,6 +84,7 @@ namespace PETSystem
         public static int ID;
         public static int CourseID;
         public static int InstructorID;
+        //vir users
         public static string UserName;
         public static string UserID;
         public static string Name;
@@ -91,5 +92,11 @@ namespace PETSystem
         public static string Password;
         public static string Email;
         public static string Priv;
+        //vir courses
+        public static string CourseStringID;
+        public static string CourseName;
+        public static string CourseDuration;
+        public static string CourseDate;
+        public static string CourseType;
     }
 }
