@@ -31,6 +31,7 @@ namespace PETSystem
 
         private void MaintainCourses_Load(object sender, EventArgs e)
         {
+            btnDelete.Visible = false;
             AddCoursePanel.Visible = false;
             MSMain.Visible = true;
             AddCourseTypeP.Visible = false;
@@ -61,6 +62,7 @@ namespace PETSystem
         {
             if (AddCoursePanel.Visible || AddCourseTypeP.Visible || MaintainTCPanel.Visible)
             {
+                btnDelete.Visible = false;
                 AddCoursePanel.Visible = false;
                 MSMain.Visible = true;
                 AddCourseTypeP.Visible = false;
@@ -89,6 +91,7 @@ namespace PETSystem
 
         private void maintainTrainingCourseToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            btnDelete.Visible = true;
             MaintainTCPanel.Visible = true;
             dgvMaintain.Visible = true;
             btnSave.Visible = true;
@@ -376,6 +379,35 @@ namespace PETSystem
             this.Hide();
             AddInstrucorC UM = new AddInstrucorC();
             UM.ShowDialog();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dgvMaintain.SelectedRows.Count > 0)
+            {
+                string Query = "Delete TrainingCourse Where TrainingCourseID = '" + dgvMaintain.SelectedRows[0].Cells[0].Value + "'";
+                DialogResult answer = MessageBox.Show("Are you sure you want to Delete this Training Course?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                if (answer == DialogResult.Yes)
+                {
+                    SqlCommand MyCommand3 = new SqlCommand(Query, ConnectString.connectstring);
+                    SqlDataReader MyReader3;
+                    ConnectString.connectstring.Open();
+                    MyReader3 = MyCommand3.ExecuteReader();
+                    MessageBox.Show("Training Course successfully removed");
+                    ConnectString.connectstring.Close();
+                    //Refresh DGV
+                    txtCourseName.Text = "a";
+                    txtCourseName.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Training Course was not deleted");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to Delete");
+            }
         }
     }
 }

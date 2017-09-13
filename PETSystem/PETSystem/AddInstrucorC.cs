@@ -22,7 +22,7 @@ namespace PETSystem
 
         private void AddInstrucorC_Load(object sender, EventArgs e)
         {
-            
+            textBox1.Visible = false;
             SqlCommand Fill = new SqlCommand("SELECT * FROM TrainingCourseType", ConnectString.connectstring);
             SqlDataAdapter DA = new SqlDataAdapter(Fill);
             ConnectString.connectstring.Open();
@@ -72,6 +72,48 @@ namespace PETSystem
             {
 
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                string Query = "Delete TrainingCourseType Where TrainingCourseTypeID = '" + dataGridView1.SelectedRows[0].Cells[0].Value + "'";
+                DialogResult answer = MessageBox.Show("Are you sure you want to Delete this Training Course Type?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                if (answer == DialogResult.Yes)
+                {
+                    SqlCommand MyCommand3 = new SqlCommand(Query, ConnectString.connectstring);
+                    SqlDataReader MyReader3;
+                    ConnectString.connectstring.Open();
+                    MyReader3 = MyCommand3.ExecuteReader();
+                    MessageBox.Show("Training Course Type successfully removed");
+                    ConnectString.connectstring.Close();
+                    //Refresh DGV
+                    textBox1.Text = "a";
+                    textBox1.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Training Course type was not deleted");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to Delete");
+            }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            DataTable DT2 = new DataTable();
+            ConnectString.connectstring.Open();
+            SqlCommand Fill2 = new SqlCommand("SELECT * from TrainingCourseType", ConnectString.connectstring);
+            SqlDataAdapter DA2 = new SqlDataAdapter(Fill2);
+            DA2.Fill(DT2);
+            dataGridView1.DataSource = DT2;
+            dataGridView1.DataMember = DT2.TableName;
+            textBox1.BackColor = Color.White;
+            ConnectString.connectstring.Close();
         }
     }
 }

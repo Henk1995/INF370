@@ -58,6 +58,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.MSMain.SuspendLayout();
             this.AddCoursePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -275,7 +276,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(3, 368);
+            this.button2.Location = new System.Drawing.Point(3, 374);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(94, 29);
             this.button2.TabIndex = 10;
@@ -340,11 +341,22 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(319, 257);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(94, 33);
+            this.btnDelete.TabIndex = 13;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
             // MaintainCourses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(762, 411);
+            this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.dgvMaintain);
             this.Controls.Add(this.AddCourseTypeP);
             this.Controls.Add(this.btnSave);
@@ -403,5 +415,6 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.HelpProvider helpProvider1;
         private System.Windows.Forms.ToolStripMenuItem addInstructorToolStripMenuItem;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
