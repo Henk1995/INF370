@@ -37,6 +37,7 @@ namespace PETSystem
         private void button2_Click(object sender, EventArgs e)
         {
             this.Close();
+            this.Dispose(true);
             MaintainCourses UM = new MaintainCourses();
             UM.ShowDialog();
         }
@@ -44,6 +45,33 @@ namespace PETSystem
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.SelectedRows.Count > 0)
+                {
+                    ConnectString.CourseStringID = dataGridView1.SelectedRows[0].Cells[0].Value + string.Empty;
+                    ConnectString.CourseName = dataGridView1.SelectedRows[0].Cells[1].Value + string.Empty;
+
+                    //Display form
+                    UpdateTrainingCourseTypeForm myform = new UpdateTrainingCourseTypeForm();
+                    this.Close();
+
+                    this.Dispose(true);
+                    myform.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Please select a row to update");
+                }
+            }
+            catch
+            {
+
+            }
         }
     }
 }
