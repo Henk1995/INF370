@@ -95,7 +95,7 @@ namespace PETSystem
             MSMain.Visible = false;
             DataTable DT = new DataTable();
             ConnectString.connectstring.Open();
-            SqlCommand Fill = new SqlCommand("SELECT * FROM TrainingCourse", ConnectString.connectstring);
+            SqlCommand Fill = new SqlCommand("SELECT TrainingCourse.TrainingCourseID,TrainingCourse.CourseName,TrainingCourse.Duration AS 'Duration in weeks',TrainingCourse.TrainingCourseDate,TrainingCourseType.TrainingCourseName FROM TrainingCourse INNER JOIN TrainingCourseType ON TrainingCourseType.TrainingCourseTypeID = TrainingCourse.TrainingCourseID", ConnectString.connectstring);
             DA = new SqlDataAdapter(Fill);
             DA.Fill(DT);
             dgvMaintain.DataSource = DT;
@@ -113,25 +113,28 @@ namespace PETSystem
             }
             if (valid1)
             {
-                txtCourseName.BackColor = Color.White;
+                DataTable DT2 = new DataTable();
                 ConnectString.connectstring.Open();
-                DA = new SqlDataAdapter("select * from TrainingCourse where CourseName like '" + txtCourseName.Text + "%'", ConnectString.connectstring);
-
-                DA.Fill(DTC);
-                dgvMaintain.DataSource = DTC;
-                ConnectString.connectstring.Close();
-                
-
+                SqlCommand Fill2 = new SqlCommand("SELECT TrainingCourse.TrainingCourseID,TrainingCourse.CourseName,TrainingCourse.Duration AS 'Duration in weeks',TrainingCourse.TrainingCourseDate,TrainingCourseType.TrainingCourseName FROM TrainingCourse INNER JOIN TrainingCourseType ON TrainingCourseType.TrainingCourseTypeID = TrainingCourse.TrainingCourseID WHERE TrainingCourse.CourseName like '%" + txtCourseName.Text + "%'", ConnectString.connectstring);
+                SqlDataAdapter DA2 = new SqlDataAdapter(Fill2);
+                DA2.Fill(DT2);
+                dgvMaintain.DataSource = DT2;
+                dgvMaintain.DataMember = DT2.TableName;
+                txtCourseName.BackColor = Color.White;
+                ConnectString.connectstring.Close();             
             }
             else
             {
                 
                 txtCourseName.BackColor = Color.Red;
+                DataTable DT2 = new DataTable();
                 ConnectString.connectstring.Open();
-                DA = new SqlDataAdapter("select * from TrainingCourse ", ConnectString.connectstring);
-                DTC.Clear();
-                DA.Fill(DTC);
-                dgvMaintain.DataSource = DTC;
+                SqlCommand Fill2 = new SqlCommand("SELECT TrainingCourse.TrainingCourseID,TrainingCourse.CourseName,TrainingCourse.Duration AS 'Duration in weeks',TrainingCourse.TrainingCourseDate,TrainingCourseType.TrainingCourseName FROM TrainingCourse INNER JOIN TrainingCourseType ON TrainingCourseType.TrainingCourseTypeID = TrainingCourse.TrainingCourseID WHERE TrainingCourse.CourseName like '%" + txtCourseName.Text + "%'", ConnectString.connectstring);
+                SqlDataAdapter DA2 = new SqlDataAdapter(Fill2);
+                DA2.Fill(DT2);
+                dgvMaintain.DataSource = DT2;
+                dgvMaintain.DataMember = DT2.TableName;
+                txtCourseName.BackColor = Color.White;
                 ConnectString.connectstring.Close();
             }
         }
@@ -240,6 +243,7 @@ namespace PETSystem
                 if (DT1.Rows.Count > 0)
                 {
                     valid5 = false;
+                    //MessageBox.Show("Please provide new course type name");
                 }
                 else
                 {
@@ -252,12 +256,16 @@ namespace PETSystem
                     SqlDataReader MyReader2;
 
                     MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
-                    MessageBox.Show("Save Data");
+                    MessageBox.Show("Course type added");
                     while (MyReader2.Read())
                     {
                     }
                    
 
+                }
+                if (txtNCDName.Text == "")
+                {
+                    MessageBox.Show("Please provide new course type name");
                 }
                 ConnectString.connectstring.Close();
             }
@@ -316,6 +324,10 @@ namespace PETSystem
                 {
                 }
                 ConnectString.connectstring.Close();
+            }
+            else
+            {
+                MessageBox.Show("Please fill in all inputs");
             }
         }
 

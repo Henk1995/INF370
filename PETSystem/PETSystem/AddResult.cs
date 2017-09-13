@@ -42,20 +42,6 @@ namespace PETSystem
             dataGridView1.DataMember = DT.TableName;
             ConnectString.connectstring.Close();
            
-            //Populate combobox
-            string command = "Select Results.ResultName From Results";
-            SqlConnection conn = new SqlConnection(ConnectString.DBC);
-            conn.Open();
-            SqlCommand cmd = new SqlCommand(command, conn);
-
-            SqlDataReader DR = cmd.ExecuteReader();
-
-            while (DR.Read())
-            {
-                cmbResult.Items.Add(DR[0]);
-            }
-            conn.Close();
-            cmbResult.SelectedIndex = 1;
             // Refres datagrid view
             textBox1.Text = "a";
             textBox1.Text = "";
@@ -97,10 +83,7 @@ namespace PETSystem
             UM.ShowDialog();
         }
 
-        private void cmbResult_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           // MessageBox.Show(cmbResult.SelectedIndex.ToString());
-        }
+      
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {

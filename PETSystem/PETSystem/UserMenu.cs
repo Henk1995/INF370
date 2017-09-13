@@ -62,31 +62,38 @@ namespace PETSystem
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            try {
-                SqlCommandBuilder cmd = new SqlCommandBuilder(DA);
-
-                DA.Update(DT);
-                ConnectString.connectstring.Open();
-
-                DA.Fill(DT);
-                dgvUsers.DataSource = DT;
-                dgvUsers.DataMember = DT.TableName;
-                ConnectString.connectstring.Close();
-                textBox1.Text = "a";
-                textBox1.Text = "";
-            }
-            catch(Exception myerr)
+            //Load values for update
+            try
             {
-                
-                MessageBox.Show(myerr.ToString());
-                dgvUsers.DataSource = "";
-                ConnectString.connectstring.Open();
-
-                DA.Fill(DT);
-                dgvUsers.DataSource = DT;
-                dgvUsers.DataMember = DT.TableName;
-                ConnectString.connectstring.Close();
+                if (dgvUsers.SelectedRows.Count > 0)
+                {
+                    ConnectString.UserID = dgvUsers.SelectedRows[0].Cells[0].Value + string.Empty;
+                    ConnectString.Name = dgvUsers.SelectedRows[0].Cells[1].Value + string.Empty;
+                    ConnectString.Surname = dgvUsers.SelectedRows[0].Cells[2].Value + string.Empty;
+                    ConnectString.UserName = dgvUsers.SelectedRows[0].Cells[3].Value + string.Empty;
+                    ConnectString.Password = dgvUsers.SelectedRows[0].Cells[4].Value + string.Empty;
+                    ConnectString.Email = dgvUsers.SelectedRows[0].Cells[5].Value + string.Empty;
+                    ConnectString.Priv = dgvUsers.SelectedRows[0].Cells[6].Value + string.Empty;
+                    //Display form
+                    UpdateUserForm myform = new UpdateUserForm();
+                    this.Close();
+                    this.Dispose(true);
+                    myform.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Please select a row to update");
+                }
             }
+            catch
+            {
+
+            }
+          
+            
+            
+            
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -97,6 +104,35 @@ namespace PETSystem
             DA.Fill(DT);
             dgvUsers.DataSource = DT;
             ConnectString.connectstring.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (dgvUsers.SelectedRows.Count > 0)
+            {
+                string Query = "Delete UserTable Where UserID = '" + dgvUsers.SelectedRows[0].Cells[0].Value + "'";
+                DialogResult answer = MessageBox.Show("Are you sure you want to Delete this User?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                if (answer == DialogResult.Yes)
+                {
+                    SqlCommand MyCommand3 = new SqlCommand(Query, ConnectString.connectstring);
+                    SqlDataReader MyReader3;
+                    ConnectString.connectstring.Open();
+                    MyReader3 = MyCommand3.ExecuteReader();
+                    MessageBox.Show("User successfully updated");
+                    ConnectString.connectstring.Close();
+                    //Refresh DGV
+                    textBox1.Text = "a";
+                    textBox1.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("User was not deleted");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to Delete");
+            }
         }
     }
 }

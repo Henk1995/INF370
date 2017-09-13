@@ -71,6 +71,12 @@ namespace PETSystem
             
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose(true);
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
 

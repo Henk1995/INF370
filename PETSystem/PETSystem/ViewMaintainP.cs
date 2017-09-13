@@ -79,12 +79,7 @@ namespace PETSystem
             UM.Show();
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            SqlCommandBuilder cmd = new SqlCommandBuilder(DA);
-
-            DA.Update(DT);
-        }
+      
 
         private void btnPrint_Click(object sender, EventArgs e)
         {

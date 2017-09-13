@@ -32,6 +32,7 @@
             this.addTrainingCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addTrainingCourseTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.maintainTrainingCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addInstructorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.AddCoursePanel = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
@@ -57,7 +58,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
-            this.addInstructorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MSMain.SuspendLayout();
             this.AddCoursePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -75,30 +75,37 @@
             this.addInstructorToolStripMenuItem});
             this.MSMain.Location = new System.Drawing.Point(0, 0);
             this.MSMain.Name = "MSMain";
-            this.MSMain.Size = new System.Drawing.Size(752, 24);
+            this.MSMain.Size = new System.Drawing.Size(762, 24);
             this.MSMain.TabIndex = 0;
             this.MSMain.Text = "menuStrip1";
             // 
             // addTrainingCourseToolStripMenuItem
             // 
             this.addTrainingCourseToolStripMenuItem.Name = "addTrainingCourseToolStripMenuItem";
-            this.addTrainingCourseToolStripMenuItem.Size = new System.Drawing.Size(127, 20);
+            this.addTrainingCourseToolStripMenuItem.Size = new System.Drawing.Size(128, 20);
             this.addTrainingCourseToolStripMenuItem.Text = "Add Training Course";
             this.addTrainingCourseToolStripMenuItem.Click += new System.EventHandler(this.addTrainingCourseToolStripMenuItem_Click);
             // 
             // addTrainingCourseTypeToolStripMenuItem
             // 
             this.addTrainingCourseTypeToolStripMenuItem.Name = "addTrainingCourseTypeToolStripMenuItem";
-            this.addTrainingCourseTypeToolStripMenuItem.Size = new System.Drawing.Size(155, 20);
+            this.addTrainingCourseTypeToolStripMenuItem.Size = new System.Drawing.Size(157, 20);
             this.addTrainingCourseTypeToolStripMenuItem.Text = "Add Training Course Type";
             this.addTrainingCourseTypeToolStripMenuItem.Click += new System.EventHandler(this.addTrainingCourseTypeToolStripMenuItem_Click);
             // 
             // maintainTrainingCourseToolStripMenuItem
             // 
             this.maintainTrainingCourseToolStripMenuItem.Name = "maintainTrainingCourseToolStripMenuItem";
-            this.maintainTrainingCourseToolStripMenuItem.Size = new System.Drawing.Size(152, 20);
+            this.maintainTrainingCourseToolStripMenuItem.Size = new System.Drawing.Size(153, 20);
             this.maintainTrainingCourseToolStripMenuItem.Text = "Maintain Training Course";
             this.maintainTrainingCourseToolStripMenuItem.Click += new System.EventHandler(this.maintainTrainingCourseToolStripMenuItem_Click);
+            // 
+            // addInstructorToolStripMenuItem
+            // 
+            this.addInstructorToolStripMenuItem.Name = "addInstructorToolStripMenuItem";
+            this.addInstructorToolStripMenuItem.Size = new System.Drawing.Size(182, 20);
+            this.addInstructorToolStripMenuItem.Text = "Maintain Training Course Type";
+            this.addInstructorToolStripMenuItem.Click += new System.EventHandler(this.addInstructorToolStripMenuItem_Click);
             // 
             // AddCoursePanel
             // 
@@ -260,9 +267,9 @@
             // 
             this.dgvMaintain.AllowUserToAddRows = false;
             this.dgvMaintain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMaintain.Location = new System.Drawing.Point(285, 27);
+            this.dgvMaintain.Location = new System.Drawing.Point(281, 27);
             this.dgvMaintain.Name = "dgvMaintain";
-            this.dgvMaintain.Size = new System.Drawing.Size(469, 186);
+            this.dgvMaintain.Size = new System.Drawing.Size(473, 186);
             this.dgvMaintain.TabIndex = 12;
             this.dgvMaintain.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -333,18 +340,11 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // addInstructorToolStripMenuItem
-            // 
-            this.addInstructorToolStripMenuItem.Name = "addInstructorToolStripMenuItem";
-            this.addInstructorToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
-            this.addInstructorToolStripMenuItem.Text = "Add instructor";
-            this.addInstructorToolStripMenuItem.Click += new System.EventHandler(this.addInstructorToolStripMenuItem_Click);
-            // 
             // MaintainCourses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(752, 411);
+            this.ClientSize = new System.Drawing.Size(762, 411);
             this.Controls.Add(this.dgvMaintain);
             this.Controls.Add(this.AddCourseTypeP);
             this.Controls.Add(this.btnSave);

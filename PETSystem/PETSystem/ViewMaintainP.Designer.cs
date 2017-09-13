@@ -30,7 +30,6 @@
         {
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnMainM = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnBack = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
@@ -65,16 +64,6 @@
             this.btnMainM.Text = "Main Menu";
             this.btnMainM.UseVisualStyleBackColor = true;
             this.btnMainM.Click += new System.EventHandler(this.btnMainM_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(496, 346);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(123, 39);
-            this.btnSave.TabIndex = 14;
-            this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // dataGridView1
             // 
@@ -198,7 +187,6 @@
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnPrint);
             this.Controls.Add(this.btnMainM);
-            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dataGridView1);
             this.Name = "ViewMaintainP";
             this.Text = "View Maintain Participants";
@@ -214,7 +202,6 @@
 
         private System.Windows.Forms.Button btnPrint;
         private System.Windows.Forms.Button btnMainM;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn userIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;

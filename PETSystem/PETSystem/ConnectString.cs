@@ -81,8 +81,15 @@ namespace PETSystem
         //HEnk se comment
 
         // Henk se global int
-       public static int ID;
+        public static int ID;
         public static int CourseID;
         public static int InstructorID;
+        public static string UserName;
+        public static string UserID;
+        public static string Name;
+        public static string Surname;
+        public static string Password;
+        public static string Email;
+        public static string Priv;
     }
 }
