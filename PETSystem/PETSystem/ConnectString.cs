@@ -79,5 +79,10 @@ namespace PETSystem
         // LOS HIERDIE NET SO
         public static SqlConnection connectstring = new SqlConnection(DBC);
         //HEnk se comment
+
+        // Henk se global int
+       public static int ID;
+        public static int CourseID;
+        public static int InstructorID;
     }
 }
