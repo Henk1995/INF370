@@ -34,7 +34,7 @@ namespace PETSystem
         private void AddResult_Load(object sender, EventArgs e)
         {
             ConnectString.CourseID = courseID;
-            SqlCommand Fill = new SqlCommand("SELECT  Instructor.InstructorID, Instructor.Name,Instructor.Surname,Results.ResultName From  Instructor,Results   Where Instructor.InstructorID = ANY(SELECT TrainingCourseLine.InstructorID FROM TrainingCourseLine   Where TrainingCourseLine.TrainingCourseID = '" + ConnectString.CourseID + "' AND Results.ResultID = ANY(SELECT TrainingCourseLine.ResultID FROM TrainingCourseLine   Where TrainingCourseLine.ResultID <3 AND  TrainingCourseLine.TrainingCourseID = '" + ConnectString.CourseID + "'))", ConnectString.connectstring);
+            SqlCommand Fill = new SqlCommand("SELECT  Instructor.InstructorID, Instructor.Name,Instructor.Surname,Results.ResultName From  Instructor,Results   Where Instructor.InstructorID = ANY(SELECT TrainingCourseLine.InstructorID FROM TrainingCourseLine   Where TrainingCourseLine.TrainingCourseID = '" + ConnectString.CourseID + "' AND Results.ResultID = ANY(SELECT TrainingCourseLine.ResultID FROM TrainingCourseLine   Where TrainingCourseLine.ResultID <4 AND  TrainingCourseLine.TrainingCourseID = '" + ConnectString.CourseID + "'))", ConnectString.connectstring);
             SqlDataAdapter DA = new SqlDataAdapter(Fill);
             ConnectString.connectstring.Open();
             DA.Fill(DT);
@@ -94,7 +94,7 @@ namespace PETSystem
             // SqlCommand Fill = new SqlCommand("SELECT Instructor.InstructorID,Title.TitleName, Instructor.Name,Instructor.Surname,Certification.CertificationName FROM Instructor INNER JOIN Title ON Title.TitleID = Instructor.TitleID INNER JOIN Certification ON Certification.CertificationID = Instructor.CertificationID WHERE Instructor.InstructorID = ANY(SELECT TrainingCourseLine.InstructorID FROM TrainingCourseLine   Where TrainingCourseLine.TrainingCourseID = '" + courseID + "')", ConnectString.connectstring);
             ConnectString.connectstring.Open();
             SqlDataAdapter DA;
-            DA = new SqlDataAdapter("SELECT  Instructor.InstructorID, Instructor.Name,Instructor.Surname,Results.ResultName From  Instructor,Results   Where Instructor.InstructorID = ANY(SELECT TrainingCourseLine.InstructorID FROM TrainingCourseLine   Where TrainingCourseLine.TrainingCourseID = '" + ConnectString.CourseID + "' AND Results.ResultID = ANY(SELECT TrainingCourseLine.ResultID FROM TrainingCourseLine   Where TrainingCourseLine.ResultID <3 AND  TrainingCourseLine.TrainingCourseID = '" + ConnectString.CourseID + "' AND Instructor.Name like '%" + textBox1.Text + "%'))", ConnectString.connectstring);
+            DA = new SqlDataAdapter("SELECT  Instructor.InstructorID, Instructor.Name,Instructor.Surname,Results.ResultName From  Instructor,Results   Where Instructor.InstructorID = ANY(SELECT TrainingCourseLine.InstructorID FROM TrainingCourseLine   Where TrainingCourseLine.TrainingCourseID = '" + ConnectString.CourseID + "' AND Results.ResultID = ANY(SELECT TrainingCourseLine.ResultID FROM TrainingCourseLine   Where TrainingCourseLine.ResultID <4 AND  TrainingCourseLine.TrainingCourseID = '" + ConnectString.CourseID + "' AND Instructor.Name like '%" + textBox1.Text + "%'))", ConnectString.connectstring);
             DataTable DT = new DataTable();
             DA.Fill(DT);
             dataGridView1.DataSource = DT;

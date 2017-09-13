@@ -98,7 +98,7 @@ namespace PETSystem
             try {
                 if (dataGridView1.SelectedRows.Count > 0)
                 {
-                    string Query = "INSERT INTO TrainingCourseLine(InstructorID,TrainingCourseID,ResultID) values('" + dataGridView1.SelectedCells[0].Value + "','" + courseID + "','" + 1 + "')";
+                    string Query = "INSERT INTO TrainingCourseLine(InstructorID,TrainingCourseID,ResultID) values('" + dataGridView1.SelectedCells[0].Value + "','" + courseID + "','" + 3 + "')";
                     SqlCommand MyCommand = new SqlCommand(Query, ConnectString.connectstring);
                     SqlDataReader MyReader;
                     ConnectString.connectstring.Open();
