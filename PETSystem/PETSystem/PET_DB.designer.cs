@@ -141,7 +141,7 @@ namespace PETSystem
     #endregion
 		
 		public PET_DBDataContext() : 
-				base(global::PETSystem.Properties.Settings.Default.inf370RegConnectionString, mappingSource)
+				base(global::PETSystem.Properties.Settings.Default.inf370RegConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -4523,8 +4523,6 @@ namespace PETSystem
 		
 		private int _PrinterID;
 		
-		private string _Quantity;
-		
 		private EntitySet<RoyaltiesOrder> _RoyaltiesOrders;
 		
 		private EntitySet<StockLine> _StockLines;
@@ -4545,8 +4543,6 @@ namespace PETSystem
     partial void OnPrintOrderDescriptionChanged();
     partial void OnPrinterIDChanging(int value);
     partial void OnPrinterIDChanged();
-    partial void OnQuantityChanging(string value);
-    partial void OnQuantityChanged();
     #endregion
 		
 		public PrinterOrder()
@@ -4657,26 +4653,6 @@ namespace PETSystem
 					this._PrinterID = value;
 					this.SendPropertyChanged("PrinterID");
 					this.OnPrinterIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="VarChar(30)")]
-		public string Quantity
-		{
-			get
-			{
-				return this._Quantity;
-			}
-			set
-			{
-				if ((this._Quantity != value))
-				{
-					this.OnQuantityChanging(value);
-					this.SendPropertyChanging();
-					this._Quantity = value;
-					this.SendPropertyChanged("Quantity");
-					this.OnQuantityChanged();
 				}
 			}
 		}

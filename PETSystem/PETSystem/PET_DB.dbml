@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="inf370Reg" Class="PET_DBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=JOHN-MAC-WIN;Initial Catalog=inf370Reg;Integrated Security=True" SettingsObjectName="PETSystem.Properties.Settings" SettingsPropertyName="inf370RegConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=inf370Reg;Integrated Security=True" SettingsObjectName="PETSystem.Properties.Settings" SettingsPropertyName="inf370RegConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ApplicationForm" Member="ApplicationForms">
     <Type Name="ApplicationForm">
       <Column Name="ApplicationFormID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -198,7 +198,6 @@
       <Column Name="PrintOrderDate" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="PrintOrderDescription" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="PrinterID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Quantity" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Association Name="PrinterOrder_RoyaltiesOrder" Member="RoyaltiesOrders" ThisKey="PrinterOrderID" OtherKey="PrinterOrderID" Type="RoyaltiesOrder" />
       <Association Name="PrinterOrder_StockLine" Member="StockLines" ThisKey="PrinterOrderID" OtherKey="PrinterOrderID" Type="StockLine" />
       <Association Name="Printer_PrinterOrder" Member="Printer" ThisKey="PrinterID" OtherKey="PrinterID" Type="Printer" IsForeignKey="true" />
