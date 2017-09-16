@@ -67,7 +67,7 @@ namespace PETSystem
 
         //Henk se connection string    + Copy jou goed hier in en uncomment die lyn hier onder
         //public static string DBC = "Data Source=.;Initial Catalog=inf370Reg;Integrated Security=True";
-        public string VIEW;
+        
 
         //Sam se connection string    + Copy jou goed hier in en uncomment die lyn hier onder
         //public static string DBC = ""Data Source=.;Initial Catalog=inf370Reg;Integrated Security=True";
@@ -79,7 +79,8 @@ namespace PETSystem
         // LOS HIERDIE NET SO
         public static SqlConnection connectstring = new SqlConnection(DBC);
         //HEnk se comment
-
+        //het goed geskuif vir test commit
+        public string VIEW;
         // Henk se global int
         public static int ID;
         public static int CourseID;
