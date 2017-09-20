@@ -73,7 +73,7 @@ namespace PETSystem
         public static string DBC = "Data Source=.;Initial Catalog=inf370Reg;Integrated Security=True";
 
         //Rohan se connection string    + Copy jou goed hier in en uncomment die lyn hier onder
-        public static string DBC = "Data Source=.;Initial Catalog=inf370Reg;Integrated Security=True";
+        //public static string DBC = "Data Source=.;Initial Catalog=inf370Reg;Integrated Security=True";
 
 
         // LOS HIERDIE NET SO
