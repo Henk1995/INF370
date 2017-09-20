@@ -152,9 +152,10 @@ namespace PETSystem
             //Select index in combobox
             cbProduct.SelectedIndex = 0;
         }
-
+        int UsethisforStockUpdate;
         private void button3_Click(object sender, EventArgs e)
         {
+            BtnBack.Enabled = false;
             int stockID = cbProduct.SelectedIndex + 1;
             BtnCapture.Visible = true;
 
@@ -180,6 +181,32 @@ namespace PETSystem
             //add description en total
             DescriptionForOrder = DescriptionForOrder + cbProduct.Text+",";
             totalForOrder = totalForOrder + Convert.ToInt32(txtTotal.Text);
+
+            //Get Current Quantity of stock
+            
+            SqlConnection ConQuantity = new SqlConnection(ConnectString.DBC);
+            ConQuantity.Open();
+            SqlCommand cmdQuantity = ConQuantity.CreateCommand();
+            cmdQuantity.CommandText = "Select StockQuantity FROM Stock  Where StockDescription ='" + cbProduct.Text + "'";
+            UsethisforStockUpdate = ((int)cmdQuantity.ExecuteScalar());
+            UsethisforStockUpdate = UsethisforStockUpdate + Convert.ToInt32(NUPQuantity.Value);
+
+            ConQuantity.Close();
+
+            // Add to stock 
+
+            string QueryStock = "UPDATE Stock SET StockQuantity ='"+UsethisforStockUpdate+"' WHERE StockID ='" + CBresult+ "'";
+  
+
+
+            SqlCommand ComandStock = new SqlCommand(QueryStock, ConnectString.connectstring);
+            SqlDataReader ReaderStock;
+            ConnectString.connectstring.Open();
+            ReaderStock = ComandStock.ExecuteReader();
+            MessageBox.Show("Training Course successfully updated");
+            ConnectString.connectstring.Close();
+           
+
         }
     }
 }
