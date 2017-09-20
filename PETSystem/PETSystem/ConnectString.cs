@@ -109,5 +109,7 @@ namespace PETSystem
         public static string Suppliertype;
         //Vir Supplier Order
         public static int UnitPrice;
+        //ACtive form
+        public static bool ActiveForm;
     }
 }

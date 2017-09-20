@@ -35,15 +35,15 @@
             this.cbProduct = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.NUPQuantity = new System.Windows.Forms.NumericUpDown();
+            this.button3 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtTotal = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.NUPQuantity = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
             this.BtnBack = new System.Windows.Forms.Button();
             this.BtnCapture = new System.Windows.Forms.Button();
-            this.txtTotal = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.txtOrder = new System.Windows.Forms.RichTextBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
@@ -91,6 +91,7 @@
             this.cbProduct.Size = new System.Drawing.Size(100, 21);
             this.cbProduct.TabIndex = 4;
             this.cbProduct.SelectedIndexChanged += new System.EventHandler(this.cbProduct_SelectedIndexChanged);
+            this.cbProduct.Click += new System.EventHandler(this.cbProduct_Click);
             // 
             // label3
             // 
@@ -118,22 +119,31 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Order Details:";
             // 
-            // label4
+            // button3
             // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.DarkCyan;
-            this.label4.Location = new System.Drawing.Point(173, 22);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "New Product?";
+            this.button3.Location = new System.Drawing.Point(202, 93);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "Add Product";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // NUPQuantity
+            // label6
             // 
-            this.NUPQuantity.Location = new System.Drawing.Point(67, 46);
-            this.NUPQuantity.Name = "NUPQuantity";
-            this.NUPQuantity.Size = new System.Drawing.Size(100, 20);
-            this.NUPQuantity.TabIndex = 8;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 80);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(45, 13);
+            this.label6.TabIndex = 10;
+            this.label6.Text = "Total R:";
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Location = new System.Drawing.Point(67, 72);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(100, 20);
+            this.txtTotal.TabIndex = 9;
             // 
             // label5
             // 
@@ -143,6 +153,24 @@
             this.label5.Size = new System.Drawing.Size(49, 13);
             this.label5.TabIndex = 9;
             this.label5.Text = "Quantity:";
+            // 
+            // NUPQuantity
+            // 
+            this.NUPQuantity.Location = new System.Drawing.Point(67, 46);
+            this.NUPQuantity.Name = "NUPQuantity";
+            this.NUPQuantity.Size = new System.Drawing.Size(100, 20);
+            this.NUPQuantity.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.DarkCyan;
+            this.label4.Location = new System.Drawing.Point(173, 22);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(75, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "New Product?";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // BtnBack
             // 
@@ -163,22 +191,6 @@
             this.BtnCapture.UseVisualStyleBackColor = true;
             this.BtnCapture.Click += new System.EventHandler(this.button2_Click);
             // 
-            // txtTotal
-            // 
-            this.txtTotal.Location = new System.Drawing.Point(67, 72);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(100, 20);
-            this.txtTotal.TabIndex = 9;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 80);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 13);
-            this.label6.TabIndex = 10;
-            this.label6.Text = "Total R:";
-            // 
             // txtOrder
             // 
             this.txtOrder.Location = new System.Drawing.Point(475, 9);
@@ -186,16 +198,6 @@
             this.txtOrder.Size = new System.Drawing.Size(197, 270);
             this.txtOrder.TabIndex = 9;
             this.txtOrder.Text = "";
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(202, 93);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Add Product";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
