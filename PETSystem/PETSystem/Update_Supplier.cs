@@ -15,7 +15,6 @@ namespace Update_Supplier
     public partial class Update_Supplier : Form
     {
         
-        SqlDataAdapter DA;
         ErrorHandle EH = new ErrorHandle();
         bool valid1 = false;
         bool valid2 = false;
@@ -31,119 +30,79 @@ namespace Update_Supplier
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int GenderID = 0;
-            int TitleID = 0;
-            valid6 = EH.CheckEmpty(cmbSuppType.Text);
-          
-            if (valid1 && valid2 && valid3 && valid4 && valid5 && valid6)
+            try
             {
-                DialogResult answer = MessageBox.Show("Are you sure you want to Update this supplier?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
-                if (answer == DialogResult.Yes)
-                {//This is my update query in which i am taking input from the user through windows forms and update the record.  
-                    string query1 = "SELECT SupplierTypeID FROM SupplierType WHERE SupplierTypeName ='" + cmbSuppType.Text + "'";
-                    SqlCommand MyCommand1 = new SqlCommand(query1, ConnectString.connectstring);
-                    SqlDataReader MyReader1;
-                    ConnectString.connectstring.Open();
-                    MyReader1 = MyCommand1.ExecuteReader();     // Here our query will be executed and data saved into the database.  
-
-                    while (MyReader1.Read())
-                    {
-                        GenderID = Convert.ToInt32(MyReader1["SupplierTypeID"]);
-                    }
-                    ConnectString.connectstring.Close();
-
-                    string Query = "UPDATE Supplier SET SupplierName ='" + this.txtSuppName.Text + "', SupplierAddress = '" + this.txtAdress.Text + "', SupplierEmail = '" + this.txtEmail.Text + "', SupplierPhoneNumber = '" + this.txtPhoneNumber.Text + "', SupplierBankAccNumber ='" + this.txtBancACCN.Text + "', SupplierTypeID = '" + GenderID + "' WHERE SupplierID =" + Convert.ToInt32(InstructorID) + ";";
-                    //This is  MySqlConnection here i have created the object and pass my connection string.  
-
-                    SqlCommand MyCommand3 = new SqlCommand(Query, ConnectString.connectstring);
-                    SqlDataReader MyReader3;
-                    ConnectString.connectstring.Open();
-                    MyReader3 = MyCommand3.ExecuteReader();
-                    MessageBox.Show("Data Updated");
-                    while (MyReader3.Read())
-                    {
-                    }
-                    ConnectString.connectstring.Close();//Connection closed here 
-                    DataTable DT = new DataTable();
-                    ConnectString.connectstring.Open();
-                    SqlCommand Fill = new SqlCommand("SELECT * FROM Supplier", ConnectString.connectstring);
-                    DA = new SqlDataAdapter(Fill);
-                    DA.Fill(DT);
-                    dgvInstructor.DataSource = DT;
-                    dgvInstructor.DataMember = DT.TableName;
-                    ConnectString.connectstring.Close();
-                    MessageBox.Show("Supplier was Updated", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
-
-                }
-                else
+                if (cmbSuppType.SelectedIndex.ToString() != null && valid1 && valid2 && valid3 && valid4 && valid5)
                 {
-                    MessageBox.Show("Supplier was not Updated", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                    int SupplierType = cmbSuppType.SelectedIndex;
+                    SupplierType = SupplierType + 1;
+                    int SuppID = Convert.ToInt32(ConnectString.SupplierID);
+                    string Query = "UPDATE Supplier SET SupplierName ='" + this.txtSuppName.Text + "', SupplierAddress = '" + this.txtAdress.Text + "', SupplierEmail = '" + this.txtEmail.Text + "', SupplierPhoneNumber = '" + this.txtPhoneNumber.Text + "',SupplierBankAccNumber ='" + this.txtBancACCN.Text + "',SupplierTypeID = '" + SupplierType + "' WHERE SupplierID =" + SuppID + ";";
+                    //This is  MySqlConnection here i have created the object and pass my connection string.  
+                    DialogResult answer = MessageBox.Show("Are you sure you want to Update this Supplier?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                    if (answer == DialogResult.Yes)
+                    {
 
+                        SqlCommand MyCommand3 = new SqlCommand(Query, ConnectString.connectstring);
+                        SqlDataReader MyReader3;
+                        ConnectString.connectstring.Open();
+                        MyReader3 = MyCommand3.ExecuteReader();
+                        MessageBox.Show("Supplier successfully updated");
+                        ConnectString.connectstring.Close();
+                        this.Close();
+                        this.Dispose(true);
+                        Suppliers myform = new Suppliers();
+                        myform.ShowDialog();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("No Changes Made");
+                        ConnectString.connectstring.Close();
+                    }
+                }
+                else 
+                {
+                    MessageBox.Show("Please enter all information");
                 }
             }
-            else
+
+            catch
             {
-                MessageBox.Show("Information given was invalid please resubmit all the information", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-            MessageBox.Show("Are you sure you want to update this Supplier", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
         }
 
         private void Update_Supplier_Load(object sender, EventArgs e)
         {
+            txtSuppName.Text = ConnectString.SupplierName;
+            txtAdress.Text = ConnectString.SupplierAddress;
+            txtEmail.Text = ConnectString.SupplierEmail;
+            txtPhoneNumber.Text = ConnectString.SupplierPhoneNum;
+            txtBancACCN.Text = Convert.ToString(ConnectString.SupplierBankAccount);
+
+            //populate combobox
+            cmbSuppType.Items.Clear();
+            string query = "SELECT SupplierTypeName FROM SupplierType ";
             DataTable DT = new DataTable();
             ConnectString.connectstring.Open();
-            SqlCommand Fill = new SqlCommand("SELECT * FROM Supplier", ConnectString.connectstring);
-            DA = new SqlDataAdapter(Fill);
+            SqlCommand cmd = new SqlCommand(query, ConnectString.connectstring);
+            SqlDataAdapter DA = new SqlDataAdapter(cmd);
             DA.Fill(DT);
-            dgvInstructor.DataSource = DT;
-            dgvInstructor.DataMember = DT.TableName;
-            ConnectString.connectstring.Close();
-            cmbSuppType.Items.Clear();
 
-            string query1 = "SELECT SupplierTypeName FROM SupplierType ";
-            DataTable DTa = new DataTable();
-            ConnectString.connectstring.Open();
-            SqlCommand cmd = new SqlCommand(query1, ConnectString.connectstring);
-            DA = new SqlDataAdapter(cmd);
-            DA.Fill(DTa);
-            foreach (DataRow dr in DTa.Rows)
+            foreach (DataRow dr in DT.Rows)
             {
                 cmbSuppType.Items.Add(dr["SupplierTypeName"]).ToString();
             }
             ConnectString.connectstring.Close();
+            //Select index in combobox
+            cmbSuppType.SelectedIndex = cmbSuppType.FindStringExact(ConnectString.Suppliertype);
+
         }
 
         private void dgvInstructor_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvInstructor.SelectedRows.Count > 0) // make sure user select at least 1 row 
-            {
-                InstructorID = dgvInstructor.SelectedRows[0].Cells[0].Value + string.Empty;
-                string NameId = dgvInstructor.SelectedRows[0].Cells[1].Value + string.Empty;
-                string adressId = dgvInstructor.SelectedRows[0].Cells[2].Value + string.Empty;
-                string emailId = dgvInstructor.SelectedRows[0].Cells[3].Value + string.Empty;
-                string phoneNumberId = dgvInstructor.SelectedRows[0].Cells[4].Value + string.Empty;
-                string AccNid = dgvInstructor.SelectedRows[0].Cells[5].Value + string.Empty;
-                string titleid = dgvInstructor.SelectedRows[0].Cells[6].Value + string.Empty;
-                string query1 = "SELECT SupplierTypeName FROM SupplierType ";
-                SqlCommand MyCommand2 = new SqlCommand(query1, ConnectString.connectstring);
-                SqlDataReader MyReader2;
-                ConnectString.connectstring.Open();
-                MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
-
-                while (MyReader2.Read())
-                {
-                    titleid = MyReader2["SupplierTypeName"].ToString();
-                }
-                ConnectString.connectstring.Close();
-               
-                txtEmail.Text = emailId;
-                txtSuppName.Text = NameId;
-                txtAdress.Text = adressId;
-                txtPhoneNumber.Text = phoneNumberId;
-                txtBancACCN.Text = AccNid;
-                cmbSuppType.Text = titleid;
-            }
+           
         }
 
         private void txtSuppName_TextChanged(object sender, EventArgs e)

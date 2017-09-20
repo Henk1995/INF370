@@ -99,5 +99,13 @@ namespace PETSystem
         public static string CourseDuration;
         public static string CourseDate;
         public static string CourseType;
+        //vir Supplier
+        public static int SupplierID;
+        public static string SupplierName;
+        public static string SupplierEmail;
+        public static string SupplierAddress;
+        public static string SupplierPhoneNum;
+        public static int SupplierBankAccount;
+        public static string Suppliertype;
     }
 }

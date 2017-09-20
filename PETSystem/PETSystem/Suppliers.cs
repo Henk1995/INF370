@@ -51,12 +51,7 @@ namespace PETSystem
             PO.Show();
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Update_Supplier.Update_Supplier PO = new Update_Supplier.Update_Supplier();
-            PO.Show();
-        }
+       
 
         private void button5_Click(object sender, EventArgs e)
         {
@@ -132,7 +127,7 @@ namespace PETSystem
         {
             DataTable DT = new DataTable();
             ConnectString.connectstring.Open();
-            SqlCommand Fill = new SqlCommand("SELECT * FROM Supplier", ConnectString.connectstring);
+            SqlCommand Fill = new SqlCommand("SELECT Supplier.SupplierID,Supplier.SupplierName,Supplier.SupplierAddress,Supplier.SupplierEmail,Supplier.SupplierPhoneNumber,Supplier.SupplierBankAccNumber,SupplierType.SupplierTypeName FROM Supplier INNER JOIN SupplierType ON SupplierType.SupplierTypeID = Supplier.SupplierTypeID", ConnectString.connectstring);
             DA = new SqlDataAdapter(Fill);
             DA.Fill(DT);
             dgvInstructor.DataSource = DT;
@@ -146,5 +141,31 @@ namespace PETSystem
             RefundOrderSupp PO = new RefundOrderSupp();
             PO.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            if (dgvInstructor.SelectedRows.Count > 0)
+            {
+                int selectedIndex = dgvInstructor.SelectedRows[0].Index;
+
+                // gets the RowID from the first column in the grid
+                ConnectString.SupplierID = int.Parse(dgvInstructor[0, selectedIndex].Value.ToString());
+                ConnectString.SupplierName = dgvInstructor.SelectedRows[0].Cells[1].Value + string.Empty;
+                ConnectString.SupplierAddress = dgvInstructor.SelectedRows[0].Cells[2].Value + string.Empty;
+                ConnectString.SupplierEmail = dgvInstructor.SelectedRows[0].Cells[3].Value + string.Empty;
+                ConnectString.SupplierPhoneNum = dgvInstructor.SelectedRows[0].Cells[4].Value + string.Empty;
+                ConnectString.SupplierBankAccount = int.Parse(dgvInstructor[5, selectedIndex].Value.ToString());
+                ConnectString.Suppliertype = dgvInstructor.SelectedRows[0].Cells[6].Value + string.Empty;
+                this.Close();
+                Update_Supplier.Update_Supplier um = new Update_Supplier.Update_Supplier();
+                um.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select the row you want to view");
+            }
+        }
     }
-}
+    }
+
