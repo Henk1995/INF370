@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Place_Order;
+
 using Return_Order;
 using Refund_Order;
 using Receive_Order;
@@ -32,9 +32,24 @@ namespace PETSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
-            Select_Supplier.Select_Supplier PO = new Select_Supplier.Select_Supplier();
-            PO.Show();
+
+            if (dgvInstructor.SelectedRows.Count > 0)
+            {
+                int selectedIndex = dgvInstructor.SelectedRows[0].Index;
+                ConnectString.SupplierName = dgvInstructor.SelectedRows[0].Cells[1].Value + string.Empty;
+                // gets the RowID from the first column in the grid
+                ConnectString.SupplierID = int.Parse(dgvInstructor[0, selectedIndex].Value.ToString());
+                this.Close();
+                this.Dispose(true);
+                PlaceSupplierOrder myform = new PlaceSupplierOrder();
+                myform.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please select the row you want to view");
+            }
+
+            
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -92,9 +107,20 @@ namespace PETSystem
 
         private void button6_Click(object sender, EventArgs e)
         {
-            this.Close();
-            ReceiveOrderSupp PO = new ReceiveOrderSupp();
-            PO.Show();
+            if (dgvInstructor.SelectedRows.Count > 0)
+            {
+                int selectedIndex = dgvInstructor.SelectedRows[0].Index;
+                ConnectString.SupplierName = dgvInstructor.SelectedRows[0].Cells[1].Value + string.Empty;
+                // gets the RowID from the first column in the grid
+                ConnectString.SupplierID = int.Parse(dgvInstructor[0, selectedIndex].Value.ToString());
+                this.Close();
+                this.Dispose(true);
+                CaptureSupllierOrderForm PO = new CaptureSupllierOrderForm();
+                PO.Show();
+            }
+            else{
+                MessageBox.Show("Please Select a row to recieve an order from");
+            }
         }
 
         private void button9_Click(object sender, EventArgs e)

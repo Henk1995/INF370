@@ -107,5 +107,7 @@ namespace PETSystem
         public static string SupplierPhoneNum;
         public static int SupplierBankAccount;
         public static string Suppliertype;
+        //Vir Supplier Order
+        public static int UnitPrice;
     }
 }

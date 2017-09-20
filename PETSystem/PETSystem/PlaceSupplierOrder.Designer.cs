@@ -1,6 +1,6 @@
-﻿namespace Delete_Supplier
+﻿namespace PETSystem
 {
-    partial class Delete_Supplier
+    partial class PlaceSupplierOrder
     {
         /// <summary>
         /// Required designer variable.
@@ -28,60 +28,61 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(143, 77);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 13);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "SupplierID";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(216, 71);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(129, 20);
-            this.textBox1.TabIndex = 6;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(7, 208);
+            this.button2.Location = new System.Drawing.Point(21, 292);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(129, 43);
-            this.button2.TabIndex = 5;
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 7;
             this.button2.Text = "Back";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(216, 135);
+            this.button1.Location = new System.Drawing.Point(256, 256);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(129, 43);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Delete Supplier";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Place Order";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Delete_Supplier
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(18, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "label1";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(12, 38);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(238, 241);
+            this.txtEmail.TabIndex = 4;
+            this.txtEmail.Text = "";
+            // 
+            // PlaceSupplierOrder
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(532, 261);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(354, 337);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Name = "Delete_Supplier";
-            this.Text = "Delete Supplier";
-            this.Load += new System.EventHandler(this.Delete_Supplier_Load);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtEmail);
+            this.Name = "PlaceSupplierOrder";
+            this.Text = "PlaceSupplierOrder";
+            this.Load += new System.EventHandler(this.PlaceSupplierOrder_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -89,10 +90,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.RichTextBox txtEmail;
     }
 }
-

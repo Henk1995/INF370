@@ -29,5 +29,10 @@ namespace Delete_Supplier
             PETSystem.Suppliers UM = new PETSystem.Suppliers();
             UM.Show();
         }
+
+        private void Delete_Supplier_Load(object sender, EventArgs e)
+        {
+           
+        }
     }
 }
