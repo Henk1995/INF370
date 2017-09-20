@@ -55,19 +55,22 @@ namespace PETSystem
             int courseid = 0;
             int amountC = 0;
             int amountO = 0;
-            string queryA = "SELECT * FROM Instructor WHERE InstructorID ='" + Convert.ToInt32(txtInstructorID.Text) + "'";
-            SqlCommand MyCommandA = new SqlCommand(queryA, ConnectString.connectstring);
-            
-            SqlDataAdapter DAA = new SqlDataAdapter(MyCommandA);
-            DataTable DTA = new DataTable();
-            DAA.Fill(DTA);
-            ConnectString.connectstring.Open();
-
-
-            if (DTA.Rows.Count == 0)
+            if (valid1)
             {
+                string queryA = "SELECT * FROM Instructor WHERE InstructorID ='" + Convert.ToInt32(txtInstructorID.Text) + "'";
+                SqlCommand MyCommandA = new SqlCommand(queryA, ConnectString.connectstring);
 
-                valid1 = false;
+                SqlDataAdapter DAA = new SqlDataAdapter(MyCommandA);
+                DataTable DTA = new DataTable();
+                DAA.Fill(DTA);
+                ConnectString.connectstring.Open();
+
+
+                if (DTA.Rows.Count == 0)
+                {
+
+                    valid1 = false;
+                }
             }
             ConnectString.connectstring.Close();
             if (valid1)

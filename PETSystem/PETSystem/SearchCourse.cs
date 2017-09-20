@@ -102,19 +102,32 @@ namespace PETSystem
 
         private void btnRemoveCourse_Click(object sender, EventArgs e)
         {
+
             DialogResult test = MessageBox.Show("Are you sure you want to delete this course?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (test == DialogResult.Yes)
             {
-                //Delete Selected
-                var mCourse = (from x in db.Courses where x.AvailableCourseID == id select x).First();
-                db.Courses.DeleteOnSubmit(mCourse);
-                db.SubmitChanges();
+                bool doesItExistAlready = (from Instance in db.CourseInstances
+                                           where Instance.AvailableCourseID == id
+                                           select Instance).Any();
 
-                //refresh DGV
-                dgvSearchCourse.DataSource = null;
-                dgvSearchCourse.DataSource = db.Courses;
+                if (doesItExistAlready == false)
+                {
+                    //Delete Selected
+                    var mCourse = (from x in db.Courses where x.AvailableCourseID == id select x).First();
+                    db.Courses.DeleteOnSubmit(mCourse);
+                    db.SubmitChanges();
 
-                MessageBox.Show("Course has been deleted", "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //refresh DGV
+                    dgvSearchCourse.DataSource = null;
+                    dgvSearchCourse.DataSource = db.Courses;
+
+                    MessageBox.Show("Course has been deleted", "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Cannot Course as thereare active courses running of this course", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
             }
             else if (test == DialogResult.No)
             {

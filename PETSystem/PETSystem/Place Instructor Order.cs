@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Mail;
+using System.Net;
+
 
 namespace PETSystem
 {
@@ -30,23 +33,23 @@ namespace PETSystem
         bool valid4 = false;
         double OrderT = 0;
         string OrderDesc = "";
-        string Date = "";
+        string OrderDate = "";
         int SuppID = 0;
+        string ReturnEmail;
+
 
 
         private void Place_Instructor_Order_Load(object sender, EventArgs e)
         {
             txtDate.Visible = false;
             txtDescription.Visible = false;
-            txtUnitprice.Visible = false;
-            nudQuantity.Visible = false;
             lblDate.Visible = false;
             lblDescription.Visible = false;
-            lblNum.Visible = false;
-            lblUnitPrice.Visible = false;
             btnAddI.Visible = false;
             btnPO.Visible = false;
-            rtbOrder.Text = rtbOrder.Text + "Quantity\t Order Description \t Date\t total\n";
+            txtQuantity.Visible = false;
+            lblQuantity.Visible = false;
+            rtbOrder.Text = rtbOrder.Text + "Quantity\t Order Description \t Date\n";
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -65,12 +68,8 @@ namespace PETSystem
                 RefNum = Convert.ToInt32(txtReferenceNum.Text);
                 txtDate.Visible = true;
                 txtDescription.Visible = true;
-                txtUnitprice.Visible = true;
-                nudQuantity.Visible = true;
                 lblDate.Visible = true;
                 lblDescription.Visible = true;
-                lblNum.Visible = true;
-                lblUnitPrice.Visible = true;
                 btnAddI.Visible = true;
                 btnPO.Visible = true;
                 btnARN.Visible = false;
@@ -103,18 +102,7 @@ namespace PETSystem
             }
         }
 
-        private void txtUnitprice_TextChanged(object sender, EventArgs e)
-        {
-            valid3 = EH.Checkfloat(txtUnitprice.Text);
-            if (!valid3)
-            {
-                txtUnitprice.BackColor = Color.Red;
-            }
-            else
-            {
-                txtUnitprice.BackColor = Color.White;
-            }
-        }
+     
 
         private void txtDate_TextChanged(object sender, EventArgs e)
         {
@@ -131,25 +119,7 @@ namespace PETSystem
 
         private void btnAddI_Click(object sender, EventArgs e)
         {
-            if (valid1 && valid2 && valid3 && valid4 && nudQuantity.Value > 0)
-            {
-                OrderT = OrderT + (Convert.ToDouble(txtUnitprice.Text) * Convert.ToDouble(nudQuantity.Value));
-                double total = Convert.ToDouble(txtUnitprice.Text) * Convert.ToDouble(nudQuantity.Value);
-                if (OrderDesc == "")
-                {
-                    OrderDesc = txtDescription.Text;
-                }
-                else
-                {
-                    OrderDesc = OrderDesc + "," + txtDescription.Text;
-                }
-
-                rtbOrder.Text = rtbOrder.Text + nudQuantity.Value + "x\t" + txtDescription.Text + "\t" + txtDate.Text + "\t R" + total + "\n";
-
-                txtDescription.Clear();
-                txtUnitprice.Clear();
-                nudQuantity.ResetText();
-            }
+            
         }
 
         private void btnPO_Click(object sender, EventArgs e)
@@ -175,6 +145,177 @@ namespace PETSystem
                 this.Close();
                 Search_Order so = new Search_Order();
                 so.Show();
+            }
+        }
+
+        private void btnGo_Click(object sender, EventArgs e)
+        {
+            OrderDesc = txtDescription.Text;
+            OrderDate = txtDate.Text;
+            txtDate.Visible = false;
+            txtDescription.Visible = false;
+            lblDate.Visible = true;
+            lblDescription.Visible = true;
+            btnAddI.Visible = true;
+            btnPO.Visible = true;
+            btnARN.Visible = false;
+            lblRef.Visible = false;
+            txtReferenceNum.Visible = false;
+        }
+
+        private void btnARN_Click_1(object sender, EventArgs e)
+        {
+            valid1 = EH.CheckEmpty(txtReferenceNum.Text);
+            valid1 = EH.CheckInt(txtReferenceNum.Text);
+            if (valid1)
+            {
+                RefNum = Convert.ToInt32(txtReferenceNum.Text);
+                txtDate.Visible = true;
+                txtDescription.Visible = true;
+                lblDate.Visible = true;
+                lblDescription.Visible = true;
+                btnAddI.Visible = true;
+                btnPO.Visible = true;
+                btnARN.Visible = false;
+                lblRef.Visible = false;
+                txtReferenceNum.Visible = false;
+                txtQuantity.Visible = true;
+                lblQuantity.Visible = true;
+
+            }
+            else
+            {
+
+                MessageBox.Show("Information provided is invalid please submit valid information");
+            }
+        }
+
+        private void btnAddI_Click_1(object sender, EventArgs e)
+        {
+            if (valid1 && valid2 && valid3 && valid4)
+            {
+                if (OrderDesc == "")
+                {
+                    OrderDesc = txtDescription.Text;
+                }
+                else
+                {
+                    OrderDesc = OrderDesc + "," + txtDescription.Text;
+                }
+
+                rtbOrder.Text = rtbOrder.Text + "x\t" + txtQuantity.Text + "\t" + txtDescription.Text + "\t" + txtDate.Text + "\n";
+            }
+            else
+            {
+                MessageBox.Show("Values:" + valid1 + valid2 + valid3 + valid4);
+            }
+        }
+
+        private void btnPO_Click_1(object sender, EventArgs e)
+        {
+            if (valid1 && valid2 && valid3 && valid4)
+            {
+                MessageBox.Show("Are you sure you want to place this new order", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                //Add order to Database
+
+
+                TableOrder mTableOrder = new TableOrder
+                {
+                    Order_ReferenceNumber = Convert.ToInt32(txtReferenceNum.Text),
+                    OrderDate = txtDate.Text,
+                    OrderDescription = txtDescription.Text,
+                    InstructorID = InstructorOrderID,
+                    UserID = CurrentlyLoggedInUserID,
+
+                };
+
+                db.TableOrders.InsertOnSubmit(mTableOrder);
+                db.SubmitChanges();
+
+
+
+                //Get email
+
+                var getEmail = (from x in db.Instructors where x.InstructorID == InstructorOrderID select x.Email).FirstOrDefault();
+
+                ReturnEmail = getEmail;
+
+
+
+                using (SmtpClient client = new SmtpClient())
+                {
+                    client.Host = "smtp.gmail.com";
+                    client.UseDefaultCredentials = true;
+                    NetworkCredential netCred = new NetworkCredential("petsystemtest@gmail.com", "JJSRHsystem");
+                    client.Credentials = netCred;
+                    client.EnableSsl = true;
+                    client.Port = 587;
+                    client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    using (MailMessage mail = new MailMessage("petsystemtest@gmail.com", ReturnEmail))
+                    {
+                        mail.Subject = "New Order Placed";
+                        mail.Body = "Your Order has been placed: \n\n Order Date: \t\t\t" + txtDate.Text + " \n Order Reference Number: \t" + txtReferenceNum.Text + " \n The order description: \n " + txtDescription.Text + " \n\n We will notify you as soon as your order is ready.";
+                        mail.IsBodyHtml = false;
+                        client.Send(mail);
+                        MessageBox.Show("Message was sent");
+
+
+                    }
+                }
+
+
+                this.Close();
+                Search_Printing_Supplier sps = new Search_Printing_Supplier();
+                sps.Show();
+            }
+        }
+
+        private void txtReferenceNum_TextChanged_1(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtDescription_TextChanged_1(object sender, EventArgs e)
+        {
+            valid2 = EH.Checkstring(txtDescription.Text);
+            if (!valid2)
+            {
+                txtDescription.BackColor = Color.Red;
+            }
+            else
+            {
+                txtDescription.BackColor = Color.White;
+            }
+        }
+
+        private void btnBack_Click_1(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtDate_TextChanged_1(object sender, EventArgs e)
+        {
+            valid4 = EH.CheckDate(txtDate.Text);
+            if (!valid4)
+            {
+                txtDate.BackColor = Color.Red;
+            }
+            else
+            {
+                txtDate.BackColor = Color.White;
+            }
+        }
+
+        private void txtQuantity_TextChanged(object sender, EventArgs e)
+        {
+            valid3 = EH.Checkfloat(txtQuantity.Text);
+            if (!valid3)
+            {
+                txtQuantity.BackColor = Color.Red;
+            }
+            else
+            {
+                txtQuantity.BackColor = Color.White;
             }
         }
     }

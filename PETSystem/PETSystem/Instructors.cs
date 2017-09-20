@@ -120,7 +120,7 @@ namespace PETSystem
         
                 else
                 {
-                    MessageBox.Show("Please select the row that you want to delete", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Please select the row that you want to delete", "Tip", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
             
         }
@@ -139,6 +139,7 @@ namespace PETSystem
             UM.Show();
         }
 
+		
         private void dgvInstructor_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 

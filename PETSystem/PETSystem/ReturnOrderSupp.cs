@@ -77,12 +77,12 @@ namespace Return_Order
             if (dgvSuppOrder.SelectedRows.Count > 0)
             {
                 string supplierID = dgvSuppOrder.SelectedRows[0].Cells[4].Value + string.Empty;
-
+                string RefID = dgvSuppOrder.SelectedRows[0].Cells[1].Value + string.Empty;
                 // gets the RowID from the first column in the grid
                 int suppID = int.Parse(supplierID);
 
 
-                MessageBox.Show("Are you sure you want to delete this instructor?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+               
                 string query2 = "SELECT SupplierEmail FROM Supplier WHERE SupplierID ='" + suppID + "'";
                 SqlCommand MyCommand2 = new SqlCommand(query2, ConnectString.connectstring);
                 SqlDataReader MyReader2;
@@ -108,7 +108,7 @@ namespace Return_Order
                         try
                         {
                             mail.Subject = "Return order";
-                            mail.Body = "The order that was placed with reference number XXXXXXX is being returned as we are not happy with the order no refund required";
+                            mail.Body = "The order that was placed with reference number"  + RefID +" is being returned as we are not happy with the order no refund required";
                             mail.IsBodyHtml = false;
                             client.Send(mail);
                         }
@@ -120,8 +120,10 @@ namespace Return_Order
                             { MessageBox.Show("InnerException is: {0}", ex.InnerException.ToString()); }
 
                         }
+                        MessageBox.Show("Email Sent", "Sent", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
                 }
+				 MessageBox.Show("Email was not sent please select the order that you want to return in the table.", "Sent", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
                 }
 

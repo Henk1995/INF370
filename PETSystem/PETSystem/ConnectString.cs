@@ -60,22 +60,52 @@ namespace PETSystem
         // ALMAL SE CONNECTION STRINGS
 
         //Jan se connection string
-        //public static string DBC = "Data Source=JWM\\SYSARCH;Initial Catalog=INF370;Integrated Security=True";
+        //public static string DBC = "Data Source=DESKTOP-P44G52P\\SQLEXPRESS;Initial Catalog=inf370Reg;Integrated Security=True";
 
         //John se connection string
         //public static string DBC = "Data Source=JOHN-MAC-WIN;Initial Catalog=inf370Reg;Integrated Security=True";
 
         //Henk se connection string    + Copy jou goed hier in en uncomment die lyn hier onder
         //public static string DBC = "Data Source=.;Initial Catalog=inf370Reg;Integrated Security=True";
+        
 
         //Sam se connection string    + Copy jou goed hier in en uncomment die lyn hier onder
         public static string DBC = "Data Source=.;Initial Catalog=inf370Reg;Integrated Security=True";
 
-        //Sam se connection string    + Copy jou goed hier in en uncomment die lyn hier onder
-        //public static string DBC = ""
+        //Rohan se connection string    + Copy jou goed hier in en uncomment die lyn hier onder
+        public static string DBC = "Data Source=.;Initial Catalog=inf370Reg;Integrated Security=True";
 
 
         // LOS HIERDIE NET SO
         public static SqlConnection connectstring = new SqlConnection(DBC);
+        //HEnk se comment
+        //het goed geskuif vir test commit
+        public string VIEW;
+        // Henk se global int
+        public static int ID;
+        public static int CourseID;
+        public static int InstructorID;
+        //vir users
+        public static string UserName;
+        public static string UserID;
+        public static string Name;
+        public static string Surname;
+        public static string Password;
+        public static string Email;
+        public static string Priv;
+        //vir courses
+        public static string CourseStringID;
+        public static string CourseName;
+        public static string CourseDuration;
+        public static string CourseDate;
+        public static string CourseType;
+        //vir Supplier
+        public static int SupplierID;
+        public static string SupplierName;
+        public static string SupplierEmail;
+        public static string SupplierAddress;
+        public static string SupplierPhoneNum;
+        public static int SupplierBankAccount;
+        public static string Suppliertype;
     }
 }

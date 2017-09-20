@@ -19,6 +19,8 @@ namespace PETSystem
             InitializeComponent();
         }
 
+
+        int printeridload = Search_Printing_Supplier.PrinterIDToEmail;
         PET_DBDataContext db = new PET_DBDataContext();
         ErrorHandle chk = new ErrorHandle();
         bool searchISValid;
@@ -91,7 +93,7 @@ namespace PETSystem
         {
 
             var mgetOrderDetails = (from a in db.PrinterOrders
-                                    where a.PrinterOrderID == SelectedRefNum && a.PrinterID == SelectedPrinterID
+                                    where a.PrinterOrderRefNumber == SelectedRefNum && a.PrinterID == printeridload
                                     select new
                                     {
                                         a.PrintOrderDescription,
@@ -106,9 +108,11 @@ namespace PETSystem
                 EmailReferenceNumber = Convert.ToInt32(item.PrinterOrderRefNumber);
             }
 
-            var getEmail = (from x in db.Printers where x.PrinterID == SelectedPrinterID select x.PrinterEmail).FirstOrDefault();
+            var getEmail = (from x in db.Printers where x.PrinterID == printeridload select x.PrinterEmail).FirstOrDefault();
 
             ReturnEmail = getEmail;
+
+
 
                 using (SmtpClient client = new SmtpClient())
                 {

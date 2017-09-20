@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Net.Mail;
+using System.Net;
 
 namespace PETSystem
 {
@@ -30,6 +32,7 @@ namespace PETSystem
         string OrderDesc = "";
         string Date = "";
         int SuppID = 0;
+        string ReturnEmail;
 
         private void btnBack_Click(object sender, EventArgs e)
         {
@@ -75,11 +78,13 @@ namespace PETSystem
             btnPO.Visible = false;
             txtQuantity.Visible = false;
             lblQuantity.Visible = false;
-            rtbOrder.Text = rtbOrder.Text + "x\t Quantity\t Order Description \t Date\n";
+            rtbOrder.Text = rtbOrder.Text + "Quantity\t Order Description \t Date\n";
         }
 
         private void btnPO_Click(object sender, EventArgs e)
         {
+            int SelectedID = LoadPrintingfSupplierID;
+
             if (valid1 && valid2 && valid3 && valid4)
             {
                 MessageBox.Show("Are you sure you want to place this new order", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
@@ -96,6 +101,36 @@ namespace PETSystem
 
                 db.PrinterOrders.InsertOnSubmit(mPrinterOrder);
                 db.SubmitChanges();
+
+                //Get email
+
+                var getEmail = (from x in db.Printers where x.PrinterID == SelectedID select x.PrinterEmail).FirstOrDefault();
+
+                ReturnEmail = getEmail;
+
+                
+
+                using (SmtpClient client = new SmtpClient())
+                {
+                    client.Host = "smtp.gmail.com";
+                    client.UseDefaultCredentials = true;
+                    NetworkCredential netCred = new NetworkCredential("petsystemtest@gmail.com", "JJSRHsystem");
+                    client.Credentials = netCred;
+                    client.EnableSsl = true;
+                    client.Port = 587;
+                    client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    using (MailMessage mail = new MailMessage("petsystemtest@gmail.com", ReturnEmail))
+                    {
+                        mail.Subject = "New Printing Order";
+                        mail.Body = "We would Like to place a new order: \n\n Order Date: \t\t\t" + txtDate.Text + " \n Order Reference Number: \t" + txtReferenceNum.Text + " \n The order description: \n " + txtDescription.Text + " \n\nPlease Send us the Invoice.";
+                        mail.IsBodyHtml = false;
+                        client.Send(mail);
+                        MessageBox.Show("Message was sent");
+
+                        
+                    }
+                }
+
 
                 this.Close();
                 Search_Printing_Supplier sps = new Search_Printing_Supplier();

@@ -40,10 +40,6 @@ namespace Place_Order
 
         private void button3_Click(object sender, EventArgs e)
         {
-
-
-
-
             if (valid1 && valid2 && valid3 && valid4)
             {
                 MessageBox.Show("Are you sure you want to place this new order", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);

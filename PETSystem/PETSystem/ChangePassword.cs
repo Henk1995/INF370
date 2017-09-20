@@ -57,6 +57,7 @@ namespace PETSystem
 
         private void txtOldPass_TextChanged(object sender, EventArgs e)
         {
+		txtOldPass.PasswordChar = '*';
             valid2 = EH.CheckstringNum(txtOldPass.Text);
             bool validSQl = EH.checkForSQLInjection(txtOldPass.Text);
             if (valid2)
@@ -76,6 +77,7 @@ namespace PETSystem
 
         private void txtNewPass_TextChanged(object sender, EventArgs e)
         {
+		txtNewPass.PasswordChar = '*';
             valid3 = EH.CheckstringNum(txtNewPass.Text);
             bool validSQl = EH.checkForSQLInjection(txtNewPass.Text);
             if (valid3)
@@ -95,6 +97,7 @@ namespace PETSystem
 
         private void txtNewRePass_TextChanged(object sender, EventArgs e)
         {
+		txtNewRePass.PasswordChar = '*';
             valid4 = EH.CheckstringNum(txtNewRePass.Text);
             if ((!valid4) || (txtNewPass.Text != txtNewRePass.Text))
             {

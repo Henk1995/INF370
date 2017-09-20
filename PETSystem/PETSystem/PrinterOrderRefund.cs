@@ -24,6 +24,8 @@ namespace PETSystem
         ErrorHandle chk = new ErrorHandle();
         bool searchISValid;
 
+        int printeridload = Search_Printing_Supplier.PrinterIDToEmail;
+
         //selected item in dgv
         int SelectedPrinterID;
         int SelectedRefNum;
@@ -99,7 +101,7 @@ namespace PETSystem
 
             //get order details for email body
             var mgetOrderDetails = (from a in db.PrinterOrders
-                                    where a.PrinterOrderID == SelectedRefNum && a.PrinterID == SelectedPrinterID
+                                    where a.PrinterOrderRefNumber == SelectedRefNum && a.PrinterID == SelectedPrinterID
                                     select new
                                     {
                                         a.PrintOrderDescription,
@@ -114,7 +116,7 @@ namespace PETSystem
                 EmailReferenceNumber = Convert.ToInt32(item.PrinterOrderRefNumber);
             }
 
-            var getEmail = (from x in db.Printers where x.PrinterID == SelectedPrinterID select x.PrinterEmail).FirstOrDefault();
+            var getEmail = (from x in db.Printers where x.PrinterID == printeridload select x.PrinterEmail).FirstOrDefault();
 
             ReturnEmail = getEmail;
 
@@ -135,7 +137,7 @@ namespace PETSystem
                 using (MailMessage mail = new MailMessage("petsystemtest@gmail.com", ReturnEmail))
                 {
                     mail.Subject = "Request to Refund order";
-                    mail.Body = "The order that was placed on " + OrderDate + "with reference number " + EmailReferenceNumber + " is being returned as the order was damaged. \n The order description: \n" + OrderDesc + " \n Please Refund our payment in full";
+                    mail.Body = "The order that was placed on " + OrderDate + " with reference number " + EmailReferenceNumber + " is being returned as the order was damaged. \n The order description: \n" + OrderDesc + " \n Please Refund our payment in full";
                     mail.IsBodyHtml = false;
                     client.Send(mail);
                     MessageBox.Show("Message was sent");

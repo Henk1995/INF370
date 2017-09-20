@@ -19,7 +19,9 @@ namespace PETSystem
 
         int id;
         PET_DBDataContext db = new PET_DBDataContext();
+        ErrorHandle chk = new ErrorHandle();
         public static int ToUpdate;
+        bool SearchISValid;
 
 
         private void btnPlaceOrder_Click(object sender, EventArgs e)
@@ -83,36 +85,83 @@ namespace PETSystem
             dgvOrders.Refresh();
         }
 
-        private void btnReturnOder_Click(object sender, EventArgs e)
-        {
-            //Log return stock ( damaged stock )
+        //private void btnReturnOder_Click(object sender, EventArgs e)
+        //{
+        //    //Log return stock ( damaged stock )
 
 
-        }
+        //}
 
-        private void btnLogRefund_Click(object sender, EventArgs e)
-        {
-            //Log refund ( money )
-        }
+        //private void btnLogRefund_Click(object sender, EventArgs e)
+        //{
+        //    //Log refund ( money )
 
-        private void btnLogPayment_Click(object sender, EventArgs e)
-        {
-            //Log payment to generate receipt
-        }
 
-        private void btnGenerateInvoice_Click(object sender, EventArgs e)
-        {
-            // order invoice to instructor asking for payment
-        }
+        //}
 
-        private void btnGenerateReceipt_Click(object sender, EventArgs e)
-        {
-            // generate after payment is received
-        }
+        //private void btnLogPayment_Click(object sender, EventArgs e)
+        //{
+        //    //Log payment to generate receipt
+
+
+        //}
+
+        //private void btnGenerateInvoice_Click(object sender, EventArgs e)
+        //{
+        //    // order invoice to instructor asking for payment
+        //}
+
+        //private void btnGenerateReceipt_Click(object sender, EventArgs e)
+        //{
+        //    // generate after payment is received
+        //}
 
         private void txtSearchOrderID_TextChanged(object sender, EventArgs e)
         {
-            //do search order
+            txtSearchOrderID.BackColor = Color.White;
+            string OrderID = txtSearchOrderID.Text;
+            bool isInt = chk.CheckInt(OrderID);
+            bool notEmpty = chk.CheckEmpty(OrderID);
+            bool checkForSQLInjection = chk.checkForSQLInjection(OrderID);
+
+            if (isInt == false)
+            {
+                txtSearchOrderID.BackColor = Color.FromArgb(244, 17, 17);
+                SearchISValid = false;
+            }
+            else if (notEmpty == false)
+            {
+                txtSearchOrderID.BackColor = Color.FromArgb(244, 17, 17);
+                SearchISValid = false;
+            }
+            else if (checkForSQLInjection == false)
+            {
+                txtSearchOrderID.BackColor = Color.FromArgb(244, 17, 17);
+                SearchISValid = false;
+            }
+            else
+            {
+                txtSearchOrderID.BackColor = Color.White;
+                SearchISValid = true;
+            }
+
+            if (SearchISValid == true)
+            {
+                var searchDesc = from Orders in db.TableOrders
+                                 where Orders.OrderID == Convert.ToInt32(txtSearchOrderID.Text)
+                                 select Orders;
+                dgvOrders.DataSource = searchDesc;
+                dgvOrders.Refresh();
+            }
+            else
+            {
+                dgvOrders.DataSource = null;
+                var S = from Orders in db.TableOrders select Orders;
+                dgvOrders.DataSource = S;
+                dgvOrders.Update();
+                dgvOrders.Refresh();
+            }
+
 
         }
     }

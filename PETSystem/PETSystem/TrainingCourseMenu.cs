@@ -40,32 +40,26 @@ namespace PETSystem
 
         }
 
-        private void btnAddResult_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void TrainingCourseMenu_Load(object sender, EventArgs e)
         {
             DataTable DT = new DataTable();
             ConnectString.connectstring.Open();
-            SqlCommand Fill = new SqlCommand("SELECT * FROM TrainingCourse", ConnectString.connectstring);
+            SqlCommand Fill = new SqlCommand("SELECT TrainingCourse.TrainingCourseID,TrainingCourse.CourseName,TrainingCourse.Duration AS 'Duration in Weeks',TrainingCourse.TrainingCourseDate AS 'Start Date',TrainingCourseType.TrainingCourseName AS 'Training Course Type' FROM TrainingCourse INNER JOIN TrainingCourseType ON TrainingCourseType.TrainingCourseTypeID = TrainingCourse.TrainingCourseTypeID", ConnectString.connectstring);
             DA = new SqlDataAdapter(Fill);
             DA.Fill(DT);
             dgvTC.DataSource = DT;
             dgvTC.DataMember = DT.TableName;
             ConnectString.connectstring.Close();
-            comboBox1.Items.Clear();
+            
             string query = "SELECT TrainingCourseName FROM TrainingCourseType ";
             DataTable DT1 = new DataTable();
             ConnectString.connectstring.Open();
             SqlCommand cmd = new SqlCommand(query, ConnectString.connectstring);
             DA = new SqlDataAdapter(cmd);
             DA.Fill(DT1);
-            foreach (DataRow dr in DT1.Rows)
-            {
-                comboBox1.Items.Add(dr["TrainingCourseName"]).ToString();
-            }
+            
             ConnectString.connectstring.Close();
         }
 
@@ -77,15 +71,25 @@ namespace PETSystem
             {
                 valid1 = validSQl;
             }
-            if (!valid1)
+            if (valid1)
             {
                 ConnectString.connectstring.Open();
-                DA = new SqlDataAdapter("select * from TrainingCourse where CourseName like '" + txtCourseN.Text + "%'", ConnectString.connectstring);
+                DA = new SqlDataAdapter("SELECT TrainingCourse.TrainingCourseID,TrainingCourse.CourseName,TrainingCourse.Duration AS 'Duration in Weeks',TrainingCourse.TrainingCourseDate AS 'Start Date',TrainingCourseType.TrainingCourseName AS 'Training Course Type' FROM TrainingCourse INNER JOIN TrainingCourseType ON TrainingCourseType.TrainingCourseTypeID = TrainingCourse.TrainingCourseTypeID where CourseName like '%" + txtCourseN.Text + "%'", ConnectString.connectstring);
                 DataTable DT = new DataTable();
                 DA.Fill(DT);
                 dgvTC.DataSource = DT;
                 ConnectString.connectstring.Close();
-            }
+            }else
+			{
+			 DataTable DT = new DataTable();
+            ConnectString.connectstring.Open();
+            SqlCommand Fill = new SqlCommand("SELECT * FROM TrainingCourse", ConnectString.connectstring);
+            DA = new SqlDataAdapter(Fill);
+            DA.Fill(DT);
+            dgvTC.DataSource = DT;
+            dgvTC.DataMember = DT.TableName;
+            ConnectString.connectstring.Close();
+			}
         }
 
         private void txtCourseT_TextChanged(object sender, EventArgs e)
@@ -95,32 +99,50 @@ namespace PETSystem
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            bool valid1 = EH.Checkstring(txtCourseN.Text);
-            bool validSQl = EH.checkForSQLInjection(txtCourseN.Text);
-            if (valid1)
+           
+        }
+
+        private void btnVMParticipants_Click(object sender, EventArgs e)
+        {
+
+            if (dgvTC.SelectedRows.Count > 0)
             {
-                valid1 = validSQl;
+                int selectedIndex = dgvTC.SelectedRows[0].Index;
+
+                // gets the RowID from the first column in the grid
+                int rowID = int.Parse(dgvTC[0, selectedIndex].Value.ToString());
+                string CourseName = dgvTC.SelectedRows[0].Cells[1].Value + string.Empty;
+                this.Close();
+                ViewMaintainP UM = new ViewMaintainP(rowID,CourseName);
+                UM.Show();
             }
-            if (!valid1)
+            else
             {
-                string query = "SELECT TrainingCourseTypeID FROM TrainingCourseType WHERE TrainingCourseName='" + comboBox1.Text + "'";
-                SqlCommand MyCommand1 = new SqlCommand(query, ConnectString.connectstring);
-                SqlDataReader MyReader1;
-                ConnectString.connectstring.Open();
-                MyReader1 = MyCommand1.ExecuteReader();     // Here our query will be executed and data saved into the database.  
-                int privID = 0;
-                while (MyReader1.Read())
-                {
-                    privID = Convert.ToInt32(MyReader1["TrainingCourseTypeID"]);
+                MessageBox.Show("Please select the row you want to view");
+            }
                 }
-                ConnectString.connectstring.Close();
-                ConnectString.connectstring.Open();
-                DA = new SqlDataAdapter("select * from TrainingCourse where TrainingCourseTypeID like '", ConnectString.connectstring);
-                DataTable DT = new DataTable();
-                DA.Fill(DT);
-                dgvTC.DataSource = DT;
-                ConnectString.connectstring.Close();
+        private void btnAddResult_Click(object sender, EventArgs e)
+        {
+
+            if (dgvTC.SelectedRows.Count > 0)
+            {
+                int selectedIndex = dgvTC.SelectedRows[0].Index;
+
+                // gets the RowID from the first column in the grid
+                int rowID = int.Parse(dgvTC[0, selectedIndex].Value.ToString());
+                string CourseName = dgvTC.SelectedRows[0].Cells[1].Value + string.Empty;
+                this.Close();
+                AddResult UM = new AddResult(rowID);
+                UM.ShowDialog();
             }
+            else
+            {
+                MessageBox.Show("Please select the row you want to view");
+            }
+
+
+
+            
         }
     }
     }

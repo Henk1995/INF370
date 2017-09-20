@@ -36,7 +36,7 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(215, 161);
+            this.btnBack.Location = new System.Drawing.Point(172, 99);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(118, 23);
             this.btnBack.TabIndex = 7;
@@ -46,7 +46,7 @@
             // 
             // btnSelectInstructor
             // 
-            this.btnSelectInstructor.Location = new System.Drawing.Point(82, 161);
+            this.btnSelectInstructor.Location = new System.Drawing.Point(39, 99);
             this.btnSelectInstructor.Name = "btnSelectInstructor";
             this.btnSelectInstructor.Size = new System.Drawing.Size(118, 23);
             this.btnSelectInstructor.TabIndex = 6;
@@ -57,7 +57,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(79, 106);
+            this.label1.Location = new System.Drawing.Point(36, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 5;
@@ -67,7 +67,7 @@
             // 
             this.cbInstructor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbInstructor.FormattingEnabled = true;
-            this.cbInstructor.Location = new System.Drawing.Point(167, 103);
+            this.cbInstructor.Location = new System.Drawing.Point(124, 41);
             this.cbInstructor.Name = "cbInstructor";
             this.cbInstructor.Size = new System.Drawing.Size(166, 21);
             this.cbInstructor.TabIndex = 4;
@@ -76,7 +76,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(441, 305);
+            this.ClientSize = new System.Drawing.Size(349, 186);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnSelectInstructor);
             this.Controls.Add(this.label1);

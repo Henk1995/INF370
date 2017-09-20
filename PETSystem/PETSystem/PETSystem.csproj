@@ -12,6 +12,21 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,6 +50,9 @@
   <PropertyGroup>
     <StartupObject>
     </StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>128x128.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -63,11 +81,29 @@
     <Compile Include="Add Printing Supplier.Designer.cs">
       <DependentUpon>Add Printing Supplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddInstrucorC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddInstrucorC.Designer.cs">
+      <DependentUpon>AddInstrucorC.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddNewStockType.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="AddNewStockType.Designer.cs">
       <DependentUpon>AddNewStockType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddResult.Designer.cs">
+      <DependentUpon>AddResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddResultMessagebox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddResultMessagebox.Designer.cs">
+      <DependentUpon>AddResultMessagebox.cs</DependentUpon>
     </Compile>
     <Compile Include="AddStock.cs">
       <SubType>Form</SubType>
@@ -142,6 +178,11 @@
     </Compile>
     <Compile Include="ForgotPassword.Designer.cs">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="inf370RegDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>inf370RegDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Instructors.cs">
       <SubType>Form</SubType>
@@ -234,6 +275,12 @@
     <Compile Include="RefundOrderSupp.Designer.cs">
       <DependentUpon>RefundOrderSupp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports.Designer.cs">
+      <DependentUpon>Reports.cs</DependentUpon>
+    </Compile>
     <Compile Include="ReturnOrderSupp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -288,6 +335,12 @@
     <Compile Include="Select Instructor.Designer.cs">
       <DependentUpon>Select Instructor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Select Printer To Order From.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Select Printer To Order From.Designer.cs">
+      <DependentUpon>Select Printer To Order From.cs</DependentUpon>
+    </Compile>
     <Compile Include="Select_Supplier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -335,6 +388,24 @@
     </Compile>
     <Compile Include="UpdateStock.Designer.cs">
       <DependentUpon>UpdateStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateTrainingCourseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateTrainingCourseForm.Designer.cs">
+      <DependentUpon>UpdateTrainingCourseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateTrainingCourseTypeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateTrainingCourseTypeForm.Designer.cs">
+      <DependentUpon>UpdateTrainingCourseTypeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateUserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateUserForm.Designer.cs">
+      <DependentUpon>UpdateUserForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Update_Supplier.cs">
       <SubType>Form</SubType>
@@ -384,8 +455,17 @@
     <EmbeddedResource Include="Add Printing Supplier.resx">
       <DependentUpon>Add Printing Supplier.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddInstrucorC.resx">
+      <DependentUpon>AddInstrucorC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AddNewStockType.resx">
       <DependentUpon>AddNewStockType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddResult.resx">
+      <DependentUpon>AddResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddResultMessagebox.resx">
+      <DependentUpon>AddResultMessagebox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddStock.resx">
       <DependentUpon>AddStock.cs</DependentUpon>
@@ -444,6 +524,17 @@
     <EmbeddedResource Include="OrderReturns.resx">
       <DependentUpon>OrderReturns.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="inf370RegDataSet.xsc">
+      <DependentUpon>inf370RegDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="inf370RegDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>inf370RegDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="inf370RegDataSet.xss">
+      <DependentUpon>inf370RegDataSet.xsd</DependentUpon>
+    </None>
     <None Include="PET_DB.dbml.layout">
       <DependentUpon>PET_DB.dbml</DependentUpon>
     </None>
@@ -477,6 +568,9 @@
     <EmbeddedResource Include="RefundOrderSupp.resx">
       <DependentUpon>RefundOrderSupp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports.resx">
+      <DependentUpon>Reports.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ReturnOrderSupp.resx">
       <DependentUpon>ReturnOrderSupp.cs</DependentUpon>
     </EmbeddedResource>
@@ -504,6 +598,9 @@
     <EmbeddedResource Include="Select Instructor.resx">
       <DependentUpon>Select Instructor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Select Printer To Order From.resx">
+      <DependentUpon>Select Printer To Order From.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Select_Supplier.resx">
       <DependentUpon>Select_Supplier.cs</DependentUpon>
     </EmbeddedResource>
@@ -527,6 +624,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateStock.resx">
       <DependentUpon>UpdateStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateTrainingCourseForm.resx">
+      <DependentUpon>UpdateTrainingCourseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateTrainingCourseTypeForm.resx">
+      <DependentUpon>UpdateTrainingCourseTypeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateUserForm.resx">
+      <DependentUpon>UpdateUserForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Update_Supplier.resx">
       <DependentUpon>Update_Supplier.cs</DependentUpon>
@@ -569,6 +675,32 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="128x128.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

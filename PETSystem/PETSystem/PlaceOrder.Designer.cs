@@ -59,6 +59,7 @@
             // 
             this.rtbOrder.Location = new System.Drawing.Point(347, 12);
             this.rtbOrder.Name = "rtbOrder";
+            this.rtbOrder.ReadOnly = true;
             this.rtbOrder.Size = new System.Drawing.Size(267, 232);
             this.rtbOrder.TabIndex = 3;
             this.rtbOrder.Text = "";
@@ -93,7 +94,7 @@
             // 
             // btnAddI
             // 
-            this.btnAddI.Location = new System.Drawing.Point(111, 189);
+            this.btnAddI.Location = new System.Drawing.Point(111, 182);
             this.btnAddI.Name = "btnAddI";
             this.btnAddI.Size = new System.Drawing.Size(143, 23);
             this.btnAddI.TabIndex = 7;
@@ -113,7 +114,7 @@
             // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(111, 82);
+            this.txtDescription.Location = new System.Drawing.Point(111, 79);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(143, 20);
             this.txtDescription.TabIndex = 9;
@@ -121,7 +122,7 @@
             // 
             // txtUnitprice
             // 
-            this.txtUnitprice.Location = new System.Drawing.Point(111, 108);
+            this.txtUnitprice.Location = new System.Drawing.Point(111, 104);
             this.txtUnitprice.Name = "txtUnitprice";
             this.txtUnitprice.Size = new System.Drawing.Size(143, 20);
             this.txtUnitprice.TabIndex = 10;
@@ -129,14 +130,14 @@
             // 
             // txtReferenceNum
             // 
-            this.txtReferenceNum.Location = new System.Drawing.Point(111, 56);
+            this.txtReferenceNum.Location = new System.Drawing.Point(111, 53);
             this.txtReferenceNum.Name = "txtReferenceNum";
             this.txtReferenceNum.Size = new System.Drawing.Size(143, 20);
             this.txtReferenceNum.TabIndex = 11;
             // 
             // txtDate
             // 
-            this.txtDate.Location = new System.Drawing.Point(111, 134);
+            this.txtDate.Location = new System.Drawing.Point(111, 130);
             this.txtDate.Name = "txtDate";
             this.txtDate.Size = new System.Drawing.Size(143, 20);
             this.txtDate.TabIndex = 12;
@@ -145,7 +146,7 @@
             // lblUnitPrice
             // 
             this.lblUnitPrice.AutoSize = true;
-            this.lblUnitPrice.Location = new System.Drawing.Point(16, 111);
+            this.lblUnitPrice.Location = new System.Drawing.Point(16, 107);
             this.lblUnitPrice.Name = "lblUnitPrice";
             this.lblUnitPrice.Size = new System.Drawing.Size(50, 13);
             this.lblUnitPrice.TabIndex = 13;
@@ -154,7 +155,7 @@
             // lblDate
             // 
             this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(16, 141);
+            this.lblDate.Location = new System.Drawing.Point(16, 133);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(30, 13);
             this.lblDate.TabIndex = 14;
@@ -162,7 +163,7 @@
             // 
             // nudQuantity
             // 
-            this.nudQuantity.Location = new System.Drawing.Point(111, 161);
+            this.nudQuantity.Location = new System.Drawing.Point(111, 156);
             this.nudQuantity.Name = "nudQuantity";
             this.nudQuantity.Size = new System.Drawing.Size(143, 20);
             this.nudQuantity.TabIndex = 15;
@@ -170,7 +171,7 @@
             // lblNum
             // 
             this.lblNum.AutoSize = true;
-            this.lblNum.Location = new System.Drawing.Point(16, 168);
+            this.lblNum.Location = new System.Drawing.Point(16, 158);
             this.lblNum.Name = "lblNum";
             this.lblNum.Size = new System.Drawing.Size(46, 13);
             this.lblNum.TabIndex = 16;

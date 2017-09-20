@@ -31,6 +31,7 @@ namespace PETSystem
 
         private void MaintainCourses_Load(object sender, EventArgs e)
         {
+            btnDelete.Visible = false;
             AddCoursePanel.Visible = false;
             MSMain.Visible = true;
             AddCourseTypeP.Visible = false;
@@ -61,6 +62,7 @@ namespace PETSystem
         {
             if (AddCoursePanel.Visible || AddCourseTypeP.Visible || MaintainTCPanel.Visible)
             {
+                btnDelete.Visible = false;
                 AddCoursePanel.Visible = false;
                 MSMain.Visible = true;
                 AddCourseTypeP.Visible = false;
@@ -89,13 +91,14 @@ namespace PETSystem
 
         private void maintainTrainingCourseToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            btnDelete.Visible = true;
             MaintainTCPanel.Visible = true;
             dgvMaintain.Visible = true;
             btnSave.Visible = true;
             MSMain.Visible = false;
             DataTable DT = new DataTable();
             ConnectString.connectstring.Open();
-            SqlCommand Fill = new SqlCommand("SELECT * FROM TrainingCourse", ConnectString.connectstring);
+            SqlCommand Fill = new SqlCommand("SELECT TrainingCourse.TrainingCourseID,TrainingCourse.CourseName,TrainingCourse.Duration AS 'Duration in weeks',TrainingCourse.TrainingCourseDate,TrainingCourseType.TrainingCourseName FROM TrainingCourse INNER JOIN TrainingCourseType ON TrainingCourseType.TrainingCourseTypeID = TrainingCourse.TrainingCourseID", ConnectString.connectstring);
             DA = new SqlDataAdapter(Fill);
             DA.Fill(DT);
             dgvMaintain.DataSource = DT;
@@ -111,34 +114,30 @@ namespace PETSystem
             {
                 valid1 = validSQl;
             }
-            if (!valid1)
+            if (valid1)
             {
-                txtCourseName.BackColor = Color.Red;
+                DataTable DT2 = new DataTable();
                 ConnectString.connectstring.Open();
-                DA = new SqlDataAdapter("select * from TrainingCourse where CourseName like '" + txtCourseName.Text + "%'", ConnectString.connectstring);
-
-                DA.Fill(DTC);
-                dgvMaintain.DataSource = DTC;
-                ConnectString.connectstring.Close();
-                DataTable DT = new DataTable();
-                ConnectString.connectstring.Open();
-                SqlCommand Fill = new SqlCommand("SELECT * FROM TrainingCourse", ConnectString.connectstring);
-                DA = new SqlDataAdapter(Fill);
-                DA.Fill(DT);
-                dgvMaintain.DataSource = DT;
-                dgvMaintain.DataMember = DT.TableName;
-                ConnectString.connectstring.Close();
-
+                SqlCommand Fill2 = new SqlCommand("SELECT TrainingCourse.TrainingCourseID,TrainingCourse.CourseName,TrainingCourse.Duration AS 'Duration in weeks',TrainingCourse.TrainingCourseDate AS 'Start Date',TrainingCourseType.TrainingCourseName FROM TrainingCourse INNER JOIN TrainingCourseType ON TrainingCourseType.TrainingCourseTypeID = TrainingCourse.TrainingCourseID WHERE TrainingCourse.CourseName like '%" + txtCourseName.Text + "%'", ConnectString.connectstring);
+                SqlDataAdapter DA2 = new SqlDataAdapter(Fill2);
+                DA2.Fill(DT2);
+                dgvMaintain.DataSource = DT2;
+                dgvMaintain.DataMember = DT2.TableName;
+                txtCourseName.BackColor = Color.White;
+                ConnectString.connectstring.Close();             
             }
             else
             {
-                txtCourseName.BackColor = Color.White;
-
+                
+                txtCourseName.BackColor = Color.Red;
+                DataTable DT2 = new DataTable();
                 ConnectString.connectstring.Open();
-                DA = new SqlDataAdapter("select * from TrainingCourse ", ConnectString.connectstring);
-                DTC.Clear();
-                DA.Fill(DTC);
-                dgvMaintain.DataSource = DTC;
+                SqlCommand Fill2 = new SqlCommand("SELECT TrainingCourse.TrainingCourseID,TrainingCourse.CourseName,TrainingCourse.Duration AS 'Duration in weeks',TrainingCourse.TrainingCourseDate,TrainingCourseType.TrainingCourseName FROM TrainingCourse INNER JOIN TrainingCourseType ON TrainingCourseType.TrainingCourseTypeID = TrainingCourse.TrainingCourseID WHERE TrainingCourse.CourseName like '%" + txtCourseName.Text + "%'", ConnectString.connectstring);
+                SqlDataAdapter DA2 = new SqlDataAdapter(Fill2);
+                DA2.Fill(DT2);
+                dgvMaintain.DataSource = DT2;
+                dgvMaintain.DataMember = DT2.TableName;
+                txtCourseName.BackColor = Color.White;
                 ConnectString.connectstring.Close();
             }
         }
@@ -219,9 +218,34 @@ namespace PETSystem
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            SqlCommandBuilder cmd = new SqlCommandBuilder(DA);
+            try
+            {
+                if (dgvMaintain.SelectedRows.Count > 0)
+                {
+                    ConnectString.CourseStringID = dgvMaintain.SelectedRows[0].Cells[0].Value + string.Empty;
+                    ConnectString.CourseName = dgvMaintain.SelectedRows[0].Cells[1].Value + string.Empty;
+                    ConnectString.CourseDuration = dgvMaintain.SelectedRows[0].Cells[2].Value + string.Empty;
+                    ConnectString.CourseDate = dgvMaintain.SelectedRows[0].Cells[3].Value + string.Empty;
+                    ConnectString.CourseType = dgvMaintain.SelectedRows[0].Cells[4].Value + string.Empty;
+                    
+                    //Display form
+                    UpdateTrainingCourseForm myform = new UpdateTrainingCourseForm();
+                    this.Close();
+                    
+                    this.Dispose(true);
+                    myform.ShowDialog();
+                }
+                else
+                {
+                    MessageBox.Show("Please select a row to update");
+                }
+            }
+            catch
+            {
 
-            DA.Update(DTC);
+            }
+
+            
 
         }
 
@@ -247,6 +271,7 @@ namespace PETSystem
                 if (DT1.Rows.Count > 0)
                 {
                     valid5 = false;
+                    //MessageBox.Show("Please provide new course type name");
                 }
                 else
                 {
@@ -259,13 +284,18 @@ namespace PETSystem
                     SqlDataReader MyReader2;
 
                     MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
-                    MessageBox.Show("Save Data");
+                    MessageBox.Show("Course type added");
                     while (MyReader2.Read())
                     {
                     }
-                    ConnectString.connectstring.Close();
+                   
 
                 }
+                if (txtNCDName.Text == "")
+                {
+                    MessageBox.Show("Please provide new course type name");
+                }
+                ConnectString.connectstring.Close();
             }
         }
 
@@ -323,6 +353,10 @@ namespace PETSystem
                 }
                 ConnectString.connectstring.Close();
             }
+            else
+            {
+                MessageBox.Show("Please fill in all inputs");
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -338,6 +372,42 @@ namespace PETSystem
         private void cmbName_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void addInstructorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AddInstrucorC UM = new AddInstrucorC();
+            UM.ShowDialog();
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (dgvMaintain.SelectedRows.Count > 0)
+            {
+                string Query = "Delete TrainingCourse Where TrainingCourseID = '" + dgvMaintain.SelectedRows[0].Cells[0].Value + "'";
+                DialogResult answer = MessageBox.Show("Are you sure you want to Delete this Training Course?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                if (answer == DialogResult.Yes)
+                {
+                    SqlCommand MyCommand3 = new SqlCommand(Query, ConnectString.connectstring);
+                    SqlDataReader MyReader3;
+                    ConnectString.connectstring.Open();
+                    MyReader3 = MyCommand3.ExecuteReader();
+                    MessageBox.Show("Training Course successfully removed");
+                    ConnectString.connectstring.Close();
+                    //Refresh DGV
+                    txtCourseName.Text = "a";
+                    txtCourseName.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("Training Course was not deleted");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to Delete");
+            }
         }
     }
 }

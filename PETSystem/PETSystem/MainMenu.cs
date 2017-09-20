@@ -48,7 +48,7 @@ namespace PETSystem
 
         private void MainMenuF_Load(object sender, EventArgs e)
         {
-
+            //pictureBox1.LoadAsync();
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -81,9 +81,21 @@ namespace PETSystem
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
+            this.Close();
             Suppliers spp = new Suppliers();
             spp.Show();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Reports Um = new Reports();
+            Um.Show();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
