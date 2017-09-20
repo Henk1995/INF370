@@ -55,43 +55,38 @@ namespace PETSystem
 
         private void button5_Click(object sender, EventArgs e)
         {
-            //this.Visible = false;
-            //Delete_Supplier.Delete_Supplier PO = new Delete_Supplier.Delete_Supplier();
-            //PO.ShowDialog();
-            if (dgvInstructor.SelectedRows.Count > 0)
+            try
             {
-                int selectedIndex = dgvInstructor.SelectedRows[0].Index;
-
-                // gets the RowID from the first column in the grid
-                int rowID = int.Parse(dgvInstructor[0, selectedIndex].Value.ToString());
-
-
-                 MessageBox.Show("Are you sure you want to delete this instructor?", "Error", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
-                string Query = "DELETE FROM Supplier WHERE SupplierID='" + rowID + "';";
-
-                SqlCommand MyCommand2 = new SqlCommand(Query, ConnectString.connectstring);
-                SqlDataReader MyReader2;
-                ConnectString.connectstring.Open();
-                MyReader2 = MyCommand2.ExecuteReader();
-                MessageBox.Show("Data Deleted");
-                while (MyReader2.Read())
+                if (dgvInstructor.SelectedRows.Count > 0)
                 {
+                    string Query = "Delete Supplier Where SupplierID = '" + dgvInstructor.SelectedRows[0].Cells[0].Value + "'";
+                    DialogResult answer = MessageBox.Show("Are you sure you want to Delete this Supplier?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                    if (answer == DialogResult.Yes)
+                    {
+                        SqlCommand MyCommandZ = new SqlCommand(Query, ConnectString.connectstring);
+                        SqlDataReader MyReaderZ;
+                        ConnectString.connectstring.Open();
+                        MyReaderZ = MyCommandZ.ExecuteReader();
+                        MessageBox.Show("Supplier  successfully removed");
+                        ConnectString.connectstring.Close();
+                        //Refresh DGV
+                        txtRefresh.Text = "a";
+                        txtRefresh.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Supplier was not deleted");
+                        ConnectString.connectstring.Close();
+                    }
                 }
-                ConnectString.connectstring.Close();
-
-                DataTable DT = new DataTable();
-                ConnectString.connectstring.Open();
-                SqlCommand Fill = new SqlCommand("SELECT * FROM Supplier", ConnectString.connectstring);
-                DA = new SqlDataAdapter(Fill);
-                DA.Fill(DT);
-                dgvInstructor.DataSource = DT;
-                dgvInstructor.DataMember = DT.TableName;
-                ConnectString.connectstring.Close();
+                else
+                {
+                    MessageBox.Show("Please select a row to Delete");
+                    ConnectString.connectstring.Close();
+                }
             }
-
-            else
-            {
-                MessageBox.Show("Please select the row that you want to delete", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            catch { MessageBox.Show("This Supplier has current orders and can not be deleted until the corresponding order is removed");
+                ConnectString.connectstring.Close();
             }
         }
 
@@ -125,6 +120,9 @@ namespace PETSystem
 
         private void Suppliers_Load(object sender, EventArgs e)
         {
+            //Maak refresh textbox invis
+          //  txtRefresh.Visible = false;
+
             DataTable DT = new DataTable();
             ConnectString.connectstring.Open();
             SqlCommand Fill = new SqlCommand("SELECT Supplier.SupplierID,Supplier.SupplierName,Supplier.SupplierAddress,Supplier.SupplierEmail,Supplier.SupplierPhoneNumber,Supplier.SupplierBankAccNumber,SupplierType.SupplierTypeName FROM Supplier INNER JOIN SupplierType ON SupplierType.SupplierTypeID = Supplier.SupplierTypeID", ConnectString.connectstring);
@@ -165,6 +163,22 @@ namespace PETSystem
             {
                 MessageBox.Show("Please select the row you want to view");
             }
+        }
+
+        private void txtRefresh_TextChanged(object sender, EventArgs e)
+        {
+            
+                DataTable DTX = new DataTable();
+                ConnectString.connectstring.Open();
+                SqlCommand FillX = new SqlCommand("SELECT Supplier.SupplierID,Supplier.SupplierName,Supplier.SupplierAddress,Supplier.SupplierEmail,Supplier.SupplierPhoneNumber,Supplier.SupplierBankAccNumber,SupplierType.SupplierTypeName FROM Supplier INNER JOIN SupplierType ON SupplierType.SupplierTypeID = Supplier.SupplierTypeID WHERE Supplier.SupplierName like '%" + txtRefresh.Text + "%'", ConnectString.connectstring);
+                SqlDataAdapter DAX = new SqlDataAdapter(FillX);
+                DAX.Fill(DTX);
+                dgvInstructor.DataSource = DTX;
+                dgvInstructor.DataMember = DTX.TableName;
+                txtRefresh.BackColor = Color.White;
+                ConnectString.connectstring.Close();
+            
+          
         }
     }
     }

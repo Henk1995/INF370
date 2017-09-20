@@ -57,31 +57,42 @@ namespace Create_Supplier
                 {
                     MessageBox.Show("This supplier already exists please resubmit information.", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
                 } else
-                { 
-                    MessageBox.Show("Are you sure you want to Create this new Supplier", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
-                DataTable DT = new DataTable();
-                string query4 = "SELECT SupplierTypeID FROM SupplierType WHERE SupplierTypeName ='" + cmbSupplierT.Text + "'";
-                SqlCommand MyCommand4 = new SqlCommand(query4, ConnectString.connectstring);
-                SqlDataReader MyReader4;
-                ConnectString.connectstring.Open();
-                MyReader4 = MyCommand4.ExecuteReader();     // Here our query will be executed and data saved into the database.  
-
-                while (MyReader4.Read())
                 {
-                    SupplierID = Convert.ToInt32(MyReader4["SupplierTypeID"]);
-                }
-                ConnectString.connectstring.Close();
+                    DialogResult answer = MessageBox.Show("Are you sure you want to Update this Training Course?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                    if (answer == DialogResult.Yes)
+                    {
+                        DataTable DT = new DataTable();
+                        string query4 = "SELECT SupplierTypeID FROM SupplierType WHERE SupplierTypeName ='" + cmbSupplierT.Text + "'";
+                        SqlCommand MyCommand4 = new SqlCommand(query4, ConnectString.connectstring);
+                        SqlDataReader MyReader4;
+                        ConnectString.connectstring.Open();
+                        MyReader4 = MyCommand4.ExecuteReader();     // Here our query will be executed and data saved into the database.  
 
-                string Query = "INSERT INTO Supplier (SupplierName,SupplierAddress,SupplierEmail,SupplierPhoneNumber,SupplierBankAccNumber,SupplierTypeID) VALUES ('" + this.txtSuppName.Text + "','" + this.txtAdress.Text + "','" + this.txtEmail.Text + "','" + this.txtPhonenumber.Text + "','" + this.txtBancACC.Text + "','" + SupplierID + "');";
-                SqlCommand MyCommand3 = new SqlCommand(Query, ConnectString.connectstring);
-                SqlDataReader MyReader3;
-                ConnectString.connectstring.Open();
-                MyReader3 = MyCommand3.ExecuteReader();     // Here our query will be executed and data saved into the database.  
-                MessageBox.Show("Save Data");
-                while (MyReader3.Read())
-                {
-                }
-                ConnectString.connectstring.Close();
+                        while (MyReader4.Read())
+                        {
+                            SupplierID = Convert.ToInt32(MyReader4["SupplierTypeID"]);
+                        }
+                        ConnectString.connectstring.Close();
+
+                        string Query = "INSERT INTO Supplier (SupplierName,SupplierAddress,SupplierEmail,SupplierPhoneNumber,SupplierBankAccNumber,SupplierTypeID) VALUES ('" + this.txtSuppName.Text + "','" + this.txtAdress.Text + "','" + this.txtEmail.Text + "','" + this.txtPhonenumber.Text + "','" + this.txtBancACC.Text + "','" + SupplierID + "');";
+                        SqlCommand MyCommand3 = new SqlCommand(Query, ConnectString.connectstring);
+                        SqlDataReader MyReader3;
+                        ConnectString.connectstring.Open();
+                        MyReader3 = MyCommand3.ExecuteReader();     // Here our query will be executed and data saved into the database.  
+                        MessageBox.Show("Supplier Created Successfully");
+                        while (MyReader3.Read())
+                        {
+                        }
+                        ConnectString.connectstring.Close();
+                        this.Dispose(true);
+                        this.Close();
+                        Suppliers myform = new Suppliers();
+                        myform.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Supplier hsa not been created");
+                    }
             }
             }
             else
@@ -94,20 +105,22 @@ namespace Create_Supplier
 
         private void Create_Supplier_Load(object sender, EventArgs e)
         {
+            //populate combobox
             cmbSupplierT.Items.Clear();
-
-            
-            string query1 = "SELECT SupplierTypeName FROM SupplierType ";
+            string query = "SELECT SupplierTypeName FROM SupplierType ";
             DataTable DT = new DataTable();
             ConnectString.connectstring.Open();
-            SqlCommand cmd = new SqlCommand(query1, ConnectString.connectstring);
-            DA = new SqlDataAdapter(cmd);
+            SqlCommand cmd = new SqlCommand(query, ConnectString.connectstring);
+            SqlDataAdapter DA = new SqlDataAdapter(cmd);
             DA.Fill(DT);
+
             foreach (DataRow dr in DT.Rows)
             {
                 cmbSupplierT.Items.Add(dr["SupplierTypeName"]).ToString();
             }
             ConnectString.connectstring.Close();
+            //Select index in combobox
+            cmbSupplierT.SelectedIndex = 0;
         }
 
         private void txtSuppName_TextChanged(object sender, EventArgs e)

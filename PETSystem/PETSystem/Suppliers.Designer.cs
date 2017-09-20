@@ -39,6 +39,7 @@
             this.button9 = new System.Windows.Forms.Button();
             this.btnRefund = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
+            this.txtRefresh = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInstructor)).BeginInit();
             this.SuspendLayout();
             // 
@@ -153,11 +154,21 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // txtRefresh
+            // 
+            this.txtRefresh.Location = new System.Drawing.Point(336, 290);
+            this.txtRefresh.Name = "txtRefresh";
+            this.txtRefresh.Size = new System.Drawing.Size(165, 20);
+            this.txtRefresh.TabIndex = 30;
+            this.txtRefresh.Text = "Hierdie Textbox is om te refresh";
+            this.txtRefresh.TextChanged += new System.EventHandler(this.txtRefresh_TextChanged);
+            // 
             // Suppliers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(857, 354);
+            this.Controls.Add(this.txtRefresh);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.btnRefund);
             this.Controls.Add(this.button9);
@@ -174,6 +185,7 @@
             this.Load += new System.EventHandler(this.Suppliers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInstructor)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -190,5 +202,6 @@
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button btnRefund;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox txtRefresh;
     }
 }
