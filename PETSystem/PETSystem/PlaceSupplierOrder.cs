@@ -55,7 +55,7 @@ namespace PETSystem
                 {
                     try
                     {
-                        mail.Subject = "Forgot Password";
+                        mail.Subject = "Order Placement";
                         mail.Body = txtEmail.Text;
                         mail.IsBodyHtml = false;
                         client.Send(mail);
