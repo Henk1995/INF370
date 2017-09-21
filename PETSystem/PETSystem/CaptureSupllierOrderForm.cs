@@ -33,11 +33,11 @@ namespace PETSystem
                 SqlDataReader MyReader3;
                 ConnectString.connectstring.Open();
                 MyReader3 = MyCommand3.ExecuteReader();
-                MessageBox.Show("Training Course successfully updated");
+                MessageBox.Show("Supplier Order captured and stock quantity updated successfully.");
                 ConnectString.connectstring.Close();
                 this.Close();
                 this.Dispose(true);
-                MaintainCourses myform = new MaintainCourses();
+                Suppliers myform = new Suppliers();
                 myform.ShowDialog();
             
         }
@@ -84,20 +84,13 @@ namespace PETSystem
 
         private void cbProduct_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //  MessageBox.Show(cbProduct.Text);
-            SqlConnection connection2 = new SqlConnection(ConnectString.DBC);
-            connection2.Open();
-            SqlCommand cmdd2 = connection2.CreateCommand();
-            cmdd2.CommandText = "Select StockID FROM Stock Where StockDescription ='" + cbProduct.Text + "'";
-            CBresult = ((int)cmdd2.ExecuteScalar());
-
-
-            connection2.Close();
-         //   MessageBox.Show(cbProduct.Text);
+           
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
+            BtnBack.Visible = false;
+            btnEnter.Visible = false;
             groupBox1.Visible = true;
             groupBox2.Visible = false;
             referenceNumber = txtRefNumber.Text;
@@ -153,8 +146,35 @@ namespace PETSystem
             cbProduct.SelectedIndex = 0;
         }
         int UsethisforStockUpdate;
+
+        private void BtnBack_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose(true);
+            Suppliers myform = new Suppliers();
+            myform.ShowDialog();
+        }
+
+        private void cbProduct_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
+            //  get stock id
+            SqlConnection connection2 = new SqlConnection(ConnectString.DBC);
+            connection2.Open();
+            SqlCommand cmdd2 = connection2.CreateCommand();
+            cmdd2.CommandText = "Select StockID FROM Stock Where StockDescription ='" + cbProduct.Text + "'";
+            CBresult = ((int)cmdd2.ExecuteScalar());
+
+
+            connection2.Close();
+            MessageBox.Show(Convert.ToString(CBresult));
+
+
+
             BtnBack.Enabled = false;
             int stockID = cbProduct.SelectedIndex + 1;
             BtnCapture.Visible = true;
@@ -195,7 +215,7 @@ namespace PETSystem
 
             // Add to stock 
 
-            string QueryStock = "UPDATE Stock SET StockQuantity ='"+UsethisforStockUpdate+"' WHERE StockID ='" + CBresult+ "'";
+            string QueryStock = "UPDATE Stock SET StockQuantity ='"+UsethisforStockUpdate+"',StockUnitPrice = '"+unitPrice+"' WHERE StockID ='" + CBresult+ "'";
   
 
 
@@ -203,7 +223,7 @@ namespace PETSystem
             SqlDataReader ReaderStock;
             ConnectString.connectstring.Open();
             ReaderStock = ComandStock.ExecuteReader();
-            MessageBox.Show("Training Course successfully updated");
+           // MessageBox.Show("Training Course successfully updated");
             ConnectString.connectstring.Close();
            
 

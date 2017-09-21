@@ -106,13 +106,15 @@ namespace PETSystem
             }
             else
             {
-                
-                
-                    Stock mStock = new Stock
-                    {
-                        StockDescription = txtDesc.Text,
-                        StockUnitPrice = Convert.ToInt32(txtPrice.Text),
-                        StockTypeID = Convert.ToInt32(cbType.SelectedIndex + 1)
+
+
+                Stock mStock = new Stock
+                {
+                    StockDescription = txtDesc.Text,
+                    StockUnitPrice = Convert.ToInt32(txtPrice.Text),
+                    StockTypeID = Convert.ToInt32(cbType.SelectedIndex + 1),
+                    StockQuantity = 0
+                        
                     };
 
                     db.Stocks.InsertOnSubmit(mStock);

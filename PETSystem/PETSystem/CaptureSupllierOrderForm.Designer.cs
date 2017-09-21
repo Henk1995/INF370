@@ -44,7 +44,7 @@
             this.BtnBack = new System.Windows.Forms.Button();
             this.BtnCapture = new System.Windows.Forms.Button();
             this.txtOrder = new System.Windows.Forms.RichTextBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btnEnter = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUPQuantity)).BeginInit();
@@ -91,6 +91,7 @@
             this.cbProduct.Size = new System.Drawing.Size(100, 21);
             this.cbProduct.TabIndex = 4;
             this.cbProduct.SelectedIndexChanged += new System.EventHandler(this.cbProduct_SelectedIndexChanged);
+            this.cbProduct.TextChanged += new System.EventHandler(this.cbProduct_TextChanged);
             this.cbProduct.Click += new System.EventHandler(this.cbProduct_Click);
             // 
             // label3
@@ -180,6 +181,7 @@
             this.BtnBack.TabIndex = 7;
             this.BtnBack.Text = "Back";
             this.BtnBack.UseVisualStyleBackColor = true;
+            this.BtnBack.Click += new System.EventHandler(this.BtnBack_Click);
             // 
             // BtnCapture
             // 
@@ -199,15 +201,15 @@
             this.txtOrder.TabIndex = 9;
             this.txtOrder.Text = "";
             // 
-            // button4
+            // btnEnter
             // 
-            this.button4.Location = new System.Drawing.Point(391, 37);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 10;
-            this.button4.Text = "Enter";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btnEnter.Location = new System.Drawing.Point(391, 37);
+            this.btnEnter.Name = "btnEnter";
+            this.btnEnter.Size = new System.Drawing.Size(75, 23);
+            this.btnEnter.TabIndex = 10;
+            this.btnEnter.Text = "Enter";
+            this.btnEnter.UseVisualStyleBackColor = true;
+            this.btnEnter.Click += new System.EventHandler(this.button4_Click);
             // 
             // groupBox2
             // 
@@ -228,7 +230,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(684, 291);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btnEnter);
             this.Controls.Add(this.txtOrder);
             this.Controls.Add(this.BtnCapture);
             this.Controls.Add(this.BtnBack);
@@ -263,7 +265,7 @@
         private System.Windows.Forms.Button BtnCapture;
         private System.Windows.Forms.RichTextBox txtOrder;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btnEnter;
         private System.Windows.Forms.GroupBox groupBox2;
     }
 }
