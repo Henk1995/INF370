@@ -63,14 +63,14 @@ namespace PETSystem
         //public static string DBC = "Data Source=DESKTOP-P44G52P\\SQLEXPRESS;Initial Catalog=inf370Reg;Integrated Security=True";
 
         //John se connection string
-        //public static string DBC = "Data Source=JOHN-MAC-WIN;Initial Catalog=inf370Reg;Integrated Security=True";
+        public static string DBC = "Data Source=JOHN-MAC-WIN;Initial Catalog=inf370Reg;Integrated Security=True";
 
         //Henk se connection string    + Copy jou goed hier in en uncomment die lyn hier onder
         //public static string DBC = "Data Source=.;Initial Catalog=inf370Reg;Integrated Security=True";
         
 
         //Sam se connection string    + Copy jou goed hier in en uncomment die lyn hier onder
-        public static string DBC = "Data Source=.;Initial Catalog=inf370Reg;Integrated Security=True";
+        //public static string DBC = "Data Source=.;Initial Catalog=inf370Reg;Integrated Security=True";
 
         //Rohan se connection string    + Copy jou goed hier in en uncomment die lyn hier onder
         //public static string DBC = "Data Source=.;Initial Catalog=inf370Reg;Integrated Security=True";
