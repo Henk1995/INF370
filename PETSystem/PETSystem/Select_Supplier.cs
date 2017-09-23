@@ -58,8 +58,8 @@ namespace Select_Supplier
             ConnectString.connectstring.Close();
 
             this.Close();
-            Place_Order.PlaceOrder PO = new Place_Order.PlaceOrder(supplier);
-            PO.Show();
+            //Place_Order.PlaceOrder PO = new Place_Order.PlaceOrder(supplier);
+           // PO.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)

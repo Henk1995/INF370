@@ -74,9 +74,16 @@ namespace PETSystem
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
-
-            Search_Stock sc = new Search_Stock();
-            sc.Show();
+            if (ConnectString.ActiveForm == true)
+            {
+                ConnectString.ActiveForm = false;
+                this.Dispose(true);
+                this.Close();
+            }
+            else {
+                Search_Stock sc = new Search_Stock();
+                sc.Show();
+            }
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -100,23 +107,33 @@ namespace PETSystem
             else
             {
 
+
                 Stock mStock = new Stock
                 {
                     StockDescription = txtDesc.Text,
                     StockUnitPrice = Convert.ToInt32(txtPrice.Text),
-                    StockTypeID = Convert.ToInt32(cbType.SelectedIndex + 1)
-                };
+                    StockTypeID = Convert.ToInt32(cbType.SelectedIndex + 1),
+                    StockQuantity = 0
+                    };
 
-                db.Stocks.InsertOnSubmit(mStock);
-                db.SubmitChanges();
+                    db.Stocks.InsertOnSubmit(mStock);
+                    db.SubmitChanges();
 
-                this.Close();
+                    //this.Close();
 
-                MessageBox.Show("Added " + stockDesc + "\n Searching R " + UnitPrice + "", "It Worked");
-
-                Search_Stock sc = new Search_Stock();
-                sc.Show();
-
+                    MessageBox.Show("Added " + stockDesc +"", "Notification");
+                if (ConnectString.ActiveForm == true)
+                {
+                    ConnectString.ActiveForm = false;
+                    this.Dispose(true);
+                    this.Close();
+                }
+                else {
+                    MessageBox.Show("Added " + stockDesc + "", "Notification");
+                    Search_Stock sc = new Search_Stock();
+                    sc.Show();
+                }
+                
             }
         }
 

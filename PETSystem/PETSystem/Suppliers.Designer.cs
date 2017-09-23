@@ -32,13 +32,14 @@
             this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dgvInstructor = new System.Windows.Forms.DataGridView();
             this.button9 = new System.Windows.Forms.Button();
             this.btnRefund = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.txtRefresh = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvInstructor)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,16 +82,6 @@
             this.button5.Text = "Delete Supplier";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(144, 73);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(111, 41);
-            this.button4.TabIndex = 22;
-            this.button4.Text = "Update Supplier";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -153,18 +144,38 @@
             this.btnRefund.UseVisualStyleBackColor = true;
             this.btnRefund.Click += new System.EventHandler(this.btnRefund_Click);
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(144, 73);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(111, 41);
+            this.button4.TabIndex = 29;
+            this.button4.Text = "Update Supplier";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // txtRefresh
+            // 
+            this.txtRefresh.Location = new System.Drawing.Point(336, 290);
+            this.txtRefresh.Name = "txtRefresh";
+            this.txtRefresh.Size = new System.Drawing.Size(165, 20);
+            this.txtRefresh.TabIndex = 30;
+            this.txtRefresh.Text = "Hierdie Textbox is om te refresh";
+            this.txtRefresh.TextChanged += new System.EventHandler(this.txtRefresh_TextChanged);
+            // 
             // Suppliers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(857, 354);
+            this.Controls.Add(this.txtRefresh);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.btnRefund);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -174,6 +185,7 @@
             this.Load += new System.EventHandler(this.Suppliers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvInstructor)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -183,12 +195,13 @@
         private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgvInstructor;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button btnRefund;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TextBox txtRefresh;
     }
 }

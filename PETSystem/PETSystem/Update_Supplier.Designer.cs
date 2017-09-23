@@ -42,8 +42,6 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtAdress = new System.Windows.Forms.TextBox();
             this.txtSuppName = new System.Windows.Forms.TextBox();
-            this.dgvInstructor = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInstructor)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
@@ -169,24 +167,11 @@
             this.txtSuppName.TabIndex = 14;
             this.txtSuppName.TextChanged += new System.EventHandler(this.txtSuppName_TextChanged);
             // 
-            // dgvInstructor
-            // 
-            this.dgvInstructor.AllowUserToAddRows = false;
-            this.dgvInstructor.AllowUserToDeleteRows = false;
-            this.dgvInstructor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvInstructor.Location = new System.Drawing.Point(294, 23);
-            this.dgvInstructor.Name = "dgvInstructor";
-            this.dgvInstructor.ReadOnly = true;
-            this.dgvInstructor.Size = new System.Drawing.Size(547, 155);
-            this.dgvInstructor.TabIndex = 28;
-            this.dgvInstructor.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvInstructor_CellClick);
-            // 
             // Update_Supplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(865, 277);
-            this.Controls.Add(this.dgvInstructor);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.cmbSuppType);
@@ -204,7 +189,6 @@
             this.Name = "Update_Supplier";
             this.Text = "Update supplier";
             this.Load += new System.EventHandler(this.Update_Supplier_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvInstructor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,7 +210,6 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtAdress;
         private System.Windows.Forms.TextBox txtSuppName;
-        private System.Windows.Forms.DataGridView dgvInstructor;
     }
 }
 

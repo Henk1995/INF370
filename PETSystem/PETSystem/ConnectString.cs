@@ -63,17 +63,17 @@ namespace PETSystem
         //public static string DBC = "Data Source=DESKTOP-P44G52P\\SQLEXPRESS;Initial Catalog=inf370Reg;Integrated Security=True";
 
         //John se connection string
-        //public static string DBC = "Data Source=JOHN-MAC-WIN;Initial Catalog=inf370Reg;Integrated Security=True";
+        public static string DBC = "Data Source=JOHN-MAC-WIN;Initial Catalog=inf370Reg;Integrated Security=True";
 
         //Henk se connection string    + Copy jou goed hier in en uncomment die lyn hier onder
         //public static string DBC = "Data Source=.;Initial Catalog=inf370Reg;Integrated Security=True";
         
 
         //Sam se connection string    + Copy jou goed hier in en uncomment die lyn hier onder
-        //public static string DBC = ""Data Source=.;Initial Catalog=inf370Reg;Integrated Security=True";
+        //public static string DBC = "Data Source=.;Initial Catalog=inf370Reg;Integrated Security=True";
 
         //Rohan se connection string    + Copy jou goed hier in en uncomment die lyn hier onder
-        public static string DBC = "Data Source=.;Initial Catalog=inf370Reg;Integrated Security=True";
+        //public static string DBC = "Data Source=.;Initial Catalog=inf370Reg;Integrated Security=True";
 
 
         // LOS HIERDIE NET SO
@@ -99,5 +99,17 @@ namespace PETSystem
         public static string CourseDuration;
         public static string CourseDate;
         public static string CourseType;
+        //vir Supplier
+        public static int SupplierID;
+        public static string SupplierName;
+        public static string SupplierEmail;
+        public static string SupplierAddress;
+        public static string SupplierPhoneNum;
+        public static int SupplierBankAccount;
+        public static string Suppliertype;
+        //Vir Supplier Order
+        public static int UnitPrice;
+        //ACtive form
+        public static bool ActiveForm;
     }
 }

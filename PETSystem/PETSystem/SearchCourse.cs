@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace PETSystem
 {
     public partial class SearchCourse : Form
     {
         //test upload
+        SqlDataAdapter DA;
         public SearchCourse()
         {
             InitializeComponent();
@@ -177,8 +179,27 @@ namespace PETSystem
         {
             //Pre loads all the data from the printing supplier table
             var SC = from Course in db.Courses select Course;
+            
+
             dgvSearchCourse.DataSource = SC;
+            dgvSearchCourse.Columns[0].Visible = false;
+            dgvSearchCourse.Columns[4].Visible = false;
+            dgvSearchCourse.Columns[5].Visible = false;
             dgvSearchCourse.Refresh();
+
+
+
+            //Normal SQL
+            //DataTable DT = new DataTable();
+            //ConnectString.connectstring.Open();
+            //SqlCommand Fill = new SqlCommand("SELECT * FROM Courses", ConnectString.connectstring);
+            //DA = new SqlDataAdapter(Fill);
+            //DA.Fill(DT);
+            //dgvSearchCourse.DataSource = DT;
+            //dgvSearchCourse.DataMember = DT.TableName;
+            //ConnectString.connectstring.Close();
+
+
         }
 
         private void dgvSearchCourse_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -190,11 +211,18 @@ namespace PETSystem
         {
             if (dgvSearchCourse.SelectedCells.Count > 0)
             {
+                //    int selectedIndex = dgvSearchCourse.SelectedRows[0].Index;
+
+                //    // gets the RowID from the first column in the grid
+                //    ToUpdate = int.Parse(dgvSearchCourse[0, selectedIndex].Value.ToString());
+
                 Course _Course = (Course)dgvSearchCourse.CurrentRow.DataBoundItem;
                 id = _Course.AvailableCourseID;
                 ToUpdate = id;
-            }
+
+
         }
+    }
 
         private void btnRefreshDGV_Click(object sender, EventArgs e)
         {
