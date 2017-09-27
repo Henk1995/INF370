@@ -134,5 +134,10 @@ namespace PETSystem
                 MessageBox.Show("Please select a row to Delete");
             }
         }
+
+        private void dgvUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
