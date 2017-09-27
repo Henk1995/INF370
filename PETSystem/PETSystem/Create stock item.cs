@@ -114,7 +114,6 @@ namespace PETSystem
                     StockUnitPrice = Convert.ToInt32(txtPrice.Text),
                     StockTypeID = Convert.ToInt32(cbType.SelectedIndex + 1),
                     StockQuantity = 0
-                        
                     };
 
                     db.Stocks.InsertOnSubmit(mStock);
