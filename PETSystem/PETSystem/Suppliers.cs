@@ -172,9 +172,20 @@ namespace PETSystem
 
         private void btnRefund_Click(object sender, EventArgs e)
         {
-            this.Close();
-            RefundOrderSupp PO = new RefundOrderSupp();
-            PO.Show();
+            if (dgvInstructor.SelectedRows.Count > 0)
+            {
+                int selectedIndex = dgvInstructor.SelectedRows[0].Index;
+                ConnectString.SupplierName = dgvInstructor.SelectedRows[0].Cells[1].Value + string.Empty;
+                // gets the RowID from the first column in the grid
+                ConnectString.SupplierID = int.Parse(dgvInstructor[0, selectedIndex].Value.ToString());
+                this.Close();
+                this.Dispose(true);
+                RefundOrderSupp PO = new RefundOrderSupp();
+                PO.Show();
+            }
+            else {
+                MessageBox.Show("Please Select a row to return a order to");
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
