@@ -125,9 +125,20 @@ namespace PETSystem
 
         private void button9_Click(object sender, EventArgs e)
         {
-            this.Close();
-            ReturnOrderSupp PO = new ReturnOrderSupp();
-            PO.Show();
+            if (dgvInstructor.SelectedRows.Count > 0)
+            {
+                int selectedIndex = dgvInstructor.SelectedRows[0].Index;
+                ConnectString.SupplierName = dgvInstructor.SelectedRows[0].Cells[1].Value + string.Empty;
+                // gets the RowID from the first column in the grid
+                ConnectString.SupplierID = int.Parse(dgvInstructor[0, selectedIndex].Value.ToString());
+                this.Close();
+                this.Dispose(true);
+                ReturnOrderSupp PO = new ReturnOrderSupp();
+                PO.Show();
+            }
+            else {
+                MessageBox.Show("Please Select a row to return a order to");
+            }
         }
 
         private void button7_Click(object sender, EventArgs e)

@@ -171,7 +171,7 @@ namespace PETSystem
 
 
             connection2.Close();
-            MessageBox.Show(Convert.ToString(CBresult));
+           // MessageBox.Show(Convert.ToString(CBresult));
 
 
 
@@ -189,7 +189,7 @@ namespace PETSystem
             SqlDataReader MyReader2;
 
             MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
-            MessageBox.Show("Order Captured");
+            MessageBox.Show("Products added to total order.");
             while (MyReader2.Read())
             {
             }

@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblSupplierDetails = new System.Windows.Forms.Label();
             this.txtSupplierOrderID = new System.Windows.Forms.TextBox();
             this.dgvSuppOrder = new System.Windows.Forms.DataGridView();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSuppOrder)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,19 +49,9 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(69, 142);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(120, 31);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Search Order";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(195, 142);
+            this.button1.Location = new System.Drawing.Point(175, 123);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(120, 31);
             this.button1.TabIndex = 9;
@@ -67,14 +59,14 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label1
+            // lblSupplierDetails
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(66, 85);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Supplier Order ID";
+            this.lblSupplierDetails.AutoSize = true;
+            this.lblSupplierDetails.Location = new System.Drawing.Point(318, 32);
+            this.lblSupplierDetails.Name = "lblSupplierDetails";
+            this.lblSupplierDetails.Size = new System.Drawing.Size(88, 13);
+            this.lblSupplierDetails.TabIndex = 8;
+            this.lblSupplierDetails.Text = "Supplier Order ID";
             // 
             // txtSupplierOrderID
             // 
@@ -89,21 +81,53 @@
             this.dgvSuppOrder.AllowUserToAddRows = false;
             this.dgvSuppOrder.AllowUserToDeleteRows = false;
             this.dgvSuppOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSuppOrder.Location = new System.Drawing.Point(321, 11);
+            this.dgvSuppOrder.Location = new System.Drawing.Point(321, 67);
             this.dgvSuppOrder.Name = "dgvSuppOrder";
             this.dgvSuppOrder.ReadOnly = true;
-            this.dgvSuppOrder.Size = new System.Drawing.Size(394, 293);
+            this.dgvSuppOrder.Size = new System.Drawing.Size(394, 237);
             this.dgvSuppOrder.TabIndex = 6;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Reference Number",
+            "Date",
+            "Order Description"});
+            this.comboBox1.Location = new System.Drawing.Point(25, 78);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
+            this.comboBox1.TabIndex = 12;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(22, 62);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 13);
+            this.label1.TabIndex = 13;
+            this.label1.Text = "Search by field:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(172, 62);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(79, 13);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Search Criteria:";
             // 
             // ReturnOrderSupp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(757, 339);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.lblSupplierDetails);
             this.Controls.Add(this.txtSupplierOrderID);
             this.Controls.Add(this.dgvSuppOrder);
             this.Name = "ReturnOrderSupp";
@@ -118,15 +142,17 @@
         #endregion
 
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblSupplierDetails;
         private System.Windows.Forms.TextBox txtSupplierOrderID;
         private System.Windows.Forms.DataGridView dgvSuppOrder;
      
         private System.Windows.Forms.DataGridViewTextBoxColumn supplierOrderIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn supplierOrderDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn supplierOrderDescriptionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }
 

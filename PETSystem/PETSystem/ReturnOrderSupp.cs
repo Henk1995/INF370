@@ -31,52 +31,30 @@ namespace Return_Order
         {
             DataTable DT = new DataTable();
             ConnectString.connectstring.Open();
-            SqlCommand Fill = new SqlCommand("SELECT * FROM SupplierOrder", ConnectString.connectstring);
+            SqlCommand Fill = new SqlCommand("SELECT SupplierOrder.SupplierOrderID,SupplierOrder.SupplierOrderRefNumber,SupplierOrder.SupplierOrderDate,SupplierOrder.SupplierOrderDescription from SupplierOrder Where SupplierOrder.SupplierID = '" + ConnectString.SupplierID+"'", ConnectString.connectstring);
             DA = new SqlDataAdapter(Fill);
             DA.Fill(DT);
             dgvSuppOrder.DataSource = DT;
             dgvSuppOrder.DataMember = DT.TableName;
             ConnectString.connectstring.Close();
 
+            //Indicate Supplier deails on labeles
+            lblSupplierDetails.Text = "Supplier ID:" + ConnectString.SupplierID + "\nSupplier Name: " + ConnectString.SupplierName;
+            // Add items to combobox
+            comboBox1.SelectedIndex = 0;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (valid3)
-            {
-                string queryA = "SELECT * FROM SupplierOrder WHERE SupplierOrderID ='" + Convert.ToInt32(txtSupplierOrderID.Text) + "'";
-                SqlCommand MyCommandA = new SqlCommand(queryA, ConnectString.connectstring);
-
-                SqlDataAdapter DAA = new SqlDataAdapter(MyCommandA);
-                DataTable DTA = new DataTable();
-                DAA.Fill(DTA);
-                ConnectString.connectstring.Open();
-                if (DTA.Rows.Count == 1)
-                {
-
-                    valid1 = true;
-                }
-            }
-            ConnectString.connectstring.Close();
-            if (valid1)
-            {
-                DataTable DT = new DataTable();
-                ConnectString.connectstring.Open();
-                SqlCommand Fill = new SqlCommand("SELECT * FROM SupplierOrder WHERE SupplierOrderID ='" + Convert.ToInt32(txtSupplierOrderID.Text) + "'", ConnectString.connectstring);
-                DA = new SqlDataAdapter(Fill);
-                DA.Fill(DT);
-                dgvSuppOrder.DataSource = DT;
-                dgvSuppOrder.DataMember = DT.TableName;
-                ConnectString.connectstring.Close();
-            }
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
+        {/*
             string emailA = "";
             if (dgvSuppOrder.SelectedRows.Count > 0)
             {
-                string supplierID = dgvSuppOrder.SelectedRows[0].Cells[4].Value + string.Empty;
+                string supplierID = Convert.ToString(ConnectString.SupplierID);
                 string RefID = dgvSuppOrder.SelectedRows[0].Cells[1].Value + string.Empty;
                 // gets the RowID from the first column in the grid
                 int suppID = int.Parse(supplierID);
@@ -111,21 +89,81 @@ namespace Return_Order
                             mail.Body = "The order that was placed with reference number"  + RefID +" is being returned as we are not happy with the order no refund required";
                             mail.IsBodyHtml = false;
                             client.Send(mail);
-                        }
+                            MessageBox.Show("Supplier notified via email that Order with \nReference number: " + RefID + "\nIs being returned", "Sent", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+                            //Remove from supplierOrder
+                            int SelectIDForDelete =  dgvSuppOrder.SelectedRows[0].Index;
+                            string Queryy = "Delete * From SupplierOrder Where SupplierOrderID ='"+SelectIDForDelete+"'";
+                            //This is  MySqlConnection here i have created the object and pass my connection string.  
+
+
+                            SqlCommand MyCommandz = new SqlCommand(Queryy, ConnectString.connectstring);
+                            SqlDataReader MyReaderz;
+                            ConnectString.connectstring.Open();
+                            MyReaderz = MyCommandz.ExecuteReader();
+                          //  MessageBox.Show("Stock quantity has been updated.");
+                            ConnectString.connectstring.Close();
+                            
+                            //Remove From StockLine
+                            string Queryyy = "Delete * From StockLine Where SupplierOrderID ='" + SelectIDForDelete + "'";
+                            //This is  MySqlConnection here i have created the object and pass my connection string.  
+
+
+                            SqlCommand MyCommandzz = new SqlCommand(Queryyy, ConnectString.connectstring);
+                            SqlDataReader MyReaderzz;
+                            ConnectString.connectstring.Open();
+                            MyReaderzz = MyCommandzz.ExecuteReader();
+                           // MessageBox.Show("Stock quantity has been updated.");
+                            ConnectString.connectstring.Close();
+
+                            //Remove quantity from stock
+
+
+                     
+                            string QueryStock = "UPDATE Stock SET StockQuantity ='" + UsethisforStockUpdate + "',StockUnitPrice = '" + unitPrice + "' WHERE StockID ='" + CBresult + "'";
+                            //This is  MySqlConnection here i have created the object and pass my connection string.  
+
+
+                            SqlCommand MyCommandzzz = new SqlCommand(Queryyy, ConnectString.connectstring);
+                            SqlDataReader MyReaderzzz;
+                            ConnectString.connectstring.Open();
+                            MyReaderzzz = MyCommandzzz.ExecuteReader();
+                            
+
+        }
 
                         catch (Exception ex)
                         {
                             Console.WriteLine(ex);
                             if (ex.InnerException != null)
-                            { MessageBox.Show("InnerException is: {0}", ex.InnerException.ToString()); }
+                            {
+                                MessageBox.Show("InnerException is: {0}", ex.InnerException.ToString());
+                                MessageBox.Show("Email was not sent please select the order that you want to return in the table.", "Sent", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
+                            }
+                            
+                            
+                                
+                            
+
+                           }
                         }
-                        MessageBox.Show("Email Sent", "Sent", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    }
-                }
-				 MessageBox.Show("Email was not sent please select the order that you want to return in the table.", "Sent", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            }
-                }
+                      }
+				  }*/
+
+            int OrderID = dgvSuppOrder.SelectedRows[0].Index;
+            int quantitySum;
+            SqlConnection connfromQuantity = new SqlConnection(ConnectString.DBC);
+            connfromQuantity.Open();
+            SqlCommand cmdStock = connfromQuantity.CreateCommand();
+            cmdStock.CommandText = "Select SUM(Quantity) FROM StockLine Where SupplierOrderID ='" + OrderID + "'";
+            quantitySum = ((int)cmdStock.ExecuteScalar());
+
+
+            connfromQuantity.Close();
+            MessageBox.Show(quantitySum.ToString());
+
+        }
 
         private void button3_Click(object sender, EventArgs e)
         {
@@ -136,20 +174,43 @@ namespace Return_Order
 
         private void txtSupplierOrderID_TextChanged(object sender, EventArgs e)
         {
-            valid3 = EH.CheckInt(txtSupplierOrderID.Text);
-            bool validSQl = EH.checkForSQLInjection(txtSupplierOrderID.Text);
-            if (valid3)
+            if (comboBox1.SelectedIndex == 0)
             {
-                valid3 = validSQl;
+                txtSupplierOrderID.BackColor = Color.White;
+                DataTable DT = new DataTable();
+                ConnectString.connectstring.Open();
+                SqlCommand Fill = new SqlCommand("SELECT SupplierOrder.SupplierOrderRefNumber,SupplierOrder.SupplierOrderDate,SupplierOrder.SupplierOrderDescription from SupplierOrder Where SupplierOrder.SupplierID = '" + ConnectString.SupplierID + "' AND SupplierOrderRefNumber Like '%" + txtSupplierOrderID.Text + "%'", ConnectString.connectstring);
+                DA = new SqlDataAdapter(Fill);
+                DA.Fill(DT);
+                dgvSuppOrder.DataSource = DT;
+                dgvSuppOrder.DataMember = DT.TableName;
+                ConnectString.connectstring.Close();
             }
-            if (!valid3)
+            else if (comboBox1.SelectedIndex == 1)
             {
-                txtSupplierOrderID.BackColor = Color.Red;
+                txtSupplierOrderID.BackColor = Color.White;
+                DataTable DT = new DataTable();
+                ConnectString.connectstring.Open();
+                SqlCommand Fill = new SqlCommand("SELECT SupplierOrder.SupplierOrderRefNumber,SupplierOrder.SupplierOrderDate,SupplierOrder.SupplierOrderDescription from SupplierOrder Where SupplierOrder.SupplierID = '" + ConnectString.SupplierID + "' AND SupplierOrderDate Like '%" + txtSupplierOrderID.Text + "%'", ConnectString.connectstring);
+                DA = new SqlDataAdapter(Fill);
+                DA.Fill(DT);
+                dgvSuppOrder.DataSource = DT;
+                dgvSuppOrder.DataMember = DT.TableName;
+                ConnectString.connectstring.Close();
             }
             else
             {
                 txtSupplierOrderID.BackColor = Color.White;
+                DataTable DT = new DataTable();
+                ConnectString.connectstring.Open();
+                SqlCommand Fill = new SqlCommand("SELECT SupplierOrder.SupplierOrderRefNumber,SupplierOrder.SupplierOrderDate,SupplierOrder.SupplierOrderDescription from SupplierOrder Where SupplierOrder.SupplierID = '" + ConnectString.SupplierID + "' AND SupplierOrderDescription Like '%" + txtSupplierOrderID.Text + "%'", ConnectString.connectstring);
+                DA = new SqlDataAdapter(Fill);
+                DA.Fill(DT);
+                dgvSuppOrder.DataSource = DT;
+                dgvSuppOrder.DataMember = DT.TableName;
+                ConnectString.connectstring.Close();
             }
+            
         }
     }
 }
