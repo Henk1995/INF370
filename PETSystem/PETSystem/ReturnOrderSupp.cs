@@ -21,6 +21,8 @@ namespace Return_Order
         bool valid1 = false;
         bool valid3 = false;
         ErrorHandle EH = new ErrorHandle();
+        int antwoord;
+        string x;
         public ReturnOrderSupp()
         {
             InitializeComponent();
@@ -149,20 +151,114 @@ namespace Return_Order
                            }
                         }
                       }
-				  }*/
+				  }
+                  */
 
-            int OrderID = dgvSuppOrder.SelectedRows[0].Index;
+            //OrderID
+            string a = dgvSuppOrder.SelectedRows[0].Cells[0].Value + string.Empty;
+            // Kry Count van Order Line
+            int CountOfOrders;
+            SqlConnection cnnCount = new SqlConnection(ConnectString.DBC);
+            cnnCount.Open();
+            SqlCommand cmdCount = cnnCount.CreateCommand();
+            cmdCount.CommandText = "Select COUNT(SupplierOrderID) from StockLine Where SupplierOrderID = '" + a + "'";
+            CountOfOrders = ((int)cmdCount.ExecuteScalar());
+
+
+            cnnCount.Close();
+            //Stocktype in stockline table
+            SqlConnection connStcokTable = new SqlConnection(ConnectString.DBC);
+            connStcokTable.Open();
+            SqlCommand cmdStocktable = connStcokTable.CreateCommand();
+           
+            //Kry stock quantity in stock table
+            SqlConnection convirMinus = new SqlConnection(ConnectString.DBC);
+            convirMinus.Open();
+            SqlCommand cmdvirMinus = convirMinus.CreateCommand();
+
+
+            //toets
+           
+            // Update stock quantity String
+
+
+
+
+           
+
+            SqlConnection connNou = new SqlConnection(ConnectString.DBC);
+            
+            SqlDataReader ReaderStock;
+            connNou.Open();
+            ConnectString.connectstring.Open();
+            
+            // MessageBox.Show("Training Course successfully updated");
+           // ConnectString.connectstring.Close();
+
+
+
+            //Stockline stock ID connection
+            //  get stock id
+
+
+            // int SelectIDForDelete = dgvSuppOrder.SelectedRows[0].Index;
+
+
+            string Queryyy = "Delete TOP (1) From StockLine Where SupplierOrderID = '" + a +"' ";
+            //This is  MySqlConnection here i have created the object and pass my connection string.  
+
+
+            SqlCommand MyCommandzz = new SqlCommand(Queryyy, ConnectString.connectstring);
+            SqlDataReader MyReaderzz;
+            
+
+
             int quantitySum;
-            SqlConnection connfromQuantity = new SqlConnection(ConnectString.DBC);
-            connfromQuantity.Open();
-            SqlCommand cmdStock = connfromQuantity.CreateCommand();
-            cmdStock.CommandText = "Select SUM(Quantity) FROM StockLine Where SupplierOrderID ='" + OrderID + "'";
-            quantitySum = ((int)cmdStock.ExecuteScalar());
+           
+            
+            SqlConnection lekercon = new SqlConnection(ConnectString.DBC);
+            lekercon.Open();
 
+            //Kry all die data 1 vir 1
+            
+            for (int i = 0; i < CountOfOrders; i++)
+            {
+              //  MessageBox.Show("a");
+                SqlCommand lekkercmd = lekercon.CreateCommand();
 
-            connfromQuantity.Close();
-            MessageBox.Show(quantitySum.ToString());
+                lekkercmd.CommandText = "Select Quantity from StockLine Where SupplierOrderID = '" + a + "'";
+                cmdStocktable.CommandText = "Select StockID FROM StockLine Where SupplierOrderID = '" + a + "'";
+                 x = a;
+                //int gebruikvirMinus = Convert.ToInt32(x);
+                x = ((int)cmdStocktable.ExecuteScalar()).ToString();
+                string z = a;
+                z = ((int)lekkercmd.ExecuteScalar()).ToString();
+                // MessageBox.Show(gebruikvirMinus.ToString());
+                cmdvirMinus.CommandText = "Select StockQuantity FROM Stock Where StockID = '" + x + "'";
+                string y = x;
+                y = ((int)cmdvirMinus.ExecuteScalar()).ToString();
 
+                //Maak som om stock te update
+                
+                antwoord = Convert.ToInt32(y) - Convert.ToInt32(z);
+                MyReaderzz = MyCommandzz.ExecuteReader();
+                MyReaderzz.Close();
+                string QueryStock = "UPDATE Stock SET StockQuantity ='" + antwoord + "'WHERE StockID ='" + x + "'";
+                SqlCommand ComandStock = new SqlCommand(QueryStock, connNou);
+                ReaderStock = ComandStock.ExecuteReader();
+                MessageBox.Show(z);
+                MessageBox.Show(x+"StockID");
+                MessageBox.Show(y + "stockQuant");
+                MessageBox.Show(antwoord.ToString() + "Nuwequant");
+               
+                ReaderStock.Close();
+
+            }
+            lekercon.Close();
+            ConnectString.connectstring.Close();
+            connStcokTable.Close();
+            convirMinus.Close();
+            connNou.Close();
         }
 
         private void button3_Click(object sender, EventArgs e)
