@@ -23,6 +23,12 @@ namespace PETSystem
         bool valid5 = false;
         bool valid6 = false;
         string InstructorID;
+        string NameId;
+        string SurnameId;
+        string emailId;
+        string phoneNumberId;
+        string Genderid;
+        string titleid;
 
         ErrorHandle EH = new ErrorHandle();
         public UpdateInstructor()
@@ -34,8 +40,7 @@ namespace PETSystem
             SqlCommand Fill = new SqlCommand("SELECT * FROM Instructor", ConnectString.connectstring);
             DA = new SqlDataAdapter(Fill);
             DA.Fill(DT);
-            dgvInstructor.DataSource = DT;
-            dgvInstructor.DataMember = DT.TableName;
+            
             ConnectString.connectstring.Close();
             cmbGender.Items.Clear();
             cmbTitle.Items.Clear();
@@ -62,6 +67,23 @@ namespace PETSystem
             ConnectString.connectstring.Close();
            
             
+        }
+
+        public UpdateInstructor(string name, string surname, string email, string phoneN, string Gender, string TitleI)
+        {
+            InitializeComponent();
+            NameId = name;
+            SurnameId = surname;
+            emailId = email;
+            phoneNumberId = phoneN;
+            Genderid = Gender;
+            titleid = TitleI;
+            txtEmail.Text = emailId;
+            txtName.Text = NameId;
+            txtSurname.Text = SurnameId;
+            txtPhoneNumber.Text = phoneNumberId;
+            cmbGender.Text = Genderid;
+            cmbTitle.Text = titleid;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -194,8 +216,7 @@ namespace PETSystem
                     SqlCommand Fill = new SqlCommand("SELECT * FROM Instructor", ConnectString.connectstring);
                     DA = new SqlDataAdapter(Fill);
                     DA.Fill(DT);
-                    dgvInstructor.DataSource = DT;
-                    dgvInstructor.DataMember = DT.TableName;
+                    
                     ConnectString.connectstring.Close();
                     MessageBox.Show("Instructor was Updated", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
@@ -215,47 +236,42 @@ namespace PETSystem
 
         
 
-        private void dgvInstructor_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgvInstructor.SelectedRows.Count > 0) // make sure user select at least 1 row 
-            {
-                InstructorID = dgvInstructor.SelectedRows[0].Cells[0].Value + string.Empty;
-                string NameId = dgvInstructor.SelectedRows[0].Cells[1].Value + string.Empty;
-                string SurnameId = dgvInstructor.SelectedRows[0].Cells[2].Value + string.Empty;
-                string emailId = dgvInstructor.SelectedRows[0].Cells[3].Value + string.Empty;
-                string phoneNumberId = dgvInstructor.SelectedRows[0].Cells[4].Value + string.Empty;
-                string Genderid = dgvInstructor.SelectedRows[0].Cells[5].Value + string.Empty;
-                string titleid = dgvInstructor.SelectedRows[0].Cells[6].Value + string.Empty;
-                string query2 = "SELECT TitleName FROM Title WHERE TitleID ='" + Convert.ToInt32(titleid) + "'";
-                SqlCommand MyCommand2 = new SqlCommand(query2, ConnectString.connectstring);
-                SqlDataReader MyReader2;
-                ConnectString.connectstring.Open();
-                MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
+        //private void dgvInstructor_CellClick(object sender, DataGridViewCellEventArgs e)
+        //{
+        //    if (dgvInstructor.SelectedRows.Count > 0) // make sure user select at least 1 row 
+        //    {
+        //        InstructorID = dgvInstructor.SelectedRows[0].Cells[0].Value + string.Empty;
+        //        string NameId = dgvInstructor.SelectedRows[0].Cells[1].Value + string.Empty;
+        //        string SurnameId = dgvInstructor.SelectedRows[0].Cells[2].Value + string.Empty;
+        //        string emailId = dgvInstructor.SelectedRows[0].Cells[3].Value + string.Empty;
+        //        string phoneNumberId = dgvInstructor.SelectedRows[0].Cells[4].Value + string.Empty;
+        //        string Genderid = dgvInstructor.SelectedRows[0].Cells[5].Value + string.Empty;
+        //        string titleid = dgvInstructor.SelectedRows[0].Cells[6].Value + string.Empty;
+        //        string query2 = "SELECT TitleName FROM Title WHERE TitleID ='" + Convert.ToInt32(titleid) + "'";
+        //        SqlCommand MyCommand2 = new SqlCommand(query2, ConnectString.connectstring);
+        //        SqlDataReader MyReader2;
+        //        ConnectString.connectstring.Open();
+        //        MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
 
-                while (MyReader2.Read())
-                {
-                    titleid = MyReader2["TitleName"].ToString();
-                }
-                ConnectString.connectstring.Close();
-                string query1 = "SELECT GenderName FROM Gender WHERE GenderID ='" + Convert.ToInt32(Genderid) + "'";
-                SqlCommand MyCommand1 = new SqlCommand(query1, ConnectString.connectstring);
-                SqlDataReader MyReader1;
-                ConnectString.connectstring.Open();
-                MyReader1 = MyCommand1.ExecuteReader();     // Here our query will be executed and data saved into the database.  
+        //        while (MyReader2.Read())
+        //        {
+        //            titleid = MyReader2["TitleName"].ToString();
+        //        }
+        //        ConnectString.connectstring.Close();
+        //        string query1 = "SELECT GenderName FROM Gender WHERE GenderID ='" + Convert.ToInt32(Genderid) + "'";
+        //        SqlCommand MyCommand1 = new SqlCommand(query1, ConnectString.connectstring);
+        //        SqlDataReader MyReader1;
+        //        ConnectString.connectstring.Open();
+        //        MyReader1 = MyCommand1.ExecuteReader();     // Here our query will be executed and data saved into the database.  
 
-                while (MyReader1.Read())
-                {
-                    Genderid = MyReader1["GenderName"].ToString();
-                }
-                ConnectString.connectstring.Close();
-                txtEmail.Text = emailId;
-                txtName.Text = NameId;
-                txtSurname.Text = SurnameId;
-                txtPhoneNumber.Text = phoneNumberId;
-                cmbGender.Text = Genderid;
-                cmbTitle.Text = titleid;
-            }
-            }
+        //        while (MyReader1.Read())
+        //        {
+        //            Genderid = MyReader1["GenderName"].ToString();
+        //        }
+        //        ConnectString.connectstring.Close();
+                
+        //    }
+        //    }
 
         private void UpdateInstructor_Load(object sender, EventArgs e)
         {
