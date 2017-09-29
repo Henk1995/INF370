@@ -96,6 +96,50 @@ namespace PETSystem
 
         private void txtName_TextChanged(object sender, EventArgs e)
         {
+            
+        }
+
+        private void txtSurname_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtGender_TextChanged(object sender, EventArgs e)
+        {
+            // Changed to Combo Box
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtPhoneNumber_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Add_Course_Client_Load(object sender, EventArgs e)
+        {
+            var mClientGenderID = (
+                  from a in db.Genders
+                  select a.GenderName)
+                   .ToList();
+
+            cbGender.DataSource = mClientGenderID;
+
+
+            var mClientTitleID = (
+                  from a in db.Titles
+                  select a.TitleName)
+                   .ToList();
+
+            cbTitle.DataSource = mClientTitleID;
+
+        }
+
+        private void txtName_Leave(object sender, EventArgs e)
+        {
             txtName.BackColor = Color.White;
             string Name = txtName.Text;
             bool isString = chk.Checkstring(Name);
@@ -124,42 +168,37 @@ namespace PETSystem
             }
         }
 
-        private void txtSurname_TextChanged(object sender, EventArgs e)
+        private void txtSurname_Leave(object sender, EventArgs e)
         {
             txtSurname.BackColor = Color.White;
-            string Surname = txtSurname.Text;
-            bool isString = chk.Checkstring(Surname);
-            bool notEmpty = chk.CheckEmpty(Surname);
-            bool checkForSQLInjection = chk.checkForSQLInjection(Surname);
+            string Name = txtSurname.Text;
+            bool isString = chk.Checkstring(Name);
+            bool notEmpty = chk.CheckEmpty(Name);
+            bool checkForSQLInjection = chk.checkForSQLInjection(Name);
 
             if (isString == false)
             {
-                txtSurname.BackColor = Color.FromArgb(244, 17, 17);
-                SurnameValid = false;
+                txtName.BackColor = Color.FromArgb(244, 17, 17);
+                NameValid = false;
             }
             else if (notEmpty == false)
             {
-                txtSurname.BackColor = Color.FromArgb(244, 17, 17);
-                SurnameValid = false;
+                txtName.BackColor = Color.FromArgb(244, 17, 17);
+                NameValid = false;
             }
             else if (checkForSQLInjection == false)
             {
-                txtSurname.BackColor = Color.FromArgb(244, 17, 17);
-                SurnameValid = false;
+                txtName.BackColor = Color.FromArgb(244, 17, 17);
+                NameValid = false;
             }
             else
             {
-                txtSurname.BackColor = Color.White;
-                SurnameValid = true;
+                txtName.BackColor = Color.White;
+                NameValid = true;
             }
         }
 
-        private void txtGender_TextChanged(object sender, EventArgs e)
-        {
-            // Changed to Combo Box
-        }
-
-        private void txtEmail_TextChanged(object sender, EventArgs e)
+        private void txtEmail_Leave(object sender, EventArgs e)
         {
             txtEmail.BackColor = Color.White;
             string Email = txtEmail.Text;
@@ -188,7 +227,7 @@ namespace PETSystem
             }
         }
 
-        private void txtPhoneNumber_TextChanged(object sender, EventArgs e)
+        private void txtPhoneNumber_Leave(object sender, EventArgs e)
         {
             string PhoneNumber = txtPhoneNumber.Text;
             txtPhoneNumber.BackColor = Color.White;
@@ -218,22 +257,8 @@ namespace PETSystem
             }
         }
 
-        private void Add_Course_Client_Load(object sender, EventArgs e)
+        private void txtSurname_TextChanged_1(object sender, EventArgs e)
         {
-            var mClientGenderID = (
-                  from a in db.Genders
-                  select a.GenderName)
-                   .ToList();
-
-            cbGender.DataSource = mClientGenderID;
-
-
-            var mClientTitleID = (
-                  from a in db.Titles
-                  select a.TitleName)
-                   .ToList();
-
-            cbTitle.DataSource = mClientTitleID;
 
         }
     }

@@ -39,76 +39,22 @@ namespace PETSystem
 
         private void txtUserName_TextChanged(object sender, EventArgs e)
         {
-            valid1 = EH.CheckstringNum(txtUserName.Text);
-            bool validSQl = EH.checkForSQLInjection(txtUserName.Text);
-            if (valid1)
-            {
-                valid1 = validSQl;
-            }
-            if (!valid1)
-            {
-                txtUserName.BackColor = Color.Red;
-
-            }else
-            {
-                txtUserName.BackColor = Color.White;
-            }
+            
         }
 
         private void txtOldPass_TextChanged(object sender, EventArgs e)
         {
-		txtOldPass.PasswordChar = '*';
-            valid2 = EH.CheckstringNum(txtOldPass.Text);
-            bool validSQl = EH.checkForSQLInjection(txtOldPass.Text);
-            if (valid2)
-            {
-                valid2 = validSQl;
-            }
-            if (!valid2)
-            {
-                txtOldPass.BackColor = Color.Red;
-
-            }
-            else
-            {
-                txtOldPass.BackColor = Color.White;
-            }
+		
         }
 
         private void txtNewPass_TextChanged(object sender, EventArgs e)
         {
-		txtNewPass.PasswordChar = '*';
-            valid3 = EH.CheckstringNum(txtNewPass.Text);
-            bool validSQl = EH.checkForSQLInjection(txtNewPass.Text);
-            if (valid3)
-            {
-                valid3 = validSQl;
-            }
-            if (!valid3)
-            {
-                txtNewPass.BackColor = Color.Red;
-
-            }
-            else
-            {
-                txtNewPass.BackColor = Color.White;
-            }
+		
         }
 
         private void txtNewRePass_TextChanged(object sender, EventArgs e)
         {
-		txtNewRePass.PasswordChar = '*';
-            valid4 = EH.CheckstringNum(txtNewRePass.Text);
-            if ((!valid4) || (txtNewPass.Text != txtNewRePass.Text))
-            {
-                valid4 = false;
-                txtNewRePass.BackColor = Color.Red;
-
-            }
-            else
-            {
-                txtNewRePass.BackColor = Color.White;
-            }
+		
         }
 
         private void btnChangePass_Click(object sender, EventArgs e)
@@ -169,6 +115,81 @@ namespace PETSystem
                 {
                     MessageBox.Show("Information invalid", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void txtUserName_Leave(object sender, EventArgs e)
+        {
+            valid1 = EH.CheckstringNum(txtUserName.Text);
+            bool validSQl = EH.checkForSQLInjection(txtUserName.Text);
+            if (valid1)
+            {
+                valid1 = validSQl;
+            }
+            if (!valid1)
+            {
+                txtUserName.BackColor = Color.Red;
+
+            }
+            else
+            {
+                txtUserName.BackColor = Color.White;
+            }
+        }
+
+        private void txtOldPass_Leave(object sender, EventArgs e)
+        {
+            txtOldPass.PasswordChar = '*';
+            valid2 = EH.CheckstringNum(txtOldPass.Text);
+            bool validSQl = EH.checkForSQLInjection(txtOldPass.Text);
+            if (valid2)
+            {
+                valid2 = validSQl;
+            }
+            if (!valid2)
+            {
+                txtOldPass.BackColor = Color.Red;
+
+            }
+            else
+            {
+                txtOldPass.BackColor = Color.White;
+            }
+        }
+
+        private void txtNewPass_Leave(object sender, EventArgs e)
+        {
+            txtNewPass.PasswordChar = '*';
+            valid3 = EH.CheckstringNum(txtNewPass.Text);
+            bool validSQl = EH.checkForSQLInjection(txtNewPass.Text);
+            if (valid3)
+            {
+                valid3 = validSQl;
+            }
+            if (!valid3)
+            {
+                txtNewPass.BackColor = Color.Red;
+
+            }
+            else
+            {
+                txtNewPass.BackColor = Color.White;
+            }
+        }
+
+        private void txtNewRePass_Leave(object sender, EventArgs e)
+        {
+            txtNewRePass.PasswordChar = '*';
+            valid4 = EH.CheckstringNum(txtNewRePass.Text);
+            if ((!valid4) || (txtNewPass.Text != txtNewRePass.Text))
+            {
+                valid4 = false;
+                txtNewRePass.BackColor = Color.Red;
+
+            }
+            else
+            {
+                txtNewRePass.BackColor = Color.White;
             }
         }
     }

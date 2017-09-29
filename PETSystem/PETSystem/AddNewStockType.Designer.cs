@@ -70,6 +70,7 @@
             this.txtStockTypeName.Size = new System.Drawing.Size(333, 20);
             this.txtStockTypeName.TabIndex = 17;
             this.txtStockTypeName.TextChanged += new System.EventHandler(this.txtStockTypeName_TextChanged);
+            this.txtStockTypeName.Leave += new System.EventHandler(this.txtStockTypeName_Leave);
             // 
             // AddNewStockType
             // 

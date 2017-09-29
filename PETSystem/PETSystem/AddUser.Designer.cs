@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtEmail = new System.Windows.Forms.TextBox();
             this.btnAddU = new System.Windows.Forms.Button();
             this.cmbPrivilege = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -45,8 +47,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.UserDetails = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
-            this.txtEmail = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,6 +73,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(461, 303);
             this.panel1.TabIndex = 0;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(21, 94);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(35, 13);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Email:";
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.Location = new System.Drawing.Point(65, 87);
+            this.txtEmail.Name = "txtEmail";
+            this.txtEmail.Size = new System.Drawing.Size(131, 20);
+            this.txtEmail.TabIndex = 15;
+            this.txtEmail.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // btnAddU
             // 
@@ -112,6 +130,7 @@
             this.txtRetype.Size = new System.Drawing.Size(128, 20);
             this.txtRetype.TabIndex = 11;
             this.txtRetype.TextChanged += new System.EventHandler(this.txtRetype_TextChanged);
+            this.txtRetype.Leave += new System.EventHandler(this.txtRetype_Leave);
             // 
             // label6
             // 
@@ -129,6 +148,7 @@
             this.txtPass.Size = new System.Drawing.Size(124, 20);
             this.txtPass.TabIndex = 9;
             this.txtPass.TextChanged += new System.EventHandler(this.txtPass_TextChanged);
+            this.txtPass.Leave += new System.EventHandler(this.txtPass_Leave);
             // 
             // label5
             // 
@@ -146,6 +166,7 @@
             this.txtUserN.Size = new System.Drawing.Size(124, 20);
             this.txtUserN.TabIndex = 7;
             this.txtUserN.TextChanged += new System.EventHandler(this.txtUserN_TextChanged);
+            this.txtUserN.Leave += new System.EventHandler(this.txtUserN_Leave);
             // 
             // label4
             // 
@@ -173,6 +194,7 @@
             this.txtLastName.Size = new System.Drawing.Size(100, 20);
             this.txtLastName.TabIndex = 4;
             this.txtLastName.TextChanged += new System.EventHandler(this.txtLastName_TextChanged);
+            this.txtLastName.Leave += new System.EventHandler(this.txtLastName_Leave);
             // 
             // label2
             // 
@@ -190,6 +212,7 @@
             this.txtFirst.Size = new System.Drawing.Size(131, 20);
             this.txtFirst.TabIndex = 2;
             this.txtFirst.TextChanged += new System.EventHandler(this.txtFirst_TextChanged);
+            this.txtFirst.Leave += new System.EventHandler(this.txtFirst_Leave);
             // 
             // label1
             // 
@@ -219,23 +242,6 @@
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // txtEmail
-            // 
-            this.txtEmail.Location = new System.Drawing.Point(65, 87);
-            this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(131, 20);
-            this.txtEmail.TabIndex = 15;
-            this.txtEmail.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(21, 94);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 13);
-            this.label8.TabIndex = 16;
-            this.label8.Text = "Email:";
             // 
             // AddUser
             // 

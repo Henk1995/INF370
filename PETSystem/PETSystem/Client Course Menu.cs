@@ -52,7 +52,7 @@ namespace PETSystem
         {
             txtCourseN.BackColor = Color.White;
             string AvailableID = txtCourseN.Text;
-            bool isString = chk.CheckInt(AvailableID);
+            bool isString = chk.Checkstring(AvailableID);
             bool notEmpty = chk.CheckEmpty(AvailableID);
             bool checkForSQLInjection = chk.checkForSQLInjection(AvailableID);
 
