@@ -17,6 +17,8 @@ namespace PETSystem
 
         public static int ToUpdate;
         public static int PrinterIDToEmail;
+        public static string SelectedPrinterToEmail;
+        public static string PrinterName;
         PET_DBDataContext db = new PET_DBDataContext();
         ErrorHandle chk = new ErrorHandle();
         bool SearchPSNameValid;
@@ -169,6 +171,8 @@ namespace PETSystem
                 id = _Printer.PrinterID;
                 ToUpdate = id;
                 PrinterIDToEmail = id;
+                PrinterName = _Printer.PrinterName;
+                SelectedPrinterToEmail = _Printer.PrinterEmail;
             }
         }
 
@@ -190,9 +194,7 @@ namespace PETSystem
 
         private void btnReceiveOrder_Click(object sender, EventArgs e)
         {
-            this.Close();
-            Search_Stock sc = new Search_Stock();
-            sc.Show();
+            
         }
 
         private void button2_Click(object sender, EventArgs e)

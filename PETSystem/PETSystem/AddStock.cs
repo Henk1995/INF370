@@ -22,7 +22,7 @@ namespace PETSystem
         bool AddValid;
         int getTypeID;
         int CurrentQuantity;
-        int NewID = Search_Stock.ToUpdate;
+        int NewID = Search_Stock.StockToUpdate;
         int AddAmmount;
         int NewQuantity;
 

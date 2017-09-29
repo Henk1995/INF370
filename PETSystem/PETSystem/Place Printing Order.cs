@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 using System.Net.Mail;
 using System.Net;
 
@@ -19,183 +20,59 @@ namespace PETSystem
             InitializeComponent();
         }
 
-        PET_DBDataContext db = new PET_DBDataContext();
-        int LoadPrintingfSupplierID = Search_Printing_Supplier.ToUpdate;
-
-        int RefNum = 0;
-        ErrorHandle EH = new ErrorHandle();
-        bool valid1 = false;
-        bool valid2 = false;
-        bool valid3 = false;
-        bool valid4 = false;
-        double OrderT = 0;
-        string OrderDesc = "";
-        string Date = "";
-        int SuppID = 0;
-        string ReturnEmail;
-
-        private void btnBack_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Search_Printing_Supplier sps = new Search_Printing_Supplier();
-            sps.Show();
-        }
-
-        private void btnARN_Click(object sender, EventArgs e)
-        {
-            valid1 = EH.CheckEmpty(txtReferenceNum.Text);
-            valid1 = EH.CheckInt(txtReferenceNum.Text);
-            if (valid1)
-            {
-                RefNum = Convert.ToInt32(txtReferenceNum.Text);
-                txtDate.Visible = true;
-                txtDescription.Visible = true;
-                lblDate.Visible = true;
-                lblDescription.Visible = true;
-                btnAddI.Visible = true;
-                btnPO.Visible = true;
-                btnARN.Visible = false;
-                lblRef.Visible = false;
-                txtReferenceNum.Visible = false;
-                txtQuantity.Visible = true;
-                lblQuantity.Visible = true;
-
-            }
-            else
-            {
-
-                MessageBox.Show("Information provided is invalid please submit valid information");
-            }
-        }
+        int PrinterID = Search_Printing_Supplier.ToUpdate;
+        string PrinterName = Search_Printing_Supplier.PrinterName;
+        string PrinterEmail = Search_Printing_Supplier.SelectedPrinterToEmail;
 
         private void Place_Printing_Order_Load(object sender, EventArgs e)
         {
-            txtDate.Visible = false;
-            txtDescription.Visible = false;
-            lblDate.Visible = false;
-            lblDescription.Visible = false;
-            btnAddI.Visible = false;
-            btnPO.Visible = false;
-            txtQuantity.Visible = false;
-            lblQuantity.Visible = false;
-            rtbOrder.Text = rtbOrder.Text + "Quantity\t Order Description \t Date\n";
+            label1.Text = "Printer ID: " + PrinterID + " \nPrinter Name: " + PrinterName;
+            txtEmail.Text = "Good day.\n\nI would like to place an order for :";
         }
 
-        private void btnPO_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
-            int SelectedID = LoadPrintingfSupplierID;
+            this.Close();
+            Search_Printing_Supplier SPS = new Search_Printing_Supplier();
+            SPS.Show();
+        }
 
-            if (valid1 && valid2 && valid3 && valid4)
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Stuur email
+            using (SmtpClient client = new SmtpClient())
             {
-                MessageBox.Show("Are you sure you want to place this new order", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
-                //Add order to Database
-
-                PrinterOrder mPrinterOrder = new PrinterOrder
+                client.Host = "smtp.gmail.com";
+                client.UseDefaultCredentials = true;
+                NetworkCredential netCred = new NetworkCredential("janwilkensmalan1@gmail.com", "Wilkens123");
+                client.Credentials = netCred;
+                client.EnableSsl = true;
+                client.Port = 587;
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                using (MailMessage mail = new MailMessage("janwilkensmalan1@gmail.com", PrinterEmail))
                 {
-                    PrinterOrderRefNumber = Convert.ToInt32(txtReferenceNum.Text),
-                    PrintOrderDate = txtDate.Text,
-                    PrintOrderDescription = txtDescription.Text,
-                    PrinterID = LoadPrintingfSupplierID,
-
-                };
-
-                db.PrinterOrders.InsertOnSubmit(mPrinterOrder);
-                db.SubmitChanges();
-
-                //Get email
-
-                var getEmail = (from x in db.Printers where x.PrinterID == SelectedID select x.PrinterEmail).FirstOrDefault();
-
-                ReturnEmail = getEmail;
-
-                
-
-                using (SmtpClient client = new SmtpClient())
-                {
-                    client.Host = "smtp.gmail.com";
-                    client.UseDefaultCredentials = true;
-                    NetworkCredential netCred = new NetworkCredential("petsystemtest@gmail.com", "JJSRHsystem");
-                    client.Credentials = netCred;
-                    client.EnableSsl = true;
-                    client.Port = 587;
-                    client.DeliveryMethod = SmtpDeliveryMethod.Network;
-                    using (MailMessage mail = new MailMessage("petsystemtest@gmail.com", ReturnEmail))
+                    try
                     {
-                        mail.Subject = "New Printing Order";
-                        mail.Body = "We would Like to place a new order: \n\n Order Date: \t\t\t" + txtDate.Text + " \n Order Reference Number: \t" + txtReferenceNum.Text + " \n The order description: \n " + txtDescription.Text + " \n\nPlease Send us the Invoice.";
+                        mail.Subject = "Order Placement";
+                        mail.Body = txtEmail.Text;
                         mail.IsBodyHtml = false;
                         client.Send(mail);
-                        MessageBox.Show("Message was sent");
+                        MessageBox.Show("Order has been placed to Supplier: " + ConnectString.SupplierName + "\nReturning to Supplier Menu", "Notification");
+                        Search_Printing_Supplier myform = new Search_Printing_Supplier();
+                        this.Close();
+                        myform.ShowDialog();
 
-                        
                     }
+
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine(ex);
+                        if (ex.InnerException != null)
+                        { MessageBox.Show("InnerException is: {0}", ex.InnerException.ToString()); }
+
+                    }
+
                 }
-
-
-                this.Close();
-                Search_Printing_Supplier sps = new Search_Printing_Supplier();
-                sps.Show();
-            }
-        }
-
-        private void btnAddI_Click(object sender, EventArgs e)
-        {
-            if (valid1 && valid2 && valid3 && valid4)
-            {
-                if (OrderDesc == "")
-                {
-                    OrderDesc = txtDescription.Text;
-                }
-                else
-                {
-                    OrderDesc = OrderDesc + "," + txtDescription.Text;
-                }
-
-                rtbOrder.Text = rtbOrder.Text + "x\t" + txtQuantity.Text + "\t" + txtDescription.Text + "\t" + txtDate.Text + "\n";
-            }
-        }
-
-        private void txtReferenceNum_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDescription_TextChanged(object sender, EventArgs e)
-        {
-            valid2 = EH.Checkstring(txtDescription.Text);
-            if (!valid2)
-            {
-                txtDescription.BackColor = Color.Red;
-            }
-            else
-            {
-                txtDescription.BackColor = Color.White;
-            }
-        }
-
-        private void txtDate_TextChanged(object sender, EventArgs e)
-        {
-            valid4 = EH.CheckDate(txtDate.Text);
-            if (!valid4)
-            {
-                txtDate.BackColor = Color.Red;
-            }
-            else
-            {
-                txtDate.BackColor = Color.White;
-            }
-        }
-
-        private void txtQuantity_TextChanged(object sender, EventArgs e)
-        {
-            valid3 = EH.Checkfloat(txtQuantity.Text);
-            if (!valid3)
-            {
-                txtQuantity.BackColor = Color.Red;
-            }
-            else
-            {
-                txtQuantity.BackColor = Color.White;
             }
         }
     }

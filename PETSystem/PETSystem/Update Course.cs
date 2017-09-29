@@ -17,7 +17,7 @@ namespace PETSystem
             InitializeComponent();
         }
 
-        int NewID = SearchCourse.ToUpdate;
+        int NewID = Maintain_Client_Courses.ToUpdate;
         PET_DBDataContext db = new PET_DBDataContext();
         ErrorHandle chk = new ErrorHandle();
         bool CourseNValid;
@@ -70,9 +70,13 @@ namespace PETSystem
                 this.Close();
 
                 MessageBox.Show("Added new course: " + CourseName + "\n Cost: R " + CourseCost + "" + "/n Running Time: " + CourseDuration, "It Worked");
-                //MessageBox.Show("ok");
-                SearchCourse scc = new SearchCourse();
-                scc.Show();
+
+                this.Close();
+
+                Maintain_Client_Courses MCC = new Maintain_Client_Courses();
+                MCC.ChangeTab(3);
+                MCC.Show();
+
             }
         }
 

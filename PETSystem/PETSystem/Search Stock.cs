@@ -17,12 +17,13 @@ namespace PETSystem
             InitializeComponent();
         }
 
-        public static int ToUpdate;
+        public static int StockToUpdate;
         PET_DBDataContext db = new PET_DBDataContext();
         ErrorHandle chk = new ErrorHandle();
         bool SearchDValid;
         bool SearchIValid;
         int id;
+        int QuantityOnHand;
 
 
         private void btnSearcStockDesc_Click(object sender, EventArgs e)
@@ -48,24 +49,7 @@ namespace PETSystem
         private void btnSearchStockID_Click(object sender, EventArgs e)
         {
             
-            //string stockID = txtSearchStockID.Text;
-            //if (SearchIValid == false)
-            //{
-                
-            //    MessageBox.Show("The stock ID was not entered. Please enter the stock ID that you want to search and try again.", "An Error Has Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
-            //}
-            //else
-            //{
-            //    //Search in DB
-
-            //    var searchID = from Stock in db.Stocks
-            //                   where Stock.StockID == Convert.ToInt32(txtSearchStockID.Text)
-            //                   select Stock;
-            //    dgvSearchStock.DataSource = searchID;
-
-            //    //MessageBox.Show("Searching " + stockID, "It Worked");
-            //}
+          
         }
 
         private void txtSearchStockDesc_TextChanged(object sender, EventArgs e)
@@ -120,48 +104,7 @@ namespace PETSystem
 
         private void txtSearchStockID_TextChanged(object sender, EventArgs e)
         {
-           // txtSearchStockDesc.Clear();
-
-
-            //string stockID = txtSearchStockID.Text;
-            //txtSearchStockID.BackColor = Color.White;
-            //bool isInt = chk.CheckInt(stockID);
-            //bool notEmpty = chk.CheckEmpty(stockID);
-
-            //if (isInt == false)
-            //{
-            //    txtSearchStockID.BackColor = Color.FromArgb(244, 17, 17);
-            //    SearchIValid = false;
-            //}
-            //else if (notEmpty == false)
-            //{
-            //    txtSearchStockID.BackColor = Color.FromArgb(244, 17, 17);
-            //    SearchIValid = false;
-            //}
-            //else
-            //{
-            //    txtSearchStockID.BackColor = Color.White;
-            //    SearchIValid = true;
-            //}
-
-            //if (SearchDValid == true)
-            //{
-            //    var searchID = from Stock in db.Stocks
-            //                   where Stock.StockID == Convert.ToInt32(txtSearchStockID.Text)
-            //                   select Stock;
-            //    dgvSearchStock.DataSource = searchID;
-            //    dgvSearchStock.Update();
-            //    dgvSearchStock.Refresh();
-            //}
-            //else
-            //{
-            //    dgvSearchStock.DataSource = null;
-            //    var S = from Stock in db.Stocks select Stock;
-            //    dgvSearchStock.DataSource = S;
-            //    dgvSearchStock.Update();
-            //    dgvSearchStock.Refresh();
-            //}
-            
+           
         }
 
         private void btnWriteoffStock_Click(object sender, EventArgs e)
@@ -171,29 +114,40 @@ namespace PETSystem
             f.Show();
         }
 
-        private void btnAddStock_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            AddStock a = new AddStock();
-            a.Show();
-        }
 
         private void btnDeleteStock_Click(object sender, EventArgs e)
         {
             DialogResult test = MessageBox.Show("Are you sure you want to delete this stock item?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (test == DialogResult.Yes)
             {
+                bool HasQuantity;
 
-                //Delete Selected
-                var mStock = (from x in db.Stocks where x.StockID == id select x).First();
-                db.Stocks.DeleteOnSubmit(mStock);
-                db.SubmitChanges();
+                if (QuantityOnHand > 0)
+                {
+                    HasQuantity = true;
+                }
+                else
+                {
+                    HasQuantity = false;
+                }
 
-                //refresh DGV
-                dgvSearchStock.DataSource = null;
-                dgvSearchStock.DataSource = db.Stocks;
+                if (HasQuantity == true)
+                {
+                    MessageBox.Show("Stock cannot be deleted because there is still stock on hand of this specific stock item", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    //Delete Selected
+                    var mStock = (from x in db.Stocks where x.StockID == id select x).First();
+                    db.Stocks.DeleteOnSubmit(mStock);
+                    db.SubmitChanges();
 
-                MessageBox.Show("Stock item has been deleted", "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //refresh DGV
+                    dgvSearchStock.DataSource = null;
+                    dgvSearchStock.DataSource = db.Stocks;
+
+                    MessageBox.Show("Stock item has been deleted", "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             else if (test == DialogResult.No)
             {
@@ -258,7 +212,8 @@ namespace PETSystem
             {
                 Stock _Stock = (Stock)dgvSearchStock.CurrentRow.DataBoundItem;
                 id = _Stock.StockID;
-                ToUpdate = id;
+                QuantityOnHand = Convert.ToInt32(_Stock.StockQuantity);
+                StockToUpdate = id;
             }
         }
 
@@ -269,6 +224,11 @@ namespace PETSystem
             dgvSearchStock.Update();
             dgvSearchStock.DataSource = S;
             dgvSearchStock.Refresh();
+        }
+
+        private void dgvSearchStock_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
