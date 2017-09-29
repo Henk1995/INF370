@@ -90,6 +90,7 @@ namespace PETSystem
             if (dgvInstructor.SelectedRows.Count > 0) // make sure user select at least 1 row 
             {
                 string InstructorID = dgvInstructor.SelectedRows[0].Cells[0].Value + string.Empty;
+                ConnectString.InstructorID = Convert.ToInt32(InstructorID);
                 string NameId = dgvInstructor.SelectedRows[0].Cells[1].Value + string.Empty;
                 string SurnameId = dgvInstructor.SelectedRows[0].Cells[2].Value + string.Empty;
                 string emailId = dgvInstructor.SelectedRows[0].Cells[3].Value + string.Empty;
@@ -405,6 +406,14 @@ namespace PETSystem
         private void txtInstructorID_TextAlignChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose(true);
+            ViewinstructorForm myform = new ViewinstructorForm();
+            myform.ShowDialog();
         }
     }
 }

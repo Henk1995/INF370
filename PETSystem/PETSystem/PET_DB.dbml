@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="inf370Reg" Class="PET_DBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=inf370Reg;Integrated Security=True" SettingsObjectName="PETSystem.Properties.Settings" SettingsPropertyName="inf370RegConnectionString1" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="NewestDBExport" Class="PET_DBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=NewestDBExport;Integrated Security=True" SettingsObjectName="PETSystem.Properties.Settings" SettingsPropertyName="NewestDBExportConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ApplicationForm" Member="ApplicationForms">
     <Type Name="ApplicationForm">
       <Column Name="ApplicationFormID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -17,8 +17,8 @@
       <Column Name="UserID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="Name" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
       <Column Name="Surname" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="UserPassword" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="UserName" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="UserPassword" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="UserName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="PriveledgeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="Email" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Association Name="UserTable_TableOrder" Member="TableOrders" ThisKey="UserID" OtherKey="UserID" Type="TableOrder" />
@@ -128,6 +128,8 @@
       <Column Name="GenderID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="TitleID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="CertificationID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Results" Type="System.String" DbType="Text" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="Photo" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Instructor_CourseInstance" Member="CourseInstances" ThisKey="InstructorID" OtherKey="InstructorID" Type="CourseInstance" />
       <Association Name="Instructor_MailingList" Member="MailingLists" ThisKey="InstructorID" OtherKey="InstructorID" Type="MailingList" />
       <Association Name="Instructor_QualifiedCourse" Member="QualifiedCourses" ThisKey="InstructorID" OtherKey="InstructorID" Type="QualifiedCourse" />
@@ -178,6 +180,13 @@
       <Association Name="PaymentType_Payment" Member="Payments" ThisKey="PaymentTypeID" OtherKey="PaymentTypeID" Type="Payment" />
     </Type>
   </Table>
+  <Table Name="dbo.PictureTable" Member="PictureTables">
+    <Type Name="PictureTable">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Filename" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Data" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
   <Table Name="dbo.Printer" Member="Printers">
     <Type Name="Printer">
       <Column Name="PrinterID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -198,6 +207,7 @@
       <Column Name="PrintOrderDate" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="PrintOrderDescription" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="PrinterID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="PrinterOrder_RoyaltiesOrder" Member="RoyaltiesOrders" ThisKey="PrinterOrderID" OtherKey="PrinterOrderID" Type="RoyaltiesOrder" />
       <Association Name="PrinterOrder_StockLine" Member="StockLines" ThisKey="PrinterOrderID" OtherKey="PrinterOrderID" Type="StockLine" />
       <Association Name="Printer_PrinterOrder" Member="Printer" ThisKey="PrinterID" OtherKey="PrinterID" Type="Printer" IsForeignKey="true" />
@@ -281,11 +291,11 @@
   </Table>
   <Table Name="dbo.StockLine" Member="StockLines">
     <Type Name="StockLine">
-      <Column Name="SupplierOrderID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="SupplierID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="PrinterOrderID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="PrinterID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="StockID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SupplierOrderID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SupplierID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PrinterOrderID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PrinterID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StockID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Quantity" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="PrinterOrder_StockLine" Member="PrinterOrder" ThisKey="PrinterOrderID" OtherKey="PrinterOrderID" Type="PrinterOrder" IsForeignKey="true" />
       <Association Name="Printer_StockLine" Member="Printer" ThisKey="PrinterID" OtherKey="PrinterID" Type="Printer" IsForeignKey="true" />

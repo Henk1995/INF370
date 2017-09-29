@@ -144,7 +144,12 @@ namespace PETSystem
                         }
                         ConnectString.connectstring.Close();
                         MessageBox.Show("Instructor has been added to the system.", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-
+                       
+                      
+                        this.Close();
+                        this.Dispose(true);
+                        Instructors i = new Instructors();
+                        i.ShowDialog();
                     }
                     else
                     {

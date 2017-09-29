@@ -22,7 +22,7 @@ namespace PETSystem
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="inf370Reg")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="NewestDBExport")]
 	public partial class PET_DBDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -78,6 +78,9 @@ namespace PETSystem
     partial void InsertPaymentType(PaymentType instance);
     partial void UpdatePaymentType(PaymentType instance);
     partial void DeletePaymentType(PaymentType instance);
+    partial void InsertPictureTable(PictureTable instance);
+    partial void UpdatePictureTable(PictureTable instance);
+    partial void DeletePictureTable(PictureTable instance);
     partial void InsertPrinter(Printer instance);
     partial void UpdatePrinter(Printer instance);
     partial void DeletePrinter(Printer instance);
@@ -105,9 +108,6 @@ namespace PETSystem
     partial void InsertStock(Stock instance);
     partial void UpdateStock(Stock instance);
     partial void DeleteStock(Stock instance);
-    partial void InsertStockLine(StockLine instance);
-    partial void UpdateStockLine(StockLine instance);
-    partial void DeleteStockLine(StockLine instance);
     partial void InsertStockType(StockType instance);
     partial void UpdateStockType(StockType instance);
     partial void DeleteStockType(StockType instance);
@@ -141,7 +141,7 @@ namespace PETSystem
     #endregion
 		
 		public PET_DBDataContext() : 
-				base(global::PETSystem.Properties.Settings.Default.inf370RegConnectionString1, mappingSource)
+				base(global::PETSystem.Properties.Settings.Default.NewestDBExportConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -295,6 +295,14 @@ namespace PETSystem
 			get
 			{
 				return this.GetTable<PaymentType>();
+			}
+		}
+		
+		public System.Data.Linq.Table<PictureTable> PictureTables
+		{
+			get
+			{
+				return this.GetTable<PictureTable>();
 			}
 		}
 		
@@ -817,7 +825,7 @@ namespace PETSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserPassword", DbType="VarChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserPassword", DbType="VarChar(50)")]
 		public string UserPassword
 		{
 			get
@@ -837,7 +845,7 @@ namespace PETSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="VarChar(10)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="VarChar(50)")]
 		public string UserName
 		{
 			get
@@ -2936,6 +2944,10 @@ namespace PETSystem
 		
 		private int _CertificationID;
 		
+		private string _Results;
+		
+		private System.Nullable<int> _Photo;
+		
 		private EntitySet<CourseInstance> _CourseInstances;
 		
 		private EntitySet<MailingList> _MailingLists;
@@ -2972,6 +2984,10 @@ namespace PETSystem
     partial void OnTitleIDChanged();
     partial void OnCertificationIDChanging(int value);
     partial void OnCertificationIDChanged();
+    partial void OnResultsChanging(string value);
+    partial void OnResultsChanged();
+    partial void OnPhotoChanging(System.Nullable<int> value);
+    partial void OnPhotoChanged();
     #endregion
 		
 		public Instructor()
@@ -3155,6 +3171,46 @@ namespace PETSystem
 					this._CertificationID = value;
 					this.SendPropertyChanged("CertificationID");
 					this.OnCertificationIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Results", DbType="Text", UpdateCheck=UpdateCheck.Never)]
+		public string Results
+		{
+			get
+			{
+				return this._Results;
+			}
+			set
+			{
+				if ((this._Results != value))
+				{
+					this.OnResultsChanging(value);
+					this.SendPropertyChanging();
+					this._Results = value;
+					this.SendPropertyChanged("Results");
+					this.OnResultsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Photo", DbType="Int")]
+		public System.Nullable<int> Photo
+		{
+			get
+			{
+				return this._Photo;
+			}
+			set
+			{
+				if ((this._Photo != value))
+				{
+					this.OnPhotoChanging(value);
+					this.SendPropertyChanging();
+					this._Photo = value;
+					this.SendPropertyChanged("Photo");
+					this.OnPhotoChanged();
 				}
 			}
 		}
@@ -4241,6 +4297,116 @@ namespace PETSystem
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PictureTable")]
+	public partial class PictureTable : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id;
+		
+		private string _Filename;
+		
+		private System.Data.Linq.Binary _Data;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnidChanging(int value);
+    partial void OnidChanged();
+    partial void OnFilenameChanging(string value);
+    partial void OnFilenameChanged();
+    partial void OnDataChanging(System.Data.Linq.Binary value);
+    partial void OnDataChanged();
+    #endregion
+		
+		public PictureTable()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id
+		{
+			get
+			{
+				return this._id;
+			}
+			set
+			{
+				if ((this._id != value))
+				{
+					this.OnidChanging(value);
+					this.SendPropertyChanging();
+					this._id = value;
+					this.SendPropertyChanged("id");
+					this.OnidChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Filename", DbType="VarChar(50)")]
+		public string Filename
+		{
+			get
+			{
+				return this._Filename;
+			}
+			set
+			{
+				if ((this._Filename != value))
+				{
+					this.OnFilenameChanging(value);
+					this.SendPropertyChanging();
+					this._Filename = value;
+					this.SendPropertyChanged("Filename");
+					this.OnFilenameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Data", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Data
+		{
+			get
+			{
+				return this._Data;
+			}
+			set
+			{
+				if ((this._Data != value))
+				{
+					this.OnDataChanging(value);
+					this.SendPropertyChanging();
+					this._Data = value;
+					this.SendPropertyChanged("Data");
+					this.OnDataChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Printer")]
 	public partial class Printer : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -4262,8 +4428,6 @@ namespace PETSystem
 		private EntitySet<PrinterOrder> _PrinterOrders;
 		
 		private EntitySet<RoyaltiesOrder> _RoyaltiesOrders;
-		
-		private EntitySet<StockLine> _StockLines;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -4287,7 +4451,6 @@ namespace PETSystem
 		{
 			this._PrinterOrders = new EntitySet<PrinterOrder>(new Action<PrinterOrder>(this.attach_PrinterOrders), new Action<PrinterOrder>(this.detach_PrinterOrders));
 			this._RoyaltiesOrders = new EntitySet<RoyaltiesOrder>(new Action<RoyaltiesOrder>(this.attach_RoyaltiesOrders), new Action<RoyaltiesOrder>(this.detach_RoyaltiesOrders));
-			this._StockLines = new EntitySet<StockLine>(new Action<StockLine>(this.attach_StockLines), new Action<StockLine>(this.detach_StockLines));
 			OnCreated();
 		}
 		
@@ -4437,19 +4600,6 @@ namespace PETSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Printer_StockLine", Storage="_StockLines", ThisKey="PrinterID", OtherKey="PrinterID")]
-		public EntitySet<StockLine> StockLines
-		{
-			get
-			{
-				return this._StockLines;
-			}
-			set
-			{
-				this._StockLines.Assign(value);
-			}
-		}
-		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -4493,18 +4643,6 @@ namespace PETSystem
 			this.SendPropertyChanging();
 			entity.Printer = null;
 		}
-		
-		private void attach_StockLines(StockLine entity)
-		{
-			this.SendPropertyChanging();
-			entity.Printer = this;
-		}
-		
-		private void detach_StockLines(StockLine entity)
-		{
-			this.SendPropertyChanging();
-			entity.Printer = null;
-		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PrinterOrder")]
@@ -4523,9 +4661,9 @@ namespace PETSystem
 		
 		private int _PrinterID;
 		
-		private EntitySet<RoyaltiesOrder> _RoyaltiesOrders;
+		private System.Nullable<int> _Quantity;
 		
-		private EntitySet<StockLine> _StockLines;
+		private EntitySet<RoyaltiesOrder> _RoyaltiesOrders;
 		
 		private EntityRef<Printer> _Printer;
 		
@@ -4543,12 +4681,13 @@ namespace PETSystem
     partial void OnPrintOrderDescriptionChanged();
     partial void OnPrinterIDChanging(int value);
     partial void OnPrinterIDChanged();
+    partial void OnQuantityChanging(System.Nullable<int> value);
+    partial void OnQuantityChanged();
     #endregion
 		
 		public PrinterOrder()
 		{
 			this._RoyaltiesOrders = new EntitySet<RoyaltiesOrder>(new Action<RoyaltiesOrder>(this.attach_RoyaltiesOrders), new Action<RoyaltiesOrder>(this.detach_RoyaltiesOrders));
-			this._StockLines = new EntitySet<StockLine>(new Action<StockLine>(this.attach_StockLines), new Action<StockLine>(this.detach_StockLines));
 			this._Printer = default(EntityRef<Printer>);
 			OnCreated();
 		}
@@ -4657,6 +4796,26 @@ namespace PETSystem
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Int")]
+		public System.Nullable<int> Quantity
+		{
+			get
+			{
+				return this._Quantity;
+			}
+			set
+			{
+				if ((this._Quantity != value))
+				{
+					this.OnQuantityChanging(value);
+					this.SendPropertyChanging();
+					this._Quantity = value;
+					this.SendPropertyChanged("Quantity");
+					this.OnQuantityChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PrinterOrder_RoyaltiesOrder", Storage="_RoyaltiesOrders", ThisKey="PrinterOrderID", OtherKey="PrinterOrderID")]
 		public EntitySet<RoyaltiesOrder> RoyaltiesOrders
 		{
@@ -4667,19 +4826,6 @@ namespace PETSystem
 			set
 			{
 				this._RoyaltiesOrders.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PrinterOrder_StockLine", Storage="_StockLines", ThisKey="PrinterOrderID", OtherKey="PrinterOrderID")]
-		public EntitySet<StockLine> StockLines
-		{
-			get
-			{
-				return this._StockLines;
-			}
-			set
-			{
-				this._StockLines.Assign(value);
 			}
 		}
 		
@@ -4744,18 +4890,6 @@ namespace PETSystem
 		}
 		
 		private void detach_RoyaltiesOrders(RoyaltiesOrder entity)
-		{
-			this.SendPropertyChanging();
-			entity.PrinterOrder = null;
-		}
-		
-		private void attach_StockLines(StockLine entity)
-		{
-			this.SendPropertyChanging();
-			entity.PrinterOrder = this;
-		}
-		
-		private void detach_StockLines(StockLine entity)
 		{
 			this.SendPropertyChanging();
 			entity.PrinterOrder = null;
@@ -6054,8 +6188,6 @@ namespace PETSystem
 		
 		private EntitySet<RoyaltiesOrder> _RoyaltiesOrders;
 		
-		private EntitySet<StockLine> _StockLines;
-		
 		private EntityRef<StockType> _StockType;
 		
     #region Extensibility Method Definitions
@@ -6080,7 +6212,6 @@ namespace PETSystem
 			this._OrderLines = new EntitySet<OrderLine>(new Action<OrderLine>(this.attach_OrderLines), new Action<OrderLine>(this.detach_OrderLines));
 			this._Refunds = new EntitySet<Refund>(new Action<Refund>(this.attach_Refunds), new Action<Refund>(this.detach_Refunds));
 			this._RoyaltiesOrders = new EntitySet<RoyaltiesOrder>(new Action<RoyaltiesOrder>(this.attach_RoyaltiesOrders), new Action<RoyaltiesOrder>(this.detach_RoyaltiesOrders));
-			this._StockLines = new EntitySet<StockLine>(new Action<StockLine>(this.attach_StockLines), new Action<StockLine>(this.detach_StockLines));
 			this._StockType = default(EntityRef<StockType>);
 			OnCreated();
 		}
@@ -6241,19 +6372,6 @@ namespace PETSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Stock_StockLine", Storage="_StockLines", ThisKey="StockID", OtherKey="StockID")]
-		public EntitySet<StockLine> StockLines
-		{
-			get
-			{
-				return this._StockLines;
-			}
-			set
-			{
-				this._StockLines.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="StockType_Stock", Storage="_StockType", ThisKey="StockTypeID", OtherKey="StockTypeID", IsForeignKey=true)]
 		public StockType StockType
 		{
@@ -6355,78 +6473,30 @@ namespace PETSystem
 			this.SendPropertyChanging();
 			entity.Stock = null;
 		}
-		
-		private void attach_StockLines(StockLine entity)
-		{
-			this.SendPropertyChanging();
-			entity.Stock = this;
-		}
-		
-		private void detach_StockLines(StockLine entity)
-		{
-			this.SendPropertyChanging();
-			entity.Stock = null;
-		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.StockLine")]
-	public partial class StockLine : INotifyPropertyChanging, INotifyPropertyChanged
+	public partial class StockLine
 	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		private System.Nullable<int> _SupplierOrderID;
 		
-		private int _SupplierOrderID;
+		private System.Nullable<int> _SupplierID;
 		
-		private int _SupplierID;
+		private System.Nullable<int> _PrinterOrderID;
 		
-		private int _PrinterOrderID;
+		private System.Nullable<int> _PrinterID;
 		
-		private int _PrinterID;
-		
-		private int _StockID;
+		private System.Nullable<int> _StockID;
 		
 		private System.Nullable<int> _Quantity;
 		
-		private EntityRef<PrinterOrder> _PrinterOrder;
-		
-		private EntityRef<Printer> _Printer;
-		
-		private EntityRef<Stock> _Stock;
-		
-		private EntityRef<Supplier> _Supplier;
-		
-		private EntityRef<SupplierOrder> _SupplierOrder;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnSupplierOrderIDChanging(int value);
-    partial void OnSupplierOrderIDChanged();
-    partial void OnSupplierIDChanging(int value);
-    partial void OnSupplierIDChanged();
-    partial void OnPrinterOrderIDChanging(int value);
-    partial void OnPrinterOrderIDChanged();
-    partial void OnPrinterIDChanging(int value);
-    partial void OnPrinterIDChanged();
-    partial void OnStockIDChanging(int value);
-    partial void OnStockIDChanged();
-    partial void OnQuantityChanging(System.Nullable<int> value);
-    partial void OnQuantityChanged();
-    #endregion
-		
 		public StockLine()
 		{
-			this._PrinterOrder = default(EntityRef<PrinterOrder>);
-			this._Printer = default(EntityRef<Printer>);
-			this._Stock = default(EntityRef<Stock>);
-			this._Supplier = default(EntityRef<Supplier>);
-			this._SupplierOrder = default(EntityRef<SupplierOrder>);
-			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupplierOrderID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int SupplierOrderID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupplierOrderID", DbType="Int")]
+		public System.Nullable<int> SupplierOrderID
 		{
 			get
 			{
@@ -6436,21 +6506,13 @@ namespace PETSystem
 			{
 				if ((this._SupplierOrderID != value))
 				{
-					if (this._SupplierOrder.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSupplierOrderIDChanging(value);
-					this.SendPropertyChanging();
 					this._SupplierOrderID = value;
-					this.SendPropertyChanged("SupplierOrderID");
-					this.OnSupplierOrderIDChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupplierID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int SupplierID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SupplierID", DbType="Int")]
+		public System.Nullable<int> SupplierID
 		{
 			get
 			{
@@ -6460,21 +6522,13 @@ namespace PETSystem
 			{
 				if ((this._SupplierID != value))
 				{
-					if (this._Supplier.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnSupplierIDChanging(value);
-					this.SendPropertyChanging();
 					this._SupplierID = value;
-					this.SendPropertyChanged("SupplierID");
-					this.OnSupplierIDChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PrinterOrderID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int PrinterOrderID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PrinterOrderID", DbType="Int")]
+		public System.Nullable<int> PrinterOrderID
 		{
 			get
 			{
@@ -6484,21 +6538,13 @@ namespace PETSystem
 			{
 				if ((this._PrinterOrderID != value))
 				{
-					if (this._PrinterOrder.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnPrinterOrderIDChanging(value);
-					this.SendPropertyChanging();
 					this._PrinterOrderID = value;
-					this.SendPropertyChanged("PrinterOrderID");
-					this.OnPrinterOrderIDChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PrinterID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int PrinterID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PrinterID", DbType="Int")]
+		public System.Nullable<int> PrinterID
 		{
 			get
 			{
@@ -6508,21 +6554,13 @@ namespace PETSystem
 			{
 				if ((this._PrinterID != value))
 				{
-					if (this._Printer.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnPrinterIDChanging(value);
-					this.SendPropertyChanging();
 					this._PrinterID = value;
-					this.SendPropertyChanged("PrinterID");
-					this.OnPrinterIDChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StockID", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int StockID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StockID", DbType="Int")]
+		public System.Nullable<int> StockID
 		{
 			get
 			{
@@ -6532,15 +6570,7 @@ namespace PETSystem
 			{
 				if ((this._StockID != value))
 				{
-					if (this._Stock.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnStockIDChanging(value);
-					this.SendPropertyChanging();
 					this._StockID = value;
-					this.SendPropertyChanged("StockID");
-					this.OnStockIDChanged();
 				}
 			}
 		}
@@ -6556,202 +6586,8 @@ namespace PETSystem
 			{
 				if ((this._Quantity != value))
 				{
-					this.OnQuantityChanging(value);
-					this.SendPropertyChanging();
 					this._Quantity = value;
-					this.SendPropertyChanged("Quantity");
-					this.OnQuantityChanged();
 				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PrinterOrder_StockLine", Storage="_PrinterOrder", ThisKey="PrinterOrderID", OtherKey="PrinterOrderID", IsForeignKey=true)]
-		public PrinterOrder PrinterOrder
-		{
-			get
-			{
-				return this._PrinterOrder.Entity;
-			}
-			set
-			{
-				PrinterOrder previousValue = this._PrinterOrder.Entity;
-				if (((previousValue != value) 
-							|| (this._PrinterOrder.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._PrinterOrder.Entity = null;
-						previousValue.StockLines.Remove(this);
-					}
-					this._PrinterOrder.Entity = value;
-					if ((value != null))
-					{
-						value.StockLines.Add(this);
-						this._PrinterOrderID = value.PrinterOrderID;
-					}
-					else
-					{
-						this._PrinterOrderID = default(int);
-					}
-					this.SendPropertyChanged("PrinterOrder");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Printer_StockLine", Storage="_Printer", ThisKey="PrinterID", OtherKey="PrinterID", IsForeignKey=true)]
-		public Printer Printer
-		{
-			get
-			{
-				return this._Printer.Entity;
-			}
-			set
-			{
-				Printer previousValue = this._Printer.Entity;
-				if (((previousValue != value) 
-							|| (this._Printer.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Printer.Entity = null;
-						previousValue.StockLines.Remove(this);
-					}
-					this._Printer.Entity = value;
-					if ((value != null))
-					{
-						value.StockLines.Add(this);
-						this._PrinterID = value.PrinterID;
-					}
-					else
-					{
-						this._PrinterID = default(int);
-					}
-					this.SendPropertyChanged("Printer");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Stock_StockLine", Storage="_Stock", ThisKey="StockID", OtherKey="StockID", IsForeignKey=true)]
-		public Stock Stock
-		{
-			get
-			{
-				return this._Stock.Entity;
-			}
-			set
-			{
-				Stock previousValue = this._Stock.Entity;
-				if (((previousValue != value) 
-							|| (this._Stock.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Stock.Entity = null;
-						previousValue.StockLines.Remove(this);
-					}
-					this._Stock.Entity = value;
-					if ((value != null))
-					{
-						value.StockLines.Add(this);
-						this._StockID = value.StockID;
-					}
-					else
-					{
-						this._StockID = default(int);
-					}
-					this.SendPropertyChanged("Stock");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Supplier_StockLine", Storage="_Supplier", ThisKey="SupplierID", OtherKey="SupplierID", IsForeignKey=true)]
-		public Supplier Supplier
-		{
-			get
-			{
-				return this._Supplier.Entity;
-			}
-			set
-			{
-				Supplier previousValue = this._Supplier.Entity;
-				if (((previousValue != value) 
-							|| (this._Supplier.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Supplier.Entity = null;
-						previousValue.StockLines.Remove(this);
-					}
-					this._Supplier.Entity = value;
-					if ((value != null))
-					{
-						value.StockLines.Add(this);
-						this._SupplierID = value.SupplierID;
-					}
-					else
-					{
-						this._SupplierID = default(int);
-					}
-					this.SendPropertyChanged("Supplier");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SupplierOrder_StockLine", Storage="_SupplierOrder", ThisKey="SupplierOrderID", OtherKey="SupplierOrderID", IsForeignKey=true)]
-		public SupplierOrder SupplierOrder
-		{
-			get
-			{
-				return this._SupplierOrder.Entity;
-			}
-			set
-			{
-				SupplierOrder previousValue = this._SupplierOrder.Entity;
-				if (((previousValue != value) 
-							|| (this._SupplierOrder.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._SupplierOrder.Entity = null;
-						previousValue.StockLines.Remove(this);
-					}
-					this._SupplierOrder.Entity = value;
-					if ((value != null))
-					{
-						value.StockLines.Add(this);
-						this._SupplierOrderID = value.SupplierOrderID;
-					}
-					else
-					{
-						this._SupplierOrderID = default(int);
-					}
-					this.SendPropertyChanged("SupplierOrder");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
@@ -6892,8 +6728,6 @@ namespace PETSystem
 		
 		private EntitySet<RoyaltiesOrder> _RoyaltiesOrders;
 		
-		private EntitySet<StockLine> _StockLines;
-		
 		private EntitySet<SupplierOrder> _SupplierOrders;
 		
 		private EntityRef<SupplierType> _SupplierType;
@@ -6921,7 +6755,6 @@ namespace PETSystem
 		public Supplier()
 		{
 			this._RoyaltiesOrders = new EntitySet<RoyaltiesOrder>(new Action<RoyaltiesOrder>(this.attach_RoyaltiesOrders), new Action<RoyaltiesOrder>(this.detach_RoyaltiesOrders));
-			this._StockLines = new EntitySet<StockLine>(new Action<StockLine>(this.attach_StockLines), new Action<StockLine>(this.detach_StockLines));
 			this._SupplierOrders = new EntitySet<SupplierOrder>(new Action<SupplierOrder>(this.attach_SupplierOrders), new Action<SupplierOrder>(this.detach_SupplierOrders));
 			this._SupplierType = default(EntityRef<SupplierType>);
 			OnCreated();
@@ -7084,19 +6917,6 @@ namespace PETSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Supplier_StockLine", Storage="_StockLines", ThisKey="SupplierID", OtherKey="SupplierID")]
-		public EntitySet<StockLine> StockLines
-		{
-			get
-			{
-				return this._StockLines;
-			}
-			set
-			{
-				this._StockLines.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Supplier_SupplierOrder", Storage="_SupplierOrders", ThisKey="SupplierID", OtherKey="SupplierID")]
 		public EntitySet<SupplierOrder> SupplierOrders
 		{
@@ -7176,18 +6996,6 @@ namespace PETSystem
 			entity.Supplier = null;
 		}
 		
-		private void attach_StockLines(StockLine entity)
-		{
-			this.SendPropertyChanging();
-			entity.Supplier = this;
-		}
-		
-		private void detach_StockLines(StockLine entity)
-		{
-			this.SendPropertyChanging();
-			entity.Supplier = null;
-		}
-		
 		private void attach_SupplierOrders(SupplierOrder entity)
 		{
 			this.SendPropertyChanging();
@@ -7221,8 +7029,6 @@ namespace PETSystem
 		
 		private EntitySet<RoyaltiesOrder> _RoyaltiesOrders;
 		
-		private EntitySet<StockLine> _StockLines;
-		
 		private EntityRef<Supplier> _Supplier;
 		
     #region Extensibility Method Definitions
@@ -7246,7 +7052,6 @@ namespace PETSystem
 		public SupplierOrder()
 		{
 			this._RoyaltiesOrders = new EntitySet<RoyaltiesOrder>(new Action<RoyaltiesOrder>(this.attach_RoyaltiesOrders), new Action<RoyaltiesOrder>(this.detach_RoyaltiesOrders));
-			this._StockLines = new EntitySet<StockLine>(new Action<StockLine>(this.attach_StockLines), new Action<StockLine>(this.detach_StockLines));
 			this._Supplier = default(EntityRef<Supplier>);
 			OnCreated();
 		}
@@ -7388,19 +7193,6 @@ namespace PETSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="SupplierOrder_StockLine", Storage="_StockLines", ThisKey="SupplierOrderID", OtherKey="SupplierOrderID")]
-		public EntitySet<StockLine> StockLines
-		{
-			get
-			{
-				return this._StockLines;
-			}
-			set
-			{
-				this._StockLines.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Supplier_SupplierOrder", Storage="_Supplier", ThisKey="SupplierID", OtherKey="SupplierID", IsForeignKey=true)]
 		public Supplier Supplier
 		{
@@ -7462,18 +7254,6 @@ namespace PETSystem
 		}
 		
 		private void detach_RoyaltiesOrders(RoyaltiesOrder entity)
-		{
-			this.SendPropertyChanging();
-			entity.SupplierOrder = null;
-		}
-		
-		private void attach_StockLines(StockLine entity)
-		{
-			this.SendPropertyChanging();
-			entity.SupplierOrder = this;
-		}
-		
-		private void detach_StockLines(StockLine entity)
 		{
 			this.SendPropertyChanging();
 			entity.SupplierOrder = null;

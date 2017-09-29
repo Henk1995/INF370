@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace PETSystem
 {
@@ -182,9 +183,9 @@ namespace PETSystem
 
             }
         }
-        
 
-        
+
+
 
         //private void dgvInstructor_CellClick(object sender, DataGridViewCellEventArgs e)
         //{
@@ -219,12 +220,33 @@ namespace PETSystem
         //            Genderid = MyReader1["GenderName"].ToString();
         //        }
         //        ConnectString.connectstring.Close();
-                
-        //    }
-        //    }
 
+        //    }
+        //    }
+        SqlConnection cn = new SqlConnection();
+        SqlCommand cmd = new SqlCommand();
+        private void loadpicture()
+        {
+            cn.ConnectionString = ConnectString.DBC;
+            cmd.Connection = cn;
+            cn.Open();
+            cmd.CommandText = "Select Data From PictureTable Where Filename ='" + ConnectString.InstructorID + "'";
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            SqlCommandBuilder cbd = new SqlCommandBuilder(da);
+            DataSet ds = new DataSet();
+            da.Fill(ds);
+            cn.Close();
+            byte[] ap = (byte[])(ds.Tables[0].Rows[0]["Data"]);
+            MemoryStream ms = new MemoryStream(ap);
+            pictureBox1.Image = Image.FromStream(ms);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            ms.Close();
+        }
         private void UpdateInstructor_Load(object sender, EventArgs e)
         {
+         
+                loadpicture();
+           
 
         }
 
@@ -298,6 +320,14 @@ namespace PETSystem
             {
                 txtPhoneNumber.BackColor = Color.White;
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose(true);
+            ViewinstructorForm myform = new ViewinstructorForm();
+            myform.ShowDialog();
         }
     }
 }

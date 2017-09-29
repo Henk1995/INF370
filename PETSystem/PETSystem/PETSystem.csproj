@@ -105,6 +105,12 @@
     <Compile Include="AddNewStockType.Designer.cs">
       <DependentUpon>AddNewStockType.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddpictureMessagebox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddpictureMessagebox.Designer.cs">
+      <DependentUpon>AddpictureMessagebox.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddResult.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -243,6 +249,11 @@
     </Compile>
     <Compile Include="MaintainCourses.Designer.cs">
       <DependentUpon>MaintainCourses.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NewestDBExportDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NewestDBExportDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="OrderReturns.cs">
       <SubType>Form</SubType>
@@ -455,6 +466,12 @@
     <Compile Include="ViewInstructor.Designer.cs">
       <DependentUpon>ViewInstructor.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewinstructorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewinstructorForm.Designer.cs">
+      <DependentUpon>ViewinstructorForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewMaintainCourseClients.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -496,6 +513,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddNewStockType.resx">
       <DependentUpon>AddNewStockType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddpictureMessagebox.resx">
+      <DependentUpon>AddpictureMessagebox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddResult.resx">
       <DependentUpon>AddResult.cs</DependentUpon>
@@ -578,6 +598,17 @@
     <None Include="inf370RegDataSet.xss">
       <DependentUpon>inf370RegDataSet.xsd</DependentUpon>
     </None>
+    <None Include="NewestDBExportDataSet.xsc">
+      <DependentUpon>NewestDBExportDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="NewestDBExportDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NewestDBExportDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="NewestDBExportDataSet.xss">
+      <DependentUpon>NewestDBExportDataSet.xsd</DependentUpon>
+    </None>
     <None Include="PET_DB.dbml.layout">
       <DependentUpon>PET_DB.dbml</DependentUpon>
     </None>
@@ -597,13 +628,14 @@
       <DependentUpon>PrinterOrderReturn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="ReceiveOrderSupp.resx">
       <DependentUpon>ReceiveOrderSupp.cs</DependentUpon>
@@ -688,6 +720,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewInstructor.resx">
       <DependentUpon>ViewInstructor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewinstructorForm.resx">
+      <DependentUpon>ViewinstructorForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewMaintainCourseClients.resx">
       <DependentUpon>ViewMaintainCourseClients.cs</DependentUpon>
