@@ -34,98 +34,34 @@ namespace PETSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose(true);
             Instructors UM = new Instructors();
             UM.Show();
         }
 
         private void txtName_TextChanged(object sender, EventArgs e)
         {
-            valid1 = EH.Checkstring(txtName.Text);
-            bool validSQl = EH.checkForSQLInjection(txtName.Text);
-            if (valid1)
-            {
-                valid1 = validSQl;
-            }
-            if (!valid1)
-            {
-                txtName.BackColor = Color.Red;
-            }else
-            {
-                txtName.BackColor = Color.White;
-            }
+            
         }
 
         private void txtSurname_TextChanged(object sender, EventArgs e)
         {
-            valid2 = EH.Checkstring(txtSurname.Text);
-            bool validSQl = EH.checkForSQLInjection(txtSurname.Text);
-            if (valid2)
-            {
-                valid2 = validSQl;
-            }
-            if (!valid2)
-            {
-                txtSurname.BackColor = Color.Red;
-            }
-            else
-            {
-                txtSurname.BackColor = Color.White;
-            }
+            
         }
 
         private void txtEmail_TextChanged(object sender, EventArgs e)
         {
-            valid3 = EH.CheckEmail(txtEmail.Text);
-            bool validSQl = EH.checkForSQLInjection(txtEmail.Text);
-            if (valid3)
-            {
-                valid3 = validSQl;
-            }
-            if (!valid3)
-            {
-                txtEmail.BackColor = Color.Red;
-            }
-            else
-            {
-                txtEmail.BackColor = Color.White;
-            }
+            
         }
 
         private void txtPhoneNumber_TextChanged(object sender, EventArgs e)
         {
-            valid4 = EH.CheckphoneNum(txtPhoneNumber.Text);
-            bool validSQl = EH.checkForSQLInjection(txtPhoneNumber.Text);
-            if (valid4)
-            {
-                valid4 = validSQl;
-            }
-            if (!valid4)
-            {
-                txtPhoneNumber.BackColor = Color.Red;
-            }
-            else
-            {
-                txtPhoneNumber.BackColor = Color.White;
-            }
+            
         }
 
         private void txtTrainingResult_TextChanged(object sender, EventArgs e)
         {
-            valid5 = EH.Checkstring(txtTrainingResult.Text);
-            bool validSQl = EH.checkForSQLInjection(txtTrainingResult.Text);
-            if (valid5)
-            {
-                valid5 = validSQl;
-            }
-            if (!valid5)
-            {
-                txtTrainingResult.BackColor = Color.Red;
-            }
-            else
-            {
-                txtTrainingResult.BackColor = Color.White;
-            }
+            
         }
 
         private void btnCreateInstructor_Click(object sender, EventArgs e)
@@ -274,6 +210,83 @@ DA.Fill(DT3);
                 cmbCertification.Items.Add(dr["CertificationName"]).ToString();
             }
             ConnectString.connectstring.Close();
+
+            cmbCertification.SelectedIndex = 0;
+            cmbGender.SelectedIndex = 0;
+            cmbTitle.SelectedIndex = 0;
+            
+        }
+
+        private void txtName_Leave(object sender, EventArgs e)
+        {
+            valid1 = EH.Checkstring(txtName.Text);
+            bool validSQl = EH.checkForSQLInjection(txtName.Text);
+            if (valid1)
+            {
+                valid1 = validSQl;
+            }
+            if (!valid1)
+            {
+                txtName.BackColor = Color.Red;
+            }
+            else
+            {
+                txtName.BackColor = Color.White;
+            }
+        }
+
+        private void txtSurname_Leave(object sender, EventArgs e)
+        {
+            valid2 = EH.Checkstring(txtSurname.Text);
+            bool validSQl = EH.checkForSQLInjection(txtSurname.Text);
+            if (valid2)
+            {
+                valid2 = validSQl;
+            }
+            if (!valid2)
+            {
+                txtSurname.BackColor = Color.Red;
+            }
+            else
+            {
+                txtSurname.BackColor = Color.White;
+            }
+        }
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            valid3 = EH.CheckEmail(txtEmail.Text);
+            bool validSQl = EH.checkForSQLInjection(txtEmail.Text);
+            if (valid3)
+            {
+                valid3 = validSQl;
+            }
+            if (!valid3)
+            {
+                txtEmail.BackColor = Color.Red;
+            }
+            else
+            {
+                txtEmail.BackColor = Color.White;
+            }
+        }
+
+        private void txtPhoneNumber_Leave(object sender, EventArgs e)
+        {
+            valid4 = EH.CheckphoneNum(txtPhoneNumber.Text);
+            bool validSQl = EH.checkForSQLInjection(txtPhoneNumber.Text);
+            if (valid4)
+            {
+                valid4 = validSQl;
+            }
+            if (!valid4)
+            {
+                txtPhoneNumber.BackColor = Color.Red;
+            }
+            else
+            {
+                txtPhoneNumber.BackColor = Color.White;
+            }
         }
     }
 }
