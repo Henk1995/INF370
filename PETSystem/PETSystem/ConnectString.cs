@@ -63,7 +63,7 @@ namespace PETSystem
        //public static string DBC = "Data Source=LAPTOP-A6P2IDT8\\SQLEXPRESS;Initial Catalog=exportinf370;Integrated Security=True";
 
         //John se connection string
-        public static string DBC = "Data Source=JOHN-MAC-WIN;Initial Catalog=inf370Reg;Integrated Security=True";
+        public static string DBC = "Data Source=JOHN-MAC-WIN;Initial Catalog=exportFotos;Integrated Security=True";
 
         //Henk se connection string    + Copy jou goed hier in en uncomment die lyn hier onder
         //public static string DBC = "Data Source=.;Initial Catalog=inf370Reg;Integrated Security=True";
