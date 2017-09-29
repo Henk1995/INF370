@@ -81,6 +81,18 @@
     <Compile Include="Add Printing Supplier.Designer.cs">
       <DependentUpon>Add Printing Supplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddClientResult.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddClientResult.Designer.cs">
+      <DependentUpon>AddClientResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddClientResultMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddClientResultMessageBox.Designer.cs">
+      <DependentUpon>AddClientResultMessageBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="AddInstrucorC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -383,6 +395,12 @@
     <Compile Include="Update Printing Supplier.Designer.cs">
       <DependentUpon>Update Printing Supplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="UpdateClientCourseDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateClientCourseDetails.Designer.cs">
+      <DependentUpon>UpdateClientCourseDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdateInstructor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -460,6 +478,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Add Printing Supplier.resx">
       <DependentUpon>Add Printing Supplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddClientResult.resx">
+      <DependentUpon>AddClientResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddClientResultMessageBox.resx">
+      <DependentUpon>AddClientResultMessageBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AddInstrucorC.resx">
       <DependentUpon>AddInstrucorC.cs</DependentUpon>
@@ -628,6 +652,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Update Printing Supplier.resx">
       <DependentUpon>Update Printing Supplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateClientCourseDetails.resx">
+      <DependentUpon>UpdateClientCourseDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateInstructor.resx">
       <DependentUpon>UpdateInstructor.cs</DependentUpon>
