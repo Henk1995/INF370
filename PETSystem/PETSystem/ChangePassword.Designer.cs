@@ -77,6 +77,7 @@
             this.txtNewRePass.Size = new System.Drawing.Size(192, 20);
             this.txtNewRePass.TabIndex = 8;
             this.txtNewRePass.TextChanged += new System.EventHandler(this.txtNewRePass_TextChanged);
+            this.txtNewRePass.Leave += new System.EventHandler(this.txtNewRePass_Leave);
             // 
             // txtNewPass
             // 
@@ -85,6 +86,7 @@
             this.txtNewPass.Size = new System.Drawing.Size(192, 20);
             this.txtNewPass.TabIndex = 7;
             this.txtNewPass.TextChanged += new System.EventHandler(this.txtNewPass_TextChanged);
+            this.txtNewPass.Leave += new System.EventHandler(this.txtNewPass_Leave);
             // 
             // txtOldPass
             // 
@@ -93,6 +95,7 @@
             this.txtOldPass.Size = new System.Drawing.Size(192, 20);
             this.txtOldPass.TabIndex = 6;
             this.txtOldPass.TextChanged += new System.EventHandler(this.txtOldPass_TextChanged);
+            this.txtOldPass.Leave += new System.EventHandler(this.txtOldPass_Leave);
             // 
             // txtUserName
             // 
@@ -101,6 +104,7 @@
             this.txtUserName.Size = new System.Drawing.Size(192, 20);
             this.txtUserName.TabIndex = 5;
             this.txtUserName.TextChanged += new System.EventHandler(this.txtUserName_TextChanged);
+            this.txtUserName.Leave += new System.EventHandler(this.txtUserName_Leave);
             // 
             // label5
             // 

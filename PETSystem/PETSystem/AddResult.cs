@@ -57,19 +57,13 @@ namespace PETSystem
                 string instructorID = dataGridView1.SelectedRows[0].Cells[0].Value + string.Empty;
                 ConnectString.InstructorID = Convert.ToInt32(instructorID);
                 AddResultMessagebox myform = new AddResultMessagebox();
-                myform.ShowDialog();
+                myform.Show();
                 this.Close();
             }
             catch
             {
                 MessageBox.Show("Please select a row to add an result to");
             }
-
-
-            
-
-            
-
 
         }
         //Fail

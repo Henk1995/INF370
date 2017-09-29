@@ -25,50 +25,12 @@ namespace PETSystem
         }
         private void txtDesc_TextChanged(object sender, EventArgs e)
         {
-            txtDesc.BackColor = Color.White;
-            string stockDesc = txtDesc.Text;
-            bool isString = chk.Checkstring(stockDesc);
-            bool notEmpty = chk.CheckEmpty(stockDesc);
-
-            if (isString == false)
-            {
-                txtDesc.BackColor = Color.FromArgb(244, 17, 17);
-                stockDValid = false;
-            }
-            else if (notEmpty == false)
-            {
-                txtDesc.BackColor = Color.FromArgb(244, 17, 17);
-                stockDValid = false;
-            }
-            else
-            {
-                txtDesc.BackColor = Color.White;
-                stockDValid = true;
-            }
+            
         }
 
         private void txtPrice_TextChanged(object sender, EventArgs e)
         {
-            txtPrice.BackColor = Color.White;
-            string UnitPrice = txtPrice.Text;
-            bool isInt = chk.CheckInt(UnitPrice);
-            bool notEmpty = chk.CheckEmpty(UnitPrice);
-
-            if (isInt == false)
-            {
-                txtPrice.BackColor = Color.FromArgb(244, 17, 17);
-                unitPValid = false;
-            }
-            else if (notEmpty == false)
-            {
-                txtPrice.BackColor = Color.FromArgb(244, 17, 17);
-                unitPValid = false;
-            }
-            else
-            {
-                txtPrice.BackColor = Color.White;
-                unitPValid = true;
-            }
+            
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -158,6 +120,54 @@ namespace PETSystem
         private void cbType_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtDesc_Leave(object sender, EventArgs e)
+        {
+            txtDesc.BackColor = Color.White;
+            string stockDesc = txtDesc.Text;
+            bool isString = chk.Checkstring(stockDesc);
+            bool notEmpty = chk.CheckEmpty(stockDesc);
+
+            if (isString == false)
+            {
+                txtDesc.BackColor = Color.FromArgb(244, 17, 17);
+                stockDValid = false;
+            }
+            else if (notEmpty == false)
+            {
+                txtDesc.BackColor = Color.FromArgb(244, 17, 17);
+                stockDValid = false;
+            }
+            else
+            {
+                txtDesc.BackColor = Color.White;
+                stockDValid = true;
+            }
+        }
+
+        private void txtPrice_Leave(object sender, EventArgs e)
+        {
+            txtPrice.BackColor = Color.White;
+            string UnitPrice = txtPrice.Text;
+            bool isInt = chk.CheckInt(UnitPrice);
+            bool notEmpty = chk.CheckEmpty(UnitPrice);
+
+            if (isInt == false)
+            {
+                txtPrice.BackColor = Color.FromArgb(244, 17, 17);
+                unitPValid = false;
+            }
+            else if (notEmpty == false)
+            {
+                txtPrice.BackColor = Color.FromArgb(244, 17, 17);
+                unitPValid = false;
+            }
+            else
+            {
+                txtPrice.BackColor = Color.White;
+                unitPValid = true;
+            }
         }
     }
 }

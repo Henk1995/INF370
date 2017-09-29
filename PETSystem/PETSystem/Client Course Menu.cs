@@ -34,8 +34,6 @@ namespace PETSystem
 
         private void btnVMParticipants_Click(object sender, EventArgs e)
         {
-
-
             this.Close();
             ViewMaintainCourseClients vmcc = new ViewMaintainCourseClients();
             vmcc.Show();
@@ -52,7 +50,7 @@ namespace PETSystem
         {
             txtCourseN.BackColor = Color.White;
             string AvailableID = txtCourseN.Text;
-            bool isString = chk.CheckInt(AvailableID);
+            bool isString = chk.Checkstring(AvailableID);
             bool notEmpty = chk.CheckEmpty(AvailableID);
             bool checkForSQLInjection = chk.checkForSQLInjection(AvailableID);
 
@@ -111,7 +109,16 @@ namespace PETSystem
             }
         }
 
-       
-        
+        private void dgvTC_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnAddResult_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AddClientResult ACR = new AddClientResult();
+            ACR.Show();
+        }
     }
 }

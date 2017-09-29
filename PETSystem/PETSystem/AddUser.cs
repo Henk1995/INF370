@@ -60,91 +60,27 @@ namespace PETSystem
 
         private void txtFirst_TextChanged(object sender, EventArgs e)
         {
-            valid1 = EH.Checkstring(txtFirst.Text);
-            bool validSQl = EH.checkForSQLInjection(txtFirst.Text);
-            if (valid1)
-            {
-                valid1 = validSQl;
-            }
-            if (!valid1)
-            {
-                txtFirst.BackColor = Color.Red;
-            }
-            else
-            {
-                txtFirst.BackColor = Color.White;
-            }
+            
         }
 
         private void txtLastName_TextChanged(object sender, EventArgs e)
         {
-            valid2 = EH.Checkstring(txtLastName.Text);
-            bool validSQl = EH.checkForSQLInjection(txtFirst.Text);
-            if (valid2)
-            {
-                valid2 = validSQl;
-            }
-            if (!valid2)
-            {
-                txtLastName.BackColor = Color.Red;
-            }
-            else
-            {
-                txtLastName.BackColor = Color.White;
-            }
+            
         }
 
         private void txtUserN_TextChanged(object sender, EventArgs e)
         {
-            valid3 = EH.CheckstringNum(txtUserN.Text);
-            bool validSQl = EH.checkForSQLInjection(txtFirst.Text);
-            if (valid3)
-            {
-                valid3 = validSQl;
-            }
-            if (!valid3)
-            {
-                txtUserN.BackColor = Color.Red;
-            }
-            else
-            {
-                txtUserN.BackColor = Color.White;
-            }
+            
         }
 
         private void txtPass_TextChanged(object sender, EventArgs e)
         {
-		txtPass.PasswordChar = '*';
-            valid4 = EH.CheckstringNum(txtPass.Text);
-            bool validSQl = EH.checkForSQLInjection(txtFirst.Text);
-            if (valid4)
-            {
-                valid4 = validSQl;
-            }
-            if (!valid4)
-            {
-                txtPass.BackColor = Color.Red;
-            }
-            else
-            {
-                txtPass.BackColor = Color.White;
-            }
+		
         }
 
         private void txtRetype_TextChanged(object sender, EventArgs e)
         {
-            txtRetype.PasswordChar = '*';
-            valid5 = EH.CheckstringNum(txtRetype.Text);
-            if ((!valid5)|| (txtRetype.Text != txtPass.Text))
-            {
-                txtRetype.BackColor = Color.Red;
-				valid5 = false;
-                
-            }
-            else if ((valid5) || (txtRetype.Text == txtPass.Text))
-            {
-                txtRetype.BackColor = Color.White;
-            }
+            
         }
 
         private void btnAddU_Click(object sender, EventArgs e)
@@ -234,21 +170,7 @@ namespace PETSystem
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            valid7 = EH.CheckEmail(txtEmail.Text);
-            bool validSQl = EH.checkForSQLInjection(txtEmail.Text);
-            if (valid7)
-            {
-                valid7 = validSQl;
-            }
-            if (!valid7)
-            {
-                txtEmail.BackColor = Color.Red;
-            }
-            else
-            {
-                txtEmail.BackColor = Color.White;
-            }
-        }
+                   }
 
         private string Encrypt(string clearText)
         {
@@ -270,6 +192,114 @@ namespace PETSystem
                 }
             }
             return clearText;
+        }
+
+        private void txtFirst_Leave(object sender, EventArgs e)
+        {
+            valid1 = EH.Checkstring(txtFirst.Text);
+            bool validSQl = EH.checkForSQLInjection(txtFirst.Text);
+            if (valid1)
+            {
+                valid1 = validSQl;
+            }
+            if (!valid1)
+            {
+                txtFirst.BackColor = Color.Red;
+            }
+            else
+            {
+                txtFirst.BackColor = Color.White;
+            }
+        }
+
+        private void txtLastName_Leave(object sender, EventArgs e)
+        {
+            valid2 = EH.Checkstring(txtLastName.Text);
+            bool validSQl = EH.checkForSQLInjection(txtFirst.Text);
+            if (valid2)
+            {
+                valid2 = validSQl;
+            }
+            if (!valid2)
+            {
+                txtLastName.BackColor = Color.Red;
+            }
+            else
+            {
+                txtLastName.BackColor = Color.White;
+            }
+        }
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            valid7 = EH.CheckEmail(txtEmail.Text);
+            bool validSQl = EH.checkForSQLInjection(txtEmail.Text);
+            if (valid7)
+            {
+                valid7 = validSQl;
+            }
+            if (!valid7)
+            {
+                txtEmail.BackColor = Color.Red;
+            }
+            else
+            {
+                txtEmail.BackColor = Color.White;
+            }
+
+        }
+
+        private void txtUserN_Leave(object sender, EventArgs e)
+        {
+            valid3 = EH.CheckstringNum(txtUserN.Text);
+            bool validSQl = EH.checkForSQLInjection(txtFirst.Text);
+            if (valid3)
+            {
+                valid3 = validSQl;
+            }
+            if (!valid3)
+            {
+                txtUserN.BackColor = Color.Red;
+            }
+            else
+            {
+                txtUserN.BackColor = Color.White;
+            }
+        }
+
+        private void txtPass_Leave(object sender, EventArgs e)
+        {
+            txtPass.PasswordChar = '*';
+            valid4 = EH.CheckstringNum(txtPass.Text);
+            bool validSQl = EH.checkForSQLInjection(txtFirst.Text);
+            if (valid4)
+            {
+                valid4 = validSQl;
+            }
+            if (!valid4)
+            {
+                txtPass.BackColor = Color.Red;
+            }
+            else
+            {
+                txtPass.BackColor = Color.White;
+            }
+        }
+
+        private void txtRetype_Leave(object sender, EventArgs e)
+        {
+            txtRetype.PasswordChar = '*';
+            valid5 = EH.CheckstringNum(txtRetype.Text);
+            if ((!valid5) || (txtRetype.Text != txtPass.Text))
+            {
+                txtRetype.BackColor = Color.Red;
+                valid5 = false;
+
+            }
+            else if ((valid5) || (txtRetype.Text == txtPass.Text))
+            {
+                txtRetype.BackColor = Color.White;
+            }
         }
     }
 }

@@ -61,6 +61,16 @@ namespace PETSystem
 
         private void txtStockTypeName_TextChanged(object sender, EventArgs e)
         {
+            
+        }
+
+        private void AddNewStockType_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtStockTypeName_Leave(object sender, EventArgs e)
+        {
             txtStockTypeName.BackColor = Color.White;
             string stockDesc = txtStockTypeName.Text;
             bool isString = chk.Checkstring(stockDesc);
@@ -87,11 +97,6 @@ namespace PETSystem
                 txtStockTypeName.BackColor = Color.White;
                 NameValid = true;
             }
-        }
-
-        private void AddNewStockType_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
