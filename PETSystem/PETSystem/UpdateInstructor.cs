@@ -89,6 +89,7 @@ namespace PETSystem
 
         private void btnBack_Click(object sender, EventArgs e)
         {
+            this.Close();
             this.Dispose(true);
             Instructors UM = new Instructors();
             UM.Show();
