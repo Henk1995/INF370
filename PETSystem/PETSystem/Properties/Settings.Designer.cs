@@ -72,5 +72,15 @@ namespace PETSystem.Properties {
                 return ((string)(this["inf370RegConnectionString2"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=NewestDBExport;Integrated Security=True")]
+        public string NewestDBExportConnectionString {
+            get {
+                return ((string)(this["NewestDBExportConnectionString"]));
+            }
+        }
     }
 }
