@@ -35,7 +35,6 @@
             this.cmbCertification = new System.Windows.Forms.ComboBox();
             this.btnCreateInstructor = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,7 +42,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtSurname = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.txtTrainingResult = new System.Windows.Forms.TextBox();
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -114,15 +112,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(190, 215);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(78, 13);
-            this.label6.TabIndex = 31;
-            this.label6.Text = "Training Result";
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -175,6 +164,7 @@
             this.txtSurname.Size = new System.Drawing.Size(141, 20);
             this.txtSurname.TabIndex = 25;
             this.txtSurname.TextChanged += new System.EventHandler(this.txtSurname_TextChanged);
+            this.txtSurname.Leave += new System.EventHandler(this.txtSurname_Leave);
             // 
             // txtEmail
             // 
@@ -183,14 +173,7 @@
             this.txtEmail.Size = new System.Drawing.Size(141, 20);
             this.txtEmail.TabIndex = 24;
             this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
-            // 
-            // txtTrainingResult
-            // 
-            this.txtTrainingResult.Location = new System.Drawing.Point(287, 208);
-            this.txtTrainingResult.Name = "txtTrainingResult";
-            this.txtTrainingResult.Size = new System.Drawing.Size(141, 20);
-            this.txtTrainingResult.TabIndex = 23;
-            this.txtTrainingResult.TextChanged += new System.EventHandler(this.txtTrainingResult_TextChanged);
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // txtPhoneNumber
             // 
@@ -199,6 +182,7 @@
             this.txtPhoneNumber.Size = new System.Drawing.Size(141, 20);
             this.txtPhoneNumber.TabIndex = 22;
             this.txtPhoneNumber.TextChanged += new System.EventHandler(this.txtPhoneNumber_TextChanged);
+            this.txtPhoneNumber.Leave += new System.EventHandler(this.txtPhoneNumber_Leave);
             // 
             // txtName
             // 
@@ -207,6 +191,7 @@
             this.txtName.Size = new System.Drawing.Size(141, 20);
             this.txtName.TabIndex = 21;
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
+            this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
             // 
             // CreateInstructor
             // 
@@ -220,7 +205,6 @@
             this.Controls.Add(this.cmbCertification);
             this.Controls.Add(this.btnCreateInstructor);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -228,7 +212,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtSurname);
             this.Controls.Add(this.txtEmail);
-            this.Controls.Add(this.txtTrainingResult);
             this.Controls.Add(this.txtPhoneNumber);
             this.Controls.Add(this.txtName);
             this.Name = "CreateInstructor";
@@ -248,7 +231,6 @@
         private System.Windows.Forms.ComboBox cmbCertification;
         private System.Windows.Forms.Button btnCreateInstructor;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -256,7 +238,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSurname;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.TextBox txtTrainingResult;
         private System.Windows.Forms.TextBox txtPhoneNumber;
         private System.Windows.Forms.TextBox txtName;
     }

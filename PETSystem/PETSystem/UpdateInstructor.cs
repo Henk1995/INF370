@@ -35,12 +35,29 @@ namespace PETSystem
         {
             InitializeComponent();
             
+           
+            
+        }
+
+        public UpdateInstructor(string name, string surname, string email, string phoneN, string Gender, string TitleI)
+        {
+            InitializeComponent();
+            NameId = name;
+            SurnameId = surname;
+            emailId = email;
+            phoneNumberId = phoneN;
+            Genderid = Gender;
+            titleid = TitleI;
+            txtEmail.Text = emailId;
+            txtName.Text = NameId;
+            txtSurname.Text = SurnameId;
+            txtPhoneNumber.Text = phoneNumberId;
             DataTable DT = new DataTable();
             ConnectString.connectstring.Open();
             SqlCommand Fill = new SqlCommand("SELECT * FROM Instructor", ConnectString.connectstring);
             DA = new SqlDataAdapter(Fill);
             DA.Fill(DT);
-            
+
             ConnectString.connectstring.Close();
             cmbGender.Items.Clear();
             cmbTitle.Items.Clear();
@@ -65,104 +82,36 @@ namespace PETSystem
                 cmbTitle.Items.Add(dr["TitleName"]).ToString();
             }
             ConnectString.connectstring.Close();
-           
-            
-        }
 
-        public UpdateInstructor(string name, string surname, string email, string phoneN, string Gender, string TitleI)
-        {
-            InitializeComponent();
-            NameId = name;
-            SurnameId = surname;
-            emailId = email;
-            phoneNumberId = phoneN;
-            Genderid = Gender;
-            titleid = TitleI;
-            txtEmail.Text = emailId;
-            txtName.Text = NameId;
-            txtSurname.Text = SurnameId;
-            txtPhoneNumber.Text = phoneNumberId;
             cmbGender.Text = Genderid;
             cmbTitle.Text = titleid;
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose(true);
             Instructors UM = new Instructors();
             UM.Show();
         }
 
         private void txtName_TextChanged(object sender, EventArgs e)
         {
-            valid1 = EH.Checkstring(txtName.Text);
-            bool validSQl = EH.checkForSQLInjection(txtName.Text);
-            if (valid1)
-            {
-                valid1 = validSQl;
-            }
-            if (!valid1)
-            {
-                txtName.BackColor = Color.Red;
-            }
-            else
-            {
-                txtName.BackColor = Color.White;
-            }
+            
         }
 
         private void txtSurname_TextChanged(object sender, EventArgs e)
         {
-            valid2 = EH.Checkstring(txtSurname.Text);
-            bool validSQl = EH.checkForSQLInjection(txtSurname.Text);
-            if (valid2)
-            {
-                valid2 = validSQl;
-            }
-            if (!valid2)
-            {
-                txtSurname.BackColor = Color.Red;
-            }
-            else
-            {
-                txtSurname.BackColor = Color.White;
-            }
+            
         }
 
         private void txtEmail_TextChanged(object sender, EventArgs e)
         {
-            valid3 = EH.CheckEmail(txtEmail.Text);
-            bool validSQl = EH.checkForSQLInjection(txtEmail.Text);
-            if (valid3)
-            {
-                valid3 = validSQl;
-            }
-            if (!valid3)
-            {
-                txtEmail.BackColor = Color.Red;
-            }
-            else
-            {
-                txtEmail.BackColor = Color.White;
-            }
+            
         }
 
         private void txtPhoneNumber_TextChanged(object sender, EventArgs e)
         {
-            valid4 = EH.CheckphoneNum(txtPhoneNumber.Text);
-            bool validSQl = EH.checkForSQLInjection(txtPhoneNumber.Text);
-            if (valid4)
-            {
-                valid4 = validSQl;
-            }
-            if (!valid4)
-            {
-                txtPhoneNumber.BackColor = Color.Red;
-            }
-            else
-            {
-                txtPhoneNumber.BackColor = Color.White;
-            }
+            
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -276,6 +225,78 @@ namespace PETSystem
         private void UpdateInstructor_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtName_Leave(object sender, EventArgs e)
+        {
+            valid1 = EH.Checkstring(txtName.Text);
+            bool validSQl = EH.checkForSQLInjection(txtName.Text);
+            if (valid1)
+            {
+                valid1 = validSQl;
+            }
+            if (!valid1)
+            {
+                txtName.BackColor = Color.Red;
+            }
+            else
+            {
+                txtName.BackColor = Color.White;
+            }
+        }
+
+        private void txtSurname_Leave(object sender, EventArgs e)
+        {
+            valid2 = EH.Checkstring(txtSurname.Text);
+            bool validSQl = EH.checkForSQLInjection(txtSurname.Text);
+            if (valid2)
+            {
+                valid2 = validSQl;
+            }
+            if (!valid2)
+            {
+                txtSurname.BackColor = Color.Red;
+            }
+            else
+            {
+                txtSurname.BackColor = Color.White;
+            }
+        }
+
+        private void txtEmail_Leave(object sender, EventArgs e)
+        {
+            valid3 = EH.CheckEmail(txtEmail.Text);
+            bool validSQl = EH.checkForSQLInjection(txtEmail.Text);
+            if (valid3)
+            {
+                valid3 = validSQl;
+            }
+            if (!valid3)
+            {
+                txtEmail.BackColor = Color.Red;
+            }
+            else
+            {
+                txtEmail.BackColor = Color.White;
+            }
+        }
+
+        private void txtPhoneNumber_Leave(object sender, EventArgs e)
+        {
+            valid4 = EH.CheckphoneNum(txtPhoneNumber.Text);
+            bool validSQl = EH.checkForSQLInjection(txtPhoneNumber.Text);
+            if (valid4)
+            {
+                valid4 = validSQl;
+            }
+            if (!valid4)
+            {
+                txtPhoneNumber.BackColor = Color.Red;
+            }
+            else
+            {
+                txtPhoneNumber.BackColor = Color.White;
+            }
         }
     }
 }

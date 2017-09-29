@@ -143,6 +143,7 @@
             this.txtPhoneNumber.Size = new System.Drawing.Size(141, 20);
             this.txtPhoneNumber.TabIndex = 17;
             this.txtPhoneNumber.TextChanged += new System.EventHandler(this.txtPhoneNumber_TextChanged);
+            this.txtPhoneNumber.Leave += new System.EventHandler(this.txtPhoneNumber_Leave);
             // 
             // txtEmail
             // 
@@ -151,6 +152,7 @@
             this.txtEmail.Size = new System.Drawing.Size(141, 20);
             this.txtEmail.TabIndex = 16;
             this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // txtSurname
             // 
@@ -159,6 +161,7 @@
             this.txtSurname.Size = new System.Drawing.Size(141, 20);
             this.txtSurname.TabIndex = 15;
             this.txtSurname.TextChanged += new System.EventHandler(this.txtSurname_TextChanged);
+            this.txtSurname.Leave += new System.EventHandler(this.txtSurname_Leave);
             // 
             // txtName
             // 
@@ -167,6 +170,7 @@
             this.txtName.Size = new System.Drawing.Size(141, 20);
             this.txtName.TabIndex = 14;
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
+            this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
             // 
             // UpdateInstructor
             // 
