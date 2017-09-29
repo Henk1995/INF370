@@ -79,6 +79,7 @@
             this.btnAddResult.TabIndex = 14;
             this.btnAddResult.Text = "Add Result";
             this.btnAddResult.UseVisualStyleBackColor = true;
+            this.btnAddResult.Click += new System.EventHandler(this.btnAddResult_Click);
             // 
             // dgvTC
             // 
@@ -90,6 +91,7 @@
             this.dgvTC.ReadOnly = true;
             this.dgvTC.Size = new System.Drawing.Size(561, 216);
             this.dgvTC.TabIndex = 13;
+            this.dgvTC.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTC_CellContentClick);
             this.dgvTC.SelectionChanged += new System.EventHandler(this.dgvTC_SelectionChanged);
             // 
             // panel1

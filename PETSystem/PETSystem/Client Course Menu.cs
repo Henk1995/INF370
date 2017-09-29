@@ -34,8 +34,6 @@ namespace PETSystem
 
         private void btnVMParticipants_Click(object sender, EventArgs e)
         {
-
-
             this.Close();
             ViewMaintainCourseClients vmcc = new ViewMaintainCourseClients();
             vmcc.Show();
@@ -111,7 +109,16 @@ namespace PETSystem
             }
         }
 
-       
-        
+        private void dgvTC_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnAddResult_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            AddClientResult ACR = new AddClientResult();
+            ACR.Show();
+        }
     }
 }
