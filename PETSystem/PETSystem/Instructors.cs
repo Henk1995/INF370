@@ -16,6 +16,7 @@ namespace PETSystem
     {
         
         SqlDataAdapter DA;
+        ErrorHandle EH;
         public Instructors()
         {
             InitializeComponent();
@@ -23,7 +24,7 @@ namespace PETSystem
 
         private void button8_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Dispose(true);
             MainMenuF UM = new MainMenuF();
             UM.Show();
         }
@@ -99,21 +100,21 @@ namespace PETSystem
                 UD.ShowDialog();
             }
         }
-        
+
 
         private void button5_Click(object sender, EventArgs e)
         {
             //this.Visible = false;
             //DeleteInstructor UM = new DeleteInstructor();
             //UM.ShowDialog(); this.Visible = false;
-            
-                
-                    if (dgvInstructor.SelectedRows.Count > 0)
-                    {
-                        int selectedIndex = dgvInstructor.SelectedRows[0].Index;
 
-                        // gets the RowID from the first column in the grid
-                        int rowID = int.Parse(dgvInstructor[0, selectedIndex].Value.ToString());
+            try { 
+            if (dgvInstructor.SelectedRows.Count > 0)
+            {
+                int selectedIndex = dgvInstructor.SelectedRows[0].Index;
+
+                // gets the RowID from the first column in the grid
+                int rowID = int.Parse(dgvInstructor[0, selectedIndex].Value.ToString());
 
 
                 DialogResult answer = MessageBox.Show("Are you sure you want to delete this instructor from the system?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
@@ -135,8 +136,8 @@ namespace PETSystem
                 else
                 {
                     MessageBox.Show("Instructor was not deleted from the system.", "Confirmation", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                    
-                   
+
+
                 }
                 DataTable DT1 = new DataTable();
                 ConnectString.connectstring.Open();
@@ -147,12 +148,19 @@ namespace PETSystem
                 dgvInstructor.DataMember = DT1.TableName;
                 ConnectString.connectstring.Close();
             }
-        
-                else
-                {
-                    MessageBox.Show("Please select the row that you want to delete", "Tip", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                }
-            
+
+            else
+            {
+                MessageBox.Show("Please select the row that you want to delete", "Tip", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+        }
+                    catch
+            {
+                ConnectString.connectstring.Close();
+                MessageBox.Show("Instructor cannot be deleted as he/she is the instructor of an active course", "Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                dgvInstructor.ClearSelection();
+            }
+
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -273,15 +281,112 @@ namespace PETSystem
 
         private void button7_Click(object sender, EventArgs e)
         {
-            this.Close();
-            SearchInstructor UM = new SearchInstructor();
-            UM.Show();
+           
         }
 
 		
         private void dgvInstructor_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void txtInstructorID_TextChanged(object sender, EventArgs e)
+        {
+            bool valid = false;
+            valid = EH.CheckInt(txtInstructorID.Text);
+            bool validSQl = EH.checkForSQLInjection(txtInstructorID.Text);
+            if (valid)
+            {
+                valid = validSQl;
+            }
+            if (valid)
+            {
+                txtInstructorID.BackColor = Color.White;
+                ConnectString.connectstring.Open();
+                DA = new SqlDataAdapter("select * from Instructor where InstructorID like '" + txtInstructorID.Text + "%'", ConnectString.connectstring);
+                DataTable DT = new DataTable();
+                DA.Fill(DT);
+                dgvInstructor.DataSource = DT;
+                ConnectString.connectstring.Close();
+            }
+            else
+            {
+                txtInstructorID.BackColor = Color.FromArgb(249, 29, 29);
+                DataTable DT = new DataTable();
+                ConnectString.connectstring.Open();
+                SqlCommand Fill = new SqlCommand("SELECT * FROM Instructor", ConnectString.connectstring);
+                DA = new SqlDataAdapter(Fill);
+                DA.Fill(DT);
+                dgvInstructor.DataSource = DT;
+                dgvInstructor.DataMember = DT.TableName;
+                ConnectString.connectstring.Close();
+            }
+        }
+
+        private void txtSurname_TextChanged(object sender, EventArgs e)
+        {
+            bool valid = false;
+            valid = EH.Checkstring(txtSurname.Text);
+            bool validSQl = EH.checkForSQLInjection(txtInstructorID.Text);
+            if (valid)
+            {
+                valid = validSQl;
+            }
+            if (valid)
+            {
+                txtSurname.BackColor = Color.White;
+                ConnectString.connectstring.Open();
+                DA = new SqlDataAdapter("select * from Instructor where Surname like '" + txtSurname.Text + "%'", ConnectString.connectstring);
+                DataTable DT = new DataTable();
+                DA.Fill(DT);
+                dgvInstructor.DataSource = DT;
+                ConnectString.connectstring.Close();
+            }
+            else
+            {
+                txtSurname.BackColor = Color.FromArgb(249, 29, 29);
+                DataTable DT = new DataTable();
+                ConnectString.connectstring.Open();
+                SqlCommand Fill = new SqlCommand("SELECT * FROM Instructor", ConnectString.connectstring);
+                DA = new SqlDataAdapter(Fill);
+                DA.Fill(DT);
+                dgvInstructor.DataSource = DT;
+                dgvInstructor.DataMember = DT.TableName;
+                ConnectString.connectstring.Close();
+            }
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            bool valid = false;
+            valid = EH.Checkstring(txtName.Text);
+            bool validSQl = EH.checkForSQLInjection(txtInstructorID.Text);
+            if (valid)
+            {
+                valid = validSQl;
+            }
+            if (valid)
+            {
+                txtName.BackColor = Color.White;
+                ConnectString.connectstring.Open();
+                DA = new SqlDataAdapter("select * from Instructor where Name like '" + txtName.Text + "%'", ConnectString.connectstring);
+                DataTable DT = new DataTable();
+                DA.Fill(DT);
+                dgvInstructor.DataSource = DT;
+                ConnectString.connectstring.Close();
+            }
+            else
+            {
+                txtName.BackColor = Color.FromArgb(249, 29, 29);
+                DataTable DT = new DataTable();
+                ConnectString.connectstring.Open();
+                SqlCommand Fill = new SqlCommand("SELECT * FROM Instructor", ConnectString.connectstring);
+                DA = new SqlDataAdapter(Fill);
+                DA.Fill(DT);
+                dgvInstructor.DataSource = DT;
+                dgvInstructor.DataMember = DT.TableName;
+                ConnectString.connectstring.Close();
+            }
         }
     }
 }
