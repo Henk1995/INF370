@@ -49,18 +49,16 @@
             this.txtPhoneNumber.Location = new System.Drawing.Point(137, 221);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
             this.txtPhoneNumber.Size = new System.Drawing.Size(337, 20);
-            this.txtPhoneNumber.TabIndex = 67;
-            this.txtPhoneNumber.TextChanged += new System.EventHandler(this.txtPhoneNumber_TextChanged);
-            this.txtPhoneNumber.Leave += new System.EventHandler(this.txtPhoneNumber_Leave);
+            this.txtPhoneNumber.TabIndex = 87;
+            this.txtPhoneNumber.TextChanged += new System.EventHandler(this.txtPhoneNumber_TextChanged_1);
             // 
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(137, 183);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(337, 20);
-            this.txtEmail.TabIndex = 66;
-            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
-            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
+            this.txtEmail.TabIndex = 88;
+            this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged_1);
             // 
             // label4
             // 
@@ -114,18 +112,16 @@
             this.txtSurname.Location = new System.Drawing.Point(137, 108);
             this.txtSurname.Name = "txtSurname";
             this.txtSurname.Size = new System.Drawing.Size(337, 20);
-            this.txtSurname.TabIndex = 58;
+            this.txtSurname.TabIndex = 89;
             this.txtSurname.TextChanged += new System.EventHandler(this.txtSurname_TextChanged_1);
-            this.txtSurname.Leave += new System.EventHandler(this.txtSurname_Leave);
             // 
             // txtName
             // 
             this.txtName.Location = new System.Drawing.Point(137, 70);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(337, 20);
-            this.txtName.TabIndex = 57;
-            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
-            this.txtName.Leave += new System.EventHandler(this.txtName_Leave);
+            this.txtName.TabIndex = 90;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged_1);
             // 
             // label5
             // 

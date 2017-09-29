@@ -105,6 +105,50 @@ namespace PETSystem
 
         private void txtName_TextChanged(object sender, EventArgs e)
         {
+            
+        }
+
+        private void txtSurname_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtGender_TextChanged(object sender, EventArgs e)
+        {
+            // Changed to Combo Box
+        }
+
+        private void txtEmail_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtPhoneNumber_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void Add_Course_Client_Load(object sender, EventArgs e)
+        {
+            var mClientGenderID = (
+                  from a in db.Genders
+                  select a.GenderName)
+                   .ToList();
+
+            cbGender.DataSource = mClientGenderID;
+
+
+            var mClientTitleID = (
+                  from a in db.Titles
+                  select a.TitleName)
+                   .ToList();
+
+            cbTitle.DataSource = mClientTitleID;
+
+        }
+
+        private void txtName_TextChanged_1(object sender, EventArgs e)
+        {
             txtName.BackColor = Color.White;
             string Name = txtName.Text;
             bool isString = chk.Checkstring(Name);
@@ -133,7 +177,7 @@ namespace PETSystem
             }
         }
 
-        private void txtSurname_TextChanged(object sender, EventArgs e)
+        private void txtSurname_TextChanged_1(object sender, EventArgs e)
         {
             txtSurname.BackColor = Color.White;
             string Surname = txtSurname.Text;
@@ -163,12 +207,7 @@ namespace PETSystem
             }
         }
 
-        private void txtGender_TextChanged(object sender, EventArgs e)
-        {
-            // Changed to Combo Box
-        }
-
-        private void txtEmail_TextChanged(object sender, EventArgs e)
+        private void txtEmail_TextChanged_1(object sender, EventArgs e)
         {
             txtEmail.BackColor = Color.White;
             string Email = txtEmail.Text;
@@ -197,7 +236,7 @@ namespace PETSystem
             }
         }
 
-        private void txtPhoneNumber_TextChanged(object sender, EventArgs e)
+        private void txtPhoneNumber_TextChanged_1(object sender, EventArgs e)
         {
             string PhoneNumber = txtPhoneNumber.Text;
             txtPhoneNumber.BackColor = Color.White;
@@ -225,25 +264,6 @@ namespace PETSystem
                 txtPhoneNumber.BackColor = Color.White;
                 PhoneNumberValid = true;
             }
-        }
-
-        private void Add_Course_Client_Load(object sender, EventArgs e)
-        {
-            var mClientGenderID = (
-                  from a in db.Genders
-                  select a.GenderName)
-                   .ToList();
-
-            cbGender.DataSource = mClientGenderID;
-
-
-            var mClientTitleID = (
-                  from a in db.Titles
-                  select a.TitleName)
-                   .ToList();
-
-            cbTitle.DataSource = mClientTitleID;
-
         }
     }
 }
