@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="NewestDBExport" Class="PET_DBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=NewestDBExport;Integrated Security=True" SettingsObjectName="PETSystem.Properties.Settings" SettingsPropertyName="NewestDBExportConnectionString" Provider="System.Data.SqlClient" />
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="exportFotos" Class="PET_DBDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=JOHN-MAC-WIN;Initial Catalog=exportFotos;Integrated Security=True" SettingsObjectName="PETSystem.Properties.Settings" SettingsPropertyName="exportFotosConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ApplicationForm" Member="ApplicationForms">
     <Type Name="ApplicationForm">
       <Column Name="ApplicationFormID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />

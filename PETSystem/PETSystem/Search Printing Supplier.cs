@@ -212,7 +212,7 @@ namespace PETSystem
         private void button3_Click(object sender, EventArgs e)
         {
             this.Close();
-            PrinterOrderReturn poreturn = new PrinterOrderReturn();
+            PrinterOrderRefund poreturn = new PrinterOrderRefund();
             poreturn.Show();
         }
     }

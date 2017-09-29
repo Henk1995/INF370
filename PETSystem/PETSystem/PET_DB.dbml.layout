@@ -2,548 +2,548 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 22.5, 26.75" name="PET_DB">
   <DataContextMoniker Name="/PET_DBDataContext" />
   <nestedChildShapes>
-    <classShape Id="29b991e4-cf32-486b-82dd-a45a5c12dea9" absoluteBounds="9.25, 21.5, 2, 2.1554996744791666">
+    <classShape Id="95eb9d73-8182-4114-927a-e79f7e85a53b" absoluteBounds="9.25, 21.5, 2, 2.1554996744791666">
       <DataClassMoniker Name="/PET_DBDataContext/ApplicationForm" />
       <nestedChildShapes>
-        <elementListCompartment Id="184f1e6b-d246-4410-a9fe-597112b3c3a4" absoluteBounds="9.265, 21.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="facfe95d-d089-4d12-a337-8e47f7c567ae" absoluteBounds="9.265, 21.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="2c4f3624-26d8-416e-a91c-175263ea5003" absoluteBounds="9.5, 18.5, 2, 2.1554996744791666">
+    <classShape Id="658ef8c2-7127-4b3e-8181-b34cdddddfbb" absoluteBounds="9.5, 18.5, 2, 2.1554996744791666">
       <DataClassMoniker Name="/PET_DBDataContext/UserTable" />
       <nestedChildShapes>
-        <elementListCompartment Id="4e8e60cf-f604-43ff-bad7-0c2b6382cee1" absoluteBounds="9.515, 18.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="cc48183c-2a62-4220-9b64-2d27d944262a" absoluteBounds="9.515, 18.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="90b7ce34-c2f1-4fc0-a07d-dea7c00e3c51" absoluteBounds="3.75, 14, 2, 1.1939925130208344">
+    <classShape Id="6441be21-23e0-4f25-b8a1-46ad2eb67028" absoluteBounds="3.75, 14, 2, 1.1939925130208344">
       <DataClassMoniker Name="/PET_DBDataContext/Certification" />
       <nestedChildShapes>
-        <elementListCompartment Id="42930524-8af3-43a6-97a5-7b0e4231d313" absoluteBounds="3.765, 14.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="be6061b1-5063-4c64-ab79-763cb7a7882b" absoluteBounds="3.765, 14.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="5d4f52e0-8a0a-49ba-a6e4-a2568ed3ceb2" absoluteBounds="6.25, 7.875, 2, 1.3862939453124996">
+    <classShape Id="014de8dc-a10c-4d4f-9c2f-8ce859b37e68" absoluteBounds="6.25, 7.875, 2, 1.3862939453124996">
       <DataClassMoniker Name="/PET_DBDataContext/ClientCourseLine" />
       <nestedChildShapes>
-        <elementListCompartment Id="f273ec62-6062-4bb4-bc2e-f0664051f446" absoluteBounds="6.265, 8.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="12eac98d-316c-42af-a844-1218760baf48" absoluteBounds="6.265, 8.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="1214c2f8-146b-41c7-9c23-cd469fe25040" absoluteBounds="3.5, 10.5, 2, 2.1554996744791666">
+    <classShape Id="cfc36f9b-a642-4ca7-8e06-9db189ccbcf7" absoluteBounds="3.5, 10.5, 2, 2.1554996744791666">
       <DataClassMoniker Name="/PET_DBDataContext/Client" />
       <nestedChildShapes>
-        <elementListCompartment Id="bfb47be5-e551-4563-bb26-9f21560154d9" absoluteBounds="3.515, 10.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="0840692b-f930-43f1-b98d-a21d95a83139" absoluteBounds="3.515, 10.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="6e4d28bb-2d68-45c4-af09-85fc205575ea" absoluteBounds="12.25, 10.625, 2, 1.9631982421874987">
+    <classShape Id="40f6ccd1-42b8-4689-8f3f-e2c69230be58" absoluteBounds="12.25, 10.625, 2, 1.9631982421874987">
       <DataClassMoniker Name="/PET_DBDataContext/CourseInstance" />
       <nestedChildShapes>
-        <elementListCompartment Id="fe1d8e38-173e-4a92-bb05-134a4d7ddd11" absoluteBounds="12.265, 11.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="fc66bbe9-df75-48b6-a753-400548fdfd85" absoluteBounds="12.265, 11.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="c5a3d6e4-50f9-4bc5-93ec-2349d0137f8f" absoluteBounds="9.5, 4.75, 2, 1.7708968098958327">
+    <classShape Id="7615e1f2-4d74-4db7-a03a-12868d81cfbd" absoluteBounds="9.5, 4.75, 2, 1.7708968098958327">
       <DataClassMoniker Name="/PET_DBDataContext/Course" />
       <nestedChildShapes>
-        <elementListCompartment Id="f1eb9bf1-3e33-452e-ad84-409ee3b72040" absoluteBounds="9.515, 5.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="a9a6f9bf-ae0e-4208-8fc7-f25cdcbddc54" absoluteBounds="9.515, 5.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="df05f5d0-f1f9-4faf-8389-26d5d74ecf0d" absoluteBounds="15, 14, 2, 1.1939925130208344">
+    <classShape Id="cdec656b-5fda-42ef-b041-55c677c15060" absoluteBounds="15, 14, 2, 1.1939925130208344">
       <DataClassMoniker Name="/PET_DBDataContext/CourseTime" />
       <nestedChildShapes>
-        <elementListCompartment Id="fbea4bed-9cff-4b85-9136-6710062fa9e5" absoluteBounds="15.015, 14.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="21939ffc-3f94-4795-92e3-e464578e27b6" absoluteBounds="15.015, 14.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="f746c448-f784-49dc-8a68-12ddf480c05a" absoluteBounds="6.5, 1.75, 2, 1.7708968098958329">
+    <classShape Id="bc1832c4-0b04-439b-a7b0-1e6e77865797" absoluteBounds="6.5, 1.75, 2, 1.7708968098958329">
       <DataClassMoniker Name="/PET_DBDataContext/Customer" />
       <nestedChildShapes>
-        <elementListCompartment Id="c24f9996-8f81-44be-9d41-2752adedf3bb" absoluteBounds="6.515, 2.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="9dc34750-a3ff-42b9-a950-c2d6ff82c6d3" absoluteBounds="6.515, 2.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="23b60196-43b4-462b-b3db-fa196e0b7f60" absoluteBounds="15, 24.75, 2, 1.7708968098958309">
+    <classShape Id="a4c04873-91fa-47a6-b916-b6948274911c" absoluteBounds="15, 24.75, 2, 1.7708968098958309">
       <DataClassMoniker Name="/PET_DBDataContext/DamagedStock" />
       <nestedChildShapes>
-        <elementListCompartment Id="0ce1c4df-2f5d-449a-8a8f-3cd88cc8be71" absoluteBounds="15.015, 25.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="cc758c69-e8ae-49d9-bb95-4a20aad372da" absoluteBounds="15.015, 25.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="9fcc1f60-e153-46f6-9921-2be6ef748e84" absoluteBounds="0.75, 11, 2, 1.1939925130208344">
+    <classShape Id="32d61144-f7af-4e18-88cc-e4f0341e8999" absoluteBounds="0.75, 11, 2, 1.1939925130208344">
       <DataClassMoniker Name="/PET_DBDataContext/Gender" />
       <nestedChildShapes>
-        <elementListCompartment Id="3ddc87ff-e584-4e88-a5ab-28c23c6bbaa8" absoluteBounds="0.765, 11.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="c02c1f9e-3956-4857-8d4e-b5e123f8aa9e" absoluteBounds="0.765, 11.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="07b716b0-1a5b-40b2-b8da-be533046edc1" absoluteBounds="6.5, 10.25, 2, 2.7324039713541666">
+    <classShape Id="0aa64772-a339-4437-b820-71ede0952cd0" absoluteBounds="6.5, 10.25, 2, 2.7324039713541666">
       <DataClassMoniker Name="/PET_DBDataContext/Instructor" />
       <nestedChildShapes>
-        <elementListCompartment Id="2876aea0-ca23-4ccd-8aae-ae07ef28e32e" absoluteBounds="6.515, 10.71, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="dafb61ed-4277-4270-ac19-9b6df8c85839" absoluteBounds="6.515, 10.71, 1.9700000000000002, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="9b5ec1f5-aa6a-46fb-837f-91e15435bd5c" absoluteBounds="9.25, 7.875, 2, 1.5785953776041666">
+    <classShape Id="ef90789d-6e0e-4728-a9f9-297a4afaf619" absoluteBounds="9.25, 7.875, 2, 1.5785953776041666">
       <DataClassMoniker Name="/PET_DBDataContext/MailingList" />
       <nestedChildShapes>
-        <elementListCompartment Id="2ec8d465-fd13-4ea2-9d00-1c823d2314c3" absoluteBounds="9.265, 8.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="a3cfdf62-44c2-4c8c-9764-fde359e2ef5f" absoluteBounds="9.265, 8.335, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="271cac2c-a81f-4136-8ebe-c9ecdf3fc91f" absoluteBounds="15, 7.875, 2, 1.3862939453124996">
+    <classShape Id="a3044036-1530-43dc-9870-8b914c23d3c1" absoluteBounds="15, 7.875, 2, 1.3862939453124996">
       <DataClassMoniker Name="/PET_DBDataContext/OrderLine" />
       <nestedChildShapes>
-        <elementListCompartment Id="1bb0759d-0789-46e4-936b-cbd4c9e2f71f" absoluteBounds="15.015, 8.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="5ddca959-4d5a-488c-9158-46fcb9d74369" absoluteBounds="15.015, 8.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="a6f53eb8-4d2b-40f4-b9dc-6959ace4c710" absoluteBounds="15, 10.375, 2, 2.3478011067708344">
+    <classShape Id="ae1ce844-c649-4232-8b69-260636371554" absoluteBounds="15, 10.375, 2, 2.3478011067708344">
       <DataClassMoniker Name="/PET_DBDataContext/Payment" />
       <nestedChildShapes>
-        <elementListCompartment Id="e6597cbe-8fb9-4f5f-a502-e1560fb0b655" absoluteBounds="15.015, 10.835, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="7664116b-c330-4bf8-b90c-2983c98c8c72" absoluteBounds="15.015, 10.835, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="1adb3146-2ba5-4559-84d0-a84a2614ec73" absoluteBounds="12.25, 14, 2, 1.1939925130208344">
+    <classShape Id="c4bf19aa-4b02-4837-a2a2-5edc75af698b" absoluteBounds="12.25, 14, 2, 1.1939925130208344">
       <DataClassMoniker Name="/PET_DBDataContext/PaymentType" />
       <nestedChildShapes>
-        <elementListCompartment Id="99bef1a5-7cb0-4e13-a5e0-bf2d5074f418" absoluteBounds="12.265, 14.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="9b5d4316-a022-4c08-9619-52675bf73de2" absoluteBounds="12.265, 14.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="2a29cdbe-728f-4b68-b7f4-3c3eaf1525f1" absoluteBounds="0.75, 0.75, 2, 1.3862939453125">
+    <classShape Id="cf54de5f-fbe4-4130-9d9e-78269c2f8348" absoluteBounds="0.75, 0.75, 2, 1.3862939453125">
       <DataClassMoniker Name="/PET_DBDataContext/PictureTable" />
       <nestedChildShapes>
-        <elementListCompartment Id="6bec5199-efff-484f-9780-c0df6617aeb4" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="77a452be-7caa-4efe-9e9a-3c397c2d79a0" absoluteBounds="0.765, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="aebe70ad-c816-4b09-8ab9-bea35d3b9d9c" absoluteBounds="14.75, 18.75, 2, 1.9631982421875023">
+    <classShape Id="047b7d51-b1f6-4f9a-bff1-5eab06d633e3" absoluteBounds="14.75, 18.75, 2, 1.9631982421875023">
       <DataClassMoniker Name="/PET_DBDataContext/Printer" />
       <nestedChildShapes>
-        <elementListCompartment Id="fc3f8826-a832-4bcc-834a-d510aefc2d9c" absoluteBounds="14.765, 19.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="4d5791da-b177-42f4-bfa1-2a07ce42e717" absoluteBounds="14.765, 19.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="ce251c20-be81-4095-97d6-3b4894345842" absoluteBounds="17.5, 18.75, 2, 1.9631982421875023">
+    <classShape Id="606936dd-0828-4414-b833-691506961228" absoluteBounds="17.5, 18.75, 2, 1.9631982421875023">
       <DataClassMoniker Name="/PET_DBDataContext/PrinterOrder" />
       <nestedChildShapes>
-        <elementListCompartment Id="65802cb7-2839-4d02-8762-758af9b9e1c4" absoluteBounds="17.515, 19.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="54d1707d-77f0-4c65-a6b7-b90b1fb4d027" absoluteBounds="17.515, 19.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="75b81dcc-381a-48dd-be74-a023ff8a7c3c" absoluteBounds="6.75, 19, 2, 1.1939925130208309">
+    <classShape Id="a9b6dc92-58f5-4ce2-8442-965a18102cf5" absoluteBounds="6.75, 19, 2, 1.1939925130208309">
       <DataClassMoniker Name="/PET_DBDataContext/PrivilegeType" />
       <nestedChildShapes>
-        <elementListCompartment Id="d66b91c0-9664-4606-a5de-a9f9f09ed64d" absoluteBounds="6.765, 19.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="1bf78fb9-4a5d-4d3c-b46a-f000b7fb5f25" absoluteBounds="6.765, 19.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="d7daccbe-164c-4963-893d-834702b0fda8" absoluteBounds="9.25, 15.25, 2, 1.5785953776041666">
+    <classShape Id="dac2dd55-eb5b-4b18-9ff6-926cc946eff6" absoluteBounds="9.25, 15.25, 2, 1.5785953776041666">
       <DataClassMoniker Name="/PET_DBDataContext/QualifiedCourse" />
       <nestedChildShapes>
-        <elementListCompartment Id="5c74fe00-e88a-4018-ac80-31a85d6505ff" absoluteBounds="9.265, 15.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="5047d8ce-b8bb-405e-b724-35f91a7ea8b3" absoluteBounds="9.265, 15.71, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="35b9bd96-ee59-45e8-b403-7fd41ecd546b" absoluteBounds="15, 4.625, 2, 1.9631982421875005">
+    <classShape Id="0958f9ae-8734-4807-876c-329524469630" absoluteBounds="15, 4.625, 2, 1.9631982421875005">
       <DataClassMoniker Name="/PET_DBDataContext/Refund" />
       <nestedChildShapes>
-        <elementListCompartment Id="bde34461-7388-4081-838a-06b5ab37e8a3" absoluteBounds="15.015, 5.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="0e7349b8-4ebe-4a5b-9cd6-293fe3e56760" absoluteBounds="15.015, 5.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="6d10b42f-79c8-4ce0-a13e-f7efe5094aa0" absoluteBounds="3.5, 5.75, 2, 1.1939925130208344">
+    <classShape Id="8ea90fe7-a4c8-4ef6-b5f3-c328c7b1b819" absoluteBounds="3.5, 5.75, 2, 1.1939925130208344">
       <DataClassMoniker Name="/PET_DBDataContext/Result" />
       <nestedChildShapes>
-        <elementListCompartment Id="8c2211c3-d29e-4831-81d8-7a668245236d" absoluteBounds="3.515, 6.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="beb4aab5-ee5b-4959-a66b-ec37f3cfc01e" absoluteBounds="3.515, 6.21, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="c1318646-4f68-4506-ae70-b28a9d5e1a52" absoluteBounds="6.75, 5, 2, 1.1939925130208344">
+    <classShape Id="945099cc-20a1-4fd2-90c5-ed84d9ce6353" absoluteBounds="6.75, 5, 2, 1.1939925130208344">
       <DataClassMoniker Name="/PET_DBDataContext/RoyaltiesCourse" />
       <nestedChildShapes>
-        <elementListCompartment Id="0dfca39c-df85-4512-9c3f-ac767ba67361" absoluteBounds="6.765, 5.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="a493c729-226e-45fa-9469-5939c8a54f75" absoluteBounds="6.765, 5.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="c2234ab5-1ce9-4fc6-8c88-22a2095d1403" absoluteBounds="20.25, 13, 2, 2.5401025390624987">
+    <classShape Id="4199da04-1a08-404b-a486-c7afbf769071" absoluteBounds="20.25, 13, 2, 2.5401025390624987">
       <DataClassMoniker Name="/PET_DBDataContext/RoyaltiesOrder" />
       <nestedChildShapes>
-        <elementListCompartment Id="619bab8e-4749-4089-b015-fa8c03b4aa33" absoluteBounds="20.265, 13.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="b254cbd2-1b9b-41a2-8e91-0a6daa505d62" absoluteBounds="20.265, 13.46, 1.9700000000000002, 1.9801025390625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="a17ae40c-cdc2-4448-afc4-656ab05381a0" absoluteBounds="12.25, 1.75, 2, 1.7708968098958329">
+    <classShape Id="acb53206-3479-4333-b344-c05deddc8c4c" absoluteBounds="12.25, 1.75, 2, 1.7708968098958329">
       <DataClassMoniker Name="/PET_DBDataContext/Stock" />
       <nestedChildShapes>
-        <elementListCompartment Id="2d788fef-ae3c-4b85-9ef0-e6a41c58734c" absoluteBounds="12.265, 2.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="617fe81f-3825-42f2-8044-27aa6bad11a2" absoluteBounds="12.265, 2.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="a4965ae1-1f9a-4d51-9139-044b320151fd" absoluteBounds="20.25, 10.25, 2, 1.9631982421874987">
+    <classShape Id="097fd8f0-232c-4111-8f7b-e1bfe0c6f3fc" absoluteBounds="20.25, 10.25, 2, 1.9631982421874987">
       <DataClassMoniker Name="/PET_DBDataContext/StockLine" />
       <nestedChildShapes>
-        <elementListCompartment Id="9a9f7720-bc06-48e2-95ff-77c96ac44c7e" absoluteBounds="20.265, 10.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="d0f697dc-f7e0-4106-89c6-6ab3246d8921" absoluteBounds="20.265, 10.71, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="6f2485b3-b8ba-4d93-a61c-92dfe6748c42" absoluteBounds="9.5, 2, 2, 1.1939925130208335">
+    <classShape Id="ed7d5643-421c-412f-a6cc-1d73c4cc9be4" absoluteBounds="9.5, 2, 2, 1.1939925130208335">
       <DataClassMoniker Name="/PET_DBDataContext/StockType" />
       <nestedChildShapes>
-        <elementListCompartment Id="b964d168-81b6-46f4-8cbc-3fe7c0eb78ab" absoluteBounds="9.515, 2.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="d6195db5-c1e3-4b91-9a00-628539b24b40" absoluteBounds="9.515, 2.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="1c73d949-d95b-4d00-857b-76830ebb4fe6" absoluteBounds="17.5, 21.5, 2, 2.1554996744791666">
+    <classShape Id="720ebec1-2b0b-4c88-9a01-bf09affe5a27" absoluteBounds="17.5, 21.5, 2, 2.1554996744791666">
       <DataClassMoniker Name="/PET_DBDataContext/Supplier" />
       <nestedChildShapes>
-        <elementListCompartment Id="458660aa-d5a0-4854-a211-0d9146db7eca" absoluteBounds="17.515, 21.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="753fa8d5-db0c-4aa9-bf0b-af57c20f4255" absoluteBounds="17.515, 21.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="66be6c01-4922-43fe-893e-234d986db9c1" absoluteBounds="17.5, 1.75, 2, 1.9631982421875003">
+    <classShape Id="49b100e9-13c0-4ac9-8d0b-f986f9bcded9" absoluteBounds="17.5, 1.75, 2, 1.9631982421875003">
       <DataClassMoniker Name="/PET_DBDataContext/SupplierOrder" />
       <nestedChildShapes>
-        <elementListCompartment Id="cf763c61-23f9-4c6c-9b41-2537d668576a" absoluteBounds="17.515, 2.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="a288cfa9-9e4e-4817-8846-b291bc40b636" absoluteBounds="17.515, 2.21, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="00dcb6ce-e8c7-43d6-90f1-c12b9ab203ce" absoluteBounds="14.75, 22, 2, 1.1939925130208309">
+    <classShape Id="043de78e-6880-45b3-bd8b-a1c6555cf0db" absoluteBounds="14.75, 22, 2, 1.1939925130208309">
       <DataClassMoniker Name="/PET_DBDataContext/SupplierType" />
       <nestedChildShapes>
-        <elementListCompartment Id="ce5c5b9d-852c-4e7f-bd17-37389cc2115c" absoluteBounds="14.765, 22.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="0b15183d-91aa-4a57-a314-8180e64ef280" absoluteBounds="14.765, 22.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="614a2075-1a73-43cb-a71c-c038bfa73dcc" absoluteBounds="12.25, 7.5, 2, 2.1554996744791666">
+    <classShape Id="39a47f21-acab-49e2-ab94-2a4630156aea" absoluteBounds="12.25, 7.5, 2, 2.1554996744791666">
       <DataClassMoniker Name="/PET_DBDataContext/TableOrder" />
       <nestedChildShapes>
-        <elementListCompartment Id="d6253dd7-102e-495e-99ce-63489a5dcaba" absoluteBounds="12.265, 7.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="563114fb-5112-484d-b722-3188d155c6e9" absoluteBounds="12.265, 7.96, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="f1ea7e04-f0e3-441b-9b47-1cab2b2d7bf5" absoluteBounds="12.25, 16.875, 2, 1.3862939453125023">
+    <classShape Id="83a52c86-981c-4161-a945-1a09cc204c82" absoluteBounds="12.25, 16.875, 2, 1.3862939453125023">
       <DataClassMoniker Name="/PET_DBDataContext/TimeSlot" />
       <nestedChildShapes>
-        <elementListCompartment Id="38014dd9-e6c8-41f0-81a8-3d705facddf7" absoluteBounds="12.265, 17.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="878749cd-5eb9-495b-9492-2733fe28ad72" absoluteBounds="12.265, 17.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="fc266a70-41e7-4dda-8ba6-f221bc84f5bd" absoluteBounds="0.75, 9, 2, 1.1939925130208344">
+    <classShape Id="d936a543-34e7-4c74-bac4-fae0f37cc5dc" absoluteBounds="0.75, 9, 2, 1.1939925130208344">
       <DataClassMoniker Name="/PET_DBDataContext/Title" />
       <nestedChildShapes>
-        <elementListCompartment Id="c2ea9270-20df-4243-b98a-162333c22de2" absoluteBounds="0.765, 9.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="9dab4bf4-abf1-4ae0-bdda-224ec6b2fc5e" absoluteBounds="0.765, 9.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="d6bc1d82-c163-4024-b409-8762f0011732" absoluteBounds="6.5, 21.75, 2, 1.7708968098958309">
+    <classShape Id="eeb27541-23d7-47fc-adfe-299221dfc26f" absoluteBounds="6.5, 21.75, 2, 1.7708968098958309">
       <DataClassMoniker Name="/PET_DBDataContext/TrainingCourse" />
       <nestedChildShapes>
-        <elementListCompartment Id="886ca656-5463-40fc-8ea1-93d5f813cfa1" absoluteBounds="6.515, 22.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="73ec02d5-427a-41fd-93bc-617780edb8b2" absoluteBounds="6.515, 22.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="cd2429b3-ba55-4006-b01a-645ef195284e" absoluteBounds="9.25, 10.875, 2, 1.3862939453124987">
+    <classShape Id="8f498ea7-eafe-40b2-ba85-0acbb169cfd9" absoluteBounds="9.25, 10.875, 2, 1.3862939453124987">
       <DataClassMoniker Name="/PET_DBDataContext/TrainingCourseLine" />
       <nestedChildShapes>
-        <elementListCompartment Id="8ad6a6d7-38e4-486a-b985-e309c5d6cb8b" absoluteBounds="9.265, 11.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="c2395128-d6f4-493a-9651-74d155d57669" absoluteBounds="9.265, 11.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="6f3b5e70-bafb-468c-9cc7-c92557c41928" absoluteBounds="3.75, 22, 2, 1.1939925130208309">
+    <classShape Id="bf41826d-1161-4e7b-b8cf-85d3f3102900" absoluteBounds="3.75, 22, 2, 1.1939925130208309">
       <DataClassMoniker Name="/PET_DBDataContext/TrainingCourseType" />
       <nestedChildShapes>
-        <elementListCompartment Id="06ce0166-1fe9-495b-ac80-243e86ae4e46" absoluteBounds="3.765, 22.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="6019afee-e240-401a-b3a2-34fcdac0c718" absoluteBounds="3.765, 22.46, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <associationConnector edgePoints="[(4.5 : 10.5); (4.5 : 8.56814697265625); (6.25 : 8.56814697265625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/Client/Client_ClientCourseLine" />
       <nodes>
-        <classShapeMoniker Id="1214c2f8-146b-41c7-9c23-cd469fe25040" />
-        <classShapeMoniker Id="5d4f52e0-8a0a-49ba-a6e4-a2568ed3ceb2" />
+        <classShapeMoniker Id="cfc36f9b-a642-4ca7-8e06-9db189ccbcf7" />
+        <classShapeMoniker Id="014de8dc-a10c-4d4f-9c2f-8ce859b37e68" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(12.25 : 11.6065991210937); (11.5 : 11.6065991210937); (11.5 : 10); (11.4895833333333 : 10 : JumpStart); (11.3229166666667 : 10 : JumpEnd); (8.95833333333333 : 10 : JumpStart); (8.79166666666667 : 10 : JumpEnd); (8.52083583333333 : 10 : JumpStart); (8.29166416666667 : 10 : JumpEnd); (7.25 : 10); (7.25 : 9.2612939453125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/CourseInstance/CourseInstance_ClientCourseLine" />
       <nodes>
-        <classShapeMoniker Id="6e4d28bb-2d68-45c4-af09-85fc205575ea" />
-        <classShapeMoniker Id="5d4f52e0-8a0a-49ba-a6e4-a2568ed3ceb2" />
+        <classShapeMoniker Id="40f6ccd1-42b8-4689-8f3f-e2c69230be58" />
+        <classShapeMoniker Id="014de8dc-a10c-4d4f-9c2f-8ce859b37e68" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(11.40625 : 6.52089680989583); (11.40625 : 12.45599609375); (12.25 : 12.45599609375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/Course/Course_CourseInstance" />
       <nodes>
-        <classShapeMoniker Id="c5a3d6e4-50f9-4bc5-93ec-2349d0137f8f" />
-        <classShapeMoniker Id="6e4d28bb-2d68-45c4-af09-85fc205575ea" />
+        <classShapeMoniker Id="7615e1f2-4d74-4db7-a03a-12868d81cfbd" />
+        <classShapeMoniker Id="40f6ccd1-42b8-4689-8f3f-e2c69230be58" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(14.25 : 12.5881982421875); (14.4410744349011 : 12.7792726770886 : JumpStart); (14.5589255650989 : 12.8971238072864 : JumpEnd); (14.625 : 12.9631982421875); (14.625 : 14.5969962565104); (14.7760416666667 : 14.5969962565104 : JumpStart); (14.9739608333333 : 14.5969962565104 : JumpEnd); (15 : 14.5969962565104)]" fixedFrom="NotFixed" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/CourseInstance/CourseInstance_CourseTime" />
       <nodes>
-        <classShapeMoniker Id="6e4d28bb-2d68-45c4-af09-85fc205575ea" />
-        <classShapeMoniker Id="df05f5d0-f1f9-4faf-8389-26d5d74ecf0d" />
+        <classShapeMoniker Id="40f6ccd1-42b8-4689-8f3f-e2c69230be58" />
+        <classShapeMoniker Id="cdec656b-5fda-42ef-b041-55c677c15060" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 11.5969962565104); (3.5 : 11.5969962565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/Gender/Gender_Client" />
       <nodes>
-        <classShapeMoniker Id="9fcc1f60-e153-46f6-9921-2be6ef748e84" />
-        <classShapeMoniker Id="1214c2f8-146b-41c7-9c23-cd469fe25040" />
+        <classShapeMoniker Id="32d61144-f7af-4e18-88cc-e4f0341e8999" />
+        <classShapeMoniker Id="cfc36f9b-a642-4ca7-8e06-9db189ccbcf7" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(8.5 : 10.71875); (9.01041666666667 : 10.71875 : JumpStart); (9.17708333333333 : 10.71875 : JumpEnd); (11.3229166666667 : 10.71875 : JumpStart); (11.5833333333333 : 10.71875 : JumpEnd); (12.25 : 10.71875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/Instructor/Instructor_CourseInstance" />
       <nodes>
-        <classShapeMoniker Id="07b716b0-1a5b-40b2-b8da-be533046edc1" />
-        <classShapeMoniker Id="6e4d28bb-2d68-45c4-af09-85fc205575ea" />
+        <classShapeMoniker Id="0aa64772-a339-4437-b820-71ede0952cd0" />
+        <classShapeMoniker Id="40f6ccd1-42b8-4689-8f3f-e2c69230be58" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(5.65625 : 14); (5.65625 : 12.8502018229167); (6.5 : 12.8502018229167)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/Certification/Certification_Instructor" />
       <nodes>
-        <classShapeMoniker Id="90b7ce34-c2f1-4fc0-a07d-dea7c00e3c51" />
-        <classShapeMoniker Id="07b716b0-1a5b-40b2-b8da-be533046edc1" />
+        <classShapeMoniker Id="6441be21-23e0-4f25-b8a1-46ad2eb67028" />
+        <classShapeMoniker Id="0aa64772-a339-4437-b820-71ede0952cd0" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(1.75 : 12.1939925130208); (1.75 : 12.7528482486979); (6.5 : 12.7528482486979)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/Gender/Gender_Instructor" />
       <nodes>
-        <classShapeMoniker Id="9fcc1f60-e153-46f6-9921-2be6ef748e84" />
-        <classShapeMoniker Id="07b716b0-1a5b-40b2-b8da-be533046edc1" />
+        <classShapeMoniker Id="32d61144-f7af-4e18-88cc-e4f0341e8999" />
+        <classShapeMoniker Id="0aa64772-a339-4437-b820-71ede0952cd0" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(8.5 : 3.38869466145833); (9.34375 : 3.38869466145833); (9.34375 : 7.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/Customer/Customer_MailingList" />
       <nodes>
-        <classShapeMoniker Id="f746c448-f784-49dc-8a68-12ddf480c05a" />
-        <classShapeMoniker Id="9b5ec1f5-aa6a-46fb-837f-91e15435bd5c" />
+        <classShapeMoniker Id="bc1832c4-0b04-439b-a7b0-1e6e77865797" />
+        <classShapeMoniker Id="ef90789d-6e0e-4728-a9f9-297a4afaf619" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(8.40625 : 10.25); (8.40625 : 9.38869466145833); (8.79166666666667 : 9.38869466145833 : JumpStart); (8.95833333333333 : 9.38869466145833 : JumpEnd); (9.25 : 9.38869466145833)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/Instructor/Instructor_MailingList" />
       <nodes>
-        <classShapeMoniker Id="07b716b0-1a5b-40b2-b8da-be533046edc1" />
-        <classShapeMoniker Id="9b5ec1f5-aa6a-46fb-837f-91e15435bd5c" />
+        <classShapeMoniker Id="0aa64772-a339-4437-b820-71ede0952cd0" />
+        <classShapeMoniker Id="ef90789d-6e0e-4728-a9f9-297a4afaf619" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(14.25 : 14.0312264964944); (14.4410744349011 : 13.8401520615933 : JumpStart); (14.5589255650989 : 13.7223009313955 : JumpEnd); (14.5660744349011 : 13.7151520615933 : JumpStart); (14.6839255650989 : 13.5973009313955 : JumpEnd); (14.78125 : 13.4999764964944); (14.78125 : 11.5489005533854); (14.8072941666667 : 11.5489005533854 : JumpStart); (14.9739608333333 : 11.5489005533854 : JumpEnd); (15 : 11.5489005533854)]" fixedFrom="NotFixed" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/PaymentType/PaymentType_Payment" />
       <nodes>
-        <classShapeMoniker Id="1adb3146-2ba5-4559-84d0-a84a2614ec73" />
-        <classShapeMoniker Id="a6f53eb8-4d2b-40f4-b9dc-6959ace4c710" />
+        <classShapeMoniker Id="c4bf19aa-4b02-4837-a2a2-5edc75af698b" />
+        <classShapeMoniker Id="ae1ce844-c649-4232-8b69-260636371554" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(16.75 : 19.7315991210938); (17.5 : 19.7315991210938)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/Printer/Printer_PrinterOrder" />
       <nodes>
-        <classShapeMoniker Id="aebe70ad-c816-4b09-8ab9-bea35d3b9d9c" />
-        <classShapeMoniker Id="ce251c20-be81-4095-97d6-3b4894345842" />
+        <classShapeMoniker Id="047b7d51-b1f6-4f9a-bff1-5eab06d633e3" />
+        <classShapeMoniker Id="606936dd-0828-4414-b833-691506961228" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(8.75 : 19.5969962565104); (8.91666666666667 : 19.5969962565104 : JumpStart); (9.08333333333333 : 19.5969962565104 : JumpEnd); (9.5 : 19.5969962565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/PrivilegeType/PrivilegeType_UserTable" />
       <nodes>
-        <classShapeMoniker Id="75b81dcc-381a-48dd-be74-a023ff8a7c3c" />
-        <classShapeMoniker Id="2c4f3624-26d8-416e-a91c-175263ea5003" />
+        <classShapeMoniker Id="a9b6dc92-58f5-4ce2-8442-965a18102cf5" />
+        <classShapeMoniker Id="658ef8c2-7127-4b3e-8181-b34cdddddfbb" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(7.5 : 12.9824039713542); (7.5 : 16.0392976888021); (8.91666666666667 : 16.0392976888021 : JumpStart); (9.08333333333333 : 16.0392976888021 : JumpEnd); (9.25 : 16.0392976888021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/Instructor/Instructor_QualifiedCourse" />
       <nodes>
-        <classShapeMoniker Id="07b716b0-1a5b-40b2-b8da-be533046edc1" />
-        <classShapeMoniker Id="d7daccbe-164c-4963-893d-834702b0fda8" />
+        <classShapeMoniker Id="0aa64772-a339-4437-b820-71ede0952cd0" />
+        <classShapeMoniker Id="dac2dd55-eb5b-4b18-9ff6-926cc946eff6" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(5 : 6.94399251302083); (5 : 8.19032098632812); (6.25 : 8.19032098632812)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/Result/Result_ClientCourseLine" />
       <nodes>
-        <classShapeMoniker Id="6d10b42f-79c8-4ce0-a13e-f7efe5094aa0" />
-        <classShapeMoniker Id="5d4f52e0-8a0a-49ba-a6e4-a2568ed3ceb2" />
+        <classShapeMoniker Id="8ea90fe7-a4c8-4ef6-b5f3-c328c7b1b819" />
+        <classShapeMoniker Id="014de8dc-a10c-4d4f-9c2f-8ce859b37e68" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(8.75 : 5.59699625651042); (9.26041666666667 : 5.59699625651042 : JumpStart); (9.42708333333333 : 5.59699625651042 : JumpEnd); (9.5 : 5.59699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/RoyaltiesCourse/RoyaltiesCourse_Course" />
       <nodes>
-        <classShapeMoniker Id="c1318646-4f68-4506-ae70-b28a9d5e1a52" />
-        <classShapeMoniker Id="c5a3d6e4-50f9-4bc5-93ec-2349d0137f8f" />
+        <classShapeMoniker Id="945099cc-20a1-4fd2-90c5-ed84d9ce6353" />
+        <classShapeMoniker Id="7615e1f2-4d74-4db7-a03a-12868d81cfbd" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(18.5 : 18.75); (18.5 : 14.2700512695312); (18.9479191666667 : 14.2700512695312 : JumpStart); (19.1145858333333 : 14.2700512695312 : JumpEnd); (19.7916666666667 : 14.2700512695312 : JumpStart); (19.9583333333333 : 14.2700512695312 : JumpEnd); (19.9791666666667 : 14.2700512695312 : JumpStart); (20.1458333333333 : 14.2700512695312 : JumpEnd); (20.25 : 14.2700512695312)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/PrinterOrder/PrinterOrder_RoyaltiesOrder" />
       <nodes>
-        <classShapeMoniker Id="ce251c20-be81-4095-97d6-3b4894345842" />
-        <classShapeMoniker Id="c2234ab5-1ce9-4fc6-8c88-22a2095d1403" />
+        <classShapeMoniker Id="606936dd-0828-4414-b833-691506961228" />
+        <classShapeMoniker Id="4199da04-1a08-404b-a486-c7afbf769071" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(14.859375 : 18.75); (14.859375 : 13.46875); (17.9166666666667 : 13.46875 : JumpStart); (18.0833333333333 : 13.46875 : JumpEnd); (18.9479191666667 : 13.46875 : JumpStart); (19.1145858333333 : 13.46875 : JumpEnd); (19.7916666666667 : 13.46875 : JumpStart); (19.9583333333333 : 13.46875 : JumpEnd); (19.9791666666667 : 13.46875 : JumpStart); (20.1458333333333 : 13.46875 : JumpEnd); (20.25 : 13.46875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/Printer/Printer_RoyaltiesOrder" />
       <nodes>
-        <classShapeMoniker Id="aebe70ad-c816-4b09-8ab9-bea35d3b9d9c" />
-        <classShapeMoniker Id="c2234ab5-1ce9-4fc6-8c88-22a2095d1403" />
+        <classShapeMoniker Id="047b7d51-b1f6-4f9a-bff1-5eab06d633e3" />
+        <classShapeMoniker Id="4199da04-1a08-404b-a486-c7afbf769071" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(13.25 : 3.52089680989583); (13.25 : 7.25); (13.4322929166667 : 7.25 : JumpStart); (13.5989595833333 : 7.25 : JumpEnd); (14.5 : 7.25); (14.5 : 25.6354484049479); (15 : 25.6354484049479)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/Stock/Stock_DamagedStock" />
       <nodes>
-        <classShapeMoniker Id="a17ae40c-cdc2-4448-afc4-656ab05381a0" />
-        <classShapeMoniker Id="23b60196-43b4-462b-b3db-fa196e0b7f60" />
+        <classShapeMoniker Id="acb53206-3479-4333-b344-c05deddc8c4c" />
+        <classShapeMoniker Id="a4c04873-91fa-47a6-b916-b6948274911c" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(14.25 : 3.51817135326522); (14.65625 : 3.92442135326522); (14.65625 : 8.56814697265625); (14.7916666666667 : 8.56814697265625 : JumpStart); (14.9583333333333 : 8.56814697265625 : JumpEnd); (15 : 8.56814697265625)]" fixedFrom="NotFixed" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/Stock/Stock_OrderLine" />
       <nodes>
-        <classShapeMoniker Id="a17ae40c-cdc2-4448-afc4-656ab05381a0" />
-        <classShapeMoniker Id="271cac2c-a81f-4136-8ebe-c9ecdf3fc91f" />
+        <classShapeMoniker Id="acb53206-3479-4333-b344-c05deddc8c4c" />
+        <classShapeMoniker Id="a3044036-1530-43dc-9870-8b914c23d3c1" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(13.7812525 : 3.52089680989583); (13.7812525 : 5.60659912109375); (14.5729166666667 : 5.60659912109375 : JumpStart); (14.7395833333333 : 5.60659912109375 : JumpEnd); (14.7916666666667 : 5.60659912109375 : JumpStart); (14.9583333333333 : 5.60659912109375 : JumpEnd); (15 : 5.60659912109375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/Stock/Stock_Refund" />
       <nodes>
-        <classShapeMoniker Id="a17ae40c-cdc2-4448-afc4-656ab05381a0" />
-        <classShapeMoniker Id="35b9bd96-ee59-45e8-b403-7fd41ecd546b" />
+        <classShapeMoniker Id="acb53206-3479-4333-b344-c05deddc8c4c" />
+        <classShapeMoniker Id="0958f9ae-8734-4807-876c-329524469630" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(14.25 : 2.60351479079026); (17.25 : 2.60351479079026); (17.25 : 12.625); (17.9166666666667 : 12.625 : JumpStart); (18.0833333333333 : 12.625 : JumpEnd); (18.9479191666667 : 12.625 : JumpStart); (19.1145858333333 : 12.625 : JumpEnd); (19.7916666666667 : 12.625 : JumpStart); (19.9583333333333 : 12.625 : JumpEnd); (19.9791666666667 : 12.625 : JumpStart); (20.1458333333333 : 12.625 : JumpEnd); (21.25 : 12.625); (21.25 : 13)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/Stock/Stock_RoyaltiesOrder" />
       <nodes>
-        <classShapeMoniker Id="a17ae40c-cdc2-4448-afc4-656ab05381a0" />
-        <classShapeMoniker Id="c2234ab5-1ce9-4fc6-8c88-22a2095d1403" />
+        <classShapeMoniker Id="acb53206-3479-4333-b344-c05deddc8c4c" />
+        <classShapeMoniker Id="4199da04-1a08-404b-a486-c7afbf769071" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(19.0312525 : 18.75); (19.0312525 : 11.2315991210937); (19.7916666666667 : 11.2315991210937 : JumpStart); (19.9583333333333 : 11.2315991210937 : JumpEnd); (20.25 : 11.2315991210937)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/PrinterOrder/PrinterOrder_StockLine" />
       <nodes>
-        <classShapeMoniker Id="ce251c20-be81-4095-97d6-3b4894345842" />
-        <classShapeMoniker Id="a4965ae1-1f9a-4d51-9139-044b320151fd" />
+        <classShapeMoniker Id="606936dd-0828-4414-b833-691506961228" />
+        <classShapeMoniker Id="097fd8f0-232c-4111-8f7b-e1bfe0c6f3fc" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(14.8906275 : 18.75); (14.8906275 : 10.28125); (17.1666666666667 : 10.28125 : JumpStart); (17.3333333333333 : 10.28125 : JumpEnd); (17.9166666666667 : 10.28125 : JumpStart); (18.0833333333333 : 10.28125 : JumpEnd); (18.4635454166667 : 10.28125 : JumpStart); (18.6302120833333 : 10.28125 : JumpEnd); (19.7916666666667 : 10.28125 : JumpStart); (19.9583333333333 : 10.28125 : JumpEnd); (20.25 : 10.28125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/Printer/Printer_StockLine" />
       <nodes>
-        <classShapeMoniker Id="aebe70ad-c816-4b09-8ab9-bea35d3b9d9c" />
-        <classShapeMoniker Id="a4965ae1-1f9a-4d51-9139-044b320151fd" />
+        <classShapeMoniker Id="047b7d51-b1f6-4f9a-bff1-5eab06d633e3" />
+        <classShapeMoniker Id="097fd8f0-232c-4111-8f7b-e1bfe0c6f3fc" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(14.25 : 3.48956455864383); (14.875 : 4.11456455864383); (14.875 : 9.875); (17.1666666666667 : 9.875 : JumpStart); (17.3333333333333 : 9.875 : JumpEnd); (17.9166666666667 : 9.875 : JumpStart); (18.0833333333333 : 9.875 : JumpEnd); (18.4635454166667 : 9.875 : JumpStart); (18.6302120833333 : 9.875 : JumpEnd); (19.875 : 9.875); (20.25 : 10.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PET_DBDataContext/Stock/Stock_StockLine" />
       <nodes>
-        <classShapeMoniker Id="a17ae40c-cdc2-4448-afc4-656ab05381a0" />
-        <classShapeMoniker Id="a4965ae1-1f9a-4d51-9139-044b320151fd" />
+        <classShapeMoniker Id="acb53206-3479-4333-b344-c05deddc8c4c" />
+        <classShapeMoniker Id="097fd8f0-232c-4111-8f7b-e1bfe0c6f3fc" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(11.5 : 2.59699625651042); (12.25 : 2.59699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/StockType/StockType_Stock" />
       <nodes>
-        <classShapeMoniker Id="6f2485b3-b8ba-4d93-a61c-92dfe6748c42" />
-        <classShapeMoniker Id="a17ae40c-cdc2-4448-afc4-656ab05381a0" />
+        <classShapeMoniker Id="ed7d5643-421c-412f-a6cc-1d73c4cc9be4" />
+        <classShapeMoniker Id="acb53206-3479-4333-b344-c05deddc8c4c" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(19.5 : 22.5777498372396); (21.25 : 22.5777498372396); (21.25 : 15.5401025390625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/Supplier/Supplier_RoyaltiesOrder" />
       <nodes>
-        <classShapeMoniker Id="1c73d949-d95b-4d00-857b-76830ebb4fe6" />
-        <classShapeMoniker Id="c2234ab5-1ce9-4fc6-8c88-22a2095d1403" />
+        <classShapeMoniker Id="720ebec1-2b0b-4c88-9a01-bf09affe5a27" />
+        <classShapeMoniker Id="4199da04-1a08-404b-a486-c7afbf769071" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(19.5 : 21.5953836153846); (20.0625 : 21.0328836153846); (20.0625 : 11.7536506816406); (20.25 : 11.7536506816406)]" fixedFrom="NotFixed" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/Supplier/Supplier_StockLine" />
       <nodes>
-        <classShapeMoniker Id="1c73d949-d95b-4d00-857b-76830ebb4fe6" />
-        <classShapeMoniker Id="a4965ae1-1f9a-4d51-9139-044b320151fd" />
+        <classShapeMoniker Id="720ebec1-2b0b-4c88-9a01-bf09affe5a27" />
+        <classShapeMoniker Id="097fd8f0-232c-4111-8f7b-e1bfe0c6f3fc" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(18 : 3.7131982421875); (18 : 14.9363294042969); (18.4166666666667 : 14.9363294042969 : JumpStart); (18.5833333333333 : 14.9363294042969 : JumpEnd); (18.9479191666667 : 14.9363294042969 : JumpStart); (19.1145858333333 : 14.9363294042969 : JumpEnd); (19.7916666666667 : 14.9363294042969 : JumpStart); (19.9583333333333 : 14.9363294042969 : JumpEnd); (19.9791666666667 : 14.9363294042969 : JumpStart); (20.1458333333333 : 14.9363294042969 : JumpEnd); (20.25 : 14.9363294042969)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/SupplierOrder/SupplierOrder_RoyaltiesOrder" />
       <nodes>
-        <classShapeMoniker Id="66be6c01-4922-43fe-893e-234d986db9c1" />
-        <classShapeMoniker Id="c2234ab5-1ce9-4fc6-8c88-22a2095d1403" />
+        <classShapeMoniker Id="49b100e9-13c0-4ac9-8d0b-f986f9bcded9" />
+        <classShapeMoniker Id="4199da04-1a08-404b-a486-c7afbf769071" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(18.54687875 : 3.7131982421875); (18.54687875 : 10.7564245605469); (19.7916666666667 : 10.7564245605469 : JumpStart); (19.9583333333333 : 10.7564245605469 : JumpEnd); (20.25 : 10.7564245605469)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/SupplierOrder/SupplierOrder_StockLine" />
       <nodes>
-        <classShapeMoniker Id="66be6c01-4922-43fe-893e-234d986db9c1" />
-        <classShapeMoniker Id="a4965ae1-1f9a-4d51-9139-044b320151fd" />
+        <classShapeMoniker Id="49b100e9-13c0-4ac9-8d0b-f986f9bcded9" />
+        <classShapeMoniker Id="097fd8f0-232c-4111-8f7b-e1bfe0c6f3fc" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(19.4676923076923 : 21.5); (19.875 : 21.0926923076923); (19.875 : 4.08668708969351); (19.5 : 3.71168708969351)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PET_DBDataContext/Supplier/Supplier_SupplierOrder" />
       <nodes>
-        <classShapeMoniker Id="1c73d949-d95b-4d00-857b-76830ebb4fe6" />
-        <classShapeMoniker Id="66be6c01-4922-43fe-893e-234d986db9c1" />
+        <classShapeMoniker Id="720ebec1-2b0b-4c88-9a01-bf09affe5a27" />
+        <classShapeMoniker Id="49b100e9-13c0-4ac9-8d0b-f986f9bcded9" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(16.75 : 22.5969962565104); (17.5 : 22.5969962565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/SupplierType/SupplierType_Supplier" />
       <nodes>
-        <classShapeMoniker Id="00dcb6ce-e8c7-43d6-90f1-c12b9ab203ce" />
-        <classShapeMoniker Id="1c73d949-d95b-4d00-857b-76830ebb4fe6" />
+        <classShapeMoniker Id="043de78e-6880-45b3-bd8b-a1c6555cf0db" />
+        <classShapeMoniker Id="720ebec1-2b0b-4c88-9a01-bf09affe5a27" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(14.25 : 8.15907348632813); (14.4166666666667 : 8.15907348632812 : JumpStart); (14.7395833333333 : 8.15907348632813 : JumpEnd); (14.7916666666667 : 8.15907348632813 : JumpStart); (14.9583333333333 : 8.15907348632813 : JumpEnd); (15 : 8.15907348632813)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/TableOrder/TableOrder_OrderLine" />
       <nodes>
-        <classShapeMoniker Id="614a2075-1a73-43cb-a71c-c038bfa73dcc" />
-        <classShapeMoniker Id="271cac2c-a81f-4136-8ebe-c9ecdf3fc91f" />
+        <classShapeMoniker Id="39a47f21-acab-49e2-ab94-2a4630156aea" />
+        <classShapeMoniker Id="a3044036-1530-43dc-9870-8b914c23d3c1" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(14.25 : 9.65549967447917); (14.4410744349011 : 9.84657410938029 : JumpStart); (14.5589255650989 : 9.96442523957804 : JumpEnd); (14.625 : 10.0304996744792); (14.625 : 10.9306982766927); (14.8072941666667 : 10.9306982766927 : JumpStart); (14.9739608333333 : 10.9306982766927 : JumpEnd); (15 : 10.9306982766927)]" fixedFrom="NotFixed" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/TableOrder/TableOrder_Payment" />
       <nodes>
-        <classShapeMoniker Id="614a2075-1a73-43cb-a71c-c038bfa73dcc" />
-        <classShapeMoniker Id="a6f53eb8-4d2b-40f4-b9dc-6959ace4c710" />
+        <classShapeMoniker Id="39a47f21-acab-49e2-ab94-2a4630156aea" />
+        <classShapeMoniker Id="ae1ce844-c649-4232-8b69-260636371554" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(12.75 : 7.5); (12.75 : 6.12865118164063); (13.1666666666667 : 6.12865118164062 : JumpStart); (13.3333333333333 : 6.12865118164063 : JumpEnd); (13.4322929166667 : 6.12865118164062 : JumpStart); (13.5989595833333 : 6.12865118164063 : JumpEnd); (14.5729166666667 : 6.12865118164062 : JumpStart); (14.7395833333333 : 6.12865118164063 : JumpEnd); (14.7916666666667 : 6.12865118164062 : JumpStart); (14.9583333333333 : 6.12865118164063 : JumpEnd); (15 : 6.12865118164063)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/TableOrder/TableOrder_Refund" />
       <nodes>
-        <classShapeMoniker Id="614a2075-1a73-43cb-a71c-c038bfa73dcc" />
-        <classShapeMoniker Id="35b9bd96-ee59-45e8-b403-7fd41ecd546b" />
+        <classShapeMoniker Id="39a47f21-acab-49e2-ab94-2a4630156aea" />
+        <classShapeMoniker Id="0958f9ae-8734-4807-876c-329524469630" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(8.5 : 3.51953358158053); (8.8763632283153 : 3.89589680989583); (9.26041666666667 : 3.89589680989583 : JumpStart); (9.42708333333333 : 3.89589680989583 : JumpEnd); (13.1666666666667 : 3.89589680989583 : JumpStart); (13.3333333333333 : 3.89589680989583 : JumpEnd); (13.51562625 : 3.89589680989583); (13.51562625 : 7.5)]" fixedFrom="NotFixed" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/Customer/Customer_TableOrder" />
       <nodes>
-        <classShapeMoniker Id="f746c448-f784-49dc-8a68-12ddf480c05a" />
-        <classShapeMoniker Id="614a2075-1a73-43cb-a71c-c038bfa73dcc" />
+        <classShapeMoniker Id="bc1832c4-0b04-439b-a7b0-1e6e77865797" />
+        <classShapeMoniker Id="39a47f21-acab-49e2-ab94-2a4630156aea" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(8.4375025 : 10.25); (8.4375025 : 7.65625); (8.79166666666667 : 7.65625 : JumpStart); (8.95833333333333 : 7.65625 : JumpEnd); (9.26041666666667 : 7.65625 : JumpStart); (9.42708333333333 : 7.65625 : JumpEnd); (11.3229166666667 : 7.65625 : JumpStart); (11.4895833333333 : 7.65625 : JumpEnd); (12.25 : 7.65625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/Instructor/Instructor_TableOrder" />
       <nodes>
-        <classShapeMoniker Id="07b716b0-1a5b-40b2-b8da-be533046edc1" />
-        <classShapeMoniker Id="614a2075-1a73-43cb-a71c-c038bfa73dcc" />
+        <classShapeMoniker Id="0aa64772-a339-4437-b820-71ede0952cd0" />
+        <classShapeMoniker Id="39a47f21-acab-49e2-ab94-2a4630156aea" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(11.453125 : 18.5); (11.453125 : 9.58579752604167); (12.25 : 9.58579752604167)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/UserTable/UserTable_TableOrder" />
       <nodes>
-        <classShapeMoniker Id="2c4f3624-26d8-416e-a91c-175263ea5003" />
-        <classShapeMoniker Id="614a2075-1a73-43cb-a71c-c038bfa73dcc" />
+        <classShapeMoniker Id="658ef8c2-7127-4b3e-8181-b34cdddddfbb" />
+        <classShapeMoniker Id="39a47f21-acab-49e2-ab94-2a4630156aea" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(14.25 : 17.5681469726563); (14.4166666666667 : 17.5681469726563 : JumpStart); (14.5833333333333 : 17.5681469726563 : JumpEnd); (14.7760416666667 : 17.5681469726563 : JumpStart); (14.9739608333333 : 17.5681469726563 : JumpEnd); (16 : 17.5681469726563); (16 : 15.1939925130208)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/TimeSlot/TimeSlot_CourseTime" />
       <nodes>
-        <classShapeMoniker Id="f1ea7e04-f0e3-441b-9b47-1cab2b2d7bf5" />
-        <classShapeMoniker Id="df05f5d0-f1f9-4faf-8389-26d5d74ecf0d" />
+        <classShapeMoniker Id="83a52c86-981c-4161-a945-1a09cc204c82" />
+        <classShapeMoniker Id="cdec656b-5fda-42ef-b041-55c677c15060" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 9.59699625651042); (3.9687475 : 9.59699625651042); (3.9687475 : 10.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/Title/Title_Client" />
       <nodes>
-        <classShapeMoniker Id="fc266a70-41e7-4dda-8ba6-f221bc84f5bd" />
-        <classShapeMoniker Id="1214c2f8-146b-41c7-9c23-cd469fe25040" />
+        <classShapeMoniker Id="d936a543-34e7-4c74-bac4-fae0f37cc5dc" />
+        <classShapeMoniker Id="cfc36f9b-a642-4ca7-8e06-9db189ccbcf7" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(2.75 : 9.82975062825521); (3.88541416666667 : 9.82975062825521 : JumpStart); (4.05208083333333 : 9.82975062825521 : JumpEnd); (4.41666666666667 : 9.82975062825521 : JumpStart); (4.58333333333333 : 9.82975062825521 : JumpEnd); (7.16666666666667 : 9.82975062825521 : JumpStart); (7.33333333333333 : 9.82975062825521 : JumpEnd); (8.3749975 : 9.82975062825521); (8.3749975 : 10.25)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/Title/Title_Instructor" />
       <nodes>
-        <classShapeMoniker Id="fc266a70-41e7-4dda-8ba6-f221bc84f5bd" />
-        <classShapeMoniker Id="07b716b0-1a5b-40b2-b8da-be533046edc1" />
+        <classShapeMoniker Id="d936a543-34e7-4c74-bac4-fae0f37cc5dc" />
+        <classShapeMoniker Id="0aa64772-a339-4437-b820-71ede0952cd0" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(8.5 : 22.6354484049479); (9.25 : 22.6354484049479)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/TrainingCourse/TrainingCourse_ApplicationForm" />
       <nodes>
-        <classShapeMoniker Id="d6bc1d82-c163-4024-b409-8762f0011732" />
-        <classShapeMoniker Id="29b991e4-cf32-486b-82dd-a45a5c12dea9" />
+        <classShapeMoniker Id="eeb27541-23d7-47fc-adfe-299221dfc26f" />
+        <classShapeMoniker Id="95eb9d73-8182-4114-927a-e79f7e85a53b" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(8.5 : 11.5681469726562); (9.25 : 11.5681469726562)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/Instructor/Instructor_TrainingCourseLine" />
       <nodes>
-        <classShapeMoniker Id="07b716b0-1a5b-40b2-b8da-be533046edc1" />
-        <classShapeMoniker Id="cd2429b3-ba55-4006-b01a-645ef195284e" />
+        <classShapeMoniker Id="0aa64772-a339-4437-b820-71ede0952cd0" />
+        <classShapeMoniker Id="8f498ea7-eafe-40b2-ba85-0acbb169cfd9" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(5.5 : 6.94399251302083); (5.875 : 7.31899251302083); (8.875 : 7.31899251302083); (8.875 : 10.5); (9.25 : 10.875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/PET_DBDataContext/Result/Result_TrainingCourseLine" />
       <nodes>
-        <classShapeMoniker Id="6d10b42f-79c8-4ce0-a13e-f7efe5094aa0" />
-        <classShapeMoniker Id="cd2429b3-ba55-4006-b01a-645ef195284e" />
+        <classShapeMoniker Id="8ea90fe7-a4c8-4ef6-b5f3-c328c7b1b819" />
+        <classShapeMoniker Id="8f498ea7-eafe-40b2-ba85-0acbb169cfd9" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(7.5 : 21.75); (7.5 : 20.4439925130208); (9 : 20.4439925130208); (9 : 11.9459724589844); (9.25 : 11.9459724589844)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/TrainingCourse/TrainingCourse_TrainingCourseLine" />
       <nodes>
-        <classShapeMoniker Id="d6bc1d82-c163-4024-b409-8762f0011732" />
-        <classShapeMoniker Id="cd2429b3-ba55-4006-b01a-645ef195284e" />
+        <classShapeMoniker Id="eeb27541-23d7-47fc-adfe-299221dfc26f" />
+        <classShapeMoniker Id="8f498ea7-eafe-40b2-ba85-0acbb169cfd9" />
       </nodes>
     </associationConnector>
     <associationConnector edgePoints="[(5.75 : 22.5969962565104); (6.5 : 22.5969962565104)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/PET_DBDataContext/TrainingCourseType/TrainingCourseType_TrainingCourse" />
       <nodes>
-        <classShapeMoniker Id="6f3b5e70-bafb-468c-9cc7-c92557c41928" />
-        <classShapeMoniker Id="d6bc1d82-c163-4024-b409-8762f0011732" />
+        <classShapeMoniker Id="bf41826d-1161-4e7b-b8cf-85d3f3102900" />
+        <classShapeMoniker Id="eeb27541-23d7-47fc-adfe-299221dfc26f" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>

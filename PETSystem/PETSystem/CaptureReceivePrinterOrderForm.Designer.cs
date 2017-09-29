@@ -38,7 +38,7 @@
             this.BtnCapture = new System.Windows.Forms.Button();
             this.BtnBack = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnAddProduct = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -104,6 +104,7 @@
             this.btnEnter.TabIndex = 16;
             this.btnEnter.Text = "Enter";
             this.btnEnter.UseVisualStyleBackColor = true;
+            this.btnEnter.Click += new System.EventHandler(this.btnEnter_Click);
             // 
             // txtOrder
             // 
@@ -121,6 +122,7 @@
             this.BtnCapture.TabIndex = 14;
             this.BtnCapture.Text = "Capture Order";
             this.BtnCapture.UseVisualStyleBackColor = true;
+            this.BtnCapture.Click += new System.EventHandler(this.BtnCapture_Click);
             // 
             // BtnBack
             // 
@@ -130,10 +132,11 @@
             this.BtnBack.TabIndex = 13;
             this.BtnBack.Text = "Back";
             this.BtnBack.UseVisualStyleBackColor = true;
+            this.BtnBack.Click += new System.EventHandler(this.BtnBack_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.btnAddProduct);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtTotal);
             this.groupBox1.Controls.Add(this.label5);
@@ -148,14 +151,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Order Details:";
             // 
-            // button3
+            // btnAddProduct
             // 
-            this.button3.Location = new System.Drawing.Point(202, 93);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Add Product";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnAddProduct.Location = new System.Drawing.Point(202, 93);
+            this.btnAddProduct.Name = "btnAddProduct";
+            this.btnAddProduct.Size = new System.Drawing.Size(75, 23);
+            this.btnAddProduct.TabIndex = 11;
+            this.btnAddProduct.Text = "Add Product";
+            this.btnAddProduct.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -251,7 +254,7 @@
         private System.Windows.Forms.Button BtnCapture;
         private System.Windows.Forms.Button BtnBack;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnAddProduct;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Label label5;
