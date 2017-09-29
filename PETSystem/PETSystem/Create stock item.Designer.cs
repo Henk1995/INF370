@@ -66,6 +66,7 @@
             this.txtPrice.Size = new System.Drawing.Size(337, 20);
             this.txtPrice.TabIndex = 32;
             this.txtPrice.TextChanged += new System.EventHandler(this.txtPrice_TextChanged);
+            this.txtPrice.Leave += new System.EventHandler(this.txtPrice_Leave);
             // 
             // txtDesc
             // 
@@ -74,6 +75,7 @@
             this.txtDesc.Size = new System.Drawing.Size(337, 20);
             this.txtDesc.TabIndex = 31;
             this.txtDesc.TextChanged += new System.EventHandler(this.txtDesc_TextChanged);
+            this.txtDesc.Leave += new System.EventHandler(this.txtDesc_Leave);
             // 
             // cbType
             // 

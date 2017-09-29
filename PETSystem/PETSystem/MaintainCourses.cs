@@ -197,56 +197,17 @@ namespace PETSystem
 
         private void txtStartDate_TextChanged(object sender, EventArgs e)
         {
-            valid3 = EH.CheckDate(txtStartDate.Text);
-            bool validSQl = EH.checkForSQLInjection(txtStartDate.Text);
-            if (valid3)
-            {
-                valid3 = validSQl;
-            }
-            if (!valid3)
-            {
-                txtStartDate.BackColor = Color.Red;
-            }
-            else
-            {
-                txtStartDate.BackColor = Color.White;
-            }
+            
         }
 
         private void txtVenue_TextChanged(object sender, EventArgs e)
         {
-            valid4 = EH.CheckstringNum(txtVenue.Text);
-            bool validSQl = EH.checkForSQLInjection(txtVenue.Text);
-            if (valid4)
-            {
-                valid4 = validSQl;
-            }
-            if (!valid4)
-            {
-                txtVenue.BackColor = Color.Red;
-            }
-            else
-            {
-                txtVenue.BackColor = Color.White;
-            }
+            
         }
 
         private void txtNCDName_TextChanged(object sender, EventArgs e)
         {
-            valid5 = EH.Checkstring(txtNCDName.Text);
-            bool validSQl = EH.checkForSQLInjection(txtNCDName.Text);
-            if (valid5)
-            {
-                valid5 = validSQl;
-            }
-            if (!valid5)
-            {
-                txtNCDName.BackColor = Color.Red;
-            }
-            else
-            {
-                txtNCDName.BackColor = Color.White;
-            }
+            
         }
 
         private void btnSave_Click(object sender, EventArgs e)
@@ -465,6 +426,65 @@ namespace PETSystem
             this.Dispose(true);
             AddInstrucorC UM = new AddInstrucorC();
             UM.ShowDialog();
+        }
+
+        private void txtStartDate_Leave(object sender, EventArgs e)
+        {
+            valid3 = EH.CheckDate(txtStartDate.Text);
+            bool validSQl = EH.checkForSQLInjection(txtStartDate.Text);
+            if (valid3)
+            {
+                valid3 = validSQl;
+            }
+            if (!valid3)
+            {
+                txtStartDate.BackColor = Color.Red;
+            }
+            else
+            {
+                txtStartDate.BackColor = Color.White;
+            }
+        }
+
+        private void txtVenue_Leave(object sender, EventArgs e)
+        {
+            valid4 = EH.CheckstringNum(txtVenue.Text);
+            bool validSQl = EH.checkForSQLInjection(txtVenue.Text);
+            if (valid4)
+            {
+                valid4 = validSQl;
+            }
+            if (!valid4)
+            {
+                txtVenue.BackColor = Color.Red;
+            }
+            else
+            {
+                txtVenue.BackColor = Color.White;
+            }
+        }
+
+        private void txtNCDName_Leave(object sender, EventArgs e)
+        {
+            valid5 = EH.Checkstring(txtNCDName.Text);
+            bool validSQl = EH.checkForSQLInjection(txtNCDName.Text);
+            if (valid5)
+            {
+                valid5 = validSQl;
+            }
+            if (!valid5)
+            {
+                txtNCDName.BackColor = Color.Red;
+            }
+            else
+            {
+                txtNCDName.BackColor = Color.White;
+            }
+        }
+
+        private void cbSearch_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

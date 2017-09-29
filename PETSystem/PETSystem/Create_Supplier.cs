@@ -125,56 +125,17 @@ namespace Create_Supplier
 
         private void txtSuppName_TextChanged(object sender, EventArgs e)
         {
-            valid1 = EH.Checkstring(txtSuppName.Text);
-            bool validSQl = EH.checkForSQLInjection(txtSuppName.Text);
-            if (valid1)
-            {
-                valid1 = validSQl;
-            }
-            if (!valid1)
-            {
-                txtSuppName.BackColor = Color.Red;
-            }
-            else
-            {
-                txtSuppName.BackColor = Color.White;
-            }
+            
         }
 
         private void txtEmail_TextChanged(object sender, EventArgs e)
         {
-            valid3 = EH.CheckEmail(txtEmail.Text);
-            bool validSQl = EH.checkForSQLInjection(txtEmail.Text);
-            if (valid3)
-            {
-                valid3 = validSQl;
-            }
-            if (!valid3)
-            {
-                txtEmail.BackColor = Color.Red;
-            }
-            else
-            {
-                txtEmail.BackColor = Color.White;
-            }
+            
         }
 
         private void txtPhonenumber_TextChanged(object sender, EventArgs e)
         {
-            valid4 = EH.CheckphoneNum(txtPhonenumber.Text);
-            bool validSQl = EH.checkForSQLInjection(txtPhonenumber.Text);
-            if (valid4)
-            {
-                valid4 = validSQl;
-            }
-            if (!valid4)
-            {
-                txtPhonenumber.BackColor = Color.Red;
-            }
-            else
-            {
-                txtPhonenumber.BackColor = Color.White;
-            }
+            
         }
 
         private void txtBancACC_TextChanged(object sender, EventArgs e)
@@ -197,6 +158,36 @@ namespace Create_Supplier
 
         private void txtAdress_TextChanged(object sender, EventArgs e)
         {
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Suppliers UM = new Suppliers();
+            UM.Show();
+        }
+
+        private void txtSuppName_Leave(object sender, EventArgs e)
+        {
+            valid1 = EH.Checkstring(txtSuppName.Text);
+            bool validSQl = EH.checkForSQLInjection(txtSuppName.Text);
+            if (valid1)
+            {
+                valid1 = validSQl;
+            }
+            if (!valid1)
+            {
+                txtSuppName.BackColor = Color.Red;
+            }
+            else
+            {
+                txtSuppName.BackColor = Color.White;
+            }
+        }
+
+        private void txtAdress_Leave(object sender, EventArgs e)
+        {
             valid2 = EH.CheckstringNum(txtAdress.Text);
             bool validSQl = EH.checkForSQLInjection(txtAdress.Text);
             if (valid2)
@@ -213,11 +204,40 @@ namespace Create_Supplier
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void txtEmail_Leave(object sender, EventArgs e)
         {
-            this.Close();
-            Suppliers UM = new Suppliers();
-            UM.Show();
+            valid3 = EH.CheckEmail(txtEmail.Text);
+            bool validSQl = EH.checkForSQLInjection(txtEmail.Text);
+            if (valid3)
+            {
+                valid3 = validSQl;
+            }
+            if (!valid3)
+            {
+                txtEmail.BackColor = Color.Red;
+            }
+            else
+            {
+                txtEmail.BackColor = Color.White;
+            }
+        }
+
+        private void txtPhonenumber_Leave(object sender, EventArgs e)
+        {
+            valid4 = EH.CheckphoneNum(txtPhonenumber.Text);
+            bool validSQl = EH.checkForSQLInjection(txtPhonenumber.Text);
+            if (valid4)
+            {
+                valid4 = validSQl;
+            }
+            if (!valid4)
+            {
+                txtPhonenumber.BackColor = Color.Red;
+            }
+            else
+            {
+                txtPhonenumber.BackColor = Color.White;
+            }
         }
     }
 }

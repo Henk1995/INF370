@@ -83,6 +83,21 @@ namespace PETSystem
 
         private void txtCourseName_TextChanged(object sender, EventArgs e)
         {
+            
+        }
+
+        private void txtCourseCost_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtCourseDuration_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtCourseName_Leave(object sender, EventArgs e)
+        {
             txtCourseName.BackColor = Color.White;
             string CourseName = txtCourseName.Text;
             bool isString = chk.Checkstring(CourseName);
@@ -105,7 +120,7 @@ namespace PETSystem
             }
         }
 
-        private void txtCourseCost_TextChanged(object sender, EventArgs e)
+        private void txtCourseCost_Leave(object sender, EventArgs e)
         {
             string CourseCost = txtCourseCost.Text;
             txtCourseCost.BackColor = Color.White;
@@ -129,7 +144,7 @@ namespace PETSystem
             }
         }
 
-        private void txtCourseDuration_TextChanged(object sender, EventArgs e)
+        private void txtCourseDuration_Leave(object sender, EventArgs e)
         {
             string CourseDuration = txtCourseDuration.Text;
             txtCourseDuration.BackColor = Color.White;
@@ -151,6 +166,16 @@ namespace PETSystem
                 txtCourseDuration.BackColor = Color.White;
                 CourseDurationValid = true;
             }
+        }
+
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

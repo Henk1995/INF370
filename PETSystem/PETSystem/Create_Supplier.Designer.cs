@@ -51,6 +51,7 @@
             this.txtSuppName.Size = new System.Drawing.Size(140, 20);
             this.txtSuppName.TabIndex = 0;
             this.txtSuppName.TextChanged += new System.EventHandler(this.txtSuppName_TextChanged);
+            this.txtSuppName.Leave += new System.EventHandler(this.txtSuppName_Leave);
             // 
             // txtAdress
             // 
@@ -59,6 +60,7 @@
             this.txtAdress.Size = new System.Drawing.Size(140, 20);
             this.txtAdress.TabIndex = 1;
             this.txtAdress.TextChanged += new System.EventHandler(this.txtAdress_TextChanged);
+            this.txtAdress.Leave += new System.EventHandler(this.txtAdress_Leave);
             // 
             // txtEmail
             // 
@@ -67,6 +69,7 @@
             this.txtEmail.Size = new System.Drawing.Size(140, 20);
             this.txtEmail.TabIndex = 2;
             this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged);
+            this.txtEmail.Leave += new System.EventHandler(this.txtEmail_Leave);
             // 
             // txtPhonenumber
             // 
@@ -75,6 +78,7 @@
             this.txtPhonenumber.Size = new System.Drawing.Size(140, 20);
             this.txtPhonenumber.TabIndex = 3;
             this.txtPhonenumber.TextChanged += new System.EventHandler(this.txtPhonenumber_TextChanged);
+            this.txtPhonenumber.Leave += new System.EventHandler(this.txtPhonenumber_Leave);
             // 
             // txtBancACC
             // 
