@@ -28,34 +28,7 @@ namespace PETSystem
 
         private void txtQuantity_TextChanged(object sender, EventArgs e)
         {
-            txtQuantity.BackColor = Color.White;
-
-            txtQuantity.BackColor = Color.White;
-            string Quantity = txtQuantity.Text;
-            bool isInt = chk.CheckInt(Quantity);
-            bool notEmpty = chk.CheckEmpty(Quantity);
-            bool checkForSQLInjection = chk.checkForSQLInjection(Quantity);
-
-            if (isInt == false)
-            {
-                txtQuantity.BackColor = Color.FromArgb(244, 17, 17);
-                AddValid = false;
-            }
-            else if (notEmpty == false)
-            {
-                txtQuantity.BackColor = Color.FromArgb(244, 17, 17);
-                AddValid = false;
-            }
-            else if (checkForSQLInjection == false)
-            {
-                txtQuantity.BackColor = Color.FromArgb(244, 17, 17);
-                AddValid = false;
-            }
-            else
-            {
-                txtQuantity.BackColor = Color.White;
-                AddValid = true;
-            }
+            
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -131,6 +104,38 @@ namespace PETSystem
             }
 
 
+        }
+
+        private void txtQuantity_Leave(object sender, EventArgs e)
+        {
+            txtQuantity.BackColor = Color.White;
+
+            txtQuantity.BackColor = Color.White;
+            string Quantity = txtQuantity.Text;
+            bool isInt = chk.CheckInt(Quantity);
+            bool notEmpty = chk.CheckEmpty(Quantity);
+            bool checkForSQLInjection = chk.checkForSQLInjection(Quantity);
+
+            if (isInt == false)
+            {
+                txtQuantity.BackColor = Color.FromArgb(244, 17, 17);
+                AddValid = false;
+            }
+            else if (notEmpty == false)
+            {
+                txtQuantity.BackColor = Color.FromArgb(244, 17, 17);
+                AddValid = false;
+            }
+            else if (checkForSQLInjection == false)
+            {
+                txtQuantity.BackColor = Color.FromArgb(244, 17, 17);
+                AddValid = false;
+            }
+            else
+            {
+                txtQuantity.BackColor = Color.White;
+                AddValid = true;
+            }
         }
     }
 }

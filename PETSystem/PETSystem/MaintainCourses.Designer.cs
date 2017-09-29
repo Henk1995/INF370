@@ -45,6 +45,8 @@
             this.dgvMaintain = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
             this.MaintainTCPanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbSearch = new System.Windows.Forms.ComboBox();
             this.txtCourseName = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -54,21 +56,19 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button5 = new System.Windows.Forms.Button();
-            this.cbSearch = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.AddCourseTypeP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaintain)).BeginInit();
             this.MaintainTCPanel.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -96,6 +96,7 @@
             this.txtVenue.Size = new System.Drawing.Size(145, 20);
             this.txtVenue.TabIndex = 7;
             this.txtVenue.TextChanged += new System.EventHandler(this.txtVenue_TextChanged);
+            this.txtVenue.Leave += new System.EventHandler(this.txtVenue_Leave);
             // 
             // txtStartDate
             // 
@@ -104,6 +105,7 @@
             this.txtStartDate.Size = new System.Drawing.Size(145, 20);
             this.txtStartDate.TabIndex = 6;
             this.txtStartDate.TextChanged += new System.EventHandler(this.txtStartDate_TextChanged);
+            this.txtStartDate.Leave += new System.EventHandler(this.txtStartDate_Leave);
             // 
             // cmbName
             // 
@@ -170,6 +172,7 @@
             this.txtNCDName.Size = new System.Drawing.Size(119, 20);
             this.txtNCDName.TabIndex = 10;
             this.txtNCDName.TextChanged += new System.EventHandler(this.txtNCDName_TextChanged);
+            this.txtNCDName.Leave += new System.EventHandler(this.txtNCDName_Leave);
             // 
             // button3
             // 
@@ -233,6 +236,28 @@
             this.MaintainTCPanel.Name = "MaintainTCPanel";
             this.MaintainTCPanel.Size = new System.Drawing.Size(233, 123);
             this.MaintainTCPanel.TabIndex = 11;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 54);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(95, 13);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Search Paramater:";
+            // 
+            // cbSearch
+            // 
+            this.cbSearch.FormattingEnabled = true;
+            this.cbSearch.Items.AddRange(new object[] {
+            "Course Name",
+            "Start Date",
+            "Course Type"});
+            this.cbSearch.Location = new System.Drawing.Point(109, 46);
+            this.cbSearch.Name = "cbSearch";
+            this.cbSearch.Size = new System.Drawing.Size(121, 21);
+            this.cbSearch.TabIndex = 11;
+            this.cbSearch.SelectedIndexChanged += new System.EventHandler(this.cbSearch_SelectedIndexChanged);
             // 
             // txtCourseName
             // 
@@ -312,6 +337,24 @@
             this.tabPage1.Text = "Add Training Course";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.cmbName);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.numericUpDown1);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.txtVenue);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtStartDate);
+            this.groupBox1.Location = new System.Drawing.Point(6, 6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(315, 196);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Course Details:";
+            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.AddCourseTypeP);
@@ -337,24 +380,6 @@
             this.tabPage3.Text = "Maintain Training Course";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.cmbName);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.numericUpDown1);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.txtVenue);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.txtStartDate);
-            this.groupBox1.Location = new System.Drawing.Point(6, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(315, 196);
-            this.groupBox1.TabIndex = 10;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Course Details:";
-            // 
             // button5
             // 
             this.button5.Location = new System.Drawing.Point(254, 198);
@@ -364,27 +389,6 @@
             this.button5.Text = "Update Training Course Type";
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click_1);
-            // 
-            // cbSearch
-            // 
-            this.cbSearch.FormattingEnabled = true;
-            this.cbSearch.Items.AddRange(new object[] {
-            "Course Name",
-            "Start Date",
-            "Course Type"});
-            this.cbSearch.Location = new System.Drawing.Point(109, 46);
-            this.cbSearch.Name = "cbSearch";
-            this.cbSearch.Size = new System.Drawing.Size(121, 21);
-            this.cbSearch.TabIndex = 11;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 54);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 13);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Search Paramater:";
             // 
             // MaintainCourses
             // 
@@ -405,10 +409,10 @@
             this.MaintainTCPanel.PerformLayout();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

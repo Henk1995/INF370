@@ -31,11 +31,12 @@ namespace PETSystem
 
         private void Instructors_Load(object sender, EventArgs e)
         {
+            comboBox1.SelectedIndex = 0;
             // TODO: This line of code loads data into the 'iNF370DataSet.Instructor' table. You can move, or remove it, as needed.
             //  this.instructorTableAdapter.Fill(this.iNF370DataSet.Instructor);
             DataTable DT = new DataTable();
             ConnectString.connectstring.Open();
-            SqlCommand Fill = new SqlCommand("SELECT Instructor.InstructorID,Instructor.Name,Instructor.Surname,Instructor.Email,Instructor.PhoneNumber, Gender.GenderName, Title.TitleName, Certification.CertificationName FROM Instructor INNER JOIN Gender ON Instructor.GenderID = Gender.GenderID INNER JOIN Title ON Instructor.TitleID = Title.TitleID INNER JOIN Certification ON Instructor.CertificationID = Certification.CertificationID;", ConnectString.connectstring);
+            SqlCommand Fill = new SqlCommand("SELECT Instructor.InstructorID,Instructor.Name,Instructor.Surname,Instructor.Email,Instructor.PhoneNumber, Gender.GenderName, Title.TitleName, Certification.CertificationName FROM Instructor INNER JOIN Gender ON Instructor.GenderID = Gender.GenderID INNER JOIN Title ON Instructor.TitleID = Title.TitleID INNER JOIN Certification ON Instructor.CertificationID = Certification.CertificationID", ConnectString.connectstring);
             DA = new SqlDataAdapter(Fill);
             DA.Fill(DT);
             dgvInstructor.DataSource = DT;
@@ -95,7 +96,8 @@ namespace PETSystem
                 string phoneNumberId = dgvInstructor.SelectedRows[0].Cells[4].Value + string.Empty;
                 string Genderid = dgvInstructor.SelectedRows[0].Cells[5].Value + string.Empty;
                 string titleid = dgvInstructor.SelectedRows[0].Cells[6].Value + string.Empty;
-
+                this.Close();
+                this.Dispose(true);
                 UpdateInstructor UD = new UpdateInstructor(NameId, SurnameId, emailId, phoneNumberId, Genderid, titleid);
                 UD.ShowDialog();
             }
@@ -293,40 +295,79 @@ namespace PETSystem
         private void txtInstructorID_TextChanged(object sender, EventArgs e)
         {
             bool valid = false;
-            valid = EH.CheckInt(txtInstructorID.Text);
-            bool validSQl = EH.checkForSQLInjection(txtInstructorID.Text);
+          //  valid = EH.CheckInt(txtInstructorID.Text);
+          //  bool validSQl = EH.checkForSQLInjection(txtInstructorID.Text);
             if (valid)
             {
-                valid = validSQl;
+              //  valid = validSQl;
             }
             if (valid)
             {
-                txtInstructorID.BackColor = Color.White;
+              
+            }
+            else
+            {
+             
+            }
+            //Name surname phone email
+            if (comboBox1.SelectedIndex == 0)
+            {
+                DataTable DT2 = new DataTable();
                 ConnectString.connectstring.Open();
-                DA = new SqlDataAdapter("select * from Instructor where InstructorID like '" + txtInstructorID.Text + "%'", ConnectString.connectstring);
-                DataTable DT = new DataTable();
-                DA.Fill(DT);
-                dgvInstructor.DataSource = DT;
+                SqlCommand Fillz = new SqlCommand("SELECT Instructor.InstructorID,Instructor.Name,Instructor.Surname,Instructor.Email,Instructor.PhoneNumber, Gender.GenderName, Title.TitleName, Certification.CertificationName FROM Instructor INNER JOIN Gender ON Gender.GenderID = Instructor.GenderID  INNER JOIN Title ON Title.TitleID =  Instructor.TitleID INNER JOIN Certification ON Certification.CertificationID = Instructor.CertificationID  Where Instructor.Name Like '%" + txtInstructorID.Text + "%'", ConnectString.connectstring);
+                SqlDataAdapter DA2 = new SqlDataAdapter(Fillz);
+                DA2.Fill(DT2);
+                dgvInstructor.DataSource = DT2;
+                dgvInstructor.DataMember = DT2.TableName;
+                txtInstructorID.BackColor = Color.White;
+                ConnectString.connectstring.Close();
+            }
+            else if (comboBox1.SelectedIndex == 1)
+            {
+                DataTable DT2 = new DataTable();
+                ConnectString.connectstring.Open();
+                SqlCommand Fillz = new SqlCommand("SELECT Instructor.InstructorID,Instructor.Name,Instructor.Surname,Instructor.Email,Instructor.PhoneNumber, Gender.GenderName, Title.TitleName, Certification.CertificationName FROM Instructor INNER JOIN Gender ON Gender.GenderID = Instructor.GenderID  INNER JOIN Title ON Title.TitleID =  Instructor.TitleID INNER JOIN Certification ON Certification.CertificationID = Instructor.CertificationID  Where Instructor.Surname Like '%" + txtInstructorID.Text + "%'", ConnectString.connectstring);
+                SqlDataAdapter DA2 = new SqlDataAdapter(Fillz);
+                DA2.Fill(DT2);
+                dgvInstructor.DataSource = DT2;
+                dgvInstructor.DataMember = DT2.TableName;
+                txtInstructorID.BackColor = Color.White;
+                ConnectString.connectstring.Close();
+            }
+            else if (comboBox1.SelectedIndex == 2)
+            {
+                DataTable DT2 = new DataTable();
+                ConnectString.connectstring.Open();
+                SqlCommand Fillz = new SqlCommand("SELECT Instructor.InstructorID,Instructor.Name,Instructor.Surname,Instructor.Email,Instructor.PhoneNumber, Gender.GenderName, Title.TitleName, Certification.CertificationName FROM Instructor INNER JOIN Gender ON Gender.GenderID = Instructor.GenderID  INNER JOIN Title ON Title.TitleID =  Instructor.TitleID INNER JOIN Certification ON Certification.CertificationID = Instructor.CertificationID  Where Instructor.PhoneNumber Like '%" + txtInstructorID.Text + "%'", ConnectString.connectstring);
+                SqlDataAdapter DA2 = new SqlDataAdapter(Fillz);
+                DA2.Fill(DT2);
+                dgvInstructor.DataSource = DT2;
+                dgvInstructor.DataMember = DT2.TableName;
+                txtInstructorID.BackColor = Color.White;
+                ConnectString.connectstring.Close();
+            }
+            else if (comboBox1.SelectedIndex == 3)
+            {
+                DataTable DT2 = new DataTable();
+                ConnectString.connectstring.Open();
+                SqlCommand Fillz = new SqlCommand("SELECT Instructor.InstructorID,Instructor.Name,Instructor.Surname,Instructor.Email,Instructor.PhoneNumber, Gender.GenderName, Title.TitleName, Certification.CertificationName FROM Instructor INNER JOIN Gender ON Gender.GenderID = Instructor.GenderID  INNER JOIN Title ON Title.TitleID =  Instructor.TitleID INNER JOIN Certification ON Certification.CertificationID = Instructor.CertificationID  Where Instructor.Email Like '%" + txtInstructorID.Text + "%'", ConnectString.connectstring);
+                SqlDataAdapter DA2 = new SqlDataAdapter(Fillz);
+                DA2.Fill(DT2);
+                dgvInstructor.DataSource = DT2;
+                dgvInstructor.DataMember = DT2.TableName;
+                txtInstructorID.BackColor = Color.White;
                 ConnectString.connectstring.Close();
             }
             else
             {
-                txtInstructorID.BackColor = Color.FromArgb(249, 29, 29);
-                DataTable DT = new DataTable();
-                ConnectString.connectstring.Open();
-                SqlCommand Fill = new SqlCommand("SELECT * FROM Instructor", ConnectString.connectstring);
-                DA = new SqlDataAdapter(Fill);
-                DA.Fill(DT);
-                dgvInstructor.DataSource = DT;
-                dgvInstructor.DataMember = DT.TableName;
-                ConnectString.connectstring.Close();
+                MessageBox.Show("Please select a search paramater");
             }
         }
 
         private void txtSurname_TextChanged(object sender, EventArgs e)
         {
             bool valid = false;
-            valid = EH.Checkstring(txtSurname.Text);
+          //  valid = EH.Checkstring(txtSurname.Text);
             bool validSQl = EH.checkForSQLInjection(txtInstructorID.Text);
             if (valid)
             {
@@ -334,32 +375,18 @@ namespace PETSystem
             }
             if (valid)
             {
-                txtSurname.BackColor = Color.White;
-                ConnectString.connectstring.Open();
-                DA = new SqlDataAdapter("select * from Instructor where Surname like '" + txtSurname.Text + "%'", ConnectString.connectstring);
-                DataTable DT = new DataTable();
-                DA.Fill(DT);
-                dgvInstructor.DataSource = DT;
-                ConnectString.connectstring.Close();
+            
             }
             else
             {
-                txtSurname.BackColor = Color.FromArgb(249, 29, 29);
-                DataTable DT = new DataTable();
-                ConnectString.connectstring.Open();
-                SqlCommand Fill = new SqlCommand("SELECT * FROM Instructor", ConnectString.connectstring);
-                DA = new SqlDataAdapter(Fill);
-                DA.Fill(DT);
-                dgvInstructor.DataSource = DT;
-                dgvInstructor.DataMember = DT.TableName;
-                ConnectString.connectstring.Close();
+              
             }
         }
 
         private void txtName_TextChanged(object sender, EventArgs e)
         {
             bool valid = false;
-            valid = EH.Checkstring(txtName.Text);
+//valid = EH.Checkstring(txtName.Text);
             bool validSQl = EH.checkForSQLInjection(txtInstructorID.Text);
             if (valid)
             {
@@ -367,26 +394,17 @@ namespace PETSystem
             }
             if (valid)
             {
-                txtName.BackColor = Color.White;
-                ConnectString.connectstring.Open();
-                DA = new SqlDataAdapter("select * from Instructor where Name like '" + txtName.Text + "%'", ConnectString.connectstring);
-                DataTable DT = new DataTable();
-                DA.Fill(DT);
-                dgvInstructor.DataSource = DT;
-                ConnectString.connectstring.Close();
+             
             }
             else
             {
-                txtName.BackColor = Color.FromArgb(249, 29, 29);
-                DataTable DT = new DataTable();
-                ConnectString.connectstring.Open();
-                SqlCommand Fill = new SqlCommand("SELECT * FROM Instructor", ConnectString.connectstring);
-                DA = new SqlDataAdapter(Fill);
-                DA.Fill(DT);
-                dgvInstructor.DataSource = DT;
-                dgvInstructor.DataMember = DT.TableName;
-                ConnectString.connectstring.Close();
+             
             }
+        }
+
+        private void txtInstructorID_TextAlignChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
