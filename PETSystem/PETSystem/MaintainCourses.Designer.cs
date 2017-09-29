@@ -28,11 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.MSMain = new System.Windows.Forms.MenuStrip();
-            this.addTrainingCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addTrainingCourseTypeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.maintainTrainingCourseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addInstructorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.txtVenue = new System.Windows.Forms.TextBox();
@@ -63,7 +58,8 @@
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button5 = new System.Windows.Forms.Button();
-            this.MSMain.SuspendLayout();
+            this.cbSearch = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.AddCourseTypeP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaintain)).BeginInit();
@@ -74,47 +70,6 @@
             this.tabPage3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // MSMain
-            // 
-            this.MSMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addTrainingCourseToolStripMenuItem,
-            this.addTrainingCourseTypeToolStripMenuItem,
-            this.maintainTrainingCourseToolStripMenuItem,
-            this.addInstructorToolStripMenuItem});
-            this.MSMain.Location = new System.Drawing.Point(0, 0);
-            this.MSMain.Name = "MSMain";
-            this.MSMain.Size = new System.Drawing.Size(762, 24);
-            this.MSMain.TabIndex = 0;
-            this.MSMain.Text = "menuStrip1";
-            // 
-            // addTrainingCourseToolStripMenuItem
-            // 
-            this.addTrainingCourseToolStripMenuItem.Name = "addTrainingCourseToolStripMenuItem";
-            this.addTrainingCourseToolStripMenuItem.Size = new System.Drawing.Size(128, 20);
-            this.addTrainingCourseToolStripMenuItem.Text = "Add Training Course";
-            this.addTrainingCourseToolStripMenuItem.Click += new System.EventHandler(this.addTrainingCourseToolStripMenuItem_Click);
-            // 
-            // addTrainingCourseTypeToolStripMenuItem
-            // 
-            this.addTrainingCourseTypeToolStripMenuItem.Name = "addTrainingCourseTypeToolStripMenuItem";
-            this.addTrainingCourseTypeToolStripMenuItem.Size = new System.Drawing.Size(157, 20);
-            this.addTrainingCourseTypeToolStripMenuItem.Text = "Add Training Course Type";
-            this.addTrainingCourseTypeToolStripMenuItem.Click += new System.EventHandler(this.addTrainingCourseTypeToolStripMenuItem_Click);
-            // 
-            // maintainTrainingCourseToolStripMenuItem
-            // 
-            this.maintainTrainingCourseToolStripMenuItem.Name = "maintainTrainingCourseToolStripMenuItem";
-            this.maintainTrainingCourseToolStripMenuItem.Size = new System.Drawing.Size(153, 20);
-            this.maintainTrainingCourseToolStripMenuItem.Text = "Maintain Training Course";
-            this.maintainTrainingCourseToolStripMenuItem.Click += new System.EventHandler(this.maintainTrainingCourseToolStripMenuItem_Click);
-            // 
-            // addInstructorToolStripMenuItem
-            // 
-            this.addInstructorToolStripMenuItem.Name = "addInstructorToolStripMenuItem";
-            this.addInstructorToolStripMenuItem.Size = new System.Drawing.Size(182, 20);
-            this.addInstructorToolStripMenuItem.Text = "Maintain Training Course Type";
-            this.addInstructorToolStripMenuItem.Click += new System.EventHandler(this.addInstructorToolStripMenuItem_Click);
             // 
             // button1
             // 
@@ -268,6 +223,8 @@
             // 
             // MaintainTCPanel
             // 
+            this.MaintainTCPanel.Controls.Add(this.label1);
+            this.MaintainTCPanel.Controls.Add(this.cbSearch);
             this.MaintainTCPanel.Controls.Add(this.txtCourseName);
             this.MaintainTCPanel.Controls.Add(this.button4);
             this.MaintainTCPanel.Controls.Add(this.label6);
@@ -279,7 +236,7 @@
             // 
             // txtCourseName
             // 
-            this.txtCourseName.Location = new System.Drawing.Point(89, 33);
+            this.txtCourseName.Location = new System.Drawing.Point(111, 73);
             this.txtCourseName.Name = "txtCourseName";
             this.txtCourseName.Size = new System.Drawing.Size(119, 20);
             this.txtCourseName.TabIndex = 10;
@@ -297,11 +254,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 36);
+            this.label6.Location = new System.Drawing.Point(42, 80);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 13);
+            this.label6.Size = new System.Drawing.Size(68, 13);
             this.label6.TabIndex = 1;
-            this.label6.Text = "Course Name:";
+            this.label6.Text = "Search Text:";
             // 
             // label7
             // 
@@ -315,7 +272,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(154, 144);
+            this.btnSave.Location = new System.Drawing.Point(154, 160);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(94, 29);
             this.btnSave.TabIndex = 12;
@@ -338,10 +295,10 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(12, 27);
+            this.tabControl1.Location = new System.Drawing.Point(3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(738, 341);
+            this.tabControl1.Size = new System.Drawing.Size(761, 366);
             this.tabControl1.TabIndex = 14;
             // 
             // tabPage1
@@ -350,7 +307,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(730, 315);
+            this.tabPage1.Size = new System.Drawing.Size(753, 340);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Add Training Course";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -361,7 +318,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(730, 315);
+            this.tabPage2.Size = new System.Drawing.Size(753, 340);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Add Training Course Type";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -375,7 +332,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(730, 315);
+            this.tabPage3.Size = new System.Drawing.Size(753, 340);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Maintain Training Course";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -408,6 +365,27 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click_1);
             // 
+            // cbSearch
+            // 
+            this.cbSearch.FormattingEnabled = true;
+            this.cbSearch.Items.AddRange(new object[] {
+            "Course Name",
+            "Start Date",
+            "Course Type"});
+            this.cbSearch.Location = new System.Drawing.Point(109, 46);
+            this.cbSearch.Name = "cbSearch";
+            this.cbSearch.Size = new System.Drawing.Size(121, 21);
+            this.cbSearch.TabIndex = 11;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(15, 54);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(95, 13);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Search Paramater:";
+            // 
             // MaintainCourses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -416,13 +394,9 @@
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.MSMain);
-            this.MainMenuStrip = this.MSMain;
             this.Name = "MaintainCourses";
             this.Text = "MaintainCourses";
             this.Load += new System.EventHandler(this.MaintainCourses_Load);
-            this.MSMain.ResumeLayout(false);
-            this.MSMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.AddCourseTypeP.ResumeLayout(false);
             this.AddCourseTypeP.PerformLayout();
@@ -436,16 +410,10 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.MenuStrip MSMain;
-        private System.Windows.Forms.ToolStripMenuItem addTrainingCourseToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addTrainingCourseTypeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem maintainTrainingCourseToolStripMenuItem;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.TextBox txtVenue;
@@ -469,7 +437,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.HelpProvider helpProvider1;
-        private System.Windows.Forms.ToolStripMenuItem addInstructorToolStripMenuItem;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
@@ -477,5 +444,7 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbSearch;
     }
 }

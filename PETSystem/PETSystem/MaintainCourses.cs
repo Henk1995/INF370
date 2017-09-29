@@ -31,6 +31,7 @@ namespace PETSystem
 
         private void MaintainCourses_Load(object sender, EventArgs e)
         {
+            cbSearch.SelectedIndex = 0;
             //btnDelete.Visible = false;
             //AddCoursePanel.Visible = false;
             // MSMain.Visible = true;
@@ -65,7 +66,7 @@ namespace PETSystem
         private void addTrainingCourseToolStripMenuItem_Click(object sender, EventArgs e)
         {
           //  AddCoursePanel.Visible = true;
-            MSMain.Visible = false;
+            //MSMain.Visible = false;
           
         }
 
@@ -99,7 +100,7 @@ namespace PETSystem
         private void addTrainingCourseTypeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AddCourseTypeP.Visible = true;
-            MSMain.Visible = false;
+            //MSMain.Visible = false;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -113,7 +114,7 @@ namespace PETSystem
             MaintainTCPanel.Visible = true;
             dgvMaintain.Visible = true;
             btnSave.Visible = true;
-            MSMain.Visible = false;
+            //MSMain.Visible = false;
           
         }
 
@@ -127,6 +128,17 @@ namespace PETSystem
             }
             if (valid1)
             {
+
+              
+            }
+            else
+            {
+                
+               
+            }
+            //Name Year type
+            if (cbSearch.SelectedIndex == 0)
+            {
                 DataTable DT2 = new DataTable();
                 ConnectString.connectstring.Open();
                 SqlCommand Fill2 = new SqlCommand("SELECT TrainingCourse.TrainingCourseID,TrainingCourse.CourseName,TrainingCourse.Duration AS 'Duration in weeks',TrainingCourse.TrainingCourseDate AS 'Start Date',TrainingCourseType.TrainingCourseName FROM TrainingCourse INNER JOIN TrainingCourseType ON TrainingCourseType.TrainingCourseTypeID = TrainingCourse.TrainingCourseID WHERE TrainingCourse.CourseName like '%" + txtCourseName.Text + "%'", ConnectString.connectstring);
@@ -135,19 +147,29 @@ namespace PETSystem
                 dgvMaintain.DataSource = DT2;
                 dgvMaintain.DataMember = DT2.TableName;
                 txtCourseName.BackColor = Color.White;
-                ConnectString.connectstring.Close();             
+                ConnectString.connectstring.Close();
+            }
+            else if (cbSearch.SelectedIndex == 1)
+            {
+                DataTable DTx = new DataTable();
+                ConnectString.connectstring.Open();
+                SqlCommand Fillx = new SqlCommand("SELECT TrainingCourse.TrainingCourseID,TrainingCourse.CourseName,TrainingCourse.Duration AS 'Duration in weeks',TrainingCourse.TrainingCourseDate AS 'Start Date',TrainingCourseType.TrainingCourseName FROM TrainingCourse INNER JOIN TrainingCourseType ON TrainingCourseType.TrainingCourseTypeID = TrainingCourse.TrainingCourseID WHERE TrainingCourse.TrainingCourseDate like '%" + txtCourseName.Text + "%'", ConnectString.connectstring);
+                SqlDataAdapter DAx = new SqlDataAdapter(Fillx);
+                DAx.Fill(DTx);
+                dgvMaintain.DataSource = DTx;
+                dgvMaintain.DataMember = DTx.TableName;
+                txtCourseName.BackColor = Color.White;
+                ConnectString.connectstring.Close();
             }
             else
             {
-                
-                txtCourseName.BackColor = Color.Red;
-                DataTable DT2 = new DataTable();
+                DataTable DTz = new DataTable();
                 ConnectString.connectstring.Open();
-                SqlCommand Fill2 = new SqlCommand("SELECT TrainingCourse.TrainingCourseID,TrainingCourse.CourseName,TrainingCourse.Duration AS 'Duration in weeks',TrainingCourse.TrainingCourseDate,TrainingCourseType.TrainingCourseName FROM TrainingCourse INNER JOIN TrainingCourseType ON TrainingCourseType.TrainingCourseTypeID = TrainingCourse.TrainingCourseID WHERE TrainingCourse.CourseName like '%" + txtCourseName.Text + "%'", ConnectString.connectstring);
-                SqlDataAdapter DA2 = new SqlDataAdapter(Fill2);
-                DA2.Fill(DT2);
-                dgvMaintain.DataSource = DT2;
-                dgvMaintain.DataMember = DT2.TableName;
+                SqlCommand Fillz = new SqlCommand("SELECT TrainingCourse.TrainingCourseID,TrainingCourse.CourseName,TrainingCourse.Duration AS 'Duration in weeks',TrainingCourse.TrainingCourseDate AS 'Start Date',TrainingCourseType.TrainingCourseName FROM TrainingCourse INNER JOIN TrainingCourseType ON TrainingCourseType.TrainingCourseTypeID = TrainingCourse.TrainingCourseID WHERE TrainingCourseType.TrainingCourseName like '%" + txtCourseName.Text + "%'", ConnectString.connectstring);
+                SqlDataAdapter DAz = new SqlDataAdapter(Fillz);
+                DAz.Fill(DTz);
+                dgvMaintain.DataSource = DTz;
+                dgvMaintain.DataMember = DTz.TableName;
                 txtCourseName.BackColor = Color.White;
                 ConnectString.connectstring.Close();
             }
