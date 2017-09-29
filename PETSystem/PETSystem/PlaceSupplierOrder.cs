@@ -83,7 +83,7 @@ namespace PETSystem
         {
             this.Close();
             this.Dispose(true);
-            Instructors myform = new Instructors();
+            Suppliers myform = new Suppliers();
             myform.ShowDialog();
         }
     }
