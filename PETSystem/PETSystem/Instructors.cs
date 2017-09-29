@@ -96,7 +96,8 @@ namespace PETSystem
                 string phoneNumberId = dgvInstructor.SelectedRows[0].Cells[4].Value + string.Empty;
                 string Genderid = dgvInstructor.SelectedRows[0].Cells[5].Value + string.Empty;
                 string titleid = dgvInstructor.SelectedRows[0].Cells[6].Value + string.Empty;
-
+                this.Close();
+                this.Dispose(true);
                 UpdateInstructor UD = new UpdateInstructor(NameId, SurnameId, emailId, phoneNumberId, Genderid, titleid);
                 UD.ShowDialog();
             }
