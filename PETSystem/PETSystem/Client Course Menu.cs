@@ -42,7 +42,7 @@ namespace PETSystem
         private void btnMainM_Click(object sender, EventArgs e)
         {
             this.Close();
-            SearchCourse scc = new SearchCourse();
+            MainMenuF scc = new MainMenuF();
             scc.Show();
         }
 

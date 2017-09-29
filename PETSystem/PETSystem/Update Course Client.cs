@@ -26,7 +26,7 @@ namespace PETSystem
         bool EmailValid;
         bool PhoneNumberValid;
 
-        int NewID = Search_Course_Client.ToUpdate;
+        int NewID = Maintain_Client_Courses.CourseClientToUpdate;
 
         PET_DBDataContext db = new PET_DBDataContext();
         ErrorHandle chk = new ErrorHandle();
@@ -34,7 +34,8 @@ namespace PETSystem
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
-            Search_Course_Client scc = new Search_Course_Client();
+            Maintain_Client_Courses scc = new Maintain_Client_Courses();
+            scc.ChangeTab(4);
             scc.Show();
         }
 
@@ -53,23 +54,31 @@ namespace PETSystem
 
             if (NameValid == false && SurnameValid == false&& EmailValid == false && PhoneNumberValid == false)
             {
+                txtName.BackColor = Color.FromArgb(244, 17, 17);
+                txtSurname.BackColor = Color.FromArgb(244, 17, 17);
+                txtEmail.BackColor = Color.FromArgb(244, 17, 17);
+                txtPhoneNumber.BackColor = Color.FromArgb(244, 17, 17);
                 MessageBox.Show("The information was not entered or entered incorrectly. Please re-enter the details and try again.", "An Error Has Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
             else if (NameValid == false)
             {
+                txtName.BackColor = Color.FromArgb(244, 17, 17);
                 MessageBox.Show("The Name was not entered or entered incorrectly. Please re-enter the Name and try again.", "An Error Has Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (SurnameValid == false)
             {
+                txtSurname.BackColor = Color.FromArgb(244, 17, 17);
                 MessageBox.Show("The Surname was not entered or entered incorrectly. Please re-enter the Surname and try again.", "An Error Has Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (EmailValid == false)
             {
+                txtEmail.BackColor = Color.FromArgb(244, 17, 17);
                 MessageBox.Show("The Email was not entered or entered incorrectly. Please re-enter the Email and try again.", "An Error Has Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else if (PhoneNumberValid == false)
             {
+                txtPhoneNumber.BackColor = Color.FromArgb(244, 17, 17);
                 MessageBox.Show("The Phone number was not entered or entered incorrectly. Please re-enter the Phone number and try again.", "An Error Has Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
@@ -95,7 +104,8 @@ namespace PETSystem
                 MessageBox.Show("Added new Course Client:" + "\n Name" + title + " " + Name + "\n Surname: R " + Surname + "" + "\n Gender: " + gen + "\n Email: " + Email + "\n Phone Number: " + PhoneNumber, "It Worked");
                 //MessageBox.Show("ok");
 
-                Search_Course_Client scc = new Search_Course_Client();
+                Maintain_Client_Courses scc = new Maintain_Client_Courses();
+                scc.ChangeTab(4);
                 scc.Show();
             }
 
@@ -111,17 +121,17 @@ namespace PETSystem
 
             if (isString == false)
             {
-                txtName.BackColor = Color.FromArgb(244, 17, 17);
+                //txtName.BackColor = Color.FromArgb(244, 17, 17);
                 NameValid = false;
             }
             else if (notEmpty == false)
             {
-                txtName.BackColor = Color.FromArgb(244, 17, 17);
+                //txtName.BackColor = Color.FromArgb(244, 17, 17);
                 NameValid = false;
             }
             else if (checkForSQLInjection == false)
             {
-                txtName.BackColor = Color.FromArgb(244, 17, 17);
+                //txtName.BackColor = Color.FromArgb(244, 17, 17);
                 NameValid = false;
             }
             else
@@ -141,17 +151,17 @@ namespace PETSystem
 
             if (isString == false)
             {
-                txtSurname.BackColor = Color.FromArgb(244, 17, 17);
+                //txtSurname.BackColor = Color.FromArgb(244, 17, 17);
                 SurnameValid = false;
             }
             else if (notEmpty == false)
             {
-                txtSurname.BackColor = Color.FromArgb(244, 17, 17);
+                //txtSurname.BackColor = Color.FromArgb(244, 17, 17);
                 SurnameValid = false;
             }
             else if (checkForSQLInjection == false)
             {
-                txtSurname.BackColor = Color.FromArgb(244, 17, 17);
+                //txtSurname.BackColor = Color.FromArgb(244, 17, 17);
                 SurnameValid = false;
             }
             else
@@ -172,17 +182,17 @@ namespace PETSystem
 
             if (isEmail == false)
             {
-                txtEmail.BackColor = Color.FromArgb(244, 17, 17);
+                //txtEmail.BackColor = Color.FromArgb(244, 17, 17);
                 EmailValid = false;
             }
             else if (notEmpty == false)
             {
-                txtEmail.BackColor = Color.FromArgb(244, 17, 17);
+                //txtEmail.BackColor = Color.FromArgb(244, 17, 17);
                 EmailValid = false;
             }
             else if (checkForSQLInjection == false)
             {
-                txtEmail.BackColor = Color.FromArgb(244, 17, 17);
+                //txtEmail.BackColor = Color.FromArgb(244, 17, 17);
                 EmailValid = false;
             }
             else
@@ -202,17 +212,17 @@ namespace PETSystem
 
             if (isPhone == false)
             {
-                txtPhoneNumber.BackColor = Color.FromArgb(244, 17, 17);
+                //txtPhoneNumber.BackColor = Color.FromArgb(244, 17, 17);
                 PhoneNumberValid = false;
             }
             else if (notEmpty == false)
             {
-                txtPhoneNumber.BackColor = Color.FromArgb(244, 17, 17);
+                //txtPhoneNumber.BackColor = Color.FromArgb(244, 17, 17);
                 PhoneNumberValid = false;
             }
             else if (checkForSQLInjection == false)
             {
-                txtPhoneNumber.BackColor = Color.FromArgb(244, 17, 17);
+                //txtPhoneNumber.BackColor = Color.FromArgb(244, 17, 17);
                 PhoneNumberValid = false;
             }
             else

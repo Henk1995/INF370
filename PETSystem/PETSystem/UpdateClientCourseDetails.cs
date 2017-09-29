@@ -17,7 +17,7 @@ namespace PETSystem
             InitializeComponent();
         }
 
-        int AvailableCourseID = Maintain_Client_Courses.ToUpdate;
+        int AvailableCourseID = Maintain_Client_Courses.CourseInstanceToUpdate;
         PET_DBDataContext db = new PET_DBDataContext();
         ErrorHandle chk = new ErrorHandle();
 
@@ -133,7 +133,9 @@ namespace PETSystem
                 MessageBox.Show("Course Instance Updated");
 
                 this.Close();
+                
                 Maintain_Client_Courses MCC = new Maintain_Client_Courses();
+                MCC.ChangeTab(1);
                 MCC.Show();
 
             }

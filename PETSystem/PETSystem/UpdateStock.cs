@@ -17,7 +17,7 @@ namespace PETSystem
         ErrorHandle chk = new ErrorHandle();
         bool stockDValid;
         bool unitPValid;
-        int NewID = Search_Stock.ToUpdate;
+        int NewID = Search_Stock.StockToUpdate;
         int getTypeID;
 
 

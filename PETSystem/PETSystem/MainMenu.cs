@@ -53,9 +53,13 @@ namespace PETSystem
 
         private void button7_Click(object sender, EventArgs e)
         {
+            //this.Close();
+            //SearchCourse sc = new SearchCourse();
+            //sc.Show();
+
             this.Close();
-            SearchCourse sc = new SearchCourse();
-            sc.Show();
+            Client_Course_Menu scc = new Client_Course_Menu();
+            scc.Show();
         }
 
         private void button8_Click(object sender, EventArgs e)

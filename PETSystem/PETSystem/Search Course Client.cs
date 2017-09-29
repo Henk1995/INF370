@@ -81,6 +81,11 @@ namespace PETSystem
                 dgvCourseClient.DataSource = null;
                 var S = from Client in db.Clients select Client;
                 dgvCourseClient.DataSource = S;
+                dgvCourseClient.Columns[0].Visible = false;
+                dgvCourseClient.Columns[5].Visible = false;
+                dgvCourseClient.Columns[6].Visible = false;
+                dgvCourseClient.Columns[7].Visible = false;
+                dgvCourseClient.Columns[8].Visible = false;
                 dgvCourseClient.Update();
                 dgvCourseClient.Refresh();
             }

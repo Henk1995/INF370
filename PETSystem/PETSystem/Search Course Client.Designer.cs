@@ -46,7 +46,7 @@
             // 
             this.txtSearcCCSurname.Location = new System.Drawing.Point(12, 178);
             this.txtSearcCCSurname.Name = "txtSearcCCSurname";
-            this.txtSearcCCSurname.Size = new System.Drawing.Size(326, 20);
+            this.txtSearcCCSurname.Size = new System.Drawing.Size(217, 20);
             this.txtSearcCCSurname.TabIndex = 56;
             this.txtSearcCCSurname.TextChanged += new System.EventHandler(this.txtSearcCCSurname_TextChanged);
             // 
@@ -61,9 +61,9 @@
             // 
             // btnAddClient
             // 
-            this.btnAddClient.Location = new System.Drawing.Point(347, 473);
+            this.btnAddClient.Location = new System.Drawing.Point(235, 415);
             this.btnAddClient.Name = "btnAddClient";
-            this.btnAddClient.Size = new System.Drawing.Size(180, 23);
+            this.btnAddClient.Size = new System.Drawing.Size(134, 23);
             this.btnAddClient.TabIndex = 53;
             this.btnAddClient.Text = "Add Client";
             this.btnAddClient.UseVisualStyleBackColor = true;
@@ -71,9 +71,9 @@
             // 
             // btnViewClient
             // 
-            this.btnViewClient.Location = new System.Drawing.Point(533, 473);
+            this.btnViewClient.Location = new System.Drawing.Point(375, 415);
             this.btnViewClient.Name = "btnViewClient";
-            this.btnViewClient.Size = new System.Drawing.Size(180, 23);
+            this.btnViewClient.Size = new System.Drawing.Size(134, 23);
             this.btnViewClient.TabIndex = 52;
             this.btnViewClient.Text = "View Client";
             this.btnViewClient.UseVisualStyleBackColor = true;
@@ -83,15 +83,15 @@
             // 
             this.txtSearchCCName.Location = new System.Drawing.Point(12, 90);
             this.txtSearchCCName.Name = "txtSearchCCName";
-            this.txtSearchCCName.Size = new System.Drawing.Size(326, 20);
+            this.txtSearchCCName.Size = new System.Drawing.Size(217, 20);
             this.txtSearchCCName.TabIndex = 49;
             this.txtSearchCCName.TextChanged += new System.EventHandler(this.txtSearchCCName_TextChanged);
             // 
             // btnUpdateClient
             // 
-            this.btnUpdateClient.Location = new System.Drawing.Point(727, 473);
+            this.btnUpdateClient.Location = new System.Drawing.Point(515, 415);
             this.btnUpdateClient.Name = "btnUpdateClient";
-            this.btnUpdateClient.Size = new System.Drawing.Size(180, 23);
+            this.btnUpdateClient.Size = new System.Drawing.Size(134, 23);
             this.btnUpdateClient.TabIndex = 51;
             this.btnUpdateClient.Text = "Update Client";
             this.btnUpdateClient.UseVisualStyleBackColor = true;
@@ -99,9 +99,9 @@
             // 
             // btnRemoveClient
             // 
-            this.btnRemoveClient.Location = new System.Drawing.Point(913, 473);
+            this.btnRemoveClient.Location = new System.Drawing.Point(655, 415);
             this.btnRemoveClient.Name = "btnRemoveClient";
-            this.btnRemoveClient.Size = new System.Drawing.Size(180, 23);
+            this.btnRemoveClient.Size = new System.Drawing.Size(134, 23);
             this.btnRemoveClient.TabIndex = 50;
             this.btnRemoveClient.Text = "Remove Client";
             this.btnRemoveClient.UseVisualStyleBackColor = true;
@@ -121,10 +121,10 @@
             this.dgvCourseClient.AllowUserToAddRows = false;
             this.dgvCourseClient.AllowUserToDeleteRows = false;
             this.dgvCourseClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCourseClient.Location = new System.Drawing.Point(347, 18);
+            this.dgvCourseClient.Location = new System.Drawing.Point(235, 61);
             this.dgvCourseClient.Name = "dgvCourseClient";
             this.dgvCourseClient.ReadOnly = true;
-            this.dgvCourseClient.Size = new System.Drawing.Size(746, 449);
+            this.dgvCourseClient.Size = new System.Drawing.Size(615, 348);
             this.dgvCourseClient.TabIndex = 47;
             this.dgvCourseClient.SelectionChanged += new System.EventHandler(this.dgvCourseClient_SelectionChanged);
             // 
@@ -142,7 +142,7 @@
             // 
             this.btnRefreshDGV.Location = new System.Drawing.Point(12, 247);
             this.btnRefreshDGV.Name = "btnRefreshDGV";
-            this.btnRefreshDGV.Size = new System.Drawing.Size(326, 23);
+            this.btnRefreshDGV.Size = new System.Drawing.Size(217, 23);
             this.btnRefreshDGV.TabIndex = 59;
             this.btnRefreshDGV.Text = "Refresh DGV";
             this.btnRefreshDGV.UseVisualStyleBackColor = true;

@@ -30,7 +30,6 @@
         {
             this.cbStockType = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.lblStockID = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.txtPrice = new System.Windows.Forms.TextBox();
@@ -38,6 +37,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblStockID = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cbStockType
@@ -61,15 +61,6 @@
             this.label8.Size = new System.Drawing.Size(65, 13);
             this.label8.TabIndex = 76;
             this.label8.Text = "Stock Type:";
-            // 
-            // lblStockID
-            // 
-            this.lblStockID.AutoSize = true;
-            this.lblStockID.Location = new System.Drawing.Point(146, 36);
-            this.lblStockID.Name = "lblStockID";
-            this.lblStockID.Size = new System.Drawing.Size(31, 13);
-            this.lblStockID.TabIndex = 75;
-            this.lblStockID.Text = "0002";
             // 
             // button1
             // 
@@ -134,6 +125,15 @@
             this.label1.TabIndex = 68;
             this.label1.Text = "Stock ID:";
             // 
+            // lblStockID
+            // 
+            this.lblStockID.AutoSize = true;
+            this.lblStockID.Location = new System.Drawing.Point(146, 36);
+            this.lblStockID.Name = "lblStockID";
+            this.lblStockID.Size = new System.Drawing.Size(31, 13);
+            this.lblStockID.TabIndex = 75;
+            this.lblStockID.Text = "0002";
+            // 
             // UpdateStock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -161,7 +161,6 @@
 
         private System.Windows.Forms.ComboBox cbStockType;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lblStockID;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.TextBox txtPrice;
@@ -169,5 +168,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblStockID;
     }
 }

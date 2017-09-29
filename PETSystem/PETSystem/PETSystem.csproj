@@ -141,6 +141,12 @@
     <Compile Include="CalculateRoyalties.Designer.cs">
       <DependentUpon>CalculateRoyalties.cs</DependentUpon>
     </Compile>
+    <Compile Include="CaptureReceivePrinterOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CaptureReceivePrinterOrderForm.Designer.cs">
+      <DependentUpon>CaptureReceivePrinterOrderForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CaptureSupllierOrderForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -525,6 +531,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CalculateRoyalties.resx">
       <DependentUpon>CalculateRoyalties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CaptureReceivePrinterOrderForm.resx">
+      <DependentUpon>CaptureReceivePrinterOrderForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CaptureSupllierOrderForm.resx">
       <DependentUpon>CaptureSupllierOrderForm.cs</DependentUpon>

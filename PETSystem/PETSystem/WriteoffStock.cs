@@ -20,7 +20,9 @@ namespace PETSystem
         PET_DBDataContext db = new PET_DBDataContext();
         ErrorHandle chk = new ErrorHandle();
         bool WriteoffValid;
-        int loadID = Search_Stock.ToUpdate;
+        bool DateValid;
+        bool ReasonValid;
+        int loadID = Search_Stock.StockToUpdate;
         int getTypeID;
         int CurrentQuantity;
         int WriteoffAmmount;
@@ -36,17 +38,17 @@ namespace PETSystem
 
             if (isInt == false)
             {
-                txtWriteoffQuantity.BackColor = Color.FromArgb(244, 17, 17);
+                //txtWriteoffQuantity.BackColor = Color.FromArgb(244, 17, 17);
                 WriteoffValid = false;
             }
             else if (notEmpty == false)
             {
-                txtWriteoffQuantity.BackColor = Color.FromArgb(244, 17, 17);
+                //txtWriteoffQuantity.BackColor = Color.FromArgb(244, 17, 17);
                 WriteoffValid = false;
             }
             else if (checkForSQLInjection == false)
             {
-                txtWriteoffQuantity.BackColor = Color.FromArgb(244, 17, 17);
+                //txtWriteoffQuantity.BackColor = Color.FromArgb(244, 17, 17);
                 WriteoffValid = false;
             }
             {
@@ -66,11 +68,27 @@ namespace PETSystem
             WriteoffAmmount = Convert.ToInt32(txtWriteoffQuantity.Text);
             
 
-            //!int.TryParse(q, out Quantity)
-            if (WriteoffValid == false)
+            if ( WriteoffValid == false && DateValid == false && ReasonValid == false)
             {
-                MessageBox.Show("The input was invalid, Please check it and try again.", "An Error Has Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
+                MessageBox.Show("One or more inputs were invalid, Please check it and try again.", "An Error Has Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtWriteoffQuantity.BackColor = Color.FromArgb(244, 17, 17);
+                txtDate.BackColor = Color.FromArgb(244, 17, 17);
+                txtReason.BackColor = Color.FromArgb(244, 17, 17);
+            }
+            else if (WriteoffValid == false)
+            {
+                MessageBox.Show("The Quantity was invalid, Please check it and try again.", "An Error Has Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtWriteoffQuantity.BackColor = Color.FromArgb(244, 17, 17);
+            }
+            else if (DateValid == false)
+            {
+                MessageBox.Show("The Date was invalid, Please check it and try again.", "An Error Has Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtDate.BackColor = Color.FromArgb(244, 17, 17);
+            }
+            else if (ReasonValid == false)
+            {
+                MessageBox.Show("The Reason was invalid, Please check it and try again.", "An Error Has Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                txtReason.BackColor = Color.FromArgb(244, 17, 17);
             }
             else
             {
@@ -79,9 +97,11 @@ namespace PETSystem
 
                 if (CurrentQuantity < WriteoffAmmount)
                 {
+                    txtWriteoffQuantity.BackColor = Color.FromArgb(244, 17, 17);
                     MessageBox.Show("You cannot writeoff more stock than your current inventory", "An Error Has Occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else {
+                    txtWriteoffQuantity.BackColor = Color.White;
                     NewQuantity = CurrentQuantity - WriteoffAmmount;
                     var mStock = (from x in db.Stocks where x.StockID == Convert.ToInt32(loadID) select x).FirstOrDefault();
 
@@ -89,6 +109,16 @@ namespace PETSystem
 
                     db.SubmitChanges();
 
+                    DamagedStock D = new DamagedStock
+                    {
+                        DamageDate = txtDate.Text,
+                        StockID = loadID,
+                        Reason = txtReason.Text,
+                        DamagedStockQuantity = WriteoffAmmount
+                    };
+
+                    db.DamagedStocks.InsertOnSubmit(D);
+                    db.SubmitChanges();
                     this.Close();
 
                     MessageBox.Show("Updated quantity", "It Worked");
@@ -149,6 +179,64 @@ namespace PETSystem
             }
 
 
+        }
+
+        private void txtReason_TextChanged(object sender, EventArgs e)
+        {
+            txtReason.BackColor = Color.White;
+            string Reason = txtWriteoffQuantity.Text;
+            bool isString = chk.Checkstring(Reason);
+            bool notEmpty = chk.CheckEmpty(Reason);
+            bool checkForSQLInjection = chk.checkForSQLInjection(Reason);
+
+            if (isString == false)
+            {
+                //txtWriteoffQuantity.BackColor = Color.FromArgb(244, 17, 17);
+                ReasonValid = false;
+            }
+            else if (notEmpty == false)
+            {
+                //txtWriteoffQuantity.BackColor = Color.FromArgb(244, 17, 17);
+                ReasonValid = false;
+            }
+            else if (checkForSQLInjection == false)
+            {
+                //txtWriteoffQuantity.BackColor = Color.FromArgb(244, 17, 17);
+                ReasonValid = false;
+            }
+            {
+                txtWriteoffQuantity.BackColor = Color.White;
+                ReasonValid = true;
+            }
+        }
+
+        private void txtDate_TextChanged(object sender, EventArgs e)
+        {
+            txtDate.BackColor = Color.White;
+            string Date = txtWriteoffQuantity.Text;
+            bool isDate = chk.CheckDate(Date);
+            bool notEmpty = chk.CheckEmpty(Date);
+            bool checkForSQLInjection = chk.checkForSQLInjection(Date);
+
+            if (isDate == false)
+            {
+                //txtWriteoffQuantity.BackColor = Color.FromArgb(244, 17, 17);
+                DateValid = false;
+            }
+            else if (notEmpty == false)
+            {
+                //txtWriteoffQuantity.BackColor = Color.FromArgb(244, 17, 17);
+                DateValid = false;
+            }
+            else if (checkForSQLInjection == false)
+            {
+                //txtWriteoffQuantity.BackColor = Color.FromArgb(244, 17, 17);
+                DateValid = false;
+            }
+            {
+                txtWriteoffQuantity.BackColor = Color.White;
+                DateValid = true;
+            }
         }
     }
 }

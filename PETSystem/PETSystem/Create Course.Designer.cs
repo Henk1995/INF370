@@ -42,7 +42,7 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(193, 249);
+            this.btnCancel.Location = new System.Drawing.Point(193, 201);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(146, 23);
             this.btnCancel.TabIndex = 5;
@@ -52,7 +52,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(32, 241);
+            this.btnSave.Location = new System.Drawing.Point(32, 201);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(146, 23);
             this.btnSave.TabIndex = 4;
@@ -64,19 +64,17 @@
             // 
             this.txtCourseCost.Location = new System.Drawing.Point(145, 78);
             this.txtCourseCost.Name = "txtCourseCost";
-            this.txtCourseCost.Size = new System.Drawing.Size(268, 20);
+            this.txtCourseCost.Size = new System.Drawing.Size(195, 20);
             this.txtCourseCost.TabIndex = 2;
             this.txtCourseCost.TextChanged += new System.EventHandler(this.txtCourseCost_TextChanged);
-            this.txtCourseCost.Leave += new System.EventHandler(this.txtCourseCost_Leave);
             // 
             // txtCourseName
             // 
             this.txtCourseName.Location = new System.Drawing.Point(145, 42);
             this.txtCourseName.Name = "txtCourseName";
-            this.txtCourseName.Size = new System.Drawing.Size(337, 20);
+            this.txtCourseName.Size = new System.Drawing.Size(195, 20);
             this.txtCourseName.TabIndex = 1;
             this.txtCourseName.TextChanged += new System.EventHandler(this.txtCourseName_TextChanged);
-            this.txtCourseName.Leave += new System.EventHandler(this.txtCourseName_Leave);
             // 
             // label5
             // 
@@ -112,7 +110,6 @@
             this.txtCourseDuration.Size = new System.Drawing.Size(195, 20);
             this.txtCourseDuration.TabIndex = 3;
             this.txtCourseDuration.TextChanged += new System.EventHandler(this.txtCourseDuration_TextChanged);
-            this.txtCourseDuration.Leave += new System.EventHandler(this.txtCourseDuration_Leave);
             // 
             // label1
             // 
@@ -129,10 +126,8 @@
             this.textBox1.Location = new System.Drawing.Point(145, 158);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(119, 20);
+            this.textBox1.Size = new System.Drawing.Size(194, 20);
             this.textBox1.TabIndex = 40;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            this.textBox1.Leave += new System.EventHandler(this.textBox1_Leave);
             // 
             // Create_Course
             // 

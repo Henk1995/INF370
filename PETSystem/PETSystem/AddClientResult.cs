@@ -83,5 +83,10 @@ namespace PETSystem
             AddClientResultMessageBox ACRMB = new AddClientResultMessageBox();
             ACRMB.Show();
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
