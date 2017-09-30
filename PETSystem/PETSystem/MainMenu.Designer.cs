@@ -28,6 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Logout Timer");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Node5");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Carousel Timer", new System.Windows.Forms.TreeNode[] {
+            treeNode7,
+            treeNode8});
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("User Privileges");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Bussiness Rules", new System.Windows.Forms.TreeNode[] {
+            treeNode9,
+            treeNode10});
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Admin", new System.Windows.Forms.TreeNode[] {
+            treeNode11});
             this.Logout = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -39,6 +51,11 @@
             this.button1 = new System.Windows.Forms.Button();
             this.Users = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Logout
@@ -151,11 +168,57 @@
             this.label2.TabIndex = 21;
             this.label2.Text = "PET System";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(655, 49);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(259, 210);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 22;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.LoadCompleted += new System.ComponentModel.AsyncCompletedEventHandler(this.pictureBox1_LoadCompleted);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 5000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // treeView1
+            // 
+            this.treeView1.Location = new System.Drawing.Point(533, 49);
+            this.treeView1.Name = "treeView1";
+            treeNode7.Name = "Node4";
+            treeNode7.Text = "Logout Timer";
+            treeNode8.Name = "Node5";
+            treeNode8.Text = "Node5";
+            treeNode9.Name = "Node2";
+            treeNode9.Text = "Carousel Timer";
+            treeNode10.Name = "Node3";
+            treeNode10.Text = "User Privileges";
+            treeNode11.Name = "Node1";
+            treeNode11.Text = "Bussiness Rules";
+            treeNode12.Name = "Node0";
+            treeNode12.Text = "Admin";
+            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode12});
+            this.treeView1.Size = new System.Drawing.Size(121, 97);
+            this.treeView1.TabIndex = 23;
+            // 
+            // monthCalendar1
+            // 
+            this.monthCalendar1.Location = new System.Drawing.Point(655, 271);
+            this.monthCalendar1.Name = "monthCalendar1";
+            this.monthCalendar1.TabIndex = 24;
+            // 
             // MainMenuF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(577, 483);
+            this.ClientSize = new System.Drawing.Size(926, 483);
+            this.Controls.Add(this.monthCalendar1);
+            this.Controls.Add(this.treeView1);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Logout);
             this.Controls.Add(this.button8);
@@ -170,6 +233,7 @@
             this.Name = "MainMenuF";
             this.Text = "Main Menu";
             this.Load += new System.EventHandler(this.MainMenuF_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -188,5 +252,9 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button Users;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.MonthCalendar monthCalendar1;
     }
 }

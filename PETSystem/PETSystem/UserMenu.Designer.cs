@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.addUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.setLogoutTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -42,7 +43,6 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.setLogoutTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
@@ -66,6 +66,13 @@
             this.addUserToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.addUserToolStripMenuItem.Text = "Add User";
             this.addUserToolStripMenuItem.Click += new System.EventHandler(this.addUserToolStripMenuItem_Click);
+            // 
+            // setLogoutTimeToolStripMenuItem
+            // 
+            this.setLogoutTimeToolStripMenuItem.Name = "setLogoutTimeToolStripMenuItem";
+            this.setLogoutTimeToolStripMenuItem.Size = new System.Drawing.Size(106, 20);
+            this.setLogoutTimeToolStripMenuItem.Text = "Set Logout Time";
+            this.setLogoutTimeToolStripMenuItem.Click += new System.EventHandler(this.setLogoutTimeToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -160,6 +167,7 @@
             this.label3.Size = new System.Drawing.Size(73, 19);
             this.label3.TabIndex = 7;
             this.label3.Text = "Logout In:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -171,13 +179,6 @@
             this.label4.Size = new System.Drawing.Size(73, 19);
             this.label4.TabIndex = 8;
             this.label4.Text = "Logout In:";
-            // 
-            // setLogoutTimeToolStripMenuItem
-            // 
-            this.setLogoutTimeToolStripMenuItem.Name = "setLogoutTimeToolStripMenuItem";
-            this.setLogoutTimeToolStripMenuItem.Size = new System.Drawing.Size(106, 20);
-            this.setLogoutTimeToolStripMenuItem.Text = "Set Logout Time";
-            this.setLogoutTimeToolStripMenuItem.Click += new System.EventHandler(this.setLogoutTimeToolStripMenuItem_Click);
             // 
             // UserMenu
             // 

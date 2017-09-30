@@ -13,10 +13,15 @@ namespace PETSystem
     public partial class MainMenuF : Form
     {
         LoginF LoginM = new LoginF();
-        
+        string[] pictures = { "system1.jpg", "system2.jpg", "system3.jpg" };
+        int i = 0;
+
+       
+
         public MainMenuF()
         {
             InitializeComponent();
+            
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -49,6 +54,11 @@ namespace PETSystem
         private void MainMenuF_Load(object sender, EventArgs e)
         {
             //pictureBox1.LoadAsync();
+            pictureBox1.Image = Image.FromFile("C:\\Users\\Jan-Wilkens\\Source\\Repos\\PETSystem\\PETSystem\\" + pictures[0]);
+
+
+
+
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -99,6 +109,21 @@ namespace PETSystem
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void pictureBox1_LoadCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            i++;
+            if (pictures.Length == i) { i = 0; }
+            pictureBox1.Image = Image.FromFile("C:\\Users\\Jan-Wilkens\\Source\\Repos\\PETSystem\\PETSystem\\" + pictures[i]);
+
+           
 
         }
     }
