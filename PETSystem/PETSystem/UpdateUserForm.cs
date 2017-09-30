@@ -14,6 +14,7 @@ namespace PETSystem
 {
     public partial class UpdateUserForm : Form
     {
+        DateTime endOfTime;
         public UpdateUserForm()
         {
             InitializeComponent();
@@ -21,6 +22,12 @@ namespace PETSystem
 
         private void UpdateUserForm_Load(object sender, EventArgs e)
         {
+            //Timer
+            endOfTime = DateTime.Now.AddMinutes(10);
+            Timer t = new Timer() { Interval = 1000, Enabled = true };
+            t.Tick += new EventHandler(timer1_Tick);
+            timer1_Tick(null, null);
+
             label1.Text = "User ID: "+ConnectString.UserID;
             txtName.Text = ConnectString.Name;
             txtSurname.Text = ConnectString.Surname;
@@ -98,6 +105,22 @@ namespace PETSystem
             this.Dispose(true);
             UserMenu myform = new UserMenu();
             myform.ShowDialog();
+        }
+        int stop;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            stop++;
+            if (stop > 600)
+            {
+                this.Close();
+                this.Dispose(true);
+                LoginF myform = new LoginF();
+                myform.ShowDialog();
+            }
+            else {
+                TimeSpan ts = endOfTime.Subtract(DateTime.Now);
+                lblTimer.Text = ts.ToString();
+            }
         }
     }
 }

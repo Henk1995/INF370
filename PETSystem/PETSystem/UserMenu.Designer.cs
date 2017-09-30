@@ -42,6 +42,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.setLogoutTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
@@ -50,7 +51,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addUserToolStripMenuItem});
+            this.addUserToolStripMenuItem,
+            this.setLogoutTimeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(850, 24);
@@ -108,7 +110,7 @@
             // 
             this.dgvUsers.AllowUserToAddRows = false;
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsers.Location = new System.Drawing.Point(288, 27);
+            this.dgvUsers.Location = new System.Drawing.Point(288, 22);
             this.dgvUsers.Name = "dgvUsers";
             this.dgvUsers.Size = new System.Drawing.Size(561, 216);
             this.dgvUsers.TabIndex = 2;
@@ -116,7 +118,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(726, 249);
+            this.btnSave.Location = new System.Drawing.Point(727, 241);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(123, 39);
             this.btnSave.TabIndex = 3;
@@ -153,7 +155,7 @@
             this.label3.AutoSize = true;
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label3.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(726, 5);
+            this.label3.Location = new System.Drawing.Point(740, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 19);
             this.label3.TabIndex = 7;
@@ -164,11 +166,18 @@
             this.label4.AutoSize = true;
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label4.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(777, 5);
+            this.label4.Location = new System.Drawing.Point(789, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 19);
             this.label4.TabIndex = 8;
             this.label4.Text = "Logout In:";
+            // 
+            // setLogoutTimeToolStripMenuItem
+            // 
+            this.setLogoutTimeToolStripMenuItem.Name = "setLogoutTimeToolStripMenuItem";
+            this.setLogoutTimeToolStripMenuItem.Size = new System.Drawing.Size(106, 20);
+            this.setLogoutTimeToolStripMenuItem.Text = "Set Logout Time";
+            this.setLogoutTimeToolStripMenuItem.Click += new System.EventHandler(this.setLogoutTimeToolStripMenuItem_Click);
             // 
             // UserMenu
             // 
@@ -220,5 +229,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ToolStripMenuItem setLogoutTimeToolStripMenuItem;
     }
 }

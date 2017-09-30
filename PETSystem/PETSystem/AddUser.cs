@@ -17,7 +17,7 @@ namespace PETSystem
 {
     public partial class AddUser : Form
     {
-       
+        DateTime endOfTime;
         bool valid1 = false;
         bool valid2 = false;
         bool valid3 = false;
@@ -35,6 +35,12 @@ namespace PETSystem
 
         private void AddUser_Load(object sender, EventArgs e)
         {
+            //Timer
+            endOfTime = DateTime.Now.AddMinutes(10);
+            Timer t = new Timer() { Interval = 1000, Enabled = true };
+            t.Tick += new EventHandler(timer1_Tick);
+            timer1_Tick(null, null);
+
             // TODO: This line of code loads data into the 'iNF370DataSet.PrivilegeType' table. You can move, or remove it, as needed.
             //this.privilegeTypeTableAdapter.Fill(this.iNF370DataSet.PrivilegeType);
             cmbPrivilege.Items.Clear();
@@ -299,6 +305,22 @@ namespace PETSystem
             else if ((valid5) || (txtRetype.Text == txtPass.Text))
             {
                 txtRetype.BackColor = Color.White;
+            }
+        }
+        int stop;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            stop++;
+            if (stop > 600)
+            {
+                this.Close();
+                this.Dispose(true);
+                LoginF myform = new LoginF();
+                myform.ShowDialog();
+            }
+            else {
+                TimeSpan ts = endOfTime.Subtract(DateTime.Now);
+                lblLogout.Text = ts.ToString();
             }
         }
     }

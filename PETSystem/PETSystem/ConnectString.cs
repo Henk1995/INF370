@@ -118,6 +118,8 @@ namespace PETSystem
         public static string InstructorPhoneNumber;
         public static string InstructorGender;
         public static string InstructorTitle;
+        //Timer
+        public static int TimerTime;
 
     }
 }

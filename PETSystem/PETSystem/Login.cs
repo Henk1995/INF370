@@ -120,6 +120,15 @@ namespace PETSystem
 
         private void LoginF_Load(object sender, EventArgs e)
         {
+            //  get Timer Time
+            SqlConnection TimeConnection = new SqlConnection(ConnectString.DBC);
+            TimeConnection.Open();
+            SqlCommand TimeCommand = TimeConnection.CreateCommand();
+            TimeCommand.CommandText = "Select Time FROM TimerTabel Where ID = 1";
+            ConnectString.TimerTime = ((int)TimeCommand.ExecuteScalar());
+            //MessageBox.Show(ConnectString.TimerTime.ToString());
+
+            TimeConnection.Close();
             groupBox1.BackColor = System.Drawing.Color.Transparent;
             label1.BackColor = System.Drawing.Color.Transparent;
             label2.BackColor = System.Drawing.Color.Transparent;

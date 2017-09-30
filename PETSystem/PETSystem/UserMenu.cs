@@ -40,9 +40,21 @@ namespace PETSystem
 
         private void UserMenu_Load(object sender, EventArgs e)
         {
+
+            //  get Timer Time
+            SqlConnection TimeConnection = new SqlConnection(ConnectString.DBC);
+            TimeConnection.Open();
+            SqlCommand TimeCommand = TimeConnection.CreateCommand();
+            TimeCommand.CommandText = "Select Time FROM TimerTabel Where ID = 1";
+            ConnectString.TimerTime = ((int)TimeCommand.ExecuteScalar());
+            //MessageBox.Show(ConnectString.TimerTime.ToString());
+
+            TimeConnection.Close();
+
+
             // TODO: This line of code loads data into the 'iNF370DataSet.UserTable' table. You can move, or remove it, as needed.
             // this.userTableTableAdapter.Fill(this.iNF370DataSet.UserTable);
-           
+
             ConnectString.connectstring.Open();
             
             DA.Fill(DT);
@@ -52,8 +64,8 @@ namespace PETSystem
 
 
             //Timer
-            endOfTime = DateTime.Now.AddMinutes(10);
-            Timer t = new Timer() { Interval = 1, Enabled = true };
+            endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
+            Timer t = new Timer() { Interval = 1000, Enabled = true };
             t.Tick += new EventHandler(timer1_Tick);
             timer1_Tick(null, null);
 
@@ -154,17 +166,38 @@ namespace PETSystem
         {
 
         }
-
+        int stop = ConnectString.TimerTime;
+        int ticks;
+        
         private void timer1_Tick(object sender, EventArgs e)
         {
-
-            TimeSpan ts = endOfTime.Subtract(DateTime.Now);
-            label4.Text = ts.ToString();
+            ticks = stop * 60;
+            stop++;
+            if ( stop > ticks)
+            {
+                this.Close();
+                this.Dispose(true);
+                LoginF myform = new LoginF();
+                myform.ShowDialog();
+            }
+            else {
+                TimeSpan ts = endOfTime.Subtract(DateTime.Now);
+                label4.Text = ts.ToString();
+            }
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void setLogoutTimeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose(true);
+            UpdateTimerTime myform = new UpdateTimerTime();
+            myform.ShowDialog();
+            
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -47,6 +48,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.UserDetails = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lblLogout = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,9 +73,9 @@
             this.panel1.Controls.Add(this.txtFirst);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.UserDetails);
-            this.panel1.Location = new System.Drawing.Point(179, 12);
+            this.panel1.Location = new System.Drawing.Point(179, 22);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(461, 303);
+            this.panel1.Size = new System.Drawing.Size(461, 293);
             this.panel1.TabIndex = 0;
             // 
             // label8
@@ -94,7 +98,7 @@
             // 
             // btnAddU
             // 
-            this.btnAddU.Location = new System.Drawing.Point(24, 269);
+            this.btnAddU.Location = new System.Drawing.Point(3, 262);
             this.btnAddU.Name = "btnAddU";
             this.btnAddU.Size = new System.Drawing.Size(96, 31);
             this.btnAddU.TabIndex = 14;
@@ -243,19 +247,49 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label9.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(544, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(73, 19);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Logout In:";
+            // 
+            // lblLogout
+            // 
+            this.lblLogout.AutoSize = true;
+            this.lblLogout.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblLogout.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLogout.Location = new System.Drawing.Point(593, 0);
+            this.lblLogout.Name = "lblLogout";
+            this.lblLogout.Size = new System.Drawing.Size(73, 19);
+            this.lblLogout.TabIndex = 17;
+            this.lblLogout.Text = "Logout In:";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // AddUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(652, 327);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.lblLogout);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AddUser";
             this.Text = "Add User";
             this.Load += new System.EventHandler(this.AddUser_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -280,5 +314,8 @@
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblLogout;
+        private System.Windows.Forms.Timer timer1;
     }
 }

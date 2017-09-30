@@ -14,6 +14,7 @@ namespace PETSystem
 {
     public partial class TrainingCourseMenu : Form
     {
+        DateTime endOfTime;
         ErrorHandle EH = new ErrorHandle();
         SqlDataAdapter DA;
         public TrainingCourseMenu()
@@ -44,6 +45,12 @@ namespace PETSystem
 
         private void TrainingCourseMenu_Load(object sender, EventArgs e)
         {
+            //Timer
+            endOfTime = DateTime.Now.AddMinutes(10);
+            Timer t = new Timer() { Interval = 1000, Enabled = true };
+            t.Tick += new EventHandler(timer1_Tick);
+            timer1_Tick(null, null);
+
             DataTable DT = new DataTable();
             ConnectString.connectstring.Open();
             SqlCommand Fill = new SqlCommand("SELECT TrainingCourse.TrainingCourseID,TrainingCourse.CourseName,TrainingCourse.Duration AS 'Duration in Weeks',TrainingCourse.TrainingCourseDate AS 'Start Date',TrainingCourseType.TrainingCourseName AS 'Training Course Type' FROM TrainingCourse INNER JOIN TrainingCourseType ON TrainingCourseType.TrainingCourseTypeID = TrainingCourse.TrainingCourseTypeID", ConnectString.connectstring);
@@ -143,6 +150,22 @@ namespace PETSystem
 
 
             
+        }
+        int stop;
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            stop++;
+            if (stop > 600)
+            {
+                this.Close();
+                this.Dispose(true);
+                LoginF myform = new LoginF();
+                myform.ShowDialog();
+            }
+            else {
+                TimeSpan ts = endOfTime.Subtract(DateTime.Now);
+                lblTimer.Text = ts.ToString();
+            }
         }
     }
     }
