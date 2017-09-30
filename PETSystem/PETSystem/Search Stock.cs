@@ -14,6 +14,8 @@ namespace PETSystem
 {
     public partial class Search_Stock : Form
     {
+        DateTime endOfTime;
+        Timer t;
         public Search_Stock()
         {
             InitializeComponent();
@@ -319,6 +321,12 @@ namespace PETSystem
 
         private void Search_Stock_Load(object sender, EventArgs e)
         {
+            //Timer
+            endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
+            t = new Timer() { Interval = 1000, Enabled = true };
+            t.Tick += new EventHandler(timer1_Tick);
+            timer1_Tick(null, null);
+
             ////Pre loads all the data from the printing supplier table
             //var S = from Stock in db.Stocks select Stock;
             //dgvSearchStock.DataSource = S;
@@ -366,6 +374,33 @@ namespace PETSystem
         private void dgvSearchStock_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        int stop = 0;
+        int ticks = ConnectString.TimerTime * 60;
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+            stop++;
+
+            if (stop > ticks)
+            {
+                t.Enabled = false;
+                this.Close();
+                this.Dispose(true);
+                LoginF myform = new LoginF();
+                myform.ShowDialog();
+            }
+            else {
+                TimeSpan ts = endOfTime.Subtract(DateTime.Now);
+                lblTimer.Text = ts.ToString();
+            }
+        }
+
+        private void Search_Stock_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            t.Enabled = false;
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnWriteoffStock = new System.Windows.Forms.Button();
             this.btnViewStock = new System.Windows.Forms.Button();
             this.txtSearchStockDesc = new System.Windows.Forms.TextBox();
@@ -38,6 +39,9 @@
             this.button1 = new System.Windows.Forms.Button();
             this.btnMainMenu = new System.Windows.Forms.Button();
             this.btnRefreshDGV = new System.Windows.Forms.Button();
+            this.lblTimer = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchStock)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,10 +107,10 @@
             this.dgvSearchStock.AllowUserToAddRows = false;
             this.dgvSearchStock.AllowUserToDeleteRows = false;
             this.dgvSearchStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSearchStock.Location = new System.Drawing.Point(350, 9);
+            this.dgvSearchStock.Location = new System.Drawing.Point(350, 24);
             this.dgvSearchStock.Name = "dgvSearchStock";
             this.dgvSearchStock.ReadOnly = true;
-            this.dgvSearchStock.Size = new System.Drawing.Size(700, 449);
+            this.dgvSearchStock.Size = new System.Drawing.Size(700, 434);
             this.dgvSearchStock.TabIndex = 23;
             this.dgvSearchStock.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearchStock_CellContentClick);
             this.dgvSearchStock.SelectionChanged += new System.EventHandler(this.dgvSearchStock_SelectionChanged);
@@ -142,11 +146,39 @@
             this.btnRefreshDGV.UseVisualStyleBackColor = true;
             this.btnRefreshDGV.Click += new System.EventHandler(this.btnRefreshDGV_Click);
             // 
+            // lblTimer
+            // 
+            this.lblTimer.AutoSize = true;
+            this.lblTimer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTimer.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimer.Location = new System.Drawing.Point(1006, 2);
+            this.lblTimer.Name = "lblTimer";
+            this.lblTimer.Size = new System.Drawing.Size(73, 19);
+            this.lblTimer.TabIndex = 51;
+            this.lblTimer.Text = "Logout In:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label2.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(956, 2);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 19);
+            this.label2.TabIndex = 52;
+            this.label2.Text = "Logout In:";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Search_Stock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1065, 497);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.btnRefreshDGV);
             this.Controls.Add(this.btnMainMenu);
             this.Controls.Add(this.button1);
@@ -157,9 +189,11 @@
             this.Controls.Add(this.btnDeleteStock);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvSearchStock);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Search_Stock";
             this.Text = "Search Stock";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Search_Stock_FormClosing);
             this.Load += new System.EventHandler(this.Search_Stock_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchStock)).EndInit();
             this.ResumeLayout(false);
@@ -179,5 +213,8 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnMainMenu;
         private System.Windows.Forms.Button btnRefreshDGV;
+        private System.Windows.Forms.Label lblTimer;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Timer timer1;
     }
 }
