@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtPrintingSupplierBankAccNumber = new System.Windows.Forms.TextBox();
             this.txtPrintingSupplierPhoneNumber = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -42,6 +43,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblTimer = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // txtPrintingSupplierBankAccNumber
@@ -167,11 +171,39 @@
             this.label1.TabIndex = 83;
             this.label1.Text = "Printing Supplier ID:";
             // 
+            // lblTimer
+            // 
+            this.lblTimer.AutoSize = true;
+            this.lblTimer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTimer.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimer.Location = new System.Drawing.Point(431, 0);
+            this.lblTimer.Name = "lblTimer";
+            this.lblTimer.Size = new System.Drawing.Size(73, 19);
+            this.lblTimer.TabIndex = 95;
+            this.lblTimer.Text = "Logout In:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label6.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(381, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 19);
+            this.label6.TabIndex = 96;
+            this.label6.Text = "Logout In:";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Update_Printing_Supplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(525, 319);
+            this.ClientSize = new System.Drawing.Size(491, 307);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.txtPrintingSupplierBankAccNumber);
             this.Controls.Add(this.txtPrintingSupplierPhoneNumber);
             this.Controls.Add(this.label7);
@@ -186,8 +218,10 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Update_Printing_Supplier";
             this.Text = "Update_Printing_Supplier";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Update_Printing_Supplier_FormClosing);
             this.Load += new System.EventHandler(this.Update_Printing_Supplier_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -210,5 +244,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTimer;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Timer timer1;
     }
 }

@@ -15,6 +15,8 @@ namespace PETSystem
 {
     public partial class Place_Printing_Order : Form
     {
+        DateTime endOfTime;
+        Timer t;
         public Place_Printing_Order()
         {
             InitializeComponent();
@@ -26,6 +28,12 @@ namespace PETSystem
 
         private void Place_Printing_Order_Load(object sender, EventArgs e)
         {
+            //Timer
+            endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
+            t = new Timer() { Interval = 1000, Enabled = true };
+            t.Tick += new EventHandler(timer1_Tick);
+            timer1_Tick(null, null);
+
             label1.Text = "Printer ID: " + PrinterID + " \nPrinter Name: " + PrinterName;
             txtEmail.Text = "Good day.\n\nI would like to place an order for :";
         }
@@ -74,6 +82,33 @@ namespace PETSystem
 
                 }
             }
+        }
+
+        int stop = 0;
+        int ticks = ConnectString.TimerTime * 60;
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+            stop++;
+
+            if (stop > ticks)
+            {
+                t.Enabled = false;
+                this.Close();
+                this.Dispose(true);
+                LoginF myform = new LoginF();
+                myform.ShowDialog();
+            }
+            else {
+                TimeSpan ts = endOfTime.Subtract(DateTime.Now);
+                lblTimer.Text = ts.ToString();
+            }
+        }
+
+        private void Place_Printing_Order_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            t.Enabled = false;
         }
     }
 }

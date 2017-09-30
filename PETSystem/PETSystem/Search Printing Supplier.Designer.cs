@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnAddPrintSupplier = new System.Windows.Forms.Button();
             this.btnPlaceOrder = new System.Windows.Forms.Button();
             this.btnViewPrintSupplier = new System.Windows.Forms.Button();
@@ -41,6 +42,9 @@
             this.btnReceiveOrder = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
+            this.lblTimer = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchPrintingSupplier)).BeginInit();
             this.SuspendLayout();
             // 
@@ -116,10 +120,10 @@
             this.dgvSearchPrintingSupplier.AllowUserToAddRows = false;
             this.dgvSearchPrintingSupplier.AllowUserToDeleteRows = false;
             this.dgvSearchPrintingSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSearchPrintingSupplier.Location = new System.Drawing.Point(348, 12);
+            this.dgvSearchPrintingSupplier.Location = new System.Drawing.Point(348, 23);
             this.dgvSearchPrintingSupplier.Name = "dgvSearchPrintingSupplier";
             this.dgvSearchPrintingSupplier.ReadOnly = true;
-            this.dgvSearchPrintingSupplier.Size = new System.Drawing.Size(700, 449);
+            this.dgvSearchPrintingSupplier.Size = new System.Drawing.Size(700, 438);
             this.dgvSearchPrintingSupplier.TabIndex = 36;
             this.dgvSearchPrintingSupplier.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearchPrintingSupplier_CellContentClick);
             this.dgvSearchPrintingSupplier.SelectionChanged += new System.EventHandler(this.dgvSearchPrintingSupplier_SelectionChanged);
@@ -174,11 +178,39 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // lblTimer
+            // 
+            this.lblTimer.AutoSize = true;
+            this.lblTimer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTimer.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimer.Location = new System.Drawing.Point(1015, 1);
+            this.lblTimer.Name = "lblTimer";
+            this.lblTimer.Size = new System.Drawing.Size(73, 19);
+            this.lblTimer.TabIndex = 55;
+            this.lblTimer.Text = "Logout In:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label2.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(965, 1);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 19);
+            this.label2.TabIndex = 56;
+            this.label2.Text = "Logout In:";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Search_Printing_Supplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1074, 506);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnReceiveOrder);
@@ -192,8 +224,10 @@
             this.Controls.Add(this.btnDeletePrintSupplier);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvSearchPrintingSupplier);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Search_Printing_Supplier";
             this.Text = "Search_Printing_Supplier";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Search_Printing_Supplier_FormClosing);
             this.Load += new System.EventHandler(this.Search_Printing_Supplier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchPrintingSupplier)).EndInit();
             this.ResumeLayout(false);
@@ -215,5 +249,8 @@
         private System.Windows.Forms.Button btnReceiveOrder;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label lblTimer;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Timer timer1;
     }
 }
