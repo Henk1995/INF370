@@ -22,7 +22,7 @@ namespace PETSystem
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="exportFotos")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="NewestDBExport")]
 	public partial class PET_DBDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -141,7 +141,7 @@ namespace PETSystem
     #endregion
 		
 		public PET_DBDataContext() : 
-				base(global::PETSystem.Properties.Settings.Default.exportFotosConnectionString, mappingSource)
+				base(global::PETSystem.Properties.Settings.Default.NewestDBExportConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
