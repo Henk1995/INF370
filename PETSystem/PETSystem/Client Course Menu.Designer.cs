@@ -33,6 +33,7 @@
             this.btnMainM = new System.Windows.Forms.Button();
             this.btnAddResult = new System.Windows.Forms.Button();
             this.dgvTC = new System.Windows.Forms.DataGridView();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -88,19 +89,26 @@
             this.dgvTC.AllowUserToDeleteRows = false;
             this.dgvTC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTC.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column7,
             this.Column1,
             this.Column2,
             this.Column3,
             this.Column4,
             this.Column5,
             this.Column6});
-            this.dgvTC.Location = new System.Drawing.Point(148, 12);
+            this.dgvTC.Location = new System.Drawing.Point(19, 53);
             this.dgvTC.Name = "dgvTC";
             this.dgvTC.ReadOnly = true;
-            this.dgvTC.Size = new System.Drawing.Size(647, 216);
+            this.dgvTC.Size = new System.Drawing.Size(744, 216);
             this.dgvTC.TabIndex = 13;
             this.dgvTC.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTC_CellContentClick);
             this.dgvTC.SelectionChanged += new System.EventHandler(this.dgvTC_SelectionChanged);
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "Course ID";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
             // 
             // Column1
             // 
@@ -134,7 +142,7 @@
             // 
             // Column6
             // 
-            this.Column6.HeaderText = "CourseID";
+            this.Column6.HeaderText = "StartDate";
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
             // 
@@ -163,6 +171,7 @@
         private System.Windows.Forms.Button btnMainM;
         private System.Windows.Forms.Button btnAddResult;
         private System.Windows.Forms.DataGridView dgvTC;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;

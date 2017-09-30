@@ -170,12 +170,12 @@ namespace PETSystem
             if (dgvMaintainClientCourses.SelectedRows.Count > 0)
             {
                 CourseInstance _ClientInCourse = (CourseInstance)dgvMaintainClientCourses.CurrentRow.DataBoundItem;
-                string GetCourseName = Convert.ToString(dgvMaintainClientCourses.SelectedCells[0].Value);
-                string GetInstName = Convert.ToString(dgvMaintainClientCourses.SelectedCells[1].Value);
-                string GetTSD = Convert.ToString(dgvMaintainClientCourses.SelectedCells[2].Value);
-                string GetTST = Convert.ToString(dgvMaintainClientCourses.SelectedCells[3].Value);
-                string GetVenue = Convert.ToString(dgvMaintainClientCourses.SelectedCells[4].Value);
-                string GetStartDate = Convert.ToString(dgvMaintainClientCourses.SelectedCells[5].Value);
+                string GetCourseName = Convert.ToString(dgvMaintainClientCourses.SelectedCells[1].Value);
+                string GetInstName = Convert.ToString(dgvMaintainClientCourses.SelectedCells[2].Value);
+                string GetTSD = Convert.ToString(dgvMaintainClientCourses.SelectedCells[3].Value);
+                string GetTST = Convert.ToString(dgvMaintainClientCourses.SelectedCells[4].Value);
+                string GetVenue = Convert.ToString(dgvMaintainClientCourses.SelectedCells[5].Value);
+                string GetStartDate = Convert.ToString(dgvMaintainClientCourses.SelectedCells[6].Value);
 
 
                 CourseInstanceToUpdate = (from x in db.CourseInstances where x.CourseVenu == GetVenue && x.StartDate == GetStartDate select x.CourseID).FirstOrDefault();
@@ -197,12 +197,12 @@ namespace PETSystem
             if (dgvMaintainClientCourses.SelectedRows.Count > 0)
             {
                 CourseInstance _ClientInCourse = (CourseInstance)dgvMaintainClientCourses.CurrentRow.DataBoundItem;
-                string GetCourseName = Convert.ToString(dgvMaintainClientCourses.SelectedCells[0].Value);
-                string GetInstName = Convert.ToString(dgvMaintainClientCourses.SelectedCells[1].Value);
-                string GetTSD = Convert.ToString(dgvMaintainClientCourses.SelectedCells[2].Value);
-                string GetTST = Convert.ToString(dgvMaintainClientCourses.SelectedCells[3].Value);
-                string GetVenue = Convert.ToString(dgvMaintainClientCourses.SelectedCells[4].Value);
-                string GetStartDate = Convert.ToString(dgvMaintainClientCourses.SelectedCells[5].Value);
+                string GetCourseName = Convert.ToString(dgvMaintainClientCourses.SelectedCells[1].Value);
+                string GetInstName = Convert.ToString(dgvMaintainClientCourses.SelectedCells[2].Value);
+                string GetTSD = Convert.ToString(dgvMaintainClientCourses.SelectedCells[3].Value);
+                string GetTST = Convert.ToString(dgvMaintainClientCourses.SelectedCells[4].Value);
+                string GetVenue = Convert.ToString(dgvMaintainClientCourses.SelectedCells[5].Value);
+                string GetStartDate = Convert.ToString(dgvMaintainClientCourses.SelectedCells[6].Value);
 
                 //int NewAvailableCourseID = Convert.ToInt32(from x in db.Courses where x.CourseName == GetCourseName select x.AvailableCourseID);
                 //int NewAvailableInstID = Convert.ToInt32(from x in db.Instructors where x.Name == GetInstName select x.InstructorID);
@@ -782,7 +782,7 @@ namespace PETSystem
                 var getTST = (from x in db.TimeSlots where x.TimeSlotID == SCourseTime select x.TimeslotTime).FirstOrDefault();
                 
 
-                dgvMaintainClientCourses.Rows.Add(new object[] { getCourseName, getInstName, getTSD, getTST, SCourseVenue, SStartDate, SCourseID});
+                dgvMaintainClientCourses.Rows.Add(new object[] { SCourseID, getCourseName, getInstName, getTSD, getTST, SCourseVenue, SStartDate});
 
             }
 
