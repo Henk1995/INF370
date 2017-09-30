@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.addUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -38,6 +39,9 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.btnMainM = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
@@ -49,9 +53,10 @@
             this.addUserToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(861, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(850, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // addUserToolStripMenuItem
             // 
@@ -139,17 +144,46 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label3.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(726, 5);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(73, 19);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Logout In:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label4.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(777, 5);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(73, 19);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Logout In:";
+            // 
             // UserMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(861, 317);
+            this.ClientSize = new System.Drawing.Size(850, 317);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnMainM);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dgvUsers);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "UserMenu";
             this.Text = "User Menu";
@@ -183,5 +217,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn userNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn priveledgeIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
