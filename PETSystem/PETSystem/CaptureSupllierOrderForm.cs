@@ -15,6 +15,8 @@ namespace PETSystem
 {
     public partial class CaptureSupllierOrderForm : Form
     {
+        DateTime endOfTime;
+        Timer t;
         public CaptureSupllierOrderForm()
         {
             InitializeComponent();
@@ -44,7 +46,13 @@ namespace PETSystem
         int result, CBresult = 0;
         private void CaptureSupllierOrderForm_Load(object sender, EventArgs e)
         {
-            
+
+            //Timer
+            endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
+            t = new Timer() { Interval = 1000, Enabled = true };
+            t.Tick += new EventHandler(timer1_Tick);
+            timer1_Tick(null, null);
+
             txtOrder.Text = "Order:";
             groupBox1.Visible = false;
             BtnCapture.Visible = false;
@@ -158,6 +166,38 @@ namespace PETSystem
         private void cbProduct_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void txtOrder_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        int stop = 0;
+        int ticks = ConnectString.TimerTime * 60;
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+            stop++;
+
+            if (stop > ticks)
+            {
+                t.Enabled = false;
+                this.Close();
+                this.Dispose(true);
+                LoginF myform = new LoginF();
+                myform.ShowDialog();
+            }
+            else {
+                TimeSpan ts = endOfTime.Subtract(DateTime.Now);
+                lblTimer.Text = ts.ToString();
+            }
+        }
+
+        private void CaptureSupllierOrderForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            t.Enabled = false;
         }
 
         private void button3_Click(object sender, EventArgs e)

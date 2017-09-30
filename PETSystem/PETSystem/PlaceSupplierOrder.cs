@@ -15,6 +15,9 @@ namespace PETSystem
 {
     public partial class PlaceSupplierOrder : Form
     {
+
+        DateTime endOfTime;
+        Timer t;
         public PlaceSupplierOrder()
         {
             InitializeComponent();
@@ -22,6 +25,12 @@ namespace PETSystem
 
         private void PlaceSupplierOrder_Load(object sender, EventArgs e)
         {
+            //Timer
+            endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
+            t = new Timer() { Interval = 1000, Enabled = true };
+            t.Tick += new EventHandler(timer1_Tick);
+            timer1_Tick(null, null);
+
             label1.Text = "Supplier ID: " + Convert.ToString(ConnectString.SupplierID) + " \nSupplier Name: " + ConnectString.SupplierName;
             txtEmail.Text = "Good day.\n\nI would like to place an order for :";
         }
@@ -85,6 +94,33 @@ namespace PETSystem
             this.Dispose(true);
             Suppliers myform = new Suppliers();
             myform.ShowDialog();
+        }
+
+        int stop = 0;
+        int ticks = ConnectString.TimerTime * 60;
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+            stop++;
+
+            if (stop > ticks)
+            {
+                t.Enabled = false;
+                this.Close();
+                this.Dispose(true);
+                LoginF myform = new LoginF();
+                myform.ShowDialog();
+            }
+            else {
+                TimeSpan ts = endOfTime.Subtract(DateTime.Now);
+                lblTimer.Text = ts.ToString();
+            }
+        }
+
+        private void PlaceSupplierOrder_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            t.Enabled = false;
         }
     }
 }

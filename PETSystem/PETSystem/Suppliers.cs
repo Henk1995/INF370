@@ -23,7 +23,8 @@ namespace PETSystem
 {
     public partial class Suppliers : Form
     {
-       
+        DateTime endOfTime;
+        Timer t;
         SqlDataAdapter DA;
         public Suppliers()
         {
@@ -157,8 +158,15 @@ namespace PETSystem
 
         private void Suppliers_Load(object sender, EventArgs e)
         {
+
+            //Timer
+            endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
+            t = new Timer() { Interval = 1000, Enabled = true };
+            t.Tick += new EventHandler(timer1_Tick);
+            timer1_Tick(null, null);
+
             //Maak refresh textbox invis
-          //  txtRefresh.Visible = false;
+            //  txtRefresh.Visible = false;
 
             DataTable DT = new DataTable();
             ConnectString.connectstring.Open();
@@ -227,6 +235,33 @@ namespace PETSystem
                 ConnectString.connectstring.Close();
             
           
+        }
+
+        int stop = 0;
+        int ticks = ConnectString.TimerTime * 60;
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+            stop++;
+
+            if (stop > ticks)
+            {
+                t.Enabled = false;
+                this.Close();
+                this.Dispose(true);
+                LoginF myform = new LoginF();
+                myform.ShowDialog();
+            }
+            else {
+                TimeSpan ts = endOfTime.Subtract(DateTime.Now);
+                lblTimer.Text = ts.ToString();
+            }
+        }
+
+        private void Suppliers_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            t.Enabled = false;
         }
     }
     }

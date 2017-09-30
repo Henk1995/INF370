@@ -36,6 +36,7 @@ namespace PETSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
+            this.Close();
             this.Dispose(true);
             Instructors UM = new Instructors();
             UM.Show();

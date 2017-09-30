@@ -14,7 +14,8 @@ namespace Update_Supplier
 {
     public partial class Update_Supplier : Form
     {
-        
+        DateTime endOfTime;
+        Timer t;
         ErrorHandle EH = new ErrorHandle();
         bool valid1 = false;
         bool valid2 = false;
@@ -75,6 +76,12 @@ namespace Update_Supplier
 
         private void Update_Supplier_Load(object sender, EventArgs e)
         {
+            //Timer
+            endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
+            t = new Timer() { Interval = 1000, Enabled = true };
+            t.Tick += new EventHandler(timer1_Tick);
+            timer1_Tick(null, null);
+
             txtSuppName.Text = ConnectString.SupplierName;
             txtAdress.Text = ConnectString.SupplierAddress;
             txtEmail.Text = ConnectString.SupplierEmail;
@@ -201,6 +208,33 @@ namespace Update_Supplier
             this.Visible = false;
             Suppliers UM = new Suppliers();
             UM.Show();
+        }
+
+        int stop = 0;
+        int ticks = ConnectString.TimerTime * 60;
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+            stop++;
+
+            if (stop > ticks)
+            {
+                t.Enabled = false;
+                this.Close();
+                this.Dispose(true);
+                LoginF myform = new LoginF();
+                myform.ShowDialog();
+            }
+            else {
+                TimeSpan ts = endOfTime.Subtract(DateTime.Now);
+                lblTimer.Text = ts.ToString();
+            }
+        }
+
+        private void Update_Supplier_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            t.Enabled = false;
         }
     }
 }

@@ -16,7 +16,8 @@ namespace Refund_Order
 {
     public partial class RefundOrderSupp : Form
     {
-       
+        DateTime endOfTime;
+        Timer t;
         SqlDataAdapter DA;
         bool valid1 = false;
         bool valid3 = false;
@@ -30,6 +31,11 @@ namespace Refund_Order
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
+            t = new Timer() { Interval = 1000, Enabled = true };
+            t.Tick += new EventHandler(timer1_Tick);
+            timer1_Tick(null, null);
+
             DataTable DT = new DataTable();
             ConnectString.connectstring.Open();
             SqlCommand Fill = new SqlCommand("SELECT SupplierOrder.SupplierOrderID,SupplierOrder.SupplierOrderRefNumber,SupplierOrder.SupplierOrderDate,SupplierOrder.SupplierOrderDescription from SupplierOrder Where SupplierOrder.SupplierID = '" + ConnectString.SupplierID + "'", ConnectString.connectstring);
@@ -331,6 +337,33 @@ namespace Refund_Order
                 dgvSupp.DataMember = DT.TableName;
                 ConnectString.connectstring.Close();
             }
+        }
+
+        int stop = 0;
+        int ticks = ConnectString.TimerTime * 60;
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+            stop++;
+
+            if (stop > ticks)
+            {
+                t.Enabled = false;
+                this.Close();
+                this.Dispose(true);
+                LoginF myform = new LoginF();
+                myform.ShowDialog();
+            }
+            else {
+                TimeSpan ts = endOfTime.Subtract(DateTime.Now);
+                lblTimer.Text = ts.ToString();
+            }
+        }
+
+        private void RefundOrderSupp_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            t.Enabled = false;
         }
     }
 }

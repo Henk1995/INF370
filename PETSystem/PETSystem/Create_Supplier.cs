@@ -15,7 +15,8 @@ namespace Create_Supplier
     public partial class Create_Supplier : Form
     {
         SqlDataAdapter DA;
-        
+        DateTime endOfTime;
+        Timer t;
         bool valid1 = false;
         bool valid2 = false;
         bool valid3 = false;
@@ -105,6 +106,13 @@ namespace Create_Supplier
 
         private void Create_Supplier_Load(object sender, EventArgs e)
         {
+
+            //Timer
+            endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
+            t = new Timer() { Interval = 1000, Enabled = true };
+            t.Tick += new EventHandler(timer1_Tick);
+            timer1_Tick(null, null);
+
             //populate combobox
             cmbSupplierT.Items.Clear();
             string query = "SELECT SupplierTypeName FROM SupplierType ";
@@ -238,6 +246,33 @@ namespace Create_Supplier
             {
                 txtPhonenumber.BackColor = Color.White;
             }
+        }
+
+        int stop = 0;
+        int ticks = ConnectString.TimerTime * 60;
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+            stop++;
+
+            if (stop > ticks)
+            {
+                t.Enabled = false;
+                this.Close();
+                this.Dispose(true);
+                LoginF myform = new LoginF();
+                myform.ShowDialog();
+            }
+            else {
+                TimeSpan ts = endOfTime.Subtract(DateTime.Now);
+                lblTimer.Text = ts.ToString();
+            }
+        }
+
+        private void Create_Supplier_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            t.Enabled = false;
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtRefNumber = new System.Windows.Forms.TextBox();
             this.txtDate = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -46,6 +47,9 @@
             this.txtOrder = new System.Windows.Forms.RichTextBox();
             this.btnEnter = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblTimer = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NUPQuantity)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -175,7 +179,7 @@
             // 
             // BtnBack
             // 
-            this.BtnBack.Location = new System.Drawing.Point(12, 256);
+            this.BtnBack.Location = new System.Drawing.Point(12, 272);
             this.BtnBack.Name = "BtnBack";
             this.BtnBack.Size = new System.Drawing.Size(75, 23);
             this.BtnBack.TabIndex = 7;
@@ -185,7 +189,7 @@
             // 
             // BtnCapture
             // 
-            this.BtnCapture.Location = new System.Drawing.Point(394, 247);
+            this.BtnCapture.Location = new System.Drawing.Point(394, 272);
             this.BtnCapture.Name = "BtnCapture";
             this.BtnCapture.Size = new System.Drawing.Size(75, 23);
             this.BtnCapture.TabIndex = 8;
@@ -195,11 +199,12 @@
             // 
             // txtOrder
             // 
-            this.txtOrder.Location = new System.Drawing.Point(475, 9);
+            this.txtOrder.Location = new System.Drawing.Point(475, 25);
             this.txtOrder.Name = "txtOrder";
             this.txtOrder.Size = new System.Drawing.Size(197, 270);
             this.txtOrder.TabIndex = 9;
             this.txtOrder.Text = "";
+            this.txtOrder.TextChanged += new System.EventHandler(this.txtOrder_TextChanged);
             // 
             // btnEnter
             // 
@@ -224,19 +229,49 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Please enter information below:";
             // 
+            // lblTimer
+            // 
+            this.lblTimer.AutoSize = true;
+            this.lblTimer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTimer.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimer.Location = new System.Drawing.Point(617, 3);
+            this.lblTimer.Name = "lblTimer";
+            this.lblTimer.Size = new System.Drawing.Size(73, 19);
+            this.lblTimer.TabIndex = 12;
+            this.lblTimer.Text = "Logout In:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label8.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(567, 3);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(73, 19);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "Logout In:";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // CaptureSupllierOrderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(684, 291);
+            this.ClientSize = new System.Drawing.Size(677, 302);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnEnter);
             this.Controls.Add(this.txtOrder);
             this.Controls.Add(this.BtnCapture);
             this.Controls.Add(this.BtnBack);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "CaptureSupllierOrderForm";
             this.Text = "CaptureSupllierOrderForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CaptureSupllierOrderForm_FormClosing);
             this.Load += new System.EventHandler(this.CaptureSupllierOrderForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -244,6 +279,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -267,5 +303,8 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button btnEnter;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label lblTimer;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Timer timer1;
     }
 }

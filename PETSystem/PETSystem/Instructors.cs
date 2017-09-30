@@ -25,6 +25,7 @@ namespace PETSystem
 
         private void button8_Click(object sender, EventArgs e)
         {
+            this.Close();
             this.Dispose(true);
             MainMenuF UM = new MainMenuF();
             UM.Show();
