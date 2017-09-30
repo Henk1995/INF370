@@ -35,6 +35,7 @@ namespace PETSystem
             string un = txtUsername.Text;
             string pw = txtPassword.Text;
 
+
             if (valid3 && valid4)
             {
                 string Query1 = "SELECT * FROM UserTable WHERE UserName ='" + this.txtUsername.Text + "'AND UserPassword='" + Encrypt(this.txtPassword.Text) + "';";
@@ -62,15 +63,18 @@ namespace PETSystem
             {
                 MessageBox.Show("Invalid username and/or Password");
             }
-            //if (validU)
-            //{
 
-            //    // Ek steel gou die user wat gesignin het se ID. ;D
-            //    //var GetUserID = (from X in db.UserTables where X.UserName.Contains(un) && X.UserPassword.Contains(pw) select X.UserID).FirstOrDefault();
-            //    //UserIDthatLoggedIn = GetUserID;
-            //    //
 
-            //}
+            // Ek steel gou die user wat gesignin het se ID. ;D
+            //var GetUserID = (from X in db.UserTables where X.UserName.Contains(un) && X.UserPassword.Contains(pw) select X.UserID).FirstOrDefault();
+            //UserIDthatLoggedIn = GetUserID;
+
+            //Ek kort die UserID wat ingelog het
+
+           
+            
+            //UserIDthatLoggedIn = Convert.ToInt32(USer);
+
             this.Visible = false;
             MainMenuF UM = new MainMenuF();
             UM.Show();

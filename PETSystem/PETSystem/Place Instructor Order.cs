@@ -225,7 +225,7 @@ namespace PETSystem
                     OrderDate = txtDate.Text,
                     OrderDescription = txtDescription.Text,
                     InstructorID = InstructorOrderID,
-                    UserID = CurrentlyLoggedInUserID,
+                    UserID = CurrentlyLoggedInUserID, // ek vang nie wat hier aangan nie. hy kan net submit as hierdie = 1 is?
 
                 };
 
@@ -265,7 +265,7 @@ namespace PETSystem
 
 
                 this.Close();
-                Search_Printing_Supplier sps = new Search_Printing_Supplier();
+                Search_Order sps = new Search_Order();
                 sps.Show();
             }
         }

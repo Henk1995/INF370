@@ -79,11 +79,19 @@ namespace PETSystem
             cbInstructors.DataSource = LoadInstructorstoCB;
 
 
-            var mLoadInstances = from x in db.CourseInstances select x;
+            //var mLoadInstances = (from x in db.CourseInstances select x);
+            //dgvMaintainClientCourses.DataSource = mLoadInstances;
+            //dgvMaintainClientCourses.Columns[7].Visible = false;
+            //dgvMaintainClientCourses.Columns[2].Visible = false;
+            //dgvMaintainClientCourses.Columns[4].Visible = false;
+            //dgvMaintainClientCourses.Columns[5].Visible = false;
+            //dgvMaintainClientCourses.Columns[6].Visible = false;
+            //dgvMaintainClientCourses.Refresh();
 
-            //dgvMaintainClientCourses.AutoGenerateColumns = false;
-            dgvMaintainClientCourses.DataSource = mLoadInstances;
-            dgvMaintainClientCourses.Refresh();
+            LoadClientCourseInstanceInfo();
+
+
+
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -159,87 +167,92 @@ namespace PETSystem
 
         private void btnSave_Click_1(object sender, EventArgs e)
         {
-            UpdateClientCourseDetails UCCD = new UpdateClientCourseDetails();
-            UCCD.Show();
-            this.Close();
+            if (dgvMaintainClientCourses.SelectedRows.Count > 0)
+            {
+                CourseInstance _ClientInCourse = (CourseInstance)dgvMaintainClientCourses.CurrentRow.DataBoundItem;
+                string GetCourseName = Convert.ToString(dgvMaintainClientCourses.SelectedCells[0].Value);
+                string GetInstName = Convert.ToString(dgvMaintainClientCourses.SelectedCells[1].Value);
+                string GetTSD = Convert.ToString(dgvMaintainClientCourses.SelectedCells[2].Value);
+                string GetTST = Convert.ToString(dgvMaintainClientCourses.SelectedCells[3].Value);
+                string GetVenue = Convert.ToString(dgvMaintainClientCourses.SelectedCells[4].Value);
+                string GetStartDate = Convert.ToString(dgvMaintainClientCourses.SelectedCells[5].Value);
+
+
+                CourseInstanceToUpdate = (from x in db.CourseInstances where x.CourseVenu == GetVenue && x.StartDate == GetStartDate select x.CourseID).FirstOrDefault();
+               
+                UpdateClientCourseDetails UCCD = new UpdateClientCourseDetails();
+                UCCD.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Please select a row to add", "Error");
+            }
+
+           
         }
 
         private void btnDelete_Click_1(object sender, EventArgs e)
         {
-            DialogResult test = MessageBox.Show("Are you sure you want to delete this course?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (test == DialogResult.Yes)
+            if (dgvMaintainClientCourses.SelectedRows.Count > 0)
             {
-                //Delete Selected
-                var mCourse = (from x in db.CourseInstances where x.AvailableCourseID == id select x).First();
-                db.CourseInstances.DeleteOnSubmit(mCourse);
-                db.SubmitChanges();
+                CourseInstance _ClientInCourse = (CourseInstance)dgvMaintainClientCourses.CurrentRow.DataBoundItem;
+                string GetCourseName = Convert.ToString(dgvMaintainClientCourses.SelectedCells[0].Value);
+                string GetInstName = Convert.ToString(dgvMaintainClientCourses.SelectedCells[1].Value);
+                string GetTSD = Convert.ToString(dgvMaintainClientCourses.SelectedCells[2].Value);
+                string GetTST = Convert.ToString(dgvMaintainClientCourses.SelectedCells[3].Value);
+                string GetVenue = Convert.ToString(dgvMaintainClientCourses.SelectedCells[4].Value);
+                string GetStartDate = Convert.ToString(dgvMaintainClientCourses.SelectedCells[5].Value);
 
-                //refresh DGV
-                dgvMaintainClientCourses.DataSource = null;
-                dgvMaintainClientCourses.DataSource = db.CourseInstances;
+                //int NewAvailableCourseID = Convert.ToInt32(from x in db.Courses where x.CourseName == GetCourseName select x.AvailableCourseID);
+                //int NewAvailableInstID = Convert.ToInt32(from x in db.Instructors where x.Name == GetInstName select x.InstructorID);
+                //int NewTimeslot = Convert.ToInt32(from x in db.TimeSlots where x.TimeslotDay == GetTSD && x.TimeslotTime == GetTST select x.TimeSlotID);
 
-                MessageBox.Show("Course has been deleted", "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            else if (test == DialogResult.No)
-            {
-                MessageBox.Show("Course not deleted", "Cancel", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
 
-        private void txtSearchCourseName_TextChanged_1(object sender, EventArgs e)
-        {
-            txtSearchCourseName.BackColor = Color.White;
-            string Name = txtSearchCourseName.Text;
-            bool isString = chk.CheckInt(Name);
-            bool notEmpty = chk.CheckEmpty(Name);
-            bool checkForSQLInjection = chk.checkForSQLInjection(Name);
+                //id = Convert.ToInt32(from x in db.CourseInstances where x.AvailableCourseID == NewAvailableCourseID && x.InstructorID == NewAvailableInstID && x.TimeSlot == NewTimeslot && x.CourseVenu == GetVenue && x.StartDate == GetStartDate select x.CourseID;
+                id = (from x in db.CourseInstances where  x.CourseVenu == GetVenue && x.StartDate == GetStartDate select x.CourseID).FirstOrDefault();
 
-            if (isString == false)
-            {
-                txtSearchCourseName.BackColor = Color.FromArgb(244, 17, 17);
-                NameValid = false;
-            }
-            else if (notEmpty == false)
-            {
-                txtSearchCourseName.BackColor = Color.FromArgb(244, 17, 17);
-                NameValid = false;
-            }
-            else if (checkForSQLInjection == false)
-            {
-                txtSearchCourseName.BackColor = Color.FromArgb(244, 17, 17);
-                NameValid = false;
-            }
-            else
-            {
-                txtSearchCourseName.BackColor = Color.White;
-                NameValid = true;
-            }
+                //Check if there are Students registered in course
 
-            if (NameValid == true)
-            {
-                //var idToSearch = (from Courses in db.Courses where Courses.CourseName.Contains(Name) select Courses.AvailableCourseID).FirstOrDefault();
 
-                //int SearchID = Convert.ToInt32(idToSearch);
+                bool doesItExistAlready = (from Active in db.ClientCourseLines
+                                           where Active.CourseID == id
+                                           select Active).Any();
 
-                int x = Convert.ToInt32(txtSearchCourseName.Text);
+                if (doesItExistAlready == false)
+                {
 
-                var IDtoDisplay = from CourseInstance in db.CourseInstances
-                                  where CourseInstance.AvailableCourseID == x
-                                  select CourseInstance;
+                    DialogResult test = MessageBox.Show("Are you sure you want to delete this course?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (test == DialogResult.Yes)
+                {
+                    //Delete Selected
+                    var mCourse = (from x in db.CourseInstances where x.CourseID == id select x).FirstOrDefault();
+                    db.CourseInstances.DeleteOnSubmit(mCourse);
+                    db.SubmitChanges();
 
-                dgvMaintainClientCourses.DataSource = null;
-                dgvMaintainClientCourses.DataSource = IDtoDisplay;
-                dgvMaintainClientCourses.Update();
-                dgvMaintainClientCourses.Refresh();
+                    //refresh DGV
+                    LoadClientCourseInstanceInfo();
+
+                    MessageBox.Show("Course has been deleted", "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else if (test == DialogResult.No)
+                {
+                    MessageBox.Show("Course not deleted", "Cancel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                }
+                else
+                {
+                    MessageBox.Show("Cannot Course as thereare active courses running of this course", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                var SC = from CourseInstance in db.CourseInstances select CourseInstance;
-                dgvMaintainClientCourses.DataSource = SC;
-                dgvMaintainClientCourses.Update();
-                dgvMaintainClientCourses.Refresh();
+                MessageBox.Show("Please select a row to add", "Error");
             }
+
+            
         }
+
 
         private void btnSubmitCouseDetails_Click_1(object sender, EventArgs e)
         {
@@ -313,14 +326,14 @@ namespace PETSystem
 
         private void dgvMaintainClientCourses_SelectionChanged_1(object sender, EventArgs e)
         {
-            if (dgvMaintainClientCourses.SelectedCells.Count > 0)
-            {
-                CourseInstance _CourseInstance = (CourseInstance)dgvMaintainClientCourses.CurrentRow.DataBoundItem;
-                id = _CourseInstance.AvailableCourseID;
-                CourseInstanceToUpdate = id;
+            //if (dgvMaintainClientCourses.SelectedCells.Count > 0)
+            //{
+            //    CourseInstance _CourseInstance = (CourseInstance)dgvMaintainClientCourses.CurrentRow.DataBoundItem;
+            //    id = _CourseInstance.AvailableCourseID;
+            //    CourseInstanceToUpdate = id;
 
 
-            }
+            //}
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -530,54 +543,7 @@ namespace PETSystem
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            txtSearchCourseName.BackColor = Color.White;
-            string CourseName = txtSearchCourseName.Text;
-            bool isString = chk.Checkstring(CourseName);
-            bool notEmpty = chk.CheckEmpty(CourseName);
-            bool checkForSQLInjection = chk.checkForSQLInjection(CourseName);
-
-            if (isString == false)
-            {
-                txtSearchCourseName.BackColor = Color.FromArgb(244, 17, 17);
-                SearchCIsValid = false;
-            }
-            else if (notEmpty == false)
-            {
-                txtSearchCourseName.BackColor = Color.FromArgb(244, 17, 17);
-                SearchCIsValid = false;
-            }
-            else if (checkForSQLInjection == false)
-            {
-                txtSearchCourseName.BackColor = Color.FromArgb(244, 17, 17);
-                SearchCIsValid = false;
-            }
-            else
-            {
-                txtSearchCourseName.BackColor = Color.White;
-                SearchCIsValid = true;
-            }
-
-
-
-            if (SearchCIsValid == true)
-            {
-                var searchDesc = from Course in db.Courses
-                                 where Course.CourseName.Contains(CourseName)
-                                 select Course;
-                dgvSearchCourse.DataSource = searchDesc;
-            }
-            else
-            {
-                var SC = from Course in db.Courses select Course;
-                dgvSearchCourse.DataSource = SC;
-                dgvSearchCourse.Update();
-                dgvSearchCourse.Refresh();
-            }
-
-        }
-
+       
         private void txtSearchCCName_TextChanged(object sender, EventArgs e)
         {
             txtSearchCCName.BackColor = Color.White;
@@ -777,6 +743,52 @@ namespace PETSystem
             {
                 MessageBox.Show("Course client not deleted", "Cancel", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void LoadClientCourseInstanceInfo()
+        {
+            foreach (var x in dgvMaintainClientCourses.Rows)
+            {
+                dgvMaintainClientCourses.Rows.Clear();
+
+            }
+            dgvMaintainClientCourses.Update();
+            dgvMaintainClientCourses.Refresh();
+
+            var mStockload = (from a in db.CourseInstances
+                              select new
+                              {
+                                  a.StartDate,
+                                  a.InstructorID,
+                                  a.AvailableCourseID,
+                                  a.CourseVenu,
+                                  a.TimeSlot,
+                                  a.CourseID
+                              }).ToList();
+
+            foreach (var item in mStockload)
+            {
+                int SInstructorID = Convert.ToInt32(item.InstructorID);
+                int SAvailableCourseID = Convert.ToInt32(item.AvailableCourseID);
+                string SCourseVenue = item.CourseVenu;
+                int SCourseTime = Convert.ToInt32(item.TimeSlot);
+                string SStartDate = item.StartDate;
+                int SCourseID = item.CourseID;
+
+
+                var getCourseName = (from x in db.Courses where x.AvailableCourseID == SAvailableCourseID select x.CourseName).FirstOrDefault();
+                var getInstName = (from x in db.Instructors where x.InstructorID == SInstructorID select x.Name).FirstOrDefault();
+                var getTSD = (from x in db.TimeSlots where x.TimeSlotID == SCourseTime select x.TimeslotDay).FirstOrDefault();
+                var getTST = (from x in db.TimeSlots where x.TimeSlotID == SCourseTime select x.TimeslotTime).FirstOrDefault();
+                
+
+                dgvMaintainClientCourses.Rows.Add(new object[] { getCourseName, getInstName, getTSD, getTST, SCourseVenue, SStartDate, SCourseID});
+
+            }
+
+            dgvMaintainClientCourses.Update();
+            dgvMaintainClientCourses.Refresh();
+
         }
     }
 }

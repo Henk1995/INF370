@@ -49,14 +49,14 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnDelete = new System.Windows.Forms.Button();
             this.dgvMaintainClientCourses = new System.Windows.Forms.DataGridView();
+            this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Instructor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TimeslotDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TimeSlotTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Venue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSave = new System.Windows.Forms.Button();
-            this.MaintainTCPanel = new System.Windows.Forms.Panel();
-            this.txtSearchCourseName = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.txtCourseDuration = new System.Windows.Forms.TextBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -65,6 +65,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dgvSearchCourse = new System.Windows.Forms.DataGridView();
             this.btnRefreshDGV = new System.Windows.Forms.Button();
             this.btnViewCourse = new System.Windows.Forms.Button();
@@ -83,12 +84,12 @@
             this.btnRemoveClient = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.dgvCourseClient = new System.Windows.Forms.DataGridView();
+            this.CourseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.AddCoursePanel.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaintainClientCourses)).BeginInit();
-            this.MaintainTCPanel.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchCourse)).BeginInit();
@@ -295,7 +296,6 @@
             this.tabPage2.Controls.Add(this.btnDelete);
             this.tabPage2.Controls.Add(this.dgvMaintainClientCourses);
             this.tabPage2.Controls.Add(this.btnSave);
-            this.tabPage2.Controls.Add(this.MaintainTCPanel);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -306,7 +306,7 @@
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(322, 251);
+            this.btnDelete.Location = new System.Drawing.Point(106, 405);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(94, 29);
             this.btnDelete.TabIndex = 28;
@@ -319,68 +319,66 @@
             this.dgvMaintainClientCourses.AllowUserToAddRows = false;
             this.dgvMaintainClientCourses.AllowUserToDeleteRows = false;
             this.dgvMaintainClientCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMaintainClientCourses.Location = new System.Drawing.Point(289, 16);
+            this.dgvMaintainClientCourses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CourseName,
+            this.Instructor,
+            this.TimeslotDay,
+            this.TimeSlotTime,
+            this.Venue,
+            this.StartDate,
+            this.CourseID});
+            this.dgvMaintainClientCourses.Location = new System.Drawing.Point(6, 14);
             this.dgvMaintainClientCourses.Name = "dgvMaintainClientCourses";
-            this.dgvMaintainClientCourses.Size = new System.Drawing.Size(469, 186);
+            this.dgvMaintainClientCourses.ReadOnly = true;
+            this.dgvMaintainClientCourses.Size = new System.Drawing.Size(752, 373);
             this.dgvMaintainClientCourses.TabIndex = 26;
             this.dgvMaintainClientCourses.SelectionChanged += new System.EventHandler(this.dgvMaintainClientCourses_SelectionChanged_1);
             // 
+            // CourseName
+            // 
+            this.CourseName.HeaderText = "Course Name";
+            this.CourseName.Name = "CourseName";
+            this.CourseName.ReadOnly = true;
+            // 
+            // Instructor
+            // 
+            this.Instructor.HeaderText = "Instructor";
+            this.Instructor.Name = "Instructor";
+            this.Instructor.ReadOnly = true;
+            // 
+            // TimeslotDay
+            // 
+            this.TimeslotDay.HeaderText = "Timeslot Day";
+            this.TimeslotDay.Name = "TimeslotDay";
+            this.TimeslotDay.ReadOnly = true;
+            // 
+            // TimeSlotTime
+            // 
+            this.TimeSlotTime.HeaderText = "Timeslot Time";
+            this.TimeSlotTime.Name = "TimeSlotTime";
+            this.TimeSlotTime.ReadOnly = true;
+            // 
+            // Venue
+            // 
+            this.Venue.HeaderText = "Venue";
+            this.Venue.Name = "Venue";
+            this.Venue.ReadOnly = true;
+            // 
+            // StartDate
+            // 
+            this.StartDate.HeaderText = "Start Date";
+            this.StartDate.Name = "StartDate";
+            this.StartDate.ReadOnly = true;
+            // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(322, 215);
+            this.btnSave.Location = new System.Drawing.Point(6, 405);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(94, 29);
             this.btnSave.TabIndex = 27;
             this.btnSave.Text = "Update";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
-            // 
-            // MaintainTCPanel
-            // 
-            this.MaintainTCPanel.Controls.Add(this.txtSearchCourseName);
-            this.MaintainTCPanel.Controls.Add(this.button4);
-            this.MaintainTCPanel.Controls.Add(this.label6);
-            this.MaintainTCPanel.Controls.Add(this.label7);
-            this.MaintainTCPanel.Location = new System.Drawing.Point(7, 16);
-            this.MaintainTCPanel.Name = "MaintainTCPanel";
-            this.MaintainTCPanel.Size = new System.Drawing.Size(276, 123);
-            this.MaintainTCPanel.TabIndex = 25;
-            // 
-            // txtSearchCourseName
-            // 
-            this.txtSearchCourseName.Location = new System.Drawing.Point(89, 33);
-            this.txtSearchCourseName.Name = "txtSearchCourseName";
-            this.txtSearchCourseName.Size = new System.Drawing.Size(119, 20);
-            this.txtSearchCourseName.TabIndex = 10;
-            this.txtSearchCourseName.TextChanged += new System.EventHandler(this.txtSearchCourseName_TextChanged_1);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(170, 145);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(102, 39);
-            this.button4.TabIndex = 9;
-            this.button4.Text = "Submit";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(8, 33);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 13);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Course Name:";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(4, 4);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(106, 17);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Search Course:";
             // 
             // tabPage3
             // 
@@ -399,23 +397,6 @@
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Add Course Type";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.dgvSearchCourse);
-            this.tabPage4.Controls.Add(this.btnRefreshDGV);
-            this.tabPage4.Controls.Add(this.btnViewCourse);
-            this.tabPage4.Controls.Add(this.btnRemoveCourse);
-            this.tabPage4.Controls.Add(this.textBox1);
-            this.tabPage4.Controls.Add(this.btnUpdateCourse);
-            this.tabPage4.Controls.Add(this.label9);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(764, 455);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Maintain Course Type";
-            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // txtCourseDuration
             // 
@@ -488,6 +469,23 @@
             this.label13.TabIndex = 71;
             this.label13.Text = "Course Cost:";
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.dgvSearchCourse);
+            this.tabPage4.Controls.Add(this.btnRefreshDGV);
+            this.tabPage4.Controls.Add(this.btnViewCourse);
+            this.tabPage4.Controls.Add(this.btnRemoveCourse);
+            this.tabPage4.Controls.Add(this.textBox1);
+            this.tabPage4.Controls.Add(this.btnUpdateCourse);
+            this.tabPage4.Controls.Add(this.label9);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(764, 455);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Maintain Course Type";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
             // dgvSearchCourse
             // 
             this.dgvSearchCourse.AllowUserToAddRows = false;
@@ -531,11 +529,10 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 83);
+            this.textBox1.Location = new System.Drawing.Point(0, 0);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(213, 20);
-            this.textBox1.TabIndex = 68;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 73;
             // 
             // btnUpdateCourse
             // 
@@ -672,6 +669,12 @@
             this.dgvCourseClient.TabIndex = 60;
             this.dgvCourseClient.SelectionChanged += new System.EventHandler(this.dgvCourseClient_SelectionChanged);
             // 
+            // CourseID
+            // 
+            this.CourseID.HeaderText = "CourseID";
+            this.CourseID.Name = "CourseID";
+            this.CourseID.ReadOnly = true;
+            // 
             // Maintain_Client_Courses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -688,8 +691,6 @@
             this.AddCoursePanel.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaintainClientCourses)).EndInit();
-            this.MaintainTCPanel.ResumeLayout(false);
-            this.MaintainTCPanel.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
@@ -725,11 +726,6 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.DataGridView dgvMaintainClientCourses;
         private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Panel MaintainTCPanel;
-        private System.Windows.Forms.TextBox txtSearchCourseName;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TextBox txtCourseDuration;
@@ -758,5 +754,12 @@
         private System.Windows.Forms.Button btnRemoveClient;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DataGridView dgvCourseClient;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CourseName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Instructor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TimeslotDay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TimeSlotTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Venue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StartDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CourseID;
     }
 }
