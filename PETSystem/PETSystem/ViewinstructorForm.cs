@@ -122,6 +122,13 @@ namespace PETSystem
          //   pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             ms.Close();
         }
-       
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose(true);
+            Instructors myform = new Instructors();
+            myform.ShowDialog();
+        }
     }
 }

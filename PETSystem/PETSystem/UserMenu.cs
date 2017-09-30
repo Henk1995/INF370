@@ -206,5 +206,10 @@ namespace PETSystem
         {
             t.Enabled = false;
         }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+
+        }
     }
 }

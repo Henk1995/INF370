@@ -14,7 +14,8 @@ namespace PETSystem
 {
     public partial class Instructors : Form
     {
-        
+        DateTime endOfTime;
+        Timer t;
         SqlDataAdapter DA;
         ErrorHandle EH;
         public Instructors()
@@ -31,6 +32,13 @@ namespace PETSystem
 
         private void Instructors_Load(object sender, EventArgs e)
         {
+
+            //Timer
+            endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
+            t = new Timer() { Interval = 1000, Enabled = true };
+            t.Tick += new EventHandler(timer1_Tick);
+            timer1_Tick(null, null);
+
             comboBox1.SelectedIndex = 0;
             // TODO: This line of code loads data into the 'iNF370DataSet.Instructor' table. You can move, or remove it, as needed.
             //  this.instructorTableAdapter.Fill(this.iNF370DataSet.Instructor);
@@ -433,6 +441,33 @@ namespace PETSystem
             }
 
 
+        }
+
+        int stop = 0;
+        int ticks = ConnectString.TimerTime * 60;
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+            stop++;
+
+            if (stop > ticks)
+            {
+                t.Enabled = false;
+                this.Close();
+                this.Dispose(true);
+                LoginF myform = new LoginF();
+                myform.ShowDialog();
+            }
+            else {
+                TimeSpan ts = endOfTime.Subtract(DateTime.Now);
+                lblTimer.Text = ts.ToString();
+            }
+        }
+
+        private void Instructors_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            t.Enabled = false;
         }
     }
 }
