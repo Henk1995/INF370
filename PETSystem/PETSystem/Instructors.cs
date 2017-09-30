@@ -410,10 +410,29 @@ namespace PETSystem
 
         private void button3_Click_1(object sender, EventArgs e)
         {
-            this.Close();
-            this.Dispose(true);
-            ViewinstructorForm myform = new ViewinstructorForm();
-            myform.ShowDialog();
+
+            if (dgvInstructor.SelectedRows.Count > 0)
+            {
+                int selectedIndex = dgvInstructor.SelectedRows[0].Index;
+
+                // gets the RowID from the first column in the grid
+                ConnectString.InstructorID = int.Parse(dgvInstructor[0, selectedIndex].Value.ToString());
+                ConnectString.InstructorName = dgvInstructor.SelectedRows[0].Cells[1].Value + string.Empty;
+                ConnectString.InstructorSurname = dgvInstructor.SelectedRows[0].Cells[2].Value + string.Empty;
+                ConnectString.instructorEmail = dgvInstructor.SelectedRows[0].Cells[3].Value + string.Empty;
+                ConnectString.InstructorPhoneNumber = dgvInstructor.SelectedRows[0].Cells[4].Value + string.Empty;
+                ConnectString.InstructorGender = dgvInstructor.SelectedRows[0].Cells[5].Value + string.Empty;
+                ConnectString.InstructorTitle = dgvInstructor.SelectedRows[0].Cells[6].Value + string.Empty;
+                this.Close();
+                InstructorBioForm um = new InstructorBioForm();
+                um.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Please select the row you want to view");
+            }
+
+
         }
     }
 }

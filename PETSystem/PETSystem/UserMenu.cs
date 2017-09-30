@@ -11,11 +11,16 @@ using System.Data.OleDb;
 using System.Data.SqlClient;
 
 
+
 namespace PETSystem
 {
     public partial class UserMenu : Form
     {
-       
+      
+
+
+        
+        DateTime endOfTime;
         
         DataTable DT = new DataTable();
         
@@ -44,6 +49,16 @@ namespace PETSystem
             dgvUsers.DataSource = DT;
             dgvUsers.DataMember = DT.TableName;
             ConnectString.connectstring.Close();
+
+
+            //Timer
+            endOfTime = DateTime.Now.AddMinutes(10);
+            Timer t = new Timer() { Interval = 1, Enabled = true };
+            t.Tick += new EventHandler(timer1_Tick);
+            timer1_Tick(null, null);
+
+
+           
         }
 
         private void btnMainM_Click(object sender, EventArgs e)
@@ -136,6 +151,18 @@ namespace PETSystem
         }
 
         private void dgvUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+            TimeSpan ts = endOfTime.Subtract(DateTime.Now);
+            label4.Text = ts.ToString();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }

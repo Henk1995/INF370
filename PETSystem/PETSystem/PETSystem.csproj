@@ -208,6 +208,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>inf370RegDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="InstructorBioForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InstructorBioForm.Designer.cs">
+      <DependentUpon>InstructorBioForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Instructors.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -555,6 +561,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ForgotPassword.resx">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InstructorBioForm.resx">
+      <DependentUpon>InstructorBioForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Instructors.resx">
       <DependentUpon>Instructors.cs</DependentUpon>
