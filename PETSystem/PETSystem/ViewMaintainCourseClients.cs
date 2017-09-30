@@ -54,23 +54,15 @@ namespace PETSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //Add client to course
 
-            try
-            {
-                //check if already in course
-                bool duplicate = (from ClientCourseLine in db.ClientCourseLines
-                                  where ClientCourseLine.ClientID == SelectedAvailableClient && ClientCourseLine.CourseID == CourseInstanceID
-                                  select ClientCourseLine).Any();
-
-                if (duplicate == true)
+            try {
+                //Add client to course
+                if (dgvClientsAvailable.SelectedRows.Count > 0)
                 {
 
-                    MessageBox.Show("Client Already in course", "Error;");
-
-                }
-                else {
-                    //get info
+                    // get client id
+                    Client _ClientInCourse = (Client)dgvClientsAvailable.CurrentRow.DataBoundItem;
+                    string SelectedClientName = Convert.ToString(dgvClientsAvailable.SelectedCells[0].Value);
                     var GetClientIDToAddToCourse = (from x in db.Clients where x.ClientID == SelectedAvailableClient select x.ClientID).FirstOrDefault();
 
                     // add client to client course line
@@ -88,45 +80,57 @@ namespace PETSystem
 
                     //refresh bottom dgv
                     RefreshDGV();
+                    //}
+                }
+                else
+                {
+                    MessageBox.Show("Please select a row to add", "Error");
                 }
             }
+            
             catch
             {
-                MessageBox.Show("Client Already in course", "Error;");
-                dgvClientsAvailable.ClearSelection();
-
-
+                MessageBox.Show("Client already added", "Error");
             }
             RefreshDGV();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
 
-            // Remove client from course
-            if (dgvClientsAvailable.SelectedCells.Count > 0)
+            try
             {
-                ClientCourseLine _ClientInCourse = (ClientCourseLine)dgvClientCourseLine.CurrentRow.DataBoundItem;
-            string SelectedClientName = Convert.ToString(dgvClientCourseLine.SelectedCells[0].Value);
+                // Remove client from course
+                if (dgvClientsAvailable.SelectedCells.Count > 0)
+                {
+                    ClientCourseLine _ClientInCourse = (ClientCourseLine)dgvClientCourseLine.CurrentRow.DataBoundItem;
+                    string SelectedClientName = Convert.ToString(dgvClientCourseLine.SelectedCells[0].Value);
 
-            var GetClientIDFromName = (from x in db.Clients where x.ClientName == SelectedClientName select x.ClientID).FirstOrDefault();
-            SelectedClientLine = GetClientIDFromName;
+                    var GetClientIDFromName = (from x in db.Clients where x.ClientName == SelectedClientName select x.ClientID).FirstOrDefault();
+                    SelectedClientLine = GetClientIDFromName;
 
-                //Delete Selected
-                var mRemoveClientFromCourse = (from x in db.ClientCourseLines where x.ClientID == SelectedClientLine select x).First();
-                db.ClientCourseLines.DeleteOnSubmit(mRemoveClientFromCourse);
-                db.SubmitChanges();
+                    //Delete Selected
+                    var mRemoveClientFromCourse = (from x in db.ClientCourseLines where x.ClientID == SelectedClientLine select x).First();
+                    db.ClientCourseLines.DeleteOnSubmit(mRemoveClientFromCourse);
+                    db.SubmitChanges();
 
-                
 
-                MessageBox.Show("Client has been removed form the course", "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    MessageBox.Show("Client has been removed form the course", "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Please select a row to Remove", "Error");
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("Please select a row to add", "Error");
-            }
+                MessageBox.Show("Please Select a row", "Error;");
+                dgvClientsAvailable.ClearSelection();
 
+
+            }
             RefreshDGV();
 
             

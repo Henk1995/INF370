@@ -31,6 +31,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dgvClientList = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Client_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Client_Surname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Result = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,6 +64,7 @@
             this.dgvClientList.AllowUserToDeleteRows = false;
             this.dgvClientList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
             this.Client_Name,
             this.Client_Surname,
             this.Result});
@@ -71,6 +73,12 @@
             this.dgvClientList.ReadOnly = true;
             this.dgvClientList.Size = new System.Drawing.Size(479, 237);
             this.dgvClientList.TabIndex = 6;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "Client ID";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Client_Name
             // 
@@ -110,6 +118,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgvClientList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Client_Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn Client_Surname;
         private System.Windows.Forms.DataGridViewTextBoxColumn Result;

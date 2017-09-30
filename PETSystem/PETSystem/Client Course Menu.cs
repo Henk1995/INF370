@@ -37,14 +37,15 @@ namespace PETSystem
             if (dgvTC.SelectedRows.Count > 0)
             {
                 CourseInstance _ClientInCourse = (CourseInstance)dgvTC.CurrentRow.DataBoundItem;
-                string GetCourseName = Convert.ToString(dgvTC.SelectedCells[0].Value);
-                string GetInstName = Convert.ToString(dgvTC.SelectedCells[1].Value);
-                string GetTSD = Convert.ToString(dgvTC.SelectedCells[2].Value);
-                string GetTST = Convert.ToString(dgvTC.SelectedCells[3].Value);
-                string GetVenue = Convert.ToString(dgvTC.SelectedCells[4].Value);
-                string GetStartDate = Convert.ToString(dgvTC.SelectedCells[5].Value);
+                string GetCourseName = Convert.ToString(dgvTC.SelectedCells[1].Value);
+                string GetInstName = Convert.ToString(dgvTC.SelectedCells[2].Value);
+                string GetTSD = Convert.ToString(dgvTC.SelectedCells[3].Value);
+                string GetTST = Convert.ToString(dgvTC.SelectedCells[4].Value);
+                string GetVenue = Convert.ToString(dgvTC.SelectedCells[5].Value);
+                string GetStartDate = Convert.ToString(dgvTC.SelectedCells[6].Value);
 
-                int CourseClientLineID = (from x in db.CourseInstances where x.CourseVenu == GetVenue && x.StartDate == GetStartDate select x.CourseID).FirstOrDefault();
+                CourseClientLineID = Convert.ToInt32(dgvTC.SelectedCells[0].Value);
+               // CourseClientLineID = Convert.ToInt32(from x in db.CourseInstances where x.CourseVenu == GetVenue && x.StartDate == GetStartDate select x.CourseID);
 
                 this.Close();
                 ViewMaintainCourseClients vmcc = new ViewMaintainCourseClients();
@@ -103,9 +104,9 @@ namespace PETSystem
                 string GetVenue = Convert.ToString(dgvTC.SelectedCells[5].Value);
                 string GetStartDate = Convert.ToString(dgvTC.SelectedCells[6].Value);
 
-                
 
-                int CourseClientLineID = (from x in db.CourseInstances where x.CourseVenu == GetVenue && x.StartDate == GetStartDate select x.CourseID).FirstOrDefault();
+                CourseClientLineID = Convert.ToInt32(dgvTC.SelectedCells[0].Value);
+               // CourseClientLineID = Convert.ToInt32(from x in db.CourseInstances where x.CourseVenu == GetVenue && x.StartDate == GetStartDate select x.CourseID);
 
                 this.Close();
                 AddClientResult ACR = new AddClientResult();
