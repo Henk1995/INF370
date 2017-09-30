@@ -48,8 +48,8 @@ namespace PETSystem
                 var getClientName = (from x in db.Clients where x.ClientID == item.ClientID select x.ClientName).FirstOrDefault();
                 var getClientSurname = (from x in db.Clients where x.ClientID == item.ClientID select x.ClientSurname).FirstOrDefault();
                 var getResultName = (from x in db.Results where x.ResultID == item.ResultID select x.ResultName).FirstOrDefault();
-
-                dgvClientList.Rows.Add(new object[] { getClientName, getClientSurname, getResultName });
+                
+                dgvClientList.Rows.Add(new object[] { item.ClientID, getClientName, getClientSurname, getResultName });
             }
             dgvClientList.Update();
             dgvClientList.Refresh();
@@ -64,24 +64,27 @@ namespace PETSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Remove client from course
-            if (dgvClientList.SelectedCells.Count > 0)
+            if (dgvClientList.SelectedRows.Count > 0)
             {
                 ClientCourseLine _ClientInCourse = (ClientCourseLine)dgvClientList.CurrentRow.DataBoundItem;
-                string SelectedClientName = Convert.ToString(dgvClientList.SelectedCells[0].Value);
-                //string SelectedClientSurname = Convert.ToString(dgvClientList.SelectedCells[1].Value);
+                //string SelectedClientName = Convert.ToString(dgvClientList.SelectedCells[0].Value);
 
-                var GetClientIDFromName = (from x in db.Clients where x.ClientName == SelectedClientName select x.ClientID).FirstOrDefault();
-                SelectedClientLine = GetClientIDFromName;
+                SelectedClientLine = Convert.ToInt32(dgvClientList.SelectedCells[0].Value);
+
+                this.Close();
+                AddClientResultMessageBox ACRMB = new AddClientResultMessageBox();
+                ACRMB.Show();
+
+                
+
+                //var GetClientIDFromName = (from x in db.Clients where x.ClientName == SelectedClientName select x.ClientID).FirstOrDefault();
+                //SelectedClientLine = GetClientIDFromName;
             }
             else
             {
                 MessageBox.Show("Please select a row to add", "Error");
             }
 
-            this.Close();
-            AddClientResultMessageBox ACRMB = new AddClientResultMessageBox();
-            ACRMB.Show();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
