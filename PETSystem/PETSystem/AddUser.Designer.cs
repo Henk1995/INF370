@@ -285,6 +285,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AddUser";
             this.Text = "Add User";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddUser_FormClosing);
             this.Load += new System.EventHandler(this.AddUser_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -18,6 +18,7 @@ namespace PETSystem
     public partial class AddUser : Form
     {
         DateTime endOfTime;
+        Timer t;
         bool valid1 = false;
         bool valid2 = false;
         bool valid3 = false;
@@ -36,8 +37,8 @@ namespace PETSystem
         private void AddUser_Load(object sender, EventArgs e)
         {
             //Timer
-            endOfTime = DateTime.Now.AddMinutes(10);
-            Timer t = new Timer() { Interval = 1000, Enabled = true };
+            endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
+             t = new Timer() { Interval = 1000, Enabled = true };
             t.Tick += new EventHandler(timer1_Tick);
             timer1_Tick(null, null);
 
@@ -307,12 +308,17 @@ namespace PETSystem
                 txtRetype.BackColor = Color.White;
             }
         }
-        int stop;
+        int stop = 0;
+        int ticks = ConnectString.TimerTime * 60;
+
         private void timer1_Tick(object sender, EventArgs e)
         {
+
             stop++;
-            if (stop > 600)
+
+            if (stop > ticks)
             {
+                t.Enabled = false;
                 this.Close();
                 this.Dispose(true);
                 LoginF myform = new LoginF();
@@ -323,5 +329,10 @@ namespace PETSystem
                 lblLogout.Text = ts.ToString();
             }
         }
+
+        private void AddUser_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            t.Enabled = false;
+        }
     }
-}
+    }

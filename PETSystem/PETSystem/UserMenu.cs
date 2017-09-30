@@ -21,7 +21,7 @@ namespace PETSystem
 
         
         DateTime endOfTime;
-        
+        Timer t;
         DataTable DT = new DataTable();
         
         static SqlCommand Fill = new SqlCommand("SELECT UserTable.UserID,UserTable.Name,UserTable.Surname,UserTable.UserName,UserTable.UserPassword,UserTable.Email,PrivilegeType.PrivName FROM UserTable INNER JOIN PrivilegeType ON PrivilegeType.PrivilegeID = UserTable.PriveledgeID", ConnectString.connectstring);
@@ -65,7 +65,7 @@ namespace PETSystem
 
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
-            Timer t = new Timer() { Interval = 1000, Enabled = true };
+            t = new Timer() { Interval = 1000, Enabled = true };
             t.Tick += new EventHandler(timer1_Tick);
             timer1_Tick(null, null);
 
@@ -166,15 +166,17 @@ namespace PETSystem
         {
 
         }
-        int stop = ConnectString.TimerTime;
-        int ticks;
+        int stop =0;
+        int ticks = ConnectString.TimerTime*60;
         
         private void timer1_Tick(object sender, EventArgs e)
         {
-            ticks = stop * 60;
+           
             stop++;
+            
             if ( stop > ticks)
             {
+                t.Enabled = false;
                 this.Close();
                 this.Dispose(true);
                 LoginF myform = new LoginF();
@@ -198,6 +200,11 @@ namespace PETSystem
             UpdateTimerTime myform = new UpdateTimerTime();
             myform.ShowDialog();
             
+        }
+
+        private void UserMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            t.Enabled = false;
         }
     }
 }

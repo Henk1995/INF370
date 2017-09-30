@@ -18,10 +18,17 @@ namespace PETSystem
         {
             InitializeComponent();
         }
-
+        DateTime endOfTime;
+        Timer t;
         private void UpdateTrainingCourseForm_Load(object sender, EventArgs e)
         {
-            
+
+            //Timer
+            endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
+            t = new Timer() { Interval = 1000, Enabled = true };
+            t.Tick += new EventHandler(timer1_Tick);
+            timer1_Tick(null, null);
+
             //MessageBox.Show(ConnectString.CourseStringID);
             txtname.Text = ConnectString.CourseName;
             txtDuration.Text = ConnectString.CourseDuration;
@@ -95,6 +102,33 @@ namespace PETSystem
             {
 
             }
+        }
+
+        int stop = 0;
+        int ticks = ConnectString.TimerTime * 60;
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+            stop++;
+
+            if (stop > ticks)
+            {
+                t.Enabled = false;
+                this.Close();
+                this.Dispose(true);
+                LoginF myform = new LoginF();
+                myform.ShowDialog();
+            }
+            else {
+                TimeSpan ts = endOfTime.Subtract(DateTime.Now);
+                lblTimer.Text = ts.ToString();
+            }
+        }
+
+        private void UpdateTrainingCourseForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            t.Enabled = false;
         }
     }
 }

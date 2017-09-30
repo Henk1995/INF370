@@ -14,6 +14,8 @@ namespace PETSystem
 
     public partial class AddResult : Form
     {
+        DateTime endOfTime;
+        Timer t;
         DataTable DT = new DataTable();
         int courseID;
        
@@ -33,6 +35,12 @@ namespace PETSystem
 
         private void AddResult_Load(object sender, EventArgs e)
         {
+            //Timer
+            endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
+             t = new Timer() { Interval = 1000, Enabled = true };
+            t.Tick += new EventHandler(timer1_Tick);
+            timer1_Tick(null, null);
+
             ConnectString.CourseID = courseID;
             SqlCommand Fill = new SqlCommand("SELECT  Instructor.InstructorID, Instructor.Name,Instructor.Surname,Results.ResultName From  Instructor,Results   Where Instructor.InstructorID = ANY(SELECT TrainingCourseLine.InstructorID FROM TrainingCourseLine   Where TrainingCourseLine.TrainingCourseID = '" + ConnectString.CourseID + "' AND Results.ResultID = ANY(SELECT TrainingCourseLine.ResultID FROM TrainingCourseLine   Where TrainingCourseLine.ResultID <4 AND  TrainingCourseLine.TrainingCourseID = '" + ConnectString.CourseID + "'))", ConnectString.connectstring);
             SqlDataAdapter DA = new SqlDataAdapter(Fill);
@@ -93,6 +101,33 @@ namespace PETSystem
             DA.Fill(DT);
             dataGridView1.DataSource = DT;
             ConnectString.connectstring.Close();
+        }
+
+        int stop = 0;
+        int ticks = ConnectString.TimerTime * 60;
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+            stop++;
+
+            if (stop > ticks)
+            {
+                t.Enabled = false;
+                this.Close();
+                this.Dispose(true);
+                LoginF myform = new LoginF();
+                myform.ShowDialog();
+            }
+            else {
+                TimeSpan ts = endOfTime.Subtract(DateTime.Now);
+                lblTimer.Text = ts.ToString();
+            }
+        }
+
+        private void AddResult_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            t.Enabled = false;
         }
     }
 }

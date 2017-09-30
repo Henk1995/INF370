@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.txtVenue = new System.Windows.Forms.TextBox();
@@ -60,6 +61,9 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.button5 = new System.Windows.Forms.Button();
+            this.lblTimer = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.AddCourseTypeP.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaintain)).BeginInit();
@@ -320,7 +324,7 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(3, 2);
+            this.tabControl1.Location = new System.Drawing.Point(3, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(761, 366);
@@ -390,16 +394,46 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click_1);
             // 
+            // lblTimer
+            // 
+            this.lblTimer.AutoSize = true;
+            this.lblTimer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTimer.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimer.Location = new System.Drawing.Point(702, -1);
+            this.lblTimer.Name = "lblTimer";
+            this.lblTimer.Size = new System.Drawing.Size(73, 19);
+            this.lblTimer.TabIndex = 15;
+            this.lblTimer.Text = "Logout In:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label11.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(652, -1);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(73, 19);
+            this.label11.TabIndex = 16;
+            this.label11.Text = "Logout In:";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // MaintainCourses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(762, 448);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.button2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "MaintainCourses";
             this.Text = "MaintainCourses";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MaintainCourses_FormClosing);
             this.Load += new System.EventHandler(this.MaintainCourses_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.AddCourseTypeP.ResumeLayout(false);
@@ -414,6 +448,7 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -450,5 +485,8 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbSearch;
+        private System.Windows.Forms.Label lblTimer;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Timer timer1;
     }
 }

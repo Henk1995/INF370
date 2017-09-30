@@ -177,6 +177,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "TrainingCourseMenu";
             this.Text = "TrainingCourseMenu";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TrainingCourseMenu_FormClosing);
             this.Load += new System.EventHandler(this.TrainingCourseMenu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTC)).EndInit();
             this.panel1.ResumeLayout(false);

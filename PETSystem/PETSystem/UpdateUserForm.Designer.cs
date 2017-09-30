@@ -215,6 +215,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "UpdateUserForm";
             this.Text = "UpdateUserForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UpdateUserForm_FormClosing);
             this.Load += new System.EventHandler(this.UpdateUserForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
