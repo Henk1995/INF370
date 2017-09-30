@@ -49,12 +49,6 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnDelete = new System.Windows.Forms.Button();
             this.dgvMaintainClientCourses = new System.Windows.Forms.DataGridView();
-            this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Instructor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TimeslotDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TimeSlotTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Venue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSave = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.txtCourseDuration = new System.Windows.Forms.TextBox();
@@ -85,6 +79,12 @@
             this.label14 = new System.Windows.Forms.Label();
             this.dgvCourseClient = new System.Windows.Forms.DataGridView();
             this.CourseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Instructor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TimeslotDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TimeSlotTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Venue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.AddCoursePanel.SuspendLayout();
@@ -320,55 +320,19 @@
             this.dgvMaintainClientCourses.AllowUserToDeleteRows = false;
             this.dgvMaintainClientCourses.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMaintainClientCourses.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CourseID,
             this.CourseName,
             this.Instructor,
             this.TimeslotDay,
             this.TimeSlotTime,
             this.Venue,
-            this.StartDate,
-            this.CourseID});
+            this.StartDate});
             this.dgvMaintainClientCourses.Location = new System.Drawing.Point(6, 14);
             this.dgvMaintainClientCourses.Name = "dgvMaintainClientCourses";
             this.dgvMaintainClientCourses.ReadOnly = true;
             this.dgvMaintainClientCourses.Size = new System.Drawing.Size(752, 373);
             this.dgvMaintainClientCourses.TabIndex = 26;
             this.dgvMaintainClientCourses.SelectionChanged += new System.EventHandler(this.dgvMaintainClientCourses_SelectionChanged_1);
-            // 
-            // CourseName
-            // 
-            this.CourseName.HeaderText = "Course Name";
-            this.CourseName.Name = "CourseName";
-            this.CourseName.ReadOnly = true;
-            // 
-            // Instructor
-            // 
-            this.Instructor.HeaderText = "Instructor";
-            this.Instructor.Name = "Instructor";
-            this.Instructor.ReadOnly = true;
-            // 
-            // TimeslotDay
-            // 
-            this.TimeslotDay.HeaderText = "Timeslot Day";
-            this.TimeslotDay.Name = "TimeslotDay";
-            this.TimeslotDay.ReadOnly = true;
-            // 
-            // TimeSlotTime
-            // 
-            this.TimeSlotTime.HeaderText = "Timeslot Time";
-            this.TimeSlotTime.Name = "TimeSlotTime";
-            this.TimeSlotTime.ReadOnly = true;
-            // 
-            // Venue
-            // 
-            this.Venue.HeaderText = "Venue";
-            this.Venue.Name = "Venue";
-            this.Venue.ReadOnly = true;
-            // 
-            // StartDate
-            // 
-            this.StartDate.HeaderText = "Start Date";
-            this.StartDate.Name = "StartDate";
-            this.StartDate.ReadOnly = true;
             // 
             // btnSave
             // 
@@ -675,6 +639,42 @@
             this.CourseID.Name = "CourseID";
             this.CourseID.ReadOnly = true;
             // 
+            // CourseName
+            // 
+            this.CourseName.HeaderText = "Course Name";
+            this.CourseName.Name = "CourseName";
+            this.CourseName.ReadOnly = true;
+            // 
+            // Instructor
+            // 
+            this.Instructor.HeaderText = "Instructor";
+            this.Instructor.Name = "Instructor";
+            this.Instructor.ReadOnly = true;
+            // 
+            // TimeslotDay
+            // 
+            this.TimeslotDay.HeaderText = "Timeslot Day";
+            this.TimeslotDay.Name = "TimeslotDay";
+            this.TimeslotDay.ReadOnly = true;
+            // 
+            // TimeSlotTime
+            // 
+            this.TimeSlotTime.HeaderText = "Timeslot Time";
+            this.TimeSlotTime.Name = "TimeSlotTime";
+            this.TimeSlotTime.ReadOnly = true;
+            // 
+            // Venue
+            // 
+            this.Venue.HeaderText = "Venue";
+            this.Venue.Name = "Venue";
+            this.Venue.ReadOnly = true;
+            // 
+            // StartDate
+            // 
+            this.StartDate.HeaderText = "Start Date";
+            this.StartDate.Name = "StartDate";
+            this.StartDate.ReadOnly = true;
+            // 
             // Maintain_Client_Courses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -754,12 +754,12 @@
         private System.Windows.Forms.Button btnRemoveClient;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.DataGridView dgvCourseClient;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CourseID;
         private System.Windows.Forms.DataGridViewTextBoxColumn CourseName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Instructor;
         private System.Windows.Forms.DataGridViewTextBoxColumn TimeslotDay;
         private System.Windows.Forms.DataGridViewTextBoxColumn TimeSlotTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Venue;
         private System.Windows.Forms.DataGridViewTextBoxColumn StartDate;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CourseID;
     }
 }
