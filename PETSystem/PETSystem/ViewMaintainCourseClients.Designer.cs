@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnBack = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -38,11 +39,14 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dgvClientCourseLine = new System.Windows.Forms.DataGridView();
+            this.Client_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ResultID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnPrint = new System.Windows.Forms.Button();
             this.btnMainM = new System.Windows.Forms.Button();
             this.dgvClientsAvailable = new System.Windows.Forms.DataGridView();
-            this.Client_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ResultID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblTimer = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientCourseLine)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientsAvailable)).BeginInit();
             this.SuspendLayout();
@@ -144,6 +148,18 @@
             this.dgvClientCourseLine.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientCourseLine_CellContentClick);
             this.dgvClientCourseLine.SelectionChanged += new System.EventHandler(this.dgvClientCourseLine_SelectionChanged);
             // 
+            // Client_Name
+            // 
+            this.Client_Name.HeaderText = "Client Name";
+            this.Client_Name.Name = "Client_Name";
+            this.Client_Name.ReadOnly = true;
+            // 
+            // ResultID
+            // 
+            this.ResultID.HeaderText = "Result";
+            this.ResultID.Name = "ResultID";
+            this.ResultID.ReadOnly = true;
+            // 
             // btnPrint
             // 
             this.btnPrint.Location = new System.Drawing.Point(627, 366);
@@ -178,23 +194,39 @@
             this.dgvClientsAvailable.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientsAvailable_CellContentClick);
             this.dgvClientsAvailable.SelectionChanged += new System.EventHandler(this.dgvClientsAvailable_SelectionChanged);
             // 
-            // Client_Name
+            // lblTimer
             // 
-            this.Client_Name.HeaderText = "Client Name";
-            this.Client_Name.Name = "Client_Name";
-            this.Client_Name.ReadOnly = true;
+            this.lblTimer.AutoSize = true;
+            this.lblTimer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTimer.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimer.Location = new System.Drawing.Point(766, -2);
+            this.lblTimer.Name = "lblTimer";
+            this.lblTimer.Size = new System.Drawing.Size(73, 19);
+            this.lblTimer.TabIndex = 40;
+            this.lblTimer.Text = "Logout In:";
             // 
-            // ResultID
+            // label6
             // 
-            this.ResultID.HeaderText = "Result";
-            this.ResultID.Name = "ResultID";
-            this.ResultID.ReadOnly = true;
+            this.label6.AutoSize = true;
+            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label6.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(716, -2);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 19);
+            this.label6.TabIndex = 41;
+            this.label6.Text = "Logout In:";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // ViewMaintainCourseClients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(841, 430);
+            this.ClientSize = new System.Drawing.Size(826, 407);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
@@ -208,8 +240,10 @@
             this.Controls.Add(this.btnMainM);
             this.Controls.Add(this.dgvClientsAvailable);
             this.Controls.Add(this.btnBack);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "ViewMaintainCourseClients";
             this.Text = "ViewMaintainCourseClients";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ViewMaintainCourseClients_FormClosing);
             this.Load += new System.EventHandler(this.ViewMaintainCourseClients_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientCourseLine)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientsAvailable)).EndInit();
@@ -234,5 +268,8 @@
         private System.Windows.Forms.DataGridView dgvClientsAvailable;
         private System.Windows.Forms.DataGridViewTextBoxColumn Client_Name;
         private System.Windows.Forms.DataGridViewTextBoxColumn ResultID;
+        private System.Windows.Forms.Label lblTimer;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Timer timer1;
     }
 }

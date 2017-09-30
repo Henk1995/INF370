@@ -16,7 +16,8 @@ namespace PETSystem
         {
             InitializeComponent();
         }
-
+        DateTime endOfTime;
+        Timer t;
         PET_DBDataContext db = new PET_DBDataContext();
         ErrorHandle chk = new ErrorHandle();
 
@@ -130,6 +131,12 @@ namespace PETSystem
 
         private void Add_Course_Client_Load(object sender, EventArgs e)
         {
+            //Timer
+            endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
+            t = new Timer() { Interval = 1000, Enabled = true };
+            t.Tick += new EventHandler(timer1_Tick);
+            timer1_Tick(null, null);
+
             var mClientGenderID = (
                   from a in db.Genders
                   select a.GenderName)
@@ -264,6 +271,33 @@ namespace PETSystem
                 txtPhoneNumber.BackColor = Color.White;
                 PhoneNumberValid = true;
             }
+        }
+
+        int stop = 0;
+        int ticks = ConnectString.TimerTime * 60;
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+            stop++;
+
+            if (stop > ticks)
+            {
+                t.Enabled = false;
+                this.Close();
+                this.Dispose(true);
+                LoginF myform = new LoginF();
+                myform.ShowDialog();
+            }
+            else {
+                TimeSpan ts = endOfTime.Subtract(DateTime.Now);
+                lblTimer.Text = ts.ToString();
+            }
+        }
+
+        private void Add_Course_Client_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            t.Enabled = false;
         }
     }
 }

@@ -16,6 +16,8 @@ namespace PETSystem
         {
             InitializeComponent();
         }
+        DateTime endOfTime;
+        Timer t;
 
         int NewID = Maintain_Client_Courses.ToUpdate;
         PET_DBDataContext db = new PET_DBDataContext();
@@ -29,7 +31,7 @@ namespace PETSystem
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
-            SearchCourse scc = new SearchCourse();
+            Maintain_Client_Courses scc = new Maintain_Client_Courses();
             scc.Show();
         }
 
@@ -172,6 +174,12 @@ namespace PETSystem
 
         private void Update_Course_Load(object sender, EventArgs e)
         {
+            //Timer
+            endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
+            t = new Timer() { Interval = 1000, Enabled = true };
+            t.Tick += new EventHandler(timer1_Tick);
+            timer1_Tick(null, null);
+
             //Load all fields from DB
             var mLoadCourse = (from x in db.Courses where x.AvailableCourseID == Convert.ToInt32(NewID) select x).FirstOrDefault();
 
@@ -181,6 +189,33 @@ namespace PETSystem
              txtCourseDuration.Text = mLoadCourse.CourseDuration;
 
 
+        }
+
+        int stop = 0;
+        int ticks = ConnectString.TimerTime * 60;
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+            stop++;
+
+            if (stop > ticks)
+            {
+                t.Enabled = false;
+                this.Close();
+                this.Dispose(true);
+                LoginF myform = new LoginF();
+                myform.ShowDialog();
+            }
+            else {
+                TimeSpan ts = endOfTime.Subtract(DateTime.Now);
+                lblTimer.Text = ts.ToString();
+            }
+        }
+
+        private void Update_Course_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            t.Enabled = false;
         }
     }
 }

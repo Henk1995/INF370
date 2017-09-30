@@ -24,7 +24,8 @@ namespace PETSystem
             tabControl1.SelectedIndex = tabIndex;
         }
 
-
+        DateTime endOfTime;
+        Timer t;
         PET_DBDataContext db = new PET_DBDataContext();
         ErrorHandle chk = new ErrorHandle();
 
@@ -51,6 +52,12 @@ namespace PETSystem
 
         private void Maintain_Client_Courses_Load(object sender, EventArgs e)
         {
+            //Timer
+            endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
+            t = new Timer() { Interval = 1000, Enabled = true };
+            t.Tick += new EventHandler(timer1_Tick);
+            timer1_Tick(null, null);
+
             //Load course client details
             var SCC = from Client in db.Clients select Client;
             dgvCourseClient.DataSource = SCC;
@@ -789,6 +796,33 @@ namespace PETSystem
             dgvMaintainClientCourses.Update();
             dgvMaintainClientCourses.Refresh();
 
+        }
+
+        int stop = 0;
+        int ticks = ConnectString.TimerTime * 60;
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+            stop++;
+
+            if (stop > ticks)
+            {
+                t.Enabled = false;
+                this.Close();
+                this.Dispose(true);
+                LoginF myform = new LoginF();
+                myform.ShowDialog();
+            }
+            else {
+                TimeSpan ts = endOfTime.Subtract(DateTime.Now);
+                lblTimer.Text = ts.ToString();
+            }
+        }
+
+        private void Maintain_Client_Courses_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            t.Enabled = false;
         }
     }
 }

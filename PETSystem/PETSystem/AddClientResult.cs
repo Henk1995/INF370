@@ -17,7 +17,8 @@ namespace PETSystem
         {
             InitializeComponent();
         }
-
+        DateTime endOfTime;
+        Timer t;
         public static int SelectedClientLine;
         ErrorHandle chk = new ErrorHandle();
         PET_DBDataContext db = new PET_DBDataContext();
@@ -25,10 +26,16 @@ namespace PETSystem
 
         private void AddClientResult_Load(object sender, EventArgs e)
         {
-          // var getClientDetails = (from)
 
-             //dgvClientCourseLine.DataSource = null;
-            
+            //Timer
+            endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
+            t = new Timer() { Interval = 1000, Enabled = true };
+            t.Tick += new EventHandler(timer1_Tick);
+            timer1_Tick(null, null);
+            // var getClientDetails = (from)
+
+            //dgvClientCourseLine.DataSource = null;
+
 
             foreach ( var x in dgvClientList.Rows)
             {
@@ -90,6 +97,33 @@ namespace PETSystem
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        int stop = 0;
+        int ticks = ConnectString.TimerTime * 60;
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+
+            stop++;
+
+            if (stop > ticks)
+            {
+                t.Enabled = false;
+                this.Close();
+                this.Dispose(true);
+                LoginF myform = new LoginF();
+                myform.ShowDialog();
+            }
+            else {
+                TimeSpan ts = endOfTime.Subtract(DateTime.Now);
+                lblTimer.Text = ts.ToString();
+            }
+        }
+
+        private void AddClientResult_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            t.Enabled = false;
         }
     }
 }

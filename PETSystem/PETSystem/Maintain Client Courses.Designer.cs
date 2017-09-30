@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnBack = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -49,6 +50,13 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.btnDelete = new System.Windows.Forms.Button();
             this.dgvMaintainClientCourses = new System.Windows.Forms.DataGridView();
+            this.CourseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Instructor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TimeslotDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TimeSlotTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Venue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSave = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.txtCourseDuration = new System.Windows.Forms.TextBox();
@@ -78,13 +86,9 @@
             this.btnRemoveClient = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.dgvCourseClient = new System.Windows.Forms.DataGridView();
-            this.CourseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Instructor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TimeslotDay = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TimeSlotTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Venue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblTimer = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.AddCoursePanel.SuspendLayout();
@@ -99,7 +103,7 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(16, 527);
+            this.btnBack.Location = new System.Drawing.Point(16, 505);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(94, 29);
             this.btnBack.TabIndex = 16;
@@ -114,7 +118,7 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Location = new System.Drawing.Point(12, 12);
+            this.tabControl1.Location = new System.Drawing.Point(12, 22);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(772, 481);
@@ -333,6 +337,48 @@
             this.dgvMaintainClientCourses.Size = new System.Drawing.Size(752, 373);
             this.dgvMaintainClientCourses.TabIndex = 26;
             this.dgvMaintainClientCourses.SelectionChanged += new System.EventHandler(this.dgvMaintainClientCourses_SelectionChanged_1);
+            // 
+            // CourseID
+            // 
+            this.CourseID.HeaderText = "CourseID";
+            this.CourseID.Name = "CourseID";
+            this.CourseID.ReadOnly = true;
+            // 
+            // CourseName
+            // 
+            this.CourseName.HeaderText = "Course Name";
+            this.CourseName.Name = "CourseName";
+            this.CourseName.ReadOnly = true;
+            // 
+            // Instructor
+            // 
+            this.Instructor.HeaderText = "Instructor";
+            this.Instructor.Name = "Instructor";
+            this.Instructor.ReadOnly = true;
+            // 
+            // TimeslotDay
+            // 
+            this.TimeslotDay.HeaderText = "Timeslot Day";
+            this.TimeslotDay.Name = "TimeslotDay";
+            this.TimeslotDay.ReadOnly = true;
+            // 
+            // TimeSlotTime
+            // 
+            this.TimeSlotTime.HeaderText = "Timeslot Time";
+            this.TimeSlotTime.Name = "TimeSlotTime";
+            this.TimeSlotTime.ReadOnly = true;
+            // 
+            // Venue
+            // 
+            this.Venue.HeaderText = "Venue";
+            this.Venue.Name = "Venue";
+            this.Venue.ReadOnly = true;
+            // 
+            // StartDate
+            // 
+            this.StartDate.HeaderText = "Start Date";
+            this.StartDate.Name = "StartDate";
+            this.StartDate.ReadOnly = true;
             // 
             // btnSave
             // 
@@ -633,57 +679,45 @@
             this.dgvCourseClient.TabIndex = 60;
             this.dgvCourseClient.SelectionChanged += new System.EventHandler(this.dgvCourseClient_SelectionChanged);
             // 
-            // CourseID
+            // label6
             // 
-            this.CourseID.HeaderText = "CourseID";
-            this.CourseID.Name = "CourseID";
-            this.CourseID.ReadOnly = true;
+            this.label6.AutoSize = true;
+            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label6.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(679, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 19);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "Logout In:";
             // 
-            // CourseName
+            // lblTimer
             // 
-            this.CourseName.HeaderText = "Course Name";
-            this.CourseName.Name = "CourseName";
-            this.CourseName.ReadOnly = true;
+            this.lblTimer.AutoSize = true;
+            this.lblTimer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTimer.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimer.Location = new System.Drawing.Point(729, 0);
+            this.lblTimer.Name = "lblTimer";
+            this.lblTimer.Size = new System.Drawing.Size(73, 19);
+            this.lblTimer.TabIndex = 23;
+            this.lblTimer.Text = "Logout In:";
             // 
-            // Instructor
+            // timer1
             // 
-            this.Instructor.HeaderText = "Instructor";
-            this.Instructor.Name = "Instructor";
-            this.Instructor.ReadOnly = true;
-            // 
-            // TimeslotDay
-            // 
-            this.TimeslotDay.HeaderText = "Timeslot Day";
-            this.TimeslotDay.Name = "TimeslotDay";
-            this.TimeslotDay.ReadOnly = true;
-            // 
-            // TimeSlotTime
-            // 
-            this.TimeSlotTime.HeaderText = "Timeslot Time";
-            this.TimeSlotTime.Name = "TimeSlotTime";
-            this.TimeSlotTime.ReadOnly = true;
-            // 
-            // Venue
-            // 
-            this.Venue.HeaderText = "Venue";
-            this.Venue.Name = "Venue";
-            this.Venue.ReadOnly = true;
-            // 
-            // StartDate
-            // 
-            this.StartDate.HeaderText = "Start Date";
-            this.StartDate.Name = "StartDate";
-            this.StartDate.ReadOnly = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Maintain_Client_Courses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(820, 567);
+            this.ClientSize = new System.Drawing.Size(789, 536);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnBack);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Maintain_Client_Courses";
             this.Text = "Maintain_Client_Courses";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Maintain_Client_Courses_FormClosing);
             this.Load += new System.EventHandler(this.Maintain_Client_Courses_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -700,6 +734,7 @@
             this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourseClient)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -761,5 +796,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TimeSlotTime;
         private System.Windows.Forms.DataGridViewTextBoxColumn Venue;
         private System.Windows.Forms.DataGridViewTextBoxColumn StartDate;
+        private System.Windows.Forms.Label lblTimer;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label label6;
     }
 }
