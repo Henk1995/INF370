@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblQuantity = new System.Windows.Forms.Label();
             this.txtQuantity = new System.Windows.Forms.TextBox();
             this.btnARN = new System.Windows.Forms.Button();
@@ -42,6 +43,9 @@
             this.lblRef = new System.Windows.Forms.Label();
             this.rtbOrder = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblTimer = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // lblQuantity
@@ -65,7 +69,7 @@
             // 
             this.btnARN.Location = new System.Drawing.Point(256, 48);
             this.btnARN.Name = "btnARN";
-            this.btnARN.Size = new System.Drawing.Size(81, 74);
+            this.btnARN.Size = new System.Drawing.Size(81, 71);
             this.btnARN.TabIndex = 63;
             this.btnARN.Text = "Add Reference Number";
             this.btnARN.UseVisualStyleBackColor = true;
@@ -154,7 +158,7 @@
             // 
             // rtbOrder
             // 
-            this.rtbOrder.Location = new System.Drawing.Point(343, 6);
+            this.rtbOrder.Location = new System.Drawing.Point(343, 19);
             this.rtbOrder.Name = "rtbOrder";
             this.rtbOrder.Size = new System.Drawing.Size(267, 232);
             this.rtbOrder.TabIndex = 53;
@@ -168,11 +172,39 @@
             this.label1.Size = new System.Drawing.Size(0, 13);
             this.label1.TabIndex = 52;
             // 
+            // lblTimer
+            // 
+            this.lblTimer.AutoSize = true;
+            this.lblTimer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTimer.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimer.Location = new System.Drawing.Point(572, -3);
+            this.lblTimer.Name = "lblTimer";
+            this.lblTimer.Size = new System.Drawing.Size(73, 19);
+            this.lblTimer.TabIndex = 66;
+            this.lblTimer.Text = "Logout In:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label2.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(522, -3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 19);
+            this.label2.TabIndex = 67;
+            this.label2.Text = "Logout In:";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Place_Instructor_Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(632, 297);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.lblQuantity);
             this.Controls.Add(this.txtQuantity);
             this.Controls.Add(this.btnARN);
@@ -189,6 +221,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Place_Instructor_Order";
             this.Text = "Place Instructor Order";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Place_Instructor_Order_FormClosing);
             this.Load += new System.EventHandler(this.Place_Instructor_Order_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -211,5 +244,8 @@
         private System.Windows.Forms.Label lblRef;
         private System.Windows.Forms.RichTextBox rtbOrder;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTimer;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Timer timer1;
     }
 }

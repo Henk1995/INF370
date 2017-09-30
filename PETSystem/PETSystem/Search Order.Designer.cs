@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnLogRefund = new System.Windows.Forms.Button();
             this.btnLogPayment = new System.Windows.Forms.Button();
             this.btnReturnOder = new System.Windows.Forms.Button();
@@ -39,6 +40,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtSearchOrderID = new System.Windows.Forms.TextBox();
             this.btnRefreshDGV = new System.Windows.Forms.Button();
+            this.lblTimer = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +54,6 @@
             this.btnLogRefund.TabIndex = 14;
             this.btnLogRefund.Text = "Log Refund";
             this.btnLogRefund.UseVisualStyleBackColor = true;
-           // this.btnLogRefund.Click += new System.EventHandler(this.btnLogRefund_Click);
             // 
             // btnLogPayment
             // 
@@ -60,7 +63,6 @@
             this.btnLogPayment.TabIndex = 13;
             this.btnLogPayment.Text = "Log Payment";
             this.btnLogPayment.UseVisualStyleBackColor = true;
-       //     this.btnLogPayment.Click += new System.EventHandler(this.btnLogPayment_Click);
             // 
             // btnReturnOder
             // 
@@ -70,7 +72,6 @@
             this.btnReturnOder.TabIndex = 12;
             this.btnReturnOder.Text = "Return Order";
             this.btnReturnOder.UseVisualStyleBackColor = true;
-           // this.btnReturnOder.Click += new System.EventHandler(this.btnReturnOder_Click);
             // 
             // btnUpdateOrder
             // 
@@ -106,10 +107,10 @@
             this.dgvOrders.AllowUserToAddRows = false;
             this.dgvOrders.AllowUserToDeleteRows = false;
             this.dgvOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvOrders.Location = new System.Drawing.Point(258, 12);
+            this.dgvOrders.Location = new System.Drawing.Point(258, 26);
             this.dgvOrders.Name = "dgvOrders";
             this.dgvOrders.ReadOnly = true;
-            this.dgvOrders.Size = new System.Drawing.Size(844, 478);
+            this.dgvOrders.Size = new System.Drawing.Size(844, 464);
             this.dgvOrders.TabIndex = 8;
             this.dgvOrders.SelectionChanged += new System.EventHandler(this.dgvOrders_SelectionChanged);
             // 
@@ -150,11 +151,39 @@
             this.btnRefreshDGV.UseVisualStyleBackColor = true;
             this.btnRefreshDGV.Click += new System.EventHandler(this.btnRefreshDGV_Click);
             // 
+            // lblTimer
+            // 
+            this.lblTimer.AutoSize = true;
+            this.lblTimer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTimer.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimer.Location = new System.Drawing.Point(1054, 4);
+            this.lblTimer.Name = "lblTimer";
+            this.lblTimer.Size = new System.Drawing.Size(73, 19);
+            this.lblTimer.TabIndex = 22;
+            this.lblTimer.Text = "Logout In:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label2.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(1004, 4);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 19);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Logout In:";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Search_Order
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1114, 527);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.btnRefreshDGV);
             this.Controls.Add(this.txtSearchOrderID);
             this.Controls.Add(this.label1);
@@ -166,8 +195,10 @@
             this.Controls.Add(this.tnViewOrder);
             this.Controls.Add(this.btnPlaceOrder);
             this.Controls.Add(this.dgvOrders);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Search_Order";
             this.Text = "Search_Order";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Search_Order_FormClosing);
             this.Load += new System.EventHandler(this.Search_Order_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrders)).EndInit();
             this.ResumeLayout(false);
@@ -188,5 +219,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtSearchOrderID;
         private System.Windows.Forms.Button btnRefreshDGV;
+        private System.Windows.Forms.Label lblTimer;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Timer timer1;
     }
 }
