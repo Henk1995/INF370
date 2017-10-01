@@ -356,7 +356,10 @@ namespace PETSystem
             ConQuantity.Close();
 
             // Add to stock 
-
+            if (UsethisforStockUpdate < 0)
+            {
+                MessageBox.Show("We now have a deficit of "+UsethisforStockUpdate+" "+cbProduct.Text);
+            }
             string QueryStock = "UPDATE Stock SET StockQuantity ='" + UsethisforStockUpdate + "' WHERE StockID ='" + CBresult + "'";
 
 

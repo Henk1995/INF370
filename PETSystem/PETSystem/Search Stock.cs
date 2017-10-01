@@ -157,11 +157,11 @@ namespace PETSystem
                 bool HasQuantity;
                 int StockOnHand = Convert.ToInt32(dgvSearchStock.SelectedRows[0].Cells[3].Value);
 
-
+                MessageBox.Show(StockOnHand.ToString());
                 //string GetQuantity = "Select Stock.StockQuantity from dbo.Stock Where StockID = '" + dgvSearchStock.SelectedRows[0].Cells[0].Value + "'";
 
 
-                if (QuantityOnHand > 0)
+                if (QuantityOnHand >= 0)
                 {
                     HasQuantity = true;
                 }
