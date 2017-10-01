@@ -111,6 +111,10 @@ namespace PETSystem
                 UpdateInstructor UD = new UpdateInstructor(NameId, SurnameId, emailId, phoneNumberId, Genderid, titleid);
                 UD.ShowDialog();
             }
+            else
+            {
+                MessageBox.Show("Please Select a valid row");
+            }
         }
 
 

@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net.Mail;
 using System.Net;
-
+using System.Data.SqlClient;
 
 namespace PETSystem
 {
     public partial class Place_Instructor_Order : Form
     {
+        string DescriptionForOrder;
+        int result, CBresult = 0;
         DateTime endOfTime;
         Timer t;
         public Place_Instructor_Order()
@@ -43,21 +45,31 @@ namespace PETSystem
 
         private void Place_Instructor_Order_Load(object sender, EventArgs e)
         {
+            groupBox1.Visible = false;
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
             t = new Timer() { Interval = 1000, Enabled = true };
             t.Tick += new EventHandler(timer1_Tick);
             timer1_Tick(null, null);
 
-            txtDate.Visible = false;
-            txtDescription.Visible = false;
-            lblDate.Visible = false;
-            lblDescription.Visible = false;
-            btnAddI.Visible = false;
-            btnPO.Visible = false;
-            txtQuantity.Visible = false;
-            lblQuantity.Visible = false;
-            rtbOrder.Text = rtbOrder.Text + "Quantity\t Order Description \t Date\n";
+            //populate combobox
+            cbProduct.Items.Clear();
+            string query = "SELECT StockDescription FROM Stock ";
+            DataTable DT = new DataTable();
+            ConnectString.connectstring.Open();
+            SqlCommand cmd = new SqlCommand(query, ConnectString.connectstring);
+            SqlDataAdapter DA = new SqlDataAdapter(cmd);
+            DA.Fill(DT);
+
+            foreach (DataRow dr in DT.Rows)
+            {
+                cbProduct.Items.Add(dr["StockDescription"]).ToString();
+            }
+            ConnectString.connectstring.Close();
+            //Select index in combobox
+            cbProduct.SelectedIndex = 0;
+
+
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -69,27 +81,8 @@ namespace PETSystem
 
         private void btnARN_Click(object sender, EventArgs e)
         {
-            valid1 = EH.CheckEmpty(txtReferenceNum.Text);
-            valid1 = EH.CheckInt(txtReferenceNum.Text);
-            if (valid1)
-            {
-                RefNum = Convert.ToInt32(txtReferenceNum.Text);
-                txtDate.Visible = true;
-                txtDescription.Visible = true;
-                lblDate.Visible = true;
-                lblDescription.Visible = true;
-                btnAddI.Visible = true;
-                btnPO.Visible = true;
-                btnARN.Visible = false;
-                lblRef.Visible = false;
-                txtReferenceNum.Visible = false;
+            
 
-            }
-            else
-            {
-
-                MessageBox.Show("Information provided is invalid please submit valid information");
-            }
         }
 
         private void txtReferenceNum_TextChanged(object sender, EventArgs e)
@@ -99,30 +92,14 @@ namespace PETSystem
 
         private void txtDescription_TextChanged(object sender, EventArgs e)
         {
-            valid2 = EH.Checkstring(txtDescription.Text);
-            if (!valid2)
-            {
-                txtDescription.BackColor = Color.Red;
-            }
-            else
-            {
-                txtDescription.BackColor = Color.White;
-            }
+         
         }
 
      
 
         private void txtDate_TextChanged(object sender, EventArgs e)
         {
-            valid4 = EH.CheckDate(txtDate.Text);
-            if (!valid4)
-            {
-                txtDate.BackColor = Color.Red;
-            }
-            else
-            {
-                txtDate.BackColor = Color.White;
-            }
+           
         }
 
         private void btnAddI_Click(object sender, EventArgs e)
@@ -132,168 +109,37 @@ namespace PETSystem
 
         private void btnPO_Click(object sender, EventArgs e)
         {
-            if (valid1 && valid2 && valid3 && valid4)
-            {
-                MessageBox.Show("Are you sure you want to place this new order", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
-                //Add order to Database
-
-                TableOrder mTableOrder = new TableOrder
-                {
-                    Order_ReferenceNumber = Convert.ToInt32(txtReferenceNum.Text),
-                    OrderDate = txtDate.Text,
-                    OrderDescription = txtDescription.Text,
-                    InstructorID = InstructorOrderID,
-                    UserID = CurrentlyLoggedInUserID,
-                    
-                };
-
-                db.TableOrders.InsertOnSubmit(mTableOrder);
-                db.SubmitChanges();
-
-                this.Close();
-                Search_Order so = new Search_Order();
-                so.Show();
-            }
         }
 
         private void btnGo_Click(object sender, EventArgs e)
         {
-            OrderDesc = txtDescription.Text;
-            OrderDate = txtDate.Text;
-            txtDate.Visible = false;
-            txtDescription.Visible = false;
-            lblDate.Visible = true;
-            lblDescription.Visible = true;
-            btnAddI.Visible = true;
-            btnPO.Visible = true;
-            btnARN.Visible = false;
-            lblRef.Visible = false;
-            txtReferenceNum.Visible = false;
+          
         }
 
         private void btnARN_Click_1(object sender, EventArgs e)
         {
-            valid1 = EH.CheckEmpty(txtReferenceNum.Text);
-            valid1 = EH.CheckInt(txtReferenceNum.Text);
-            if (valid1)
-            {
-                RefNum = Convert.ToInt32(txtReferenceNum.Text);
-                txtDate.Visible = true;
-                txtDescription.Visible = true;
-                lblDate.Visible = true;
-                lblDescription.Visible = true;
-                btnAddI.Visible = true;
-                btnPO.Visible = true;
-                btnARN.Visible = false;
-                lblRef.Visible = false;
-                txtReferenceNum.Visible = false;
-                txtQuantity.Visible = true;
-                lblQuantity.Visible = true;
+          
 
-            }
-            else
-            {
-
-                MessageBox.Show("Information provided is invalid please submit valid information");
-            }
         }
 
         private void btnAddI_Click_1(object sender, EventArgs e)
         {
-            if (valid1 && valid2 && valid3 && valid4)
-            {
-                if (OrderDesc == "")
-                {
-                    OrderDesc = txtDescription.Text;
-                }
-                else
-                {
-                    OrderDesc = OrderDesc + "," + txtDescription.Text;
-                }
-
-                rtbOrder.Text = rtbOrder.Text + "x\t" + txtQuantity.Text + "\t" + txtDescription.Text + "\t" + txtDate.Text + "\n";
-            }
-            else
-            {
-                MessageBox.Show("Values:" + valid1 + valid2 + valid3 + valid4);
-            }
+            
         }
 
         private void btnPO_Click_1(object sender, EventArgs e)
         {
-            if (valid1 && valid2 && valid3 && valid4)
-            {
-                MessageBox.Show("Are you sure you want to place this new order", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
-                //Add order to Database
-
-
-                TableOrder mTableOrder = new TableOrder
-                {
-                    Order_ReferenceNumber = Convert.ToInt32(txtReferenceNum.Text),
-                    OrderDate = txtDate.Text,
-                    OrderDescription = txtDescription.Text,
-                    InstructorID = InstructorOrderID,
-                    UserID = CurrentlyLoggedInUserID, // ek vang nie wat hier aangan nie. hy kan net submit as hierdie = 1 is?
-
-                };
-
-                db.TableOrders.InsertOnSubmit(mTableOrder);
-                db.SubmitChanges();
+           
 
 
 
-                //Get email
-
-                var getEmail = (from x in db.Instructors where x.InstructorID == InstructorOrderID select x.Email).FirstOrDefault();
-
-                ReturnEmail = getEmail;
-
-
-
-                using (SmtpClient client = new SmtpClient())
-                {
-                    client.Host = "smtp.gmail.com";
-                    client.UseDefaultCredentials = true;
-                    NetworkCredential netCred = new NetworkCredential("petsystemtest@gmail.com", "JJSRHsystem");
-                    client.Credentials = netCred;
-                    client.EnableSsl = true;
-                    client.Port = 587;
-                    client.DeliveryMethod = SmtpDeliveryMethod.Network;
-                    using (MailMessage mail = new MailMessage("petsystemtest@gmail.com", ReturnEmail))
-                    {
-                        mail.Subject = "New Order Placed";
-                        mail.Body = "Your Order has been placed: \n\n Order Date: \t\t\t" + txtDate.Text + " \n Order Reference Number: \t" + txtReferenceNum.Text + " \n The order description: \n " + txtDescription.Text + " \n\n We will notify you as soon as your order is ready.";
-                        mail.IsBodyHtml = false;
-                        client.Send(mail);
-                        MessageBox.Show("Message was sent");
-
-
-                    }
-                }
-
-
-                this.Close();
-                Search_Order sps = new Search_Order();
-                sps.Show();
-            }
-        }
-
-        private void txtReferenceNum_TextChanged_1(object sender, EventArgs e)
-        {
-            
-        }
+               
+               
+            }               
 
         private void txtDescription_TextChanged_1(object sender, EventArgs e)
         {
-            valid2 = EH.Checkstring(txtDescription.Text);
-            if (!valid2)
-            {
-                txtDescription.BackColor = Color.Red;
-            }
-            else
-            {
-                txtDescription.BackColor = Color.White;
-            }
+          
         }
 
         private void btnBack_Click_1(object sender, EventArgs e)
@@ -303,28 +149,12 @@ namespace PETSystem
 
         private void txtDate_TextChanged_1(object sender, EventArgs e)
         {
-            valid4 = EH.CheckDate(txtDate.Text);
-            if (!valid4)
-            {
-                txtDate.BackColor = Color.Red;
-            }
-            else
-            {
-                txtDate.BackColor = Color.White;
-            }
+            
         }
 
         private void txtQuantity_TextChanged(object sender, EventArgs e)
         {
-            valid3 = EH.Checkfloat(txtQuantity.Text);
-            if (!valid3)
-            {
-                txtQuantity.BackColor = Color.Red;
-            }
-            else
-            {
-                txtQuantity.BackColor = Color.White;
-            }
+           
         }
 
         int stop = 0;
@@ -352,6 +182,192 @@ namespace PETSystem
         private void Place_Instructor_Order_FormClosing(object sender, FormClosingEventArgs e)
         {
             t.Enabled = false;
+        }
+        int referenceNumber;
+        string Date;
+        private void btnEnter_Click(object sender, EventArgs e)
+        {
+            // Buttons visables
+            btnBack.Visible = false;
+            btnEnter.Visible = false;
+            groupBox1.Visible = true;
+            groupBox2.Visible = false;
+            referenceNumber = Convert.ToInt32(txtRefNumber.Text);
+            Date = txtDate.Text;
+
+            // Add new order as placeholder for order 
+            int stockID = cbProduct.SelectedIndex + 1;
+            BtnCapture.Visible = true;
+
+            //Add product in StockLine sodat dit 3rdNormalFormis
+            ConnectString.connectstring.Open();
+            string Query = "INSERT INTO TableOrder(UserID,InstructorID,Order_ReferenceNumber,OrderDate) values('"+ConnectString.UserIDforOrders+"','" + ConnectString.InstructorID + "','"+referenceNumber+"','"+Date+"')";
+            //This is  MySqlConnection here i have created the object and pass my connection string.  
+
+            //This is command class which will handle the query and connection object.  
+            SqlCommand MyCommand2 = new SqlCommand(Query, ConnectString.connectstring);
+            SqlDataReader MyReader2;
+
+            MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
+            MessageBox.Show("Reference number and date Captured");
+            while (MyReader2.Read())
+            {
+            }
+            ConnectString.connectstring.Close();
+            // txtOrder.Clear();
+            txtOrder.Text = txtOrder.Text + "Order Reference Number: " + referenceNumber + "            Date: " + Date;
+            
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+           
+        }
+        int OrderID;
+
+        private void BtnCapture_Click(object sender, EventArgs e)
+        {
+            string Query = "UPDATE TableOrder SET OrderDescription = '" + DescriptionForOrder + "', Total = '"+Total+"' WHERE OrderID =" + OrderID + ";";
+            //This is  MySqlConnection here i have created the object and pass my connection string.  
+
+
+            SqlCommand MyCommand3 = new SqlCommand(Query, ConnectString.connectstring);
+            SqlDataReader MyReader3;
+            ConnectString.connectstring.Open();
+            MyReader3 = MyCommand3.ExecuteReader();
+            MessageBox.Show("Order captured and stock quantity updated successfully.");
+            ConnectString.connectstring.Close();
+            
+            //Email
+            string emailA = "";
+            string query2 = "SELECT Email FROM Instructor WHERE InstructorID ='" + ConnectString.InstructorID + "'";
+            SqlCommand MyCommand2 = new SqlCommand(query2, ConnectString.connectstring);
+            SqlDataReader MyReader2;
+            ConnectString.connectstring.Open();
+            MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
+
+            while (MyReader2.Read())
+            {
+                emailA = MyReader2["Email"].ToString();
+            }
+            ConnectString.connectstring.Close();
+            using (SmtpClient client = new SmtpClient())
+            {
+                client.Host = "smtp.gmail.com";
+                client.UseDefaultCredentials = true;
+                NetworkCredential netCred = new NetworkCredential("janwilkensmalan1@gmail.com", "Wilkens123");
+                client.Credentials = netCred;
+                client.EnableSsl = true;
+                client.Port = 587;
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                using (MailMessage mail = new MailMessage("janwilkensmalan1@gmail.com", emailA))
+                {
+                    try
+                    {
+                        mail.Subject = "Order Placed";
+                        mail.Body = "We have successfully placed your order with reference number: "+referenceNumber+"\n\n Thank you for your support!";
+                        mail.IsBodyHtml = false;
+                        client.Send(mail);
+                        MessageBox.Show("Instructor notified via email that Order with \nReference number: " + referenceNumber + "\nIs has been placed", "Sent", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Email could not be sent at this time");
+                    }
+                }
+            }
+            this.Close();
+            this.Dispose(true);
+            Search_Order myform = new Search_Order();
+            myform.ShowDialog();
+        }
+        int nitPrice = 0;
+        float Total;
+        private void button3_Click(object sender, EventArgs e)
+        {//Get unit Price
+           
+            string querya = "SELECT StockUnitPrice FROM Stock Where Stock.StockDescription ='" + cbProduct.Text + "'";
+            SqlCommand MyCommanda = new SqlCommand(querya, ConnectString.connectstring);
+            SqlDataReader MyReadera;
+            ConnectString.connectstring.Open();
+            MyReadera = MyCommanda.ExecuteReader();     // Here our query will be executed and data saved into the database.  
+
+            while (MyReadera.Read())
+            {
+                nitPrice = Convert.ToInt32(MyReadera["StockUnitPrice"]);
+            }
+            ConnectString.connectstring.Close();
+
+
+
+            // Get Order ID
+            SqlConnection connectionz = new SqlConnection(ConnectString.DBC);
+            connectionz.Open();
+            SqlCommand cmddz = connectionz.CreateCommand();
+            cmddz.CommandText = "Select  MAX(OrderID) FROM TableOrder";
+            OrderID = ((int)cmddz.ExecuteScalar());
+
+
+            connectionz.Close();
+
+            //  get stock id
+            SqlConnection connection2 = new SqlConnection(ConnectString.DBC);
+            connection2.Open();
+            SqlCommand cmdd2 = connection2.CreateCommand();
+            cmdd2.CommandText = "Select StockID FROM Stock Where StockDescription ='" + cbProduct.Text + "'";
+            CBresult = ((int)cmdd2.ExecuteScalar());
+
+
+            connection2.Close();
+            //variables vir orderline
+            int quantityorder = Convert.ToInt32(NUPQuantity.Value);
+            //Add product in StockLine sodat dit 3rdNormalFormis
+            ConnectString.connectstring.Open();
+            string Query = "INSERT INTO OrderLine(OrderID,StockID,Quantity) values('"+OrderID+"','"+CBresult+"','"+quantityorder+"')";
+            //This is  MySqlConnection here i have created the object and pass my connection string.  
+
+            //This is command class which will handle the query and connection object.  
+            SqlCommand MyCommand2 = new SqlCommand(Query, ConnectString.connectstring);
+            SqlDataReader MyReader2;
+
+            MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
+            MessageBox.Show("Products added to total order.");
+            while (MyReader2.Read())
+            {
+            }
+            ConnectString.connectstring.Close();
+
+
+            // Update TExtbox
+            txtOrder.Text = txtOrder.Text + "\nItem Ordered: " + cbProduct.Text + " Quantity: " +Convert.ToString(NUPQuantity.Value);
+            DescriptionForOrder = DescriptionForOrder + cbProduct.Text + ",";
+            Total = Total + (nitPrice* Convert.ToInt32(NUPQuantity.Value));
+            //Get Current Quantity of stock
+            int UsethisforStockUpdate;
+            SqlConnection ConQuantity = new SqlConnection(ConnectString.DBC);
+            ConQuantity.Open();
+            SqlCommand cmdQuantity = ConQuantity.CreateCommand();
+            cmdQuantity.CommandText = "Select StockQuantity FROM Stock  Where StockDescription ='" + cbProduct.Text + "'";
+            UsethisforStockUpdate = ((int)cmdQuantity.ExecuteScalar());
+            UsethisforStockUpdate = UsethisforStockUpdate - Convert.ToInt32(NUPQuantity.Value);
+
+            ConQuantity.Close();
+
+            // Add to stock 
+
+            string QueryStock = "UPDATE Stock SET StockQuantity ='" + UsethisforStockUpdate + "' WHERE StockID ='" + CBresult + "'";
+
+
+
+            SqlCommand ComandStock = new SqlCommand(QueryStock, ConnectString.connectstring);
+            SqlDataReader ReaderStock;
+            ConnectString.connectstring.Open();
+            ReaderStock = ComandStock.ExecuteReader();
+            // MessageBox.Show("Training Course successfully updated");
+            ConnectString.connectstring.Close();
+
         }
     }
 }

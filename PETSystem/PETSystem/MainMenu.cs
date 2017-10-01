@@ -53,8 +53,8 @@ namespace PETSystem
 
         private void MainMenuF_Load(object sender, EventArgs e)
         {
-            //pictureBox1.LoadAsync();
-            pictureBox1.Image = Image.FromFile("C:\\Users\\Jan-Wilkens\\Source\\Repos\\PETSystem\\PETSystem\\" + pictures[0]);
+            pictureBox1.LoadAsync();
+        //    pictureBox1.Image = Image.FromFile("C:\\Users\\Jan-Wilkens\\Source\\Repos\\PETSystem\\PETSystem\\" + pictures[0]);
 
 
 
@@ -120,8 +120,8 @@ namespace PETSystem
         private void timer1_Tick(object sender, EventArgs e)
         {
             i++;
-            if (pictures.Length == i) { i = 0; }
-            pictureBox1.Image = Image.FromFile("C:\\Users\\Jan-Wilkens\\Source\\Repos\\PETSystem\\PETSystem\\" + pictures[i]);
+           if (pictures.Length == i) { i = 0; }
+          //  pictureBox1.Image = Image.FromFile("C:\\Users\\Jan-Wilkens\\Source\\Repos\\PETSystem\\PETSystem\\" + pictures[i]);
 
            
 

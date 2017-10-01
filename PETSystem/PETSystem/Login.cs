@@ -55,7 +55,20 @@ namespace PETSystem
                 }
                 else
                 {
+                    // Kry user ID vir Orders
+                    SqlConnection connection2 = new SqlConnection(ConnectString.DBC);
+                    connection2.Open();
+                    SqlCommand cmdd2 = connection2.CreateCommand();
+                    cmdd2.CommandText = "Select UserID FROM UserTable WHERE UserName ='" + txtUsername.Text + "'";
+                    ConnectString.UserIDforOrders = ((int)cmdd2.ExecuteScalar());
+                    //MessageBox.Show(ConnectString.UserIDforOrders.ToString());
+
+                    connection2.Close();
+
                     validU = true;
+                    this.Visible = false;
+                    MainMenuF UM = new MainMenuF();
+                    UM.Show();
                 }
                 ConnectString.connectstring.Close();
             }
@@ -64,20 +77,18 @@ namespace PETSystem
                 MessageBox.Show("Invalid username and/or Password");
             }
 
-
+            
             // Ek steel gou die user wat gesignin het se ID. ;D
             //var GetUserID = (from X in db.UserTables where X.UserName.Contains(un) && X.UserPassword.Contains(pw) select X.UserID).FirstOrDefault();
             //UserIDthatLoggedIn = GetUserID;
 
             //Ek kort die UserID wat ingelog het
 
-           
-            
+
+
             //UserIDthatLoggedIn = Convert.ToInt32(USer);
 
-            this.Visible = false;
-            MainMenuF UM = new MainMenuF();
-            UM.Show();
+
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

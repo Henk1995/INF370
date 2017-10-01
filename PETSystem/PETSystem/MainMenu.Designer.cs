@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Logout Timer");
-            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Node5");
-            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Carousel Timer", new System.Windows.Forms.TreeNode[] {
-            treeNode7,
-            treeNode8});
-            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("User Privileges");
-            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Bussiness Rules", new System.Windows.Forms.TreeNode[] {
-            treeNode9,
-            treeNode10});
-            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Admin", new System.Windows.Forms.TreeNode[] {
-            treeNode11});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Logout Timer");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Node5");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Carousel Timer", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2});
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("User Privileges");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Bussiness Rules", new System.Windows.Forms.TreeNode[] {
+            treeNode3,
+            treeNode4});
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Admin", new System.Windows.Forms.TreeNode[] {
+            treeNode5});
             this.Logout = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -188,20 +188,20 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(533, 49);
             this.treeView1.Name = "treeView1";
-            treeNode7.Name = "Node4";
-            treeNode7.Text = "Logout Timer";
-            treeNode8.Name = "Node5";
-            treeNode8.Text = "Node5";
-            treeNode9.Name = "Node2";
-            treeNode9.Text = "Carousel Timer";
-            treeNode10.Name = "Node3";
-            treeNode10.Text = "User Privileges";
-            treeNode11.Name = "Node1";
-            treeNode11.Text = "Bussiness Rules";
-            treeNode12.Name = "Node0";
-            treeNode12.Text = "Admin";
+            treeNode1.Name = "Node4";
+            treeNode1.Text = "Logout Timer";
+            treeNode2.Name = "Node5";
+            treeNode2.Text = "Node5";
+            treeNode3.Name = "Node2";
+            treeNode3.Text = "Carousel Timer";
+            treeNode4.Name = "Node3";
+            treeNode4.Text = "User Privileges";
+            treeNode5.Name = "Node1";
+            treeNode5.Text = "Bussiness Rules";
+            treeNode6.Name = "Node0";
+            treeNode6.Text = "Admin";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode12});
+            treeNode6});
             this.treeView1.Size = new System.Drawing.Size(121, 97);
             this.treeView1.TabIndex = 23;
             // 

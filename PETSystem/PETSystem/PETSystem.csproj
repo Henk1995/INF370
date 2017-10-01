@@ -261,6 +261,12 @@
     <Compile Include="OrderReturns.Designer.cs">
       <DependentUpon>OrderReturns.cs</DependentUpon>
     </Compile>
+    <Compile Include="PaymentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PaymentForm.Designer.cs">
+      <DependentUpon>PaymentForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PET_DB.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -405,6 +411,12 @@
     </Compile>
     <Compile Include="Update Course.Designer.cs">
       <DependentUpon>Update Course.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Update Order Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Update Order Form.Designer.cs">
+      <DependentUpon>Update Order Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Update Printing Supplier.cs">
       <SubType>Form</SubType>
@@ -624,6 +636,9 @@
     <None Include="PET_DB.dbml.layout">
       <DependentUpon>PET_DB.dbml</DependentUpon>
     </None>
+    <EmbeddedResource Include="PaymentForm.resx">
+      <DependentUpon>PaymentForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Place Instructor Order.resx">
       <DependentUpon>Place Instructor Order.cs</DependentUpon>
     </EmbeddedResource>
@@ -702,6 +717,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Update Course.resx">
       <DependentUpon>Update Course.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Update Order Form.resx">
+      <DependentUpon>Update Order Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Update Printing Supplier.resx">
       <DependentUpon>Update Printing Supplier.cs</DependentUpon>

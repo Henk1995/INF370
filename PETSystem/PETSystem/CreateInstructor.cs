@@ -76,7 +76,7 @@ namespace PETSystem
             valid6 = EH.CheckEmpty(cmbCertification.Text);
             valid7 = EH.CheckEmpty(cmbGender.Text);
             valid8 = EH.CheckEmpty(cmbTitle.Text);
-            if (valid1 && valid2 && valid3 && valid4 && valid5 && valid6 && valid7 && valid8)
+            if (1==1)   //(valid1 && valid2 && valid3 && valid4 && valid5 && valid6 && valid7 && valid8)
             {
                 string queryA = "SELECT * FROM Instructor WHERE  Email='" + txtEmail.Text + "' OR PhoneNumber='"+ txtPhoneNumber.Text+"'";
                 SqlCommand MyCommandA = new SqlCommand(queryA, ConnectString.connectstring);

@@ -52,6 +52,7 @@ namespace PETSystem
             var GetInstID =(from x in db.Instructors where x.Name.Contains(InsName) select x.InstructorID).FirstOrDefault();
 
             InstructorIDForOrder = Convert.ToInt32(GetInstID);
+            ConnectString.InstructorID = InstructorIDForOrder;
 
             this.Close();
             Place_Instructor_Order pio = new Place_Instructor_Order();
