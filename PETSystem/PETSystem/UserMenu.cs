@@ -137,24 +137,34 @@ namespace PETSystem
         {
             if (dgvUsers.SelectedRows.Count > 0)
             {
-                string Query = "Delete UserTable Where UserID = '" + dgvUsers.SelectedRows[0].Cells[0].Value + "'";
-                DialogResult answer = MessageBox.Show("Are you sure you want to Delete this User?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
-                if (answer == DialogResult.Yes)
+                try
                 {
-                    SqlCommand MyCommand3 = new SqlCommand(Query, ConnectString.connectstring);
-                    SqlDataReader MyReader3;
-                    ConnectString.connectstring.Open();
-                    MyReader3 = MyCommand3.ExecuteReader();
-                    MessageBox.Show("User successfully updated");
+                    string Query = "Delete UserTable Where UserID = '" + dgvUsers.SelectedRows[0].Cells[0].Value + "'";
+                    DialogResult answer = MessageBox.Show("Are you sure you want to Delete this User?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                    if (answer == DialogResult.Yes)
+                    {
+                        SqlCommand MyCommand3 = new SqlCommand(Query, ConnectString.connectstring);
+                        SqlDataReader MyReader3;
+                        ConnectString.connectstring.Open();
+                        MyReader3 = MyCommand3.ExecuteReader();
+                        MessageBox.Show("User successfully updated");
+                        ConnectString.connectstring.Close();
+                        //Refresh DGV
+                        textBox1.Text = "a";
+                        textBox1.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("User was not deleted","Notification");
+                        ConnectString.connectstring.Close();
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("This User cannot be deleted because there are Orders assigned to him/her","Not able to delete");
                     ConnectString.connectstring.Close();
-                    //Refresh DGV
-                    textBox1.Text = "a";
-                    textBox1.Text = "";
                 }
-                else
-                {
-                    MessageBox.Show("User was not deleted");
-                }
+
             }
             else
             {

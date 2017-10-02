@@ -28,6 +28,8 @@ namespace PETSystem
         public LoginF()
         {
             InitializeComponent();
+            txtUsername.Text = "e.g. User1";
+           
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -133,6 +135,7 @@ namespace PETSystem
 
         private void LoginF_Load(object sender, EventArgs e)
         {
+            
             //  get Timer Time
             SqlConnection TimeConnection = new SqlConnection(ConnectString.DBC);
             TimeConnection.Open();
@@ -169,6 +172,31 @@ namespace PETSystem
             return clearText;
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            this.Dispose(true);
+        }
+        bool firstClick = true;
+        private void txtUsername_Leave(object sender, EventArgs e)
+        {
+            if (txtUsername.Text.Length == 0)
+            {
+                txtUsername.Text = "e.g User1";
+                firstClick = true;
+            }
+        }
+        
+       
+        private void txtUsername_Click(object sender, EventArgs e)
+        {
+            
+            if (firstClick == true)
+            {
+                txtUsername.Text = "";
+                firstClick = false;
+            }
 
+        }
     }
 }
