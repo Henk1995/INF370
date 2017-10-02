@@ -64,15 +64,15 @@ namespace PETSystem
                    //MessageBox.Show(ConnectString.UserIDforOrders.ToString());
 
                     connection2.Close();
-
+                    ConnectString.connectstring.Close();
                     validU = true;
                     this.Visible = false;
                     MainMenuF UM = new MainMenuF();
                     UM.ShowDialog();
-                    
+                 
 
                 }
-                ConnectString.connectstring.Close();
+                
             }
             else
             {

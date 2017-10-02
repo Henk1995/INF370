@@ -57,9 +57,9 @@ namespace PETSystem
         private void MainMenuF_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'inf370RegDataSet.ApplicationForm' table. You can move, or remove it, as needed.
-            this.applicationFormTableAdapter.Fill(this.inf370RegDataSet.ApplicationForm);
+           // this.applicationFormTableAdapter.Fill(this.inf370RegDataSet.ApplicationForm);
             //pictureBox1.LoadAsync();
-            pictureBox1.Image = Image.FromFile("C:\\Users\\Jan-Wilkens\\Source\\Repos\\PETSystem\\PETSystem\\" + pictures[0]);
+           // pictureBox1.Image = Image.FromFile("C:\\Users\\Jan-Wilkens\\Source\\Repos\\PETSystem\\PETSystem\\" + pictures[0]);
 
 
 
@@ -134,9 +134,9 @@ namespace PETSystem
 
         private void applicationFormBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.applicationFormBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.inf370RegDataSet);
+       //     this.Validate();
+      //      this.applicationFormBindingSource.EndEdit();
+     //       this.tableAdapterManager.UpdateAll(this.inf370RegDataSet);
 
         }
     }
