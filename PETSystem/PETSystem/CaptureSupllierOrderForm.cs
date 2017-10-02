@@ -17,6 +17,12 @@ namespace PETSystem
     {
         DateTime endOfTime;
         Timer t;
+        ErrorHandle EH = new ErrorHandle();
+        bool valid1;
+        bool valid2;
+        bool valid3;
+        bool valid4;
+        bool valid5;
         public CaptureSupllierOrderForm()
         {
             InitializeComponent();
@@ -27,9 +33,11 @@ namespace PETSystem
         string DescriptionForOrder;
         private void button2_Click(object sender, EventArgs e)
         {
-            string Query = "UPDATE SupplierOrder SET SupplierOrderRefNumber ='" + referenceNumber + "', SupplierOrderDate = '" + Date + "', SupplierOrderDescription = '" + DescriptionForOrder + "', Total = '" + totalForOrder + "' WHERE SupplierOrderID =" + result + ";";
-            //This is  MySqlConnection here i have created the object and pass my connection string.  
-           
+            if (valid1 && valid3 && valid4)
+            {
+                string Query = "UPDATE SupplierOrder SET SupplierOrderRefNumber ='" + referenceNumber + "', SupplierOrderDate = '" + Date + "', SupplierOrderDescription = '" + DescriptionForOrder + "', Total = '" + totalForOrder + "' WHERE SupplierOrderID =" + result + ";";
+                //This is  MySqlConnection here i have created the object and pass my connection string.  
+
 
                 SqlCommand MyCommand3 = new SqlCommand(Query, ConnectString.connectstring);
                 SqlDataReader MyReader3;
@@ -41,6 +49,10 @@ namespace PETSystem
                 this.Dispose(true);
                 Suppliers myform = new Suppliers();
                 myform.ShowDialog();
+            }else
+            {
+                MessageBox.Show("invalid information order cannot be placed");
+            }
             
         }
         int result, CBresult = 0;
@@ -97,34 +109,40 @@ namespace PETSystem
 
         private void button4_Click(object sender, EventArgs e)
         {
-            BtnBack.Visible = false;
-            btnEnter.Visible = false;
-            groupBox1.Visible = true;
-            groupBox2.Visible = false;
-            referenceNumber = txtRefNumber.Text;
-            Date = txtDate.Text;
-
-            // Add new order as placeholder for Stock line
-            int stockID = cbProduct.SelectedIndex + 1;
-            BtnCapture.Visible = true;
-
-            //Add product in StockLine sodat dit 3rdNormalFormis
-            ConnectString.connectstring.Open();
-            string Query = "INSERT INTO SupplierOrder(SupplierID) values('" + ConnectString.SupplierID + "')";
-            //This is  MySqlConnection here i have created the object and pass my connection string.  
-
-            //This is command class which will handle the query and connection object.  
-            SqlCommand MyCommand2 = new SqlCommand(Query, ConnectString.connectstring);
-            SqlDataReader MyReader2;
-
-            MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
-            MessageBox.Show("Reference number and date Captured");
-            while (MyReader2.Read())
+            if (valid3 && valid4)
             {
+                BtnBack.Visible = false;
+                btnEnter.Visible = false;
+                groupBox1.Visible = true;
+                groupBox2.Visible = false;
+                referenceNumber = txtRefNumber.Text;
+                Date = txtDate.Text;
+
+                // Add new order as placeholder for Stock line
+                int stockID = cbProduct.SelectedIndex + 1;
+                BtnCapture.Visible = true;
+
+                //Add product in StockLine sodat dit 3rdNormalFormis
+                ConnectString.connectstring.Open();
+                string Query = "INSERT INTO SupplierOrder(SupplierID) values('" + ConnectString.SupplierID + "')";
+                //This is  MySqlConnection here i have created the object and pass my connection string.  
+
+                //This is command class which will handle the query and connection object.  
+                SqlCommand MyCommand2 = new SqlCommand(Query, ConnectString.connectstring);
+                SqlDataReader MyReader2;
+
+                MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
+                MessageBox.Show("Reference number and date Captured");
+                while (MyReader2.Read())
+                {
+                }
+                ConnectString.connectstring.Close();
+                // txtOrder.Clear();
+                txtOrder.Text = txtOrder.Text + "Order Reference Number: " + referenceNumber + "            Date: " + Date;
+            }else
+            {
+                MessageBox.Show("Information given is invalid please resubmit the information");
             }
-            ConnectString.connectstring.Close();
-           // txtOrder.Clear();
-            txtOrder.Text = txtOrder.Text +"Order Reference Number: "+referenceNumber+ "            Date: "+Date;
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -200,72 +218,136 @@ namespace PETSystem
             t.Enabled = false;
         }
 
+        private void txtRefNumber_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtRefNumber_Leave(object sender, EventArgs e)
+        {
+            valid4 = EH.CheckInt(txtRefNumber.Text);
+            bool validSQl = EH.checkForSQLInjection(txtRefNumber.Text);
+            if (valid4)
+            {
+                valid4 = validSQl;
+            }
+            if (!valid4)
+            {
+                txtRefNumber.BackColor = Color.Red;
+            }
+            else
+            {
+                txtRefNumber.BackColor = Color.White;
+            }
+        }
+
+        private void txtDate_Leave(object sender, EventArgs e)
+        {
+            valid3 = EH.CheckDate(txtDate.Text);
+            bool validSQl = EH.checkForSQLInjection(txtDate.Text);
+            if (valid3)
+            {
+                valid3 = validSQl;
+            }
+            if (!valid3)
+            {
+                txtDate.BackColor = Color.Red;
+            }
+            else
+            {
+                txtDate.BackColor = Color.White;
+            }
+        }
+
+        private void txtTotal_Leave(object sender, EventArgs e)
+        {
+            valid1 = EH.Checkfloat(txtTotal.Text);
+            bool validSQl = EH.checkForSQLInjection(txtTotal.Text);
+            if (valid1)
+            {
+                valid1 = validSQl;
+            }
+            if (!valid1)
+            {
+                txtTotal.BackColor = Color.Red;
+            }
+            else
+            {
+                txtTotal.BackColor = Color.White;
+            }
+        }
+
         private void button3_Click(object sender, EventArgs e)
         {
             //  get stock id
-            SqlConnection connection2 = new SqlConnection(ConnectString.DBC);
-            connection2.Open();
-            SqlCommand cmdd2 = connection2.CreateCommand();
-            cmdd2.CommandText = "Select StockID FROM Stock Where StockDescription ='" + cbProduct.Text + "'";
-            CBresult = ((int)cmdd2.ExecuteScalar());
-
-
-            connection2.Close();
-           // MessageBox.Show(Convert.ToString(CBresult));
-
-
-
-            BtnBack.Enabled = false;
-            int stockID = cbProduct.SelectedIndex + 1;
-            BtnCapture.Visible = true;
-
-            //Add product in StockLine sodat dit 3rdNormalFormis
-            ConnectString.connectstring.Open();
-            string Query = "INSERT INTO StockLine(SupplierOrderID,SupplierID,PrinterOrderID,PrinterID,StockID,Quantity) values('" + result + "','" + ConnectString.SupplierID + "',NULL,NULL,'" + CBresult + "','" +NUPQuantity.Value  + "')";
-            //This is  MySqlConnection here i have created the object and pass my connection string.  
-
-            //This is command class which will handle the query and connection object.  
-            SqlCommand MyCommand2 = new SqlCommand(Query, ConnectString.connectstring);
-            SqlDataReader MyReader2;
-
-            MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
-            MessageBox.Show("Products added to total order.");
-            while (MyReader2.Read())
+            if (valid1)
             {
+                SqlConnection connection2 = new SqlConnection(ConnectString.DBC);
+                connection2.Open();
+                SqlCommand cmdd2 = connection2.CreateCommand();
+                cmdd2.CommandText = "Select StockID FROM Stock Where StockDescription ='" + cbProduct.Text + "'";
+                CBresult = ((int)cmdd2.ExecuteScalar());
+
+
+                connection2.Close();
+                // MessageBox.Show(Convert.ToString(CBresult));
+
+
+
+                BtnBack.Enabled = false;
+                int stockID = cbProduct.SelectedIndex + 1;
+                BtnCapture.Visible = true;
+
+                //Add product in StockLine sodat dit 3rdNormalFormis
+                ConnectString.connectstring.Open();
+                string Query = "INSERT INTO StockLine(SupplierOrderID,SupplierID,PrinterOrderID,PrinterID,StockID,Quantity) values('" + result + "','" + ConnectString.SupplierID + "',NULL,NULL,'" + CBresult + "','" + NUPQuantity.Value + "')";
+                //This is  MySqlConnection here i have created the object and pass my connection string.  
+
+                //This is command class which will handle the query and connection object.  
+                SqlCommand MyCommand2 = new SqlCommand(Query, ConnectString.connectstring);
+                SqlDataReader MyReader2;
+
+                MyReader2 = MyCommand2.ExecuteReader();     // Here our query will be executed and data saved into the database.  
+                MessageBox.Show("Products added to total order.");
+                while (MyReader2.Read())
+                {
+                }
+                ConnectString.connectstring.Close();
+                //Rich edit update
+                int unitPrice;
+                unitPrice = Convert.ToInt32(txtTotal.Text) / Convert.ToInt32(NUPQuantity.Value);
+                txtOrder.Text = txtOrder.Text + "\nProduct: " + cbProduct.Text + "\nQuantity: " + Convert.ToString(NUPQuantity.Value) + "\nUnit Price R.: " + unitPrice + "Total R.: " + txtTotal.Text;
+                //add description en total
+                DescriptionForOrder = DescriptionForOrder + cbProduct.Text + ",";
+                totalForOrder = totalForOrder + Convert.ToInt32(txtTotal.Text);
+
+                //Get Current Quantity of stock
+
+                SqlConnection ConQuantity = new SqlConnection(ConnectString.DBC);
+                ConQuantity.Open();
+                SqlCommand cmdQuantity = ConQuantity.CreateCommand();
+                cmdQuantity.CommandText = "Select StockQuantity FROM Stock  Where StockDescription ='" + cbProduct.Text + "'";
+                UsethisforStockUpdate = ((int)cmdQuantity.ExecuteScalar());
+                UsethisforStockUpdate = UsethisforStockUpdate + Convert.ToInt32(NUPQuantity.Value);
+
+                ConQuantity.Close();
+
+                // Add to stock 
+
+                string QueryStock = "UPDATE Stock SET StockQuantity ='" + UsethisforStockUpdate + "',StockUnitPrice = '" + unitPrice + "' WHERE StockID ='" + CBresult + "'";
+
+
+
+                SqlCommand ComandStock = new SqlCommand(QueryStock, ConnectString.connectstring);
+                SqlDataReader ReaderStock;
+                ConnectString.connectstring.Open();
+                ReaderStock = ComandStock.ExecuteReader();
+                // MessageBox.Show("Training Course successfully updated");
+                ConnectString.connectstring.Close();
+            }else
+            {
+                MessageBox.Show("Invalid information please resubmit");
             }
-            ConnectString.connectstring.Close();
-          //Rich edit update
-            int unitPrice;
-            unitPrice = Convert.ToInt32(txtTotal.Text) / Convert.ToInt32(NUPQuantity.Value);
-            txtOrder.Text = txtOrder.Text + "\nProduct: "+cbProduct.Text +"\nQuantity: "+ Convert.ToString(NUPQuantity.Value)+"\nUnit Price R.: "+unitPrice+"Total R.: "+txtTotal.Text;
-            //add description en total
-            DescriptionForOrder = DescriptionForOrder + cbProduct.Text+",";
-            totalForOrder = totalForOrder + Convert.ToInt32(txtTotal.Text);
-
-            //Get Current Quantity of stock
-            
-            SqlConnection ConQuantity = new SqlConnection(ConnectString.DBC);
-            ConQuantity.Open();
-            SqlCommand cmdQuantity = ConQuantity.CreateCommand();
-            cmdQuantity.CommandText = "Select StockQuantity FROM Stock  Where StockDescription ='" + cbProduct.Text + "'";
-            UsethisforStockUpdate = ((int)cmdQuantity.ExecuteScalar());
-            UsethisforStockUpdate = UsethisforStockUpdate + Convert.ToInt32(NUPQuantity.Value);
-
-            ConQuantity.Close();
-
-            // Add to stock 
-
-            string QueryStock = "UPDATE Stock SET StockQuantity ='"+UsethisforStockUpdate+"',StockUnitPrice = '"+unitPrice+"' WHERE StockID ='" + CBresult+ "'";
-  
-
-
-            SqlCommand ComandStock = new SqlCommand(QueryStock, ConnectString.connectstring);
-            SqlDataReader ReaderStock;
-            ConnectString.connectstring.Open();
-            ReaderStock = ComandStock.ExecuteReader();
-           // MessageBox.Show("Training Course successfully updated");
-            ConnectString.connectstring.Close();
-           
 
         }
     }

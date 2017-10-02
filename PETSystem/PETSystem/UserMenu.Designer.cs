@@ -29,6 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Logout Timer");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Node5");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Carousel Timer", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2});
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("User Privileges");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Bussiness Rules", new System.Windows.Forms.TreeNode[] {
+            treeNode3,
+            treeNode4});
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Admin", new System.Windows.Forms.TreeNode[] {
+            treeNode5});
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.addUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setLogoutTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,6 +54,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.treeView1 = new System.Windows.Forms.TreeView();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
@@ -180,11 +192,33 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Logout In:";
             // 
+            // treeView1
+            // 
+            this.treeView1.Location = new System.Drawing.Point(133, 193);
+            this.treeView1.Name = "treeView1";
+            treeNode1.Name = "Node4";
+            treeNode1.Text = "Logout Timer";
+            treeNode2.Name = "Node5";
+            treeNode2.Text = "Node5";
+            treeNode3.Name = "Node2";
+            treeNode3.Text = "Carousel Timer";
+            treeNode4.Name = "Node3";
+            treeNode4.Text = "User Privileges";
+            treeNode5.Name = "Node1";
+            treeNode5.Text = "Bussiness Rules";
+            treeNode6.Name = "Node0";
+            treeNode6.Text = "Admin";
+            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
+            treeNode6});
+            this.treeView1.Size = new System.Drawing.Size(140, 79);
+            this.treeView1.TabIndex = 24;
+            // 
             // UserMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(850, 317);
+            this.ClientSize = new System.Drawing.Size(850, 434);
+            this.Controls.Add(this.treeView1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
@@ -232,5 +266,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ToolStripMenuItem setLogoutTimeToolStripMenuItem;
+        private System.Windows.Forms.TreeView treeView1;
     }
 }

@@ -32,52 +32,52 @@ namespace PETSystem
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string un = txtUsername.Text;
-            string pw = txtPassword.Text;
+            //string un = txtUsername.Text;
+            //string pw = txtPassword.Text;
 
 
-            if (valid3 && valid4)
-            {
-                string Query1 = "SELECT * FROM UserTable WHERE UserName ='" + this.txtUsername.Text + "'AND UserPassword='" + Encrypt(this.txtPassword.Text) + "';";
-                SqlCommand MyCommand = new SqlCommand(Query1, ConnectString.connectstring);
-                SqlDataReader MyReader;
-                SqlDataAdapter DA = new SqlDataAdapter(MyCommand);
-                DataTable DT = new DataTable();
-                DA.Fill(DT);
-                ConnectString.connectstring.Open();
-                MyReader = MyCommand.ExecuteReader();
+            //if (valid3 && valid4)
+            //{
+            //    string Query1 = "SELECT * FROM UserTable WHERE UserName ='" + this.txtUsername.Text + "'AND UserPassword='" + Encrypt(this.txtPassword.Text) + "';";
+            //    SqlCommand MyCommand = new SqlCommand(Query1, ConnectString.connectstring);
+            //    SqlDataReader MyReader;
+            //    SqlDataAdapter DA = new SqlDataAdapter(MyCommand);
+            //    DataTable DT = new DataTable();
+            //    DA.Fill(DT);
+            //    ConnectString.connectstring.Open();
+            //    MyReader = MyCommand.ExecuteReader();
 
-                if (DT.Rows.Count == 0)
-                {
+            //    if (DT.Rows.Count == 0)
+            //    {
 
-                    validU = false;
-                    MessageBox.Show("Invalid username and/or Password");
-                }
-                else
-                {
-                    // Kry user ID vir Orders
-                    SqlConnection connection2 = new SqlConnection(ConnectString.DBC);
-                    connection2.Open();
-                    SqlCommand cmdd2 = connection2.CreateCommand();
-                    cmdd2.CommandText = "Select UserID FROM UserTable WHERE UserName ='" + txtUsername.Text + "'";
-                    ConnectString.UserIDforOrders = ((int)cmdd2.ExecuteScalar());
-                    //MessageBox.Show(ConnectString.UserIDforOrders.ToString());
+            //        validU = false;
+            //        MessageBox.Show("Invalid username and/or Password");
+            //    }
+            //    else
+            //    {
+            //        // Kry user ID vir Orders
+            //        SqlConnection connection2 = new SqlConnection(ConnectString.DBC);
+            //        connection2.Open();
+            //        SqlCommand cmdd2 = connection2.CreateCommand();
+            //        cmdd2.CommandText = "Select UserID FROM UserTable WHERE UserName ='" + txtUsername.Text + "'";
+            //        ConnectString.UserIDforOrders = ((int)cmdd2.ExecuteScalar());
+            //        //MessageBox.Show(ConnectString.UserIDforOrders.ToString());
 
-                    connection2.Close();
+            //        connection2.Close();
 
-                    validU = true;
-                    this.Visible = false;
-                    MainMenuF UM = new MainMenuF();
+            //        validU = true;
+            //        
+            //    }
+            //    ConnectString.connectstring.Close();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Invalid username and/or Password");
+            //}
+
+            this.Visible = false;
+                   MainMenuF UM = new MainMenuF();
                     UM.Show();
-                }
-                ConnectString.connectstring.Close();
-            }
-            else
-            {
-                MessageBox.Show("Invalid username and/or Password");
-            }
-
-            
             // Ek steel gou die user wat gesignin het se ID. ;D
             //var GetUserID = (from X in db.UserTables where X.UserName.Contains(un) && X.UserPassword.Contains(pw) select X.UserID).FirstOrDefault();
             //UserIDthatLoggedIn = GetUserID;

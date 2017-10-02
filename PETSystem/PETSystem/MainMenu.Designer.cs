@@ -29,17 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Logout Timer");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Node5");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Carousel Timer", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2});
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("User Privileges");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Bussiness Rules", new System.Windows.Forms.TreeNode[] {
-            treeNode3,
-            treeNode4});
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Admin", new System.Windows.Forms.TreeNode[] {
-            treeNode5});
             this.Logout = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
@@ -53,7 +42,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.treeView1 = new System.Windows.Forms.TreeView();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -184,27 +172,6 @@
             this.timer1.Interval = 5000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // treeView1
-            // 
-            this.treeView1.Location = new System.Drawing.Point(533, 49);
-            this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Node4";
-            treeNode1.Text = "Logout Timer";
-            treeNode2.Name = "Node5";
-            treeNode2.Text = "Node5";
-            treeNode3.Name = "Node2";
-            treeNode3.Text = "Carousel Timer";
-            treeNode4.Name = "Node3";
-            treeNode4.Text = "User Privileges";
-            treeNode5.Name = "Node1";
-            treeNode5.Text = "Bussiness Rules";
-            treeNode6.Name = "Node0";
-            treeNode6.Text = "Admin";
-            this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode6});
-            this.treeView1.Size = new System.Drawing.Size(121, 97);
-            this.treeView1.TabIndex = 23;
-            // 
             // monthCalendar1
             // 
             this.monthCalendar1.Location = new System.Drawing.Point(655, 271);
@@ -217,7 +184,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(926, 483);
             this.Controls.Add(this.monthCalendar1);
-            this.Controls.Add(this.treeView1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Logout);
@@ -254,7 +220,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
     }
 }

@@ -116,6 +116,7 @@
             this.txtDate.Name = "txtDate";
             this.txtDate.Size = new System.Drawing.Size(100, 20);
             this.txtDate.TabIndex = 1;
+            this.txtDate.Leave += new System.EventHandler(this.txtDate_Leave);
             // 
             // label3
             // 
@@ -132,6 +133,8 @@
             this.txtRefNumber.Name = "txtRefNumber";
             this.txtRefNumber.Size = new System.Drawing.Size(100, 20);
             this.txtRefNumber.TabIndex = 0;
+            this.txtRefNumber.TextChanged += new System.EventHandler(this.txtRefNumber_TextChanged);
+            this.txtRefNumber.Leave += new System.EventHandler(this.txtRefNumber_Leave);
             // 
             // label4
             // 
@@ -211,6 +214,7 @@
             // 
             // cbProduct
             // 
+            this.cbProduct.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbProduct.FormattingEnabled = true;
             this.cbProduct.Location = new System.Drawing.Point(67, 19);
             this.cbProduct.Name = "cbProduct";
