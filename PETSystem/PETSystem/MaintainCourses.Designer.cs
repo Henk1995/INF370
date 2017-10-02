@@ -425,6 +425,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(762, 448);
+            this.ControlBox = false;
             this.Controls.Add(this.label11);
             this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.tabControl1);

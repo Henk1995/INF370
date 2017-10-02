@@ -124,7 +124,7 @@ namespace PETSystem
         {
             i++;
            if (pictures.Length == i) { i = 0; }
-          pictureBox1.Image = Image.FromFile("C:\\Users\\Jan-Wilkens\\Source\\Repos\\PETSystem\\PETSystem\\" + pictures[i]);
+          //pictureBox1.Image = Image.FromFile("C:\\Users\\Jan-Wilkens\\Source\\Repos\\PETSystem\\PETSystem\\" + pictures[i]);
 
            
 

@@ -45,6 +45,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(369, 280);
+            this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
             this.Name = "Update_Order_Form";
             this.Text = "Update_Order_Form";

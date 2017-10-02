@@ -203,6 +203,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(830, 397);
+            this.ControlBox = false;
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.textBox2);
