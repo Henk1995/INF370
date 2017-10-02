@@ -127,5 +127,7 @@ namespace PETSystem
         public static string PaymentinstructorName;
         public static string PaymentCost;
         public static string PaymentRefNumber;
+        // First Login
+        public static bool firstLogin;
     }
 }

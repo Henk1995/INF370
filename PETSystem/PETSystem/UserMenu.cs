@@ -40,6 +40,8 @@ namespace PETSystem
 
         private void UserMenu_Load(object sender, EventArgs e)
         {
+            //WaterMark
+            textBox1.Text = "Enter name here";
 
             //  get Timer Time
             SqlConnection TimeConnection = new SqlConnection(ConnectString.DBC);
@@ -225,6 +227,17 @@ namespace PETSystem
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+        
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+           
+           
+        }
+
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

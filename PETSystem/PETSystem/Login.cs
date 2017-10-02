@@ -63,14 +63,26 @@ namespace PETSystem
                     SqlCommand cmdd2 = connection2.CreateCommand();
                     cmdd2.CommandText = "Select UserID FROM UserTable WHERE UserName ='" + txtUsername.Text + "'";
                     ConnectString.UserIDforOrders = ((int)cmdd2.ExecuteScalar());
-                   //MessageBox.Show(ConnectString.UserIDforOrders.ToString());
+                    //MessageBox.Show(ConnectString.UserIDforOrders.ToString());
 
                     connection2.Close();
                     ConnectString.connectstring.Close();
-                    validU = true;
-                    this.Visible = false;
-                    MainMenuF UM = new MainMenuF();
-                    UM.ShowDialog();
+                    // Check first login and make sure that form will exit correctly from here
+                    if (ConnectString.firstLogin == true)
+                    {
+                        ConnectString.firstLogin = false;
+                        validU = true;
+                        this.Visible = false;
+                        MainMenuF UM = new MainMenuF();
+                        UM.ShowDialog();
+                    }
+                    else
+                    {
+                        this.Close();
+                        this.Dispose(true);
+                        MainMenuF FL = new MainMenuF();
+                        FL.ShowDialog();
+                    }
                  
 
                 }
@@ -130,12 +142,13 @@ namespace PETSystem
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-           
+            
         }
 
         private void LoginF_Load(object sender, EventArgs e)
         {
-            
+            // first login
+            ConnectString.firstLogin = true;
             //  get Timer Time
             SqlConnection TimeConnection = new SqlConnection(ConnectString.DBC);
             TimeConnection.Open();
@@ -174,8 +187,7 @@ namespace PETSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
-            this.Dispose(true);
+            System.Windows.Forms.Application.Exit();
         }
         bool firstClick = true;
         private void txtUsername_Leave(object sender, EventArgs e)
@@ -196,6 +208,11 @@ namespace PETSystem
                 txtUsername.Text = "";
                 firstClick = false;
             }
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
 
         }
     }
