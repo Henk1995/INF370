@@ -36,6 +36,73 @@ namespace PETSystem
 
         private void AddUser_Load(object sender, EventArgs e)
         {
+            //ToolTips
+
+            //Name
+            ToolTip TTName = new ToolTip();
+            TTName.ToolTipTitle = "Name";
+            TTName.UseFading = true;
+            TTName.UseAnimation = true;
+            TTName.IsBalloon = true;
+            TTName.SetToolTip(txtFirst, "Enter the user's Name here.");
+            //Surname
+            ToolTip TTSur = new ToolTip();
+            TTSur.ToolTipTitle = "Surname";
+            TTSur.UseFading = true;
+            TTSur.UseAnimation = true;
+            TTSur.IsBalloon = true;
+            TTSur.SetToolTip(txtLastName, "Enter the user's Surname here.");
+            //Email
+            ToolTip TTEmail = new ToolTip();
+            TTEmail.ToolTipTitle = "E-mail";
+            TTEmail.UseFading = true;
+            TTEmail.UseAnimation = true;
+            TTEmail.IsBalloon = true;
+            TTEmail.SetToolTip(txtEmail, "Enter the user's E-mail here.");
+            //USername
+            ToolTip TTUSERNAME = new ToolTip();
+            TTUSERNAME.ToolTipTitle = "Username";
+            TTUSERNAME.UseFading = true;
+            TTUSERNAME.UseAnimation = true;
+            TTUSERNAME.IsBalloon = true;
+            TTUSERNAME.SetToolTip(txtUserN, "Enter the user's Username here.");
+            //Password
+            ToolTip TTPASS = new ToolTip();
+            TTPASS.ToolTipTitle = "Password";
+            TTPASS.UseFading = true;
+            TTPASS.UseAnimation = true;
+            TTPASS.IsBalloon = true;
+            TTPASS.SetToolTip(txtPass, "Enter the user's Password here.");
+            //Re-typePassword
+            ToolTip TTRE = new ToolTip();
+            TTRE.ToolTipTitle = "Re-Type Password";
+            TTRE.UseFading = true;
+            TTRE.UseAnimation = true;
+            TTRE.IsBalloon = true;
+            TTRE.SetToolTip(txtRetype, "Enter the user's Password here agiain.");
+            //Priviledge
+            ToolTip TTPRIV = new ToolTip();
+            TTPRIV.ToolTipTitle = "Priviledge";
+            TTPRIV.UseFading = true;
+            TTPRIV.UseAnimation = true;
+            TTPRIV.IsBalloon = true;
+            TTPRIV.SetToolTip(cmbPrivilege, "Enter the user's Priviledge here.");
+            //AddUSer
+            ToolTip TTADD = new ToolTip();
+            TTADD.ToolTipTitle = "Add User";
+            TTADD.UseFading = true;
+            TTADD.UseAnimation = true;
+            TTADD.IsBalloon = true;
+            TTADD.SetToolTip(btnAddU, "Click here once all the information above\nhas been provided to add the user.");
+            //Back
+            ToolTip TTBACK = new ToolTip();
+            TTBACK.ToolTipTitle = "Back";
+            TTBACK.UseFading = true;
+            TTBACK.UseAnimation = true;
+            TTBACK.IsBalloon = true;
+            TTBACK.SetToolTip(btnBack, "Click here to return to the User menu.");
+
+
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
              t = new Timer() { Interval = 1000, Enabled = true };

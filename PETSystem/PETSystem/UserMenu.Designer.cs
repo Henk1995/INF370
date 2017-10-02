@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Logout Timer");
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Node5");
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Carousel Timer", new System.Windows.Forms.TreeNode[] {
-            treeNode19,
-            treeNode20});
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("User Privileges");
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Bussiness Rules", new System.Windows.Forms.TreeNode[] {
-            treeNode21,
-            treeNode22});
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Admin", new System.Windows.Forms.TreeNode[] {
-            treeNode23});
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Logout Timer");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Node5");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Carousel Timer", new System.Windows.Forms.TreeNode[] {
+            treeNode7,
+            treeNode8});
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("User Privileges");
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Bussiness Rules", new System.Windows.Forms.TreeNode[] {
+            treeNode9,
+            treeNode10});
+            System.Windows.Forms.TreeNode treeNode12 = new System.Windows.Forms.TreeNode("Admin", new System.Windows.Forms.TreeNode[] {
+            treeNode11});
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.addUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setLogoutTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,6 +79,7 @@
             this.addUserToolStripMenuItem.Name = "addUserToolStripMenuItem";
             this.addUserToolStripMenuItem.Size = new System.Drawing.Size(82, 22);
             this.addUserToolStripMenuItem.Text = "Add User";
+            this.addUserToolStripMenuItem.ToolTipText = "Click to add a user ";
             this.addUserToolStripMenuItem.Click += new System.EventHandler(this.addUserToolStripMenuItem_Click);
             // 
             // setLogoutTimeToolStripMenuItem
@@ -87,6 +88,7 @@
             this.setLogoutTimeToolStripMenuItem.Name = "setLogoutTimeToolStripMenuItem";
             this.setLogoutTimeToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.setLogoutTimeToolStripMenuItem.Text = "Set Logout Time";
+            this.setLogoutTimeToolStripMenuItem.ToolTipText = "Click to choose a time for the logout timer.";
             this.setLogoutTimeToolStripMenuItem.Click += new System.EventHandler(this.setLogoutTimeToolStripMenuItem_Click);
             // 
             // dgvUsers
@@ -165,20 +167,20 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(0, 59);
             this.treeView1.Name = "treeView1";
-            treeNode19.Name = "Node4";
-            treeNode19.Text = "Logout Timer";
-            treeNode20.Name = "Node5";
-            treeNode20.Text = "Node5";
-            treeNode21.Name = "Node2";
-            treeNode21.Text = "Carousel Timer";
-            treeNode22.Name = "Node3";
-            treeNode22.Text = "User Privileges";
-            treeNode23.Name = "Node1";
-            treeNode23.Text = "Bussiness Rules";
-            treeNode24.Name = "Node0";
-            treeNode24.Text = "Admin";
+            treeNode7.Name = "Node4";
+            treeNode7.Text = "Logout Timer";
+            treeNode8.Name = "Node5";
+            treeNode8.Text = "Node5";
+            treeNode9.Name = "Node2";
+            treeNode9.Text = "Carousel Timer";
+            treeNode10.Name = "Node3";
+            treeNode10.Text = "User Privileges";
+            treeNode11.Name = "Node1";
+            treeNode11.Text = "Bussiness Rules";
+            treeNode12.Name = "Node0";
+            treeNode12.Text = "Admin";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode24});
+            treeNode12});
             this.treeView1.Size = new System.Drawing.Size(122, 179);
             this.treeView1.TabIndex = 24;
             // 
@@ -245,10 +247,13 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.dgvUsers);
             this.Controls.Add(this.menuStrip1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximumSize = new System.Drawing.Size(1047, 321);
+            this.MinimumSize = new System.Drawing.Size(1047, 321);
             this.Name = "UserMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "User Menu";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UserMenu_FormClosing);
             this.Load += new System.EventHandler(this.UserMenu_Load);
             this.menuStrip1.ResumeLayout(false);
