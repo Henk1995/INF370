@@ -144,9 +144,51 @@ namespace PETSystem
         {
             
         }
+        ToolTip TooltipUsername = new ToolTip();
+        ToolTip TooltipPassword = new ToolTip();
+        ToolTip TooltipButtonLogin = new ToolTip();
+        ToolTip TooltipButtonExit = new ToolTip();
+        ToolTip TooltipNewPassword = new ToolTip();
+        ToolTip TooltipForgotPassword = new ToolTip();
 
         private void LoginF_Load(object sender, EventArgs e)
-        {
+        {//Tooltips
+            TooltipUsername.ShowAlways = true;
+            TooltipUsername.ToolTipTitle = "Username.";
+            TooltipUsername.UseFading = true;
+            TooltipUsername.UseAnimation = true;
+            TooltipUsername.IsBalloon = true;         
+            TooltipUsername.SetToolTip(txtUsername, "Please enter your Username here.");
+            TooltipPassword.ShowAlways = true;
+            TooltipPassword.ToolTipTitle = "Password.";
+            TooltipPassword.UseFading = true;
+            TooltipPassword.UseAnimation = true;
+            TooltipPassword.IsBalloon = true;
+            TooltipPassword.SetToolTip(txtPassword, "Please enter your Password here.");
+            TooltipButtonLogin.ShowAlways = true;
+            TooltipButtonLogin.ToolTipTitle = "Login.";
+            TooltipButtonLogin.UseFading = true;
+            TooltipButtonLogin.UseAnimation = true;
+            TooltipButtonLogin.IsBalloon = true;
+            TooltipButtonLogin.SetToolTip(btnLogin, "Press to log into system after details\nhave been entered above.");
+            TooltipButtonExit.ShowAlways = true;
+            TooltipButtonExit.ToolTipTitle = "Exit.";
+            TooltipButtonExit.UseFading = true;
+            TooltipButtonExit.UseAnimation = true;
+            TooltipButtonExit.IsBalloon = true;
+            TooltipButtonExit.SetToolTip(button1, "Press to exit the program.");
+            TooltipNewPassword.ShowAlways = true;
+            TooltipNewPassword.ToolTipTitle = "Change Password.";
+            TooltipNewPassword.UseFading = true;
+            TooltipNewPassword.UseAnimation = true;
+            TooltipNewPassword.IsBalloon = true;
+            TooltipNewPassword.SetToolTip(linkLabel1, "Press to change your password.");
+            TooltipForgotPassword.ShowAlways = true;
+            TooltipForgotPassword.ToolTipTitle = "Forgot Password.";
+            TooltipForgotPassword.UseFading = true;
+            TooltipForgotPassword.UseAnimation = true;
+            TooltipForgotPassword.IsBalloon = true;
+            TooltipForgotPassword.SetToolTip(linkLabel2, "Press if you have forgotten your password.");
             // first login
             ConnectString.firstLogin = true;
             //  get Timer Time

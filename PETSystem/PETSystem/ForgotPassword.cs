@@ -128,7 +128,7 @@ namespace PETSystem
         {
             this.Close();
             LoginF UM = new LoginF();
-            UM.Show();
+            UM.ShowDialog();
         }
 
         private void txtUserName_TextChanged(object sender, EventArgs e)
@@ -141,7 +141,7 @@ namespace PETSystem
             }
             if (!valid3)
             {
-                txtUserName.BackColor = Color.Red;
+              //  txtUserName.BackColor = Color.Red;
             }
             else
             {
@@ -168,6 +168,53 @@ namespace PETSystem
                 }
             }
             return cipherText;
+        }
+
+        private void ForgotPassword_Load(object sender, EventArgs e)
+        {
+            //textbox watermark
+            txtUserName.Text = "Entername Here";
+
+            label2.Text = "Please enter your username in the field below.\nYou will recieve an email short after with your login password.";
+            ToolTip textboxTooltip = new ToolTip();
+            textboxTooltip.ToolTipTitle = "Username";
+            textboxTooltip.UseFading = true;
+            textboxTooltip.UseAnimation = true;
+            textboxTooltip.IsBalloon = true;
+            textboxTooltip.SetToolTip(txtUserName, "Enter your Username here.");
+
+            //submit
+            ToolTip TTSubmit = new ToolTip();
+            TTSubmit.ToolTipTitle = "Submit";
+            TTSubmit.UseFading = true;
+            TTSubmit.UseAnimation = true;
+            TTSubmit.IsBalloon = true;
+            TTSubmit.SetToolTip(btnChangePass, "Click to submit your username.");
+            //back
+            ToolTip TTBack = new ToolTip();
+            TTBack.ToolTipTitle = "Back";
+            TTBack.UseFading = true;
+            TTBack.UseAnimation = true;
+            TTBack.IsBalloon = true;
+            TTBack.SetToolTip(btnBack, "Click to return to Login screen.");
+        }
+        bool firstclick = true;
+        private void txtUserName_Click(object sender, EventArgs e)
+        {
+            if (firstclick == true)
+            {
+                txtUserName.Text = "";
+                firstclick = false;
+            }
+        }
+
+        private void txtUserName_Leave(object sender, EventArgs e)
+        {
+            if (txtUserName.Text.Length == 0)
+            {
+                txtUserName.Text = "Enter Username here.";
+                firstclick = true;
+            }
         }
     }
     }
