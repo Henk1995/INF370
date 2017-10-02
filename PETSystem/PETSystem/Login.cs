@@ -69,8 +69,7 @@ namespace PETSystem
                     this.Visible = false;
                     MainMenuF UM = new MainMenuF();
                     UM.ShowDialog();
-                    this.Close();
-                    this.Dispose(true);
+                    
 
                 }
                 ConnectString.connectstring.Close();
