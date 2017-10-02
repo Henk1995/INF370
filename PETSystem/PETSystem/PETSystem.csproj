@@ -822,6 +822,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="128x128.ico" />
+    <None Include="Resources\pexels-photo-370799.jpeg" />
+    <None Include="Resources\Login.jpg" />
+    <None Include="Resources\wood-metallic-texture-background-rustic-banner-blue-tones-51204566.jpg" />
+    <None Include="Resources\Login.png" />
+    <None Include="Resources\newlogin.png" />
+    <None Include="Resources\PETLOGO.png" />
+    <None Include="Resources\PETLOGO1.png" />
     <Content Include="system1.jpg" />
     <Content Include="System2.jpg" />
     <Content Include="system3.jpg" />

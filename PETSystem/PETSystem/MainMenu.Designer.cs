@@ -44,12 +44,8 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.inf370RegDataSet = new PETSystem.inf370RegDataSet();
-            this.applicationFormBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.applicationFormTableAdapter = new PETSystem.inf370RegDataSetTableAdapters.ApplicationFormTableAdapter();
-            this.tableAdapterManager = new PETSystem.inf370RegDataSetTableAdapters.TableAdapterManager();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.inf370RegDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.applicationFormBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // Logout
@@ -189,57 +185,6 @@
             this.inf370RegDataSet.DataSetName = "inf370RegDataSet";
             this.inf370RegDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // applicationFormBindingSource
-            // 
-            this.applicationFormBindingSource.DataMember = "ApplicationForm";
-            this.applicationFormBindingSource.DataSource = this.inf370RegDataSet;
-            // 
-            // applicationFormTableAdapter
-            // 
-            this.applicationFormTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.ApplicationFormTableAdapter = this.applicationFormTableAdapter;
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.CertificationTableAdapter = null;
-            this.tableAdapterManager.ClientCourseLineTableAdapter = null;
-            this.tableAdapterManager.ClientsTableAdapter = null;
-            this.tableAdapterManager.CourseInstanceTableAdapter = null;
-            this.tableAdapterManager.CoursesTableAdapter = null;
-            this.tableAdapterManager.CourseTimesTableAdapter = null;
-            this.tableAdapterManager.CustomerTableAdapter = null;
-            this.tableAdapterManager.DamagedStockTableAdapter = null;
-            this.tableAdapterManager.GenderTableAdapter = null;
-            this.tableAdapterManager.InstructorTableAdapter = null;
-            this.tableAdapterManager.MailingListTableAdapter = null;
-            this.tableAdapterManager.OrderLineTableAdapter = null;
-            this.tableAdapterManager.PaymentTableAdapter = null;
-            this.tableAdapterManager.PaymentTypeTableAdapter = null;
-            this.tableAdapterManager.PictureTableTableAdapter = null;
-            this.tableAdapterManager.PrinterOrderTableAdapter = null;
-            this.tableAdapterManager.PrinterTableAdapter = null;
-            this.tableAdapterManager.PrivilegeTypeTableAdapter = null;
-            this.tableAdapterManager.QualifiedCoursesTableAdapter = null;
-            this.tableAdapterManager.RefundTableAdapter = null;
-            this.tableAdapterManager.ResultsTableAdapter = null;
-            this.tableAdapterManager.RoyaltiesCourseTableAdapter = null;
-            this.tableAdapterManager.RoyaltiesOrderTableAdapter = null;
-            this.tableAdapterManager.StockLineTableAdapter = null;
-            this.tableAdapterManager.StockTableAdapter = null;
-            this.tableAdapterManager.StockTypeTableAdapter = null;
-            this.tableAdapterManager.SupplierOrderTableAdapter = null;
-            this.tableAdapterManager.SupplierTableAdapter = null;
-            this.tableAdapterManager.SupplierTypeTableAdapter = null;
-            this.tableAdapterManager.TableOrderTableAdapter = null;
-            this.tableAdapterManager.TimeSlotTableAdapter = null;
-            this.tableAdapterManager.TitleTableAdapter = null;
-            this.tableAdapterManager.TrainingCourseLineTableAdapter = null;
-            this.tableAdapterManager.TrainingCourseTableAdapter = null;
-            this.tableAdapterManager.TrainingCourseTypeTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = PETSystem.inf370RegDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.UserTableTableAdapter = null;
-            // 
             // MainMenuF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -263,7 +208,6 @@
             this.Load += new System.EventHandler(this.MainMenuF_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.inf370RegDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.applicationFormBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -286,8 +230,5 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private inf370RegDataSet inf370RegDataSet;
-        private System.Windows.Forms.BindingSource applicationFormBindingSource;
-        private inf370RegDataSetTableAdapters.ApplicationFormTableAdapter applicationFormTableAdapter;
-        private inf370RegDataSetTableAdapters.TableAdapterManager tableAdapterManager;
     }
 }
