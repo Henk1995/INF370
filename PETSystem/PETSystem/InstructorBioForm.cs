@@ -42,6 +42,16 @@ namespace PETSystem
 
         private void InstructorBioForm_Load(object sender, EventArgs e)
         {
+            //TT
+            ToolTip TTBACK = new ToolTip();
+            TTBACK.ToolTipTitle = "Back";
+            TTBACK.UseFading = true;
+            TTBACK.UseAnimation = true;
+            TTBACK.IsBalloon = true;
+            TTBACK.SetToolTip(button1, "Click here to return to previous screen.");
+
+
+
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
             t = new Timer() { Interval = 1000, Enabled = true };

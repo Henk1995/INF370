@@ -73,10 +73,10 @@ namespace PETSystem
             int GenderID = 0;
             int TitleID = 0;
             int CertificationID = 0;
-            valid6 = EH.CheckEmpty(cmbCertification.Text);
+          //  valid6 = EH.CheckEmpty(cmbCertification.Text);
             valid7 = EH.CheckEmpty(cmbGender.Text);
             valid8 = EH.CheckEmpty(cmbTitle.Text);
-            if (valid1 && valid2 && valid3 && valid4 && valid6 && valid7 && valid8)
+            if (valid1 && valid2 && valid3 && valid4 && valid7 && valid8)
             {
                 string queryA = "SELECT * FROM Instructor WHERE  Email='" + txtEmail.Text + "' OR PhoneNumber='"+ txtPhoneNumber.Text+"'";
                 SqlCommand MyCommandA = new SqlCommand(queryA, ConnectString.connectstring);
@@ -103,17 +103,17 @@ namespace PETSystem
                     if (answer == DialogResult.Yes)
                     {
                         DataTable DT = new DataTable();
-                        string query4 = "SELECT CertificationID FROM Certification WHERE CertificationName ='" + cmbCertification.Text + "'";
-                        SqlCommand MyCommand4 = new SqlCommand(query4, ConnectString.connectstring);
-                        SqlDataReader MyReader4;
-                        ConnectString.connectstring.Open();
-                        MyReader4 = MyCommand4.ExecuteReader();     // Here our query will be executed and data saved into the database.  
+                     // //  string query4 = "SELECT CertificationID FROM Certification WHERE CertificationName ='" + cmbCertification.Text + "'";
+                     //   SqlCommand MyCommand4 = new SqlCommand(query4, ConnectString.connectstring);
+                        //SqlDataReader MyReader4;
+                        //ConnectString.connectstring.Open();
+                       // MyReader4 = MyCommand4.ExecuteReader();     // Here our query will be executed and data saved into the database.  
 
-                        while (MyReader4.Read())
-                        {
-                            CertificationID = Convert.ToInt32(MyReader4["CertificationID"]);
-                        }
-                        ConnectString.connectstring.Close();
+                        //while (MyReader4.Read())
+                       // {
+                        //    CertificationID = Convert.ToInt32(MyReader4["CertificationID"]);
+                       // }
+                      //  ConnectString.connectstring.Close();
                         string query1 = "SELECT GenderID FROM Gender WHERE GenderName ='" + cmbGender.Text + "'";
                         SqlCommand MyCommand1 = new SqlCommand(query1, ConnectString.connectstring);
                         SqlDataReader MyReader1;
@@ -136,7 +136,7 @@ namespace PETSystem
                             TitleID = Convert.ToInt32(MyReader2["TitleID"]);
                         }
                         ConnectString.connectstring.Close();
-                        string Query = "INSERT INTO Instructor (Name,Surname,Email,PhoneNumber,GenderID,TitleID,CertificationID) VALUES ('" + this.txtName.Text + "','" + this.txtSurname.Text + "','" + this.txtEmail.Text + "','" + this.txtPhoneNumber.Text + "','" + GenderID + "','" + TitleID + "','" + CertificationID + "');";
+                        string Query = "INSERT INTO Instructor (Name,Surname,Email,PhoneNumber,GenderID,TitleID,CertificationID) VALUES ('" + this.txtName.Text + "','" + this.txtSurname.Text + "','" + this.txtEmail.Text + "','" + this.txtPhoneNumber.Text + "','" + GenderID + "','" + TitleID + "', 1);";
                         SqlCommand MyCommand3 = new SqlCommand(Query, ConnectString.connectstring);
                         SqlDataReader MyReader3;
                         ConnectString.connectstring.Open();
@@ -182,6 +182,67 @@ namespace PETSystem
 
         private void CreateInstructor_Load(object sender, EventArgs e)
         {
+            //Name
+            ToolTip TTname = new ToolTip();
+            TTname.ToolTipTitle = "Name";
+            TTname.UseFading = true;
+            TTname.UseAnimation = true;
+            TTname.IsBalloon = true;
+            TTname.SetToolTip(txtName, "Enter the instructor's Name here.");
+            //Surname
+            ToolTip ttSur = new ToolTip();
+            ttSur.ToolTipTitle = "Surname";
+            ttSur.UseFading = true;
+            ttSur.UseAnimation = true;
+            ttSur.IsBalloon = true;
+            ttSur.SetToolTip(txtSurname, "Enter the instructor's Surnam here.");
+            //email
+            ToolTip TTE = new ToolTip();
+            TTE.ToolTipTitle = "E-Mail";
+            TTE.UseFading = true;
+            TTE.UseAnimation = true;
+            TTE.IsBalloon = true;
+            TTE.SetToolTip(txtEmail, "Enter the instructor's E-Mail here.");
+            //phonenumber
+            ToolTip TTP = new ToolTip();
+            TTP.ToolTipTitle = "Phone Number";
+            TTP.UseFading = true;
+            TTP.UseAnimation = true;
+            TTP.IsBalloon = true;
+            TTP.SetToolTip(txtPhoneNumber, "Enter the instructor's Phone Number here.");
+            //gender
+            ToolTip TTG = new ToolTip();
+            TTG.ToolTipTitle = "Gender";
+            TTG.UseFading = true;
+            TTG.UseAnimation = true;
+            TTG.IsBalloon = true;
+            TTG.SetToolTip(cmbGender, "Select the instructor's Gender here.");
+            //title
+            ToolTip TTT = new ToolTip();
+            TTT.ToolTipTitle = "Title";
+            TTT.UseFading = true;
+            TTT.UseAnimation = true;
+            TTT.IsBalloon = true;
+            TTT.SetToolTip(cmbTitle, "Select the instructor's Title here.");
+            //back
+            ToolTip TTB = new ToolTip();
+            TTB.ToolTipTitle = "Back";
+            TTB.UseFading = true;
+            TTB.UseAnimation = true;
+            TTB.IsBalloon = true;
+            TTB.SetToolTip(button1, "Click here to return to the previous screen.");
+            //Create Instructor
+            ToolTip TTCREATEE = new ToolTip();
+            TTCREATEE.ToolTipTitle = "Create Instructor";
+            TTCREATEE.UseFading = true;
+            TTCREATEE.UseAnimation = true;
+            TTCREATEE.IsBalloon = true;
+            TTCREATEE.SetToolTip(btnCreateInstructor, "Click here to add the new instructor to the system\nbased on the information provided above.");
+
+
+
+
+
 
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
@@ -190,7 +251,7 @@ namespace PETSystem
             timer1_Tick(null, null);
 
 
-            cmbCertification.Items.Clear();
+           // cmbCertification.Items.Clear();
           
             cmbGender.Items.Clear();
             cmbTitle.Items.Clear();
@@ -217,17 +278,9 @@ namespace PETSystem
 ConnectString.connectstring.Close();
             string query3 = "SELECT CertificationName FROM Certification ";
 DataTable DT3 = new DataTable();
-ConnectString.connectstring.Open();
-            SqlCommand cmd3 = new SqlCommand(query3, ConnectString.connectstring);
-DA = new SqlDataAdapter(cmd3);
-DA.Fill(DT3);
-            foreach (DataRow dr in DT3.Rows)
-            {
-                cmbCertification.Items.Add(dr["CertificationName"]).ToString();
-            }
-            ConnectString.connectstring.Close();
 
-            cmbCertification.SelectedIndex = 0;
+
+           // cmbCertification.SelectedIndex = 0;
             cmbGender.SelectedIndex = 0;
             cmbTitle.SelectedIndex = 0;
             

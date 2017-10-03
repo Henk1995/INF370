@@ -131,5 +131,7 @@ namespace PETSystem
         public static bool firstLogin;
         //Training Course Result
         public static int TrainingCourseIDForResult;
+        
+        
     }
 }

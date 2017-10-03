@@ -103,6 +103,16 @@ namespace PETSystem.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap no_image_icon_15 {
+            get {
+                object obj = ResourceManager.GetObject("no-image-icon-15", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap PETLOGO {
             get {
                 object obj = ResourceManager.GetObject("PETLOGO", resourceCulture);

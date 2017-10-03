@@ -121,6 +121,9 @@
   <data name="pexels-photo-370799" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pexels-photo-370799.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Toets" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Toets.docx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="wood-metallic-texture-background-rustic-banner-blue-tones-51204566" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wood-metallic-texture-background-rustic-banner-blue-tones-51204566.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -142,7 +145,7 @@
   <data name="email-icon-23" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\email-icon-23.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Toets" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Toets.docx;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="no-image-icon-15" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\no-image-icon-15.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -45,6 +45,7 @@ namespace PETSystem
         {
             InitializeComponent();
             NameId = name;
+
             SurnameId = surname;
             emailId = email;
             phoneNumberId = phoneN;
@@ -245,6 +246,72 @@ namespace PETSystem
         }
         private void UpdateInstructor_Load(object sender, EventArgs e)
         {
+            //Tooltips
+            //Name
+            ToolTip TTname = new ToolTip();
+            TTname.ToolTipTitle = "Name";
+            TTname.UseFading = true;
+            TTname.UseAnimation = true;
+            TTname.IsBalloon = true;
+            TTname.SetToolTip(txtName, "Enter the instructor's Name here.");
+            //Surname
+            ToolTip ttSur = new ToolTip();
+            ttSur.ToolTipTitle = "Surname";
+            ttSur.UseFading = true;
+            ttSur.UseAnimation = true;
+            ttSur.IsBalloon = true;
+            ttSur.SetToolTip(txtSurname, "Enter the instructor's Surnam here.");
+            //email
+            ToolTip TTE = new ToolTip();
+            TTE.ToolTipTitle = "E-Mail";
+            TTE.UseFading = true;
+            TTE.UseAnimation = true;
+            TTE.IsBalloon = true;
+            TTE.SetToolTip(txtEmail, "Enter the instructor's E-Mail here.");
+            //phonenumber
+            ToolTip TTP = new ToolTip();
+            TTP.ToolTipTitle = "Phone Number";
+            TTP.UseFading = true;
+            TTP.UseAnimation = true;
+            TTP.IsBalloon = true;
+            TTP.SetToolTip(txtPhoneNumber, "Enter the instructor's Phone Number here.");
+            //gender
+            ToolTip TTG = new ToolTip();
+            TTG.ToolTipTitle = "Gender";
+            TTG.UseFading = true;
+            TTG.UseAnimation = true;
+            TTG.IsBalloon = true;
+            TTG.SetToolTip(cmbGender, "Select the instructor's Gender here.");
+            //title
+            ToolTip TTT = new ToolTip();
+            TTT.ToolTipTitle = "Title";
+            TTT.UseFading = true;
+            TTT.UseAnimation = true;
+            TTT.IsBalloon = true;
+            TTT.SetToolTip(cmbTitle, "Select the instructor's Title here.");
+            //back
+            ToolTip TTB = new ToolTip();
+            TTB.ToolTipTitle = "Back";
+            TTB.UseFading = true;
+            TTB.UseAnimation = true;
+            TTB.IsBalloon = true;
+            TTB.SetToolTip(btnBack, "Click here to return to the previous screen.");
+            //edit image
+            ToolTip TTEm = new ToolTip();
+            TTEm.ToolTipTitle = "Edit Image";
+            TTEm.UseFading = true;
+            TTEm.UseAnimation = true;
+            TTEm.IsBalloon = true;
+            TTEm.SetToolTip(button1, "Click here to Edit the instructors image.");
+            //update
+            ToolTip TTUP = new ToolTip();
+            TTUP.ToolTipTitle = "Update Instructor";
+            TTUP.UseFading = true;
+            TTUP.UseAnimation = true;
+            TTUP.IsBalloon = true;
+            TTUP.SetToolTip(btnUpdate, "Click here to Update the instructor's information\nto the information provided above.");
+
+
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
             t = new Timer() { Interval = 1000, Enabled = true };
@@ -330,8 +397,10 @@ namespace PETSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             this.Close();
-            this.Dispose(true);
+             this.Dispose(true);
+            
             ViewinstructorForm myform = new ViewinstructorForm();
             myform.ShowDialog();
         }
@@ -361,6 +430,11 @@ namespace PETSystem
         private void UpdateInstructor_FormClosing(object sender, FormClosingEventArgs e)
         {
             t.Enabled = false;
+        }
+
+        private void UpdateInstructor_MouseMove(object sender, MouseEventArgs e)
+        {
+           //
         }
     }
 }
