@@ -64,14 +64,26 @@ namespace PETSystem
                     SqlCommand cmdd2 = connection2.CreateCommand();
                     cmdd2.CommandText = "Select UserID FROM UserTable WHERE UserName ='" + txtUsername.Text + "'";
                     ConnectString.UserIDforOrders = ((int)cmdd2.ExecuteScalar());
-                   //MessageBox.Show(ConnectString.UserIDforOrders.ToString());
+                    //MessageBox.Show(ConnectString.UserIDforOrders.ToString());
 
                     connection2.Close();
                     ConnectString.connectstring.Close();
-                    validU = true;
-                    this.Visible = false;
-                    MainMenuF UM = new MainMenuF();
-                    UM.ShowDialog();
+                    // Check first login and make sure that form will exit correctly from here
+                    if (ConnectString.firstLogin == true)
+                    {
+                        ConnectString.firstLogin = false;
+                        validU = true;
+                        this.Visible = false;
+                        MainMenuF UM = new MainMenuF();
+                        UM.ShowDialog();
+                    }
+                    else
+                    {
+                        this.Close();
+                        this.Dispose(true);
+                        MainMenuF FL = new MainMenuF();
+                        FL.ShowDialog();
+                    }
                  
 
                 }
@@ -131,12 +143,55 @@ namespace PETSystem
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-           
+            
         }
+        ToolTip TooltipUsername = new ToolTip();
+        ToolTip TooltipPassword = new ToolTip();
+        ToolTip TooltipButtonLogin = new ToolTip();
+        ToolTip TooltipButtonExit = new ToolTip();
+        ToolTip TooltipNewPassword = new ToolTip();
+        ToolTip TooltipForgotPassword = new ToolTip();
 
         private void LoginF_Load(object sender, EventArgs e)
-        {
-            
+        {//Tooltips
+            TooltipUsername.ShowAlways = true;
+            TooltipUsername.ToolTipTitle = "Username.";
+            TooltipUsername.UseFading = true;
+            TooltipUsername.UseAnimation = true;
+            TooltipUsername.IsBalloon = true;         
+            TooltipUsername.SetToolTip(txtUsername, "Please enter your Username here.");
+            TooltipPassword.ShowAlways = true;
+            TooltipPassword.ToolTipTitle = "Password.";
+            TooltipPassword.UseFading = true;
+            TooltipPassword.UseAnimation = true;
+            TooltipPassword.IsBalloon = true;
+            TooltipPassword.SetToolTip(txtPassword, "Please enter your Password here.");
+            TooltipButtonLogin.ShowAlways = true;
+            TooltipButtonLogin.ToolTipTitle = "Login.";
+            TooltipButtonLogin.UseFading = true;
+            TooltipButtonLogin.UseAnimation = true;
+            TooltipButtonLogin.IsBalloon = true;
+            TooltipButtonLogin.SetToolTip(btnLogin, "Press to log into system after details\nhave been entered above.");
+            TooltipButtonExit.ShowAlways = true;
+            TooltipButtonExit.ToolTipTitle = "Exit.";
+            TooltipButtonExit.UseFading = true;
+            TooltipButtonExit.UseAnimation = true;
+            TooltipButtonExit.IsBalloon = true;
+            TooltipButtonExit.SetToolTip(button1, "Press to exit the program.");
+            TooltipNewPassword.ShowAlways = true;
+            TooltipNewPassword.ToolTipTitle = "Change Password.";
+            TooltipNewPassword.UseFading = true;
+            TooltipNewPassword.UseAnimation = true;
+            TooltipNewPassword.IsBalloon = true;
+            TooltipNewPassword.SetToolTip(linkLabel1, "Press to change your password.");
+            TooltipForgotPassword.ShowAlways = true;
+            TooltipForgotPassword.ToolTipTitle = "Forgot Password.";
+            TooltipForgotPassword.UseFading = true;
+            TooltipForgotPassword.UseAnimation = true;
+            TooltipForgotPassword.IsBalloon = true;
+            TooltipForgotPassword.SetToolTip(linkLabel2, "Press if you have forgotten your password.");
+            // first login
+            ConnectString.firstLogin = true;
             //  get Timer Time
             SqlConnection TimeConnection = new SqlConnection(ConnectString.DBC);
             TimeConnection.Open();
@@ -175,8 +230,7 @@ namespace PETSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.Close();
-            this.Dispose(true);
+            System.Windows.Forms.Application.Exit();
         }
         bool firstClick = true;
         private void txtUsername_Leave(object sender, EventArgs e)
@@ -197,6 +251,11 @@ namespace PETSystem
                 txtUsername.Text = "";
                 firstClick = false;
             }
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
 
         }
     }

@@ -20,7 +20,7 @@ namespace PETSystem
 
         private void UpdateTimerTime_Load(object sender, EventArgs e)
         {
-            label1.Text = " The current logout timer is set to:\n " + Convert.ToString(ConnectString.TimerTime) + " Minutes.";
+            label1.Text = " The current logout timer is set to: " + Convert.ToString(ConnectString.TimerTime) + " Minutes.";
         }
         int newtime;
         private void button1_Click(object sender, EventArgs e)
@@ -29,7 +29,7 @@ namespace PETSystem
 
             if (Convert.ToInt32(numericUpDown1.Value) < 1)
             {
-                MessageBox.Show("Please Select a valid time in minutes\nThe time must be larger than 0");
+                MessageBox.Show("Please Select a valid time in minutes\nThe time must be larger than 0","Notification");
             }
             else {
                 try

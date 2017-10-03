@@ -40,6 +40,40 @@ namespace PETSystem
 
         private void UserMenu_Load(object sender, EventArgs e)
         {
+            //ToolTips
+            menuStrip1.ShowItemToolTips = true;
+            
+            //Search
+            ToolTip TTSearch = new ToolTip();
+            TTSearch.ToolTipTitle = "Search";
+            TTSearch.UseFading = true;
+            TTSearch.UseAnimation = true;
+            TTSearch.IsBalloon = true;
+            TTSearch.SetToolTip(textBox1, "Enter a Users name here to search for it.");
+            //Main Menu
+            ToolTip TTMAIN = new ToolTip();
+            TTMAIN.ToolTipTitle = "Main Menu";
+            TTMAIN.UseFading = true;
+            TTMAIN.UseAnimation = true;
+            TTMAIN.IsBalloon = true;
+            TTMAIN.SetToolTip(btnMainM, "Click to return to the Main Menu.");
+            //Update User
+            ToolTip TTUpdate = new ToolTip();
+            TTUpdate.ToolTipTitle = "Update User";
+            TTUpdate.UseFading = true;
+            TTUpdate.UseAnimation = true;
+            TTUpdate.IsBalloon = true;
+            TTUpdate.SetToolTip(btnSave, "Select the user you wish to Update from the list and click here.");
+            //Delete User
+            ToolTip TTDelete = new ToolTip();
+            TTDelete.ToolTipTitle = "Delete User";
+            TTDelete.UseFading = true;
+            TTDelete.UseAnimation = true;
+            TTDelete.IsBalloon = true;
+            TTDelete.SetToolTip(button1, "Select the user you wish to Delete from the list and click here.");
+            //Add user
+            
+            //Set Logout time
 
             //  get Timer Time
             SqlConnection TimeConnection = new SqlConnection(ConnectString.DBC);
@@ -109,7 +143,7 @@ namespace PETSystem
                 }
                 else
                 {
-                    MessageBox.Show("Please select a row to update");
+                    MessageBox.Show("Please select a row to update","Notification");
                 }
             }
             catch
@@ -168,7 +202,7 @@ namespace PETSystem
             }
             else
             {
-                MessageBox.Show("Please select a row to Delete");
+                MessageBox.Show("Please select a row to Delete","Notification");
             }
         }
 
@@ -225,6 +259,17 @@ namespace PETSystem
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+        
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+           
+           
+        }
+
+        private void textBox1_Click(object sender, EventArgs e)
+        {
+           
         }
     }
 }

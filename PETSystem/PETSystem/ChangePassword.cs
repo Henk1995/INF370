@@ -27,14 +27,58 @@ namespace PETSystem
 
         private void ChangePassword_Load(object sender, EventArgs e)
         {
+            //textbox USername
+            
 
+            ToolTip textboxTooltip = new ToolTip();
+            textboxTooltip.ToolTipTitle = "Username";
+            textboxTooltip.UseFading = true;
+            textboxTooltip.UseAnimation = true;
+            textboxTooltip.IsBalloon = true;
+            textboxTooltip.SetToolTip(txtUserName, "Enter your Username here.");
+            //oldpass
+            ToolTip TTold = new ToolTip();
+            TTold.ToolTipTitle = "Old Password";
+            TTold.UseFading = true;
+            TTold.UseAnimation = true;
+            TTold.IsBalloon = true;
+            TTold.SetToolTip(txtOldPass, "Enter your current password here.");
+            //newpass
+            ToolTip TTNEW = new ToolTip();
+            TTNEW.ToolTipTitle = "New Password";
+            TTNEW.UseFading = true;
+            TTNEW.UseAnimation = true;
+            TTNEW.IsBalloon = true;
+            TTNEW.SetToolTip(txtNewPass, "Enter your new password here.");
+            //re-typenewpass
+            ToolTip TTRE = new ToolTip();
+            TTRE.ToolTipTitle = "Re-Type New Password";
+            TTRE.UseFading = true;
+            TTRE.UseAnimation = true;
+            TTRE.IsBalloon = true;
+            TTRE.SetToolTip(txtNewRePass, "Enter your new password here again.");
+            //btnback
+            ToolTip TTback = new ToolTip();
+            TTback.ToolTipTitle = "Back";
+            TTback.UseFading = true;
+            TTback.UseAnimation = true;
+            TTback.IsBalloon = true;
+            TTback.SetToolTip(btnChangePass, "Click here to return to the Login screen.");
+            //btnchange
+            ToolTip TtSub = new ToolTip();
+            TtSub.ToolTipTitle = "Change Password";
+            TtSub.UseFading = true;
+            TtSub.UseAnimation = true;
+            TtSub.IsBalloon = true;
+            TtSub.SetToolTip(btnBack, "Click here to Submit password changes.");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+            this.Dispose(true);
             LoginF UM = new LoginF();
-            UM.Show();
+            UM.ShowDialog();
         }
 
         private void txtUserName_TextChanged(object sender, EventArgs e)

@@ -23,18 +23,80 @@ namespace PETSystem
 
         private void UpdateUserForm_Load(object sender, EventArgs e)
         {
+
+            //Tool Tips
+
+            //Name
+            ToolTip TTName = new ToolTip();
+            TTName.ToolTipTitle = "Name";
+            TTName.UseFading = true;
+            TTName.UseAnimation = true;
+            TTName.IsBalloon = true;
+            TTName.SetToolTip(txtName, "Enter the user's Name here.");
+            //Surname
+            ToolTip TTSur = new ToolTip();
+            TTSur.ToolTipTitle = "Surname";
+            TTSur.UseFading = true;
+            TTSur.UseAnimation = true;
+            TTSur.IsBalloon = true;
+            TTSur.SetToolTip(txtSurname, "Enter the user's Surname here.");
+            //Email
+            ToolTip TTEmail = new ToolTip();
+            TTEmail.ToolTipTitle = "E-mail";
+            TTEmail.UseFading = true;
+            TTEmail.UseAnimation = true;
+            TTEmail.IsBalloon = true;
+            TTEmail.SetToolTip(txtEmail, "Enter the user's E-mail here.");
+            //USername
+            ToolTip TTUSERNAME = new ToolTip();
+            TTUSERNAME.ToolTipTitle = "Username";
+            TTUSERNAME.UseFading = true;
+            TTUSERNAME.UseAnimation = true;
+            TTUSERNAME.IsBalloon = true;
+            TTUSERNAME.SetToolTip(txtUsername, "Enter the user's Username here.");
+            //Password
+            ToolTip TTPASS = new ToolTip();
+            TTPASS.ToolTipTitle = "Password";
+            TTPASS.UseFading = true;
+            TTPASS.UseAnimation = true;
+            TTPASS.IsBalloon = true;
+            TTPASS.SetToolTip(txtPassword, "Enter the user's Password here.");
+           
+            //Priviledge
+            ToolTip TTPRIV = new ToolTip();
+            TTPRIV.ToolTipTitle = "Priviledge";
+            TTPRIV.UseFading = true;
+            TTPRIV.UseAnimation = true;
+            TTPRIV.IsBalloon = true;
+            TTPRIV.SetToolTip(cbPriviledge, "Enter the user's Priviledge here.");
+            //Update
+            ToolTip TTADD = new ToolTip();
+            TTADD.ToolTipTitle = "Add User";
+            TTADD.UseFading = true;
+            TTADD.UseAnimation = true;
+            TTADD.IsBalloon = true;
+            TTADD.SetToolTip(button2, "Click here once all the information above\nhas been provided to Update the user.");
+            //Back
+            ToolTip TTBACK = new ToolTip();
+            TTBACK.ToolTipTitle = "Back";
+            TTBACK.UseFading = true;
+            TTBACK.UseAnimation = true;
+            TTBACK.IsBalloon = true;
+            TTBACK.SetToolTip(button1, "Click here to return to the User menu.");
+
+
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
              t = new Timer() { Interval = 1000, Enabled = true };
             t.Tick += new EventHandler(timer1_Tick);
             timer1_Tick(null, null);
 
-            label1.Text = "User ID: "+ConnectString.UserID;
+         //   label1.Text = "User ID: "+ConnectString.UserID;
             txtName.Text = ConnectString.Name;
             txtSurname.Text = ConnectString.Surname;
             txtUsername.Text = ConnectString.UserName;
             txtPassword.Text = ConnectString.Password;
-            txtEmail.Text = ConnectString.Password;
+            txtEmail.Text = ConnectString.Email;
 
             //populate combobox
             cbPriviledge.Items.Clear();
