@@ -33,6 +33,63 @@ namespace PETSystem
 
         private void Instructors_Load(object sender, EventArgs e)
         {
+            //Tooltips
+            //SearchField
+            ToolTip TTSField = new ToolTip();
+            TTSField.ToolTipTitle = "Search Field";
+            TTSField.UseFading = true;
+            TTSField.UseAnimation = true;
+            TTSField.IsBalloon = true;
+            TTSField.SetToolTip(comboBox1, "Select the field you want to search.");
+            //Search text
+            ToolTip TTSTEXT = new ToolTip();
+            TTSTEXT.ToolTipTitle = "Search Text";
+            TTSTEXT.UseFading = true;
+            TTSTEXT.UseAnimation = true;
+            TTSTEXT.IsBalloon = true;
+            TTSTEXT.SetToolTip(txtInstructorID, "Enter text here that will be searched for.");
+            //Create instructor
+            ToolTip TXTCREate = new ToolTip();
+            TXTCREate.ToolTipTitle = "Create Instructor";
+            TXTCREate.UseFading = true;
+            TXTCREate.UseAnimation = true;
+            TXTCREate.IsBalloon = true;
+            TXTCREate.SetToolTip(button2, "Click here if you want to add a new instructor to the system.");
+            //Update instructor
+            ToolTip TTXTUPDATE = new ToolTip();
+            TTXTUPDATE.ToolTipTitle = "Update Instructor";
+            TTXTUPDATE.UseFading = true;
+            TTXTUPDATE.UseAnimation = true;
+            TTXTUPDATE.IsBalloon = true;
+            TTXTUPDATE.SetToolTip(button4, "Select an instructor from the list and\nclick here to update the instructor's information.");
+            //View royalties
+            ToolTip TTroya = new ToolTip();
+            TTroya.ToolTipTitle = "Calculate Royalties";
+            TTroya.UseFading = true;
+            TTroya.UseAnimation = true;
+            TTroya.IsBalloon = true;
+            TTroya.SetToolTip(button6, "Select an instructor from the list and\nclick here to Calculate the instructor's Royalties.");
+            //Delete
+            ToolTip TTDELETE = new ToolTip();
+            TTDELETE.ToolTipTitle = "Delete Instructor";
+            TTDELETE.UseFading = true;
+            TTDELETE.UseAnimation = true;
+            TTDELETE.IsBalloon = true;
+            TTDELETE.SetToolTip(button5, "Select an instructor from the list and\nclick here to Delete the instructor from the system.");
+            //View
+            ToolTip TTVIEW = new ToolTip();
+            TTVIEW.ToolTipTitle = "View Instructor";
+            TTVIEW.UseFading = true;
+            TTVIEW.UseAnimation = true;
+            TTVIEW.IsBalloon = true;
+            TTVIEW.SetToolTip(button3, "Select an instructor from the list and\nclick here to View the instructor's Information.");
+            //Back
+            ToolTip TTBACK = new ToolTip();
+            TTBACK.ToolTipTitle = "Back";
+            TTBACK.UseFading = true;
+            TTBACK.UseAnimation = true;
+            TTBACK.IsBalloon = true;
+            TTBACK.SetToolTip(button8, "Click here to return to the previous screen.");
 
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
@@ -45,7 +102,7 @@ namespace PETSystem
             //  this.instructorTableAdapter.Fill(this.iNF370DataSet.Instructor);
             DataTable DT = new DataTable();
             ConnectString.connectstring.Open();
-            SqlCommand Fill = new SqlCommand("SELECT Instructor.InstructorID,Instructor.Name,Instructor.Surname,Instructor.Email,Instructor.PhoneNumber, Gender.GenderName, Title.TitleName, Certification.CertificationName FROM Instructor INNER JOIN Gender ON Instructor.GenderID = Gender.GenderID INNER JOIN Title ON Instructor.TitleID = Title.TitleID INNER JOIN Certification ON Instructor.CertificationID = Certification.CertificationID", ConnectString.connectstring);
+            SqlCommand Fill = new SqlCommand("SELECT Instructor.InstructorID,Instructor.Name,Instructor.Surname,Instructor.Email,Instructor.PhoneNumber AS 'Phone Number', Gender.GenderName AS 'Gender', Title.TitleName AS 'Title' FROM Instructor INNER JOIN Gender ON Instructor.GenderID = Gender.GenderID INNER JOIN Title ON Instructor.TitleID = Title.TitleID ", ConnectString.connectstring);
             DA = new SqlDataAdapter(Fill);
             DA.Fill(DT);
             dgvInstructor.DataSource = DT;
@@ -328,7 +385,7 @@ namespace PETSystem
             {
                 DataTable DT2 = new DataTable();
                 ConnectString.connectstring.Open();
-                SqlCommand Fillz = new SqlCommand("SELECT Instructor.InstructorID,Instructor.Name,Instructor.Surname,Instructor.Email,Instructor.PhoneNumber, Gender.GenderName, Title.TitleName, Certification.CertificationName FROM Instructor INNER JOIN Gender ON Gender.GenderID = Instructor.GenderID  INNER JOIN Title ON Title.TitleID =  Instructor.TitleID INNER JOIN Certification ON Certification.CertificationID = Instructor.CertificationID  Where Instructor.Name Like '%" + txtInstructorID.Text + "%'", ConnectString.connectstring);
+                SqlCommand Fillz = new SqlCommand("SELECT Instructor.InstructorID,Instructor.Name,Instructor.Surname,Instructor.Email,Instructor.PhoneNumber AS 'Phone Number', Gender.GenderName AS 'Gender', Title.TitleName AS 'Title' FROM Instructor INNER JOIN Gender ON Gender.GenderID = Instructor.GenderID  INNER JOIN Title ON Title.TitleID =  Instructor.TitleID Where Instructor.Name Like '%" + txtInstructorID.Text + "%'", ConnectString.connectstring);
                 SqlDataAdapter DA2 = new SqlDataAdapter(Fillz);
                 DA2.Fill(DT2);
                 dgvInstructor.DataSource = DT2;
@@ -340,7 +397,7 @@ namespace PETSystem
             {
                 DataTable DT2 = new DataTable();
                 ConnectString.connectstring.Open();
-                SqlCommand Fillz = new SqlCommand("SELECT Instructor.InstructorID,Instructor.Name,Instructor.Surname,Instructor.Email,Instructor.PhoneNumber, Gender.GenderName, Title.TitleName, Certification.CertificationName FROM Instructor INNER JOIN Gender ON Gender.GenderID = Instructor.GenderID  INNER JOIN Title ON Title.TitleID =  Instructor.TitleID INNER JOIN Certification ON Certification.CertificationID = Instructor.CertificationID  Where Instructor.Surname Like '%" + txtInstructorID.Text + "%'", ConnectString.connectstring);
+                SqlCommand Fillz = new SqlCommand("SELECT Instructor.InstructorID,Instructor.Name,Instructor.Surname,Instructor.Email,Instructor.PhoneNumber AS 'Phone Number', Gender.GenderName AS 'Gender', Title.TitleName AS 'Title' FROM Instructor INNER JOIN Gender ON Gender.GenderID = Instructor.GenderID  INNER JOIN Title ON Title.TitleID =  Instructor.TitleID Where Instructor.Surname Like '%" + txtInstructorID.Text + "%'", ConnectString.connectstring);
                 SqlDataAdapter DA2 = new SqlDataAdapter(Fillz);
                 DA2.Fill(DT2);
                 dgvInstructor.DataSource = DT2;
@@ -352,7 +409,7 @@ namespace PETSystem
             {
                 DataTable DT2 = new DataTable();
                 ConnectString.connectstring.Open();
-                SqlCommand Fillz = new SqlCommand("SELECT Instructor.InstructorID,Instructor.Name,Instructor.Surname,Instructor.Email,Instructor.PhoneNumber, Gender.GenderName, Title.TitleName, Certification.CertificationName FROM Instructor INNER JOIN Gender ON Gender.GenderID = Instructor.GenderID  INNER JOIN Title ON Title.TitleID =  Instructor.TitleID INNER JOIN Certification ON Certification.CertificationID = Instructor.CertificationID  Where Instructor.PhoneNumber Like '%" + txtInstructorID.Text + "%'", ConnectString.connectstring);
+                SqlCommand Fillz = new SqlCommand("SELECT Instructor.InstructorID,Instructor.Name,Instructor.Surname,Instructor.Email,Instructor.PhoneNumber AS ' Phone Number', Gender.GenderName AS 'Gender' , Title.TitleName AS 'Title' FROM Instructor INNER JOIN Gender ON Gender.GenderID = Instructor.GenderID  INNER JOIN Title ON Title.TitleID =  Instructor.TitleID Where Instructor.PhoneNumber Like '%" + txtInstructorID.Text + "%'", ConnectString.connectstring);
                 SqlDataAdapter DA2 = new SqlDataAdapter(Fillz);
                 DA2.Fill(DT2);
                 dgvInstructor.DataSource = DT2;
@@ -364,7 +421,7 @@ namespace PETSystem
             {
                 DataTable DT2 = new DataTable();
                 ConnectString.connectstring.Open();
-                SqlCommand Fillz = new SqlCommand("SELECT Instructor.InstructorID,Instructor.Name,Instructor.Surname,Instructor.Email,Instructor.PhoneNumber, Gender.GenderName, Title.TitleName, Certification.CertificationName FROM Instructor INNER JOIN Gender ON Gender.GenderID = Instructor.GenderID  INNER JOIN Title ON Title.TitleID =  Instructor.TitleID INNER JOIN Certification ON Certification.CertificationID = Instructor.CertificationID  Where Instructor.Email Like '%" + txtInstructorID.Text + "%'", ConnectString.connectstring);
+                SqlCommand Fillz = new SqlCommand("SELECT Instructor.InstructorID,Instructor.Name,Instructor.Surname,Instructor.Email,Instructor.PhoneNumber, Gender.GenderName, Title.TitleName FROM Instructor INNER JOIN Gender ON Gender.GenderID = Instructor.GenderID  INNER JOIN Title ON Title.TitleID =  Instructor.TitleID Where Instructor.Email Like '%" + txtInstructorID.Text + "%'", ConnectString.connectstring);
                 SqlDataAdapter DA2 = new SqlDataAdapter(Fillz);
                 DA2.Fill(DT2);
                 dgvInstructor.DataSource = DT2;

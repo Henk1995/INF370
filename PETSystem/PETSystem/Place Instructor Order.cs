@@ -148,7 +148,10 @@ namespace PETSystem
 
         private void btnBack_Click_1(object sender, EventArgs e)
         {
-            
+            this.Close();
+            this.Dispose(true);
+            Search_Order myorder = new Search_Order();
+            myorder.ShowDialog();
         }
 
         private void txtDate_TextChanged_1(object sender, EventArgs e)
@@ -191,6 +194,8 @@ namespace PETSystem
         string Date;
         private void btnEnter_Click(object sender, EventArgs e)
         {
+            btnBack.Enabled = false;
+            btnBack.Visible = false;
             if (valid3 && valid4)
             {// Buttons visables
                 btnBack.Visible = false;

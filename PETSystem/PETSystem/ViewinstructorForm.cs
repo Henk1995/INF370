@@ -92,6 +92,29 @@ namespace PETSystem
         }
         private void ViewinstructorForm_Load(object sender, EventArgs e)
         {
+            //OPen Image
+            ToolTip TTOP = new ToolTip();
+            TTOP.ToolTipTitle = "Open Image";
+            TTOP.UseFading = true;
+            TTOP.UseAnimation = true;
+            TTOP.IsBalloon = true;
+            TTOP.SetToolTip(button1, "Click here to browse yout computer for an image.");
+            //Save Image
+            ToolTip TTS = new ToolTip();
+            TTS.ToolTipTitle = "Save Image";
+            TTS.UseFading = true;
+            TTS.UseAnimation = true;
+            TTS.IsBalloon = true;
+            TTS.SetToolTip(button2, "Click here to Save this image to the instructor.");
+            //Close
+            ToolTip TTC = new ToolTip();
+            TTC.ToolTipTitle = "Close";
+            TTC.UseFading = true;
+            TTC.UseAnimation = true;
+            TTC.IsBalloon = true;
+            TTC.SetToolTip(button3, "Click here to return to the instructor Menu.");
+
+
             cn.ConnectionString = ConnectString.DBC;
             cmd.Connection = cn;
             label1.Text = "";

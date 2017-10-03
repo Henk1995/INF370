@@ -1014,6 +1014,7 @@
     <None Include="Resources\newlogin.png" />
     <None Include="Resources\PETLOGO.png" />
     <None Include="Resources\PETLOGO1.png" />
+    <None Include="Resources\no-image-icon-15.png" />
     <Content Include="Resources\system1.jpg" />
     <Content Include="System2.jpg" />
     <Content Include="system3.jpg" />
