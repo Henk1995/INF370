@@ -114,9 +114,11 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackgroundImage = global::PETSystem.Properties.Resources.no_image_icon_15;
             this.pictureBox1.Location = new System.Drawing.Point(6, 16);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(260, 148);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
