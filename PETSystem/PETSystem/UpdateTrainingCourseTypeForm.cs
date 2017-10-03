@@ -21,12 +21,36 @@ namespace PETSystem
 
         private void button2_Click(object sender, EventArgs e)
         {
-
+            this.Close();
+            this.Dispose(true);
+            AddInstrucorC myform = new AddInstrucorC();
+            myform.ShowDialog();
         }
 
         private void UpdateTrainingCourseTypeForm_Load(object sender, EventArgs e)
         {
             txtName.Text = ConnectString.CourseName;
+            //Course Type
+            ToolTip TTType = new ToolTip();
+            TTType.ToolTipTitle = "Type";
+            TTType.UseFading = true;
+            TTType.UseAnimation = true;
+            TTType.IsBalloon = true;
+            TTType.SetToolTip(txtName, "Enter the updated Course type here.");
+            //Update
+            ToolTip TTUPDATE = new ToolTip();
+            TTUPDATE.ToolTipTitle = "Update";
+            TTUPDATE.UseFading = true;
+            TTUPDATE.UseAnimation = true;
+            TTUPDATE.IsBalloon = true;
+            TTUPDATE.SetToolTip(button1, "Click here to update the course type.");
+            //Back
+            ToolTip TTbAck = new ToolTip();
+            TTbAck.ToolTipTitle = "Back";
+            TTbAck.UseFading = true;
+            TTbAck.UseAnimation = true;
+            TTbAck.IsBalloon = true;
+            TTbAck.SetToolTip(button2, "Click here to return to previous screen.");
         }
 
         private void button1_Click(object sender, EventArgs e)

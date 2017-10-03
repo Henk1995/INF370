@@ -25,6 +25,28 @@ namespace PETSystem
         private void AddInstrucorC_Load(object sender, EventArgs e)
         {
 
+            //Update
+            ToolTip TTUpodate = new ToolTip();
+            TTUpodate.ToolTipTitle = "Update";
+            TTUpodate.UseFading = true;
+            TTUpodate.UseAnimation = true;
+            TTUpodate.IsBalloon = true;
+            TTUpodate.SetToolTip(button1, "Select a Course Type from the right and\nclick here to update it.");
+            //Delete
+            ToolTip TTDelete = new ToolTip();
+            TTDelete.ToolTipTitle = "Delete";
+            TTDelete.UseFading = true;
+            TTDelete.UseAnimation = true;
+            TTDelete.IsBalloon = true;
+            TTDelete.SetToolTip(button3, "Select a Course Type from the right and\nclick here to Delete it.");
+            //Back
+            ToolTip TTbackck = new ToolTip();
+            TTbackck.ToolTipTitle = "Back";
+            TTbackck.UseFading = true;
+            TTbackck.UseAnimation = true;
+            TTbackck.IsBalloon = true;
+            TTbackck.SetToolTip(button2, "Click here to return to previous screen.");
+
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
             t = new Timer() { Interval = 1000, Enabled = true };
@@ -32,7 +54,7 @@ namespace PETSystem
             timer1_Tick(null, null);
 
             textBox1.Visible = false;
-            SqlCommand Fill = new SqlCommand("SELECT * FROM TrainingCourseType", ConnectString.connectstring);
+            SqlCommand Fill = new SqlCommand("SELECT TrainingCourseTypeID AS 'ID',TrainingCourseName AS 'Type Name' FROM TrainingCourseType", ConnectString.connectstring);
             SqlDataAdapter DA = new SqlDataAdapter(Fill);
             ConnectString.connectstring.Open();
             DA.Fill(DT);
@@ -150,6 +172,16 @@ namespace PETSystem
         private void AddInstrucorC_FormClosing(object sender, FormClosingEventArgs e)
         {
             t.Enabled = false;
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblTimer_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

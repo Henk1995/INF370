@@ -22,8 +22,51 @@ namespace PETSystem
         Timer t;
         private void UpdateTrainingCourseForm_Load(object sender, EventArgs e)
         {
+            //Name
+            ToolTip TTName = new ToolTip();
+            TTName.ToolTipTitle = "Course Name";
+            TTName.UseFading = true;
+            TTName.UseAnimation = true;
+            TTName.IsBalloon = true;
+            TTName.SetToolTip(txtname, "Enter the updated course name here.");
+            //Duration
+            ToolTip TTDuration = new ToolTip();
+            TTDuration.ToolTipTitle = "Duration";
+            TTDuration.UseFading = true;
+            TTDuration.UseAnimation = true;
+            TTDuration.IsBalloon = true;
+            TTDuration.SetToolTip(txtDuration, "Enter the updated course duration in weeks here.");
+            //StartDate
+            ToolTip TTstartDate = new ToolTip();
+            TTstartDate.ToolTipTitle = "Duration";
+            TTstartDate.UseFading = true;
+            TTstartDate.UseAnimation = true;
+            TTstartDate.IsBalloon = true;
+            TTstartDate.SetToolTip(txtStartDate, "Enter the updated course start date here.\nFormat dd/mm/yy.");
+            //Course Type
+            ToolTip TTType = new ToolTip();
+            TTType.ToolTipTitle = "Course Type";
+            TTType.UseFading = true;
+            TTType.UseAnimation = true;
+            TTType.IsBalloon = true;
+            TTType.SetToolTip(cbCourseType, "Enter the updated course Type date here.");
+            //Update
+            ToolTip TTUpdate = new ToolTip();
+            TTUpdate.ToolTipTitle = "Update";
+            TTUpdate.UseFading = true;
+            TTUpdate.UseAnimation = true;
+            TTUpdate.IsBalloon = true;
+            TTUpdate.SetToolTip(button2, "Click here to Update the training course to the information provided above.");
+            //Back
+            ToolTip TTBack = new ToolTip();
+            TTBack.ToolTipTitle = "Back";
+            TTBack.UseFading = true;
+            TTBack.UseAnimation = true;
+            TTBack.IsBalloon = true;
+            TTBack.SetToolTip(button1, "Click here to return to the Maintain Courses Screen.");
 
             //Timer
+
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
             t = new Timer() { Interval = 1000, Enabled = true };
             t.Tick += new EventHandler(timer1_Tick);
@@ -100,7 +143,7 @@ namespace PETSystem
             
             catch
             {
-
+                MessageBox.Show("Please enter valid input into all the fields");
             }
         }
 

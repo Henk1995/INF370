@@ -21,7 +21,7 @@ namespace PETSystem
         // public static string DBC =  "Data Source=DESKTOP-P44G52P\\SQLEXPRESS;Initial Catalog=inf370Reg;Integrated Security=True";
         DataTable DT = new DataTable();
         DataTable DT2 = new DataTable();
-        static SqlCommand Fill = new SqlCommand("SELECT Instructor.InstructorID,Title.TitleName, Instructor.Name,Instructor.Surname,Gender.GenderName,Instructor.Email,Instructor.PhoneNumber,Certification.CertificationName FROM Instructor INNER JOIN Gender ON Gender.GenderID = Instructor.GenderID INNER JOIN Title ON Title.TitleID = Instructor.TitleID INNER JOIN Certification ON Certification.CertificationID = Instructor.CertificationID ", ConnectString.connectstring);
+        static SqlCommand Fill = new SqlCommand("SELECT Instructor.InstructorID,Title.TitleName, Instructor.Name,Instructor.Surname,Gender.GenderName AS 'Gender',Instructor.Email,Instructor.PhoneNumber AS 'Phone Number' FROM Instructor INNER JOIN Gender ON Gender.GenderID = Instructor.GenderID INNER JOIN Title ON Title.TitleID = Instructor.TitleID ", ConnectString.connectstring);
         
         SqlDataAdapter DA = new SqlDataAdapter(Fill);
         string Coursename;
@@ -43,6 +43,70 @@ namespace PETSystem
 
         private void ViewMaintainP_Load(object sender, EventArgs e)
         {
+
+            //Tooltips
+            //Search instructor txt
+            ToolTip TTSearch = new ToolTip();
+            TTSearch.ToolTipTitle = "Search Instructor";
+            TTSearch.UseFading = true;
+            TTSearch.UseAnimation = true;
+            TTSearch.IsBalloon = true;
+            TTSearch.SetToolTip(textBox1, "Enter the search text here to search for a instrucot in the system.");
+            //Search instructor CB
+            ToolTip TTCBINS = new ToolTip();
+            TTCBINS.ToolTipTitle = "Search Field";
+            TTCBINS.UseFading = true;
+            TTCBINS.UseAnimation = true;
+            TTCBINS.IsBalloon = true;
+            TTCBINS.SetToolTip(comboBox1, "Select a field you want to search for.");
+            //Search participants txt
+            ToolTip TTSearchP = new ToolTip();
+            TTSearchP.ToolTipTitle = "Search Participant";
+            TTSearchP.UseFading = true;
+            TTSearchP.UseAnimation = true;
+            TTSearchP.IsBalloon = true;
+            TTSearchP.SetToolTip(textBox2, "Enter the search text here to search for a course participant.");
+            //Search participant cb
+            ToolTip TTCBP = new ToolTip();
+            TTCBP.ToolTipTitle = "Search Field";
+            TTCBP.UseFading = true;
+            TTCBP.UseAnimation = true;
+            TTCBP.IsBalloon = true;
+            TTCBP.SetToolTip(comboBox2, "Select a field you want to search for.");
+            //Add ToolTip TTCBP = new ToolTip();
+            ToolTip TTADD = new ToolTip();
+            TTADD.ToolTipTitle = "Add";
+            TTADD.UseFading = true;
+            TTADD.UseAnimation = true;
+            TTADD.IsBalloon = true;
+            TTADD.SetToolTip(button1, "Select a instuctor from top list and \nclick here to add the instructor to the course.");
+            //RemoveTTCBP.ToolTipTitle = "Add";
+            ToolTip TTRemove = new ToolTip();
+            TTRemove.ToolTipTitle = "Remove";
+            TTRemove.UseFading = true;
+            TTRemove.UseAnimation = true;
+            TTRemove.IsBalloon = true;
+            TTRemove.SetToolTip(button2, "Select a instuctor from bottom list and \nclick here to Remove the instructor from the course.");
+            //PrintCertificates
+            ToolTip TtPrint = new ToolTip();
+            TtPrint.ToolTipTitle = "Print";
+            TtPrint.UseFading = true;
+            TtPrint.UseAnimation = true;
+            TtPrint.IsBalloon = true;
+            TtPrint.SetToolTip(btnPrint, "Click here to print a certificate for an instructor.");
+
+            //Back
+            ToolTip TTBack = new ToolTip();
+            TTBack.ToolTipTitle = "Back";
+            TTBack.UseFading = true;
+            TTBack.UseAnimation = true;
+            TTBack.IsBalloon = true;
+            TTBack.SetToolTip(btnBack, "Click here to Return to the Training Course Menu.");
+
+
+
+            comboBox1.SelectedIndex = 0;
+            comboBox2.SelectedIndex = 0;
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
              t = new Timer() { Interval = 1000, Enabled = true };
@@ -61,7 +125,7 @@ namespace PETSystem
             ConnectString.connectstring.Close();
             //Load Course Instance
             //SqlCommand Fill2 = new SqlCommand("SELECT TrainingCourse.TrainingCourseID,TrainingCourse.CourseName,Instructor.InstructorID,Instructor.Name,Instrcutor.Surname FROM Instructor,TrainingCourse Where TrainingCourseLine.TrainingCourseID ='"+courseID+"'", ConnectString.connectstring);
-            SqlCommand Fill2 = new SqlCommand("SELECT Instructor.InstructorID,Title.TitleName, Instructor.Name,Instructor.Surname,Certification.CertificationName FROM Instructor INNER JOIN Title ON Title.TitleID = Instructor.TitleID INNER JOIN Certification ON Certification.CertificationID = Instructor.CertificationID WHERE Instructor.InstructorID = ANY(SELECT TrainingCourseLine.InstructorID FROM TrainingCourseLine Where TrainingCourseLine.TrainingCourseID = '" + courseID+"')", ConnectString.connectstring);
+            SqlCommand Fill2 = new SqlCommand("SELECT Instructor.InstructorID,Title.TitleName, Instructor.Name,Instructor.Surname FROM Instructor INNER JOIN Title ON Title.TitleID = Instructor.TitleID  WHERE Instructor.InstructorID = ANY(SELECT TrainingCourseLine.InstructorID FROM TrainingCourseLine Where TrainingCourseLine.TrainingCourseID = '" + courseID+"')", ConnectString.connectstring);
             SqlDataAdapter DA2 = new SqlDataAdapter(Fill2);
 
             ConnectString.connectstring.Open();
@@ -75,9 +139,7 @@ namespace PETSystem
 
         private void btnMainM_Click(object sender, EventArgs e)
         {
-            this.Close();
-            MainMenuF UM = new MainMenuF();
-            UM.Show();
+            
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -164,16 +226,11 @@ namespace PETSystem
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            bool valid1 = EH.Checkstring(textBox1.Text);
-            bool validSQl = EH.checkForSQLInjection(textBox1.Text);
-            if (valid1)
+            if (comboBox1.SelectedIndex == 0)
             {
-                valid1 = validSQl;
-            }
-            if (valid1)
-            {
+                ConnectString.connectstring.Close();
                 ConnectString.connectstring.Open();
-                DA = new SqlDataAdapter("SELECT Instructor.InstructorID,Title.TitleName, Instructor.Name,Instructor.Surname,Gender.GenderName,Instructor.Email,Instructor.PhoneNumber,Certification.CertificationName FROM Instructor INNER JOIN Gender ON Gender.GenderID = Instructor.GenderID INNER JOIN Title ON Title.TitleID = Instructor.TitleID INNER JOIN Certification ON Certification.CertificationID = Instructor.CertificationID  where Instructor.Name like '%" + textBox1.Text + "%'", ConnectString.connectstring);
+                DA = new SqlDataAdapter("SELECT Instructor.InstructorID,Title.TitleName, Instructor.Name,Instructor.Surname,Gender.GenderName AS 'Gender',Instructor.Email,Instructor.PhoneNumber AS 'Phone Number' FROM Instructor INNER JOIN Gender ON Gender.GenderID = Instructor.GenderID INNER JOIN Title ON Title.TitleID = Instructor.TitleID where Instructor.Name like '%" + textBox1.Text + "%'", ConnectString.connectstring);
                 DataTable DT = new DataTable();
                 DA.Fill(DT);
                 dataGridView1.DataSource = DT;
@@ -181,29 +238,27 @@ namespace PETSystem
             }
             else
             {
-                DataTable DT = new DataTable();
+                ConnectString.connectstring.Close();
                 ConnectString.connectstring.Open();
-                SqlCommand Fill = new SqlCommand("SELECT Instructor.InstructorID,Title.TitleName, Instructor.Name,Instructor.Surname,Gender.GenderName,Instructor.Email,Instructor.PhoneNumber,Certification.CertificationName FROM Instructor INNER JOIN Gender ON Gender.GenderID = Instructor.GenderID INNER JOIN Title ON Title.TitleID = Instructor.TitleID INNER JOIN Certification ON Certification.CertificationID = Instructor.CertificationID", ConnectString.connectstring);
-                DA = new SqlDataAdapter(Fill);
+                DA = new SqlDataAdapter("SELECT Instructor.InstructorID,Title.TitleName, Instructor.Name,Instructor.Surname,Gender.GenderName AS 'Gender',Instructor.Email,Instructor.PhoneNumber AS 'Phone Number' FROM Instructor INNER JOIN Gender ON Gender.GenderID = Instructor.GenderID INNER JOIN Title ON Title.TitleID = Instructor.TitleID where Instructor.Surname like '%" + textBox1.Text + "%'", ConnectString.connectstring);
+                DataTable DT = new DataTable();
                 DA.Fill(DT);
                 dataGridView1.DataSource = DT;
-                dataGridView1.DataMember = DT.TableName;
                 ConnectString.connectstring.Close();
             }
+         
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             bool valid1 = EH.Checkstring(textBox2.Text);
             bool validSQl = EH.checkForSQLInjection(textBox2.Text);
-            if (valid1)
+
+            if (comboBox2.SelectedIndex == 0)
             {
-                valid1 = validSQl;
-            }
-            if (valid1)
-            {
+                ConnectString.connectstring.Close();
                 ConnectString.connectstring.Open();
-                DA = new SqlDataAdapter("SELECT Instructor.InstructorID, Title.TitleName, Instructor.Name, Instructor.Surname, Certification.CertificationName FROM Instructor INNER JOIN Title ON Title.TitleID = Instructor.TitleID INNER JOIN Certification ON Certification.CertificationID = Instructor.CertificationID WHERE Instructor.InstructorID = ANY(SELECT TrainingCourseLine.InstructorID FROM TrainingCourseLine Where TrainingCourseLine.TrainingCourseID = '" + courseID+"' AND  Instructor.Name like '%" + textBox2.Text + "%')", ConnectString.connectstring);
+                DA = new SqlDataAdapter("SELECT Instructor.InstructorID, Title.TitleName, Instructor.Name, Instructor.Surname FROM Instructor INNER JOIN Title ON Title.TitleID = Instructor.TitleID WHERE Instructor.InstructorID = ANY(SELECT TrainingCourseLine.InstructorID FROM TrainingCourseLine Where TrainingCourseLine.TrainingCourseID = '" + courseID + "' AND  Instructor.Name like '%" + textBox2.Text + "%')", ConnectString.connectstring);
                 DataTable DT = new DataTable();
                 DA.Fill(DT);
                 dataGridView2.DataSource = DT;
@@ -211,15 +266,15 @@ namespace PETSystem
             }
             else
             {
-                DataTable DT = new DataTable();
+                ConnectString.connectstring.Close();
                 ConnectString.connectstring.Open();
-                SqlCommand Fill = new SqlCommand("SELECT Instructor.InstructorID, Title.TitleName, Instructor.Name, Instructor.Surname, Certification.CertificationName FROM Instructor INNER JOIN Title ON Title.TitleID = Instructor.TitleID INNER JOIN Certification ON Certification.CertificationID = Instructor.CertificationID WHERE Instructor.InstructorID = ANY(SELECT TrainingCourseLine.InstructorID FROM TrainingCourseLine Where TrainingCourseLine.TrainingCourseID = '" + courseID+"')", ConnectString.connectstring);
-                DA = new SqlDataAdapter(Fill);
+                DA = new SqlDataAdapter("SELECT Instructor.InstructorID, Title.TitleName, Instructor.Name, Instructor.Surname FROM Instructor INNER JOIN Title ON Title.TitleID = Instructor.TitleID WHERE Instructor.InstructorID = ANY(SELECT TrainingCourseLine.InstructorID FROM TrainingCourseLine Where TrainingCourseLine.TrainingCourseID = '" + courseID + "' AND  Instructor.Surname like '%" + textBox2.Text + "%')", ConnectString.connectstring);
+                DataTable DT = new DataTable();
                 DA.Fill(DT);
                 dataGridView2.DataSource = DT;
-                dataGridView2.DataMember = DT.TableName;
                 ConnectString.connectstring.Close();
             }
+         
 
         }
 
@@ -248,6 +303,11 @@ namespace PETSystem
         private void ViewMaintainP_FormClosing(object sender, FormClosingEventArgs e)
         {
             t.Enabled = false;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
