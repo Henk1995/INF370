@@ -60,13 +60,13 @@ namespace PETSystem
         // ALMAL SE CONNECTION STRINGS
 
         //Jan se connection string
-      public static string DBC =" Server =.\\SQLExpress;AttachDbFilename=|DataDirectory|\\370.mdf";
+    //  public static string DBC = "Data Source=LAPTOP-A6P2IDT8\\SQLEXPRESS;Initial Catalog=370;Integrated Security=True";
 
         //John se connection string
 //        public static string DBC = "Data Source=JOHN-MAC-WIN;Initial Catalog=exportFotos;Integrated Security=True";
 
         //Henk se connection string    + Copy jou goed hier in en uncomment die lyn hier onder
-       // public static string DBC = "Data Source=.;Initial Catalog=RefIntegrityExport;Integrated Security=True";
+        public static string DBC = "Data Source=.;Initial Catalog=RefIntegrityExport;Integrated Security=True";
 
 
         //Sam se connection string    + Copy jou goed hier in en uncomment die lyn hier onder
@@ -127,5 +127,9 @@ namespace PETSystem
         public static string PaymentinstructorName;
         public static string PaymentCost;
         public static string PaymentRefNumber;
+        // First Login
+        public static bool firstLogin;
+        //Training Course Result
+        public static int TrainingCourseIDForResult;
     }
 }

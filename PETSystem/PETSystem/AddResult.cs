@@ -31,28 +31,54 @@ namespace PETSystem
 
             InitializeComponent();
         }
-      
+        PET_DBDataContext db = new PET_DBDataContext();
 
         private void AddResult_Load(object sender, EventArgs e)
         {
+            //ADD
+            ToolTip TTADD = new ToolTip();
+            TTADD.ToolTipTitle = "Add";
+            TTADD.UseFading = true;
+            TTADD.UseAnimation = true;
+            TTADD.IsBalloon = true;
+            TTADD.SetToolTip(button1, "Select an instructor from the list and\nclick here to add a result.");
+            //Back
+            ToolTip TTBAck = new ToolTip();
+            TTBAck.ToolTipTitle = "Back";
+            TTBAck.UseFading = true;
+            TTBAck.UseAnimation = true;
+            TTBAck.IsBalloon = true;
+            TTBAck.SetToolTip(button2, "Click here to return to the Training Course Menu.");
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
              t = new Timer() { Interval = 1000, Enabled = true };
             t.Tick += new EventHandler(timer1_Tick);
             timer1_Tick(null, null);
 
-            ConnectString.CourseID = courseID;
-            SqlCommand Fill = new SqlCommand("SELECT  Instructor.InstructorID, Instructor.Name,Instructor.Surname,Results.ResultName From  Instructor,Results   Where Instructor.InstructorID = ANY(SELECT TrainingCourseLine.InstructorID FROM TrainingCourseLine   Where TrainingCourseLine.TrainingCourseID = '" + ConnectString.CourseID + "' AND Results.ResultID = ANY(SELECT TrainingCourseLine.ResultID FROM TrainingCourseLine   Where TrainingCourseLine.ResultID <4 AND  TrainingCourseLine.TrainingCourseID = '" + ConnectString.CourseID + "'))", ConnectString.connectstring);
-            SqlDataAdapter DA = new SqlDataAdapter(Fill);
-            ConnectString.connectstring.Open();
-            DA.Fill(DT);
-            dataGridView1.DataSource = DT;
-            dataGridView1.DataMember = DT.TableName;
-            ConnectString.connectstring.Close();
+            foreach (var x in dataGridView1.Rows)
+            {
+                dataGridView1.Rows.Clear();
+
+            }
+            dataGridView1.Update();
+            dataGridView1.Refresh();
+
+            //refresh DGV
+            var mLoadCourseClientLineData = (from x in db.TrainingCourseLines
+                                             where x.TrainingCourseID == ConnectString.TrainingCourseIDForResult
+                                             select x).ToList();
            
-            // Refres datagrid view
-            textBox1.Text = "a";
-            textBox1.Text = "";
+            foreach (var item in mLoadCourseClientLineData)
+            {
+                var getClientName = (from x in db.Instructors where x.InstructorID == item.InstructorID select x.Name).FirstOrDefault();
+                var getClientSurname = (from x in db.Instructors where x.InstructorID == item.InstructorID select x.Surname).FirstOrDefault();
+                var getResultName = (from x in db.Results where x.ResultID == item.ResultID select x.ResultName).FirstOrDefault();
+               
+                dataGridView1.Rows.Add(new object[] { item.InstructorID, getClientName, getClientSurname, getResultName });
+            }
+            dataGridView1.Update();
+            dataGridView1.Refresh();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -67,6 +93,7 @@ namespace PETSystem
                 AddResultMessagebox myform = new AddResultMessagebox();
                 myform.Show();
                 this.Close();
+                this.Dispose(true);
             }
             catch
             {
@@ -87,22 +114,7 @@ namespace PETSystem
 
       
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            ConnectString.CourseID = courseID;
-
-            // MessageBox.Show(courseID.ToString());
-            //Pouplate Datagrid view with course instance participants
-            // SqlCommand Fill = new SqlCommand("SELECT Instructor.InstructorID,Title.TitleName, Instructor.Name,Instructor.Surname,Certification.CertificationName FROM Instructor INNER JOIN Title ON Title.TitleID = Instructor.TitleID INNER JOIN Certification ON Certification.CertificationID = Instructor.CertificationID WHERE Instructor.InstructorID = ANY(SELECT TrainingCourseLine.InstructorID FROM TrainingCourseLine   Where TrainingCourseLine.TrainingCourseID = '" + courseID + "')", ConnectString.connectstring);
-            ConnectString.connectstring.Open();
-            SqlDataAdapter DA;
-            DA = new SqlDataAdapter("SELECT  Instructor.InstructorID, Instructor.Name,Instructor.Surname,Results.ResultName From  Instructor,Results   Where Instructor.InstructorID = ANY(SELECT TrainingCourseLine.InstructorID FROM TrainingCourseLine   Where TrainingCourseLine.TrainingCourseID = '" + ConnectString.CourseID + "' AND Results.ResultID = ANY(SELECT TrainingCourseLine.ResultID FROM TrainingCourseLine   Where TrainingCourseLine.ResultID <4 AND  TrainingCourseLine.TrainingCourseID = '" + ConnectString.CourseID + "' AND Instructor.Name like '%" + textBox1.Text + "%'))", ConnectString.connectstring);
-            DataTable DT = new DataTable();
-            DA.Fill(DT);
-            dataGridView1.DataSource = DT;
-            ConnectString.connectstring.Close();
-        }
-
+    
         int stop = 0;
         int ticks = ConnectString.TimerTime * 60;
 

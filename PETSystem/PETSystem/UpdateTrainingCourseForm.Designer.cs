@@ -46,74 +46,84 @@
             // 
             // txtname
             // 
-            this.txtname.Location = new System.Drawing.Point(148, 32);
+            this.txtname.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtname.Location = new System.Drawing.Point(208, 32);
             this.txtname.Name = "txtname";
-            this.txtname.Size = new System.Drawing.Size(100, 20);
+            this.txtname.Size = new System.Drawing.Size(119, 25);
             this.txtname.TabIndex = 0;
             // 
             // txtDuration
             // 
-            this.txtDuration.Location = new System.Drawing.Point(148, 58);
+            this.txtDuration.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDuration.Location = new System.Drawing.Point(208, 58);
             this.txtDuration.Name = "txtDuration";
-            this.txtDuration.Size = new System.Drawing.Size(100, 20);
+            this.txtDuration.Size = new System.Drawing.Size(119, 25);
             this.txtDuration.TabIndex = 1;
             // 
             // txtStartDate
             // 
-            this.txtStartDate.Location = new System.Drawing.Point(148, 84);
+            this.txtStartDate.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStartDate.Location = new System.Drawing.Point(208, 84);
             this.txtStartDate.Name = "txtStartDate";
-            this.txtStartDate.Size = new System.Drawing.Size(100, 20);
+            this.txtStartDate.Size = new System.Drawing.Size(119, 25);
             this.txtStartDate.TabIndex = 2;
             // 
             // cbCourseType
             // 
+            this.cbCourseType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCourseType.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbCourseType.FormattingEnabled = true;
-            this.cbCourseType.Location = new System.Drawing.Point(148, 110);
+            this.cbCourseType.Location = new System.Drawing.Point(208, 110);
             this.cbCourseType.Name = "cbCourseType";
-            this.cbCourseType.Size = new System.Drawing.Size(121, 21);
+            this.cbCourseType.Size = new System.Drawing.Size(119, 26);
             this.cbCourseType.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(68, 39);
+            this.label1.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(102, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 13);
+            this.label1.Size = new System.Drawing.Size(100, 18);
             this.label1.TabIndex = 4;
             this.label1.Text = "Course Name:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 65);
+            this.label2.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(20, 61);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(131, 13);
+            this.label2.Size = new System.Drawing.Size(182, 18);
             this.label2.TabIndex = 5;
             this.label2.Text = "Course Duration in weeks:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(48, 91);
+            this.label3.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(72, 87);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 13);
+            this.label3.Size = new System.Drawing.Size(130, 18);
             this.label3.TabIndex = 6;
             this.label3.Text = "Course Start Date:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(72, 118);
+            this.label4.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(107, 113);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(70, 13);
+            this.label4.Size = new System.Drawing.Size(95, 18);
             this.label4.TabIndex = 7;
             this.label4.Text = "Course Type:";
             // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(12, 137);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(79, 29);
             this.button1.TabIndex = 8;
             this.button1.Text = "Back";
             this.button1.UseVisualStyleBackColor = true;
@@ -121,9 +131,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(194, 137);
+            this.button2.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(248, 137);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(79, 29);
             this.button2.TabIndex = 9;
             this.button2.Text = "Update";
             this.button2.UseVisualStyleBackColor = true;
@@ -134,7 +145,8 @@
             this.lblTimer.AutoSize = true;
             this.lblTimer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTimer.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimer.Location = new System.Drawing.Point(235, -1);
+            this.lblTimer.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblTimer.Location = new System.Drawing.Point(279, 0);
             this.lblTimer.Name = "lblTimer";
             this.lblTimer.Size = new System.Drawing.Size(73, 19);
             this.lblTimer.TabIndex = 10;
@@ -145,7 +157,8 @@
             this.label6.AutoSize = true;
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label6.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(185, -1);
+            this.label6.ForeColor = System.Drawing.Color.DarkRed;
+            this.label6.Location = new System.Drawing.Point(229, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 19);
             this.label6.TabIndex = 11;
@@ -159,7 +172,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(295, 174);
+            this.ClientSize = new System.Drawing.Size(339, 178);
             this.ControlBox = false;
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lblTimer);
@@ -173,8 +186,11 @@
             this.Controls.Add(this.txtStartDate);
             this.Controls.Add(this.txtDuration);
             this.Controls.Add(this.txtname);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximumSize = new System.Drawing.Size(355, 216);
+            this.MinimumSize = new System.Drawing.Size(355, 216);
             this.Name = "UpdateTrainingCourseForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UpdateTrainingCourseForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UpdateTrainingCourseForm_FormClosing);
             this.Load += new System.EventHandler(this.UpdateTrainingCourseForm_Load);

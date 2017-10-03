@@ -21,6 +21,28 @@ namespace PETSystem
         private void UpdateTimerTime_Load(object sender, EventArgs e)
         {
             label1.Text = " The current logout timer is set to: " + Convert.ToString(ConnectString.TimerTime) + " Minutes.";
+            //Tooltips
+            //select
+            ToolTip TTSelect = new ToolTip();
+            TTSelect.ToolTipTitle = "Select Time";
+            TTSelect.UseFading = true;
+            TTSelect.UseAnimation = true;
+            TTSelect.IsBalloon = true;
+            TTSelect.SetToolTip(numericUpDown1, "Select a time in minutes for the logout timer.");
+            //Save
+            ToolTip ttSave = new ToolTip();
+            ttSave.ToolTipTitle = "Save";
+            ttSave.UseFading = true;
+            ttSave.UseAnimation = true;
+            ttSave.IsBalloon = true;
+            ttSave.SetToolTip(button1, "Click to save the time specified above.");
+            //back
+            ToolTip TTBack = new ToolTip();
+            TTBack.ToolTipTitle = "Back";
+            TTBack.UseFading = true;
+            TTBack.UseAnimation = true;
+            TTBack.IsBalloon = true;
+            TTBack.SetToolTip(button2, "Click to return to the User menu.");
         }
         int newtime;
         private void button1_Click(object sender, EventArgs e)

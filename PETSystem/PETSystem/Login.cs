@@ -40,6 +40,7 @@ namespace PETSystem
 
             if (valid3 && valid4)
             {
+                ConnectString.connectstring.Close();
                string Query1 = "SELECT * FROM UserTable WHERE UserName ='" + this.txtUsername.Text + "'AND UserPassword='" + Encrypt(this.txtPassword.Text) + "';";
                 SqlCommand MyCommand = new SqlCommand(Query1, ConnectString.connectstring);
                 SqlDataReader MyReader;
@@ -54,7 +55,7 @@ namespace PETSystem
 
                     validU = false;
                     MessageBox.Show("Invalid username and/or Password");
-                    ConnectString.connectstring.Close();
+
                 }
                 else
                 {
