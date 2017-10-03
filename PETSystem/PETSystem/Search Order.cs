@@ -64,7 +64,7 @@ namespace PETSystem
 
         private void tnViewOrder_Click(object sender, EventArgs e)
         {
-            if (dgvOrders.SelectedCells.Count > 0)
+            if (dgvOrders.SelectedRows.Count > 0)
             {
                 string OrderID;
                 string OrderRefNumber, InstructorName, OrderDesc, Date, Total;
@@ -198,7 +198,7 @@ namespace PETSystem
 
         private void btnLogPayment_Click(object sender, EventArgs e)
         {
-            if (dgvOrders.SelectedCells.Count > 0)
+            if (dgvOrders.SelectedRows.Count > 0)
             {
 
 
@@ -231,7 +231,7 @@ namespace PETSystem
 
         private void btnLogRefund_Click(object sender, EventArgs e)
         {
-            if (dgvOrders.SelectedCells.Count > 0)
+            if (dgvOrders.SelectedRows.Count > 0)
             {
                 //orderID
                 string a = dgvOrders.SelectedRows[0].Cells[0].Value + string.Empty;
@@ -383,5 +383,9 @@ namespace PETSystem
 
         }
 
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

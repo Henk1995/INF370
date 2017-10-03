@@ -65,6 +65,7 @@
             this.txtWriteoffQuantity.Size = new System.Drawing.Size(134, 20);
             this.txtWriteoffQuantity.TabIndex = 126;
             this.txtWriteoffQuantity.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtWriteoffQuantity.Leave += new System.EventHandler(this.txtWriteoffQuantity_Leave);
             // 
             // label10
             // 
@@ -191,6 +192,7 @@
             this.txtReason.Size = new System.Drawing.Size(134, 20);
             this.txtReason.TabIndex = 129;
             this.txtReason.TextChanged += new System.EventHandler(this.txtReason_TextChanged);
+            this.txtReason.Leave += new System.EventHandler(this.txtReason_Leave);
             // 
             // label4
             // 
@@ -208,6 +210,7 @@
             this.txtDate.Size = new System.Drawing.Size(134, 20);
             this.txtDate.TabIndex = 131;
             this.txtDate.TextChanged += new System.EventHandler(this.txtDate_TextChanged);
+            this.txtDate.Leave += new System.EventHandler(this.txtDate_Leave);
             // 
             // label6
             // 

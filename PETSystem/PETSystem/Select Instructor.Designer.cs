@@ -75,6 +75,7 @@
             this.cbInstructor.Name = "cbInstructor";
             this.cbInstructor.Size = new System.Drawing.Size(166, 21);
             this.cbInstructor.TabIndex = 4;
+            this.cbInstructor.SelectedIndexChanged += new System.EventHandler(this.cbInstructor_SelectedIndexChanged);
             // 
             // label3
             // 

@@ -131,6 +131,16 @@ namespace PETSystem.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] Toets {
+            get {
+                object obj = ResourceManager.GetObject("Toets", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap wood_metallic_texture_background_rustic_banner_blue_tones_51204566 {

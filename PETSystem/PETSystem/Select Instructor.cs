@@ -34,7 +34,7 @@ namespace PETSystem
             cbInstructor.Items.Clear();
 
             var mLoadInstructors = (from x in db.Instructors select x.Name);
-
+            
             cbInstructor.DataSource = mLoadInstructors;
 
         }
@@ -84,6 +84,11 @@ namespace PETSystem
         private void Select_Instructor_FormClosing(object sender, FormClosingEventArgs e)
         {
             t.Enabled = false;
+        }
+
+        private void cbInstructor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
