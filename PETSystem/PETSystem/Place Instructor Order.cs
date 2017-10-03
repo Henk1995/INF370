@@ -10,11 +10,13 @@ using System.Windows.Forms;
 using System.Net.Mail;
 using System.Net;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace PETSystem
 {
     public partial class Place_Instructor_Order : Form
     {
+        
         string DescriptionForOrder;
         int result, CBresult = 0;
         DateTime endOfTime;
@@ -48,6 +50,7 @@ namespace PETSystem
         {
             groupBox1.Visible = false;
             //Timer
+            
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
             t = new Timer() { Interval = 1000, Enabled = true };
             t.Tick += new EventHandler(timer1_Tick);
@@ -285,6 +288,19 @@ namespace PETSystem
                         }
                     }
                 }
+               
+                    FileInfo Myfile = new FileInfo("test");
+                    StreamWriter wri = Myfile.CreateText();
+
+
+                foreach (var line in txtOrder.Lines)
+                {
+                    wri.WriteLine(line);
+                }
+
+
+                wri.Close();
+                
                 this.Close();
                 this.Dispose(true);
                 Search_Order myform = new Search_Order();

@@ -102,5 +102,16 @@ namespace PETSystem.Properties {
                 return ((string)(this["RefIntegrityExportConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-A6P2IDT8\\SQLEXPRESS;Initial Catalog=370;Integrated Security=Tr" +
+            "ue")]
+        public string _370ConnectionString {
+            get {
+                return ((string)(this["_370ConnectionString"]));
+            }
+        }
     }
 }

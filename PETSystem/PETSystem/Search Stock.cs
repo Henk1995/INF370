@@ -171,31 +171,38 @@ namespace PETSystem
                 }
 
 
-
-                if (HasQuantity == false)
+                try
                 {
-                    MessageBox.Show("Stock cannot be deleted because there is still stock on hand of this specific stock item", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                else
-                {
-                    string Query = "Delete Stock Where StockID = '" + dgvSearchStock.SelectedRows[0].Cells[0].Value + "'";
-                    DialogResult answer = MessageBox.Show("Are you sure you want to Delete this StockItem?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
-                    if (answer == DialogResult.Yes)
+                    if (HasQuantity == false)
                     {
-                        SqlCommand MyCommand3 = new SqlCommand(Query, ConnectString.connectstring);
-                        SqlDataReader MyReader3;
-                        ConnectString.connectstring.Open();
-                        MyReader3 = MyCommand3.ExecuteReader();
-                        MessageBox.Show("Stock Item successfully Deleted");
-                        ConnectString.connectstring.Close();
-                        //Refresh DGV
-                        txtSearchStockDesc.Text = "a";
-                        txtSearchStockDesc.Text = "";
+                        MessageBox.Show("Stock cannot be deleted because there is still stock on hand of this specific stock item", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        MessageBox.Show("Stock Item was not deleted");
+                        string Query = "Delete Stock Where StockID = '" + dgvSearchStock.SelectedRows[0].Cells[0].Value + "'";
+                        DialogResult answer = MessageBox.Show("Are you sure you want to Delete this StockItem?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
+                        if (answer == DialogResult.Yes)
+                        {
+                            SqlCommand MyCommand3 = new SqlCommand(Query, ConnectString.connectstring);
+                            SqlDataReader MyReader3;
+                            ConnectString.connectstring.Open();
+                            MyReader3 = MyCommand3.ExecuteReader();
+                            MessageBox.Show("Stock Item successfully Deleted");
+                            ConnectString.connectstring.Close();
+                            //Refresh DGV
+                            txtSearchStockDesc.Text = "a";
+                            txtSearchStockDesc.Text = "";
+                        }
+                        else
+                        {
+                            MessageBox.Show("Stock Item was not deleted");
+                        }
                     }
+                }
+                catch
+                {
+                    ConnectString.connectstring.Close();
+                    MessageBox.Show("ItemActivation cannot be deleted");
                 }
             }
             else

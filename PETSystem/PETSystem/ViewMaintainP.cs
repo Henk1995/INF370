@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
 using System.Data.SqlClient;
+using Word = Microsoft.Office.Interop.Word;
+using System.IO;
+using System.Diagnostics;
 
 namespace PETSystem
 {
@@ -91,11 +94,48 @@ namespace PETSystem
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
+           
+            String fileName = Path.GetTempFileName();
+            File.WriteAllBytes(fileName, Properties.Resources.Toets);
 
+            Word.Application objW = new Word.Application();
+            objW.Visible = false;
+            objW.WindowState = Word.WdWindowState.wdWindowStateNormal;
+
+            Word.Document objDoc = objW.Documents.Open(fileName, ReadOnly: false);
+       
+            ReplaceBookmarkText(objDoc, "Space", "Dawid");
+            objW.Visible = true;
+            objDoc.PrintOut();
+            objDoc.Save();
+            objDoc.Close();
+            objW.Quit();
             MessageBox.Show("Certificate could not be printed at this moment");
 
         }
+        private void ReplaceBookmarkText(Word.Document doc, string bookmarkName, string text)
 
+        {
+
+            if (doc.Bookmarks.Exists(bookmarkName))
+
+            {
+
+                Object name = bookmarkName;
+
+                Word.Range range =
+
+                doc.Bookmarks.get_Item(ref name).Range;
+
+                range.Text = text;
+
+                object newRange = range;
+
+                doc.Bookmarks.Add(bookmarkName, ref newRange);
+
+            }
+
+        }
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -248,6 +288,11 @@ namespace PETSystem
         private void ViewMaintainP_FormClosing(object sender, FormClosingEventArgs e)
         {
             t.Enabled = false;
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {
+
         }
     }
 }

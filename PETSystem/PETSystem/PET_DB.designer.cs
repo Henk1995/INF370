@@ -22,7 +22,7 @@ namespace PETSystem
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="NewestDBExport")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="370")]
 	public partial class PET_DBDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -33,9 +33,6 @@ namespace PETSystem
     partial void InsertApplicationForm(ApplicationForm instance);
     partial void UpdateApplicationForm(ApplicationForm instance);
     partial void DeleteApplicationForm(ApplicationForm instance);
-    partial void InsertUserTable(UserTable instance);
-    partial void UpdateUserTable(UserTable instance);
-    partial void DeleteUserTable(UserTable instance);
     partial void InsertCertification(Certification instance);
     partial void UpdateCertification(Certification instance);
     partial void DeleteCertification(Certification instance);
@@ -123,6 +120,9 @@ namespace PETSystem
     partial void InsertTableOrder(TableOrder instance);
     partial void UpdateTableOrder(TableOrder instance);
     partial void DeleteTableOrder(TableOrder instance);
+    partial void InsertTimerTabel(TimerTabel instance);
+    partial void UpdateTimerTabel(TimerTabel instance);
+    partial void DeleteTimerTabel(TimerTabel instance);
     partial void InsertTimeSlot(TimeSlot instance);
     partial void UpdateTimeSlot(TimeSlot instance);
     partial void DeleteTimeSlot(TimeSlot instance);
@@ -138,10 +138,13 @@ namespace PETSystem
     partial void InsertTrainingCourseType(TrainingCourseType instance);
     partial void UpdateTrainingCourseType(TrainingCourseType instance);
     partial void DeleteTrainingCourseType(TrainingCourseType instance);
+    partial void InsertUserTable(UserTable instance);
+    partial void UpdateUserTable(UserTable instance);
+    partial void DeleteUserTable(UserTable instance);
     #endregion
 		
 		public PET_DBDataContext() : 
-				base(global::PETSystem.Properties.Settings.Default.NewestDBExportConnectionString, mappingSource)
+				base(global::PETSystem.Properties.Settings.Default._370ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -175,14 +178,6 @@ namespace PETSystem
 			get
 			{
 				return this.GetTable<ApplicationForm>();
-			}
-		}
-		
-		public System.Data.Linq.Table<UserTable> UserTables
-		{
-			get
-			{
-				return this.GetTable<UserTable>();
 			}
 		}
 		
@@ -426,6 +421,14 @@ namespace PETSystem
 			}
 		}
 		
+		public System.Data.Linq.Table<TimerTabel> TimerTabels
+		{
+			get
+			{
+				return this.GetTable<TimerTabel>();
+			}
+		}
+		
 		public System.Data.Linq.Table<TimeSlot> TimeSlots
 		{
 			get
@@ -463,6 +466,14 @@ namespace PETSystem
 			get
 			{
 				return this.GetTable<TrainingCourseType>();
+			}
+		}
+		
+		public System.Data.Linq.Table<UserTable> UserTables
+		{
+			get
+			{
+				return this.GetTable<UserTable>();
 			}
 		}
 	}
@@ -711,281 +722,6 @@ namespace PETSystem
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UserTable")]
-	public partial class UserTable : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _UserID;
-		
-		private string _Name;
-		
-		private string _Surname;
-		
-		private string _UserPassword;
-		
-		private string _UserName;
-		
-		private int _PriveledgeID;
-		
-		private string _Email;
-		
-		private EntitySet<TableOrder> _TableOrders;
-		
-		private EntityRef<PrivilegeType> _PrivilegeType;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnUserIDChanging(int value);
-    partial void OnUserIDChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnSurnameChanging(string value);
-    partial void OnSurnameChanged();
-    partial void OnUserPasswordChanging(string value);
-    partial void OnUserPasswordChanged();
-    partial void OnUserNameChanging(string value);
-    partial void OnUserNameChanged();
-    partial void OnPriveledgeIDChanging(int value);
-    partial void OnPriveledgeIDChanged();
-    partial void OnEmailChanging(string value);
-    partial void OnEmailChanged();
-    #endregion
-		
-		public UserTable()
-		{
-			this._TableOrders = new EntitySet<TableOrder>(new Action<TableOrder>(this.attach_TableOrders), new Action<TableOrder>(this.detach_TableOrders));
-			this._PrivilegeType = default(EntityRef<PrivilegeType>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int UserID
-		{
-			get
-			{
-				return this._UserID;
-			}
-			set
-			{
-				if ((this._UserID != value))
-				{
-					this.OnUserIDChanging(value);
-					this.SendPropertyChanging();
-					this._UserID = value;
-					this.SendPropertyChanged("UserID");
-					this.OnUserIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(20)")]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Surname", DbType="VarChar(20)")]
-		public string Surname
-		{
-			get
-			{
-				return this._Surname;
-			}
-			set
-			{
-				if ((this._Surname != value))
-				{
-					this.OnSurnameChanging(value);
-					this.SendPropertyChanging();
-					this._Surname = value;
-					this.SendPropertyChanged("Surname");
-					this.OnSurnameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserPassword", DbType="VarChar(50)")]
-		public string UserPassword
-		{
-			get
-			{
-				return this._UserPassword;
-			}
-			set
-			{
-				if ((this._UserPassword != value))
-				{
-					this.OnUserPasswordChanging(value);
-					this.SendPropertyChanging();
-					this._UserPassword = value;
-					this.SendPropertyChanged("UserPassword");
-					this.OnUserPasswordChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="VarChar(50)")]
-		public string UserName
-		{
-			get
-			{
-				return this._UserName;
-			}
-			set
-			{
-				if ((this._UserName != value))
-				{
-					this.OnUserNameChanging(value);
-					this.SendPropertyChanging();
-					this._UserName = value;
-					this.SendPropertyChanged("UserName");
-					this.OnUserNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PriveledgeID", DbType="Int NOT NULL")]
-		public int PriveledgeID
-		{
-			get
-			{
-				return this._PriveledgeID;
-			}
-			set
-			{
-				if ((this._PriveledgeID != value))
-				{
-					if (this._PrivilegeType.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnPriveledgeIDChanging(value);
-					this.SendPropertyChanging();
-					this._PriveledgeID = value;
-					this.SendPropertyChanged("PriveledgeID");
-					this.OnPriveledgeIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50)")]
-		public string Email
-		{
-			get
-			{
-				return this._Email;
-			}
-			set
-			{
-				if ((this._Email != value))
-				{
-					this.OnEmailChanging(value);
-					this.SendPropertyChanging();
-					this._Email = value;
-					this.SendPropertyChanged("Email");
-					this.OnEmailChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserTable_TableOrder", Storage="_TableOrders", ThisKey="UserID", OtherKey="UserID")]
-		public EntitySet<TableOrder> TableOrders
-		{
-			get
-			{
-				return this._TableOrders;
-			}
-			set
-			{
-				this._TableOrders.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PrivilegeType_UserTable", Storage="_PrivilegeType", ThisKey="PriveledgeID", OtherKey="PrivilegeID", IsForeignKey=true)]
-		public PrivilegeType PrivilegeType
-		{
-			get
-			{
-				return this._PrivilegeType.Entity;
-			}
-			set
-			{
-				PrivilegeType previousValue = this._PrivilegeType.Entity;
-				if (((previousValue != value) 
-							|| (this._PrivilegeType.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._PrivilegeType.Entity = null;
-						previousValue.UserTables.Remove(this);
-					}
-					this._PrivilegeType.Entity = value;
-					if ((value != null))
-					{
-						value.UserTables.Add(this);
-						this._PriveledgeID = value.PrivilegeID;
-					}
-					else
-					{
-						this._PriveledgeID = default(int);
-					}
-					this.SendPropertyChanged("PrivilegeType");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_TableOrders(TableOrder entity)
-		{
-			this.SendPropertyChanging();
-			entity.UserTable = this;
-		}
-		
-		private void detach_TableOrders(TableOrder entity)
-		{
-			this.SendPropertyChanging();
-			entity.UserTable = null;
 		}
 	}
 	
@@ -3695,6 +3431,8 @@ namespace PETSystem
 		
 		private EntityRef<TableOrder> _TableOrder;
 		
+		private EntityRef<TableOrder> _TableOrder1;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -3711,6 +3449,7 @@ namespace PETSystem
 		{
 			this._Stock = default(EntityRef<Stock>);
 			this._TableOrder = default(EntityRef<TableOrder>);
+			this._TableOrder1 = default(EntityRef<TableOrder>);
 			OnCreated();
 		}
 		
@@ -3725,7 +3464,7 @@ namespace PETSystem
 			{
 				if ((this._OrderID != value))
 				{
-					if (this._TableOrder.HasLoadedOrAssignedValue)
+					if ((this._TableOrder.HasLoadedOrAssignedValue || this._TableOrder1.HasLoadedOrAssignedValue))
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -3816,7 +3555,7 @@ namespace PETSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TableOrder_OrderLine", Storage="_TableOrder", ThisKey="OrderID", OtherKey="OrderID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TableOrder_OrderLine", Storage="_TableOrder", ThisKey="OrderID", OtherKey="OrderID", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public TableOrder TableOrder
 		{
 			get
@@ -3846,6 +3585,40 @@ namespace PETSystem
 						this._OrderID = default(int);
 					}
 					this.SendPropertyChanged("TableOrder");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TableOrder_OrderLine1", Storage="_TableOrder1", ThisKey="OrderID", OtherKey="OrderID", IsForeignKey=true)]
+		public TableOrder TableOrder1
+		{
+			get
+			{
+				return this._TableOrder1.Entity;
+			}
+			set
+			{
+				TableOrder previousValue = this._TableOrder1.Entity;
+				if (((previousValue != value) 
+							|| (this._TableOrder1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TableOrder1.Entity = null;
+						previousValue.OrderLines1.Remove(this);
+					}
+					this._TableOrder1.Entity = value;
+					if ((value != null))
+					{
+						value.OrderLines1.Add(this);
+						this._OrderID = value.OrderID;
+					}
+					else
+					{
+						this._OrderID = default(int);
+					}
+					this.SendPropertyChanged("TableOrder1");
 				}
 			}
 		}
@@ -3897,6 +3670,8 @@ namespace PETSystem
 		
 		private EntityRef<TableOrder> _TableOrder;
 		
+		private EntityRef<TableOrder> _TableOrder1;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -3923,6 +3698,7 @@ namespace PETSystem
 		{
 			this._PaymentType = default(EntityRef<PaymentType>);
 			this._TableOrder = default(EntityRef<TableOrder>);
+			this._TableOrder1 = default(EntityRef<TableOrder>);
 			OnCreated();
 		}
 		
@@ -4081,7 +3857,7 @@ namespace PETSystem
 			{
 				if ((this._OrderID != value))
 				{
-					if (this._TableOrder.HasLoadedOrAssignedValue)
+					if ((this._TableOrder.HasLoadedOrAssignedValue || this._TableOrder1.HasLoadedOrAssignedValue))
 					{
 						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
 					}
@@ -4128,7 +3904,7 @@ namespace PETSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TableOrder_Payment", Storage="_TableOrder", ThisKey="OrderID", OtherKey="OrderID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TableOrder_Payment", Storage="_TableOrder", ThisKey="OrderID", OtherKey="OrderID", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public TableOrder TableOrder
 		{
 			get
@@ -4158,6 +3934,40 @@ namespace PETSystem
 						this._OrderID = default(int);
 					}
 					this.SendPropertyChanged("TableOrder");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TableOrder_Payment1", Storage="_TableOrder1", ThisKey="OrderID", OtherKey="OrderID", IsForeignKey=true)]
+		public TableOrder TableOrder1
+		{
+			get
+			{
+				return this._TableOrder1.Entity;
+			}
+			set
+			{
+				TableOrder previousValue = this._TableOrder1.Entity;
+				if (((previousValue != value) 
+							|| (this._TableOrder1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._TableOrder1.Entity = null;
+						previousValue.Payments1.Remove(this);
+					}
+					this._TableOrder1.Entity = value;
+					if ((value != null))
+					{
+						value.Payments1.Add(this);
+						this._OrderID = value.OrderID;
+					}
+					else
+					{
+						this._OrderID = default(int);
+					}
+					this.SendPropertyChanged("TableOrder1");
 				}
 			}
 		}
@@ -7394,9 +7204,15 @@ namespace PETSystem
 		
 		private int _UserID;
 		
+		private System.Nullable<float> _Total;
+		
 		private EntitySet<OrderLine> _OrderLines;
 		
+		private EntitySet<OrderLine> _OrderLines1;
+		
 		private EntitySet<Payment> _Payments;
+		
+		private EntitySet<Payment> _Payments1;
 		
 		private EntitySet<Refund> _Refunds;
 		
@@ -7424,12 +7240,16 @@ namespace PETSystem
     partial void OnCustomerIDChanged();
     partial void OnUserIDChanging(int value);
     partial void OnUserIDChanged();
+    partial void OnTotalChanging(System.Nullable<float> value);
+    partial void OnTotalChanged();
     #endregion
 		
 		public TableOrder()
 		{
 			this._OrderLines = new EntitySet<OrderLine>(new Action<OrderLine>(this.attach_OrderLines), new Action<OrderLine>(this.detach_OrderLines));
+			this._OrderLines1 = new EntitySet<OrderLine>(new Action<OrderLine>(this.attach_OrderLines1), new Action<OrderLine>(this.detach_OrderLines1));
 			this._Payments = new EntitySet<Payment>(new Action<Payment>(this.attach_Payments), new Action<Payment>(this.detach_Payments));
+			this._Payments1 = new EntitySet<Payment>(new Action<Payment>(this.attach_Payments1), new Action<Payment>(this.detach_Payments1));
 			this._Refunds = new EntitySet<Refund>(new Action<Refund>(this.attach_Refunds), new Action<Refund>(this.detach_Refunds));
 			this._Customer = default(EntityRef<Customer>);
 			this._Instructor = default(EntityRef<Instructor>);
@@ -7589,6 +7409,26 @@ namespace PETSystem
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Total", DbType="Real")]
+		public System.Nullable<float> Total
+		{
+			get
+			{
+				return this._Total;
+			}
+			set
+			{
+				if ((this._Total != value))
+				{
+					this.OnTotalChanging(value);
+					this.SendPropertyChanging();
+					this._Total = value;
+					this.SendPropertyChanged("Total");
+					this.OnTotalChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TableOrder_OrderLine", Storage="_OrderLines", ThisKey="OrderID", OtherKey="OrderID")]
 		public EntitySet<OrderLine> OrderLines
 		{
@@ -7602,6 +7442,19 @@ namespace PETSystem
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TableOrder_OrderLine1", Storage="_OrderLines1", ThisKey="OrderID", OtherKey="OrderID")]
+		public EntitySet<OrderLine> OrderLines1
+		{
+			get
+			{
+				return this._OrderLines1;
+			}
+			set
+			{
+				this._OrderLines1.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TableOrder_Payment", Storage="_Payments", ThisKey="OrderID", OtherKey="OrderID")]
 		public EntitySet<Payment> Payments
 		{
@@ -7612,6 +7465,19 @@ namespace PETSystem
 			set
 			{
 				this._Payments.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TableOrder_Payment1", Storage="_Payments1", ThisKey="OrderID", OtherKey="OrderID")]
+		public EntitySet<Payment> Payments1
+		{
+			get
+			{
+				return this._Payments1;
+			}
+			set
+			{
+				this._Payments1.Assign(value);
 			}
 		}
 		
@@ -7762,6 +7628,18 @@ namespace PETSystem
 			entity.TableOrder = null;
 		}
 		
+		private void attach_OrderLines1(OrderLine entity)
+		{
+			this.SendPropertyChanging();
+			entity.TableOrder1 = this;
+		}
+		
+		private void detach_OrderLines1(OrderLine entity)
+		{
+			this.SendPropertyChanging();
+			entity.TableOrder1 = null;
+		}
+		
 		private void attach_Payments(Payment entity)
 		{
 			this.SendPropertyChanging();
@@ -7774,6 +7652,18 @@ namespace PETSystem
 			entity.TableOrder = null;
 		}
 		
+		private void attach_Payments1(Payment entity)
+		{
+			this.SendPropertyChanging();
+			entity.TableOrder1 = this;
+		}
+		
+		private void detach_Payments1(Payment entity)
+		{
+			this.SendPropertyChanging();
+			entity.TableOrder1 = null;
+		}
+		
 		private void attach_Refunds(Refund entity)
 		{
 			this.SendPropertyChanging();
@@ -7784,6 +7674,92 @@ namespace PETSystem
 		{
 			this.SendPropertyChanging();
 			entity.TableOrder = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.TimerTabel")]
+	public partial class TimerTabel : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _ID;
+		
+		private int _Time;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(string value);
+    partial void OnIDChanged();
+    partial void OnTimeChanging(int value);
+    partial void OnTimeChanged();
+    #endregion
+		
+		public TimerTabel()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="NChar(10) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Time", DbType="Int NOT NULL")]
+		public int Time
+		{
+			get
+			{
+				return this._Time;
+			}
+			set
+			{
+				if ((this._Time != value))
+				{
+					this.OnTimeChanging(value);
+					this.SendPropertyChanging();
+					this._Time = value;
+					this.SendPropertyChanged("Time");
+					this.OnTimeChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	
@@ -8666,6 +8642,281 @@ namespace PETSystem
 		{
 			this.SendPropertyChanging();
 			entity.TrainingCourseType = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UserTable")]
+	public partial class UserTable : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _UserID;
+		
+		private string _Name;
+		
+		private string _Surname;
+		
+		private string _UserPassword;
+		
+		private string _UserName;
+		
+		private int _PriveledgeID;
+		
+		private string _Email;
+		
+		private EntitySet<TableOrder> _TableOrders;
+		
+		private EntityRef<PrivilegeType> _PrivilegeType;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUserIDChanging(int value);
+    partial void OnUserIDChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnSurnameChanging(string value);
+    partial void OnSurnameChanged();
+    partial void OnUserPasswordChanging(string value);
+    partial void OnUserPasswordChanged();
+    partial void OnUserNameChanging(string value);
+    partial void OnUserNameChanged();
+    partial void OnPriveledgeIDChanging(int value);
+    partial void OnPriveledgeIDChanged();
+    partial void OnEmailChanging(string value);
+    partial void OnEmailChanged();
+    #endregion
+		
+		public UserTable()
+		{
+			this._TableOrders = new EntitySet<TableOrder>(new Action<TableOrder>(this.attach_TableOrders), new Action<TableOrder>(this.detach_TableOrders));
+			this._PrivilegeType = default(EntityRef<PrivilegeType>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int UserID
+		{
+			get
+			{
+				return this._UserID;
+			}
+			set
+			{
+				if ((this._UserID != value))
+				{
+					this.OnUserIDChanging(value);
+					this.SendPropertyChanging();
+					this._UserID = value;
+					this.SendPropertyChanged("UserID");
+					this.OnUserIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="VarChar(20)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Surname", DbType="VarChar(20)")]
+		public string Surname
+		{
+			get
+			{
+				return this._Surname;
+			}
+			set
+			{
+				if ((this._Surname != value))
+				{
+					this.OnSurnameChanging(value);
+					this.SendPropertyChanging();
+					this._Surname = value;
+					this.SendPropertyChanged("Surname");
+					this.OnSurnameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserPassword", DbType="VarChar(50)")]
+		public string UserPassword
+		{
+			get
+			{
+				return this._UserPassword;
+			}
+			set
+			{
+				if ((this._UserPassword != value))
+				{
+					this.OnUserPasswordChanging(value);
+					this.SendPropertyChanging();
+					this._UserPassword = value;
+					this.SendPropertyChanged("UserPassword");
+					this.OnUserPasswordChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UserName", DbType="VarChar(50)")]
+		public string UserName
+		{
+			get
+			{
+				return this._UserName;
+			}
+			set
+			{
+				if ((this._UserName != value))
+				{
+					this.OnUserNameChanging(value);
+					this.SendPropertyChanging();
+					this._UserName = value;
+					this.SendPropertyChanged("UserName");
+					this.OnUserNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PriveledgeID", DbType="Int NOT NULL")]
+		public int PriveledgeID
+		{
+			get
+			{
+				return this._PriveledgeID;
+			}
+			set
+			{
+				if ((this._PriveledgeID != value))
+				{
+					if (this._PrivilegeType.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPriveledgeIDChanging(value);
+					this.SendPropertyChanging();
+					this._PriveledgeID = value;
+					this.SendPropertyChanged("PriveledgeID");
+					this.OnPriveledgeIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Email", DbType="VarChar(50)")]
+		public string Email
+		{
+			get
+			{
+				return this._Email;
+			}
+			set
+			{
+				if ((this._Email != value))
+				{
+					this.OnEmailChanging(value);
+					this.SendPropertyChanging();
+					this._Email = value;
+					this.SendPropertyChanged("Email");
+					this.OnEmailChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UserTable_TableOrder", Storage="_TableOrders", ThisKey="UserID", OtherKey="UserID")]
+		public EntitySet<TableOrder> TableOrders
+		{
+			get
+			{
+				return this._TableOrders;
+			}
+			set
+			{
+				this._TableOrders.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="PrivilegeType_UserTable", Storage="_PrivilegeType", ThisKey="PriveledgeID", OtherKey="PrivilegeID", IsForeignKey=true)]
+		public PrivilegeType PrivilegeType
+		{
+			get
+			{
+				return this._PrivilegeType.Entity;
+			}
+			set
+			{
+				PrivilegeType previousValue = this._PrivilegeType.Entity;
+				if (((previousValue != value) 
+							|| (this._PrivilegeType.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._PrivilegeType.Entity = null;
+						previousValue.UserTables.Remove(this);
+					}
+					this._PrivilegeType.Entity = value;
+					if ((value != null))
+					{
+						value.UserTables.Add(this);
+						this._PriveledgeID = value.PrivilegeID;
+					}
+					else
+					{
+						this._PriveledgeID = default(int);
+					}
+					this.SendPropertyChanged("PrivilegeType");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_TableOrders(TableOrder entity)
+		{
+			this.SendPropertyChanging();
+			entity.UserTable = this;
+		}
+		
+		private void detach_TableOrders(TableOrder entity)
+		{
+			this.SendPropertyChanging();
+			entity.UserTable = null;
 		}
 	}
 }

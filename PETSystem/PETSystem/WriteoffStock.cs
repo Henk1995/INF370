@@ -19,9 +19,9 @@ namespace PETSystem
 
         PET_DBDataContext db = new PET_DBDataContext();
         ErrorHandle chk = new ErrorHandle();
-        bool WriteoffValid;
-        bool DateValid;
-        bool ReasonValid;
+        bool WriteoffValid = false;
+        bool DateValid = false;
+        bool ReasonValid = false;
         int loadID = Search_Stock.StockToUpdate;
         int getTypeID;
         int CurrentQuantity;
@@ -30,31 +30,7 @@ namespace PETSystem
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            txtWriteoffQuantity.BackColor = Color.White;
-            string Quantity = txtWriteoffQuantity.Text;
-            bool isInt = chk.CheckInt(Quantity);
-            bool notEmpty = chk.CheckEmpty(Quantity);
-            bool checkForSQLInjection = chk.checkForSQLInjection(Quantity);
-
-            if (isInt == false)
-            {
-                //txtWriteoffQuantity.BackColor = Color.FromArgb(244, 17, 17);
-                WriteoffValid = false;
-            }
-            else if (notEmpty == false)
-            {
-                //txtWriteoffQuantity.BackColor = Color.FromArgb(244, 17, 17);
-                WriteoffValid = false;
-            }
-            else if (checkForSQLInjection == false)
-            {
-                //txtWriteoffQuantity.BackColor = Color.FromArgb(244, 17, 17);
-                WriteoffValid = false;
-            }
-            {
-                txtWriteoffQuantity.BackColor = Color.White;
-                WriteoffValid = true;
-            }
+            
         }
 
        
@@ -183,6 +159,45 @@ namespace PETSystem
 
         private void txtReason_TextChanged(object sender, EventArgs e)
         {
+            
+        }
+
+        private void txtDate_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void txtWriteoffQuantity_Leave(object sender, EventArgs e)
+        {
+            txtWriteoffQuantity.BackColor = Color.White;
+            string Quantity = txtWriteoffQuantity.Text;
+            bool isInt = chk.CheckInt(Quantity);
+            bool notEmpty = chk.CheckEmpty(Quantity);
+            bool checkForSQLInjection = chk.checkForSQLInjection(Quantity);
+
+            if (isInt == false)
+            {
+                //txtWriteoffQuantity.BackColor = Color.FromArgb(244, 17, 17);
+                WriteoffValid = false;
+            }
+            else if (notEmpty == false)
+            {
+                //txtWriteoffQuantity.BackColor = Color.FromArgb(244, 17, 17);
+                WriteoffValid = false;
+            }
+            else if (checkForSQLInjection == false)
+            {
+                //txtWriteoffQuantity.BackColor = Color.FromArgb(244, 17, 17);
+                WriteoffValid = false;
+            }
+            {
+                txtWriteoffQuantity.BackColor = Color.White;
+                WriteoffValid = true;
+            }
+        }
+
+        private void txtReason_Leave(object sender, EventArgs e)
+        {
             txtReason.BackColor = Color.White;
             string Reason = txtWriteoffQuantity.Text;
             bool isString = chk.Checkstring(Reason);
@@ -210,7 +225,7 @@ namespace PETSystem
             }
         }
 
-        private void txtDate_TextChanged(object sender, EventArgs e)
+        private void txtDate_Leave(object sender, EventArgs e)
         {
             txtDate.BackColor = Color.White;
             string Date = txtWriteoffQuantity.Text;

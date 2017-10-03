@@ -45,6 +45,8 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblTimer = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.printer = new System.Drawing.Printing.PrintDocument();
+            this.printDialog1 = new System.Windows.Forms.PrintDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -199,6 +201,14 @@
             this.label6.TabIndex = 28;
             this.label6.Text = "Logout In:";
             // 
+            // printer
+            // 
+            this.printer.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printDialog1
+            // 
+            this.printDialog1.UseEXDialog = true;
+            // 
             // ViewMaintainP
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -257,5 +267,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblTimer;
         private System.Windows.Forms.Label label6;
+        private System.Drawing.Printing.PrintDocument printer;
+        private System.Windows.Forms.PrintDialog printDialog1;
     }
 }
