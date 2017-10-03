@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.OleDb;
 using System.Data.SqlClient;
+using Word = Microsoft.Office.Interop.Word;
+using System.IO;
 
 namespace PETSystem
 {
@@ -153,11 +155,55 @@ namespace PETSystem
 
         private void btnPrint_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
 
-            MessageBox.Show("Certificate could not be printed at this moment");
+                string NameId = dataGridView1.SelectedRows[0].Cells[2].Value + string.Empty;
+                string SNameId = dataGridView1.SelectedRows[0].Cells[3].Value + string.Empty;
+                String fileName = Path.GetTempFileName();
+                File.WriteAllBytes(fileName, Properties.Resources.Toets);
+
+                Word.Application objW = new Word.Application();
+                objW.Visible = false;
+                objW.WindowState = Word.WdWindowState.wdWindowStateNormal;
+
+                Word.Document objDoc = objW.Documents.Open(fileName, ReadOnly: false);
+
+                ReplaceBookmarkText(objDoc, "Space", NameId +" "+SNameId);
+                objW.Visible = true;
+                objDoc.PrintOut();
+                objDoc.Save();
+                objDoc.Close();
+                objW.Quit();
+            }
+            else
+            {
+                MessageBox.Show("Please selected the instructor from the top table that you want to print");
+            }
+        }
+        private void ReplaceBookmarkText(Word.Document doc, string bookmarkName, string text)
+
+        {
+
+            if (doc.Bookmarks.Exists(bookmarkName))
+
+            {
+
+                Object name = bookmarkName;
+
+                Word.Range range =
+
+                doc.Bookmarks.get_Item(ref name).Range;
+
+                range.Text = text;
+
+                object newRange = range;
+
+                doc.Bookmarks.Add(bookmarkName, ref newRange);
+
+            }
 
         }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 

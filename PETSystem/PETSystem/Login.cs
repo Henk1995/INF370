@@ -69,23 +69,23 @@ namespace PETSystem
 
                     connection2.Close();
                     ConnectString.connectstring.Close();
-                    // Check first login and make sure that form will exit correctly from here
-                    //if (ConnectString.firstLogin == true)
-                    //{
-                    //    ConnectString.firstLogin = false;
-                    //    validU = true;
-                    //    this.Visible = false;
-                    //    MainMenuF UM = new MainMenuF();
-                    //    UM.ShowDialog();
-                    //}
-                    //else
-                    //{
-                    //    this.Close();
-                    //    this.Dispose(true);
-                    //    MainMenuF FL = new MainMenuF();
-                    //    FL.ShowDialog();
-                    //}
-                 
+                  //  Check first login and make sure that form will exit correctly from here
+                    if (ConnectString.firstLogin == true)
+                    {
+                        ConnectString.firstLogin = false;
+                        validU = true;
+                        this.Visible = false;
+                        MainMenuF UM = new MainMenuF();
+                        UM.ShowDialog();
+                    }
+                    else
+                    {
+                        this.Close();
+                        this.Dispose(true);
+                        MainMenuF FL = new MainMenuF();
+                        FL.ShowDialog();
+                    }
+
 
                 }
                 
@@ -95,7 +95,7 @@ namespace PETSystem
                 MessageBox.Show("Invalid username and/or Password");
             }
 
-            
+
             // Ek steel gou die user wat gesignin het se ID. ;D
             //var GetUserID = (from X in db.UserTables where X.UserName.Contains(un) && X.UserPassword.Contains(pw) select X.UserID).FirstOrDefault();
             //UserIDthatLoggedIn = GetUserID;
@@ -106,7 +106,9 @@ namespace PETSystem
 
             //UserIDthatLoggedIn = Convert.ToInt32(USer);
 
-
+            this.Visible = false;
+            MainMenuF UM1 = new MainMenuF();
+            UM1.ShowDialog();
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
