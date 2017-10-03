@@ -135,6 +135,7 @@
             this.MaximumSize = new System.Drawing.Size(553, 280);
             this.MinimumSize = new System.Drawing.Size(553, 280);
             this.Name = "InstructorBioForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "InstructorBioForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InstructorBioForm_FormClosing);
             this.Load += new System.EventHandler(this.InstructorBioForm_Load);
