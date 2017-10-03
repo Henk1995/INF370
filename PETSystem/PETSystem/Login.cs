@@ -70,21 +70,21 @@ namespace PETSystem
                     connection2.Close();
                     ConnectString.connectstring.Close();
                     // Check first login and make sure that form will exit correctly from here
-                    if (ConnectString.firstLogin == true)
-                    {
-                        ConnectString.firstLogin = false;
-                        validU = true;
-                        this.Visible = false;
-                        MainMenuF UM = new MainMenuF();
-                        UM.ShowDialog();
-                    }
-                    else
-                    {
-                        this.Close();
-                        this.Dispose(true);
-                        MainMenuF FL = new MainMenuF();
-                        FL.ShowDialog();
-                    }
+                    //if (ConnectString.firstLogin == true)
+                    //{
+                    //    ConnectString.firstLogin = false;
+                    //    validU = true;
+                    //    this.Visible = false;
+                    //    MainMenuF UM = new MainMenuF();
+                    //    UM.ShowDialog();
+                    //}
+                    //else
+                    //{
+                    //    this.Close();
+                    //    this.Dispose(true);
+                    //    MainMenuF FL = new MainMenuF();
+                    //    FL.ShowDialog();
+                    //}
                  
 
                 }
@@ -192,7 +192,7 @@ namespace PETSystem
             TooltipForgotPassword.IsBalloon = true;
             TooltipForgotPassword.SetToolTip(linkLabel2, "Press if you have forgotten your password.");
             // first login
-            ConnectString.firstLogin = true;
+           // ConnectString.firstLogin = true;
             //  get Timer Time
             SqlConnection TimeConnection = new SqlConnection(ConnectString.DBC);
             TimeConnection.Open();
