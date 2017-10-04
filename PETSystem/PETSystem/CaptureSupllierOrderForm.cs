@@ -58,6 +58,77 @@ namespace PETSystem
         int result, CBresult = 0;
         private void CaptureSupllierOrderForm_Load(object sender, EventArgs e)
         {
+            //TT
+            //refnumber
+            ToolTip TTref = new ToolTip();
+            TTref.ToolTipTitle = "Reference Number";
+            TTref.UseFading = true;
+            TTref.UseAnimation = true;
+            TTref.IsBalloon = true;
+            TTref.SetToolTip(txtRefNumber, "Enter the order reference number here.");
+            //Date
+            ToolTip TTdate = new ToolTip();
+            TTdate.ToolTipTitle = "Date";
+            TTdate.UseFading = true;
+            TTdate.UseAnimation = true;
+            TTdate.IsBalloon = true;
+            TTdate.SetToolTip(txtDate, "Enter the order date here.");
+            //Enter
+            ToolTip TTENTER = new ToolTip();
+            TTENTER.ToolTipTitle = "Enter";
+            TTENTER.UseFading = true;
+            TTENTER.UseAnimation = true;
+            TTENTER.IsBalloon = true;
+            TTENTER.SetToolTip(btnEnter, "Click to capture Reference number and Date.");
+            //Product
+            ToolTip TTPROD = new ToolTip();
+            TTPROD.ToolTipTitle = "Product";
+            TTPROD.UseFading = true;
+            TTPROD.UseAnimation = true;
+            TTPROD.IsBalloon = true;
+            TTPROD.SetToolTip(cbProduct, "Select a product from stock.");
+            //Quantity
+            ToolTip TTQU = new ToolTip();
+            TTQU.ToolTipTitle = "Quantity";
+            TTQU.UseFading = true;
+            TTQU.UseAnimation = true;
+            TTQU.IsBalloon = true;
+            TTQU.SetToolTip(NUPQuantity, "Select the quantity of this poroduct.");
+            //Total
+            ToolTip TTT = new ToolTip();
+            TTT.ToolTipTitle = "Total";
+            TTT.UseFading = true;
+            TTT.UseAnimation = true;
+            TTT.IsBalloon = true;
+            TTT.SetToolTip(txtTotal, "Enter the total price for this product.");
+            //Add product
+            ToolTip TTTTT = new ToolTip();
+            TTTTT.ToolTipTitle = "Add Product";
+            TTTTT.UseFading = true;
+            TTTTT.UseAnimation = true;
+            TTTTT.IsBalloon = true;
+            TTTTT.SetToolTip(button3, "Click here to add the product line.");
+            //New rp
+            ToolTip TTNEW = new ToolTip();
+            TTNEW.ToolTipTitle = "New Product?";
+            TTNEW.UseFading = true;
+            TTNEW.UseAnimation = true;
+            TTNEW.IsBalloon = true;
+            TTNEW.SetToolTip(label4, "Click here if this product in not in current stock.");
+            //back
+            ToolTip TTBACk = new ToolTip();
+            TTBACk.ToolTipTitle = "Back";
+            TTBACk.UseFading = true;
+            TTBACk.UseAnimation = true;
+            TTBACk.IsBalloon = true;
+            TTBACk.SetToolTip(BtnBack, "Click here to return to previous screen.");
+            //capture
+            ToolTip TTCAP = new ToolTip();
+            TTCAP.ToolTipTitle = "Capture?";
+            TTCAP.UseFading = true;
+            TTCAP.UseAnimation = true;
+            TTCAP.IsBalloon = true;
+            TTCAP.SetToolTip(BtnCapture, "Click to capture the complete order.");
 
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
@@ -138,7 +209,7 @@ namespace PETSystem
                 }
                 ConnectString.connectstring.Close();
                 // txtOrder.Clear();
-                txtOrder.Text = txtOrder.Text + "Order Reference Number: " + referenceNumber + "            Date: " + Date;
+                txtOrder.Text = txtOrder.Text + "Order Reference Number: \n" + referenceNumber + "\nDate: " + Date;
             }else
             {
                 MessageBox.Show("Information given is invalid please resubmit the information");
