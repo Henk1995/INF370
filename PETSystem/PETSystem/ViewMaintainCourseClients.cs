@@ -28,6 +28,35 @@ namespace PETSystem
 
         private void ViewMaintainCourseClients_Load(object sender, EventArgs e)
         {
+            //Add
+            ToolTip TTADD = new ToolTip();
+            TTADD.ToolTipTitle = "Add";
+            TTADD.UseFading = true;
+            TTADD.UseAnimation = true;
+            TTADD.IsBalloon = true;
+            TTADD.SetToolTip(button1, "Click here to add a client from list above to course below.");
+            //Remove
+            ToolTip TTRE = new ToolTip();
+            TTRE.ToolTipTitle = "Remove";
+            TTRE.UseFading = true;
+            TTRE.UseAnimation = true;
+            TTRE.IsBalloon = true;
+            TTRE.SetToolTip(button2, "Click here to remove a client from list below.");
+            //Mainmenu
+            ToolTip TTMAIN = new ToolTip();
+            TTMAIN.ToolTipTitle = "Main Menu";
+            TTMAIN.UseFading = true;
+            TTMAIN.UseAnimation = true;
+            TTMAIN.IsBalloon = true;
+            TTMAIN.SetToolTip(btnMainM, "Click here to Return to the main menu");
+            //Back
+            ToolTip TTBACK = new ToolTip();
+            TTBACK.ToolTipTitle = "Back";
+            TTBACK.UseFading = true;
+            TTBACK.UseAnimation = true;
+            TTBACK.IsBalloon = true;
+            TTBACK.SetToolTip(btnBack, "Click here to Return to the previous screen");
+            //Print
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
             t = new Timer() { Interval = 1000, Enabled = true };

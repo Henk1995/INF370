@@ -44,14 +44,17 @@
             this.lblTimer = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTC)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnMCourses
             // 
-            this.btnMCourses.Location = new System.Drawing.Point(19, 9);
+            this.btnMCourses.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMCourses.Location = new System.Drawing.Point(131, 201);
             this.btnMCourses.Name = "btnMCourses";
-            this.btnMCourses.Size = new System.Drawing.Size(123, 39);
+            this.btnMCourses.Size = new System.Drawing.Size(123, 44);
             this.btnMCourses.TabIndex = 17;
             this.btnMCourses.Text = "Maintain Courses";
             this.btnMCourses.UseVisualStyleBackColor = true;
@@ -59,9 +62,10 @@
             // 
             // btnVMParticipants
             // 
-            this.btnVMParticipants.Location = new System.Drawing.Point(569, 272);
+            this.btnVMParticipants.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVMParticipants.Location = new System.Drawing.Point(2, 151);
             this.btnVMParticipants.Name = "btnVMParticipants";
-            this.btnVMParticipants.Size = new System.Drawing.Size(194, 39);
+            this.btnVMParticipants.Size = new System.Drawing.Size(123, 44);
             this.btnVMParticipants.TabIndex = 16;
             this.btnVMParticipants.Text = "View/Maintain Participants";
             this.btnVMParticipants.UseVisualStyleBackColor = true;
@@ -69,9 +73,10 @@
             // 
             // btnMainM
             // 
-            this.btnMainM.Location = new System.Drawing.Point(19, 277);
+            this.btnMainM.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMainM.Location = new System.Drawing.Point(2, 201);
             this.btnMainM.Name = "btnMainM";
-            this.btnMainM.Size = new System.Drawing.Size(123, 34);
+            this.btnMainM.Size = new System.Drawing.Size(123, 44);
             this.btnMainM.TabIndex = 15;
             this.btnMainM.Text = "Back";
             this.btnMainM.UseVisualStyleBackColor = true;
@@ -79,9 +84,10 @@
             // 
             // btnAddResult
             // 
-            this.btnAddResult.Location = new System.Drawing.Point(440, 272);
+            this.btnAddResult.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddResult.Location = new System.Drawing.Point(131, 151);
             this.btnAddResult.Name = "btnAddResult";
-            this.btnAddResult.Size = new System.Drawing.Size(123, 39);
+            this.btnAddResult.Size = new System.Drawing.Size(123, 44);
             this.btnAddResult.TabIndex = 14;
             this.btnAddResult.Text = "Add Result";
             this.btnAddResult.UseVisualStyleBackColor = true;
@@ -100,10 +106,10 @@
             this.Column4,
             this.Column5,
             this.Column6});
-            this.dgvTC.Location = new System.Drawing.Point(19, 53);
+            this.dgvTC.Location = new System.Drawing.Point(0, 0);
             this.dgvTC.Name = "dgvTC";
             this.dgvTC.ReadOnly = true;
-            this.dgvTC.Size = new System.Drawing.Size(744, 216);
+            this.dgvTC.Size = new System.Drawing.Size(747, 219);
             this.dgvTC.TabIndex = 13;
             this.dgvTC.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTC_CellContentClick);
             this.dgvTC.SelectionChanged += new System.EventHandler(this.dgvTC_SelectionChanged);
@@ -155,7 +161,8 @@
             this.lblTimer.AutoSize = true;
             this.lblTimer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTimer.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimer.Location = new System.Drawing.Point(706, 0);
+            this.lblTimer.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblTimer.Location = new System.Drawing.Point(946, -2);
             this.lblTimer.Name = "lblTimer";
             this.lblTimer.Size = new System.Drawing.Size(73, 19);
             this.lblTimer.TabIndex = 18;
@@ -166,7 +173,8 @@
             this.label1.AutoSize = true;
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(656, 0);
+            this.label1.ForeColor = System.Drawing.Color.DarkRed;
+            this.label1.Location = new System.Drawing.Point(896, -2);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 19);
             this.label1.TabIndex = 19;
@@ -176,25 +184,38 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dgvTC);
+            this.panel1.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Location = new System.Drawing.Point(260, 36);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(747, 209);
+            this.panel1.TabIndex = 20;
+            // 
             // Client_Course_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(766, 314);
+            this.ClientSize = new System.Drawing.Size(1006, 250);
             this.ControlBox = false;
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.btnMCourses);
             this.Controls.Add(this.btnVMParticipants);
             this.Controls.Add(this.btnMainM);
             this.Controls.Add(this.btnAddResult);
-            this.Controls.Add(this.dgvTC);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximumSize = new System.Drawing.Size(1022, 288);
+            this.MinimumSize = new System.Drawing.Size(1022, 288);
             this.Name = "Client_Course_Menu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Client_Course_Menu";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Client_Course_Menu_FormClosing);
             this.Load += new System.EventHandler(this.Client_Course_Menu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTC)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,5 +238,6 @@
         private System.Windows.Forms.Label lblTimer;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

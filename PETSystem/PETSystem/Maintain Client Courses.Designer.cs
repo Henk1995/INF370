@@ -60,7 +60,6 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.txtCourseDuration = new System.Windows.Forms.TextBox();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.txtCourseCost = new System.Windows.Forms.TextBox();
             this.txtCourseName = new System.Windows.Forms.TextBox();
@@ -89,6 +88,8 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lblTimer = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.AddCoursePanel.SuspendLayout();
@@ -99,6 +100,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchCourse)).BeginInit();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourseClient)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnBack
@@ -121,7 +124,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 22);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(772, 481);
+            this.tabControl1.Size = new System.Drawing.Size(772, 338);
             this.tabControl1.TabIndex = 21;
             // 
             // tabPage1
@@ -130,13 +133,14 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(764, 455);
+            this.tabPage1.Size = new System.Drawing.Size(764, 312);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Add New Course";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // AddCoursePanel
             // 
+            this.AddCoursePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.AddCoursePanel.Controls.Add(this.label5);
             this.AddCoursePanel.Controls.Add(this.cbTimeSlotTime);
             this.AddCoursePanel.Controls.Add(this.label8);
@@ -151,17 +155,18 @@
             this.AddCoursePanel.Controls.Add(this.label3);
             this.AddCoursePanel.Controls.Add(this.label2);
             this.AddCoursePanel.Controls.Add(this.label1);
+            this.AddCoursePanel.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddCoursePanel.Location = new System.Drawing.Point(18, 19);
             this.AddCoursePanel.Name = "AddCoursePanel";
-            this.AddCoursePanel.Size = new System.Drawing.Size(276, 259);
+            this.AddCoursePanel.Size = new System.Drawing.Size(283, 282);
             this.AddCoursePanel.TabIndex = 15;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 147);
+            this.label5.Location = new System.Drawing.Point(34, 164);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 13);
+            this.label5.Size = new System.Drawing.Size(77, 18);
             this.label5.TabIndex = 17;
             this.label5.Text = "Time Slot:";
             // 
@@ -178,17 +183,17 @@
             "14:30",
             "15:30",
             "16:30"});
-            this.cbTimeSlotTime.Location = new System.Drawing.Point(116, 144);
+            this.cbTimeSlotTime.Location = new System.Drawing.Point(117, 161);
             this.cbTimeSlotTime.Name = "cbTimeSlotTime";
-            this.cbTimeSlotTime.Size = new System.Drawing.Size(145, 21);
+            this.cbTimeSlotTime.Size = new System.Drawing.Size(145, 26);
             this.cbTimeSlotTime.TabIndex = 16;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(8, 122);
+            this.label8.Location = new System.Drawing.Point(13, 132);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(73, 13);
+            this.label8.Size = new System.Drawing.Size(98, 18);
             this.label8.TabIndex = 15;
             this.label8.Text = "Day of Week:";
             // 
@@ -202,17 +207,17 @@
             "Wednessday",
             "Thursday",
             "Friday"});
-            this.cbTimeslotDay.Location = new System.Drawing.Point(116, 119);
+            this.cbTimeslotDay.Location = new System.Drawing.Point(117, 129);
             this.cbTimeslotDay.Name = "cbTimeslotDay";
-            this.cbTimeslotDay.Size = new System.Drawing.Size(145, 21);
+            this.cbTimeslotDay.Size = new System.Drawing.Size(145, 26);
             this.cbTimeslotDay.TabIndex = 14;
             // 
             // lblInstructors
             // 
             this.lblInstructors.AutoSize = true;
-            this.lblInstructors.Location = new System.Drawing.Point(8, 70);
+            this.lblInstructors.Location = new System.Drawing.Point(25, 69);
             this.lblInstructors.Name = "lblInstructors";
-            this.lblInstructors.Size = new System.Drawing.Size(59, 13);
+            this.lblInstructors.Size = new System.Drawing.Size(86, 18);
             this.lblInstructors.TabIndex = 13;
             this.lblInstructors.Text = "Instructors:";
             // 
@@ -220,14 +225,14 @@
             // 
             this.cbInstructors.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbInstructors.FormattingEnabled = true;
-            this.cbInstructors.Location = new System.Drawing.Point(116, 67);
+            this.cbInstructors.Location = new System.Drawing.Point(117, 66);
             this.cbInstructors.Name = "cbInstructors";
-            this.cbInstructors.Size = new System.Drawing.Size(145, 21);
+            this.cbInstructors.Size = new System.Drawing.Size(145, 26);
             this.cbInstructors.TabIndex = 12;
             // 
             // btnSubmitCouseDetails
             // 
-            this.btnSubmitCouseDetails.Location = new System.Drawing.Point(159, 208);
+            this.btnSubmitCouseDetails.Location = new System.Drawing.Point(160, 224);
             this.btnSubmitCouseDetails.Name = "btnSubmitCouseDetails";
             this.btnSubmitCouseDetails.Size = new System.Drawing.Size(102, 39);
             this.btnSubmitCouseDetails.TabIndex = 9;
@@ -237,51 +242,51 @@
             // 
             // txtVenue
             // 
-            this.txtVenue.Location = new System.Drawing.Point(116, 169);
+            this.txtVenue.Location = new System.Drawing.Point(117, 193);
             this.txtVenue.Name = "txtVenue";
-            this.txtVenue.Size = new System.Drawing.Size(145, 20);
+            this.txtVenue.Size = new System.Drawing.Size(145, 25);
             this.txtVenue.TabIndex = 7;
             // 
             // txtStartDate
             // 
-            this.txtStartDate.Location = new System.Drawing.Point(116, 94);
+            this.txtStartDate.Location = new System.Drawing.Point(117, 98);
             this.txtStartDate.Name = "txtStartDate";
-            this.txtStartDate.Size = new System.Drawing.Size(145, 20);
+            this.txtStartDate.Size = new System.Drawing.Size(145, 25);
             this.txtStartDate.TabIndex = 6;
             // 
             // cmbCourseName
             // 
             this.cmbCourseName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCourseName.FormattingEnabled = true;
-            this.cmbCourseName.Location = new System.Drawing.Point(116, 40);
+            this.cmbCourseName.Location = new System.Drawing.Point(117, 34);
             this.cmbCourseName.Name = "cmbCourseName";
-            this.cmbCourseName.Size = new System.Drawing.Size(145, 21);
+            this.cmbCourseName.Size = new System.Drawing.Size(145, 26);
             this.cmbCourseName.TabIndex = 5;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 170);
+            this.label4.Location = new System.Drawing.Point(57, 196);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 13);
+            this.label4.Size = new System.Drawing.Size(54, 18);
             this.label4.TabIndex = 3;
             this.label4.Text = "Venue:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 97);
+            this.label3.Location = new System.Drawing.Point(30, 101);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 13);
+            this.label3.Size = new System.Drawing.Size(81, 18);
             this.label3.TabIndex = 2;
             this.label3.Text = "Start Date:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 43);
+            this.label2.Location = new System.Drawing.Point(11, 37);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 13);
+            this.label2.Size = new System.Drawing.Size(100, 18);
             this.label2.TabIndex = 1;
             this.label2.Text = "Course Name:";
             // 
@@ -297,20 +302,21 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.panel1);
             this.tabPage2.Controls.Add(this.btnDelete);
-            this.tabPage2.Controls.Add(this.dgvMaintainClientCourses);
             this.tabPage2.Controls.Add(this.btnSave);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(764, 455);
+            this.tabPage2.Size = new System.Drawing.Size(764, 312);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Maintain  Course";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(106, 405);
+            this.btnDelete.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(103, 181);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(94, 29);
             this.btnDelete.TabIndex = 28;
@@ -331,10 +337,10 @@
             this.TimeSlotTime,
             this.Venue,
             this.StartDate});
-            this.dgvMaintainClientCourses.Location = new System.Drawing.Point(6, 14);
+            this.dgvMaintainClientCourses.Location = new System.Drawing.Point(0, 0);
             this.dgvMaintainClientCourses.Name = "dgvMaintainClientCourses";
             this.dgvMaintainClientCourses.ReadOnly = true;
-            this.dgvMaintainClientCourses.Size = new System.Drawing.Size(752, 373);
+            this.dgvMaintainClientCourses.Size = new System.Drawing.Size(752, 169);
             this.dgvMaintainClientCourses.TabIndex = 26;
             this.dgvMaintainClientCourses.SelectionChanged += new System.EventHandler(this.dgvMaintainClientCourses_SelectionChanged_1);
             // 
@@ -382,7 +388,8 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(6, 405);
+            this.btnSave.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(3, 181);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(94, 29);
             this.btnSave.TabIndex = 27;
@@ -392,45 +399,31 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.txtCourseDuration);
-            this.tabPage3.Controls.Add(this.btnCancel);
+            this.tabPage3.Controls.Add(this.groupBox1);
             this.tabPage3.Controls.Add(this.button1);
-            this.tabPage3.Controls.Add(this.txtCourseCost);
-            this.tabPage3.Controls.Add(this.txtCourseName);
-            this.tabPage3.Controls.Add(this.label11);
-            this.tabPage3.Controls.Add(this.label12);
-            this.tabPage3.Controls.Add(this.label13);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(764, 455);
+            this.tabPage3.Size = new System.Drawing.Size(764, 312);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Add Course Type";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // txtCourseDuration
             // 
-            this.txtCourseDuration.Location = new System.Drawing.Point(147, 109);
+            this.txtCourseDuration.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCourseDuration.Location = new System.Drawing.Point(135, 106);
             this.txtCourseDuration.Name = "txtCourseDuration";
-            this.txtCourseDuration.Size = new System.Drawing.Size(195, 20);
+            this.txtCourseDuration.Size = new System.Drawing.Size(195, 25);
             this.txtCourseDuration.TabIndex = 68;
             this.txtCourseDuration.TextChanged += new System.EventHandler(this.txtCourseDuration_TextChanged);
             // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(195, 194);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(146, 23);
-            this.btnCancel.TabIndex = 70;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(34, 194);
+            this.button1.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(202, 181);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(146, 23);
+            this.button1.Size = new System.Drawing.Size(146, 29);
             this.button1.TabIndex = 69;
             this.button1.Text = "Save";
             this.button1.UseVisualStyleBackColor = true;
@@ -438,44 +431,49 @@
             // 
             // txtCourseCost
             // 
-            this.txtCourseCost.Location = new System.Drawing.Point(147, 71);
+            this.txtCourseCost.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCourseCost.Location = new System.Drawing.Point(135, 68);
             this.txtCourseCost.Name = "txtCourseCost";
-            this.txtCourseCost.Size = new System.Drawing.Size(195, 20);
+            this.txtCourseCost.Size = new System.Drawing.Size(195, 25);
             this.txtCourseCost.TabIndex = 67;
             this.txtCourseCost.TextChanged += new System.EventHandler(this.txtCourseCost_TextChanged);
             // 
             // txtCourseName
             // 
-            this.txtCourseName.Location = new System.Drawing.Point(147, 35);
+            this.txtCourseName.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCourseName.Location = new System.Drawing.Point(135, 32);
             this.txtCourseName.Name = "txtCourseName";
-            this.txtCourseName.Size = new System.Drawing.Size(195, 20);
+            this.txtCourseName.Size = new System.Drawing.Size(195, 25);
             this.txtCourseName.TabIndex = 66;
             this.txtCourseName.TextChanged += new System.EventHandler(this.txtCourseName_TextChanged);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(31, 112);
+            this.label11.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(8, 109);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(86, 13);
+            this.label11.Size = new System.Drawing.Size(121, 18);
             this.label11.TabIndex = 73;
             this.label11.Text = "Course Duration:";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(31, 38);
+            this.label12.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(29, 35);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(74, 13);
+            this.label12.Size = new System.Drawing.Size(100, 18);
             this.label12.TabIndex = 72;
             this.label12.Text = "Course Name:";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(31, 74);
+            this.label13.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(38, 71);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(67, 13);
+            this.label13.Size = new System.Drawing.Size(91, 18);
             this.label13.TabIndex = 71;
             this.label13.Text = "Course Cost:";
             // 
@@ -491,7 +489,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(764, 455);
+            this.tabPage4.Size = new System.Drawing.Size(764, 340);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Maintain Course Type";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -519,7 +517,7 @@
             // 
             // btnViewCourse
             // 
-            this.btnViewCourse.Location = new System.Drawing.Point(234, 305);
+            this.btnViewCourse.Location = new System.Drawing.Point(-6, 199);
             this.btnViewCourse.Name = "btnViewCourse";
             this.btnViewCourse.Size = new System.Drawing.Size(97, 23);
             this.btnViewCourse.TabIndex = 71;
@@ -529,7 +527,7 @@
             // 
             // btnRemoveCourse
             // 
-            this.btnRemoveCourse.Location = new System.Drawing.Point(440, 306);
+            this.btnRemoveCourse.Location = new System.Drawing.Point(97, 229);
             this.btnRemoveCourse.Name = "btnRemoveCourse";
             this.btnRemoveCourse.Size = new System.Drawing.Size(97, 23);
             this.btnRemoveCourse.TabIndex = 70;
@@ -546,7 +544,7 @@
             // 
             // btnUpdateCourse
             // 
-            this.btnUpdateCourse.Location = new System.Drawing.Point(337, 306);
+            this.btnUpdateCourse.Location = new System.Drawing.Point(97, 200);
             this.btnUpdateCourse.Name = "btnUpdateCourse";
             this.btnUpdateCourse.Size = new System.Drawing.Size(97, 23);
             this.btnUpdateCourse.TabIndex = 69;
@@ -578,7 +576,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(764, 455);
+            this.tabPage5.Size = new System.Drawing.Size(764, 340);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Maintain Course Clients";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -675,7 +673,7 @@
             this.dgvCourseClient.Location = new System.Drawing.Point(230, 19);
             this.dgvCourseClient.Name = "dgvCourseClient";
             this.dgvCourseClient.ReadOnly = true;
-            this.dgvCourseClient.Size = new System.Drawing.Size(528, 348);
+            this.dgvCourseClient.Size = new System.Drawing.Size(528, 209);
             this.dgvCourseClient.TabIndex = 60;
             this.dgvCourseClient.SelectionChanged += new System.EventHandler(this.dgvCourseClient_SelectionChanged);
             // 
@@ -705,6 +703,31 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dgvMaintainClientCourses);
+            this.panel1.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Location = new System.Drawing.Point(6, 6);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(752, 170);
+            this.panel1.TabIndex = 29;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label12);
+            this.groupBox1.Controls.Add(this.txtCourseDuration);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.label11);
+            this.groupBox1.Controls.Add(this.txtCourseName);
+            this.groupBox1.Controls.Add(this.txtCourseCost);
+            this.groupBox1.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(6, 15);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(342, 160);
+            this.groupBox1.TabIndex = 74;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
             // Maintain_Client_Courses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -727,13 +750,15 @@
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaintainClientCourses)).EndInit();
             this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchCourse)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourseClient)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -765,7 +790,6 @@
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TextBox txtCourseDuration;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox txtCourseCost;
         private System.Windows.Forms.TextBox txtCourseName;
@@ -800,5 +824,7 @@
         private System.Windows.Forms.Label lblTimer;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
