@@ -60,12 +60,12 @@ namespace PETSystem
         // ALMAL SE CONNECTION STRINGS
 
         //Jan se connection string
-        public static string DBC = " Data Source=.\\SQLEXPRESS;Initial Catalog=EXportvirJan2;Integrated Security=True";
+       // public static string DBC = " Data Source=.\\SQLEXPRESS;Initial Catalog=EXportvirJan2;Integrated Security=True";
         //John se connection string
         //        public static string DBC = "Data Source=JOHN-MAC-WIN;Initial Catalog=exportFotos;Integrated Security=True";
 
         //Henk se connection string    + Copy jou goed hier in en uncomment die lyn hier onder
-        //public static string DBC = "Data Source=.;Initial Catalog=RefIntegrityExport;Integrated Security=True";
+        public static string DBC = "Data Source=.;Initial Catalog=RefIntegrityExport;Integrated Security=True";
 
 
         //Sam se connection string    + Copy jou goed hier in en uncomment die lyn hier onder

@@ -48,7 +48,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.btnDelete = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.dgvMaintainClientCourses = new System.Windows.Forms.DataGridView();
             this.CourseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CourseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,25 +57,24 @@
             this.TimeSlotTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Venue = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.StartDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.txtCourseDuration = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.txtCourseCost = new System.Windows.Forms.TextBox();
-            this.txtCourseName = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.txtCourseDuration = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtCourseName = new System.Windows.Forms.TextBox();
+            this.txtCourseCost = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dgvSearchCourse = new System.Windows.Forms.DataGridView();
-            this.btnRefreshDGV = new System.Windows.Forms.Button();
-            this.btnViewCourse = new System.Windows.Forms.Button();
             this.btnRemoveCourse = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnUpdateCourse = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
             this.txtSearcCCSurname = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.btnAddClient = new System.Windows.Forms.Button();
@@ -88,25 +87,24 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lblTimer = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.AddCoursePanel.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaintainClientCourses)).BeginInit();
             this.tabPage3.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchCourse)).BeginInit();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourseClient)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(16, 505);
+            this.btnBack.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Location = new System.Drawing.Point(16, 376);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(94, 29);
             this.btnBack.TabIndex = 16;
@@ -124,7 +122,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 22);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(772, 338);
+            this.tabControl1.Size = new System.Drawing.Size(772, 348);
             this.tabControl1.TabIndex = 21;
             // 
             // tabPage1
@@ -133,7 +131,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(764, 312);
+            this.tabPage1.Size = new System.Drawing.Size(764, 322);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Add New Course";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -308,21 +306,19 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(764, 312);
+            this.tabPage2.Size = new System.Drawing.Size(764, 322);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Maintain  Course";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // btnDelete
+            // panel1
             // 
-            this.btnDelete.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelete.Location = new System.Drawing.Point(103, 181);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(94, 29);
-            this.btnDelete.TabIndex = 28;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click_1);
+            this.panel1.Controls.Add(this.dgvMaintainClientCourses);
+            this.panel1.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Location = new System.Drawing.Point(6, 6);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(752, 170);
+            this.panel1.TabIndex = 29;
             // 
             // dgvMaintainClientCourses
             // 
@@ -386,6 +382,17 @@
             this.StartDate.Name = "StartDate";
             this.StartDate.ReadOnly = true;
             // 
+            // btnDelete
+            // 
+            this.btnDelete.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDelete.Location = new System.Drawing.Point(103, 181);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(94, 29);
+            this.btnDelete.TabIndex = 28;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click_1);
+            // 
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -404,313 +411,10 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(764, 312);
+            this.tabPage3.Size = new System.Drawing.Size(764, 322);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Add Course Type";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // txtCourseDuration
-            // 
-            this.txtCourseDuration.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCourseDuration.Location = new System.Drawing.Point(135, 106);
-            this.txtCourseDuration.Name = "txtCourseDuration";
-            this.txtCourseDuration.Size = new System.Drawing.Size(195, 25);
-            this.txtCourseDuration.TabIndex = 68;
-            this.txtCourseDuration.TextChanged += new System.EventHandler(this.txtCourseDuration_TextChanged);
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(202, 181);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(146, 29);
-            this.button1.TabIndex = 69;
-            this.button1.Text = "Save";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // txtCourseCost
-            // 
-            this.txtCourseCost.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCourseCost.Location = new System.Drawing.Point(135, 68);
-            this.txtCourseCost.Name = "txtCourseCost";
-            this.txtCourseCost.Size = new System.Drawing.Size(195, 25);
-            this.txtCourseCost.TabIndex = 67;
-            this.txtCourseCost.TextChanged += new System.EventHandler(this.txtCourseCost_TextChanged);
-            // 
-            // txtCourseName
-            // 
-            this.txtCourseName.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCourseName.Location = new System.Drawing.Point(135, 32);
-            this.txtCourseName.Name = "txtCourseName";
-            this.txtCourseName.Size = new System.Drawing.Size(195, 25);
-            this.txtCourseName.TabIndex = 66;
-            this.txtCourseName.TextChanged += new System.EventHandler(this.txtCourseName_TextChanged);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(8, 109);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(121, 18);
-            this.label11.TabIndex = 73;
-            this.label11.Text = "Course Duration:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(29, 35);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(100, 18);
-            this.label12.TabIndex = 72;
-            this.label12.Text = "Course Name:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(38, 71);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(91, 18);
-            this.label13.TabIndex = 71;
-            this.label13.Text = "Course Cost:";
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.dgvSearchCourse);
-            this.tabPage4.Controls.Add(this.btnRefreshDGV);
-            this.tabPage4.Controls.Add(this.btnViewCourse);
-            this.tabPage4.Controls.Add(this.btnRemoveCourse);
-            this.tabPage4.Controls.Add(this.textBox1);
-            this.tabPage4.Controls.Add(this.btnUpdateCourse);
-            this.tabPage4.Controls.Add(this.label9);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(764, 340);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Maintain Course Type";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // dgvSearchCourse
-            // 
-            this.dgvSearchCourse.AllowUserToAddRows = false;
-            this.dgvSearchCourse.AllowUserToDeleteRows = false;
-            this.dgvSearchCourse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSearchCourse.Location = new System.Drawing.Point(234, 11);
-            this.dgvSearchCourse.Name = "dgvSearchCourse";
-            this.dgvSearchCourse.ReadOnly = true;
-            this.dgvSearchCourse.Size = new System.Drawing.Size(522, 288);
-            this.dgvSearchCourse.TabIndex = 66;
-            this.dgvSearchCourse.SelectionChanged += new System.EventHandler(this.dgvSearchCourse_SelectionChanged);
-            // 
-            // btnRefreshDGV
-            // 
-            this.btnRefreshDGV.Location = new System.Drawing.Point(15, 149);
-            this.btnRefreshDGV.Name = "btnRefreshDGV";
-            this.btnRefreshDGV.Size = new System.Drawing.Size(213, 23);
-            this.btnRefreshDGV.TabIndex = 72;
-            this.btnRefreshDGV.Text = "Refresh DGV";
-            this.btnRefreshDGV.UseVisualStyleBackColor = true;
-            // 
-            // btnViewCourse
-            // 
-            this.btnViewCourse.Location = new System.Drawing.Point(-6, 199);
-            this.btnViewCourse.Name = "btnViewCourse";
-            this.btnViewCourse.Size = new System.Drawing.Size(97, 23);
-            this.btnViewCourse.TabIndex = 71;
-            this.btnViewCourse.Text = "View Course";
-            this.btnViewCourse.UseVisualStyleBackColor = true;
-            this.btnViewCourse.Click += new System.EventHandler(this.btnViewCourse_Click);
-            // 
-            // btnRemoveCourse
-            // 
-            this.btnRemoveCourse.Location = new System.Drawing.Point(97, 229);
-            this.btnRemoveCourse.Name = "btnRemoveCourse";
-            this.btnRemoveCourse.Size = new System.Drawing.Size(97, 23);
-            this.btnRemoveCourse.TabIndex = 70;
-            this.btnRemoveCourse.Text = "Remove Course";
-            this.btnRemoveCourse.UseVisualStyleBackColor = true;
-            this.btnRemoveCourse.Click += new System.EventHandler(this.btnRemoveCourse_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 73;
-            // 
-            // btnUpdateCourse
-            // 
-            this.btnUpdateCourse.Location = new System.Drawing.Point(97, 200);
-            this.btnUpdateCourse.Name = "btnUpdateCourse";
-            this.btnUpdateCourse.Size = new System.Drawing.Size(97, 23);
-            this.btnUpdateCourse.TabIndex = 69;
-            this.btnUpdateCourse.Text = "Update Course";
-            this.btnUpdateCourse.UseVisualStyleBackColor = true;
-            this.btnUpdateCourse.Click += new System.EventHandler(this.btnUpdateCourse_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(15, 68);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(74, 13);
-            this.label9.TabIndex = 67;
-            this.label9.Text = "Course Name:";
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Controls.Add(this.button2);
-            this.tabPage5.Controls.Add(this.txtSearcCCSurname);
-            this.tabPage5.Controls.Add(this.label10);
-            this.tabPage5.Controls.Add(this.btnAddClient);
-            this.tabPage5.Controls.Add(this.btnViewClient);
-            this.tabPage5.Controls.Add(this.txtSearchCCName);
-            this.tabPage5.Controls.Add(this.btnUpdateClient);
-            this.tabPage5.Controls.Add(this.btnRemoveClient);
-            this.tabPage5.Controls.Add(this.label14);
-            this.tabPage5.Controls.Add(this.dgvCourseClient);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(764, 340);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Maintain Course Clients";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(7, 205);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(217, 23);
-            this.button2.TabIndex = 69;
-            this.button2.Text = "Refresh DGV";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // txtSearcCCSurname
-            // 
-            this.txtSearcCCSurname.Location = new System.Drawing.Point(7, 136);
-            this.txtSearcCCSurname.Name = "txtSearcCCSurname";
-            this.txtSearcCCSurname.Size = new System.Drawing.Size(217, 20);
-            this.txtSearcCCSurname.TabIndex = 68;
-            this.txtSearcCCSurname.TextChanged += new System.EventHandler(this.txtSearcCCSurname_TextChanged);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(7, 120);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(81, 13);
-            this.label10.TabIndex = 67;
-            this.label10.Text = "Client Surname:";
-            // 
-            // btnAddClient
-            // 
-            this.btnAddClient.Location = new System.Drawing.Point(292, 373);
-            this.btnAddClient.Name = "btnAddClient";
-            this.btnAddClient.Size = new System.Drawing.Size(112, 23);
-            this.btnAddClient.TabIndex = 66;
-            this.btnAddClient.Text = "Add Client";
-            this.btnAddClient.UseVisualStyleBackColor = true;
-            this.btnAddClient.Click += new System.EventHandler(this.btnAddClient_Click);
-            // 
-            // btnViewClient
-            // 
-            this.btnViewClient.Location = new System.Drawing.Point(410, 373);
-            this.btnViewClient.Name = "btnViewClient";
-            this.btnViewClient.Size = new System.Drawing.Size(112, 23);
-            this.btnViewClient.TabIndex = 65;
-            this.btnViewClient.Text = "View Client";
-            this.btnViewClient.UseVisualStyleBackColor = true;
-            this.btnViewClient.Click += new System.EventHandler(this.btnViewClient_Click);
-            // 
-            // txtSearchCCName
-            // 
-            this.txtSearchCCName.Location = new System.Drawing.Point(7, 48);
-            this.txtSearchCCName.Name = "txtSearchCCName";
-            this.txtSearchCCName.Size = new System.Drawing.Size(217, 20);
-            this.txtSearchCCName.TabIndex = 62;
-            this.txtSearchCCName.TextChanged += new System.EventHandler(this.txtSearchCCName_TextChanged);
-            // 
-            // btnUpdateClient
-            // 
-            this.btnUpdateClient.Location = new System.Drawing.Point(528, 373);
-            this.btnUpdateClient.Name = "btnUpdateClient";
-            this.btnUpdateClient.Size = new System.Drawing.Size(112, 23);
-            this.btnUpdateClient.TabIndex = 64;
-            this.btnUpdateClient.Text = "Update Client";
-            this.btnUpdateClient.UseVisualStyleBackColor = true;
-            this.btnUpdateClient.Click += new System.EventHandler(this.btnUpdateClient_Click);
-            // 
-            // btnRemoveClient
-            // 
-            this.btnRemoveClient.Location = new System.Drawing.Point(646, 373);
-            this.btnRemoveClient.Name = "btnRemoveClient";
-            this.btnRemoveClient.Size = new System.Drawing.Size(112, 23);
-            this.btnRemoveClient.TabIndex = 63;
-            this.btnRemoveClient.Text = "Remove Client";
-            this.btnRemoveClient.UseVisualStyleBackColor = true;
-            this.btnRemoveClient.Click += new System.EventHandler(this.btnRemoveClient_Click);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(7, 32);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(67, 13);
-            this.label14.TabIndex = 61;
-            this.label14.Text = "Client Name:";
-            // 
-            // dgvCourseClient
-            // 
-            this.dgvCourseClient.AllowUserToAddRows = false;
-            this.dgvCourseClient.AllowUserToDeleteRows = false;
-            this.dgvCourseClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCourseClient.Location = new System.Drawing.Point(230, 19);
-            this.dgvCourseClient.Name = "dgvCourseClient";
-            this.dgvCourseClient.ReadOnly = true;
-            this.dgvCourseClient.Size = new System.Drawing.Size(528, 209);
-            this.dgvCourseClient.TabIndex = 60;
-            this.dgvCourseClient.SelectionChanged += new System.EventHandler(this.dgvCourseClient_SelectionChanged);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label6.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(679, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 19);
-            this.label6.TabIndex = 22;
-            this.label6.Text = "Logout In:";
-            // 
-            // lblTimer
-            // 
-            this.lblTimer.AutoSize = true;
-            this.lblTimer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblTimer.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimer.Location = new System.Drawing.Point(729, 0);
-            this.lblTimer.Name = "lblTimer";
-            this.lblTimer.Size = new System.Drawing.Size(73, 19);
-            this.lblTimer.TabIndex = 23;
-            this.lblTimer.Text = "Logout In:";
-            // 
-            // timer1
-            // 
-            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.dgvMaintainClientCourses);
-            this.panel1.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(6, 6);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(752, 170);
-            this.panel1.TabIndex = 29;
             // 
             // groupBox1
             // 
@@ -726,20 +430,289 @@
             this.groupBox1.Size = new System.Drawing.Size(342, 160);
             this.groupBox1.TabIndex = 74;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.groupBox1.Text = "Course Details:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(29, 35);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(100, 18);
+            this.label12.TabIndex = 72;
+            this.label12.Text = "Course Name:";
+            // 
+            // txtCourseDuration
+            // 
+            this.txtCourseDuration.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCourseDuration.Location = new System.Drawing.Point(135, 106);
+            this.txtCourseDuration.Name = "txtCourseDuration";
+            this.txtCourseDuration.Size = new System.Drawing.Size(195, 25);
+            this.txtCourseDuration.TabIndex = 68;
+            this.txtCourseDuration.TextChanged += new System.EventHandler(this.txtCourseDuration_TextChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(38, 71);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(91, 18);
+            this.label13.TabIndex = 71;
+            this.label13.Text = "Course Cost:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(8, 109);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(121, 18);
+            this.label11.TabIndex = 73;
+            this.label11.Text = "Course Duration:";
+            // 
+            // txtCourseName
+            // 
+            this.txtCourseName.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCourseName.Location = new System.Drawing.Point(135, 32);
+            this.txtCourseName.Name = "txtCourseName";
+            this.txtCourseName.Size = new System.Drawing.Size(195, 25);
+            this.txtCourseName.TabIndex = 66;
+            this.txtCourseName.TextChanged += new System.EventHandler(this.txtCourseName_TextChanged);
+            // 
+            // txtCourseCost
+            // 
+            this.txtCourseCost.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCourseCost.Location = new System.Drawing.Point(135, 68);
+            this.txtCourseCost.Name = "txtCourseCost";
+            this.txtCourseCost.Size = new System.Drawing.Size(195, 25);
+            this.txtCourseCost.TabIndex = 67;
+            this.txtCourseCost.TextChanged += new System.EventHandler(this.txtCourseCost_TextChanged);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(202, 181);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(146, 29);
+            this.button1.TabIndex = 69;
+            this.button1.Text = "Save";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.dgvSearchCourse);
+            this.tabPage4.Controls.Add(this.btnRemoveCourse);
+            this.tabPage4.Controls.Add(this.textBox1);
+            this.tabPage4.Controls.Add(this.btnUpdateCourse);
+            this.tabPage4.Controls.Add(this.label9);
+            this.tabPage4.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(764, 312);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Maintain Course Type";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // dgvSearchCourse
+            // 
+            this.dgvSearchCourse.AllowUserToAddRows = false;
+            this.dgvSearchCourse.AllowUserToDeleteRows = false;
+            this.dgvSearchCourse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSearchCourse.Location = new System.Drawing.Point(234, 11);
+            this.dgvSearchCourse.Name = "dgvSearchCourse";
+            this.dgvSearchCourse.ReadOnly = true;
+            this.dgvSearchCourse.Size = new System.Drawing.Size(344, 288);
+            this.dgvSearchCourse.TabIndex = 66;
+            this.dgvSearchCourse.SelectionChanged += new System.EventHandler(this.dgvSearchCourse_SelectionChanged);
+            // 
+            // btnRemoveCourse
+            // 
+            this.btnRemoveCourse.Location = new System.Drawing.Point(121, 126);
+            this.btnRemoveCourse.Name = "btnRemoveCourse";
+            this.btnRemoveCourse.Size = new System.Drawing.Size(97, 32);
+            this.btnRemoveCourse.TabIndex = 70;
+            this.btnRemoveCourse.Text = "Remove Course";
+            this.btnRemoveCourse.UseVisualStyleBackColor = true;
+            this.btnRemoveCourse.Click += new System.EventHandler(this.btnRemoveCourse_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(18, 84);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 25);
+            this.textBox1.TabIndex = 73;
+            // 
+            // btnUpdateCourse
+            // 
+            this.btnUpdateCourse.Location = new System.Drawing.Point(18, 126);
+            this.btnUpdateCourse.Name = "btnUpdateCourse";
+            this.btnUpdateCourse.Size = new System.Drawing.Size(97, 32);
+            this.btnUpdateCourse.TabIndex = 69;
+            this.btnUpdateCourse.Text = "Update Course";
+            this.btnUpdateCourse.UseVisualStyleBackColor = true;
+            this.btnUpdateCourse.Click += new System.EventHandler(this.btnUpdateCourse_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(15, 68);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(100, 18);
+            this.label9.TabIndex = 67;
+            this.label9.Text = "Course Name:";
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.txtSearcCCSurname);
+            this.tabPage5.Controls.Add(this.label10);
+            this.tabPage5.Controls.Add(this.btnAddClient);
+            this.tabPage5.Controls.Add(this.btnViewClient);
+            this.tabPage5.Controls.Add(this.txtSearchCCName);
+            this.tabPage5.Controls.Add(this.btnUpdateClient);
+            this.tabPage5.Controls.Add(this.btnRemoveClient);
+            this.tabPage5.Controls.Add(this.label14);
+            this.tabPage5.Controls.Add(this.dgvCourseClient);
+            this.tabPage5.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(764, 322);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Maintain Course Clients";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // txtSearcCCSurname
+            // 
+            this.txtSearcCCSurname.Location = new System.Drawing.Point(7, 136);
+            this.txtSearcCCSurname.Name = "txtSearcCCSurname";
+            this.txtSearcCCSurname.Size = new System.Drawing.Size(217, 25);
+            this.txtSearcCCSurname.TabIndex = 68;
+            this.txtSearcCCSurname.TextChanged += new System.EventHandler(this.txtSearcCCSurname_TextChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(7, 120);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(114, 18);
+            this.label10.TabIndex = 67;
+            this.label10.Text = "Client Surname:";
+            // 
+            // btnAddClient
+            // 
+            this.btnAddClient.Location = new System.Drawing.Point(8, 167);
+            this.btnAddClient.Name = "btnAddClient";
+            this.btnAddClient.Size = new System.Drawing.Size(113, 33);
+            this.btnAddClient.TabIndex = 66;
+            this.btnAddClient.Text = "Add Client";
+            this.btnAddClient.UseVisualStyleBackColor = true;
+            this.btnAddClient.Click += new System.EventHandler(this.btnAddClient_Click);
+            // 
+            // btnViewClient
+            // 
+            this.btnViewClient.Location = new System.Drawing.Point(10, 206);
+            this.btnViewClient.Name = "btnViewClient";
+            this.btnViewClient.Size = new System.Drawing.Size(111, 33);
+            this.btnViewClient.TabIndex = 65;
+            this.btnViewClient.Text = "View Client";
+            this.btnViewClient.UseVisualStyleBackColor = true;
+            this.btnViewClient.Click += new System.EventHandler(this.btnViewClient_Click);
+            // 
+            // txtSearchCCName
+            // 
+            this.txtSearchCCName.Location = new System.Drawing.Point(7, 48);
+            this.txtSearchCCName.Name = "txtSearchCCName";
+            this.txtSearchCCName.Size = new System.Drawing.Size(217, 25);
+            this.txtSearchCCName.TabIndex = 62;
+            this.txtSearchCCName.TextChanged += new System.EventHandler(this.txtSearchCCName_TextChanged);
+            // 
+            // btnUpdateClient
+            // 
+            this.btnUpdateClient.Location = new System.Drawing.Point(127, 167);
+            this.btnUpdateClient.Name = "btnUpdateClient";
+            this.btnUpdateClient.Size = new System.Drawing.Size(112, 33);
+            this.btnUpdateClient.TabIndex = 64;
+            this.btnUpdateClient.Text = "Update Client";
+            this.btnUpdateClient.UseVisualStyleBackColor = true;
+            this.btnUpdateClient.Click += new System.EventHandler(this.btnUpdateClient_Click);
+            // 
+            // btnRemoveClient
+            // 
+            this.btnRemoveClient.Location = new System.Drawing.Point(127, 206);
+            this.btnRemoveClient.Name = "btnRemoveClient";
+            this.btnRemoveClient.Size = new System.Drawing.Size(112, 33);
+            this.btnRemoveClient.TabIndex = 63;
+            this.btnRemoveClient.Text = "Remove Client";
+            this.btnRemoveClient.UseVisualStyleBackColor = true;
+            this.btnRemoveClient.Click += new System.EventHandler(this.btnRemoveClient_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(7, 32);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(95, 18);
+            this.label14.TabIndex = 61;
+            this.label14.Text = "Client Name:";
+            // 
+            // dgvCourseClient
+            // 
+            this.dgvCourseClient.AllowUserToAddRows = false;
+            this.dgvCourseClient.AllowUserToDeleteRows = false;
+            this.dgvCourseClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCourseClient.Location = new System.Drawing.Point(280, 19);
+            this.dgvCourseClient.Name = "dgvCourseClient";
+            this.dgvCourseClient.ReadOnly = true;
+            this.dgvCourseClient.Size = new System.Drawing.Size(445, 209);
+            this.dgvCourseClient.TabIndex = 60;
+            this.dgvCourseClient.SelectionChanged += new System.EventHandler(this.dgvCourseClient_SelectionChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label6.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.DarkRed;
+            this.label6.Location = new System.Drawing.Point(679, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 19);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "Logout In:";
+            // 
+            // lblTimer
+            // 
+            this.lblTimer.AutoSize = true;
+            this.lblTimer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblTimer.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimer.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblTimer.Location = new System.Drawing.Point(729, 0);
+            this.lblTimer.Name = "lblTimer";
+            this.lblTimer.Size = new System.Drawing.Size(73, 19);
+            this.lblTimer.TabIndex = 23;
+            this.lblTimer.Text = "Logout In:";
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Maintain_Client_Courses
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(789, 536);
+            this.ClientSize = new System.Drawing.Size(789, 410);
             this.ControlBox = false;
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnBack);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximumSize = new System.Drawing.Size(805, 448);
+            this.MinimumSize = new System.Drawing.Size(805, 448);
             this.Name = "Maintain_Client_Courses";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Maintain_Client_Courses";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Maintain_Client_Courses_FormClosing);
             this.Load += new System.EventHandler(this.Maintain_Client_Courses_Load);
@@ -748,17 +721,17 @@
             this.AddCoursePanel.ResumeLayout(false);
             this.AddCoursePanel.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaintainClientCourses)).EndInit();
             this.tabPage3.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchCourse)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourseClient)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -797,14 +770,11 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DataGridView dgvSearchCourse;
-        private System.Windows.Forms.Button btnRefreshDGV;
-        private System.Windows.Forms.Button btnViewCourse;
         private System.Windows.Forms.Button btnRemoveCourse;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnUpdateCourse;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox txtSearcCCSurname;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnAddClient;

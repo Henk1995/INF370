@@ -51,7 +51,161 @@ namespace PETSystem
         public static int CourseClientToUpdate;
 
         private void Maintain_Client_Courses_Load(object sender, EventArgs e)
-        {
+        {//Course name
+            ToolTip TTNAME = new ToolTip();
+            TTNAME.ToolTipTitle = "Name";
+            TTNAME.UseFading = true;
+            TTNAME.UseAnimation = true;
+            TTNAME.IsBalloon = true;
+            TTNAME.SetToolTip(cmbCourseName, "Select the course name here.");
+            //instructor
+            ToolTip TTINS = new ToolTip();
+            TTINS.ToolTipTitle = "Instructor";
+            TTINS.UseFading = true;
+            TTINS.UseAnimation = true;
+            TTINS.IsBalloon = true;
+            TTINS.SetToolTip(cbInstructors, "Select the instructor's name here.");
+            //startdate
+            ToolTip TTSTART = new ToolTip();
+            TTSTART.ToolTipTitle = "Start Date";
+            TTSTART.UseFading = true;
+            TTSTART.UseAnimation = true;
+            TTSTART.IsBalloon = true;
+            TTSTART.SetToolTip(txtStartDate, "Enter the start date here.\nformat dd/mm/yyy");
+            //day of week
+            ToolTip TTDAY = new ToolTip();
+            TTDAY.ToolTipTitle = "Day";
+            TTDAY.UseFading = true;
+            TTDAY.UseAnimation = true;
+            TTDAY.IsBalloon = true;
+            TTDAY.SetToolTip(cbTimeslotDay, "Select the day of the week here");
+            //timeslot 
+            ToolTip TTTIME = new ToolTip();
+            TTTIME.ToolTipTitle = "Time";
+            TTTIME.UseFading = true;
+            TTTIME.UseAnimation = true;
+            TTTIME.IsBalloon = true;
+            TTTIME.SetToolTip(cbTimeSlotTime, "Select the time of day here");
+            //venu
+            ToolTip TTVEN = new ToolTip();
+            TTVEN.ToolTipTitle = "Venu";
+            TTVEN.UseFading = true;
+            TTVEN.UseAnimation = true;
+            TTVEN.IsBalloon = true;
+            TTVEN.SetToolTip(txtVenue, "Enter the venu here");
+            //submit
+            ToolTip TTSUB = new ToolTip();
+            TTSUB.ToolTipTitle = "Submit";
+            TTSUB.UseFading = true;
+            TTSUB.UseAnimation = true;
+            TTSUB.IsBalloon = true;
+            TTSUB.SetToolTip(btnSubmitCouseDetails, "Click here to add new course");
+            //Udape 
+            ToolTip TTUPADAE = new ToolTip();
+            TTUPADAE.ToolTipTitle = "Update";
+            TTUPADAE.UseFading = true;
+            TTUPADAE.UseAnimation = true;
+            TTUPADAE.IsBalloon = true;
+            TTUPADAE.SetToolTip(btnSave, "Click here to Update a course after selection.");
+            //delete
+            ToolTip TTDEL = new ToolTip();
+            TTDEL.ToolTipTitle = "Delete";
+            TTDEL.UseFading = true;
+            TTDEL.UseAnimation = true;
+            TTDEL.IsBalloon = true;
+            TTDEL.SetToolTip(btnDelete, "Click here to Delete a course after selection.");
+            //Course name
+            ToolTip TTCOURSENAMAE = new ToolTip();
+            TTCOURSENAMAE.ToolTipTitle = "Course Name";
+            TTCOURSENAMAE.UseFading = true;
+            TTCOURSENAMAE.UseAnimation = true;
+            TTCOURSENAMAE.IsBalloon = true;
+            TTCOURSENAMAE.SetToolTip(txtCourseName, "Eneter Course name here.");
+            //CourseCost
+            ToolTip TTCC = new ToolTip();
+            TTCC.ToolTipTitle = "Course Cost";
+            TTCC.UseFading = true;
+            TTCC.UseAnimation = true;
+            TTCC.IsBalloon = true;
+            TTCC.SetToolTip(txtCourseCost, "Eneter Course Cost here.");
+            //Corse Duratoom
+            ToolTip TTDDD = new ToolTip();
+            TTDDD.ToolTipTitle = "Duration";
+            TTDDD.UseFading = true;
+            TTDDD.UseAnimation = true;
+            TTDDD.IsBalloon = true;
+            TTDDD.SetToolTip(txtCourseDuration, "Eneter Course Duration here.");
+            //Update
+            ToolTip TTGGGG = new ToolTip();
+            TTGGGG.ToolTipTitle = "Update";
+            TTGGGG.UseFading = true;
+            TTGGGG.UseAnimation = true;
+            TTGGGG.IsBalloon = true;
+            TTGGGG.SetToolTip(btnUpdateCourse, "Click here to update selection.");
+            //Remove
+            ToolTip TTGGGGg = new ToolTip();
+            TTGGGGg.ToolTipTitle = "Remove";
+            TTGGGGg.UseFading = true;
+            TTGGGGg.UseAnimation = true;
+            TTGGGGg.IsBalloon = true;
+            TTGGGGg.SetToolTip(btnRemoveCourse, "Click here to Remove selection.");
+            //Save
+            ToolTip TTGGGGgg = new ToolTip();
+            TTGGGGgg.ToolTipTitle = "Save";
+            TTGGGGgg.UseFading = true;
+            TTGGGGgg.UseAnimation = true;
+            TTGGGGgg.IsBalloon = true;
+            TTGGGGgg.SetToolTip(button1, "Click here to Save.");
+            //Client Name
+            ToolTip TTooo = new ToolTip();
+            TTooo.ToolTipTitle = "Client name";
+            TTooo.UseFading = true;
+            TTooo.UseAnimation = true;
+            TTooo.IsBalloon = true;
+            TTooo.SetToolTip(txtSearchCCName, "Enter client name here to search it.");
+            //Client Surname
+            ToolTip TToooo = new ToolTip();
+            TToooo.ToolTipTitle = "Client Surame";
+            TToooo.UseFading = true;
+            TToooo.UseAnimation = true;
+            TToooo.IsBalloon = true;
+            TToooo.SetToolTip(txtSearcCCSurname, "Enter client Surname here to search it.");
+            //add
+            ToolTip TToooox = new ToolTip();
+            TToooox.ToolTipTitle = "Add";
+            TToooox.UseFading = true;
+            TToooox.UseAnimation = true;
+            TToooox.IsBalloon = true;
+            TToooox.SetToolTip(btnAddClient, "Click here to add a client.");
+            //View
+            ToolTip TTooooxx = new ToolTip();
+            TTooooxx.ToolTipTitle = "View";
+            TTooooxx.UseFading = true;
+            TTooooxx.UseAnimation = true;
+            TTooooxx.IsBalloon = true;
+            TTooooxx.SetToolTip(btnViewClient, "Click here to View a client.");
+            //Updatye
+            ToolTip TTooooxxx = new ToolTip();
+            TTooooxxx.ToolTipTitle = "Update";
+            TTooooxxx.UseFading = true;
+            TTooooxxx.UseAnimation = true;
+            TTooooxxx.IsBalloon = true;
+            TTooooxxx.SetToolTip(btnUpdateClient, "Click here to Update a client.");
+            //Remove
+            ToolTip TTooooxxxx = new ToolTip();
+            TTooooxxxx.ToolTipTitle = "Remove";
+            TTooooxxxx.UseFading = true;
+            TTooooxxxx.UseAnimation = true;
+            TTooooxxxx.IsBalloon = true;
+            TTooooxxxx.SetToolTip(btnRemoveClient, "Click here to Remove a client.");
+            //Back
+            ToolTip TTooooxxxxx = new ToolTip();
+            TTooooxxxxx.ToolTipTitle = "Back";
+            TTooooxxxxx.UseFading = true;
+            TTooooxxxxx.UseAnimation = true;
+            TTooooxxxxx.IsBalloon = true;
+            TTooooxxxxx.SetToolTip(btnRemoveClient, "Click here to return to previous.");
+
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
             t = new Timer() { Interval = 1000, Enabled = true };

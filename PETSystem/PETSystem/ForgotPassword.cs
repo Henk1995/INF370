@@ -32,6 +32,7 @@ namespace PETSystem
         {
             if (valid3)
             {
+                ConnectString.connectstring.Close();
                 string Query1 = "SELECT * FROM UserTable WHERE UserName ='" + this.txtUserName.Text + "';";
                 SqlCommand MyCommand = new SqlCommand(Query1, ConnectString.connectstring);
                 SqlDataReader MyReader;
