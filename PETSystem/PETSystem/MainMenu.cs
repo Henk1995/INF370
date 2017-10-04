@@ -13,9 +13,13 @@ namespace PETSystem
     public partial class MainMenuF : Form
     {
         LoginF LoginM = new LoginF();
-        
-        
-        int i = 0;
+       public static Image pic1 = PETSystem.Properties.Resources.PETLOGO;
+        public static Image pic2 = PETSystem.Properties.Resources.newlogin;
+        public static Image[] pictures = { pic1, pic2 };
+      
+       
+
+    int i = 0;
 
        
 
@@ -23,8 +27,7 @@ namespace PETSystem
         {
             
             InitializeComponent();
-            
-            string[] pictures = { PETSystem.Properties.Resources., "system2.jpg", "system3.jpg" };
+           
 
 
         }
@@ -59,9 +62,9 @@ namespace PETSystem
         private void MainMenuF_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'inf370RegDataSet.ApplicationForm' table. You can move, or remove it, as needed.
-           // this.applicationFormTableAdapter.Fill(this.inf370RegDataSet.ApplicationForm);
+            // this.applicationFormTableAdapter.Fill(this.inf370RegDataSet.ApplicationForm);
             //pictureBox1.LoadAsync();
-           // pictureBox1.Image = Image.FromFile("C:\\Users\\Jan-Wilkens\\Source\\Repos\\PETSystem\\PETSystem\\" + pictures[0]);
+            pictureBox1.Image = pictures[0];
 
 
 
@@ -128,7 +131,7 @@ namespace PETSystem
         {
             i++;
            if (pictures.Length == i) { i = 0; }
-          //pictureBox1.Image = Image.FromFile("C:\\Users\\Jan-Wilkens\\Source\\Repos\\PETSystem\\PETSystem\\" + pictures[i]);
+          pictureBox1.Image =  pictures[i];
 
            
 

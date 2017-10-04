@@ -29,17 +29,27 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Logout Timer");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Carousel Timer");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Timer", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Users");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Courses");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Instructors");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Reports");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Suppliers");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Printing Suppliers");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Orders");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Instrutor Training");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Stock");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("PET System", new System.Windows.Forms.TreeNode[] {
             treeNode1,
-            treeNode2});
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("User Privileges");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Bussiness Rules", new System.Windows.Forms.TreeNode[] {
+            treeNode2,
             treeNode3,
-            treeNode4});
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Admin", new System.Windows.Forms.TreeNode[] {
-            treeNode5});
+            treeNode4,
+            treeNode5,
+            treeNode6,
+            treeNode7,
+            treeNode8,
+            treeNode9});
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Admin", new System.Windows.Forms.TreeNode[] {
+            treeNode10});
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.addUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setLogoutTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -171,21 +181,31 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(0, 59);
             this.treeView1.Name = "treeView1";
-            treeNode1.Name = "Node4";
-            treeNode1.Text = "Logout Timer";
-            treeNode2.Name = "Node5";
-            treeNode2.Text = "Carousel Timer";
-            treeNode3.Name = "Node2";
-            treeNode3.Text = "Timer";
-            treeNode4.Name = "Node3";
-            treeNode4.Text = "User Privileges";
-            treeNode5.Name = "Node1";
-            treeNode5.Text = "Bussiness Rules";
-            treeNode6.Name = "Node0";
-            treeNode6.Text = "Admin";
+            treeNode1.Name = "Node2";
+            treeNode1.Text = "Users";
+            treeNode2.Name = "Node3";
+            treeNode2.Text = "Courses";
+            treeNode3.Name = "Node1";
+            treeNode3.Text = "Instructors";
+            treeNode4.Name = "Node2";
+            treeNode4.Text = "Reports";
+            treeNode5.Name = "Node3";
+            treeNode5.Text = "Suppliers";
+            treeNode6.Name = "Node4";
+            treeNode6.Text = "Printing Suppliers";
+            treeNode7.Name = "Node5";
+            treeNode7.Text = "Orders";
+            treeNode8.Name = "Node6";
+            treeNode8.Text = "Instrutor Training";
+            treeNode9.Name = "Node7";
+            treeNode9.Text = "Stock";
+            treeNode10.Name = "Node1";
+            treeNode10.Text = "PET System";
+            treeNode11.Name = "Node0";
+            treeNode11.Text = "Admin";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode6});
-            this.treeView1.Size = new System.Drawing.Size(131, 179);
+            treeNode11});
+            this.treeView1.Size = new System.Drawing.Size(131, 184);
             this.treeView1.TabIndex = 24;
             this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
