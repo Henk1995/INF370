@@ -13,6 +13,7 @@ using System.Configuration;
 using System.Security.Cryptography;
 using System.IO;
 
+
 namespace PETSystem
 {
     public partial class LoginF : Form
@@ -20,7 +21,7 @@ namespace PETSystem
         //LINQ Connection string
         public static int UserIDthatLoggedIn;
         PET_DBDataContext db = new PET_DBDataContext();
-
+        
         bool validU = false;
         bool valid3 = false;
         bool valid4 = false;
@@ -29,7 +30,7 @@ namespace PETSystem
         {
             InitializeComponent();
             txtUsername.Text = "e.g. User1";
-           
+            
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
