@@ -51,15 +51,17 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(29, 153);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(54, 13);
+            this.label5.Size = new System.Drawing.Size(77, 18);
             this.label5.TabIndex = 29;
             this.label5.Text = "Time Slot:";
             // 
             // cbTimeSlotTime
             // 
             this.cbTimeSlotTime.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTimeSlotTime.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTimeSlotTime.FormattingEnabled = true;
             this.cbTimeSlotTime.Items.AddRange(new object[] {
             "8:30",
@@ -72,21 +74,23 @@
             "16:30"});
             this.cbTimeSlotTime.Location = new System.Drawing.Point(137, 150);
             this.cbTimeSlotTime.Name = "cbTimeSlotTime";
-            this.cbTimeSlotTime.Size = new System.Drawing.Size(145, 21);
+            this.cbTimeSlotTime.Size = new System.Drawing.Size(145, 26);
             this.cbTimeSlotTime.TabIndex = 28;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(29, 128);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(73, 13);
+            this.label8.Size = new System.Drawing.Size(98, 18);
             this.label8.TabIndex = 27;
             this.label8.Text = "Day of Week:";
             // 
             // cbTimeslotDay
             // 
             this.cbTimeslotDay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTimeslotDay.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTimeslotDay.FormattingEnabled = true;
             this.cbTimeslotDay.Items.AddRange(new object[] {
             "Monday",
@@ -96,81 +100,90 @@
             "Friday"});
             this.cbTimeslotDay.Location = new System.Drawing.Point(137, 125);
             this.cbTimeslotDay.Name = "cbTimeslotDay";
-            this.cbTimeslotDay.Size = new System.Drawing.Size(145, 21);
+            this.cbTimeslotDay.Size = new System.Drawing.Size(145, 26);
             this.cbTimeslotDay.TabIndex = 26;
             // 
             // lblInstructors
             // 
             this.lblInstructors.AutoSize = true;
+            this.lblInstructors.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInstructors.Location = new System.Drawing.Point(29, 76);
             this.lblInstructors.Name = "lblInstructors";
-            this.lblInstructors.Size = new System.Drawing.Size(59, 13);
+            this.lblInstructors.Size = new System.Drawing.Size(86, 18);
             this.lblInstructors.TabIndex = 25;
             this.lblInstructors.Text = "Instructors:";
             // 
             // cbInstructors
             // 
             this.cbInstructors.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbInstructors.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbInstructors.FormattingEnabled = true;
             this.cbInstructors.Location = new System.Drawing.Point(137, 73);
             this.cbInstructors.Name = "cbInstructors";
-            this.cbInstructors.Size = new System.Drawing.Size(145, 21);
+            this.cbInstructors.Size = new System.Drawing.Size(145, 26);
             this.cbInstructors.TabIndex = 24;
             // 
             // txtVenue
             // 
+            this.txtVenue.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtVenue.Location = new System.Drawing.Point(137, 175);
             this.txtVenue.Name = "txtVenue";
-            this.txtVenue.Size = new System.Drawing.Size(145, 20);
+            this.txtVenue.Size = new System.Drawing.Size(145, 25);
             this.txtVenue.TabIndex = 23;
             this.txtVenue.TextChanged += new System.EventHandler(this.txtVenue_TextChanged);
             // 
             // txtStartDate
             // 
+            this.txtStartDate.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtStartDate.Location = new System.Drawing.Point(137, 100);
             this.txtStartDate.Name = "txtStartDate";
-            this.txtStartDate.Size = new System.Drawing.Size(145, 20);
+            this.txtStartDate.Size = new System.Drawing.Size(145, 25);
             this.txtStartDate.TabIndex = 22;
             this.txtStartDate.TextChanged += new System.EventHandler(this.txtStartDate_TextChanged);
             // 
             // cmbCourseName
             // 
             this.cmbCourseName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCourseName.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbCourseName.FormattingEnabled = true;
             this.cmbCourseName.Location = new System.Drawing.Point(137, 46);
             this.cmbCourseName.Name = "cmbCourseName";
-            this.cmbCourseName.Size = new System.Drawing.Size(145, 21);
+            this.cmbCourseName.Size = new System.Drawing.Size(145, 26);
             this.cmbCourseName.TabIndex = 21;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(29, 176);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(41, 13);
+            this.label4.Size = new System.Drawing.Size(54, 18);
             this.label4.TabIndex = 20;
             this.label4.Text = "Venue:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(29, 103);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 13);
+            this.label3.Size = new System.Drawing.Size(81, 18);
             this.label3.TabIndex = 19;
             this.label3.Text = "Start Date:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(29, 49);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 13);
+            this.label2.Size = new System.Drawing.Size(100, 18);
             this.label2.TabIndex = 18;
             this.label2.Text = "Course Name:";
             // 
             // btnUpdate
             // 
+            this.btnUpdate.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUpdate.Location = new System.Drawing.Point(33, 236);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
@@ -181,6 +194,7 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(178, 236);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
@@ -239,7 +253,7 @@
             this.Controls.Add(this.label2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "UpdateClientCourseDetails";
-            this.Text = "Update Client Course Details";
+            this.Text = "Add course";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UpdateClientCourseDetails_FormClosing);
             this.Load += new System.EventHandler(this.UpdateClientCourseDetails_Load);
             this.ResumeLayout(false);

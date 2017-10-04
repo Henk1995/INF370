@@ -396,11 +396,11 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(3, 181);
+            this.btnSave.Location = new System.Drawing.Point(3, 182);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(94, 29);
             this.btnSave.TabIndex = 27;
-            this.btnSave.Text = "Update";
+            this.btnSave.Text = "ADD";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click_1);
             // 
@@ -511,7 +511,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(764, 312);
+            this.tabPage4.Size = new System.Drawing.Size(764, 322);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Maintain Course Type";
             this.tabPage4.UseVisualStyleBackColor = true;
