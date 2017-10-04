@@ -48,6 +48,65 @@ namespace PETSystem
 
         private void Place_Instructor_Order_Load(object sender, EventArgs e)
         {
+
+            //TT REf num
+            ToolTip TTREF = new ToolTip();
+            TTREF.ToolTipTitle = "Reference Number";
+            TTREF.UseFading = true;
+            TTREF.UseAnimation = true;
+            TTREF.IsBalloon = true;
+            TTREF.SetToolTip(txtRefNumber, "Enter order reference number here.");
+            //Date
+            ToolTip TTDA = new ToolTip();
+            TTDA.ToolTipTitle = "Date";
+            TTDA.UseFading = true;
+            TTDA.UseAnimation = true;
+            TTDA.IsBalloon = true;
+            TTDA.SetToolTip(txtDate, "Enter order Date here.");
+            //Enter
+            ToolTip TTE = new ToolTip();
+            TTE.ToolTipTitle = "Enter";
+            TTE.UseFading = true;
+            TTE.UseAnimation = true;
+            TTE.IsBalloon = true;
+            TTE.SetToolTip(btnEnter, "Click to capture order reference number and date.");
+            //Product
+            ToolTip TTP = new ToolTip();
+            TTP.ToolTipTitle = "Add Product";
+            TTP.UseFading = true;
+            TTP.UseAnimation = true;
+            TTP.IsBalloon = true;
+            TTP.SetToolTip(cbProduct, "Select the product that was ordered.");
+            //quantity
+            ToolTip TTQ = new ToolTip();
+            TTQ.ToolTipTitle = "Quantity";
+            TTQ.UseFading = true;
+            TTQ.UseAnimation = true;
+            TTQ.IsBalloon = true;
+            TTQ.SetToolTip(NUPQuantity, "Select the product quantity that was ordered.");
+            //add
+            ToolTip TTADD = new ToolTip();
+            TTADD.ToolTipTitle = "Add Product";
+            TTADD.UseFading = true;
+            TTADD.UseAnimation = true;
+            TTADD.IsBalloon = true;
+            TTADD.SetToolTip(button3, "Click to add order line.");
+            //Capture
+            ToolTip TTCAP = new ToolTip();
+            TTCAP.ToolTipTitle = "Capture";
+            TTCAP.UseFading = true;
+            TTCAP.UseAnimation = true;
+            TTCAP.IsBalloon = true;
+            TTCAP.SetToolTip(BtnCapture, "Click to Capture total order.");
+            //Back
+            ToolTip TTBACK = new ToolTip();
+            TTBACK.ToolTipTitle = "BAck";
+            TTBACK.UseFading = true;
+            TTBACK.UseAnimation = true;
+            TTBACK.IsBalloon = true;
+            TTBACK.SetToolTip(btnBack, "Click to Return to previous screen.");
+
+
             groupBox1.Visible = false;
             //Timer
             
@@ -225,7 +284,7 @@ namespace PETSystem
                 }
                 ConnectString.connectstring.Close();
                 // txtOrder.Clear();
-                txtOrder.Text = txtOrder.Text + "Order Reference Number: " + referenceNumber + "            Date: " + Date;
+                txtOrder.Text = txtOrder.Text + "Order Reference Number: \n" + referenceNumber + "\nDate: " + Date;
             }else
             {
                 MessageBox.Show("Information given is invalid please resubmit the information");

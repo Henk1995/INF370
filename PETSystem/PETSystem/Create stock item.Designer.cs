@@ -45,9 +45,10 @@
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(333, 169);
+            this.btnCancel.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(353, 169);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(146, 23);
+            this.btnCancel.Size = new System.Drawing.Size(147, 29);
             this.btnCancel.TabIndex = 34;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -55,28 +56,31 @@
             // 
             // btnSave
             // 
+            this.btnSave.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Location = new System.Drawing.Point(181, 169);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(146, 23);
+            this.btnSave.Size = new System.Drawing.Size(147, 29);
             this.btnSave.TabIndex = 33;
-            this.btnSave.Text = "Save";
+            this.btnSave.Text = "Add";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(143, 75);
+            this.txtPrice.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrice.Location = new System.Drawing.Point(163, 75);
             this.txtPrice.Name = "txtPrice";
-            this.txtPrice.Size = new System.Drawing.Size(337, 20);
+            this.txtPrice.Size = new System.Drawing.Size(337, 25);
             this.txtPrice.TabIndex = 32;
             this.txtPrice.TextChanged += new System.EventHandler(this.txtPrice_TextChanged);
             this.txtPrice.Leave += new System.EventHandler(this.txtPrice_Leave);
             // 
             // txtDesc
             // 
-            this.txtDesc.Location = new System.Drawing.Point(143, 39);
+            this.txtDesc.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDesc.Location = new System.Drawing.Point(163, 39);
             this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(337, 20);
+            this.txtDesc.Size = new System.Drawing.Size(337, 25);
             this.txtDesc.TabIndex = 31;
             this.txtDesc.TextChanged += new System.EventHandler(this.txtDesc_TextChanged);
             this.txtDesc.Leave += new System.EventHandler(this.txtDesc_Leave);
@@ -84,47 +88,52 @@
             // cbType
             // 
             this.cbType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbType.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbType.FormattingEnabled = true;
-            this.cbType.Location = new System.Drawing.Point(142, 116);
+            this.cbType.Location = new System.Drawing.Point(163, 113);
             this.cbType.Name = "cbType";
-            this.cbType.Size = new System.Drawing.Size(337, 21);
+            this.cbType.Size = new System.Drawing.Size(337, 26);
             this.cbType.TabIndex = 30;
             this.cbType.SelectedIndexChanged += new System.EventHandler(this.cbType_SelectedIndexChanged);
             // 
             // btnAddStockType
             // 
-            this.btnAddStockType.Location = new System.Drawing.Point(29, 169);
+            this.btnAddStockType.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddStockType.Location = new System.Drawing.Point(10, 169);
             this.btnAddStockType.Name = "btnAddStockType";
-            this.btnAddStockType.Size = new System.Drawing.Size(146, 23);
+            this.btnAddStockType.Size = new System.Drawing.Size(147, 29);
             this.btnAddStockType.TabIndex = 28;
-            this.btnAddStockType.Text = "Add New Stock Type";
+            this.btnAddStockType.Text = "Add New Type";
             this.btnAddStockType.UseVisualStyleBackColor = true;
             this.btnAddStockType.Click += new System.EventHandler(this.btnAddStockType_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(27, 116);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(65, 13);
+            this.label5.Size = new System.Drawing.Size(87, 18);
             this.label5.TabIndex = 27;
             this.label5.Text = "Stock Type:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(27, 42);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 13);
+            this.label3.Size = new System.Drawing.Size(130, 18);
             this.label3.TabIndex = 26;
             this.label3.Text = "Stock Description:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(27, 78);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 13);
+            this.label2.Size = new System.Drawing.Size(122, 18);
             this.label2.TabIndex = 25;
             this.label2.Text = "Stock Unit Price:";
             // 
@@ -133,6 +142,7 @@
             this.lblTimer.AutoSize = true;
             this.lblTimer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTimer.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimer.ForeColor = System.Drawing.Color.DarkRed;
             this.lblTimer.Location = new System.Drawing.Point(457, -1);
             this.lblTimer.Name = "lblTimer";
             this.lblTimer.Size = new System.Drawing.Size(73, 19);
@@ -144,6 +154,7 @@
             this.label4.AutoSize = true;
             this.label4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label4.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DarkRed;
             this.label4.Location = new System.Drawing.Point(407, -1);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(73, 19);
@@ -158,7 +169,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(517, 210);
+            this.ClientSize = new System.Drawing.Size(517, 203);
             this.ControlBox = false;
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblTimer);
@@ -171,9 +182,12 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximumSize = new System.Drawing.Size(533, 241);
+            this.MinimumSize = new System.Drawing.Size(533, 241);
             this.Name = "Create_stock_item";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create stock item";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Create_stock_item_FormClosing);
             this.Load += new System.EventHandler(this.Create_stock_item_Load);

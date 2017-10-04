@@ -40,9 +40,10 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(172, 99);
+            this.btnBack.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.Location = new System.Drawing.Point(172, 84);
             this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(118, 23);
+            this.btnBack.Size = new System.Drawing.Size(127, 24);
             this.btnBack.TabIndex = 7;
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = true;
@@ -50,9 +51,10 @@
             // 
             // btnSelectInstructor
             // 
-            this.btnSelectInstructor.Location = new System.Drawing.Point(39, 99);
+            this.btnSelectInstructor.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSelectInstructor.Location = new System.Drawing.Point(39, 84);
             this.btnSelectInstructor.Name = "btnSelectInstructor";
-            this.btnSelectInstructor.Size = new System.Drawing.Size(118, 23);
+            this.btnSelectInstructor.Size = new System.Drawing.Size(127, 26);
             this.btnSelectInstructor.TabIndex = 6;
             this.btnSelectInstructor.Text = "Select Instructor";
             this.btnSelectInstructor.UseVisualStyleBackColor = true;
@@ -61,19 +63,21 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(36, 44);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 13);
+            this.label1.Size = new System.Drawing.Size(80, 18);
             this.label1.TabIndex = 5;
-            this.label1.Text = "Instructor";
+            this.label1.Text = "Instructor:";
             // 
             // cbInstructor
             // 
             this.cbInstructor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbInstructor.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbInstructor.FormattingEnabled = true;
             this.cbInstructor.Location = new System.Drawing.Point(124, 41);
             this.cbInstructor.Name = "cbInstructor";
-            this.cbInstructor.Size = new System.Drawing.Size(166, 21);
+            this.cbInstructor.Size = new System.Drawing.Size(166, 26);
             this.cbInstructor.TabIndex = 4;
             this.cbInstructor.SelectedIndexChanged += new System.EventHandler(this.cbInstructor_SelectedIndexChanged);
             // 
@@ -82,6 +86,7 @@
             this.label3.AutoSize = true;
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label3.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.DarkRed;
             this.label3.Location = new System.Drawing.Point(199, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(73, 19);
@@ -93,6 +98,7 @@
             this.lblTimer.AutoSize = true;
             this.lblTimer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTimer.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimer.ForeColor = System.Drawing.Color.DarkRed;
             this.lblTimer.Location = new System.Drawing.Point(249, 0);
             this.lblTimer.Name = "lblTimer";
             this.lblTimer.Size = new System.Drawing.Size(73, 19);
@@ -107,7 +113,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(309, 137);
+            this.ClientSize = new System.Drawing.Size(309, 116);
             this.ControlBox = false;
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblTimer);
@@ -115,8 +121,11 @@
             this.Controls.Add(this.btnSelectInstructor);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbInstructor);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximumSize = new System.Drawing.Size(325, 154);
+            this.MinimumSize = new System.Drawing.Size(325, 154);
             this.Name = "Select_Instructor";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Select_Instructor";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Select_Instructor_FormClosing);
             this.Load += new System.EventHandler(this.Select_Instructor_Load);
