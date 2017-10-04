@@ -328,27 +328,26 @@ namespace PETSystem
 
         private void btnSave_Click_1(object sender, EventArgs e)
         {
-            if (dgvMaintainClientCourses.SelectedRows.Count > 0)
-            {
-                CourseInstance _ClientInCourse = (CourseInstance)dgvMaintainClientCourses.CurrentRow.DataBoundItem;
-                string GetCourseName = Convert.ToString(dgvMaintainClientCourses.SelectedCells[1].Value);
-                string GetInstName = Convert.ToString(dgvMaintainClientCourses.SelectedCells[2].Value);
-                string GetTSD = Convert.ToString(dgvMaintainClientCourses.SelectedCells[3].Value);
-                string GetTST = Convert.ToString(dgvMaintainClientCourses.SelectedCells[4].Value);
-                string GetVenue = Convert.ToString(dgvMaintainClientCourses.SelectedCells[5].Value);
-                string GetStartDate = Convert.ToString(dgvMaintainClientCourses.SelectedCells[6].Value);
+            try {
+      //          CourseInstance _ClientInCourse = (CourseInstance)dgvMaintainClientCourses.CurrentRow.DataBoundItem;
+     //           string GetCourseName = Convert.ToString(dgvMaintainClientCourses.SelectedCells[1].Value);
+    //            string GetInstName = Convert.ToString(dgvMaintainClientCourses.SelectedCells[2].Value);
+   //             string GetTSD = Convert.ToString(dgvMaintainClientCourses.SelectedCells[3].Value);
+  //              string GetTST = Convert.ToString(dgvMaintainClientCourses.SelectedCells[4].Value);
+ //               string GetVenue = Convert.ToString(dgvMaintainClientCourses.SelectedCells[5].Value);
+//                string GetStartDate = Convert.ToString(dgvMaintainClientCourses.SelectedCells[6].Value);
 
 
-                CourseInstanceToUpdate = (from x in db.CourseInstances where x.CourseVenu == GetVenue && x.StartDate == GetStartDate select x.CourseID).FirstOrDefault();
-               
+               // CourseInstanceToUpdate = (from x in db.CourseInstances where x.CourseVenu == GetVenue && x.StartDate == GetStartDate select x.CourseID).FirstOrDefault();
+
                 UpdateClientCourseDetails UCCD = new UpdateClientCourseDetails();
                 UCCD.Show();
                 this.Close();
+           
             }
-            else
-            {
-                MessageBox.Show("Please select a row to add", "Error");
-            }
+           catch
+        {
+        }
 
            
         }
@@ -653,6 +652,7 @@ namespace PETSystem
         private void btnUpdateCourse_Click(object sender, EventArgs e)
         {
             this.Close();
+            //ConnectString.UserID = dgvSearchCourse.SelectedRows[0].Cells[0].Value + string.Empty;
             Update_Course uc = new Update_Course();
             uc.Show();
         }

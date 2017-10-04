@@ -71,9 +71,7 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dgvSearchCourse = new System.Windows.Forms.DataGridView();
             this.btnRemoveCourse = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnUpdateCourse = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.txtSearcCCSurname = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -504,9 +502,7 @@
             // 
             this.tabPage4.Controls.Add(this.dgvSearchCourse);
             this.tabPage4.Controls.Add(this.btnRemoveCourse);
-            this.tabPage4.Controls.Add(this.textBox1);
             this.tabPage4.Controls.Add(this.btnUpdateCourse);
-            this.tabPage4.Controls.Add(this.label9);
             this.tabPage4.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
@@ -521,7 +517,7 @@
             this.dgvSearchCourse.AllowUserToAddRows = false;
             this.dgvSearchCourse.AllowUserToDeleteRows = false;
             this.dgvSearchCourse.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSearchCourse.Location = new System.Drawing.Point(234, 11);
+            this.dgvSearchCourse.Location = new System.Drawing.Point(109, 19);
             this.dgvSearchCourse.Name = "dgvSearchCourse";
             this.dgvSearchCourse.ReadOnly = true;
             this.dgvSearchCourse.Size = new System.Drawing.Size(344, 288);
@@ -530,7 +526,7 @@
             // 
             // btnRemoveCourse
             // 
-            this.btnRemoveCourse.Location = new System.Drawing.Point(121, 126);
+            this.btnRemoveCourse.Location = new System.Drawing.Point(3, 57);
             this.btnRemoveCourse.Name = "btnRemoveCourse";
             this.btnRemoveCourse.Size = new System.Drawing.Size(97, 32);
             this.btnRemoveCourse.TabIndex = 70;
@@ -538,31 +534,15 @@
             this.btnRemoveCourse.UseVisualStyleBackColor = true;
             this.btnRemoveCourse.Click += new System.EventHandler(this.btnRemoveCourse_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(18, 84);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 25);
-            this.textBox1.TabIndex = 73;
-            // 
             // btnUpdateCourse
             // 
-            this.btnUpdateCourse.Location = new System.Drawing.Point(18, 126);
+            this.btnUpdateCourse.Location = new System.Drawing.Point(3, 19);
             this.btnUpdateCourse.Name = "btnUpdateCourse";
             this.btnUpdateCourse.Size = new System.Drawing.Size(97, 32);
             this.btnUpdateCourse.TabIndex = 69;
             this.btnUpdateCourse.Text = "Update Course";
             this.btnUpdateCourse.UseVisualStyleBackColor = true;
             this.btnUpdateCourse.Click += new System.EventHandler(this.btnUpdateCourse_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(15, 68);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(100, 18);
-            this.label9.TabIndex = 67;
-            this.label9.Text = "Course Name:";
             // 
             // tabPage5
             // 
@@ -727,7 +707,6 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchCourse)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
@@ -771,9 +750,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DataGridView dgvSearchCourse;
         private System.Windows.Forms.Button btnRemoveCourse;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnUpdateCourse;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TextBox txtSearcCCSurname;
         private System.Windows.Forms.Label label10;

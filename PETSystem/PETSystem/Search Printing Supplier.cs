@@ -202,14 +202,38 @@ namespace PETSystem
 
         private void btnReceiveOrder_Click(object sender, EventArgs e)
         {
-            
+            if (dgvSearchPrintingSupplier.SelectedRows.Count > 0)
+            {
+                int selectedIndex = dgvSearchPrintingSupplier.SelectedRows[0].Index;
+                ConnectString.SupplierName = dgvSearchPrintingSupplier.SelectedRows[0].Cells[1].Value + string.Empty;
+                // gets the RowID from the first column in the grid
+                ConnectString.SupplierID = int.Parse(dgvSearchPrintingSupplier[0, selectedIndex].Value.ToString());
+                this.Close();
+                Recieve_Printing_Order myform = new Recieve_Printing_Order();
+                myform.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please Select a row to Recieve an order");
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
-            PrinterOrderReturn por = new PrinterOrderReturn();
-            por.Show();
+            if (dgvSearchPrintingSupplier.SelectedRows.Count > 0)
+            {
+                int selectedIndex = dgvSearchPrintingSupplier.SelectedRows[0].Index;
+                ConnectString.SupplierName = dgvSearchPrintingSupplier.SelectedRows[0].Cells[1].Value + string.Empty;
+                // gets the RowID from the first column in the grid
+                ConnectString.SupplierID = int.Parse(dgvSearchPrintingSupplier[0, selectedIndex].Value.ToString());
+                this.Close();
+                Return_Printing_Order myform = new Return_Printing_Order();
+                myform.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please Select a row to Return a order");
+            }
         }
 
         private void dgvSearchPrintingSupplier_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -219,9 +243,20 @@ namespace PETSystem
 
         private void button3_Click(object sender, EventArgs e)
         {
-            this.Close();
-            PrinterOrderRefund poreturn = new PrinterOrderRefund();
-            poreturn.Show();
+            if (dgvSearchPrintingSupplier.SelectedRows.Count > 0)
+            {
+                int selectedIndex = dgvSearchPrintingSupplier.SelectedRows[0].Index;
+                ConnectString.SupplierName = dgvSearchPrintingSupplier.SelectedRows[0].Cells[1].Value + string.Empty;
+                // gets the RowID from the first column in the grid
+                ConnectString.SupplierID = int.Parse(dgvSearchPrintingSupplier[0, selectedIndex].Value.ToString());
+                this.Close();
+                Refund_Printing_Order myform = new Refund_Printing_Order();
+                myform.Show();
+            }
+            else
+            {
+                MessageBox.Show("Please Select a row to Refund a order");
+            }
         }
 
         int stop = 0;

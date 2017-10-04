@@ -28,6 +28,65 @@ namespace PETSystem
 
         private void UpdateClientCourseDetails_Load(object sender, EventArgs e)
         {
+            //Coursename
+            ToolTip TTCN = new ToolTip();
+            TTCN.ToolTipTitle = "Name";
+            TTCN.UseFading = true;
+            TTCN.UseAnimation = true;
+            TTCN.IsBalloon = true;
+            TTCN.SetToolTip(cmbCourseName, "Select the course name here.");
+            //Instructor
+            ToolTip TTIB = new ToolTip();
+            TTIB.ToolTipTitle = "Instructor";
+            TTIB.UseFading = true;
+            TTIB.UseAnimation = true;
+            TTIB.IsBalloon = true;
+            TTIB.SetToolTip(cbInstructors, "Select the Instructor name here.");
+            //Start date
+            ToolTip TTSD = new ToolTip();
+            TTSD.ToolTipTitle = "Start Date";
+            TTSD.UseFading = true;
+            TTSD.UseAnimation = true;
+            TTSD.IsBalloon = true;
+            TTSD.SetToolTip(txtStartDate, "Enter the Start date here.");
+            //Day of week
+            ToolTip TTDDW = new ToolTip();
+            TTDDW.ToolTipTitle = "Day";
+            TTDDW.UseFading = true;
+            TTDDW.UseAnimation = true;
+            TTDDW.IsBalloon = true;
+            TTDDW.SetToolTip(cbTimeslotDay, "Select the day name here.");
+            //Time slot
+            ToolTip TTTT = new ToolTip();
+            TTTT.ToolTipTitle = "Time Slot";
+            TTTT.UseFading = true;
+            TTTT.UseAnimation = true;
+            TTTT.IsBalloon = true;
+            TTTT.SetToolTip(cbTimeSlotTime, "Select the Time slot here.");
+            //Venu
+            ToolTip TTCV = new ToolTip();
+            TTCV.ToolTipTitle = "Venu";
+            TTCV.UseFading = true;
+            TTCV.UseAnimation = true;
+            TTCV.IsBalloon = true;
+            TTCV.SetToolTip(txtVenue, "Enter the Venu here.");
+            //uopdae
+            ToolTip TTADDD = new ToolTip();
+            TTADDD.ToolTipTitle = "Add";
+            TTADDD.UseFading = true;
+            TTADDD.UseAnimation = true;
+            TTADDD.IsBalloon = true;
+            TTADDD.SetToolTip(btnUpdate, "Click to add course.");
+            //cancel
+            ToolTip TTCAN = new ToolTip();
+            TTCAN.ToolTipTitle = "Cancel";
+            TTCAN.UseFading = true;
+            TTCAN.UseAnimation = true;
+            TTCAN.IsBalloon = true;
+            TTCAN.SetToolTip(btnCancel, "Click to cancel.");
+
+
+
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
             t = new Timer() { Interval = 1000, Enabled = true };
@@ -137,7 +196,7 @@ namespace PETSystem
                 db.CourseInstances.InsertOnSubmit(mInstance);
                 db.SubmitChanges();
 
-                MessageBox.Show("Course Instance Updated");
+                MessageBox.Show("Course Instance added");
 
                 this.Close();
                 

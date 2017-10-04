@@ -317,10 +317,22 @@
     <Compile Include="ReceiveOrderSupp.Designer.cs">
       <DependentUpon>ReceiveOrderSupp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Recieve Printing Order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recieve Printing Order.Designer.cs">
+      <DependentUpon>Recieve Printing Order.cs</DependentUpon>
+    </Compile>
     <Compile Include="RefIntegrityExportDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RefIntegrityExportDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Refund Printing Order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Refund Printing Order.Designer.cs">
+      <DependentUpon>Refund Printing Order.cs</DependentUpon>
     </Compile>
     <Compile Include="RefundOrderSupp.cs">
       <SubType>Form</SubType>
@@ -339,6 +351,12 @@
     </Compile>
     <Compile Include="Reports.Designer.cs">
       <DependentUpon>Reports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Return Printing Order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Return Printing Order.Designer.cs">
+      <DependentUpon>Return Printing Order.cs</DependentUpon>
     </Compile>
     <Compile Include="ReturnOrderSupp.cs">
       <SubType>Form</SubType>
@@ -686,6 +704,12 @@
     <EmbeddedResource Include="ReceiveOrderSupp.resx">
       <DependentUpon>ReceiveOrderSupp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Recieve Printing Order.resx">
+      <DependentUpon>Recieve Printing Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Refund Printing Order.resx">
+      <DependentUpon>Refund Printing Order.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RefundOrderSupp.resx">
       <DependentUpon>RefundOrderSupp.cs</DependentUpon>
     </EmbeddedResource>
@@ -696,6 +720,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Return Printing Order.resx">
+      <DependentUpon>Return Printing Order.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReturnOrderSupp.resx">
       <DependentUpon>ReturnOrderSupp.cs</DependentUpon>

@@ -130,7 +130,63 @@ namespace PETSystem
         }
 
         private void Add_Course_Client_Load(object sender, EventArgs e)
-        {
+        { //Title
+            ToolTip TTitle = new ToolTip();
+            TTitle.ToolTipTitle = "Title";
+            TTitle.UseFading = true;
+            TTitle.UseAnimation = true;
+            TTitle.IsBalloon = true;
+            TTitle.SetToolTip(cbTitle, "Select client title here.");
+            //name
+            ToolTip TTNAME = new ToolTip();
+            TTNAME.ToolTipTitle = "Name";
+            TTNAME.UseFading = true;
+            TTNAME.UseAnimation = true;
+            TTNAME.IsBalloon = true;
+            TTNAME.SetToolTip(txtName, "Enter client name here.");
+            //surname
+            ToolTip TTSUR = new ToolTip();
+            TTSUR.ToolTipTitle = "Surname";
+            TTSUR.UseFading = true;
+            TTSUR.UseAnimation = true;
+            TTSUR.IsBalloon = true;
+            TTSUR.SetToolTip(txtSurname, "Enter client Surname here.");
+            //gender
+            ToolTip TTGEN = new ToolTip();
+            TTGEN.ToolTipTitle = "Gender";
+            TTGEN.UseFading = true;
+            TTGEN.UseAnimation = true;
+            TTGEN.IsBalloon = true;
+            TTGEN.SetToolTip(cbGender, "Select client Gender here.");
+            //email
+            ToolTip TTMAIL = new ToolTip();
+            TTMAIL.ToolTipTitle = "E-Mail";
+            TTMAIL.UseFading = true;
+            TTMAIL.UseAnimation = true;
+            TTMAIL.IsBalloon = true;
+            TTMAIL.SetToolTip(txtEmail, "Enter client E-Mail here.");
+            //phone
+            ToolTip TTMTTPAIL = new ToolTip();
+            TTMTTPAIL.ToolTipTitle = "Phone Number";
+            TTMTTPAIL.UseFading = true;
+            TTMTTPAIL.UseAnimation = true;
+            TTMTTPAIL.IsBalloon = true;
+            TTMTTPAIL.SetToolTip(txtPhoneNumber, "Enter client phone number here.");
+            //update
+            ToolTip TTIP = new ToolTip();
+            TTIP.ToolTipTitle = "Save";
+            TTIP.UseFading = true;
+            TTIP.UseAnimation = true;
+            TTIP.IsBalloon = true;
+            TTIP.SetToolTip(button2, "Click here to aadd course.");
+            //cancel
+            ToolTip TTCAN = new ToolTip();
+            TTCAN.ToolTipTitle = "Cancel";
+            TTCAN.UseFading = true;
+            TTCAN.UseAnimation = true;
+            TTCAN.IsBalloon = true;
+            TTCAN.SetToolTip(button2, "Click here to cancel.");
+
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
             t = new Timer() { Interval = 1000, Enabled = true };
