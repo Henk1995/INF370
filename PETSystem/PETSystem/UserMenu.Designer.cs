@@ -30,8 +30,8 @@
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Logout Timer");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Node5");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Carousel Timer", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Carousel Timer");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Timer", new System.Windows.Forms.TreeNode[] {
             treeNode1,
             treeNode2});
             System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("User Privileges");
@@ -174,9 +174,9 @@
             treeNode1.Name = "Node4";
             treeNode1.Text = "Logout Timer";
             treeNode2.Name = "Node5";
-            treeNode2.Text = "Node5";
+            treeNode2.Text = "Carousel Timer";
             treeNode3.Name = "Node2";
-            treeNode3.Text = "Carousel Timer";
+            treeNode3.Text = "Timer";
             treeNode4.Name = "Node3";
             treeNode4.Text = "User Privileges";
             treeNode5.Name = "Node1";
@@ -185,8 +185,9 @@
             treeNode6.Text = "Admin";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode6});
-            this.treeView1.Size = new System.Drawing.Size(122, 179);
+            this.treeView1.Size = new System.Drawing.Size(131, 179);
             this.treeView1.TabIndex = 24;
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // textBox1
             // 
@@ -248,7 +249,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(1031, 283);
+            this.ClientSize = new System.Drawing.Size(1031, 282);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);

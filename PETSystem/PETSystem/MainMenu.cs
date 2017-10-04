@@ -13,8 +13,8 @@ namespace PETSystem
     public partial class MainMenuF : Form
     {
         LoginF LoginM = new LoginF();
-        string[] pictures = { "system1.jpg", "system2.jpg", "system3.jpg" };
-
+        
+        
         int i = 0;
 
        
@@ -23,8 +23,10 @@ namespace PETSystem
         {
             
             InitializeComponent();
-           
             
+            string[] pictures = { PETSystem.Properties.Resources., "system2.jpg", "system3.jpg" };
+
+
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -137,6 +139,11 @@ namespace PETSystem
        //     this.Validate();
       //      this.applicationFormBindingSource.EndEdit();
      //       this.tableAdapterManager.UpdateAll(this.inf370RegDataSet);
+
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
 
         }
     }

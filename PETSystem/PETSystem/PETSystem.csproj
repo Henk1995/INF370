@@ -1019,6 +1019,9 @@
     <None Include="Resources\PETLOGO1.png" />
     <None Include="Resources\no-image-icon-15.png" />
     <Content Include="Resources\system1.jpg" />
+    <Content Include="Resources\System2.jpg" />
+    <Content Include="Resources\system3.jpg" />
+    <Content Include="system1.jpg" />
     <Content Include="System2.jpg" />
     <Content Include="system3.jpg" />
   </ItemGroup>
