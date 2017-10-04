@@ -20,6 +20,45 @@ namespace PETSystem
 
         private void PaymentForm_Load(object sender, EventArgs e)
         {
+            //TT
+            //Payment abount
+            ToolTip TTA = new ToolTip();
+            TTA.ToolTipTitle = "Amount";
+            TTA.UseFading = true;
+            TTA.UseAnimation = true;
+            TTA.IsBalloon = true;
+            TTA.SetToolTip(txtPayment, "Enter The amount in Rand recieved from the customer.");
+            //amount type
+            ToolTip TTTY = new ToolTip();
+            TTTY.ToolTipTitle = "Payment type";
+            TTTY.UseFading = true;
+            TTTY.UseAnimation = true;
+            TTTY.IsBalloon = true;
+            TTTY.SetToolTip(cbPayment, "Select the type of payment.");
+            //print
+            ToolTip TTP = new ToolTip();
+            TTP.ToolTipTitle = "Print";
+            TTP.UseFading = true;
+            TTP.UseAnimation = true;
+            TTP.IsBalloon = true;
+            TTP.SetToolTip(button3, "Print the payment information.");
+            //submit
+            ToolTip TTSUB = new ToolTip();
+            TTSUB.ToolTipTitle = "Submit";
+            TTSUB.UseFading = true;
+            TTSUB.UseAnimation = true;
+            TTSUB.IsBalloon = true;
+            TTSUB.SetToolTip(button1, "Click here to capture the payment.");
+            //back
+            ToolTip TTBACK = new ToolTip();
+            TTBACK.ToolTipTitle = "Back";
+            TTBACK.UseFading = true;
+            TTBACK.UseAnimation = true;
+            TTBACK.IsBalloon = true;
+            TTBACK.SetToolTip(button2, "Click here to return to the previous screen.");
+
+
+
             label6.Text = ConnectString.PaymentOrderID;
             label10.Text = ConnectString.PaymentRefNumber;
             label7.Text = ConnectString.PaymentinstructorName;
@@ -85,7 +124,7 @@ namespace PETSystem
                 }
                 ConnectString.connectstring.Close();
 
-                txtSlip.Text = ".......PET SYSTEMS.......\n\nDate:" + paymentDate + "\nOrder Cost: R" + ConnectString.PaymentCost + "\nOrder Vat: R" + PaymentVat + "\nAmount Recieved: R" + AmountRecieved + "\nPayment Type: " + cbPayment.Text + "\nChange: R" + PaymentChange;
+                txtSlip.Text = ".....PET SYSTEMS.....\n\nDate:" + paymentDate + "\nOrder Cost: R" + ConnectString.PaymentCost + "\nOrder Vat: R" + PaymentVat + "\nAmount Recieved: R" + AmountRecieved + "\nPayment Type: " + cbPayment.Text + "\nChange: R" + PaymentChange;
             }
             catch
             {

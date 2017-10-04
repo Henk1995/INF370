@@ -311,7 +311,7 @@ namespace Return_Order
                 txtSupplierOrderID.BackColor = Color.White;
                 DataTable DT = new DataTable();
                 ConnectString.connectstring.Open();
-                SqlCommand Fill = new SqlCommand("SELECT SupplierOrder.SupplierOrderID AS 'ID',SupplierOrder.SupplierOrderRefNumber AS 'Order Reference Number',SupplierOrder.SupplierOrderDate AS 'Date',SupplierOrder.SupplierOrderDescription AS 'Order Description' from SupplierOrder Where SupplierOrder.SupplierID = '" + ConnectString.SupplierID + "' AND SupplierOrderRefNumber Like '%" + txtSupplierOrderID.Text + "%'", ConnectString.connectstring);
+                SqlCommand Fill = new SqlCommand("SELECT TableOrder.OrderID AS 'ID' , TableOrder.Order_ReferenceNumber AS 'Reference Number',Instructor.Name AS 'Instructor Name',TableOrder.OrderDescription AS 'Order Description',TableOrder.OrderDate AS 'Date',TableOrder.Total from SupplierOrder Where SupplierOrder.SupplierID = '" + ConnectString.SupplierID + "' AND SupplierOrderRefNumber Like '%" + txtSupplierOrderID.Text + "%'", ConnectString.connectstring);
                 DA = new SqlDataAdapter(Fill);
                 DA.Fill(DT);
                 dgvSuppOrder.DataSource = DT;
@@ -323,7 +323,7 @@ namespace Return_Order
                 txtSupplierOrderID.BackColor = Color.White;
                 DataTable DT = new DataTable();
                 ConnectString.connectstring.Open();
-                SqlCommand Fill = new SqlCommand("SELECT SupplierOrder.SupplierOrderID AS 'ID',SupplierOrder.SupplierOrderRefNumber AS 'Order Reference Number',SupplierOrder.SupplierOrderDate AS 'Date',SupplierOrder.SupplierOrderDescription AS 'Order Description' from SupplierOrder Where SupplierOrder.SupplierID = '" + ConnectString.SupplierID + "' AND SupplierOrderDate Like '%" + txtSupplierOrderID.Text + "%'", ConnectString.connectstring);
+                SqlCommand Fill = new SqlCommand("SELECT TableOrder.OrderID AS 'ID' , TableOrder.Order_ReferenceNumber AS 'Reference Number',Instructor.Name AS 'Instructor Name',TableOrder.OrderDescription AS 'Order Description',TableOrder.OrderDate AS 'Date',TableOrder.Total from SupplierOrder Where SupplierOrder.SupplierID = '" + ConnectString.SupplierID + "' AND SupplierOrderDate Like '%" + txtSupplierOrderID.Text + "%'", ConnectString.connectstring);
                 DA = new SqlDataAdapter(Fill);
                 DA.Fill(DT);
                 dgvSuppOrder.DataSource = DT;
@@ -335,7 +335,7 @@ namespace Return_Order
                 txtSupplierOrderID.BackColor = Color.White;
                 DataTable DT = new DataTable();
                 ConnectString.connectstring.Open();
-                SqlCommand Fill = new SqlCommand("SELECT SupplierOrder.SupplierOrderID AS 'ID',SupplierOrder.SupplierOrderRefNumber AS 'Order Reference Number',SupplierOrder.SupplierOrderDate AS 'Date',SupplierOrder.SupplierOrderDescription AS 'Order Description' from SupplierOrder Where SupplierOrder.SupplierID = '" + ConnectString.SupplierID + "' AND SupplierOrderDescription Like '%" + txtSupplierOrderID.Text + "%'", ConnectString.connectstring);
+                SqlCommand Fill = new SqlCommand("SELECT TableOrder.OrderID AS 'ID' , TableOrder.Order_ReferenceNumber AS 'Reference Number',Instructor.Name AS 'Instructor Name',TableOrder.OrderDescription AS 'Order Description',TableOrder.OrderDate AS 'Date',TableOrder.Total from SupplierOrder Where SupplierOrder.SupplierID = '" + ConnectString.SupplierID + "' AND SupplierOrderDescription Like '%" + txtSupplierOrderID.Text + "%'", ConnectString.connectstring);
                 DA = new SqlDataAdapter(Fill);
                 DA.Fill(DT);
                 dgvSuppOrder.DataSource = DT;

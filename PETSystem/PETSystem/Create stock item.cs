@@ -104,7 +104,48 @@ namespace PETSystem
 
         private void Create_stock_item_Load(object sender, EventArgs e)
         {
-
+            //Stock description
+            ToolTip TTD = new ToolTip();
+            TTD.ToolTipTitle = "Stock description";
+            TTD.UseFading = true;
+            TTD.UseAnimation = true;
+            TTD.IsBalloon = true;
+            TTD.SetToolTip(txtDesc, "Enter stock description here.");
+            //Stock Unit price
+            ToolTip TTUP = new ToolTip();
+            TTUP.ToolTipTitle = "Stock Unit Price";
+            TTUP.UseFading = true;
+            TTUP.UseAnimation = true;
+            TTUP.IsBalloon = true;
+            TTUP.SetToolTip(txtPrice, "Enter stock unit price here.");
+            //Stock type
+            ToolTip TTT = new ToolTip();
+            TTT.ToolTipTitle = "Stock Type";
+            TTT.UseFading = true;
+            TTT.UseAnimation = true;
+            TTT.IsBalloon = true;
+            TTT.SetToolTip(cbType, "Select stock type  here.");
+            //new stock type
+            ToolTip TTNEWSTOCKT = new ToolTip();
+            TTNEWSTOCKT.ToolTipTitle = "New Stock Type";
+            TTNEWSTOCKT.UseFading = true;
+            TTNEWSTOCKT.UseAnimation = true;
+            TTNEWSTOCKT.IsBalloon = true;
+            TTNEWSTOCKT.SetToolTip(btnAddStockType, "Click here if you want to add a new stock type.");
+            //add
+            ToolTip TTADD = new ToolTip();
+            TTADD.ToolTipTitle = "Add";
+            TTADD.UseFading = true;
+            TTADD.UseAnimation = true;
+            TTADD.IsBalloon = true;
+            TTADD.SetToolTip(btnSave, "Click here to add the new stock item.");
+            //cancel
+            ToolTip TTCAN = new ToolTip();
+            TTCAN.ToolTipTitle = "Cancel";
+            TTCAN.UseFading = true;
+            TTCAN.UseAnimation = true;
+            TTCAN.IsBalloon = true;
+            TTCAN.SetToolTip(btnCancel, "Click here to Cancel and return to previous screen");
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
             t = new Timer() { Interval = 1000, Enabled = true };

@@ -25,6 +25,28 @@ namespace PETSystem
 
         private void Select_Instructor_Load(object sender, EventArgs e)
         {
+            //INST
+            ToolTip TTIN = new ToolTip();
+            TTIN.ToolTipTitle = "Instructor";
+            TTIN.UseFading = true;
+            TTIN.UseAnimation = true;
+            TTIN.IsBalloon = true;
+            TTIN.SetToolTip(cbInstructor, "Select a instructor here.");
+            //Select
+            ToolTip TTSELEC = new ToolTip();
+            TTSELEC.ToolTipTitle = "Select Instructor";
+            TTSELEC.UseFading = true;
+            TTSELEC.UseAnimation = true;
+            TTSELEC.IsBalloon = true;
+            TTSELEC.SetToolTip(btnSelectInstructor, "Click to select the instructor chosen above.");
+            //BAck
+            ToolTip TTBACK = new ToolTip();
+            TTBACK.ToolTipTitle = "Back";
+            TTBACK.UseFading = true;
+            TTBACK.UseAnimation = true;
+            TTBACK.IsBalloon = true;
+            TTBACK.SetToolTip(btnBack, "Click to Return to previous screen.");
+
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
             t = new Timer() { Interval = 1000, Enabled = true };

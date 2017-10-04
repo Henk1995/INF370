@@ -38,6 +38,58 @@ namespace PETSystem
         SqlDataAdapter DA;
         private void Search_Order_Load(object sender, EventArgs e)
         {
+            //Search Field
+            ToolTip TTFIELD = new ToolTip();
+            TTFIELD.ToolTipTitle = "Search Field";
+            TTFIELD.UseFading = true;
+            TTFIELD.UseAnimation = true;
+            TTFIELD.IsBalloon = true;
+            TTFIELD.SetToolTip(comboBox1, "Select a field to search.");
+            //Search Text
+            ToolTip TTTEXT = new ToolTip();
+            TTTEXT.ToolTipTitle = "Search Text";
+            TTTEXT.UseFading = true;
+            TTTEXT.UseAnimation = true;
+            TTTEXT.IsBalloon = true;
+            TTTEXT.SetToolTip(txtSearchOrderID, "Enter search text here.");
+            //Place Order
+            ToolTip TTPLACE = new ToolTip();
+            TTPLACE.ToolTipTitle = "Place Order";
+            TTPLACE.UseFading = true;
+            TTPLACE.UseAnimation = true;
+            TTPLACE.IsBalloon = true;
+            TTPLACE.SetToolTip(btnPlaceOrder, "Click here if an instructor placed an order.");
+            //View ORder
+            ToolTip TTVIEW = new ToolTip();
+            TTVIEW.ToolTipTitle = "View Order";
+            TTVIEW.UseFading = true;
+            TTVIEW.UseAnimation = true;
+            TTVIEW.IsBalloon = true;
+            TTVIEW.SetToolTip(tnViewOrder, "Click here to view an instructors order once selected.");
+            //Log payment
+            ToolTip TTPAY = new ToolTip();
+            TTPAY.ToolTipTitle = "Log Payment";
+            TTPAY.UseFading = true;
+            TTPAY.UseAnimation = true;
+            TTPAY.IsBalloon = true;
+            TTPAY.SetToolTip(btnLogPayment, "Click here to log payment for an order.");
+            //Log Refund
+            ToolTip TTREFUND = new ToolTip();
+            TTREFUND.ToolTipTitle = "Log Refund";
+            TTREFUND.UseFading = true;
+            TTREFUND.UseAnimation = true;
+            TTREFUND.IsBalloon = true;
+            TTREFUND.SetToolTip(btnLogRefund, "Click here to log a Refund for an order.");
+            //Main Menu
+            ToolTip TTMAIN = new ToolTip();
+            TTMAIN.ToolTipTitle = "Main Menu";
+            TTMAIN.UseFading = true;
+            TTMAIN.UseAnimation = true;
+            TTMAIN.IsBalloon = true;
+            TTMAIN.SetToolTip(btnMainMenu, "Click here to Return to the main menu.");
+
+
+
             comboBox1.SelectedIndex = 0;
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
@@ -47,7 +99,7 @@ namespace PETSystem
 
             DataTable DT = new DataTable();
             ConnectString.connectstring.Open();
-            SqlCommand Fill = new SqlCommand("SELECT TableOrder.OrderID,TableOrder.Order_ReferenceNumber,Instructor.Name AS 'Instructor',TableOrder.OrderDescription,TableOrder.OrderDate,TableOrder.Total FROM TableOrder INNER JOIN Instructor ON Instructor.InstructorID = TableOrder.InstructorID", ConnectString.connectstring);
+            SqlCommand Fill = new SqlCommand("SELECT TableOrder.OrderID AS 'ID' , TableOrder.Order_ReferenceNumber AS 'Reference Number',Instructor.Name AS 'Instructor Name',TableOrder.OrderDescription AS 'Order Description',TableOrder.OrderDate AS 'Date',TableOrder.Total FROM TableOrder INNER JOIN Instructor ON Instructor.InstructorID = TableOrder.InstructorID", ConnectString.connectstring);
             DA = new SqlDataAdapter(Fill);
             DA.Fill(DT);
             dgvOrders.DataSource = DT;
@@ -138,7 +190,7 @@ namespace PETSystem
             {
                 DataTable DTT = new DataTable();
                 ConnectString.connectstring.Open();
-                SqlCommand Filll = new SqlCommand("SELECT TableOrder.OrderID,TableOrder.Order_ReferenceNumber,Instructor.Name AS 'Instructor',TableOrder.OrderDescription,TableOrder.OrderDate FROM TableOrder INNER JOIN Instructor ON Instructor.InstructorID = TableOrder.InstructorID WHERE TableOrder.Order_ReferenceNumber Like '%" + txtSearchOrderID.Text + "%' ", ConnectString.connectstring);
+                SqlCommand Filll = new SqlCommand("SELECT TableOrder.OrderID AS 'ID' , TableOrder.Order_ReferenceNumber AS 'Reference Number',Instructor.Name AS 'Instructor Name',TableOrder.OrderDescription AS 'Order Description',TableOrder.OrderDate AS 'Date',TableOrder.Total FROM TableOrder INNER JOIN Instructor ON Instructor.InstructorID = TableOrder.InstructorID WHERE TableOrder.Order_ReferenceNumber Like '%" + txtSearchOrderID.Text + "%' ", ConnectString.connectstring);
                 DA = new SqlDataAdapter(Filll);
                 DA.Fill(DTT);
                 dgvOrders.DataSource = DTT;
@@ -149,7 +201,7 @@ namespace PETSystem
             {
                 DataTable DTTT = new DataTable();
                 ConnectString.connectstring.Open();
-                SqlCommand Fillll = new SqlCommand("SELECT TableOrder.OrderID,TableOrder.Order_ReferenceNumber,Instructor.Name AS 'Instructor',TableOrder.OrderDescription,TableOrder.OrderDate FROM TableOrder INNER JOIN Instructor ON Instructor.InstructorID = TableOrder.InstructorID WHERE Instructor.Name Like '%" + txtSearchOrderID.Text + "%' ", ConnectString.connectstring);
+                SqlCommand Fillll = new SqlCommand("SELECT TableOrder.OrderID AS 'ID' , TableOrder.Order_ReferenceNumber AS 'Reference Number',Instructor.Name AS 'Instructor Name',TableOrder.OrderDescription AS 'Order Description',TableOrder.OrderDate AS 'Date',TableOrder.Total  FROM TableOrder INNER JOIN Instructor ON Instructor.InstructorID = TableOrder.InstructorID WHERE Instructor.Name Like '%" + txtSearchOrderID.Text + "%' ", ConnectString.connectstring);
                 DA = new SqlDataAdapter(Fillll);
                 DA.Fill(DTTT);
                 dgvOrders.DataSource = DTTT;
@@ -160,7 +212,7 @@ namespace PETSystem
             {
                 DataTable DTTTT = new DataTable();
                 ConnectString.connectstring.Open();
-                SqlCommand Filllll = new SqlCommand("SELECT TableOrder.OrderID,TableOrder.Order_ReferenceNumber,Instructor.Name AS 'Instructor',TableOrder.OrderDescription,TableOrder.OrderDate FROM TableOrder INNER JOIN Instructor ON Instructor.InstructorID = TableOrder.InstructorID WHERE TableOrder.OrderDate Like '%" + txtSearchOrderID.Text + "%' ", ConnectString.connectstring);
+                SqlCommand Filllll = new SqlCommand("SELECT TableOrder.OrderID AS 'ID' , TableOrder.Order_ReferenceNumber AS 'Reference Number',Instructor.Name AS 'Instructor Name',TableOrder.OrderDescription AS 'Order Description',TableOrder.OrderDate AS 'Date',TableOrder.Total FROM TableOrder INNER JOIN Instructor ON Instructor.InstructorID = TableOrder.InstructorID WHERE TableOrder.OrderDate Like '%" + txtSearchOrderID.Text + "%' ", ConnectString.connectstring);
                 DA = new SqlDataAdapter(Filllll);
                 DA.Fill(DTTTT);
                 dgvOrders.DataSource = DTTTT;

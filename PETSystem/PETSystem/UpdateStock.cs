@@ -145,6 +145,41 @@ namespace PETSystem
 
         private void UpdateStock_Load(object sender, EventArgs e)
         {
+            //Description
+            ToolTip ttDEC = new ToolTip();
+            ttDEC.ToolTipTitle = "Description";
+            ttDEC.UseFading = true;
+            ttDEC.UseAnimation = true;
+            ttDEC.IsBalloon = true;
+            ttDEC.SetToolTip(txtName, "Enter the stock description here.");
+            //price
+            ToolTip TTP = new ToolTip();
+            TTP.ToolTipTitle = "Price";
+            TTP.UseFading = true;
+            TTP.UseAnimation = true;
+            TTP.IsBalloon = true;
+            TTP.SetToolTip(txtPrice, "Enter the stock Unit Price here.");
+            //type
+            ToolTip TTT = new ToolTip();
+            TTT.ToolTipTitle = "Type";
+            TTT.UseFading = true;
+            TTT.UseAnimation = true;
+            TTT.IsBalloon = true;
+            TTT.SetToolTip(cbStockType, "Enter the stock Type here.");
+            //update
+            ToolTip TTU = new ToolTip();
+            TTU.ToolTipTitle = "Update";
+            TTU.UseFading = true;
+            TTU.UseAnimation = true;
+            TTU.IsBalloon = true;
+            TTU.SetToolTip(btnSubmit, "Click here to update the stock.");
+            //cancel
+            ToolTip TTC = new ToolTip();
+            TTC.ToolTipTitle = "Cancel";
+            TTC.UseFading = true;
+            TTC.UseAnimation = true;
+            TTC.IsBalloon = true;
+            TTC.SetToolTip(button1, "Click here to Cancel the update.");
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
             t = new Timer() { Interval = 1000, Enabled = true };
