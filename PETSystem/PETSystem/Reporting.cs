@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PETSystem
 {
-    public partial class Reports : Form
+    public partial class Reporting : Form
     {
-        public Reports()
+        public Reporting()
         {
             InitializeComponent();
         }
@@ -20,6 +20,7 @@ namespace PETSystem
         private void button6_Click(object sender, EventArgs e)
         {
             this.Close();
+            this.Dispose(true);
             MainMenuF UM = new MainMenuF();
             UM.Show();
         }

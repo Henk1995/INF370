@@ -191,11 +191,6 @@
     <Compile Include="Create_Supplier.Designer.cs">
       <DependentUpon>Create_Supplier.cs</DependentUpon>
     </Compile>
-    <Compile Include="CrystalReport1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReport1.rpt</DependentUpon>
-    </Compile>
     <Compile Include="DeleteInstructor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,12 +209,6 @@
     </Compile>
     <Compile Include="ForgotPassword.Designer.cs">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="inf370RegDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -338,6 +327,12 @@
     </Compile>
     <Compile Include="RefundOrderSupp.Designer.cs">
       <DependentUpon>RefundOrderSupp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting.Designer.cs">
+      <DependentUpon>Reporting.cs</DependentUpon>
     </Compile>
     <Compile Include="Reports.cs">
       <SubType>Form</SubType>
@@ -600,10 +595,6 @@
     <EmbeddedResource Include="Create_Supplier.resx">
       <DependentUpon>Create_Supplier.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CrystalReport1.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="DeleteInstructor.resx">
       <DependentUpon>DeleteInstructor.cs</DependentUpon>
     </EmbeddedResource>
@@ -612,9 +603,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ForgotPassword.resx">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InstructorBioForm.resx">
       <DependentUpon>InstructorBioForm.cs</DependentUpon>
@@ -703,6 +691,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="Report2.rdlc" />
+    <EmbeddedResource Include="Reporting.resx">
+      <DependentUpon>Reporting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>
     </EmbeddedResource>
