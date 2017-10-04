@@ -31,6 +31,35 @@ namespace Refund_Order
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //Search Field
+            ToolTip TTFEILD = new ToolTip();
+            TTFEILD.ToolTipTitle = "Search Field";
+            TTFEILD.UseFading = true;
+            TTFEILD.UseAnimation = true;
+            TTFEILD.IsBalloon = true;
+            TTFEILD.SetToolTip(comboBox1, "Select the Search Filed here.");
+            //Search text
+            ToolTip TTSearch = new ToolTip();
+            TTSearch.ToolTipTitle = "Search Text";
+            TTSearch.UseFading = true;
+            TTSearch.UseAnimation = true;
+            TTSearch.IsBalloon = true;
+            TTSearch.SetToolTip(txtSupplierOrderID, "Enter Search text here.");
+            //Refund order
+            ToolTip TTREF = new ToolTip();
+            TTREF.ToolTipTitle = "Refund Order";
+            TTREF.UseFading = true;
+            TTREF.UseAnimation = true;
+            TTREF.IsBalloon = true;
+            TTREF.SetToolTip(button1, "Click here to refund the order once selected.");
+            //Back
+            ToolTip TTB = new ToolTip();
+            TTB.ToolTipTitle = "Back";
+            TTB.UseFading = true;
+            TTB.UseAnimation = true;
+            TTB.IsBalloon = true;
+            TTB.SetToolTip(button3, "Click here to return to previous screen.");
+
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
             t = new Timer() { Interval = 1000, Enabled = true };
             t.Tick += new EventHandler(timer1_Tick);
@@ -38,7 +67,7 @@ namespace Refund_Order
 
             DataTable DT = new DataTable();
             ConnectString.connectstring.Open();
-            SqlCommand Fill = new SqlCommand("SELECT SupplierOrder.SupplierOrderID,SupplierOrder.SupplierOrderRefNumber,SupplierOrder.SupplierOrderDate,SupplierOrder.SupplierOrderDescription from SupplierOrder Where SupplierOrder.SupplierID = '" + ConnectString.SupplierID + "'", ConnectString.connectstring);
+            SqlCommand Fill = new SqlCommand("SELECT SupplierOrder.SupplierOrderID AS ' ID',SupplierOrder.SupplierOrderRefNumber AS 'Order Reference number',SupplierOrder.SupplierOrderDate AS 'Date',SupplierOrder.SupplierOrderDescription AS 'Order Description' from SupplierOrder Where SupplierOrder.SupplierID = '" + ConnectString.SupplierID + "'", ConnectString.connectstring);
             DA = new SqlDataAdapter(Fill);
             DA.Fill(DT);
             dgvSupp.DataSource = DT;
@@ -306,7 +335,7 @@ namespace Refund_Order
                 txtSupplierOrderID.BackColor = Color.White;
                 DataTable DT = new DataTable();
                 ConnectString.connectstring.Open();
-                SqlCommand Fill = new SqlCommand("SELECT SupplierOrder.SupplierOrderRefNumber,SupplierOrder.SupplierOrderDate,SupplierOrder.SupplierOrderDescription from SupplierOrder Where SupplierOrder.SupplierID = '" + ConnectString.SupplierID + "' AND SupplierOrderRefNumber Like '%" + txtSupplierOrderID.Text + "%'", ConnectString.connectstring);
+                SqlCommand Fill = new SqlCommand("SELECT SupplierOrder.SupplierOrderID AS ' ID',SupplierOrder.SupplierOrderRefNumber AS 'Order Reference number',SupplierOrder.SupplierOrderDate AS 'Date',SupplierOrder.SupplierOrderDescription AS 'Order Description' from SupplierOrder Where SupplierOrder.SupplierID = '" + ConnectString.SupplierID + "' AND SupplierOrderRefNumber Like '%" + txtSupplierOrderID.Text + "%'", ConnectString.connectstring);
                 DA = new SqlDataAdapter(Fill);
                 DA.Fill(DT);
                 dgvSupp.DataSource = DT;
@@ -318,7 +347,7 @@ namespace Refund_Order
                 txtSupplierOrderID.BackColor = Color.White;
                 DataTable DT = new DataTable();
                 ConnectString.connectstring.Open();
-                SqlCommand Fill = new SqlCommand("SELECT SupplierOrder.SupplierOrderRefNumber,SupplierOrder.SupplierOrderDate,SupplierOrder.SupplierOrderDescription from SupplierOrder Where SupplierOrder.SupplierID = '" + ConnectString.SupplierID + "' AND SupplierOrderDate Like '%" + txtSupplierOrderID.Text + "%'", ConnectString.connectstring);
+                SqlCommand Fill = new SqlCommand("SELECT SupplierOrder.SupplierOrderID AS ' ID', SupplierOrder.SupplierOrderRefNumber AS 'Order Reference number', SupplierOrder.SupplierOrderDate AS 'Date', SupplierOrder.SupplierOrderDescription AS 'Order Description' from SupplierOrder Where SupplierOrder.SupplierID = '" + ConnectString.SupplierID + "' AND SupplierOrderDate Like '%" + txtSupplierOrderID.Text + "%'", ConnectString.connectstring);
                 DA = new SqlDataAdapter(Fill);
                 DA.Fill(DT);
                 dgvSupp.DataSource = DT;
@@ -330,7 +359,7 @@ namespace Refund_Order
                 txtSupplierOrderID.BackColor = Color.White;
                 DataTable DT = new DataTable();
                 ConnectString.connectstring.Open();
-                SqlCommand Fill = new SqlCommand("SELECT SupplierOrder.SupplierOrderRefNumber,SupplierOrder.SupplierOrderDate,SupplierOrder.SupplierOrderDescription from SupplierOrder Where SupplierOrder.SupplierID = '" + ConnectString.SupplierID + "' AND SupplierOrderDescription Like '%" + txtSupplierOrderID.Text + "%'", ConnectString.connectstring);
+                SqlCommand Fill = new SqlCommand("SELECT SupplierOrder.SupplierOrderID AS ' ID',SupplierOrder.SupplierOrderRefNumber AS 'Order Reference number',SupplierOrder.SupplierOrderDate AS 'Date',SupplierOrder.SupplierOrderDescription AS 'Order Description' from SupplierOrder Where SupplierOrder.SupplierID = '" + ConnectString.SupplierID + "' AND SupplierOrderDescription Like '%" + txtSupplierOrderID.Text + "%'", ConnectString.connectstring);
                 DA = new SqlDataAdapter(Fill);
                 DA.Fill(DT);
                 dgvSupp.DataSource = DT;

@@ -181,6 +181,7 @@
             this.dgvTC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTC.Location = new System.Drawing.Point(0, 0);
             this.dgvTC.Name = "dgvTC";
+            this.dgvTC.ReadOnly = true;
             this.dgvTC.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvTC.Size = new System.Drawing.Size(552, 211);
             this.dgvTC.TabIndex = 15;

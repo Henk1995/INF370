@@ -25,6 +25,22 @@ namespace PETSystem
 
         private void PlaceSupplierOrder_Load(object sender, EventArgs e)
         {
+            //TT
+            //Place orer
+            ToolTip TTP = new ToolTip();
+            TTP.ToolTipTitle = "Place order";
+            TTP.UseFading = true;
+            TTP.UseAnimation = true;
+            TTP.IsBalloon = true;
+            TTP.SetToolTip(button1, "Click here to e-mail above text to the supplier and place an order.");
+            //back
+            ToolTip TTB = new ToolTip();
+            TTB.ToolTipTitle = "Back";
+            TTB.UseFading = true;
+            TTB.UseAnimation = true;
+            TTB.IsBalloon = true;
+            TTB.SetToolTip(button2, "Click here to Return to previous screen.");
+
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
             t = new Timer() { Interval = 1000, Enabled = true };
@@ -121,6 +137,16 @@ namespace PETSystem
         private void PlaceSupplierOrder_FormClosing(object sender, FormClosingEventArgs e)
         {
             t.Enabled = false;
+        }
+
+        private void lblTimer_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

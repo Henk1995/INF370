@@ -76,6 +76,66 @@ namespace Update_Supplier
 
         private void Update_Supplier_Load(object sender, EventArgs e)
         {
+            //Name
+            ToolTip TTN = new ToolTip();
+            TTN.ToolTipTitle = "Name";
+            TTN.UseFading = true;
+            TTN.UseAnimation = true;
+            TTN.IsBalloon = true;
+            TTN.SetToolTip(txtSuppName, "Enter the supplier's Name here.");
+            //address
+            ToolTip TTaddress = new ToolTip();
+            TTaddress.ToolTipTitle = "Adress";
+            TTaddress.UseFading = true;
+            TTaddress.UseAnimation = true;
+            TTaddress.IsBalloon = true;
+            TTaddress.SetToolTip(txtAdress, "Enter the supplier's Address here.");
+            //email
+            ToolTip TTemail = new ToolTip();
+            TTemail.ToolTipTitle = "E-Mail";
+            TTemail.UseFading = true;
+            TTemail.UseAnimation = true;
+            TTemail.IsBalloon = true;
+            TTemail.SetToolTip(txtEmail, "Enter the supplier's E-Mail here.");
+            //phone number
+            ToolTip TTPH = new ToolTip();
+            TTPH.ToolTipTitle = "Phone Number";
+            TTPH.UseFading = true;
+            TTPH.UseAnimation = true;
+            TTPH.IsBalloon = true;
+            TTPH.SetToolTip(txtPhoneNumber, "Enter the supplier's Phone Number here.");
+            //back acc number
+            ToolTip TTBACN = new ToolTip();
+            TTBACN.ToolTipTitle = "Bank account number";
+            TTBACN.UseFading = true;
+            TTBACN.UseAnimation = true;
+            TTBACN.IsBalloon = true;
+            TTBACN.SetToolTip(txtBancACCN, "Enter the supplier's Bank account number here.");
+            //type
+            ToolTip TTType = new ToolTip();
+            TTType.ToolTipTitle = "Type";
+            TTType.UseFading = true;
+            TTType.UseAnimation = true;
+            TTType.IsBalloon = true;
+            TTType.SetToolTip(cmbSuppType, "Select the supplier's Type here.");
+            //create
+            ToolTip TTCRE = new ToolTip();
+            TTCRE.ToolTipTitle = "Update Supplier";
+            TTCRE.UseFading = true;
+            TTCRE.UseAnimation = true;
+            TTCRE.IsBalloon = true;
+            TTCRE.SetToolTip(button1, "Click here to Update the supplier's information.");
+            //back
+            ToolTip TTBACK = new ToolTip();
+            TTBACK.ToolTipTitle = "Back";
+            TTBACK.UseFading = true;
+            TTBACK.UseAnimation = true;
+            TTBACK.IsBalloon = true;
+            TTBACK.SetToolTip(button2, "Click here to Return to previous screen.");
+
+
+
+
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
             t = new Timer() { Interval = 1000, Enabled = true };
