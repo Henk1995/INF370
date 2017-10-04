@@ -99,29 +99,114 @@ namespace PETSystem
 
         private void btnDeletePrintSupplier_Click(object sender, EventArgs e)
         {
-            DialogResult test = MessageBox.Show("Are you sure you want to delete this Printing Supplier?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (test == DialogResult.Yes)
+            try
             {
+                if (dgvSearchPrintingSupplier.SelectedCells.Count > 0)
+                {
+                    DialogResult test = MessageBox.Show("Are you sure you want to delete this Printing Supplier?", "Delete Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (test == DialogResult.Yes)
+                    {
 
-                //Delete Selected
-                var mPS = (from x in db.Printers where x.PrinterID == id select x).First();
-                db.Printers.DeleteOnSubmit(mPS);
-                db.SubmitChanges();
+                        //Delete Selected
+                        var mPS = (from x in db.Printers where x.PrinterID == id select x).First();
+                        db.Printers.DeleteOnSubmit(mPS);
+                        db.SubmitChanges();
 
-                //refresh DGV
-                dgvSearchPrintingSupplier.DataSource = null;
-                dgvSearchPrintingSupplier.DataSource = db.Printers;
+                        //refresh DGV
+                        dgvSearchPrintingSupplier.DataSource = null;
+                        dgvSearchPrintingSupplier.DataSource = db.Printers;
 
-                MessageBox.Show("Printing Supplier has been deleted", "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Printing Supplier has been deleted", "Confirm", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else if (test == DialogResult.No)
+                    {
+                        MessageBox.Show("Printing Supplier not deleted", "Cancel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please select a row");
+                }
             }
-            else if (test == DialogResult.No)
+            catch
             {
-                MessageBox.Show("Printing Supplier not deleted", "Cancel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Printer canot be deleted because there are orrders assign to this printer.","Notification");
             }
         }
 
         private void Search_Printing_Supplier_Load(object sender, EventArgs e)
         {
+            //add
+            ToolTip TTSearch = new ToolTip();
+            TTSearch.ToolTipTitle = "Add";
+            TTSearch.UseFading = true;
+            TTSearch.UseAnimation = true;
+            TTSearch.IsBalloon = true;
+            TTSearch.SetToolTip(btnAddPrintSupplier, "Click to add a printer.");
+            //view
+            ToolTip TTV = new ToolTip();
+            TTV.ToolTipTitle = "View";
+            TTV.UseFading = true;
+            TTV.UseAnimation = true;
+            TTV.IsBalloon = true;
+            TTV.SetToolTip(btnViewPrintSupplier, "Click to view a printer.");
+            //update
+            ToolTip TTU = new ToolTip();
+            TTU.ToolTipTitle = "Update";
+            TTU.UseFading = true;
+            TTU.UseAnimation = true;
+            TTU.IsBalloon = true;
+            TTU.SetToolTip(btnUpdatePrintSupplier, "Click to update a printer.");
+            //delete
+            ToolTip TTDD = new ToolTip();
+            TTDD.ToolTipTitle = "Delete";
+            TTDD.UseFading = true;
+            TTDD.UseAnimation = true;
+            TTDD.IsBalloon = true;
+            TTDD.SetToolTip(btnDeletePrintSupplier, "Click to Delete a printer.");
+            //palce order
+            ToolTip TTPO = new ToolTip();
+            TTPO.ToolTipTitle = "Place Order";
+            TTPO.UseFading = true;
+            TTPO.UseAnimation = true;
+            TTPO.IsBalloon = true;
+            TTPO.SetToolTip(btnPlaceOrder, "Click to Place a printer Order.");
+            //recieve order
+            ToolTip TTRECIEVE = new ToolTip();
+            TTRECIEVE.ToolTipTitle = "Recieve Order";
+            TTRECIEVE.UseFading = true;
+            TTRECIEVE.UseAnimation = true;
+            TTRECIEVE.IsBalloon = true;
+            TTRECIEVE.SetToolTip(btnReceiveOrder, "Click to capture a printer Order.");
+            //return
+            ToolTip TTRET = new ToolTip();
+            TTRET.ToolTipTitle = "Return Order";
+            TTRET.UseFading = true;
+            TTRET.UseAnimation = true;
+            TTRET.IsBalloon = true;
+            TTRET.SetToolTip(button2, "Click to return a printer Order.");
+            //refund
+            ToolTip TTREF = new ToolTip();
+            TTREF.ToolTipTitle = "Refund Order";
+            TTREF.UseFading = true;
+            TTREF.UseAnimation = true;
+            TTREF.IsBalloon = true;
+            TTREF.SetToolTip(button3, "Click to Refund a printer Order.");
+            //main menu
+            ToolTip TTMAIN = new ToolTip();
+            TTMAIN.ToolTipTitle = "Main Menu";
+            TTMAIN.UseFading = true;
+            TTMAIN.UseAnimation = true;
+            TTMAIN.IsBalloon = true;
+            TTMAIN.SetToolTip(btnMainMenu, "Click to Return to main menu.");
+            //search
+            ToolTip TTTTTTT = new ToolTip();
+            TTTTTTT.ToolTipTitle = "Search";
+            TTTTTTT.UseFading = true;
+            TTTTTTT.UseAnimation = true;
+            TTTTTTT.IsBalloon = true;
+            TTTTTTT.SetToolTip(txtSearchPrintSupplierName, "Enter printer name to search for it.");
+
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
             t = new Timer() { Interval = 1000, Enabled = true };
@@ -142,10 +227,14 @@ namespace PETSystem
         }
 
         private void btnUpdatePrintSupplier_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            Update_Printing_Supplier ups = new Update_Printing_Supplier();
-            ups.Show();
+        {try
+            {
+                this.Close();
+                Update_Printing_Supplier ups = new Update_Printing_Supplier();
+                ups.Show();
+            }
+            catch
+            { }
         }
 
         private void btnMainMenu_Click(object sender, EventArgs e)
@@ -168,6 +257,10 @@ namespace PETSystem
 
                 MessageBox.Show(" Printing Supplier: \t" + psName + "\n Address: \t\t" + psAddr + "\n Email Address: \t" + psEmail + "\n Phone Number: \t" + psPhone + "\n Bank Details: \t" + psBACC, "View Course",
     MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+            else
+            {
+                MessageBox.Show("Please select a row");
             }
         }
 

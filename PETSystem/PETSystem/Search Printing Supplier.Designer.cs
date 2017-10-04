@@ -38,21 +38,25 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgvSearchPrintingSupplier = new System.Windows.Forms.DataGridView();
             this.btnMainMenu = new System.Windows.Forms.Button();
-            this.btnRefreshDGV = new System.Windows.Forms.Button();
             this.btnReceiveOrder = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.lblTimer = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchPrintingSupplier)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnAddPrintSupplier
             // 
-            this.btnAddPrintSupplier.Location = new System.Drawing.Point(31, 471);
+            this.btnAddPrintSupplier.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddPrintSupplier.Location = new System.Drawing.Point(27, 98);
             this.btnAddPrintSupplier.Name = "btnAddPrintSupplier";
-            this.btnAddPrintSupplier.Size = new System.Drawing.Size(135, 23);
+            this.btnAddPrintSupplier.Size = new System.Drawing.Size(144, 46);
             this.btnAddPrintSupplier.TabIndex = 47;
             this.btnAddPrintSupplier.Text = "Add Print Supplier";
             this.btnAddPrintSupplier.UseVisualStyleBackColor = true;
@@ -60,9 +64,10 @@
             // 
             // btnPlaceOrder
             // 
-            this.btnPlaceOrder.Location = new System.Drawing.Point(13, 204);
+            this.btnPlaceOrder.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPlaceOrder.Location = new System.Drawing.Point(27, 201);
             this.btnPlaceOrder.Name = "btnPlaceOrder";
-            this.btnPlaceOrder.Size = new System.Drawing.Size(325, 23);
+            this.btnPlaceOrder.Size = new System.Drawing.Size(144, 46);
             this.btnPlaceOrder.TabIndex = 42;
             this.btnPlaceOrder.Text = "Place Printing Order";
             this.btnPlaceOrder.UseVisualStyleBackColor = true;
@@ -70,9 +75,10 @@
             // 
             // btnViewPrintSupplier
             // 
-            this.btnViewPrintSupplier.Location = new System.Drawing.Point(172, 471);
+            this.btnViewPrintSupplier.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnViewPrintSupplier.Location = new System.Drawing.Point(187, 98);
             this.btnViewPrintSupplier.Name = "btnViewPrintSupplier";
-            this.btnViewPrintSupplier.Size = new System.Drawing.Size(135, 23);
+            this.btnViewPrintSupplier.Size = new System.Drawing.Size(138, 46);
             this.btnViewPrintSupplier.TabIndex = 41;
             this.btnViewPrintSupplier.Text = "View Print Supplier";
             this.btnViewPrintSupplier.UseVisualStyleBackColor = true;
@@ -80,17 +86,19 @@
             // 
             // txtSearchPrintSupplierName
             // 
-            this.txtSearchPrintSupplierName.Location = new System.Drawing.Point(13, 84);
+            this.txtSearchPrintSupplierName.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSearchPrintSupplierName.Location = new System.Drawing.Point(3, 41);
             this.txtSearchPrintSupplierName.Name = "txtSearchPrintSupplierName";
-            this.txtSearchPrintSupplierName.Size = new System.Drawing.Size(326, 20);
+            this.txtSearchPrintSupplierName.Size = new System.Drawing.Size(326, 25);
             this.txtSearchPrintSupplierName.TabIndex = 38;
             this.txtSearchPrintSupplierName.TextChanged += new System.EventHandler(this.txtSearchPrintSupplierName_TextChanged);
             // 
             // btnUpdatePrintSupplier
             // 
-            this.btnUpdatePrintSupplier.Location = new System.Drawing.Point(313, 471);
+            this.btnUpdatePrintSupplier.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpdatePrintSupplier.Location = new System.Drawing.Point(27, 150);
             this.btnUpdatePrintSupplier.Name = "btnUpdatePrintSupplier";
-            this.btnUpdatePrintSupplier.Size = new System.Drawing.Size(135, 23);
+            this.btnUpdatePrintSupplier.Size = new System.Drawing.Size(144, 46);
             this.btnUpdatePrintSupplier.TabIndex = 40;
             this.btnUpdatePrintSupplier.Text = "Update Print Supplier";
             this.btnUpdatePrintSupplier.UseVisualStyleBackColor = true;
@@ -98,9 +106,10 @@
             // 
             // btnDeletePrintSupplier
             // 
-            this.btnDeletePrintSupplier.Location = new System.Drawing.Point(454, 471);
+            this.btnDeletePrintSupplier.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeletePrintSupplier.Location = new System.Drawing.Point(187, 151);
             this.btnDeletePrintSupplier.Name = "btnDeletePrintSupplier";
-            this.btnDeletePrintSupplier.Size = new System.Drawing.Size(135, 23);
+            this.btnDeletePrintSupplier.Size = new System.Drawing.Size(138, 45);
             this.btnDeletePrintSupplier.TabIndex = 39;
             this.btnDeletePrintSupplier.Text = "Delete Print Supplier";
             this.btnDeletePrintSupplier.UseVisualStyleBackColor = true;
@@ -109,50 +118,43 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 69);
+            this.label1.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(3, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(113, 13);
+            this.label1.Size = new System.Drawing.Size(212, 18);
             this.label1.TabIndex = 37;
-            this.label1.Text = "Printing supplier name:";
+            this.label1.Text = "Search Printing supplier name:";
             // 
             // dgvSearchPrintingSupplier
             // 
             this.dgvSearchPrintingSupplier.AllowUserToAddRows = false;
             this.dgvSearchPrintingSupplier.AllowUserToDeleteRows = false;
             this.dgvSearchPrintingSupplier.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSearchPrintingSupplier.Location = new System.Drawing.Point(348, 23);
+            this.dgvSearchPrintingSupplier.Location = new System.Drawing.Point(0, 0);
             this.dgvSearchPrintingSupplier.Name = "dgvSearchPrintingSupplier";
             this.dgvSearchPrintingSupplier.ReadOnly = true;
-            this.dgvSearchPrintingSupplier.Size = new System.Drawing.Size(700, 438);
+            this.dgvSearchPrintingSupplier.Size = new System.Drawing.Size(660, 322);
             this.dgvSearchPrintingSupplier.TabIndex = 36;
             this.dgvSearchPrintingSupplier.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearchPrintingSupplier_CellContentClick);
             this.dgvSearchPrintingSupplier.SelectionChanged += new System.EventHandler(this.dgvSearchPrintingSupplier_SelectionChanged);
             // 
             // btnMainMenu
             // 
-            this.btnMainMenu.Location = new System.Drawing.Point(16, 438);
+            this.btnMainMenu.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMainMenu.Location = new System.Drawing.Point(27, 305);
             this.btnMainMenu.Name = "btnMainMenu";
-            this.btnMainMenu.Size = new System.Drawing.Size(326, 23);
+            this.btnMainMenu.Size = new System.Drawing.Size(144, 44);
             this.btnMainMenu.TabIndex = 48;
             this.btnMainMenu.Text = "Main Menu";
             this.btnMainMenu.UseVisualStyleBackColor = true;
             this.btnMainMenu.Click += new System.EventHandler(this.btnMainMenu_Click);
             // 
-            // btnRefreshDGV
-            // 
-            this.btnRefreshDGV.Location = new System.Drawing.Point(12, 110);
-            this.btnRefreshDGV.Name = "btnRefreshDGV";
-            this.btnRefreshDGV.Size = new System.Drawing.Size(326, 23);
-            this.btnRefreshDGV.TabIndex = 51;
-            this.btnRefreshDGV.Text = "Refresh DGV";
-            this.btnRefreshDGV.UseVisualStyleBackColor = true;
-            this.btnRefreshDGV.Click += new System.EventHandler(this.btnRefreshDGV_Click);
-            // 
             // btnReceiveOrder
             // 
-            this.btnReceiveOrder.Location = new System.Drawing.Point(595, 471);
+            this.btnReceiveOrder.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReceiveOrder.Location = new System.Drawing.Point(187, 201);
             this.btnReceiveOrder.Name = "btnReceiveOrder";
-            this.btnReceiveOrder.Size = new System.Drawing.Size(135, 23);
+            this.btnReceiveOrder.Size = new System.Drawing.Size(138, 46);
             this.btnReceiveOrder.TabIndex = 52;
             this.btnReceiveOrder.Text = "Receive Order";
             this.btnReceiveOrder.UseVisualStyleBackColor = true;
@@ -160,9 +162,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(737, 471);
+            this.button2.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(27, 254);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(135, 23);
+            this.button2.Size = new System.Drawing.Size(144, 45);
             this.button2.TabIndex = 53;
             this.button2.Text = "Return Order";
             this.button2.UseVisualStyleBackColor = true;
@@ -170,9 +173,10 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(878, 471);
+            this.button3.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(187, 254);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(134, 23);
+            this.button3.Size = new System.Drawing.Size(138, 45);
             this.button3.TabIndex = 54;
             this.button3.Text = "Refund Order";
             this.button3.UseVisualStyleBackColor = true;
@@ -204,33 +208,56 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.dgvSearchPrintingSupplier);
+            this.panel1.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Location = new System.Drawing.Point(394, 23);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(644, 322);
+            this.panel1.TabIndex = 57;
+            // 
+            // panel2
+            // 
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.txtSearchPrintSupplierName);
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Location = new System.Drawing.Point(27, 12);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(361, 80);
+            this.panel2.TabIndex = 58;
+            // 
             // Search_Printing_Supplier
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1074, 506);
+            this.ClientSize = new System.Drawing.Size(1074, 357);
             this.ControlBox = false;
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btnReceiveOrder);
-            this.Controls.Add(this.btnRefreshDGV);
             this.Controls.Add(this.btnMainMenu);
             this.Controls.Add(this.btnAddPrintSupplier);
             this.Controls.Add(this.btnPlaceOrder);
             this.Controls.Add(this.btnViewPrintSupplier);
-            this.Controls.Add(this.txtSearchPrintSupplierName);
             this.Controls.Add(this.btnUpdatePrintSupplier);
             this.Controls.Add(this.btnDeletePrintSupplier);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.dgvSearchPrintingSupplier);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximumSize = new System.Drawing.Size(1090, 395);
+            this.MinimumSize = new System.Drawing.Size(1090, 395);
             this.Name = "Search_Printing_Supplier";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Search_Printing_Supplier";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Search_Printing_Supplier_FormClosing);
             this.Load += new System.EventHandler(this.Search_Printing_Supplier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchPrintingSupplier)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,12 +273,13 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvSearchPrintingSupplier;
         private System.Windows.Forms.Button btnMainMenu;
-        private System.Windows.Forms.Button btnRefreshDGV;
         private System.Windows.Forms.Button btnReceiveOrder;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label lblTimer;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

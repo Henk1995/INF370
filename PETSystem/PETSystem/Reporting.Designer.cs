@@ -38,7 +38,8 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 34);
+            this.button1.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(12, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(110, 86);
             this.button1.TabIndex = 0;
@@ -48,7 +49,8 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(152, 34);
+            this.button2.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(152, 12);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(110, 86);
             this.button2.TabIndex = 1;
@@ -57,7 +59,8 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(290, 34);
+            this.button3.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(290, 12);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(110, 86);
             this.button3.TabIndex = 2;
@@ -67,7 +70,8 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(152, 126);
+            this.button4.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(152, 104);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(110, 86);
             this.button4.TabIndex = 3;
@@ -76,7 +80,8 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(12, 126);
+            this.button5.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(12, 104);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(110, 86);
             this.button5.TabIndex = 4;
@@ -85,9 +90,10 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(12, 230);
+            this.button6.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(290, 104);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(110, 33);
+            this.button6.Size = new System.Drawing.Size(110, 86);
             this.button6.TabIndex = 5;
             this.button6.Text = "Back";
             this.button6.UseVisualStyleBackColor = true;
@@ -97,14 +103,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(437, 275);
+            this.ClientSize = new System.Drawing.Size(414, 204);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximumSize = new System.Drawing.Size(430, 242);
+            this.MinimumSize = new System.Drawing.Size(430, 242);
             this.Name = "Reporting";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reporting";
             this.ResumeLayout(false);
 
