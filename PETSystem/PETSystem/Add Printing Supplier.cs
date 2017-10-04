@@ -248,6 +248,58 @@ namespace PETSystem
 
         private void Add_Printing_Supplier_Load(object sender, EventArgs e)
         {
+            //Printer name
+            ToolTip TTNAME = new ToolTip();
+            TTNAME.ToolTipTitle = "Name";
+            TTNAME.UseFading = true;
+            TTNAME.UseAnimation = true;
+            TTNAME.IsBalloon = true;
+            TTNAME.SetToolTip(txtPrintingSupplierName, "Enter the printer's name here.");
+            //address
+            ToolTip TTADDRE = new ToolTip();
+            TTADDRE.ToolTipTitle = "Address";
+            TTADDRE.UseFading = true;
+            TTADDRE.UseAnimation = true;
+            TTADDRE.IsBalloon = true;
+            TTADDRE.SetToolTip(txtPrintingSupplierAddress, "Enter the printer's address here.");
+            //email
+            ToolTip TTEM = new ToolTip();
+            TTEM.ToolTipTitle = "E-mail";
+            TTEM.UseFading = true;
+            TTEM.UseAnimation = true;
+            TTEM.IsBalloon = true;
+            TTEM.SetToolTip(txtPrintingSupplierEmail, "Enter the printer's e-mail here.");
+            //phone
+            ToolTip TTP = new ToolTip();
+            TTP.ToolTipTitle = "Phone Number";
+            TTP.UseFading = true;
+            TTP.UseAnimation = true;
+            TTP.IsBalloon = true;
+            TTP.SetToolTip(txtPrintingSupplierPhoneNumber, "Enter the printer's phone number here.");
+            //bacnk
+            ToolTip TTBANK = new ToolTip();
+            TTBANK.ToolTipTitle = "Bank Account Number";
+            TTBANK.UseFading = true;
+            TTBANK.UseAnimation = true;
+            TTBANK.IsBalloon = true;
+            TTBANK.SetToolTip(txtPrintingSupplierBankAccNumber, "Enter the printer's bank account number here.");
+            //save
+            ToolTip TTSAVE = new ToolTip();
+            TTSAVE.ToolTipTitle = "Save";
+            TTSAVE.UseFading = true;
+            TTSAVE.UseAnimation = true;
+            TTSAVE.IsBalloon = true;
+            TTSAVE.SetToolTip(button2, "Click here to add the new printer.");
+            //cancl
+            ToolTip TTCAN = new ToolTip();
+            TTCAN.ToolTipTitle = "Cancel";
+            TTCAN.UseFading = true;
+            TTCAN.UseAnimation = true;
+            TTCAN.IsBalloon = true;
+            TTCAN.SetToolTip(button3, "Click here to cancel.");
+
+
+
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
             t = new Timer() { Interval = 1000, Enabled = true };

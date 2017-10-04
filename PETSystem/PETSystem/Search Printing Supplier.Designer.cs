@@ -133,7 +133,7 @@
             this.dgvSearchPrintingSupplier.Location = new System.Drawing.Point(0, 0);
             this.dgvSearchPrintingSupplier.Name = "dgvSearchPrintingSupplier";
             this.dgvSearchPrintingSupplier.ReadOnly = true;
-            this.dgvSearchPrintingSupplier.Size = new System.Drawing.Size(660, 322);
+            this.dgvSearchPrintingSupplier.Size = new System.Drawing.Size(644, 322);
             this.dgvSearchPrintingSupplier.TabIndex = 36;
             this.dgvSearchPrintingSupplier.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSearchPrintingSupplier_CellContentClick);
             this.dgvSearchPrintingSupplier.SelectionChanged += new System.EventHandler(this.dgvSearchPrintingSupplier_SelectionChanged);
@@ -187,7 +187,8 @@
             this.lblTimer.AutoSize = true;
             this.lblTimer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTimer.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimer.Location = new System.Drawing.Point(1015, 1);
+            this.lblTimer.ForeColor = System.Drawing.Color.DarkRed;
+            this.lblTimer.Location = new System.Drawing.Point(983, 1);
             this.lblTimer.Name = "lblTimer";
             this.lblTimer.Size = new System.Drawing.Size(73, 19);
             this.lblTimer.TabIndex = 55;
@@ -198,7 +199,8 @@
             this.label2.AutoSize = true;
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label2.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(965, 1);
+            this.label2.ForeColor = System.Drawing.Color.DarkRed;
+            this.label2.Location = new System.Drawing.Point(933, 1);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 19);
             this.label2.TabIndex = 56;
@@ -231,7 +233,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1074, 357);
+            this.ClientSize = new System.Drawing.Size(1043, 357);
             this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -247,8 +249,8 @@
             this.Controls.Add(this.btnUpdatePrintSupplier);
             this.Controls.Add(this.btnDeletePrintSupplier);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximumSize = new System.Drawing.Size(1090, 395);
-            this.MinimumSize = new System.Drawing.Size(1090, 395);
+            this.MaximumSize = new System.Drawing.Size(1059, 395);
+            this.MinimumSize = new System.Drawing.Size(1059, 395);
             this.Name = "Search_Printing_Supplier";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Search_Printing_Supplier";
