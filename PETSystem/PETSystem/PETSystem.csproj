@@ -58,6 +58,8 @@
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1003\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
       <EmbedInteropTypes>True</EmbedInteropTypes>
@@ -65,6 +67,8 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -195,6 +199,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReport4.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport4.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="DeleteInstructor.cs">
       <SubType>Form</SubType>
@@ -209,17 +220,16 @@
       <DependentUpon>Delete_Supplier.cs</DependentUpon>
     </Compile>
     <Compile Include="ErrorHandle.cs" />
+    <Compile Include="EXportvirJan2DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EXportvirJan2DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ForgotPassword.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ForgotPassword.Designer.cs">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="inf370RegDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -231,6 +241,12 @@
     </Compile>
     <Compile Include="InstructorBioForm.Designer.cs">
       <DependentUpon>InstructorBioForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InstructorReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InstructorReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Instructors.cs">
       <SubType>Form</SubType>
@@ -278,6 +294,11 @@
     </Compile>
     <Compile Include="OrderReturns.Designer.cs">
       <DependentUpon>OrderReturns.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OrdersR.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrdersR.rpt</DependentUpon>
     </Compile>
     <Compile Include="PaymentForm.cs">
       <SubType>Form</SubType>
@@ -328,10 +349,22 @@
     <Compile Include="ReceiveOrderSupp.Designer.cs">
       <DependentUpon>ReceiveOrderSupp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Recieve Printing Order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recieve Printing Order.Designer.cs">
+      <DependentUpon>Recieve Printing Order.cs</DependentUpon>
+    </Compile>
     <Compile Include="RefIntegrityExportDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>RefIntegrityExportDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Refund Printing Order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Refund Printing Order.Designer.cs">
+      <DependentUpon>Refund Printing Order.cs</DependentUpon>
     </Compile>
     <Compile Include="RefundOrderSupp.cs">
       <SubType>Form</SubType>
@@ -339,11 +372,23 @@
     <Compile Include="RefundOrderSupp.Designer.cs">
       <DependentUpon>RefundOrderSupp.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reporting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reporting.Designer.cs">
+      <DependentUpon>Reporting.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reports.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reports.Designer.cs">
       <DependentUpon>Reports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Return Printing Order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Return Printing Order.Designer.cs">
+      <DependentUpon>Return Printing Order.cs</DependentUpon>
     </Compile>
     <Compile Include="ReturnOrderSupp.cs">
       <SubType>Form</SubType>
@@ -410,6 +455,12 @@
     </Compile>
     <Compile Include="Select_Supplier.Designer.cs">
       <DependentUpon>Select_Supplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SupplierReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Suppliers.cs">
       <SubType>Form</SubType>
@@ -604,6 +655,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CrystalReport1.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport4.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport4.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="DeleteInstructor.resx">
       <DependentUpon>DeleteInstructor.cs</DependentUpon>
     </EmbeddedResource>
@@ -613,11 +668,12 @@
     <EmbeddedResource Include="ForgotPassword.resx">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="InstructorBioForm.resx">
       <DependentUpon>InstructorBioForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InstructorReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InstructorReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Instructors.resx">
       <DependentUpon>Instructors.cs</DependentUpon>
@@ -641,6 +697,17 @@
       <DependentUpon>OrderReturns.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
+    <None Include="EXportvirJan2DataSet.xsc">
+      <DependentUpon>EXportvirJan2DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="EXportvirJan2DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EXportvirJan2DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EXportvirJan2DataSet.xss">
+      <DependentUpon>EXportvirJan2DataSet.xsd</DependentUpon>
+    </None>
     <None Include="inf370RegDataSet.xsc">
       <DependentUpon>inf370RegDataSet.xsd</DependentUpon>
     </None>
@@ -667,6 +734,10 @@
     <None Include="PET_DB.dbml.layout">
       <DependentUpon>PET_DB.dbml</DependentUpon>
     </None>
+    <EmbeddedResource Include="OrdersR.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>OrdersR.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="PaymentForm.resx">
       <DependentUpon>PaymentForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -698,13 +769,25 @@
     <EmbeddedResource Include="ReceiveOrderSupp.resx">
       <DependentUpon>ReceiveOrderSupp.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Recieve Printing Order.resx">
+      <DependentUpon>Recieve Printing Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Refund Printing Order.resx">
+      <DependentUpon>Refund Printing Order.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RefundOrderSupp.resx">
       <DependentUpon>RefundOrderSupp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="Report2.rdlc" />
+    <EmbeddedResource Include="Reporting.resx">
+      <DependentUpon>Reporting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports.resx">
       <DependentUpon>Reports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Return Printing Order.resx">
+      <DependentUpon>Return Printing Order.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReturnOrderSupp.resx">
       <DependentUpon>ReturnOrderSupp.cs</DependentUpon>
@@ -738,6 +821,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Select_Supplier.resx">
       <DependentUpon>Select_Supplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SupplierReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SupplierReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Suppliers.resx">
       <DependentUpon>Suppliers.cs</DependentUpon>
@@ -810,6 +897,7 @@
       <LastGenOutput>PET_DB.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
+    <Resource Include="Resources\PET_DOL2017.docx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

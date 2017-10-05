@@ -113,5 +113,15 @@ namespace PETSystem.Properties {
                 return ((string)(this["_370ConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.\\SQLEXPRESS;Initial Catalog=EXportvirJan2;Integrated Security=True")]
+        public string EXportvirJan2ConnectionString {
+            get {
+                return ((string)(this["EXportvirJan2ConnectionString"]));
+            }
+        }
     }
 }

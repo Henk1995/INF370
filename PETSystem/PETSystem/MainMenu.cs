@@ -112,8 +112,9 @@ namespace PETSystem
 
         private void button6_Click(object sender, EventArgs e)
         {
+
             this.Close();
-            Reports Um = new Reports();
+            Reporting Um = new Reporting();
             Um.Show();
         }
 

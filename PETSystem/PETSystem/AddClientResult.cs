@@ -26,7 +26,20 @@ namespace PETSystem
 
         private void AddClientResult_Load(object sender, EventArgs e)
         {
-
+            //Add Result
+            ToolTip TTR = new ToolTip();
+            TTR.ToolTipTitle = "Result";
+            TTR.UseFading = true;
+            TTR.UseAnimation = true;
+            TTR.IsBalloon = true;
+            TTR.SetToolTip(button1, "Click here to add a result to a selected user.");
+            //Back
+            ToolTip TTB = new ToolTip();
+            TTB.ToolTipTitle = "Back";
+            TTB.UseFading = true;
+            TTB.UseAnimation = true;
+            TTB.IsBalloon = true;
+            TTB.SetToolTip(button2, "Click here to go back to previous screen.");
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
             t = new Timer() { Interval = 1000, Enabled = true };
