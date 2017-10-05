@@ -237,6 +237,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EXportvirJan2DataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="EXportvirJan2DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EXportvirJan2DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ForgotPassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -438,6 +443,18 @@
     </Compile>
     <Compile Include="ReturnOrderSupp.Designer.cs">
       <DependentUpon>ReturnOrderSupp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalesReport.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SalesReport.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SalesReportform.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalesReportform.Designer.cs">
+      <DependentUpon>SalesReportform.cs</DependentUpon>
     </Compile>
     <Compile Include="Search Course Client.cs">
       <SubType>Form</SubType>
@@ -796,6 +813,17 @@
     <None Include="EXportvirJan2DataSet.xss">
       <DependentUpon>EXportvirJan2DataSet.xsd</DependentUpon>
     </None>
+    <None Include="EXportvirJan2DataSet1.xsc">
+      <DependentUpon>EXportvirJan2DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="EXportvirJan2DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EXportvirJan2DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EXportvirJan2DataSet1.xss">
+      <DependentUpon>EXportvirJan2DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="inf370RegDataSet.xsc">
       <DependentUpon>inf370RegDataSet.xsd</DependentUpon>
     </None>
@@ -882,6 +910,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ReturnOrderSupp.resx">
       <DependentUpon>ReturnOrderSupp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesReport.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SalesReport.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesReportform.resx">
+      <DependentUpon>SalesReportform.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Search Course Client.resx">
       <DependentUpon>Search Course Client.cs</DependentUpon>

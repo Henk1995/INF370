@@ -180,6 +180,7 @@ namespace PETSystem
             BtnCapture.Visible = true;
 
             //Add product in StockLine sodat dit 3rdNormalFormis
+            ConnectString.connectstring.Close();
             ConnectString.connectstring.Open();
             string Query = "INSERT INTO PrinterOrder(PrinterID) values('" + ConnectString.SupplierID + "')";
             //This is  MySqlConnection here i have created the object and pass my connection string.  
@@ -268,7 +269,7 @@ namespace PETSystem
                 ConnectString.connectstring.Close();
             }
             catch {
-              
+                ConnectString.connectstring.Close();
             }
 
         }

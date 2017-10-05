@@ -22,7 +22,7 @@ namespace PETSystem
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="RefIntegrityExport")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="EXportvirJan2")]
 	public partial class PET_DBDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -144,7 +144,7 @@ namespace PETSystem
     #endregion
 		
 		public PET_DBDataContext() : 
-				base(global::PETSystem.Properties.Settings.Default.RefIntegrityExportConnectionString, mappingSource)
+				base(global::PETSystem.Properties.Settings.Default.EXportvirJan2ConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -2736,7 +2736,7 @@ namespace PETSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Stock_DamagedStock", Storage="_Stock", ThisKey="StockID", OtherKey="StockID", IsForeignKey=true)]
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Stock_DamagedStock", Storage="_Stock", ThisKey="StockID", OtherKey="StockID", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
 		public Stock Stock
 		{
 			get
@@ -4451,7 +4451,7 @@ namespace PETSystem
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Data", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Data", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary Data
 		{
 			get

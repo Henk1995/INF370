@@ -237,8 +237,7 @@ namespace PETSystem
 
         private void button9_Click_1(object sender, EventArgs e)
         {
-            InstructorTrainingReport myform = new InstructorTrainingReport();
-            myform.ShowDialog();
+          
         }
     }
 }
