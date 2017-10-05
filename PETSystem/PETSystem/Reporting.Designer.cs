@@ -39,7 +39,6 @@
             this.stockBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.stockTableAdapter = new PETSystem.EXportvirJan2DataSetTableAdapters.StockTableAdapter();
             this.tableAdapterManager = new PETSystem.EXportvirJan2DataSetTableAdapters.TableAdapterManager();
-            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             ((System.ComponentModel.ISupportInitialize)(this.eXportvirJan2DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -47,7 +46,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(12, 12);
+            this.button1.Location = new System.Drawing.Point(152, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(110, 86);
             this.button1.TabIndex = 0;
@@ -58,7 +57,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(152, 12);
+            this.button2.Location = new System.Drawing.Point(152, 104);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(110, 86);
             this.button2.TabIndex = 1;
@@ -69,18 +68,18 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(290, 12);
+            this.button3.Location = new System.Drawing.Point(12, 12);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(110, 86);
             this.button3.TabIndex = 2;
-            this.button3.Text = "Instructor";
+            this.button3.Text = "Training Course Report";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(152, 104);
+            this.button4.Location = new System.Drawing.Point(152, 196);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(110, 86);
             this.button4.TabIndex = 3;
@@ -102,7 +101,7 @@
             // button6
             // 
             this.button6.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(290, 104);
+            this.button6.Location = new System.Drawing.Point(12, 196);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(110, 86);
             this.button6.TabIndex = 5;
@@ -168,23 +167,12 @@
             this.tableAdapterManager.UpdateOrder = PETSystem.EXportvirJan2DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.UserTableTableAdapter = null;
             // 
-            // crystalReportViewer1
-            // 
-            this.crystalReportViewer1.ActiveViewIndex = -1;
-            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crystalReportViewer1.Location = new System.Drawing.Point(290, 104);
-            this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.Size = new System.Drawing.Size(353, 211);
-            this.crystalReportViewer1.TabIndex = 7;
-            // 
             // Reporting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(652, 325);
-            this.Controls.Add(this.crystalReportViewer1);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -215,6 +203,5 @@
         private System.Windows.Forms.BindingSource stockBindingSource;
         private EXportvirJan2DataSetTableAdapters.StockTableAdapter stockTableAdapter;
         private EXportvirJan2DataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
     }
 }
