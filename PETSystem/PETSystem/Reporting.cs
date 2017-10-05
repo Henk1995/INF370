@@ -67,5 +67,11 @@ namespace PETSystem
         {
            
         }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            ClinetCourseReport h = new ClinetCourseReport();
+            h.ShowDialog();
+        }
     }
 }

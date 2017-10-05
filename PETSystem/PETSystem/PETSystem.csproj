@@ -158,6 +158,12 @@
     <Compile Include="CaptureSupllierOrderForm.Designer.cs">
       <DependentUpon>CaptureSupllierOrderForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CCR.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CCR.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +175,12 @@
     </Compile>
     <Compile Include="Client Course Menu.Designer.cs">
       <DependentUpon>Client Course Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClinetCourseReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClinetCourseReport.Designer.cs">
+      <DependentUpon>ClinetCourseReport.cs</DependentUpon>
     </Compile>
     <Compile Include="ConnectString.cs" />
     <Compile Include="Create Course.cs">
@@ -365,6 +377,12 @@
     </Compile>
     <Compile Include="PrinterOrderReturn.Designer.cs">
       <DependentUpon>PrinterOrderReturn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintersReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintersReport.Designer.cs">
+      <DependentUpon>PrintersReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -682,11 +700,18 @@
     <EmbeddedResource Include="CaptureSupllierOrderForm.resx">
       <DependentUpon>CaptureSupllierOrderForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CCR.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CCR.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Client Course Menu.resx">
       <DependentUpon>Client Course Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClinetCourseReport.resx">
+      <DependentUpon>ClinetCourseReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Create Course.resx">
       <DependentUpon>Create Course.cs</DependentUpon>
@@ -818,6 +843,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PrinterOrderReturn.resx">
       <DependentUpon>PrinterOrderReturn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintersReport.resx">
+      <DependentUpon>PrintersReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

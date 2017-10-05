@@ -268,10 +268,7 @@ namespace PETSystem
                 ConnectString.connectstring.Close();
             }
             catch {
-                MessageBox.Show("Error occured returning to previous screen");
-                ConnectString.connectstring.Close();
-                Search_Printing_Supplier vv = new Search_Printing_Supplier();
-                vv.ShowDialog();
+              
             }
 
         }
