@@ -158,6 +158,12 @@
     <Compile Include="CaptureSupllierOrderForm.Designer.cs">
       <DependentUpon>CaptureSupllierOrderForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CCR.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CCR.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ChangePassword.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -169,6 +175,12 @@
     </Compile>
     <Compile Include="Client Course Menu.Designer.cs">
       <DependentUpon>Client Course Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClinetCourseReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClinetCourseReport.Designer.cs">
+      <DependentUpon>ClinetCourseReport.cs</DependentUpon>
     </Compile>
     <Compile Include="ConnectString.cs" />
     <Compile Include="Create Course.cs">
@@ -231,6 +243,12 @@
     <Compile Include="ForgotPassword.Designer.cs">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="ICR.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ICR.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="inf370RegDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -241,6 +259,12 @@
     </Compile>
     <Compile Include="InstructorBioForm.Designer.cs">
       <DependentUpon>InstructorBioForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InstructorCoursesReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InstructorCoursesReport.Designer.cs">
+      <DependentUpon>InstructorCoursesReport.cs</DependentUpon>
     </Compile>
     <Compile Include="InstructorReport.cs">
       <AutoGen>True</AutoGen>
@@ -353,6 +377,12 @@
     </Compile>
     <Compile Include="PrinterOrderReturn.Designer.cs">
       <DependentUpon>PrinterOrderReturn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PrintersReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PrintersReport.Designer.cs">
+      <DependentUpon>PrintersReport.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -469,6 +499,24 @@
     <Compile Include="Select_Supplier.Designer.cs">
       <DependentUpon>Select_Supplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="SPR.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SPR.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SR.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SR.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Stock Report.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Stock Report.Designer.cs">
+      <DependentUpon>Stock Report.cs</DependentUpon>
+    </Compile>
     <Compile Include="SupplierReport.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -480,6 +528,12 @@
     </Compile>
     <Compile Include="Suppliers.Designer.cs">
       <DependentUpon>Suppliers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SuppliersReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SuppliersReport.Designer.cs">
+      <DependentUpon>SuppliersReport.cs</DependentUpon>
     </Compile>
     <Compile Include="TrainingCourseMenu.cs">
       <SubType>Form</SubType>
@@ -646,11 +700,18 @@
     <EmbeddedResource Include="CaptureSupllierOrderForm.resx">
       <DependentUpon>CaptureSupllierOrderForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CCR.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CCR.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Client Course Menu.resx">
       <DependentUpon>Client Course Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClinetCourseReport.resx">
+      <DependentUpon>ClinetCourseReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Create Course.resx">
       <DependentUpon>Create Course.cs</DependentUpon>
@@ -681,8 +742,15 @@
     <EmbeddedResource Include="ForgotPassword.resx">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ICR.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ICR.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="InstructorBioForm.resx">
       <DependentUpon>InstructorBioForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InstructorCoursesReport.resx">
+      <DependentUpon>InstructorCoursesReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InstructorReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -776,6 +844,9 @@
     <EmbeddedResource Include="PrinterOrderReturn.resx">
       <DependentUpon>PrinterOrderReturn.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PrintersReport.resx">
+      <DependentUpon>PrintersReport.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -842,12 +913,26 @@
     <EmbeddedResource Include="Select_Supplier.resx">
       <DependentUpon>Select_Supplier.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SPR.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SPR.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SR.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SR.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stock Report.resx">
+      <DependentUpon>Stock Report.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SupplierReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>SupplierReport.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Suppliers.resx">
       <DependentUpon>Suppliers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SuppliersReport.resx">
+      <DependentUpon>SuppliersReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TrainingCourseMenu.resx">
       <DependentUpon>TrainingCourseMenu.cs</DependentUpon>

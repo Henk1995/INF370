@@ -29,57 +29,49 @@ namespace PETSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ReportDocument report = new ReportDocument();
-            report.Load( "C:\\Users\\Jan-Wilkens\\Source\\Repos\\PETSystem\\PETSystem\\PETSystem\\CrystalReport4.rpt");
-            crystalReportViewer1.ReportSource = report;
-            crystalReportViewer1.Refresh();
+            Stock_Report f = new Stock_Report();
+            f.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            ReportDocument report = new ReportDocument();
-            report.Load("C:\\Users\\Jan-Wilkens\\Source\\Repos\\PETSystem\\PETSystem\\PETSystem\\CrystalReport1.rpt");
-            crystalReportViewer1.ReportSource = report;
-            crystalReportViewer1.Refresh();
+            InstructorTrainingReport m = new InstructorTrainingReport();
+            m.ShowDialog();
         }
 
         private void stockBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            this.Validate();
-            this.stockBindingSource.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.eXportvirJan2DataSet);
+           
 
         }
 
         private void Reporting_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'eXportvirJan2DataSet.Stock' table. You can move, or remove it, as needed.
-            this.stockTableAdapter.Fill(this.eXportvirJan2DataSet.Stock);
+           
 
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            ReportDocument report = new ReportDocument();
-            report.Load("C:\\Users\\Jan-Wilkens\\Source\\Repos\\PETSystem\\PETSystem\\PETSystem\\InstructorReport.rpt");
-            crystalReportViewer1.ReportSource = report;
-            crystalReportViewer1.Refresh();
+            InstructorCoursesReport p = new InstructorCoursesReport();
+            p.ShowDialog();
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            ReportDocument report = new ReportDocument();
-            report.Load("C:\\Users\\Jan-Wilkens\\Source\\Repos\\PETSystem\\PETSystem\\PETSystem\\SupplierReport.rpt");
-            crystalReportViewer1.ReportSource = report;
-            crystalReportViewer1.Refresh();
+            SuppliersReport j = new SuppliersReport();
+            j.ShowDialog();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            ReportDocument report = new ReportDocument();
-            report.Load("C:\\Users\\Jan-Wilkens\\Source\\Repos\\PETSystem\\PETSystem\\PETSystem\\OrdersR.rpt");
-            crystalReportViewer1.ReportSource = report;
-            crystalReportViewer1.Refresh();
+           
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            ClinetCourseReport h = new ClinetCourseReport();
+            h.ShowDialog();
         }
     }
 }
