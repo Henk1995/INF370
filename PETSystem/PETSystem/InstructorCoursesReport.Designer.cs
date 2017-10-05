@@ -1,6 +1,6 @@
 ﻿namespace PETSystem
 {
-    partial class Stock_Report
+    partial class InstructorCoursesReport
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.SR1 = new PETSystem.SR();
+            this.ICR1 = new PETSystem.ICR();
             this.SuspendLayout();
             // 
             // crystalReportViewer1
@@ -40,18 +40,19 @@
             this.crystalReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.crystalReportViewer1.Location = new System.Drawing.Point(0, 0);
             this.crystalReportViewer1.Name = "crystalReportViewer1";
-            this.crystalReportViewer1.ReportSource = this.SR1;
-            this.crystalReportViewer1.Size = new System.Drawing.Size(978, 555);
+            this.crystalReportViewer1.ReportSource = this.ICR1;
+            this.crystalReportViewer1.Size = new System.Drawing.Size(842, 407);
             this.crystalReportViewer1.TabIndex = 0;
             // 
-            // Stock_Report
+            // InstructorCoursesReport
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(978, 555);
+            this.ClientSize = new System.Drawing.Size(842, 407);
             this.Controls.Add(this.crystalReportViewer1);
-            this.Name = "Stock_Report";
-            this.Text = "Stock_Report";
+            this.Name = "InstructorCoursesReport";
+            this.Text = "InstructorCoursesReport";
+            this.Load += new System.EventHandler(this.InstructorCoursesReport_Load);
             this.ResumeLayout(false);
 
         }
@@ -59,6 +60,6 @@
         #endregion
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
-        private SR SR1;
+        private ICR ICR1;
     }
 }

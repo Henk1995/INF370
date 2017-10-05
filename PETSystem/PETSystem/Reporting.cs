@@ -53,7 +53,8 @@ namespace PETSystem
 
         private void button5_Click(object sender, EventArgs e)
         {
-           
+            InstructorCoursesReport p = new InstructorCoursesReport();
+            p.ShowDialog();
         }
 
         private void button4_Click(object sender, EventArgs e)

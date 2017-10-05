@@ -231,6 +231,12 @@
     <Compile Include="ForgotPassword.Designer.cs">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="ICR.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ICR.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="inf370RegDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -241,6 +247,12 @@
     </Compile>
     <Compile Include="InstructorBioForm.Designer.cs">
       <DependentUpon>InstructorBioForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InstructorCoursesReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InstructorCoursesReport.Designer.cs">
+      <DependentUpon>InstructorCoursesReport.cs</DependentUpon>
     </Compile>
     <Compile Include="InstructorReport.cs">
       <AutoGen>True</AutoGen>
@@ -693,8 +705,15 @@
     <EmbeddedResource Include="ForgotPassword.resx">
       <DependentUpon>ForgotPassword.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ICR.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ICR.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="InstructorBioForm.resx">
       <DependentUpon>InstructorBioForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InstructorCoursesReport.resx">
+      <DependentUpon>InstructorCoursesReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="InstructorReport.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
