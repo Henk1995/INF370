@@ -45,6 +45,7 @@
             this.inf370RegDataSet = new PETSystem.inf370RegDataSet();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.button9 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.inf370RegDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -208,12 +209,23 @@
             this.label1.Text = "P.E.T web site";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // button9
+            // 
+            this.button9.Location = new System.Drawing.Point(218, 6);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(75, 23);
+            this.button9.TabIndex = 26;
+            this.button9.Text = "button9";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click_1);
+            // 
             // MainMenuF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(775, 478);
             this.ControlBox = false;
+            this.Controls.Add(this.button9);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.pictureBox1);
@@ -259,5 +271,6 @@
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private inf370RegDataSet inf370RegDataSet;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button9;
     }
 }

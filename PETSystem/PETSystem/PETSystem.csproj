@@ -260,6 +260,18 @@
     <Compile Include="InstructorTR.Designer.cs">
       <DependentUpon>InstructorTR.cs</DependentUpon>
     </Compile>
+    <Compile Include="InstructorTrainingReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InstructorTrainingReport.Designer.cs">
+      <DependentUpon>InstructorTrainingReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IRT.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IRT.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -299,6 +311,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>OrdersR.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="PaymentForm.cs">
       <SubType>Form</SubType>
@@ -680,6 +693,13 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InstructorTR.resx">
       <DependentUpon>InstructorTR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InstructorTrainingReport.resx">
+      <DependentUpon>InstructorTrainingReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IRT.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>IRT.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
