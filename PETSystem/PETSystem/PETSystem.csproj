@@ -481,6 +481,12 @@
     <Compile Include="Select_Supplier.Designer.cs">
       <DependentUpon>Select_Supplier.cs</DependentUpon>
     </Compile>
+    <Compile Include="SPR.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SPR.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="SR.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -504,6 +510,12 @@
     </Compile>
     <Compile Include="Suppliers.Designer.cs">
       <DependentUpon>Suppliers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SuppliersReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SuppliersReport.Designer.cs">
+      <DependentUpon>SuppliersReport.cs</DependentUpon>
     </Compile>
     <Compile Include="TrainingCourseMenu.cs">
       <SubType>Form</SubType>
@@ -873,6 +885,10 @@
     <EmbeddedResource Include="Select_Supplier.resx">
       <DependentUpon>Select_Supplier.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SPR.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>SPR.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="SR.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>SR.cs</LastGenOutput>
@@ -886,6 +902,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Suppliers.resx">
       <DependentUpon>Suppliers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SuppliersReport.resx">
+      <DependentUpon>SuppliersReport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TrainingCourseMenu.resx">
       <DependentUpon>TrainingCourseMenu.cs</DependentUpon>
