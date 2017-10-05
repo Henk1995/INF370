@@ -50,52 +50,58 @@
             // 
             // txtPhoneNumber
             // 
+            this.txtPhoneNumber.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPhoneNumber.Location = new System.Drawing.Point(137, 221);
             this.txtPhoneNumber.Name = "txtPhoneNumber";
-            this.txtPhoneNumber.Size = new System.Drawing.Size(337, 20);
+            this.txtPhoneNumber.Size = new System.Drawing.Size(337, 25);
             this.txtPhoneNumber.TabIndex = 87;
             this.txtPhoneNumber.TextChanged += new System.EventHandler(this.txtPhoneNumber_TextChanged_1);
             // 
             // txtEmail
             // 
+            this.txtEmail.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Location = new System.Drawing.Point(137, 183);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(337, 20);
+            this.txtEmail.Size = new System.Drawing.Size(337, 25);
             this.txtEmail.TabIndex = 88;
             this.txtEmail.TextChanged += new System.EventHandler(this.txtEmail_TextChanged_1);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 224);
+            this.label4.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(18, 224);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(81, 13);
+            this.label4.Size = new System.Drawing.Size(113, 18);
             this.label4.TabIndex = 64;
             this.label4.Text = "Phone Number:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(21, 150);
+            this.label7.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(70, 150);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 13);
+            this.label7.Size = new System.Drawing.Size(61, 18);
             this.label7.TabIndex = 63;
             this.label7.Text = "Gender:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(21, 186);
+            this.label8.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(24, 186);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(76, 13);
+            this.label8.Size = new System.Drawing.Size(107, 18);
             this.label8.TabIndex = 62;
             this.label8.Text = "Email Address:";
             // 
             // button3
             // 
+            this.button3.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(310, 262);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(164, 23);
+            this.button3.Size = new System.Drawing.Size(164, 32);
             this.button3.TabIndex = 60;
             this.button3.Text = "Cancel";
             this.button3.UseVisualStyleBackColor = true;
@@ -103,9 +109,10 @@
             // 
             // button2
             // 
+            this.button2.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(137, 262);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(164, 23);
+            this.button2.Size = new System.Drawing.Size(167, 32);
             this.button2.TabIndex = 59;
             this.button2.Text = "Save";
             this.button2.UseVisualStyleBackColor = true;
@@ -113,63 +120,70 @@
             // 
             // txtSurname
             // 
+            this.txtSurname.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSurname.Location = new System.Drawing.Point(137, 108);
             this.txtSurname.Name = "txtSurname";
-            this.txtSurname.Size = new System.Drawing.Size(337, 20);
+            this.txtSurname.Size = new System.Drawing.Size(337, 25);
             this.txtSurname.TabIndex = 89;
             this.txtSurname.TextChanged += new System.EventHandler(this.txtSurname_TextChanged_1);
             // 
             // txtName
             // 
+            this.txtName.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Location = new System.Drawing.Point(137, 70);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(337, 20);
+            this.txtName.Size = new System.Drawing.Size(337, 25);
             this.txtName.TabIndex = 90;
             this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged_1);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 35);
+            this.label5.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(80, 38);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(30, 13);
+            this.label5.Size = new System.Drawing.Size(44, 18);
             this.label5.TabIndex = 55;
             this.label5.Text = "Title:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 73);
+            this.label3.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(80, 73);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.Size = new System.Drawing.Size(51, 18);
             this.label3.TabIndex = 54;
             this.label3.Text = "Name:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 111);
+            this.label2.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(61, 111);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(52, 13);
+            this.label2.Size = new System.Drawing.Size(70, 18);
             this.label2.TabIndex = 53;
             this.label2.Text = "Surname:";
             // 
             // cbGender
             // 
             this.cbGender.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbGender.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbGender.FormattingEnabled = true;
             this.cbGender.Location = new System.Drawing.Point(137, 147);
             this.cbGender.Name = "cbGender";
-            this.cbGender.Size = new System.Drawing.Size(337, 21);
+            this.cbGender.Size = new System.Drawing.Size(337, 26);
             this.cbGender.TabIndex = 85;
             // 
             // cbTitle
             // 
             this.cbTitle.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbTitle.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTitle.FormattingEnabled = true;
             this.cbTitle.Location = new System.Drawing.Point(137, 35);
             this.cbTitle.Name = "cbTitle";
-            this.cbTitle.Size = new System.Drawing.Size(337, 21);
+            this.cbTitle.Size = new System.Drawing.Size(337, 26);
             this.cbTitle.TabIndex = 86;
             // 
             // lblTimer
@@ -177,6 +191,7 @@
             this.lblTimer.AutoSize = true;
             this.lblTimer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTimer.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTimer.ForeColor = System.Drawing.Color.DarkRed;
             this.lblTimer.Location = new System.Drawing.Point(438, 0);
             this.lblTimer.Name = "lblTimer";
             this.lblTimer.Size = new System.Drawing.Size(73, 19);
@@ -188,6 +203,7 @@
             this.label6.AutoSize = true;
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label6.Font = new System.Drawing.Font("Arial", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.DarkRed;
             this.label6.Location = new System.Drawing.Point(388, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(73, 19);
@@ -220,8 +236,11 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximumSize = new System.Drawing.Size(514, 344);
+            this.MinimumSize = new System.Drawing.Size(514, 344);
             this.Name = "Add_Course_Client";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add_Course_Client";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Add_Course_Client_FormClosing);
             this.Load += new System.EventHandler(this.Add_Course_Client_Load);

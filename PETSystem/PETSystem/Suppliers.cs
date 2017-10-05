@@ -158,7 +158,78 @@ namespace PETSystem
 
         private void Suppliers_Load(object sender, EventArgs e)
         {
+            //Search Field
+            ToolTip TTFIeld = new ToolTip();
+            TTFIeld.ToolTipTitle = "Search Field";
+            TTFIeld.UseFading = true;
+            TTFIeld.UseAnimation = true;
+            TTFIeld.IsBalloon = true;
+            TTFIeld.SetToolTip(comboBox1, "Select a field to search.");
+            //SearchText
+            ToolTip TTSearchte = new ToolTip();
+            TTSearchte.ToolTipTitle = "Search Text";
+            TTSearchte.UseFading = true;
+            TTSearchte.UseAnimation = true;
+            TTSearchte.IsBalloon = true;
+            TTSearchte.SetToolTip(txtRefresh, "Enter text to search for.");
+            //Place Order
+            ToolTip TTPalce = new ToolTip();
+            TTPalce.ToolTipTitle = "Place Order";
+            TTPalce.UseFading = true;
+            TTPalce.UseAnimation = true;
+            TTPalce.IsBalloon = true;
+            TTPalce.SetToolTip(button1, "Select a supplier from the list and\n click here to place an order.");
+            //Create Supplier
+            ToolTip TTcreate = new ToolTip();
+            TTcreate.ToolTipTitle = "Create Suppleir";
+            TTcreate.UseFading = true;
+            TTcreate.UseAnimation = true;
+            TTcreate.IsBalloon = true;
+            TTcreate.SetToolTip(button2, "Click here if you want to add a new supplier to the system.");
+            //Update Supplier
+            ToolTip TtUp = new ToolTip();
+            TtUp.ToolTipTitle = "Update Suppleir";
+            TtUp.UseFading = true;
+            TtUp.UseAnimation = true;
+            TtUp.IsBalloon = true;
+            TtUp.SetToolTip(button4, "Select a supplier from the list and/click here to update.");
+            //Delete Supplier
+            ToolTip TTDelete = new ToolTip();
+            TTDelete.ToolTipTitle = "Delete Suppleir";
+            TTDelete.UseFading = true;
+            TTDelete.UseAnimation = true;
+            TTDelete.IsBalloon = true;
+            TTDelete.SetToolTip(button5, "Select a supplier from the list and/click here to delete.");
+            //Recieve ORder
+            ToolTip TTrevieve = new ToolTip();
+            TTrevieve.ToolTipTitle = "Recieve order";
+            TTrevieve.UseFading = true;
+            TTrevieve.UseAnimation = true;
+            TTrevieve.IsBalloon = true;
+            TTrevieve.SetToolTip(button6, "Select a supplier from the list and/click here to log the recieved order.");
+            //Return Order
+            ToolTip TTreturn = new ToolTip();
+            TTreturn.ToolTipTitle = "Return Order";
+            TTreturn.UseFading = true;
+            TTreturn.UseAnimation = true;
+            TTreturn.IsBalloon = true;
+            TTreturn.SetToolTip(button9, "Select a supplier from the list and/click here to return a order that has been recieved.");
+            //Refund Order
+            ToolTip TTrefund = new ToolTip();
+            TTrefund.ToolTipTitle = "Refund Order";
+            TTrefund.UseFading = true;
+            TTrefund.UseAnimation = true;
+            TTrefund.IsBalloon = true;
+            TTrefund.SetToolTip(btnRefund, "Select a supplier from the list and/click here to refund a order that has been recieved.");
+            //Back
+            ToolTip TtBack = new ToolTip();
+            TtBack.ToolTipTitle = "Back";
+            TtBack.UseFading = true;
+            TtBack.UseAnimation = true;
+            TtBack.IsBalloon = true;
+            TtBack.SetToolTip(button8, "Click here to retun to previous screen");
 
+            comboBox1.SelectedIndex = 0;
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
             t = new Timer() { Interval = 1000, Enabled = true };
@@ -170,7 +241,7 @@ namespace PETSystem
 
             DataTable DT = new DataTable();
             ConnectString.connectstring.Open();
-            SqlCommand Fill = new SqlCommand("SELECT Supplier.SupplierID,Supplier.SupplierName,Supplier.SupplierAddress,Supplier.SupplierEmail,Supplier.SupplierPhoneNumber,Supplier.SupplierBankAccNumber,SupplierType.SupplierTypeName FROM Supplier INNER JOIN SupplierType ON SupplierType.SupplierTypeID = Supplier.SupplierTypeID", ConnectString.connectstring);
+            SqlCommand Fill = new SqlCommand("SELECT Supplier.SupplierID,Supplier.SupplierName AS 'Name',Supplier.SupplierAddress AS 'Address',Supplier.SupplierEmail AS 'Email',Supplier.SupplierPhoneNumber AS 'Phone number',Supplier.SupplierBankAccNumber AS 'Bank Account Number',SupplierType.SupplierTypeName AS 'Type' FROM Supplier INNER JOIN SupplierType ON SupplierType.SupplierTypeID = Supplier.SupplierTypeID", ConnectString.connectstring);
             DA = new SqlDataAdapter(Fill);
             DA.Fill(DT);
             dgvInstructor.DataSource = DT;
@@ -223,16 +294,32 @@ namespace PETSystem
 
         private void txtRefresh_TextChanged(object sender, EventArgs e)
         {
-            
+            if (comboBox1.SelectedIndex == 0)
+            {
+                ConnectString.connectstring.Close();
                 DataTable DTX = new DataTable();
                 ConnectString.connectstring.Open();
-                SqlCommand FillX = new SqlCommand("SELECT Supplier.SupplierID,Supplier.SupplierName,Supplier.SupplierAddress,Supplier.SupplierEmail,Supplier.SupplierPhoneNumber,Supplier.SupplierBankAccNumber,SupplierType.SupplierTypeName FROM Supplier INNER JOIN SupplierType ON SupplierType.SupplierTypeID = Supplier.SupplierTypeID WHERE Supplier.SupplierName like '%" + txtRefresh.Text + "%'", ConnectString.connectstring);
+                SqlCommand FillX = new SqlCommand("SELECT Supplier.SupplierID,Supplier.SupplierName AS 'Name',Supplier.SupplierAddress AS 'Address',Supplier.SupplierEmail AS 'Email',Supplier.SupplierPhoneNumber AS 'Phone number',Supplier.SupplierBankAccNumber AS 'Bank Account Number',SupplierType.SupplierTypeName AS 'Type' FROM Supplier INNER JOIN SupplierType ON SupplierType.SupplierTypeID = Supplier.SupplierTypeID WHERE Supplier.SupplierName like '%" + txtRefresh.Text + "%'", ConnectString.connectstring);
                 SqlDataAdapter DAX = new SqlDataAdapter(FillX);
                 DAX.Fill(DTX);
                 dgvInstructor.DataSource = DTX;
                 dgvInstructor.DataMember = DTX.TableName;
                 txtRefresh.BackColor = Color.White;
                 ConnectString.connectstring.Close();
+            }
+            else
+            {
+                ConnectString.connectstring.Close();
+                DataTable DTX = new DataTable();
+                ConnectString.connectstring.Open();
+                SqlCommand FillX = new SqlCommand("SELECT Supplier.SupplierID,Supplier.SupplierName AS 'Name',Supplier.SupplierAddress AS 'Address',Supplier.SupplierEmail AS 'Email',Supplier.SupplierPhoneNumber AS 'Phone number',Supplier.SupplierBankAccNumber AS 'Bank Account Number',SupplierType.SupplierTypeName AS 'Type' FROM Supplier INNER JOIN SupplierType ON SupplierType.SupplierTypeID = Supplier.SupplierTypeID WHERE Supplier.SupplierEmail like '%" + txtRefresh.Text + "%'", ConnectString.connectstring);
+                SqlDataAdapter DAX = new SqlDataAdapter(FillX);
+                DAX.Fill(DTX);
+                dgvInstructor.DataSource = DTX;
+                dgvInstructor.DataMember = DTX.TableName;
+                txtRefresh.BackColor = Color.White;
+                ConnectString.connectstring.Close();
+            }
             
           
         }

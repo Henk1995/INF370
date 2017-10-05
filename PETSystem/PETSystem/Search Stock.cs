@@ -97,7 +97,7 @@ namespace PETSystem
 
                 DataTable DT = new DataTable();
                 ConnectString.connectstring.Open();
-                SqlCommand Fill = new SqlCommand("SELECT Stock.StockID, Stock.StockDescription, Stock.StockUnitPrice, Stock.StockQuantity, dbo.StockType.StockName FROM Stock INNER JOIN dbo.StockType ON StockType.StockTypeID = Stock.StockTypeID WHERE Stock.StockDescription like '%" + txtSearchStockDesc.Text + "%'" , ConnectString.connectstring);
+                SqlCommand Fill = new SqlCommand("SELECT Stock.StockID AS 'ID', Stock.StockDescription AS 'Stock Description', Stock.StockUnitPrice AS 'Unit Price', Stock.StockQuantity AS 'Quantity', dbo.StockType.StockName AS 'Type' FROM Stock INNER JOIN dbo.StockType ON StockType.StockTypeID = Stock.StockTypeID WHERE Stock.StockDescription like '%" + txtSearchStockDesc.Text + "%'" , ConnectString.connectstring);
                 DA = new SqlDataAdapter(Fill);
                 DA.Fill(DT);
                 dgvSearchStock.DataSource = DT;
@@ -161,7 +161,7 @@ namespace PETSystem
                 //string GetQuantity = "Select Stock.StockQuantity from dbo.Stock Where StockID = '" + dgvSearchStock.SelectedRows[0].Cells[0].Value + "'";
 
 
-                if (QuantityOnHand >= 0)
+                if (StockOnHand != 0)
                 {
                     HasQuantity = true;
                 }
@@ -173,7 +173,7 @@ namespace PETSystem
 
                 try
                 {
-                    if (HasQuantity == false)
+                    if (HasQuantity == true)
                     {
                         MessageBox.Show("Stock cannot be deleted because there is still stock on hand of this specific stock item", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -202,7 +202,7 @@ namespace PETSystem
                 catch
                 {
                     ConnectString.connectstring.Close();
-                    MessageBox.Show("ItemActivation cannot be deleted");
+                    MessageBox.Show("Item cannot be deleted");
                 }
             }
             else
@@ -252,48 +252,48 @@ namespace PETSystem
 
         private void btnViewStock_Click(object sender, EventArgs e)
         {
-            //if (dgvSearchStock.SelectedCells.Count > 0)
-            //{
-                //Stock _PS = (Stock)dgvSearchStock.CurrentRow.DataBoundItem;
-                //int psID = _PS.StockID;
-                //string psName = _PS.StockDescription;
-                //int psAddr = Convert.ToInt32(_PS.StockUnitPrice);
-                //int psStockType = _PS.StockTypeID;
-                //int psPhone = Convert.ToInt32(_PS.StockQuantity);
+           /* if (dgvSearchStock.SelectedCells.Count > 0)
+            {
+                Stock _PS = (Stock)dgvSearchStock.CurrentRow.DataBoundItem;
+                int psID = _PS.StockID;
+                string psName = _PS.StockDescription;
+                int psAddr = Convert.ToInt32(_PS.StockUnitPrice);
+                int psStockType = _PS.StockTypeID;
+                int psPhone = Convert.ToInt32(_PS.StockQuantity);
 
-                //var getTypetoView = (from StockType in db.StockTypes where StockType.StockTypeID == psStockType select StockType.StockName).FirstOrDefault();
+                var getTypetoView = (from StockType in db.StockTypes where StockType.StockTypeID == psStockType select StockType.StockName).FirstOrDefault();
 
-                //string LoadStockTypeName = getTypetoView;
+                string LoadStockTypeName = getTypetoView;
 
-//                if (dgvSearchStock.SelectedRows.Count > 0)
-//                {
+                if (dgvSearchStock.SelectedRows.Count > 0)
+                {
 
-//                    int GetStockID = Convert.ToInt32(dgvSearchStock.SelectedRows[0].Cells[0].Value);
+                    int GetStockID = Convert.ToInt32(dgvSearchStock.SelectedRows[0].Cells[0].Value);
 
-//                DataTable DT = new DataTable();
-//                ConnectString.connectstring.Open();
-//                SqlCommand Fill = new SqlCommand("SELECT Stock.StockID, Stock.StockDescription, Stock.StockUnitPrice, Stock.StockQuantity, dbo.StockType.StockName FROM Stock INNER JOIN dbo.StockType ON StockType.StockTypeID = Stock.StockTypeID Where Stock.StockID like '%" + dgvSearchStock.SelectedRows[0].Cells[0].Value + "%'", ConnectString.connectstring);
+                DataTable DT = new DataTable();
+                ConnectString.connectstring.Open();
+                SqlCommand Fill = new SqlCommand("SELECT Stock.StockID, Stock.StockDescription, Stock.StockUnitPrice, Stock.StockQuantity, dbo.StockType.StockName FROM Stock INNER JOIN dbo.StockType ON StockType.StockTypeID = Stock.StockTypeID Where Stock.StockID like '%" + dgvSearchStock.SelectedRows[0].Cells[0].Value + "%'", ConnectString.connectstring);
 
-//                int psID = Fill.StockID;
-//                string psName = _PS.StockDescription;
-//                int psAddr = Convert.ToInt32(_PS.StockUnitPrice);
-//                int psStockType = _PS.StockTypeID;
-//                int psPhone = Convert.ToInt32(_PS.StockQuantity);
+                int psID = Fill.StockID;
+                string psName = _PS.StockDescription;
+                int psAddr = Convert.ToInt32(_PS.StockUnitPrice);
+                int psStockType = _PS.StockTypeID;
+                int psPhone = Convert.ToInt32(_PS.StockQuantity);
 
-//                MessageBox.Show(" Stock ID: \t\t" + psID + "\n Stock Name: \t" + psName + "\n Unit Price: \t" + psAddr + "\n Stock Type: \t" + LoadStockTypeName + "\n Stock Quantity: \t" + psPhone, "View Course",
-//MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show(" Stock ID: \t\t" + psID + "\n Stock Name: \t" + psName + "\n Unit Price: \t" + psAddr + "\n Stock Type: \t" + LoadStockTypeName + "\n Stock Quantity: \t" + psPhone, "View Course",
+MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
-//                ConnectString.connectstring.Close();
+                ConnectString.connectstring.Close();
 
 
                 
-//            }
-//                else
-//                {
-//                    MessageBox.Show("Please select a row");
-//                }
+            }
+                else
+                {
+                    MessageBox.Show("Please select a row");
+                }
 
-
+    */
 
                 
             }
@@ -328,6 +328,50 @@ namespace PETSystem
 
         private void Search_Stock_Load(object sender, EventArgs e)
         {
+            //Add new stock item
+            ToolTip TTSTOCKITEM = new ToolTip();
+            TTSTOCKITEM.ToolTipTitle = "New Stock Item";
+            TTSTOCKITEM.UseFading = true;
+            TTSTOCKITEM.UseAnimation = true;
+            TTSTOCKITEM.IsBalloon = true;
+            TTSTOCKITEM.SetToolTip(button1, "Click here if you want to add a new stock item to the system.");
+            //update stock
+            ToolTip TTUPDATE = new ToolTip();
+            TTUPDATE.ToolTipTitle = "Update stock";
+            TTUPDATE.UseFading = true;
+            TTUPDATE.UseAnimation = true;
+            TTUPDATE.IsBalloon = true;
+            TTUPDATE.SetToolTip(btnUpdateStock, "Click here to upadte a stock item after you have selected one.");
+            //writeoff stock
+            ToolTip TTWRITE = new ToolTip();
+            TTWRITE.ToolTipTitle = "Write off stock";
+            TTWRITE.UseFading = true;
+            TTWRITE.UseAnimation = true;
+            TTWRITE.IsBalloon = true;
+            TTWRITE.SetToolTip(btnWriteoffStock, "Click here to remove stock once selected.");
+            //Delete stock
+            ToolTip TTDELETE = new ToolTip();
+            TTDELETE.ToolTipTitle = "Delete stock stock";
+            TTDELETE.UseFading = true;
+            TTDELETE.UseAnimation = true;
+            TTDELETE.IsBalloon = true;
+            TTDELETE.SetToolTip(btnDeleteStock, "Click here to permenently delete stock once selected.\nStock quantity must be 0.");
+            //main menu
+            ToolTip TTmainmenu = new ToolTip();
+            TTmainmenu.ToolTipTitle = "Main Menu";
+            TTmainmenu.UseFading = true;
+            TTmainmenu.UseAnimation = true;
+            TTmainmenu.IsBalloon = true;
+            TTmainmenu.SetToolTip(btnMainMenu, "Click here to return to the main menu.");
+            //search
+            ToolTip TTSEARHC = new ToolTip();
+            TTSEARHC.ToolTipTitle = "Search";
+            TTSEARHC.UseFading = true;
+            TTSEARHC.UseAnimation = true;
+            TTSEARHC.IsBalloon = true;
+            TTSEARHC.SetToolTip(txtSearchStockDesc, "Enter stock description here to search for it.");
+
+
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
             t = new Timer() { Interval = 1000, Enabled = true };
@@ -341,7 +385,7 @@ namespace PETSystem
 
             DataTable DT = new DataTable();
             ConnectString.connectstring.Open();
-            SqlCommand Fill = new SqlCommand("SELECT Stock.StockID, Stock.StockDescription, Stock.StockUnitPrice, Stock.StockQuantity, dbo.StockType.StockName FROM Stock INNER JOIN dbo.StockType ON StockType.StockTypeID = Stock.StockTypeID", ConnectString.connectstring);
+            SqlCommand Fill = new SqlCommand("SELECT Stock.StockID AS 'ID', Stock.StockDescription AS 'Stock Description', Stock.StockUnitPrice AS 'Unit Price', Stock.StockQuantity AS 'Quantity', dbo.StockType.StockName AS 'Type' FROM Stock INNER JOIN dbo.StockType ON StockType.StockTypeID = Stock.StockTypeID", ConnectString.connectstring);
             DA = new SqlDataAdapter(Fill);
             DA.Fill(DT);
             dgvSearchStock.DataSource = DT;

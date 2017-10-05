@@ -68,6 +68,27 @@ namespace PETSystem
 
         private void AddNewStockType_Load(object sender, EventArgs e)
         {
+            //Search
+            ToolTip TTSearch = new ToolTip();
+            TTSearch.ToolTipTitle = "Stock type";
+            TTSearch.UseFading = true;
+            TTSearch.UseAnimation = true;
+            TTSearch.IsBalloon = true;
+            TTSearch.SetToolTip(txtStockTypeName, "Enter Stock type name here.");
+            //Add
+            ToolTip TTADD = new ToolTip();
+            TTADD.ToolTipTitle = "Add";
+            TTADD.UseFading = true;
+            TTADD.UseAnimation = true;
+            TTADD.IsBalloon = true;
+            TTADD.SetToolTip(btnSave, "Click here to add the new stock type.");
+            //Cancel
+            ToolTip TTC = new ToolTip();
+            TTC.ToolTipTitle = "Cancel";
+            TTC.UseFading = true;
+            TTC.UseAnimation = true;
+            TTC.IsBalloon = true;
+            TTC.SetToolTip(btnCancel, "Click here to Cancel and return to previous screen.");
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
             t = new Timer() { Interval = 1000, Enabled = true };

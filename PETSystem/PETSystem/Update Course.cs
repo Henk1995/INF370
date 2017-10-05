@@ -174,6 +174,41 @@ namespace PETSystem
 
         private void Update_Course_Load(object sender, EventArgs e)
         {
+            //Coursename
+            ToolTip TTNAME = new ToolTip();
+            TTNAME.ToolTipTitle = "Name";
+            TTNAME.UseFading = true;
+            TTNAME.UseAnimation = true;
+            TTNAME.IsBalloon = true;
+            TTNAME.SetToolTip(txtCourseName, "Enter  course name here.");
+            //CourseCost
+            ToolTip TTC = new ToolTip();
+            TTC.ToolTipTitle = "Cost";
+            TTC.UseFading = true;
+            TTC.UseAnimation = true;
+            TTC.IsBalloon = true;
+            TTC.SetToolTip(txtCourseCost, "Enter  course cost here.");
+            //CourseDuration
+            ToolTip TTD = new ToolTip();
+            TTD.ToolTipTitle = "Duration";
+            TTD.UseFading = true;
+            TTD.UseAnimation = true;
+            TTD.IsBalloon = true;
+            TTD.SetToolTip(txtCourseDuration, "Enter  course duration here.");
+            //Update
+            ToolTip TTUPS = new ToolTip();
+            TTUPS.ToolTipTitle = "Update";
+            TTUPS.UseFading = true;
+            TTUPS.UseAnimation = true;
+            TTUPS.IsBalloon = true;
+            TTUPS.SetToolTip(btnSave, "Click to update course.");
+            //Cancel
+            ToolTip TTCAN = new ToolTip();
+            TTCAN.ToolTipTitle = "Cancel";
+            TTCAN.UseFading = true;
+            TTCAN.UseAnimation = true;
+            TTCAN.IsBalloon = true;
+            TTCAN.SetToolTip(btnCancel, "Click to cancel update.");
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
             t = new Timer() { Interval = 1000, Enabled = true };

@@ -69,7 +69,34 @@ namespace PETSystem
 
         private void Client_Course_Menu_Load(object sender, EventArgs e)
         {
-
+            //ViewP
+            ToolTip TTVP = new ToolTip();
+            TTVP.ToolTipTitle = "View/Maintain Participants";
+            TTVP.UseFading = true;
+            TTVP.UseAnimation = true;
+            TTVP.IsBalloon = true;
+            TTVP.SetToolTip(btnVMParticipants, "Click here to view/maintain the participants of a selected course.");
+            //Addres
+            ToolTip TTADD = new ToolTip();
+            TTADD.ToolTipTitle = "Add Result";
+            TTADD.UseFading = true;
+            TTADD.UseAnimation = true;
+            TTADD.IsBalloon = true;
+            TTADD.SetToolTip(btnAddResult, "Click here to add results to a selected course.");
+            //Maintain Courses
+            ToolTip TTMAINT = new ToolTip();
+            TTMAINT.ToolTipTitle = "Maintain Courses";
+            TTMAINT.UseFading = true;
+            TTMAINT.UseAnimation = true;
+            TTMAINT.IsBalloon = true;
+            TTMAINT.SetToolTip(btnMCourses, "Click here to maintain courses.");
+            //BAck
+            ToolTip TTBACK = new ToolTip();
+            TTBACK.ToolTipTitle = "Back";
+            TTBACK.UseFading = true;
+            TTBACK.UseAnimation = true;
+            TTBACK.IsBalloon = true;
+            TTBACK.SetToolTip(btnMainM, "Click here to retrn to previous screen.");
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
             t = new Timer() { Interval = 1000, Enabled = true };

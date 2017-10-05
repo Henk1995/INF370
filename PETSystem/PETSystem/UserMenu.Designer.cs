@@ -29,17 +29,27 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.TreeNode treeNode19 = new System.Windows.Forms.TreeNode("Logout Timer");
-            System.Windows.Forms.TreeNode treeNode20 = new System.Windows.Forms.TreeNode("Node5");
-            System.Windows.Forms.TreeNode treeNode21 = new System.Windows.Forms.TreeNode("Carousel Timer", new System.Windows.Forms.TreeNode[] {
-            treeNode19,
-            treeNode20});
-            System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("User Privileges");
-            System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Bussiness Rules", new System.Windows.Forms.TreeNode[] {
-            treeNode21,
-            treeNode22});
-            System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Admin", new System.Windows.Forms.TreeNode[] {
-            treeNode23});
+            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Users");
+            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("Courses");
+            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("Instructors");
+            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Reports");
+            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("Suppliers");
+            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("Printing Suppliers");
+            System.Windows.Forms.TreeNode treeNode7 = new System.Windows.Forms.TreeNode("Orders");
+            System.Windows.Forms.TreeNode treeNode8 = new System.Windows.Forms.TreeNode("Instrutor Training");
+            System.Windows.Forms.TreeNode treeNode9 = new System.Windows.Forms.TreeNode("Stock");
+            System.Windows.Forms.TreeNode treeNode10 = new System.Windows.Forms.TreeNode("PET System", new System.Windows.Forms.TreeNode[] {
+            treeNode1,
+            treeNode2,
+            treeNode3,
+            treeNode4,
+            treeNode5,
+            treeNode6,
+            treeNode7,
+            treeNode8,
+            treeNode9});
+            System.Windows.Forms.TreeNode treeNode11 = new System.Windows.Forms.TreeNode("Admin", new System.Windows.Forms.TreeNode[] {
+            treeNode10});
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.addUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.setLogoutTimeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -99,6 +109,7 @@
             this.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsers.Location = new System.Drawing.Point(0, 0);
             this.dgvUsers.Name = "dgvUsers";
+            this.dgvUsers.ReadOnly = true;
             this.dgvUsers.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvUsers.Size = new System.Drawing.Size(743, 209);
             this.dgvUsers.TabIndex = 2;
@@ -170,22 +181,33 @@
             // 
             this.treeView1.Location = new System.Drawing.Point(0, 59);
             this.treeView1.Name = "treeView1";
-            treeNode19.Name = "Node4";
-            treeNode19.Text = "Logout Timer";
-            treeNode20.Name = "Node5";
-            treeNode20.Text = "Node5";
-            treeNode21.Name = "Node2";
-            treeNode21.Text = "Carousel Timer";
-            treeNode22.Name = "Node3";
-            treeNode22.Text = "User Privileges";
-            treeNode23.Name = "Node1";
-            treeNode23.Text = "Bussiness Rules";
-            treeNode24.Name = "Node0";
-            treeNode24.Text = "Admin";
+            treeNode1.Name = "Node2";
+            treeNode1.Text = "Users";
+            treeNode2.Name = "Node3";
+            treeNode2.Text = "Courses";
+            treeNode3.Name = "Node1";
+            treeNode3.Text = "Instructors";
+            treeNode4.Name = "Node2";
+            treeNode4.Text = "Reports";
+            treeNode5.Name = "Node3";
+            treeNode5.Text = "Suppliers";
+            treeNode6.Name = "Node4";
+            treeNode6.Text = "Printing Suppliers";
+            treeNode7.Name = "Node5";
+            treeNode7.Text = "Orders";
+            treeNode8.Name = "Node6";
+            treeNode8.Text = "Instrutor Training";
+            treeNode9.Name = "Node7";
+            treeNode9.Text = "Stock";
+            treeNode10.Name = "Node1";
+            treeNode10.Text = "PET System";
+            treeNode11.Name = "Node0";
+            treeNode11.Text = "Admin";
             this.treeView1.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode24});
-            this.treeView1.Size = new System.Drawing.Size(122, 179);
+            treeNode11});
+            this.treeView1.Size = new System.Drawing.Size(131, 184);
             this.treeView1.TabIndex = 24;
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // textBox1
             // 
@@ -194,7 +216,7 @@
             this.textBox1.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(9, 46);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(140, 25);
+            this.textBox1.Size = new System.Drawing.Size(130, 25);
             this.textBox1.TabIndex = 1;
             this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -216,9 +238,9 @@
             this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(128, 38);
+            this.groupBox1.Location = new System.Drawing.Point(137, 38);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(154, 76);
+            this.groupBox1.Size = new System.Drawing.Size(145, 76);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search";

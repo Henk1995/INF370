@@ -96,6 +96,27 @@ namespace PETSystem
         private void AddClientResultMessageBox_Load(object sender, EventArgs e)
         {
             label2.Text = "Please indicate if the selected Client\npassed or failed the course";
+            //passed
+            ToolTip TTpass = new ToolTip();
+            TTpass.ToolTipTitle = "Pass";
+            TTpass.UseFading = true;
+            TTpass.UseAnimation = true;
+            TTpass.IsBalloon = true;
+            TTpass.SetToolTip(button1, "Click here if the client Passed.");
+            //feaie
+            ToolTip TTFAI = new ToolTip();
+            TTFAI.ToolTipTitle = "Fail";
+            TTFAI.UseFading = true;
+            TTFAI.UseAnimation = true;
+            TTFAI.IsBalloon = true;
+            TTFAI.SetToolTip(button3, "Click here if the client Failed.");
+            //cancel
+            ToolTip TTC = new ToolTip();
+            TTC.ToolTipTitle = "Cancel";
+            TTC.UseFading = true;
+            TTC.UseAnimation = true;
+            TTC.IsBalloon = true;
+            TTC.SetToolTip(button2, "Click here to cancel.");
         }
     }
 }

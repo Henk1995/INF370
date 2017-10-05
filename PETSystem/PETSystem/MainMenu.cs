@@ -13,9 +13,13 @@ namespace PETSystem
     public partial class MainMenuF : Form
     {
         LoginF LoginM = new LoginF();
-        string[] pictures = { "system1.jpg", "system2.jpg", "system3.jpg" };
+       public static Image pic1 = PETSystem.Properties.Resources.PETLOGO;
+        public static Image pic2 = PETSystem.Properties.Resources.newlogin;
+        public static Image[] pictures = { pic1, pic2 };
+      
+       
 
-        int i = 0;
+    int i = 0;
 
        
 
@@ -24,7 +28,8 @@ namespace PETSystem
             
             InitializeComponent();
            
-            
+
+
         }
 
         private void button9_Click(object sender, EventArgs e)
@@ -57,9 +62,9 @@ namespace PETSystem
         private void MainMenuF_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'inf370RegDataSet.ApplicationForm' table. You can move, or remove it, as needed.
-           // this.applicationFormTableAdapter.Fill(this.inf370RegDataSet.ApplicationForm);
+            // this.applicationFormTableAdapter.Fill(this.inf370RegDataSet.ApplicationForm);
             //pictureBox1.LoadAsync();
-           // pictureBox1.Image = Image.FromFile("C:\\Users\\Jan-Wilkens\\Source\\Repos\\PETSystem\\PETSystem\\" + pictures[0]);
+            pictureBox1.Image = pictures[0];
 
 
 
@@ -107,8 +112,9 @@ namespace PETSystem
 
         private void button6_Click(object sender, EventArgs e)
         {
+
             this.Close();
-            Reports Um = new Reports();
+            Reporting Um = new Reporting();
             Um.Show();
         }
 
@@ -126,7 +132,7 @@ namespace PETSystem
         {
             i++;
            if (pictures.Length == i) { i = 0; }
-          //pictureBox1.Image = Image.FromFile("C:\\Users\\Jan-Wilkens\\Source\\Repos\\PETSystem\\PETSystem\\" + pictures[i]);
+          pictureBox1.Image =  pictures[i];
 
            
 
@@ -137,6 +143,11 @@ namespace PETSystem
        //     this.Validate();
       //      this.applicationFormBindingSource.EndEdit();
      //       this.tableAdapterManager.UpdateAll(this.inf370RegDataSet);
+
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
 
         }
     }
