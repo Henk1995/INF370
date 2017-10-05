@@ -33,6 +33,70 @@ namespace PETSystem
         int ticks = ConnectString.TimerTime * 60;
         private void Recieve_Printing_Order_Load(object sender, EventArgs e)
         {
+            //refnumber
+            ToolTip TTREF = new ToolTip();
+            TTREF.ToolTipTitle = "Reference Number";
+            TTREF.UseFading = true;
+            TTREF.UseAnimation = true;
+            TTREF.IsBalloon = true;
+            TTREF.SetToolTip(txtRefNumber, "Enter the print order's reference number here.");
+            //date
+            ToolTip TDTATE = new ToolTip();
+            TDTATE.ToolTipTitle = "Date";
+            TDTATE.UseFading = true;
+            TDTATE.UseAnimation = true;
+            TDTATE.IsBalloon = true;
+            TDTATE.SetToolTip(txtDate, "Enter the print order's date number here.");
+            //Product 
+            ToolTip TTPROD = new ToolTip();
+            TTPROD.ToolTipTitle = "Product";
+            TTPROD.UseFading = true;
+            TTPROD.UseAnimation = true;
+            TTPROD.IsBalloon = true;
+            TTPROD.SetToolTip(cbProduct, "Select product here.");
+            //quantity
+            ToolTip TTQUAT = new ToolTip();
+            TTQUAT.ToolTipTitle = "Quantity";
+            TTQUAT.UseFading = true;
+            TTQUAT.UseAnimation = true;
+            TTQUAT.IsBalloon = true;
+            TTQUAT.SetToolTip(NUPQuantity, "Select the quantity here.");
+            //total
+            ToolTip TTTOTAL = new ToolTip();
+            TTTOTAL.ToolTipTitle = "Total";
+            TTTOTAL.UseFading = true;
+            TTTOTAL.UseAnimation = true;
+            TTTOTAL.IsBalloon = true;
+            TTTOTAL.SetToolTip(txtTotal, "Enter the total for the product line here.");
+            //add
+            ToolTip TTADD = new ToolTip();
+            TTADD.ToolTipTitle = "Add";
+            TTADD.UseFading = true;
+            TTADD.UseAnimation = true;
+            TTADD.IsBalloon = true;
+            TTADD.SetToolTip(button3, "Click here to add information to order line.");
+            //capture
+            ToolTip TTCAP = new ToolTip();
+            TTCAP.ToolTipTitle = "Capture";
+            TTCAP.UseFading = true;
+            TTCAP.UseAnimation = true;
+            TTCAP.IsBalloon = true;
+            TTCAP.SetToolTip(button3, "Click here to capture the total order.");
+            //back
+            ToolTip TTBACK = new ToolTip();
+            TTBACK.ToolTipTitle = "Back";
+            TTBACK.UseFading = true;
+            TTBACK.UseAnimation = true;
+            TTBACK.IsBalloon = true;
+            TTBACK.SetToolTip(BtnBack, "Click here to return to previous screen.");
+            //enter
+            ToolTip TTENDt = new ToolTip();
+            TTENDt.ToolTipTitle = "Enter";
+            TTENDt.UseFading = true;
+            TTENDt.UseAnimation = true;
+            TTENDt.IsBalloon = true;
+            TTENDt.SetToolTip(btnEnter, "Click here to capture date and reference number.");
+
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
             t = new Timer() { Interval = 1000, Enabled = true };

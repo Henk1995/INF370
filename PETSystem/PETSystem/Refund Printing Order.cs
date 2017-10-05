@@ -32,6 +32,37 @@ namespace PETSystem
         string x;
         private void Refund_Printing_Order_Load(object sender, EventArgs e)
         {
+            //Search field
+            ToolTip TTFIELD = new ToolTip();
+            TTFIELD.ToolTipTitle = "Field";
+            TTFIELD.UseFading = true;
+            TTFIELD.UseAnimation = true;
+            TTFIELD.IsBalloon = true;
+            TTFIELD.SetToolTip(comboBox1, "Select search field here.");
+            //search text
+            ToolTip TTS = new ToolTip();
+            TTS.ToolTipTitle = "Text";
+            TTS.UseFading = true;
+            TTS.UseAnimation = true;
+            TTS.IsBalloon = true;
+            TTS.SetToolTip(txtSupplierOrderID, "Enter search text here.");
+            //refund
+            ToolTip RREF = new ToolTip();
+            RREF.ToolTipTitle = "Refund";
+            RREF.UseFading = true;
+            RREF.UseAnimation = true;
+            RREF.IsBalloon = true;
+            RREF.SetToolTip(button1, "Click here to refund selected order.");
+            //back
+            ToolTip TTBACK = new ToolTip();
+            TTBACK.ToolTipTitle = "Back";
+            TTBACK.UseFading = true;
+            TTBACK.UseAnimation = true;
+            TTBACK.IsBalloon = true;
+            TTBACK.SetToolTip(button3, "Click here to return to previous screen.");
+
+
+
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);
             t = new Timer() { Interval = 1000, Enabled = true };
             t.Tick += new EventHandler(timer1_Tick);

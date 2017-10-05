@@ -130,9 +130,9 @@
             this.label2.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(40, 74);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(110, 18);
+            this.label2.Size = new System.Drawing.Size(93, 18);
             this.label2.TabIndex = 14;
-            this.label2.Text = "Search Criteria:";
+            this.label2.Text = "Search Text:";
             // 
             // label4
             // 
@@ -193,7 +193,11 @@
             this.Controls.Add(this.lblTimer);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximumSize = new System.Drawing.Size(674, 315);
+            this.MinimumSize = new System.Drawing.Size(674, 315);
             this.Name = "Return_Printing_Order";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Return_Printing_Order";
             this.Load += new System.EventHandler(this.Return_Printing_Order_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSuppOrder)).EndInit();

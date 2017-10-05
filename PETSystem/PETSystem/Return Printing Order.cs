@@ -33,8 +33,40 @@ namespace PETSystem
 
         private void Return_Printing_Order_Load(object sender, EventArgs e)
         {
+            //Field
+            ToolTip TTFIELD = new ToolTip();
+            TTFIELD.ToolTipTitle = "Field";
+            TTFIELD.UseFading = true;
+            TTFIELD.UseAnimation = true;
+            TTFIELD.IsBalloon = true;
+            TTFIELD.SetToolTip(comboBox1, "Select the field to search here.");
+            //criteria
+            ToolTip TTCRITERIA = new ToolTip();
+            TTCRITERIA.ToolTipTitle = "Text";
+            TTCRITERIA.UseFading = true;
+            TTCRITERIA.UseAnimation = true;
+            TTCRITERIA.IsBalloon = true;
+            TTCRITERIA.SetToolTip(txtSupplierOrderID, "Enter the search text here.");
+            //return 
+            ToolTip TTReturn = new ToolTip();
+            TTReturn.ToolTipTitle = "Return";
+            TTReturn.UseFading = true;
+            TTReturn.UseAnimation = true;
+            TTReturn.IsBalloon = true;
+            TTReturn.SetToolTip(button1, "Click here to return the selected order to the printer");
+            //back
+            ToolTip TTBACK = new ToolTip();
+            TTBACK.ToolTipTitle = "Back";
+            TTBACK.UseFading = true;
+            TTBACK.UseAnimation = true;
+            TTBACK.IsBalloon = true;
+            TTBACK.SetToolTip(button3, "Click here to return to previous screen");
+
+
+
+
             // TODO: This line of code loads data into the 'refIntegrityExportDataSet.PrinterOrder' table. You can move, or remove it, as needed.
-           // this.printerOrderTableAdapter.Fill(this.refIntegrityExportDataSet.PrinterOrder);
+            // this.printerOrderTableAdapter.Fill(this.refIntegrityExportDataSet.PrinterOrder);
 
             //Timer
             endOfTime = DateTime.Now.AddMinutes(ConnectString.TimerTime);

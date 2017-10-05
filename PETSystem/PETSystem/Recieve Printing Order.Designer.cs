@@ -285,7 +285,11 @@
             this.Controls.Add(this.BtnBack);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label8);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximumSize = new System.Drawing.Size(775, 346);
+            this.MinimumSize = new System.Drawing.Size(775, 346);
             this.Name = "Recieve_Printing_Order";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Recieve_Printing_Order";
             this.Load += new System.EventHandler(this.Recieve_Printing_Order_Load);
             this.groupBox2.ResumeLayout(false);

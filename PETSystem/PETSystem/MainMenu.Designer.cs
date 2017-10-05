@@ -44,12 +44,14 @@
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.inf370RegDataSet = new PETSystem.inf370RegDataSet();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.inf370RegDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Logout
             // 
+            this.Logout.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Logout.Location = new System.Drawing.Point(12, 440);
             this.Logout.Name = "Logout";
             this.Logout.Size = new System.Drawing.Size(144, 31);
@@ -60,6 +62,7 @@
             // 
             // button8
             // 
+            this.button8.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.Location = new System.Drawing.Point(12, 304);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(144, 117);
@@ -70,6 +73,7 @@
             // 
             // button7
             // 
+            this.button7.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button7.Location = new System.Drawing.Point(198, 304);
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(144, 117);
@@ -80,6 +84,7 @@
             // 
             // button6
             // 
+            this.button6.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button6.Location = new System.Drawing.Point(383, 304);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(144, 117);
@@ -90,6 +95,7 @@
             // 
             // button5
             // 
+            this.button5.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Location = new System.Drawing.Point(383, 172);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(144, 117);
@@ -100,6 +106,7 @@
             // 
             // button4
             // 
+            this.button4.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.Location = new System.Drawing.Point(198, 172);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(144, 117);
@@ -110,6 +117,7 @@
             // 
             // button3
             // 
+            this.button3.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.Location = new System.Drawing.Point(12, 172);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(144, 117);
@@ -120,6 +128,7 @@
             // 
             // button2
             // 
+            this.button2.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(383, 49);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(144, 117);
@@ -130,6 +139,7 @@
             // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(198, 49);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(144, 117);
@@ -140,6 +150,7 @@
             // 
             // Users
             // 
+            this.Users.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Users.Location = new System.Drawing.Point(12, 49);
             this.Users.Name = "Users";
             this.Users.Size = new System.Drawing.Size(144, 117);
@@ -151,10 +162,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(198, 9);
+            this.label2.Font = new System.Drawing.Font("Bell MT", 26.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(12, 6);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(144, 26);
+            this.label2.Size = new System.Drawing.Size(200, 40);
             this.label2.TabIndex = 21;
             this.label2.Text = "PET System";
             // 
@@ -166,7 +177,7 @@
             // 
             // monthCalendar1
             // 
-            this.monthCalendar1.Location = new System.Drawing.Point(655, 271);
+            this.monthCalendar1.Location = new System.Drawing.Point(539, 259);
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 24;
             // 
@@ -177,20 +188,33 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(655, 49);
+            this.pictureBox1.Location = new System.Drawing.Point(539, 49);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(259, 210);
+            this.pictureBox1.Size = new System.Drawing.Size(224, 210);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.LoadCompleted += new System.ComponentModel.AsyncCompletedEventHandler(this.pictureBox1_LoadCompleted);
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click_1);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(536, 28);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(106, 18);
+            this.label1.TabIndex = 25;
+            this.label1.Text = "P.E.T web site";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
             // MainMenuF
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(934, 491);
+            this.ClientSize = new System.Drawing.Size(775, 478);
+            this.ControlBox = false;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.monthCalendar1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
@@ -204,6 +228,9 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.Users);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximumSize = new System.Drawing.Size(791, 516);
+            this.MinimumSize = new System.Drawing.Size(791, 516);
             this.Name = "MainMenuF";
             this.Text = "Main Menu";
             this.Load += new System.EventHandler(this.MainMenuF_Load);
@@ -231,5 +258,6 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.MonthCalendar monthCalendar1;
         private inf370RegDataSet inf370RegDataSet;
+        private System.Windows.Forms.Label label1;
     }
 }

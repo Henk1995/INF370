@@ -231,7 +231,10 @@
             this.Controls.Add(this.BtnCapture);
             this.Controls.Add(this.BtnBack);
             this.Controls.Add(this.groupBox1);
+            this.MaximumSize = new System.Drawing.Size(704, 336);
+            this.MinimumSize = new System.Drawing.Size(704, 336);
             this.Name = "CaptureReceivePrinterOrderForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CaptureReceivePrinterOrderForm";
             this.Load += new System.EventHandler(this.CaptureReceivePrinterOrderForm_Load);
             this.groupBox2.ResumeLayout(false);

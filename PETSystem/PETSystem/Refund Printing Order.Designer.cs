@@ -128,9 +128,9 @@
             this.label2.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(27, 71);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(110, 18);
+            this.label2.Size = new System.Drawing.Size(93, 18);
             this.label2.TabIndex = 19;
-            this.label2.Text = "Search Criteria:";
+            this.label2.Text = "Search Text:";
             // 
             // label4
             // 

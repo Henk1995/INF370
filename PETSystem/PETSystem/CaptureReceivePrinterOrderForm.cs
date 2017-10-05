@@ -134,6 +134,8 @@ namespace PETSystem
         private void CaptureReceivePrinterOrderForm_Load(object sender, EventArgs e)
         {
 
+
+
             //txtOrder.Text = "Order:";
             //groupBox1.Visible = false;
             //BtnCapture.Visible = false;

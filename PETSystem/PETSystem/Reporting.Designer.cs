@@ -183,7 +183,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(431, 220);
+            this.ClientSize = new System.Drawing.Size(652, 325);
             this.Controls.Add(this.crystalReportViewer1);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
@@ -192,7 +192,6 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximumSize = new System.Drawing.Size(430, 242);
             this.MinimumSize = new System.Drawing.Size(430, 242);
             this.Name = "Reporting";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

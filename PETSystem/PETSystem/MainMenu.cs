@@ -61,6 +61,70 @@ namespace PETSystem
 
         private void MainMenuF_Load(object sender, EventArgs e)
         {
+            //USer
+            ToolTip TTUSers = new ToolTip();
+            TTUSers.ToolTipTitle = "Users";
+            TTUSers.UseFading = true;
+            TTUSers.UseAnimation = true;
+            TTUSers.IsBalloon = true;
+            TTUSers.SetToolTip(Users, "Click here to go to the user menu.");
+            //Training
+            ToolTip TTTRAIN = new ToolTip();
+            TTTRAIN.ToolTipTitle = "Instructor Training";
+            TTTRAIN.UseFading = true;
+            TTTRAIN.UseAnimation = true;
+            TTTRAIN.IsBalloon = true;
+            TTTRAIN.SetToolTip(button1, "Click here to go to the Instructor training menu.");
+            //Instructor
+            ToolTip TTINS = new ToolTip();
+            TTINS.ToolTipTitle = "Instructors";
+            TTINS.UseFading = true;
+            TTINS.UseAnimation = true;
+            TTINS.IsBalloon = true;
+            TTINS.SetToolTip(button2, "Click here to go to the Instructors menu.");
+            //Suppliers
+            ToolTip TTSUP = new ToolTip();
+            TTSUP.ToolTipTitle = "Suppliers";
+            TTSUP.UseFading = true;
+            TTSUP.UseAnimation = true;
+            TTSUP.IsBalloon = true;
+            TTSUP.SetToolTip(button3, "Click here to go to the Supplier menu.");
+            //orders
+            ToolTip TTORDER = new ToolTip();
+            TTORDER.ToolTipTitle = "Orders";
+            TTORDER.UseFading = true;
+            TTORDER.UseAnimation = true;
+            TTORDER.IsBalloon = true;
+            TTORDER.SetToolTip(button4, "Click here to go to the Orders menu.");
+            //printers
+            ToolTip TTPRINT = new ToolTip();
+            TTPRINT.ToolTipTitle = "Printers";
+            TTPRINT.UseFading = true;
+            TTPRINT.UseAnimation = true;
+            TTPRINT.IsBalloon = true;
+            TTPRINT.SetToolTip(button5, "Click here to go to the printers menu.");
+            //stock
+            ToolTip TTSTOCK = new ToolTip();
+            TTSTOCK.ToolTipTitle = "Stock";
+            TTSTOCK.UseFading = true;
+            TTSTOCK.UseAnimation = true;
+            TTSTOCK.IsBalloon = true;
+            TTSTOCK.SetToolTip(button8, "Click here to go to the Stock menu.");
+            //courses
+            ToolTip ttCOURSES = new ToolTip();
+            ttCOURSES.ToolTipTitle = "Courses";
+            ttCOURSES.UseFading = true;
+            ttCOURSES.UseAnimation = true;
+            ttCOURSES.IsBalloon = true;
+            ttCOURSES.SetToolTip(button7, "Click here to go to the Courses menu.");
+            //reports
+            ToolTip ttREPORTS = new ToolTip();
+            ttREPORTS.ToolTipTitle = "Reports";
+            ttREPORTS.UseFading = true;
+            ttREPORTS.UseAnimation = true;
+            ttREPORTS.IsBalloon = true;
+            ttREPORTS.SetToolTip(button6, "Click here to go to the Reports menu.");
+
             // TODO: This line of code loads data into the 'inf370RegDataSet.ApplicationForm' table. You can move, or remove it, as needed.
             // this.applicationFormTableAdapter.Fill(this.inf370RegDataSet.ApplicationForm);
             //pictureBox1.LoadAsync();
@@ -149,6 +213,26 @@ namespace PETSystem
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                System.Diagnostics.Process.Start("Chrome.exe", "http://www.parents.co.za");
+            }
+            catch (System.ComponentModel.Win32Exception noBrowser)
+            {
+                if (noBrowser.ErrorCode == -2147467259)
+                {
+                    MessageBox.Show(noBrowser.Message);
+                }
+            }
+            catch (System.Exception other)
+            {
+                MessageBox.Show(other.Message);
+            }
         }
     }
 }
