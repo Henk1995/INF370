@@ -28,12 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.eXportvirJan2DataSet = new PETSystem.EXportvirJan2DataSet();
+            this.stockBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.stockTableAdapter = new PETSystem.EXportvirJan2DataSetTableAdapters.StockTableAdapter();
+            this.tableAdapterManager = new PETSystem.EXportvirJan2DataSetTableAdapters.TableAdapterManager();
+            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            ((System.ComponentModel.ISupportInitialize)(this.eXportvirJan2DataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -56,6 +64,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "Orders";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -77,6 +86,7 @@
             this.button4.TabIndex = 3;
             this.button4.Text = "Suppliers";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -87,6 +97,7 @@
             this.button5.TabIndex = 4;
             this.button5.Text = "Printers";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -99,11 +110,81 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
+            // eXportvirJan2DataSet
+            // 
+            this.eXportvirJan2DataSet.DataSetName = "EXportvirJan2DataSet";
+            this.eXportvirJan2DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // stockBindingSource
+            // 
+            this.stockBindingSource.DataMember = "Stock";
+            this.stockBindingSource.DataSource = this.eXportvirJan2DataSet;
+            // 
+            // stockTableAdapter
+            // 
+            this.stockTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.ApplicationFormTableAdapter = null;
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CarouselTableAdapter = null;
+            this.tableAdapterManager.CertificationTableAdapter = null;
+            this.tableAdapterManager.ClientCourseLineTableAdapter = null;
+            this.tableAdapterManager.ClientsTableAdapter = null;
+            this.tableAdapterManager.CourseInstanceTableAdapter = null;
+            this.tableAdapterManager.CoursesTableAdapter = null;
+            this.tableAdapterManager.CourseTimesTableAdapter = null;
+            this.tableAdapterManager.CustomerTableAdapter = null;
+            this.tableAdapterManager.DamagedStockTableAdapter = null;
+            this.tableAdapterManager.GenderTableAdapter = null;
+            this.tableAdapterManager.InstructorTableAdapter = null;
+            this.tableAdapterManager.MailingListTableAdapter = null;
+            this.tableAdapterManager.OrderLineTableAdapter = null;
+            this.tableAdapterManager.PaymentTableAdapter = null;
+            this.tableAdapterManager.PaymentTypeTableAdapter = null;
+            this.tableAdapterManager.PictureTableTableAdapter = null;
+            this.tableAdapterManager.PrinterOrderTableAdapter = null;
+            this.tableAdapterManager.PrinterTableAdapter = null;
+            this.tableAdapterManager.PrivilegeTypeTableAdapter = null;
+            this.tableAdapterManager.QualifiedCoursesTableAdapter = null;
+            this.tableAdapterManager.RefundTableAdapter = null;
+            this.tableAdapterManager.ResultsTableAdapter = null;
+            this.tableAdapterManager.RoyaltiesCourseTableAdapter = null;
+            this.tableAdapterManager.RoyaltiesOrderTableAdapter = null;
+            this.tableAdapterManager.StockLineTableAdapter = null;
+            this.tableAdapterManager.StockTableAdapter = this.stockTableAdapter;
+            this.tableAdapterManager.StockTypeTableAdapter = null;
+            this.tableAdapterManager.SupplierOrderTableAdapter = null;
+            this.tableAdapterManager.SupplierTableAdapter = null;
+            this.tableAdapterManager.SupplierTypeTableAdapter = null;
+            this.tableAdapterManager.TableOrderTableAdapter = null;
+            this.tableAdapterManager.TimerTabelTableAdapter = null;
+            this.tableAdapterManager.TimeSlotTableAdapter = null;
+            this.tableAdapterManager.TitleTableAdapter = null;
+            this.tableAdapterManager.TrainingCourseLineTableAdapter = null;
+            this.tableAdapterManager.TrainingCourseTableAdapter = null;
+            this.tableAdapterManager.TrainingCourseTypeTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = PETSystem.EXportvirJan2DataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.UserTableTableAdapter = null;
+            // 
+            // crystalReportViewer1
+            // 
+            this.crystalReportViewer1.ActiveViewIndex = -1;
+            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crystalReportViewer1.Location = new System.Drawing.Point(290, 104);
+            this.crystalReportViewer1.Name = "crystalReportViewer1";
+            this.crystalReportViewer1.Size = new System.Drawing.Size(353, 211);
+            this.crystalReportViewer1.TabIndex = 7;
+            // 
             // Reporting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(414, 204);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(431, 220);
+            this.Controls.Add(this.crystalReportViewer1);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
@@ -116,6 +197,9 @@
             this.Name = "Reporting";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reporting";
+            this.Load += new System.EventHandler(this.Reporting_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.eXportvirJan2DataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.stockBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -128,5 +212,10 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
+        private EXportvirJan2DataSet eXportvirJan2DataSet;
+        private System.Windows.Forms.BindingSource stockBindingSource;
+        private EXportvirJan2DataSetTableAdapters.StockTableAdapter stockTableAdapter;
+        private EXportvirJan2DataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
     }
 }
